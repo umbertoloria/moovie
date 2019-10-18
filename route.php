@@ -1,6 +1,5 @@
 <?php
 
-include "models/Film.php";
 include "models/Utente.php";
 
 $c = explode("/", @$_GET["route"]);
