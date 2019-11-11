@@ -208,3 +208,54 @@ Condizione di entrata | L’utente si trova nella pagina di creazione di una lis
 Flusso di eventi | <br/><ol><li>L’utente inserisce il nome della lista nel campo apposito;<li>L’utente sceglie i film che desidera inserire all’interno della propria lista;<li>L’utente sceglie la visibilità della propria lista (tutti, amici, solo io);<li>Il sistema crea la lista e notifica l’utente.</ol>
 Condizione di uscita | La lista viene creata.
 Eccezioni | L’utente non ha selezionato nessun film da inserire.<br/>L’utente ha inserito un nome già esistente tra le sue liste.
+
+
+## UC_13: Modificare una lista
+**Nome** | **Modificare una lista**
+---------|---
+Attori | Utente autenticato.
+Condizione di entrata | L’utente si trova nella pagina della sua lista da modificare.
+Flusso di eventi | <br/><ol><li>L’utente inserisce il nuovo nome della lista che vuole modificare;<li>L’utente modifica i privilegi della lista (tutti, amici, solo io);<li>Il sistema riceve le nuove informazioni, le applica alla lista (rifacendo il controllo di sicurezza) e invia una notifica di avvenuta modifica all’utente.</ol>
+Condizione di uscita | La lista è stata modificata.
+
+## UC_14: Eliminare una lista
+**Nome** | **Eliminare una lista**
+---------|---
+Attori | Utente autenticato.
+Condizione di entrata | L’utente si trova nella pagina della sua lista da eliminare.
+Flusso di eventi | <br/><ol><li>L’utente elimina la lista;<li>Il sistema cancella la lista.</ol>
+Condizione di uscita | La lista viene cancellata.
+
+## UC_15: Aggiungere o rimuovere un film a una lista
+**Nome** | **Aggiungere o rimuovere un film a una lista**
+---------|---
+Attori | Utente autenticato.
+Condizione di entrata | L’utente deve selezionare le liste in cui inserire un film, e deselezionare le liste in cui rimuovere un film tramite un popup.
+Flusso di eventi | <br/><ol><li>L’utente seleziona le liste in cui inserire il film, e deseleziona le liste in cui rimuovere il film se già presente (quindi già selezionate);<li>Il sistema aggiunge il film alle liste selezionate, e rimuove il film dalle liste deselezionate.</ol>
+Condizione di uscita | Il film viene aggiunto/rimosso dalle liste selezionate/deselezionate.
+
+## UC_16: Seguire liste altrui
+**Nome** | **Seguire liste altrui**
+---------|---
+Attori | Utente autenticato.
+Condizione di entrata | L’utente è sulla pagina di una lista altrui (che può visualizzare).
+Flusso di eventi | <br/><ol><li>L’utente vede tutti i film contenuti nella lista e inizia a seguire la lista che ha scelto;<li>Il sistema verifica che l’utente abbia i privilegi per poterla seguire, e lo aggiunge alla liste dei seguaci.</ol>
+Condizione di uscita | L’utente ha iniziato a seguire la lista desiderata.
+
+# Suggerimenti
+
+## UC_17: Suggerire un film a un account amico
+**Nome** | **Suggerire un film a un account amico**
+---------|---
+Attori | Utente autenticato.
+Condizione di entrata | L’utente è sulla pagina del film che vuole consigliare.
+Flusso di eventi | <br/><ol><li>L’utente clicca su “Suggerisci”;<li>Il sistema presenta tutti gli amici a cui è possibile suggerire il film;<li>L’utente sceglie gli account a cui consigliare il film;<li>Il sistema invia il suggerimento agli utenti.</ol>
+Condizione di uscita | Il film è stato suggerito.
+
+## UC_18: Suggerimento automatico di un film
+**Nome** | **Suggerimento automatico di un film**
+---------|---
+Attori | Utente autenticato.
+Condizione di entrata | L’utente è sul sito.
+Flusso di eventi | <br/><ol><li>L’utente accede alla funzionalità di suggerimento film;<li>Il sistema seleziona un film in linea con i gusti dell’utente.</ol>
+Condizione di uscita | Il film selezionato verrà suggerito.
