@@ -1,3 +1,32 @@
+# Moovie
+Progetto di **Ingegneria del Software** per il **Corso di Laurea in Informatica** dell'*Università degli Studi di Salerno*.
+
+Studente | Matricola
+---------|----------
+Umberto Loria | 0512105102
+Michelantonio Panichella | 0512105402
+Gianluca Pirone | 0512105456
+
+Supervisore | Ruolo
+------------|------
+Andrea De Lucia | Docente
+Manuel De Stefano | Tutor
+
+# Indice
+1. [Problem Domain](#problem-domain)
+2. [Scenari](#scenari)
+    1. [Voglio vedere un bel film sabato sera](#1-voglio-vedere-un-bel-film-sabato-sera)
+    2. [Ho guardato uno splendido film](#2-ho-guardato-uno-splendido-film)
+    3. [Suggerire dei film ad un amico non è registrato su Moovie](#3-suggerire-dei-film-ad-un-amico-non--registrato-su-moovie)
+    4. [Voglio informazioni su un attore, sceneggiatore o regista](#4-voglio-informazioni-su-un-attore-sceneggiatore-o-regista)
+    5. [Voglio aggiungere un film ad una mia lista](#5-voglio-aggiungere-un-film-ad-una-mia-lista)
+    6. [Suggerire un film ad un amico che è registrato su Moovie](#6-suggerire-un-film-ad-un-amico-che--registrato-su-moovie)
+3. [Requisiti](#requisiti)
+    1. [Requisiti funzionali](#requisiti-funzionali)
+    2. [Requisiti non-funzionali](#requisiti-non-funzionali)
+    3. [Piano del progetto](#piano-del-progetto)
+    4. [Ambiente di esecuzione](#ambiente-di-esecuzione)
+
 # Problem Statement
 
 ## Problem Domain
@@ -11,9 +40,9 @@ Se lo vorrai, potrai essere maggiormente connesso con le persone che condividono
 
 # Scenari
 
-## 1: Voglio vedere un bel film sabato sera
+## Voglio vedere un bel film sabato sera
 Dopo una settimana di lavoro, Michele non vede l’ora di guardare un bel film il sabato sera, in televisione accanto alla sua fornitissima collezione di Blu Ray. Se un film manca nella collezione, lo noleggia e se gli piace lo compra.
-Mentre è in autobus verso il noleggio Blu Ray, prende il suo cellulare e va sul sito web **www.moovie.me**. Cliccando su “**Accesso**”, si presenta una schermata di input che richiede alcuni campi. Alla voce “e-mail” scrive “michele@pippo.pluto”, e alla voce “password” scrive “adnam”. Clicca “Accesso” ma il sistema notifica “I dati immessi non corrispondono”. Si accorge di aver sbagliato e scrive “adnama”. Clicca “Accesso”, e il sistema accede.
+Mentre è in autobus verso il noleggio Blu Ray, prende il suo cellulare e va sul sito web www.moovie.me. Cliccando su “**Accesso**”, si presenta una schermata di input che richiede alcuni campi. Alla voce “e-mail” scrive “michele@pippo.pluto”, e alla voce “password” scrive “adnam”. Clicca “Accesso” ma il sistema notifica “I dati immessi non corrispondono”. Si accorge di aver sbagliato e scrive “adnama”. Clicca “Accesso”, e il sistema accede.
 A questo punto, per scegliere il prossimo film da guardare, Michele può:
 
 * consultare le proprie liste, aprire la lista “Guarda più tardi”, e scegliere un film;
@@ -24,10 +53,10 @@ A questo punto, per scegliere il prossimo film da guardare, Michele può:
 
 Una volta scelto il film, lo noleggia, torna a casa e lo guarda.
 
-## 2: Ho guardato uno splendido film
+## Ho guardato uno splendido film
 Michele ha appena finito di guardare “Eternal Sunshine of the Spotless Mind”. Gli è piaciuto talmente tanto che vorrebbe consigliarlo ai suoi amici, specialmente Amanda. Qualche mese prima avrebbe mandato molti messaggi a questi ultimi, oppure ne avrebbe parlato a lavoro con i colleghi, ma da quando ha cominciato a usare Moovie, i suoi giudizi li esprime direttamente lì.
 
-Michele allora prende il suo cellulare, va su **www.moovie.me**, e cerca la voce “Accesso” ma risulta già loggato, visto che aveva effettuato l’accesso poche ore prima. Sulla pagina iniziale, trova già i film presenti nella sua lista “Guarda più tardi”, trova quello che ha appena visto e ci clicca sopra. Arrivato alla pagina del film e clicca su “Ho già visto questo film”. Si aprirà una schermata popup che chiederà un voto da 1 a 10. Michele scrive 9 e clicca “Applica”. 
+Michele allora prende il suo cellulare, va su www.moovie.me, e cerca la voce “Accesso” ma risulta già loggato, visto che aveva effettuato l’accesso poche ore prima. Sulla pagina iniziale, trova già i film presenti nella sua lista “Guarda più tardi”, trova quello che ha appena visto e ci clicca sopra. Arrivato alla pagina del film e clicca su “Ho già visto questo film”. Si aprirà una schermata popup che chiederà un voto da 1 a 10. Michele scrive 9 e clicca “Applica”. 
 
 La schermata si chiude, e Michele si troverà sempre sulla pagina del film. In questo modo, Michele sta aggiungendo informazioni riguardo i suoi gusti sulla piattaforma, che sarà in grado di suggerirgli film ancora più in linea con i suoi gusti.
 
@@ -35,10 +64,10 @@ Clicca su “Aggiungi ad una lista…”, si apre una schermata popup contenente
 
 Se quel film fosse già stato votato, e Michele avesse voluto modificare quel giudizio, sarebbe potuto andare sulla lista “Film guardati”, scegliere il film, e cliccare su “Modifica giudizio”, per poi inserire il nuovo voto, sempre da 1 a 10.
 
-## 3: Suggerire dei film ad un amico non è registrato su Moovie
+## Suggerire dei film ad un amico non è registrato su Moovie
 A Stefano piacciono molto i film, mai però quanto a Michele. Quest’ultimo ha capito i gusti di Stefano, e vuole consigliargli tanti di quei film che quasi non gli vengono in mente. Proprio per questo motivo, Michele consiglia a Stefano di crearsi un account su Moovie, per poter consultare la sua lista “migliori film biografici”.
 
-Stefano allora apre una nuova scheda sul browser, va su **www.moovie.me** e clicca su “Registrazione”. Gli si presenta una schermata che chiede in input alcuni campi: nella voce “nome completo” inserisce “Stefano Bisettrice”, nella voce “indirizzo e-mail” inserisce “stefano@pippo.pluto”, nella voce “password” inserisce “ciaociao”. Appena clicca al di fuori del campo “password” appare una scritta che suggerisce “La password non è valida: devi inserire almeno un numero”. Allora Stefano sostituisce la password con “ciaociao1”. Nella voce “conferma password” inserisce “ciaociao1”.
+Stefano allora apre una nuova scheda sul browser, va su www.moovie.me e clicca su “Registrazione”. Gli si presenta una schermata che chiede in input alcuni campi: nella voce “nome completo” inserisce “Stefano Bisettrice”, nella voce “indirizzo e-mail” inserisce “stefano@pippo.pluto”, nella voce “password” inserisce “ciaociao”. Appena clicca al di fuori del campo “password” appare una scritta che suggerisce “La password non è valida: devi inserire almeno un numero”. Allora Stefano sostituisce la password con “ciaociao1”. Nella voce “conferma password” inserisce “ciaociao1”.
 
 Michele potrebbe anche chiedere a Stefano di inserire la sua e-mail, durante la sua fase di registrazione, nella voce “consigliato da”, per poter sbloccare le funzionalità dell’Account Pro, ma ovviamente Michele ha già queste funzionalità da tempo, avendo consigliato il sito a tanti amici. In particolare, Michele ha dovuto consigliare questo sito ad almeno 5 utenti per poter usufruire delle funzionalità dell’Account Pro. Se Stefano indica un account nella suddetta voce, questo account sarà automaticamente amico dell’account di Stefano.
 
@@ -46,14 +75,14 @@ Stefano, a questo punto, clicca su “Registrati”. La nuova pagina che si pres
 
 Appena Stefano clicca sul link di Moovie, la pagina che si apre presenta la fase “Primi passi”. Questa pagina contiene un titolo “Quali film hai già visto?” e una griglia di film, e Stefano deve scegliere quelli che ha già visto. Se ha inserito nel campo “consigliato da” la mail di un utente, i film presenti nella pagina saranno film simili a quelli dell’account amico (visto che quell’account è amico dell’account di Stefano). Stefano, in ogni caso, deve selezionare almeno 5 film, e inserire un voto (da 1 a 10) per ogni film, altrimenti il sistema non lo farà continuare. Una volta aver scelto il numero minimo di film, il pulsante “Entra nel fantastico mondo di Moovie” si abiliterà, e una volta cliccato, Stefano sarà riportato alla pagina iniziale, dove potrà usare il suo account Moovie in piena libertà.
 
-## 4: Voglio informazioni su un attore, sceneggiatore o regista
-Amanda vuole vedere un altro film diretto da “Tarantino”, visto che ha particolarmente apprezzato il film “Pulp Fiction” che lei e Michele hanno visto il giorno prima. Allora prende il suo tablet, apre il browser, va su **www.moovie.me**, accede alle funzionalità di ricerca raggiungibili nel menu del sito (autenticazione non necessaria). In realtà le basterebbe accedere al suo account e andare nella lista “film guardati”. Nello spazio di ricerca, Amanda inserisce “Pulp Fiction” e preme Invio. La nuova pagina che si presenta conterrà i risultati della ricerca, e tra questi clicca sulla voce “Pulp Fiction”. Giunta alla scheda del film, ricca di informazioni riguardo gli attori, il regista, e le saghe di cui potrebbe far parte, clicca sulla voce “Quentin Tarantino”, e finalmente arriva alla pagina delle informazioni del noto regista. In questa pagina ci sono tutti i film diretti, scritti e recitati da Tarantino. Amanda si accorge che “Pulp Fiction”, oltre ad essere stato girato, è stato anche scritto da “Tarantino”!
+## Voglio informazioni su un attore, sceneggiatore o regista
+Amanda vuole vedere un altro film diretto da “Tarantino”, visto che ha particolarmente apprezzato il film “Pulp Fiction” che lei e Michele hanno visto il giorno prima. Allora prende il suo tablet, apre il browser, va su www.moovie.me, accede alle funzionalità di ricerca raggiungibili nel menu del sito (autenticazione non necessaria). In realtà le basterebbe accedere al suo account e andare nella lista “film guardati”. Nello spazio di ricerca, Amanda inserisce “Pulp Fiction” e preme Invio. La nuova pagina che si presenta conterrà i risultati della ricerca, e tra questi clicca sulla voce “Pulp Fiction”. Giunta alla scheda del film, ricca di informazioni riguardo gli attori, il regista, e le saghe di cui potrebbe far parte, clicca sulla voce “Quentin Tarantino”, e finalmente arriva alla pagina delle informazioni del noto regista. In questa pagina ci sono tutti i film diretti, scritti e recitati da Tarantino. Amanda si accorge che “Pulp Fiction”, oltre ad essere stato girato, è stato anche scritto da “Tarantino”!
 
-## 5: Voglio aggiungere un film ad una mia lista
+## Voglio aggiungere un film ad una mia lista
 Amanda si trova sulla pagina di “Quentin Tarantino” su Moovie. Interessata, comincia a sbirciare tra tutti i lavori di questo artista, per poter cercare il prossimo film da vedere. La pagina dell’artista mostra tutti i film in cui Tarantino ha partecipato. Nel caso specifico, ci saranno tanti film nel reparto “regie”, e alcuni film nel reparto “recitazioni”. Una volta scelto il film, Amanda raggiunge la sua scheda informativa, e clicca su “Guarda più tardi“. Il sito adesso saprà che tra i film da guardare c’è “Kill Bill: Volume 1”.
 
-## 6: Suggerire un film ad un amico che è registrato su Moovie
-Stefano ha una scheda di browser aperta sul suo computer al sito **www.moovie.me**, e dopo aver effettuato l’accesso, si è subito reso conto di aver trovato un sito davvero valido.
+## Suggerire un film ad un amico che è registrato su Moovie
+Stefano ha una scheda di browser aperta sul suo computer al sito www.moovie.me, e dopo aver effettuato l’accesso, si è subito reso conto di aver trovato un sito davvero valido.
 
 Allora raggiunge l’area di ricerca presente nel menu, e cerca il proprio amico Michele. La pagina successiva mostra i vari risultati della ricerca, e tra questi è presente l’account di Michele. Cliccandoci sopra, la nuova pagina mostra il profilo di Michele, tutte le liste e attività pubbliche. Stefano trova quindi la voce “Aggiungi agli amici”, e cliccandoci sopra, viene notificato dell’invio della richiesta di amicizia. Intanto Michele, che stava usando Moovie, trova la richiesta di amicizia di Stefano nella sezione delle notifiche. Allora, Michele clicca sulla notifica, che lo porta sul profilo di Stefano. Quando lo riconosce, clicca su “Accetta richiesta” (situata nello stesso punto dove c’era “Aggiungi agli amici” sul computer di Stefano). Fatto questo, la pagina prima mostra un popup contenente il messaggio “Amicizia accettata”, e successivamente si aggiorna, mostrando di nuovo il profilo di Stefano.
 
@@ -117,8 +146,8 @@ I requisiti descritti sono catalogati secondo il modello **F.U.R.P.S.**
 ### Supportability:
 * Sarà supportato dai browser Google Chrome, Mozilla Firefox, Safari
 
-## Vincoli (pseudo requisiti)
-1. Il sito prevede l’utilizzo delle seguenti tecnologie: Apache, MySQL, PHP
+### Vincoli (pseudo requisiti)
+*. Il sito prevede l’utilizzo delle seguenti tecnologie: Apache, MySQL, PHP
 
 ## Piano del progetto
 - [x] Problem Statement: 11 ottobre 2019;
