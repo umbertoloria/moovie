@@ -1,5 +1,41 @@
+# Requirements Analysis Documents
+1. [Ricerca e consulazione](#ricerca-e-consultazione)
+    1. [UC_1: Ricerca di un film](#uc_1-ricerca-di-un-film)
+    2. [UC_1.1: Ricerca di un film fallita](#uc_11-ricerca-di-un-film-fallita)
+    3. [UC_2: Ricerca di un artista](#uc_2-ricerca-di-un-artista)
+    4. [UC_2.1: Ricerca di un artista fallita](#uc_21-ricerca-di-un-artista-fallita)
+    5. [UC_3: Ricerca di un utente](#uc_3-ricerca-di-un-utente)
+    6. [UC_3.1: Utente non trovato](#uc_31-utente-non-trovato)
+2. [Gestione account](#gestione-account)
+    1. [UC_4: Creare un account](#uc_4-creare-un-account)
+    2. [UC_4.1: Registrazione fallita](#uc_41-registrazione-fallita)
+    3. [UC_5: Attivare un account](#uc_5-attivare-un-account)
+    4. [UC_6: Autenticare un account](#uc_6-autenticare-un-account)
+    5. [UC_6.1: Autenticazione fallita](#uc_61-autenticazione-fallita)
+    6. [UC_7: Richiesta di cambio password](#uc_7-richiesta-di-cambio-password)
+    7. [UC_7.1: Utente non fornisce dati corretti](#uc_71-utente-non-fornisce-dati-corretti)
+    8. [UC_7.2: Conferma di cambio password](#uc_72-conferma-di-cambio-password)
+    9. [UC_7.3: Verifica password corretta](#uc_73-verifica-password-corretta)
+    10. [UC_8: Richiede amicizia tra due account](#uc_8-richiede-amicizia-tra-due-account)
+    11. [UC_8.1: Conferma amicizia tra due account](#uc_81-conferma-amicizia-tra-due-account)
+3. [Gestione dei film guardati](#gestione-dei-film-guardati)
+    1. [UC_9: Aggiungere giudizio su un film aggiungendolo in “Film guardati”](#uc_9-aggiungere-giudizio-su-un-film-aggiungendolo-in-film-guardati)
+    2. [UC_10: Modificare giudizio su un film](#uc_10-modificare-giudizio-su-un-film)
+    3. [UC_11: Rimuovere giudizio su un film (rimuovendo il film da “Film guardati”)](#uc_11-rimuovere-giudizio-su-un-film-rimuovendo-il-film-da-film-guardati)
+4. [Gestione delle liste](#gestione-delle-liste)
+    1. [UC_12: Creare una lista](#uc_12-creare-una-lista)
+    2. [UC_13: Modificare una lista](#uc_13-modificare-una-lista)
+    3. [UC_14: Eliminare una lista](#uc_14-eliminare-una-lista)
+    4. [UC_15: Aggiungere o rimuovere un film a una lista](#uc_15-aggiungere-o-rimuovere-un-film-a-una-lista)
+    5. [UC_16: Seguire liste altrui](#uc_16-seguire-liste-altrui)
+5. [Suggerimenti](#suggerimenti)
+    1. [UC_17: Suggerire un film a un account amico](#uc_17-suggerire-un-film-a-un-account-amico)
+    2. [UC_18: Suggerimento automatico di un film](#uc_18-suggerimento-automatico-di-un-film)
+
+<br/>
+
 Identificativo | Descrizione | Priorità
----------------|-------------|---------
+:-------------:|-------------|:-------:
 **M_RF_1** | Ricerca e consultazione | Alta
 RF_1.1 | Ricerca di un film
 RF_1.2 | Ricerca di un artista
@@ -208,7 +244,6 @@ Condizione di entrata | L’utente si trova nella pagina di creazione di una lis
 Flusso di eventi | <br/><ol><li>L’utente inserisce il nome della lista nel campo apposito;<li>L’utente sceglie i film che desidera inserire all’interno della propria lista;<li>L’utente sceglie la visibilità della propria lista (tutti, amici, solo io);<li>Il sistema crea la lista e notifica l’utente.</ol>
 Condizione di uscita | La lista viene creata.
 Eccezioni | L’utente non ha selezionato nessun film da inserire.<br/>L’utente ha inserito un nome già esistente tra le sue liste.
-
 
 ## UC_13: Modificare una lista
 **Nome** | **Modificare una lista**
