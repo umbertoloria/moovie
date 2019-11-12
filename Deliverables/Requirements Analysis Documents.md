@@ -106,7 +106,7 @@ Ecco tutti gli use case models.
 ---------|---
 Attori | Utente.
 Condizione di entrata | L’utente si trova nell’area di ricerca.
-Flusso di eventi |<br/><ol><li>L’utente inserisce il titolo, genere, attori partecipanti di un film;<li>Moovie elabora i dati inseriti e mostra il risultato della ricerca;<li>L’utente seleziona il film cercato;<li>Moovie reindirizza l’utente sulla pagina corrispondente alla scheda informativa del film cercato.</ol>
+Flusso di eventi |<br/><ol><li>L’utente inserisce il titolo, genere, attori partecipanti di un film<li>Moovie elabora i dati inseriti e mostra il risultato della ricerca<li>L’utente seleziona il film cercato<li>Moovie reindirizza l’utente sulla pagina corrispondente alla scheda informativa del film cercato</ol>
 Condizione di uscita | L’utente potrà visualizzare la scheda informativa del film.
 Eccezioni | Ricerca di un film fallita.
 
@@ -123,7 +123,7 @@ Condizione di uscita | Moovie comunica che il film non è presente.
 ---------|---
 Attori | Utente.
 Condizione di entrata | L’utente si trova nell’area di ricerca.
-Flusso di eventi | <br/><ol><li>L’utente inserisce il nome di un artista;<li>Moovie elabora i dati inseriti e mostra il risultato della ricerca;<li>L’utente seleziona l’artista cercato;<li>Moovie reindirizza l’utente sulla pagina corrispondente alla scheda informativa dell’artista cercato.</ol>
+Flusso di eventi | <br/><ol><li>L’utente inserisce il nome di un artista<li>Moovie elabora i dati inseriti e mostra il risultato della ricerca<li>L’utente seleziona l’artista cercato<li>Moovie reindirizza l’utente sulla pagina corrispondente alla scheda informativa dell’artista cercato</ol>
 Condizione di uscita | L’utente potrà visualizzare la scheda informativa dell’artista.
 
 ##### UC_2.1: Ricerca di un artista fallita
@@ -139,7 +139,7 @@ Condizione di uscita | Moovie comunica che l’artista non è presente.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nell’area di ricerca.
-Flusso di eventi | <br/><ol><li>L’utente inserisce il nome, cognome, e-mail (se visibile) di un utente;<li>Moovie elabora i dati inseriti e mostra il risultato della ricerca;<li>L’utente seleziona l’utente cercato;<li>Moovie reindirizza l’utente sulla pagina corrispondente alla scheda informativa dell’utente cercato.</ol>
+Flusso di eventi | <br/><ol><li>L’utente inserisce il nome, cognome, e-mail (se visibile) di un utente<li>Moovie elabora i dati inseriti e mostra il risultato della ricerca<li>L’utente seleziona l’utente cercato<li>Moovie reindirizza l’utente sulla pagina corrispondente alla scheda informativa dell’utente cercato</ol>
 Condizione di uscita | L’utente potrà visualizzare la scheda informativa dell’utente.
 Eccezioni | Se l’utente cercato non è presente, vai a UC_3.1.
 
@@ -158,7 +158,7 @@ Condizione di uscita | Moovie comunica che l’account non esiste.
 ---------|---
 Attori | Utente non registrato.
 Condizione di entrata | L’utente si trova sulla pagina di registrazione.
-Flusso di eventi | <br/><ol><li>L’utente inserisce i seguenti dati: nome, cognome, indirizzo e-mail, password (due volte), e-mail utente che ha suggerito la registrazione (opzionale);<li>Il sistema controlla i dati, verifica che non ci siano account con l’indirizzo e-mail fornito, e salva i dati. Se è stato fornito anche l’indirizzo e-mail dell’account che ha suggerito la registrazione, e questo è il quinto account che lo fa, allora quell’account diventa account pro. Il sistema invierà in ogni caso una e-mail di attivazione dell’account.</ol>
+Flusso di eventi | <br/><ol><li>L’utente inserisce i seguenti dati: nome, cognome, indirizzo e-mail, password (due volte), e-mail utente che ha suggerito la registrazione (opzionale)<li>Il sistema controlla i dati, verifica che non ci siano account con l’indirizzo e-mail fornito, e salva i dati. Se è stato fornito anche l’indirizzo e-mail dell’account che ha suggerito la registrazione, e questo è il quinto account che lo fa, allora quell’account diventa account pro. Il sistema invierà in ogni caso una e-mail di attivazione dell’account</ol>
 Condizione di uscita | L’account viene creato.
 Eccezioni | L’indirizzo e-mail fornito è occupato. Vai a UC_4.1.
 
@@ -167,7 +167,7 @@ Eccezioni | L’indirizzo e-mail fornito è occupato. Vai a UC_4.1.
 ---------|---
 Attori | Utente non registrato.
 Condizione di entrata | L’utente si trova nella pagina di registrazione.
-Flusso di eventi | <br/><ol><li>L’utente inserisce i seguenti dati: nome, cognome, indirizzo e-mail, password (due volte), e-mail utente che ha suggerito la registrazione (opzionale);<li>Il sistema si accorge che uno dei campi inseriti non è valido e reindirizza l’utente verso la pagina di Registrazione.</ol>
+Flusso di eventi | <br/><ol><li>L’utente inserisce i seguenti dati: nome, cognome, indirizzo e-mail, password (due volte), e-mail utente che ha suggerito la registrazione (opzionale)<li>Il sistema si accorge che uno dei campi inseriti non è valido e reindirizza l’utente verso la pagina di Registrazione</ol>
 Condizione di uscita | L’utente deve rifare il UC_4.
 
 ##### UC_5: Attivare un account
@@ -175,7 +175,7 @@ Condizione di uscita | L’utente deve rifare il UC_4.
 ---------|---
 Attori | Utente registrato ma non attivato.
 Condizione di entrata | L’utente riceve la e-mail di attivazione.
-Flusso di eventi | <br/><ol><li>L’utente segue le istruzioni della e-mail, e arriva sul sito;<li>Il sistema attiva l’account ed obbliga l’utente a effettuare i “primi passi”;<li>L’utente deve scegliere minimo 5 massimo 10 film che ha già guardato (con relativi voti, perché questi verranno messi nei “Film guardati”). Infine, conferma.<li>Il sistema allora inserisce i film selezionati nei Film guardati, sblocca l’account, e reindirizza l’utente nella Home Page.</ol>
+Flusso di eventi | <br/><ol><li>L’utente segue le istruzioni della e-mail, e arriva sul sito<li>Il sistema attiva l’account ed obbliga l’utente a effettuare i “primi passi”<li>L’utente deve scegliere minimo 5 massimo 10 film che ha già guardato (con relativi voti, perché questi verranno messi nei “Film guardati”), infine conferma<li>Il sistema allora inserisce i film selezionati nei Film guardati, sblocca l’account, e reindirizza l’utente nella Home Page</ol>
 Condizione di uscita | L’account verrà attivato.
 
 ##### UC_6: Autenticare un account
@@ -183,7 +183,7 @@ Condizione di uscita | L’account verrà attivato.
 ---------|---
 Attori | Utente.
 Condizione di entrata | L’utente deve essere sulla pagina di Login
-Flusso di eventi | <br/><ol><li>L’utente inserisce e-mail e password dell’account e prosegue;<li>Moovie verifica la correttezza dei dati inseriti e reindirizza l’utente.</ol>
+Flusso di eventi | <br/><ol><li>L’utente inserisce e-mail e password dell’account e prosegue<li>Moovie verifica la correttezza dei dati inseriti e reindirizza l’utente</ol>
 Condizione di uscita | L’utente si trova autenticato nella pagina principale.
 Eccezioni | Indirizzo e-mail o password non corretti. Vai a UC_6.1.<br/>L’utente non possiede un account. Vai a UC_4.1.
 
@@ -200,8 +200,8 @@ Condizione di uscita | L’utente deve rifare il caso d’uso UC_6.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente comincia la richiesta di cambio password.
-Flusso di eventi | <br/><ol><li>L’utente inserisce la sua vecchia password;<li>Il sistema controlla che la password corrisponda, ed invia una e-mail all’utente per attivare la effettuare il cambio.</ol>
-Condizione di uscita | L’utente riceve l’e-mail di conferma del cambio password.
+Flusso di eventi | <br/><ol><li>L’utente inserisce la sua vecchia password<li>Il sistema controlla che la password corrisponda, ed invia una e-mail all’utente per attivare la effettuare il cambio</ol>
+Condizione di uscita | Il sistema invia l’e-mail di conferma del cambio password.
 Eccezioni | L’utente non fornisce i dati corretti. Vai a UC_7.1.
 
 ##### UC_7.1: Utente non fornisce dati corretti
@@ -217,7 +217,7 @@ Condizione di uscita | Vai a UC_7.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente riceve una e-mail di conferma di cambio password.
-Flusso di eventi | <br/><ol><li>L’utente segue le istruzioni della e-mail, e raggiunge il sito sulla pagina di conferma di cambio password. Deve inserire la nuova password due volte;<li>Il sistema applica i cambiamento nel database.</ol>
+Flusso di eventi | <br/><ol><li>L’utente segue le istruzioni della e-mail, e raggiunge il sito sulla pagina di conferma di cambio password. Deve inserire la nuova password due volte<li>Il sistema applica i cambiamento nel database</ol>
 Condizione di uscita | La password dell’utente viene aggiornata.
 Eccezioni | Se la nuova password non è valida, vai a UC_7.3.
 
@@ -234,7 +234,7 @@ Condizione di uscita | Ripeti il caso UC_7.2.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella pagina dell’account a cui richiedere l’amicizia.
-Flusso di eventi | <br/><ol><li>L’utente clicca su “Aggiungi agli amici”;<li>Moovie invia la richiesta al destinatario.</ol>
+Flusso di eventi | <br/><ol><li>L’utente clicca su “Aggiungi agli amici”<li>Moovie invia la richiesta al destinatario</ol>
 Condizione di uscita | L’utente riceve la conferma di invio dal sistema.
 
 ##### UC_8.1: Conferma amicizia tra due account
@@ -242,7 +242,7 @@ Condizione di uscita | L’utente riceve la conferma di invio dal sistema.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova sulla pagina dell’utente che ha richiesto la sua amicizia.
-Flusso di eventi | <br/><ol><li> L’utente accetta la richiesta;<li>Il sistema attiva l’amicizia.</ol>
+Flusso di eventi | <br/><ol><li>L’utente accetta la richiesta<li>Il sistema attiva l’amicizia</ol>
 Condizione di uscita | Gli utenti sono diventati amici.
 
 #### Gestione dei film guardati
@@ -252,7 +252,7 @@ Condizione di uscita | Gli utenti sono diventati amici.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella scheda informativa del film.
-Flusso di eventi | <br/><ol><li>L’utente accede alla funzionalità di film guardato;<li>Moovie chiede l’inserimento di un giudizio sul film;<li>L’utente inserisce un giudizio;<li>Moovie aggiungerà il film (col voto relativo) alla lista “Film guardati”, e sarà in grado di suggerire meglio i film all’utente.</ol>
+Flusso di eventi | <br/><ol><li>L’utente accede alla funzionalità di film guardato<li>Moovie chiede l’inserimento di un giudizio sul film;<li>L’utente inserisce un giudizio<li>Moovie aggiungerà il film (col voto relativo) alla lista “Film guardati”, e sarà in grado di suggerire meglio i film all’utente</ol>
 Condizione di uscita | L’utente vedrà il proprio giudizio all’interno dei “Film guardati”.
 
 ##### UC_10: Modificare giudizio su un film
@@ -260,7 +260,7 @@ Condizione di uscita | L’utente vedrà il proprio giudizio all’interno dei �
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella pagina dei film guardati.
-Flusso di eventi | <br/><ol><li>L’utente seleziona il giudizio da modificare;<li>Moovie richiede l’inserimento del nuovo giudizio sul film;<li>L’utente inserisce un nuovo giudizio;<li>Moovie modificherà il giudizio sul film presente nella lista “Film guardati”.</ol>
+Flusso di eventi | <br/><ol><li>L’utente seleziona il giudizio da modificare<li>Moovie richiede l’inserimento del nuovo giudizio sul film<li>L’utente inserisce un nuovo giudizio<li>Moovie modificherà il giudizio sul film presente nella lista “Film guardati”</ol>
 Condizione di uscita | L’utente vedrà il proprio giudizio all’interno dei “Film guardati”.
 
 ##### UC_11: Rimuovere giudizio su un film (rimuovendo il film da “Film guardati”)
@@ -268,7 +268,7 @@ Condizione di uscita | L’utente vedrà il proprio giudizio all’interno dei �
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella pagina dei film guardati.
-Flusso di eventi | <br/><ol><li>L’utente seleziona il giudizio da rimuovere;<li>Moovie rimuoverà il film (e il voto) dalla lista “Film guardati”.</ol>
+Flusso di eventi | <br/><ol><li>L’utente seleziona il giudizio da rimuovere<li>Moovie rimuoverà il film (e il voto) dalla lista “Film guardati”</ol>
 Condizione di uscita | Il film verrà rimosso dai “Film guardati”.
 
 #### Gestione delle liste
@@ -278,7 +278,7 @@ Condizione di uscita | Il film verrà rimosso dai “Film guardati”.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella pagina di creazione di una lista.
-Flusso di eventi | <br/><ol><li>L’utente inserisce il nome della lista nel campo apposito;<li>L’utente sceglie i film che desidera inserire all’interno della propria lista;<li>L’utente sceglie la visibilità della propria lista (tutti, amici, solo io);<li>Il sistema crea la lista e notifica l’utente.</ol>
+Flusso di eventi | <br/><ol><li>L’utente inserisce il nome della lista nel campo apposito<li>L’utente sceglie i film che desidera inserire all’interno della propria lista<li>L’utente sceglie la visibilità della propria lista (tutti, amici, solo io)<li>Il sistema crea la lista e notifica l’utente</ol>
 Condizione di uscita | La lista viene creata.
 Eccezioni | L’utente non ha selezionato nessun film da inserire.<br/>L’utente ha inserito un nome già esistente tra le sue liste.
 
@@ -287,7 +287,7 @@ Eccezioni | L’utente non ha selezionato nessun film da inserire.<br/>L’utent
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella pagina della sua lista da modificare.
-Flusso di eventi | <br/><ol><li>L’utente inserisce il nuovo nome della lista che vuole modificare;<li>L’utente modifica i privilegi della lista (tutti, amici, solo io);<li>Il sistema riceve le nuove informazioni, le applica alla lista (rifacendo il controllo di sicurezza) e invia una notifica di avvenuta modifica all’utente.</ol>
+Flusso di eventi | <br/><ol><li>L’utente inserisce il nuovo nome della lista che vuole modificare<li>L’utente modifica i privilegi della lista (tutti, amici, solo io)<li>Il sistema riceve le nuove informazioni, le applica alla lista (rifacendo il controllo di sicurezza) e invia una notifica di avvenuta modifica all’utente</ol>
 Condizione di uscita | La lista è stata modificata.
 
 ##### UC_14: Eliminare una lista
@@ -295,7 +295,7 @@ Condizione di uscita | La lista è stata modificata.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella pagina della sua lista da eliminare.
-Flusso di eventi | <br/><ol><li>L’utente elimina la lista;<li>Il sistema cancella la lista.</ol>
+Flusso di eventi | <br/><ol><li>L’utente elimina la lista<li>Il sistema cancella la lista</ol>
 Condizione di uscita | La lista viene cancellata.
 
 ##### UC_15: Aggiungere o rimuovere un film a una lista
@@ -303,7 +303,7 @@ Condizione di uscita | La lista viene cancellata.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente deve selezionare le liste in cui inserire un film, e deselezionare le liste in cui rimuovere un film tramite un popup.
-Flusso di eventi | <br/><ol><li>L’utente seleziona le liste in cui inserire il film, e deseleziona le liste in cui rimuovere il film se già presente (quindi già selezionate);<li>Il sistema aggiunge il film alle liste selezionate, e rimuove il film dalle liste deselezionate.</ol>
+Flusso di eventi | <br/><ol><li>L’utente seleziona le liste in cui inserire il film, e deseleziona le liste in cui rimuovere il film se già presente (quindi già selezionate)<li>Il sistema aggiunge il film alle liste selezionate, e rimuove il film dalle liste deselezionate</ol>
 Condizione di uscita | Il film viene aggiunto/rimosso dalle liste selezionate/deselezionate.
 
 ##### UC_16: Seguire liste altrui
@@ -311,7 +311,7 @@ Condizione di uscita | Il film viene aggiunto/rimosso dalle liste selezionate/de
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente è sulla pagina di una lista altrui (che può visualizzare).
-Flusso di eventi | <br/><ol><li>L’utente vede tutti i film contenuti nella lista e inizia a seguire la lista che ha scelto;<li>Il sistema verifica che l’utente abbia i privilegi per poterla seguire, e lo aggiunge alla liste dei seguaci.</ol>
+Flusso di eventi | <br/><ol><li>L’utente vede tutti i film contenuti nella lista e inizia a seguire la lista che ha scelto<li>Il sistema verifica che l’utente abbia i privilegi per poterla seguire, e lo aggiunge alla liste dei seguaci</ol>
 Condizione di uscita | L’utente ha iniziato a seguire la lista desiderata.
 
 #### Suggerimenti
@@ -321,7 +321,7 @@ Condizione di uscita | L’utente ha iniziato a seguire la lista desiderata.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente è sulla pagina del film che vuole consigliare.
-Flusso di eventi | <br/><ol><li>L’utente clicca su “Suggerisci”;<li>Il sistema presenta tutti gli amici a cui è possibile suggerire il film;<li>L’utente sceglie gli account a cui consigliare il film;<li>Il sistema invia il suggerimento agli utenti.</ol>
+Flusso di eventi | <br/><ol><li>L’utente clicca su “Suggerisci”<li>Il sistema presenta tutti gli amici a cui è possibile suggerire il film<li>L’utente sceglie gli account a cui consigliare il film<li>Il sistema invia il suggerimento agli utenti</ol>
 Condizione di uscita | Il film è stato suggerito.
 
 ##### UC_18: Suggerimento automatico di un film
@@ -329,5 +329,5 @@ Condizione di uscita | Il film è stato suggerito.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente è sul sito.
-Flusso di eventi | <br/><ol><li>L’utente accede alla funzionalità di suggerimento film;<li>Il sistema seleziona un film in linea con i gusti dell’utente.</ol>
+Flusso di eventi | <br/><ol><li>L’utente accede alla funzionalità di suggerimento film<li>Il sistema seleziona un film in linea con i gusti dell’utente</ol>
 Condizione di uscita | Il film selezionato verrà suggerito.
