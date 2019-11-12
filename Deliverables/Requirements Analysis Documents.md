@@ -37,7 +37,7 @@
                 6. [UC_7: Richiesta di cambio password](#uc_7-richiesta-di-cambio-password)
                 7. [UC_7.1: Utente non fornisce dati corretti](#uc_71-utente-non-fornisce-dati-corretti)
                 8. [UC_7.2: Conferma di cambio password](#uc_72-conferma-di-cambio-password)
-                9. [UC_7.3: Verifica password corretta](#uc_73-verifica-password-corretta)
+                9. [UC_7.3: Verifica password non valida](#uc_73-verifica-password-non-valida)
                 10. [UC_8: Richiede amicizia tra due account](#uc_8-richiede-amicizia-tra-due-account)
                 11. [UC_8.1: Conferma amicizia tra due account](#uc_81-conferma-amicizia-tra-due-account)
             3. [Gestione dei film guardati](#gestione-dei-film-guardati)
@@ -221,8 +221,8 @@ Flusso di eventi | <br/><ol><li>L’utente segue le istruzioni della e-mail, e r
 Condizione di uscita | La password dell’utente viene aggiornata.
 Eccezioni | Se la nuova password non è valida, vai a UC_7.3.
 
-##### UC_7.3: Verifica password corretta
-**Nome** | **Verifica password corretta**
+##### UC_7.3: Verifica password non valida
+**Nome** | **Verifica password non valida**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente prova a cambiare la password.
@@ -241,7 +241,7 @@ Condizione di uscita | L’utente riceve la conferma di invio dal sistema.
 **Nome** | **Conferma amicizia tra due account**
 ---------|---
 Attori | Utente autenticato.
-Condizione di entrata | L’utente si trova sulla pagina dell’utente che ha richiesto l’amicizia.
+Condizione di entrata | L’utente si trova sulla pagina dell’utente che ha richiesto la sua amicizia.
 Flusso di eventi | <br/><ol><li> L’utente accetta la richiesta;<li>Il sistema attiva l’amicizia.</ol>
 Condizione di uscita | Gli utenti sono diventati amici.
 
