@@ -17,7 +17,7 @@ Manuel De Stefano | Tutor
 2. [Scenari](#scenari)
     1. [Voglio vedere un bel film sabato sera](#voglio-vedere-un-bel-film-sabato-sera)
     2. [Ho guardato uno splendido film](#ho-guardato-uno-splendido-film)
-    3. [Suggerire dei film ad un amico non è registrato su Moovie](#suggerire-dei-film-ad-un-amico-non--registrato-su-moovie)
+    3. [Suggerire dei film ad un amico non è registrato su Moovie](#suggerire-dei-film-ad-un-amico-che-non--registrato-su-moovie)
     4. [Voglio informazioni su un attore, sceneggiatore o regista](#voglio-informazioni-su-un-attore-sceneggiatore-o-regista)
     5. [Voglio aggiungere un film ad una mia lista](#voglio-aggiungere-un-film-ad-una-mia-lista)
     6. [Suggerire un film ad un amico che è registrato su Moovie](#suggerire-un-film-ad-un-amico-che--registrato-su-moovie)
@@ -64,14 +64,14 @@ Clicca su “Aggiungi ad una lista…”, si apre una schermata popup contenente
 
 Se quel film fosse già stato votato, e Michele avesse voluto modificare quel giudizio, sarebbe potuto andare sulla lista “Film guardati”, scegliere il film, e cliccare su “Modifica giudizio”, per poi inserire il nuovo voto, sempre da 1 a 10.
 
-## Suggerire dei film ad un amico non è registrato su Moovie
+## Suggerire dei film ad un amico che non è registrato su Moovie
 A Stefano piacciono molto i film, mai però quanto a Michele. Quest’ultimo ha capito i gusti di Stefano, e vuole consigliargli tanti di quei film che quasi non gli vengono in mente. Proprio per questo motivo, Michele consiglia a Stefano di crearsi un account su Moovie, per poter consultare la sua lista “migliori film biografici”.
 
 Stefano allora apre una nuova scheda sul browser, va su www.moovie.me e clicca su “Registrazione”. Gli si presenta una schermata che chiede in input alcuni campi: nella voce “nome completo” inserisce “Stefano Bisettrice”, nella voce “indirizzo e-mail” inserisce “stefano@pippo.pluto”, nella voce “password” inserisce “ciaociao”. Appena clicca al di fuori del campo “password” appare una scritta che suggerisce “La password non è valida: devi inserire almeno un numero”. Allora Stefano sostituisce la password con “ciaociao1”. Nella voce “conferma password” inserisce “ciaociao1”.
 
 Michele potrebbe anche chiedere a Stefano di inserire la sua e-mail, durante la sua fase di registrazione, nella voce “consigliato da”, per poter sbloccare le funzionalità dell’Account Pro, ma ovviamente Michele ha già queste funzionalità da tempo, avendo consigliato il sito a tanti amici. In particolare, Michele ha dovuto consigliare questo sito ad almeno 5 utenti per poter usufruire delle funzionalità dell’Account Pro. Se Stefano indica un account nella suddetta voce, questo account sarà automaticamente amico dell’account di Stefano.
 
-Stefano, a questo punto, clicca su “Registrati”. La nuova pagina che si presenta avvisa Stefano che afferma “attiva l’account tramite la e-mail che ti abbiamo inviato”. Dopo un po’, sulla casella e-mail di Stefano arriva una nuova e-mail inviata da Moovie. In questa mail viene spiegata la procedura di attivazione dell’account appena creato. Questa procedura prevede di cliccare sul link di attivazione presente nella e-mail.
+Stefano, a questo punto, clicca su “Registrati”. La nuova pagina che si presenta mostra il testo “attiva l’account tramite la e-mail che ti abbiamo inviato”. Dopo un po’, sulla casella e-mail di Stefano arriva una nuova e-mail inviata da Moovie. In questa mail viene spiegata la procedura di attivazione dell’account appena creato. Questa procedura prevede di cliccare sul link di attivazione presente nella e-mail.
 
 Appena Stefano clicca sul link di Moovie, la pagina che si apre presenta la fase “Primi passi”. Questa pagina contiene un titolo “Quali film hai già visto?” e una griglia di film, e Stefano deve scegliere quelli che ha già visto. Se ha inserito nel campo “consigliato da” la mail di un utente, i film presenti nella pagina saranno film simili a quelli dell’account amico (visto che quell’account è amico dell’account di Stefano). Stefano, in ogni caso, deve selezionare almeno 5 film, e inserire un voto (da 1 a 10) per ogni film, altrimenti il sistema non lo farà continuare. Una volta aver scelto il numero minimo di film, il pulsante “Entra nel fantastico mondo di Moovie” si abiliterà, e una volta cliccato, Stefano sarà riportato alla pagina iniziale, dove potrà usare il suo account Moovie in piena libertà.
 
