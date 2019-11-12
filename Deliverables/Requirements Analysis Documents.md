@@ -252,7 +252,7 @@ Condizione di uscita | Gli utenti sono diventati amici.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella scheda informativa del film.
-Flusso di eventi | <br/><ol><li>L’utente accede alla funzionalità di film guardato<li>Moovie chiede l’inserimento di un giudizio sul film;<li>L’utente inserisce un giudizio<li>Moovie aggiungerà il film (col voto relativo) alla lista “Film guardati”, e sarà in grado di suggerire meglio i film all’utente</ol>
+Flusso di eventi | <br/><ol><li>L’utente accede alla funzionalità di film guardato<li>Moovie chiede l’inserimento di un giudizio sul film<li>L’utente inserisce un giudizio<li>Moovie aggiungerà il film (col voto relativo) alla lista “Film guardati”, e sarà in grado di suggerire meglio i film all’utente</ol>
 Condizione di uscita | L’utente vedrà il proprio giudizio all’interno dei “Film guardati”.
 
 ##### UC_10: Modificare giudizio su un film
