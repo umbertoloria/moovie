@@ -222,16 +222,16 @@ Condizione di uscita | L’utente vedrà il proprio giudizio all’interno dei �
 **Nome** | **Modificare giudizio su un film**
 ---------|---
 Attori | Utente autenticato.
-Condizione di entrata | L’utente si trova nella pagina relativa alla scheda informativa del film.
-Flusso di eventi | <br/><ol><li>L’utente accede alla funzionalità di modifica giudizio;<li>Moovie richiede l’inserimento di un giudizio sul film;<li>L’utente inserisce un nuovo giudizio;<li>Moovie modificherà il giudizio sul film presente nella lista “Film guardati”.</ol>
+Condizione di entrata | L’utente si trova nella pagina dei film guardati.
+Flusso di eventi | <br/><ol><li>L’utente seleziona il giudizio da modificare;<li>Moovie richiede l’inserimento del nuovo giudizio sul film;<li>L’utente inserisce un nuovo giudizio;<li>Moovie modificherà il giudizio sul film presente nella lista “Film guardati”.</ol>
 Condizione di uscita | L’utente vedrà il proprio giudizio all’interno dei “Film guardati”.
 
 ## UC_11: Rimuovere giudizio su un film (rimuovendo il film da “Film guardati”)
 **Nome** | **Rimuovere giudizio su un film (rimuovendo il film da “Film guardati”)**
 ---------|---
 Attori | Utente autenticato.
-Condizione di entrata | L’utente si trova nella pagina relativa alla scheda informativa del film.
-Flusso di eventi | <br/><ol><li>L’utente accede alla funzionalità di rimuovi giudizio;<li>Moovie rimuoverà il film (e il voto) dalla lista “Film guardati”.</ol>
+Condizione di entrata | L’utente si trova nella pagina dei film guardati.
+Flusso di eventi | <br/><ol><li>L’utente seleziona il giudizio da rimuovere;<li>Moovie rimuoverà il film (e il voto) dalla lista “Film guardati”.</ol>
 Condizione di uscita | Il film verrà rimosso dai “Film guardati”.
 
 # Gestione delle liste
