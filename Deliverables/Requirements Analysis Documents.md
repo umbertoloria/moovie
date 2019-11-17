@@ -1,13 +1,10 @@
 # Requirements Analysis Documents
-1. Introduction
-    1. Purpose of the system
-    2. Scope of the system
-    3. Objectives and success criteria of the project
-    4. Definitions, acronyms, and abbreviations
-    5. References
-    6. Overview
-2. [Sistema attuale](#sistema-attuale)
-    1. Overview
+1. [Introduzione](#introduzione)
+    1. [Dominio](#dominio)
+    2. [Obiettivi](#obiettivi)
+2. Sistema attuale
+3. [Sistema proposto](#sistema-proposto)
+    1. [Panoramica](#panoramica)
     2. [Requisiti funzionali](#requisiti-funzionali)
     3. Requisiti non-funzionali
         1. Usability
@@ -56,10 +53,40 @@
         3. Object model
         4. Dynamic model
         5. User interface-navigational paths and screen mock-ups
-3. Proposed system
 4. Glossary
 
-# Sistema attuale
+# Introduzione
+
+## Dominio
+Dopo aver visto tanti film, è difficile trovarne altri che ti prendano come i precedenti. Si potrebbero vedere tutti i
+film di un determinato attore, ma probabilmente non piaceranno tutti. Si potrebbero vedere tutti i film di un regista
+preferito, ma spesso nel cinema d'autore il numero di film girati dallo stesso regista si contano sulle dita delle mani
+(stesso vale per uno sceneggiatore). Si potrebbero seguire i suggerimenti di altri appassionati di cinema. E se questi
+procedimenti si potessero semplificare?
+
+Moovie sarà una piattaforma fornita di tantissime informazioni inerenti al mondo del cinema, e sarà pronta a suggerire
+agli utenti dei film in linea con le loro preferenze. Ognuno di essi potrà creare delle liste di film, e condividerle
+con i propri amici.
+
+## Obiettivi
+L'obiettivo di Moovie è di realizzare una piattaforma per **condividere informazioni cinematografiche**. Gli utenti del sistema potranno registrarsi e **condividere le proprie informazioni con gli amici**, e utilizzare le funzionalità di suggerimento del sito per **scoprire nuovi film da guardare**.
+
+# Soluzioni attuali
+Senza l'utilizzo di Moovie, l'utente interessato al mondo del cinema attualmente utilizza più servizi per reperire le
+informazioni di suo interesse.
+* Per scoprire la filmografia di un artista è possibile consultare siti come [Wikipedia](https://wikipedia.org),
+[MYmovies](https://www.mymovies.it) e altri.
+* Per conteggiare i film già visti, si potrebbero utilizzare le funzionalità dell'applicazione mobile
+[TV Time](https://tvtime.com). Essendo però un'app orientata sulle serie TV, al momento le funzionalità relative al
+cinema sono profondamente inferiori. Inoltre, molti film sono addirittura assenti.
+* Per suggerire un film ad un amico, si utilizzano i mezzi generali di comunicazione reali o virtuali già esistenti.
+* Per ricevere un suggerimento di film in linea con le proprie preferenze, bisogna conoscere un altro appassionato di
+cinema che conosca e rispetti queste preferenze.
+
+# Sistema proposto
+
+## Panoramica
+Questo documento descrive l'analisi dei requisiti del sistema e contiene tutte le strutture previste per i casi d'uso.
 
 ## Requisiti funzionali
 Identificativo | Descrizione | Priorità

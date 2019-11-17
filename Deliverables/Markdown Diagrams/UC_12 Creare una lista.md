@@ -1,7 +1,7 @@
 sequenceDiagram
 title: Creare una lista
 
-Utente Autenticato->>Crea Lista (Boundary): submit(nome, films, visibilità)
+Utente Autenticato->>Crea Lista (Boundary): submit(nome, visibilità, films[])
 activate Utente Autenticato
 deactivate Utente Autenticato
 
