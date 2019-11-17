@@ -2,23 +2,27 @@
 
 class Utente {
 
+	/** @var int */
+	private $id;
 	/** @var string */
 	private $nome;
 	/** @var string */
 	private $cognome;
 	/** @var string */
-	private $password;
-	/** @var string */
 	private $email;
-	/** @var bool */
-	private $adminFlag;
+	/** @var string */
+	private $password;
 
-	public function __construct(string $nome, string $cognome, string $password, string $email, bool $adminFlag) {
+	public function __construct(int $id, string $nome, string $cognome, string $email, string $password) {
+		$this->id = $id;
 		$this->nome = $nome;
 		$this->cognome = $cognome;
-		$this->password = $password;
 		$this->email = $email;
-		$this->adminFlag = $adminFlag;
+		$this->password = $password;
+	}
+
+	public function getID(): int {
+		return $this->id;
 	}
 
 	public function getNome(): string {
@@ -29,16 +33,12 @@ class Utente {
 		return $this->cognome;
 	}
 
-	public function getPassword(): string {
-		return $this->password;
-	}
-
 	public function getEmail(): string {
 		return $this->email;
 	}
 
-	public function getAdminFlag(): bool {
-		return $this->adminFlag;
+	public function getPassword(): string {
+		return $this->password;
 	}
 
 }
