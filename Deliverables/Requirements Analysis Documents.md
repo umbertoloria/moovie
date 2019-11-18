@@ -30,7 +30,7 @@
             3. [UC_2: Ricerca di un artista](#uc_2-ricerca-di-un-artista)
             4. [UC_2.1: Ricerca di un artista fallita](#uc_21-ricerca-di-un-artista-fallita)
             5. [UC_3: Ricerca di un utente](#uc_3-ricerca-di-un-utente)
-            6. [UC_3.1: Utente non trovato](#uc_31-utente-non-trovato)
+            6. [UC_3.1: Ricerca di un utente fallita](#uc_31-ricerca-di-un-utente-fallita)
         2. [Gestione account](#gestione-account)
             1. [UC_4: Creare un account](#uc_4-creare-un-account)
             2. [UC_4.1: Registrazione fallita](#uc_41-registrazione-fallita)
@@ -38,11 +38,12 @@
             4. [UC_6: Autenticare un account](#uc_6-autenticare-un-account)
             5. [UC_6.1: Autenticazione fallita](#uc_61-autenticazione-fallita)
             6. [UC_7: Richiesta di cambio password](#uc_7-richiesta-di-cambio-password)
-            7. [UC_7.1: Utente non fornisce dati corretti](#uc_71-utente-non-fornisce-dati-corretti)
+            7. [UC_7.1: Richiesta di cambio password fallita](#uc_71-richiesta-di-cambio-password-fallita)
             8. [UC_7.2: Conferma di cambio password](#uc_72-conferma-di-cambio-password)
-            9. [UC_7.3: Verifica password non valida](#uc_73-verifica-password-non-valida)
-            10. [UC_8: Richiede amicizia tra due account](#uc_8-richiede-amicizia-tra-due-account)
-            11. [UC_8.1: Conferma amicizia tra due account](#uc_81-conferma-amicizia-tra-due-account)
+            9. [UC_7.3: Conferma di cambio password fallita](#uc_73-conferma-di-cambio-password-fallita)
+            10. [UC_8: Richiedere amicizia tra due account](#uc_8-richiedere-amicizia-tra-due-account)
+            11. [UC_8.1: Confermare amicizia tra due account](#uc_81-confermare-amicizia-tra-due-account)
+            11. [UC_8.2: Rifiutare amicizia tra due account](#uc_82-rifiutare-amicizia-tra-due-account)
         3. [Gestione dei film guardati](#gestione-dei-film-guardati)
             1. [UC_9: Aggiungere giudizio su un film aggiungendolo in “Film guardati”](#uc_9-aggiungere-giudizio-su-un-film-aggiungendolo-in-film-guardati)
             2. [UC_10: Modificare giudizio su un film](#uc_10-modificare-giudizio-su-un-film)
@@ -106,10 +107,11 @@ RF_1.3 | Ricerca di un utente
 RF_2.1 | Creare un account
 RF_2.2 | Attivare un account
 RF_2.3 | Autenticare un account
-RF_2.4 | Richiesta del cambio password
-RF_2.5 | Conferma del cambio password
+RF_2.4 | Richiesta di cambio password
+RF_2.5 | Conferma di cambio password
 RF_2.6 | Richiedere amicizia tra due account
 RF_2.7 | Confermare amicizia tra due account
+RF_2.8 | Rifiutare amicizia tra due account
 **M_RF_3** | Gestione dei film guardati | Alta
 RF_3.1 | Aggiungere giudizio su un film aggiungendolo in “Film guardati”
 RF_3.2 | Modificare giudizio su un film
@@ -307,10 +309,10 @@ Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nell’area di ricerca.
 Flusso di eventi | <br/><ol><li>L’utente inserisce il nome, cognome, e-mail (se visibile) di un utente<li>Moovie elabora i dati inseriti e mostra il risultato della ricerca<li>L’utente seleziona l’utente cercato<li>Moovie reindirizza l’utente sulla pagina corrispondente alla scheda informativa dell’utente cercato</ol>
 Condizione di uscita | L’utente potrà visualizzare la scheda informativa dell’utente.
-Eccezioni | Se l’utente cercato non è presente, vai a UC_3.1.
+Eccezioni | Se l’utente cercato non è presente, vai a [UC_3.1](#uc_31-utente-non-trovato).
 
-#### UC_3.1: Utente non trovato
-**Nome** | **Utente non trovato**
+#### UC_3.1: Ricerca di un utente fallita
+**Nome** | **Ricerca di un utente fallita**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente cerca un altro utente non esistente.
@@ -322,19 +324,20 @@ Condizione di uscita | Moovie comunica che l’account non esiste.
 #### UC_4: Creare un account
 **Nome** | **Creare un account**
 ---------|---
-Attori | Utente non registrato.
-Condizione di entrata | L’utente si trova sulla pagina di registrazione.
-Flusso di eventi | <br/><ol><li>L’utente inserisce i seguenti dati: nome, cognome, indirizzo e-mail, password (due volte), e-mail utente che ha suggerito la registrazione (opzionale)<li>Il sistema controlla i dati, verifica che non ci siano account con l’indirizzo e-mail fornito, e salva i dati. Se è stato fornito anche l’indirizzo e-mail dell’account che ha suggerito la registrazione, e questo è il quinto account che lo fa, allora quell’account diventa account pro. Il sistema invierà in ogni caso una e-mail di attivazione dell’account</ol>
+Attori | Utente.
+Condizione di entrata | L’utente si trova nella pagina di registrazione.
+Flusso di eventi | <br/><ol><li>L’utente inserisce i seguenti dati: nome, cognome, indirizzo e-mail, password (due volte), e-mail utente che ha suggerito la registrazione (opzionale)<li>Il sistema controlla i dati, verifica che non ci siano account con l’indirizzo e-mail fornito, e salva i dati. Se è stato fornito anche l’indirizzo e-mail dell’account che ha suggerito la registrazione, e questo è il quinto account che lo fornisce, allora quell’account diventa account pro e amico dell'account che si sta registrando. Il sistema invierà in ogni caso una e-mail di attivazione all'account appena registrato.</ol>
 Condizione di uscita | L’account viene creato.
-Eccezioni | L’indirizzo e-mail fornito è occupato. Vai a UC_4.1.
+Eccezioni | L’indirizzo e-mail fornito è occupato. Vai a [UC_4.1](#uc_41-registrazione-fallita).
 
 #### UC_4.1: Registrazione fallita
 **Nome** | **Registrazione fallita**
 ---------|---
-Attori | Utente non registrato.
-Condizione di entrata | L’utente si trova nella pagina di registrazione.
-Flusso di eventi | <br/><ol><li>L’utente inserisce i seguenti dati: nome, cognome, indirizzo e-mail, password (due volte), e-mail utente che ha suggerito la registrazione (opzionale)<li>Il sistema si accorge che uno dei campi inseriti non è valido e reindirizza l’utente verso la pagina di Registrazione</ol>
-Condizione di uscita | L’utente deve rifare il UC_4.
+Attori | Utente.
+Condizione di entrata | L’utente ha inserito dati non accettabili durante la registrazione.
+Flusso di eventi | <br/><ol><li>Il sistema si accorge che uno dei campi inseriti non è valido e avvisa l'utente<li>L'utente inserisce dei dati corretti<li>Il sistema controlla i dati e li salva. Se è stato fornito l'indirizzo e-mail di un account esistente, ed è la quinta volta che questo suggerisce il sito ad un utente, allora questo account diventa account pro, e amico dell'account appena registrato.</ol>
+Condizione di uscita | L'account viene creato.
+Eccezioni | L’indirizzo e-mail fornito è occupato. Vai a [UC_4.1](#uc_41-registrazione-fallita).
 
 #### UC_5: Attivare un account
 **Nome** | **Attivare un account**
@@ -348,68 +351,79 @@ Condizione di uscita | L’account verrà attivato.
 **Nome** | **Autenticare un account**
 ---------|---
 Attori | Utente.
-Condizione di entrata | L’utente deve essere sulla pagina di Login
-Flusso di eventi | <br/><ol><li>L’utente inserisce e-mail e password dell’account e prosegue<li>Moovie verifica la correttezza dei dati inseriti e reindirizza l’utente</ol>
-Condizione di uscita | L’utente si trova autenticato nella pagina principale.
-Eccezioni | Indirizzo e-mail o password non corretti. Vai a UC_6.1.<br/>L’utente non possiede un account. Vai a UC_4.1.
+Condizione di entrata | L’utente si trova nella pagina di accesso
+Flusso di eventi | <br/><ol><li>L’utente inserisce e-mail e password del suo account e prosegue<li>Moovie verifica la correttezza dei dati inseriti e autentica l'account</ol>
+Condizione di uscita | L'accesso è stato effettuato.
+Eccezioni | Indirizzo e-mail o password non corretti. Vai a [UC_6.1](#uc_61-autenticazione-fallita).<br/>L’utente non possiede un account. Vai a [UC_4.1](#uc_41-registrazione-fallita).
 
 #### UC_6.1: Autenticazione fallita
 **Nome** | **Autenticazione fallita**
 ---------|---
 Attori | Utente.
 Condizione di entrata | L’utente ha inseriti i dati sbagliati nella pagina di login.
-Flusso di eventi | Il sistema comunica che i dati sono sbagliati.
-Condizione di uscita | L’utente deve rifare il caso d’uso UC_6.
+Flusso di eventi | <br/><ol><li>Il sistema comunica che i dati sono sbagliati<li>L'utente inserisce e-mail e password del suo account e prosegue<li>Il sistema verifica la correttezza dei dati e autentica l'account</ol>
+Condizione di uscita | L'accesso è stato effettuato.
+Eccezioni | Indirizzo e-mail o password non corretti. Vai a [UC_6.1](#uc_61-autenticazione-fallita).<br/>L’utente non possiede un account. Vai a [UC_4.1](#uc_41-registrazione-fallita).
 
 #### UC_7: Richiesta di cambio password
 **Nome** | **Richiesta di cambio password**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente comincia la richiesta di cambio password.
-Flusso di eventi | <br/><ol><li>L’utente inserisce la sua vecchia password<li>Il sistema controlla che la password corrisponda, ed invia una e-mail all’utente per attivare la effettuare il cambio</ol>
+Flusso di eventi | <br/><ol><li>L’utente inserisce la sua vecchia password<li>Il sistema controlla che la password corrisponda, ed invia una e-mail all’utente per attivare la effettuare il cambio di password</ol>
 Condizione di uscita | Il sistema invia l’e-mail di conferma del cambio password.
-Eccezioni | L’utente non fornisce i dati corretti. Vai a UC_7.1.
+Eccezioni | L’utente non fornisce i dati corretti. Vai a [UC_7.1](#uc_71-richiesta-di-cambio-password-fallita).
 
-#### UC_7.1: Utente non fornisce dati corretti
-**Nome** | **Utente non fornisce dati corretti**
+#### UC_7.1: Richiesta di cambio password fallita
+**Nome** | **Richiesta di cambio password fallita**
 ---------|---
 Attori | Utente autenticato.
-Condizione di entrata | L’utente richiede il cambio password.
-Flusso di eventi | Il sistema afferma che la password fornita è sbagliata.
-Condizione di uscita | Vai a UC_7.
+Condizione di entrata | L’utente fornisce una password che non è la sua.
+Flusso di eventi | <br/><ol><li>Il sistema afferma che la password fornita è sbagliata.<li>L'utente inserisce la propria password<li>Il sistema controlla che la password corrisponda, ed invia una e-mail all’utente per attivare la effettuare il cambio di password</ol>
+Condizione di uscita | Il sistema invia l’e-mail di conferma del cambio password.
+Eccezioni | L’utente non fornisce i dati corretti. Vai a [UC_7.1](#uc_71-richiesta-di-cambio-password-fallita).
 
 #### UC_7.2: Conferma di cambio password
 **Nome** | **Conferma di cambio password**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente riceve una e-mail di conferma di cambio password.
-Flusso di eventi | <br/><ol><li>L’utente segue le istruzioni della e-mail, e raggiunge il sito sulla pagina di conferma di cambio password. Deve inserire la nuova password due volte<li>Il sistema applica i cambiamento nel database</ol>
+Flusso di eventi | <br/><ol><li>L’utente segue le istruzioni della e-mail, e raggiunge il sito sulla pagina di conferma di cambio password. Deve inserire la nuova password due volte<li>Il sistema aggiorna la password</ol>
 Condizione di uscita | La password dell’utente viene aggiornata.
-Eccezioni | Se la nuova password non è valida, vai a UC_7.3.
+Eccezioni | Se la nuova password non è valida, vai a [UC_7.3](#uc_73-conferma-di-cambio-password-fallita).
 
-#### UC_7.3: Verifica password non valida
-**Nome** | **Verifica password non valida**
+#### UC_7.3: Conferma di cambio password fallita
+**Nome** | **Conferma di cambio password fallita**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente prova a cambiare la password.
-Flusso di eventi | Il sistema comunica che la password non è valida.
-Condizione di uscita | Ripeti il caso UC_7.2.
+Flusso di eventi | <br/><ol><li>Il sistema comunica che la password non è valida.<li>L'utente inserisce la nuova password.<li>Il sistema aggiorna la password</ol>
+Condizione di uscita | La password dell’utente viene aggiornata.
+Eccezioni | Se la nuova password non è valida, vai a [UC_7.3](#uc_73-conferma-di-cambio-password-fallita).
 
-#### UC_8: Richiede amicizia tra due account
+#### UC_8: Richiedere amicizia tra due account
 **Nome** | **Richiedere amicizia tra due account**
 ---------|---
 Attori | Utente autenticato.
-Condizione di entrata | L’utente si trova nella pagina dell’account a cui richiedere l’amicizia.
-Flusso di eventi | <br/><ol><li>L’utente clicca su “Aggiungi agli amici”<li>Moovie invia la richiesta al destinatario</ol>
-Condizione di uscita | L’utente riceve la conferma di invio dal sistema.
+Condizione di entrata | L’utente si trova nella pagina dell’account a cui vuole richiedere l’amicizia.
+Flusso di eventi | <br/><ol><li>L’utente clicca su “Aggiungi agli amici”<li>Moovie invia la richiesta al destinatario, e lo comunica all'utente</ol>
+Condizione di uscita | La richiesta è stata inviata.
 
-#### UC_8.1: Conferma amicizia tra due account
-**Nome** | **Conferma amicizia tra due account**
+#### UC_8.1: Confermare amicizia tra due account
+**Nome** | **Confermare amicizia tra due account**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova sulla pagina dell’utente che ha richiesto la sua amicizia.
 Flusso di eventi | <br/><ol><li>L’utente accetta la richiesta<li>Il sistema attiva l’amicizia</ol>
 Condizione di uscita | Gli utenti sono diventati amici.
+
+#### UC_8.2: Rifiutare amicizia tra due account
+**Nome** | **Rifiutare amicizia tra due account**
+---------|---
+Attori | Utente autenticato.
+Condizione di entrata | L’utente si trova sulla pagina dell’utente che ha richiesto la sua amicizia.
+Flusso di eventi | <br/><ol><li>L’utente rifiuta la richiesta<li>Il sistema cancella la richiesta</ol>
+Condizione di uscita | La richiesta è stata annullata.
 
 ### Gestione dei film guardati
 
