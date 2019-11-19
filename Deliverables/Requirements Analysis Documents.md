@@ -1,4 +1,15 @@
 # Requirements Analysis Documents
+| Versione |    Data    | Descrizione                  | Autori                   |
+|----------|------------|------------------------------|--------------------------|
+| 0.1      | 30/9/2019  | Prima stesura                | Umberto Loria            |
+| 0.2      | 10/10/2019 | Più tecnicismi               | Team                     |
+| 0.3      | 17/10/2019 | Primi casi d'uso             | Michelantonio Panichella |
+| 0.4      | 22/10/2019 | Estensione casi d'uso        | Gianluca Pirone          |
+| 0.5      | 24/10/2019 | Semplificazione funzionalità | Team                     |
+| 0.6      | 11/11/2019 | Introduzione Markdown        | Umberto Loria            |
+| 0.7      | 19/11/2019 | Sequence Diagrams su GitHub  | Team                     |
+
+# Indice
 1. [Introduzione](#introduzione)
     1. [Dominio](#dominio)
     2. [Obiettivi](#obiettivi)
@@ -45,21 +56,27 @@
             11. [UC_8.1: Confermare amicizia tra due account](#uc_81-confermare-amicizia-tra-due-account)
             11. [UC_8.2: Rifiutare amicizia tra due account](#uc_82-rifiutare-amicizia-tra-due-account)
         3. [Gestione dei film guardati](#gestione-dei-film-guardati)
-            1. [UC_9: Aggiungere giudizio su un film aggiungendolo in “Film guardati”](#uc_9-aggiungere-giudizio-su-un-film-aggiungendolo-in-film-guardati)
-            2. [UC_10: Modificare giudizio su un film](#uc_10-modificare-giudizio-su-un-film)
-            3. [UC_11: Rimuovere giudizio su un film (rimuovendo il film da “Film guardati”)](#uc_11-rimuovere-giudizio-su-un-film-rimuovendo-il-film-da-film-guardati)
+            1. [UC_9: Aggiungere un giudizio](#uc_9-aggiungere-un-giudizio)
+            2. [UC_10: Modificare un giudizio](#uc_10-modificare-un-giudizio)
+            3. [UC_11: Rimuovere un giudizio](#uc_11-rimuovere-un-giudizio)
         4. [Gestione delle liste](#gestione-delle-liste)
             1. [UC_12: Creare una lista](#uc_12-creare-una-lista)
             2. [UC_13: Modificare una lista](#uc_13-modificare-una-lista)
             3. [UC_14: Eliminare una lista](#uc_14-eliminare-una-lista)
-            4. [UC_15: Aggiungere o rimuovere un film a una lista](#uc_15-aggiungere-o-rimuovere-un-film-a-una-lista)
+            4. [UC_15: Aggiornare la presenza di film nelle liste](#uc_15-aggiungere-o-rimuovere-un-film-a-una-lista)
             5. [UC_16: Seguire liste altrui](#uc_16-seguire-liste-altrui)
         5. [Suggerimenti](#suggerimenti)
             1. [UC_17: Suggerire un film a un account amico](#uc_17-suggerire-un-film-a-un-account-amico)
             2. [UC_18: Suggerimento automatico di un film](#uc_18-suggerimento-automatico-di-un-film)
-        3. Object model
-        4. Dynamic model
-        5. User interface-navigational paths and screen mock-ups
+    6. Object model
+    7. Dynamic model
+    8. [Sequence diagrams](#sequence-diagrams)
+        1. [Ricerca e consulazione](#ricerca-e-consultazione)
+        2. [Gestione account](#gestione-account)
+        3. [Gestione dei film guardati](#gestione-dei-film-guardati)
+        4. [Gestione delle liste](#gestione-delle-liste)
+        5. [Suggerimenti](#suggerimenti)
+    9. User interface-navigational paths and screen mock-ups
 4. Glossary
 
 # Introduzione
@@ -113,14 +130,14 @@ RF_2.6 | Richiedere amicizia tra due account
 RF_2.7 | Confermare amicizia tra due account
 RF_2.8 | Rifiutare amicizia tra due account
 **M_RF_3** | Gestione dei film guardati | Alta
-RF_3.1 | Aggiungere giudizio su un film aggiungendolo in “Film guardati”
-RF_3.2 | Modificare giudizio su un film
-RF_3.3 | Rimuovere giudizio su un film (rimuovendo il film da “Film guardati”)
+RF_3.1 | Aggiungere un giudizio
+RF_3.2 | Modificare un giudizio
+RF_3.3 | Rimuovere un giudizio
 **M_RF_4** | Gestione delle liste | Media
 RF_4.1 | Creare una lista
 RF_4.2 | Modificare una lista
 RF_4.3 | Eliminare una lista
-RF_4.4 | Aggiungere o rimuovere un film a una lista
+RF_4.4 | Aggiornare la presenza di film nelle liste
 RF_4.5 | Seguire una lista altrui
 **M_RF_5** | Suggerimenti | Bassa
 RF_5.1 | Suggerire un film a un account amico
@@ -265,9 +282,10 @@ Gump”. Michele allora clicca sul film, arriva sulla sua scheda, e lo aggiunge 
 voto 10), perché ovviamente lui lo aveva già visto, ma prima di conoscere Moovie.
 
 ## Use case models
-Ecco tutti gli use case models.
+![](Use%20case%20diagrams/Moovie's%20User%20Tasks.jpg)
 
 ### Ricerca e consultazione
+![](Use%20case%20diagrams/Ricerca%20e%20consultazione.jpg)
 
 #### UC_1: Ricerca di un film
 **Nome** | **Ricerca di un film**
@@ -320,6 +338,7 @@ Flusso di eventi | Moovie non trova l’account cercato.
 Condizione di uscita | Moovie comunica che l’account non esiste.
 
 ### Gestione account
+![](Use%20case%20diagrams/Gestione%20account.jpg)
 
 #### UC_4: Creare un account
 **Nome** | **Creare un account**
@@ -427,24 +446,24 @@ Condizione di uscita | La richiesta è stata annullata.
 
 ### Gestione dei film guardati
 
-#### UC_9: Aggiungere giudizio su un film aggiungendolo in “Film guardati”
-**Nome** | **Aggiungere giudizio su un film aggiungendolo in “Film guardati”**
+#### UC_9: Aggiungere un giudizio
+**Nome** | **Aggiungere un giudizio**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella scheda informativa del film.
 Flusso di eventi | <br/><ol><li>L’utente accede alla funzionalità di film guardato<li>Moovie chiede l’inserimento di un giudizio sul film<li>L’utente inserisce un giudizio<li>Moovie aggiungerà il film (col voto relativo) alla lista “Film guardati”, e sarà in grado di suggerire meglio i film all’utente</ol>
 Condizione di uscita | L’utente vedrà il proprio giudizio all’interno dei “Film guardati”.
 
-#### UC_10: Modificare giudizio su un film
-**Nome** | **Modificare giudizio su un film**
+#### UC_10: Modificare un giudizio
+**Nome** | **Modificare un giudizio**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella pagina dei film guardati.
 Flusso di eventi | <br/><ol><li>L’utente seleziona il giudizio da modificare<li>Moovie richiede l’inserimento del nuovo giudizio sul film<li>L’utente inserisce un nuovo giudizio<li>Moovie modificherà il giudizio sul film presente nella lista “Film guardati”</ol>
 Condizione di uscita | L’utente vedrà il proprio giudizio all’interno dei “Film guardati”.
 
-#### UC_11: Rimuovere giudizio su un film (rimuovendo il film da “Film guardati”)
-**Nome** | **Rimuovere giudizio su un film (rimuovendo il film da “Film guardati”)**
+#### UC_11: Rimuovere un giudizio
+**Nome** | **Rimuovere un giudizio**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella pagina dei film guardati.
@@ -452,6 +471,7 @@ Flusso di eventi | <br/><ol><li>L’utente seleziona il giudizio da rimuovere<li
 Condizione di uscita | Il film verrà rimosso dai “Film guardati”.
 
 ### Gestione delle liste
+![](Use%20case%20diagrams/Gestione%20delle%20liste.jpg)
 
 #### UC_12: Creare una lista
 **Nome** | **Creare una lista**
@@ -478,8 +498,8 @@ Condizione di entrata | L’utente si trova nella pagina della sua lista da elim
 Flusso di eventi | <br/><ol><li>L’utente elimina la lista<li>Il sistema cancella la lista</ol>
 Condizione di uscita | La lista viene cancellata.
 
-#### UC_15: Aggiungere o rimuovere un film a una lista
-**Nome** | **Aggiungere o rimuovere un film a una lista**
+#### UC_15: Aggiornare la presenza di film nelle liste
+**Nome** | **Aggiornare la presenza di film nelle liste**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente deve selezionare le liste in cui inserire un film, e deselezionare le liste in cui rimuovere un film tramite un popup.
@@ -495,6 +515,7 @@ Flusso di eventi | <br/><ol><li>L’utente vede tutti i film contenuti nella lis
 Condizione di uscita | L’utente ha iniziato a seguire la lista desiderata.
 
 ### Suggerimenti
+![](Use%20case%20diagrams/Suggerimenti.jpg)
 
 #### UC_17: Suggerire un film a un account amico
 **Nome** | **Suggerire un film a un account amico**
@@ -511,3 +532,43 @@ Attori | Utente autenticato.
 Condizione di entrata | L’utente è sul sito.
 Flusso di eventi | <br/><ol><li>L’utente accede alla funzionalità di suggerimento film<li>Il sistema seleziona un film in linea con i gusti dell’utente</ol>
 Condizione di uscita | Il film selezionato verrà suggerito.
+
+## Sequence diagrams
+
+### Ricerca e consulazione
+
+![](Sequence%20diagrams/UC_1%20Ricerca%20di%20un%20film.jpg)
+
+![](Sequence%20diagrams/UC_2%20Ricerca%20di%20un%20artista.jpg)
+
+![](Sequence%20diagrams/UC_3%20Ricerca%20di%20un%20utente.jpg)
+
+### Gestione account
+
+![](Sequence%20diagrams/UC_4%20Creare%20un%20account.jpg)
+
+![](Sequence%20diagrams/UC_5%20Attivare%20un%20account.jpg)
+
+![](Sequence%20diagrams/UC_6%20Autenticare%20un%20account.jpg)
+
+![](Sequence%20diagrams/UC_8%20Richiedere%20amicizia%20tra%20due%20account.jpg)
+
+### Gestione dei film guardati
+
+![](Sequence%20diagrams/UC_9%20Aggiungere%20un%20giudizio.jpg)
+
+![](Sequence%20diagrams/UC_10%20Modificare%20un%20giudizio.jpg)
+
+![](Sequence%20diagrams/UC_11%20Rimuovere%20un%20giudizio.jpg)
+
+### Gestione delle liste
+
+![](Sequence%20diagrams/UC_12%20Creare%20una%20lista.jpg)
+
+![](Sequence%20diagrams/UC_13%20Modificare%20una%20lista.jpg)
+
+![](Sequence%20diagrams/UC_14%20Eliminare%20una%20lista.jpg)
+
+![](Sequence%20diagrams/UC_15%20Aggiornare%20la%20presenza%20di%20film%20nelle%20liste.jpg)
+
+![](Sequence%20diagrams/UC_16%20Seguire%20liste%20altrui.jpg)
