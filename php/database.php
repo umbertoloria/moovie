@@ -7,10 +7,10 @@ class DB {
 
 	public static function init() {
 		try {
-			$host = "";
-			$db = "";
-			$usr = "";
-			$pwd = "";
+			$host = "localhost";
+			$db = "michelantonio";
+			$usr = "root";
+			$pwd = "ciaociao";
 			self::$c = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $usr, $pwd);
 		} catch (PDOException $e) {
 			die("MySQL error connection: " . $e->getMessage());
@@ -19,6 +19,10 @@ class DB {
 
 	public static function stmt($sql) {
 		return self::$c->prepare($sql);
+	}
+
+	public static function lastInsertedID() {
+		return self::$c->lastInsertId();
 	}
 
 }
