@@ -68,14 +68,19 @@
         5. [Suggerimenti](#suggerimenti)
             1. [UC_17: Suggerire un film a un account amico](#uc_17-suggerire-un-film-a-un-account-amico)
             2. [UC_18: Suggerimento automatico di un film](#uc_18-suggerimento-automatico-di-un-film)
-    6. Object model
+    6. [Object model](#object-model)
+        1. Ricerca e consulazione
+        2. Gestione account
+        3. Gestione dei film guardati
+        4. Gestione delle liste
+        5. Suggerimenti
     7. Dynamic model
     8. [Sequence diagrams](#sequence-diagrams)
-        1. [Ricerca e consulazione](#ricerca-e-consultazione)
-        2. [Gestione account](#gestione-account)
-        3. [Gestione dei film guardati](#gestione-dei-film-guardati)
-        4. [Gestione delle liste](#gestione-delle-liste)
-        5. [Suggerimenti](#suggerimenti)
+        1. Ricerca e consulazione
+        2. Gestione account
+        3. Gestione dei film guardati
+        4. Gestione delle liste
+        5. Suggerimenti
     9. User interface-navigational paths and screen mock-ups
 4. Glossary
 
@@ -503,7 +508,7 @@ Condizione di uscita | La lista viene cancellata.
 **Nome** | **Aggiornare la presenza di film nelle liste**
 ---------|---
 Attori | Utente autenticato.
-Condizione di entrata | L’utente deve selezionare le liste in cui inserire un film, e deselezionare le liste in cui rimuovere un film tramite un popup.
+Condizione di entrata | L’utente deve selezionare le liste in cui inserire un film, e deselezionare le liste in cui rimuovere un film, nell'area di aggiornamento presenza film in liste.
 Flusso di eventi | <br/><ol><li>L’utente seleziona le liste in cui inserire il film, e deseleziona le liste in cui rimuovere il film se già presente (quindi già selezionate)<li>Il sistema aggiunge il film alle liste selezionate, e rimuove il film dalle liste deselezionate</ol>
 Condizione di uscita | Il film viene aggiunto/rimosso dalle liste selezionate/deselezionate.
 
@@ -533,6 +538,40 @@ Attori | Utente autenticato.
 Condizione di entrata | L’utente è sul sito.
 Flusso di eventi | <br/><ol><li>L’utente accede alla funzionalità di suggerimento film<li>Il sistema seleziona un film in linea con i gusti dell’utente</ol>
 Condizione di uscita | Il film selezionato verrà suggerito.
+
+## Object model
+Boundary objects:
+* **Area di ricerca**: offre le funzioni di ricerca di film, artisti e utenti
+* **Risultati di ricerca**: presenta i risultati elaborati dopo una ricerca
+* **Pagina film**: mostra le informazioni di un film
+* **Pagina artista**: mostra le informazioni di un artista
+* **Pagina utente**: mostra le informazioni di un utente (in funzione della visibilità di queste)
+* **Form di registrazione**: richiede l'inserimento di informazioni necessarie alla creazione di un nuovo account
+* **Pagina iniziale**: mostra informazioni rilevanti per l'utente. Se autenticato, mostra film da guardare, ultime
+attività degli amici e altri contenuti suggeriti. Se ospite, altre informazioni di tendenza.
+* **E-Mail attivazione account**: descrive la procedura per attivare un nuovo account
+* **Pagina primi passi**: consente di inserire le prime preferenze cinematografiche dell'utente novizio
+* **Form di accesso**: consente di autenticarsi in un account esistente
+* **Form di richiesta cambio password**: richiede l'inserimento della password attuale per cominciare la procedura di
+aggiornamento della stessa
+* **E-Mail cambio password**: descrive la procedura per cambiare la password
+* **Form di conferma cambio password**: richiede l'inserimento delle password corrente e nuova per poi aggiornarla
+* **Conferma amicizia inviata**: notifica l'avvenuta richiesta di amicizia
+* **Conferma amicizia accettata**: notifica l'avvenuta conferma di amicizia
+* **Conferma amicizia rifiutata**: notifica l'avvenuto rifiuto di amicizia
+* **Form di aggiunta giudizio**: richiede l'inserimento del giudizio da salvare
+* **Pagina film guardati**: mostra i giudizi
+* **Form di modifica giudizio**: richiede l'inserimento del giudizio da aggiornare
+* **Form di creazione lista**: richiede l'inserimento delle informazioni necessarie alla creazione di una nuova lista
+* **Pagina lista**: mostra le informazioni di una lista
+* **Conferma lista modificata**: notifica l'avvenuta modifica di una lista
+* **Conferma lista eliminata**: notifica l'avvenuta rimozione di una lista
+* **Form di aggiornamento presenza film in liste**: richiede la selezione delle sole proprie liste in cui un
+determinato film deve essere presente
+* **Conferma lista seguita**: notifica che si riceveranno aggiornamenti riguardo i cambiamenti di una lista
+* **Form di selezione amici**: richiede la selezione di almeno uno tra i propri amici
+* **Pagina di suggerimento automatico**: permette di richiedere il suggerimento automatico di un film sconosciuto
+* **Area di presentazione film**: suggerisce un film
 
 ## Sequence diagrams
 
