@@ -389,7 +389,7 @@ Eccezioni | Indirizzo e-mail o password non corretti. Vai a [UC_6.1](#uc_61-aute
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente comincia la richiesta di cambio password.
-Flusso di eventi | <br/><ol><li>L’utente inserisce la sua vecchia password<li>Il sistema controlla che la password corrisponda, ed invia una e-mail all’utente per attivare la effettuare il cambio di password</ol>
+Flusso di eventi | <br/><ol><li>L’utente inserisce la sua vecchia password<li>Il sistema controlla che la password corrisponda, ed invia una e-mail all’utente per effettuare il cambio di password</ol>
 Condizione di uscita | Il sistema invia l’e-mail di conferma del cambio password.
 Eccezioni | L’utente non fornisce i dati corretti. Vai a [UC_7.1](#uc_71-richiesta-di-cambio-password-fallita).
 
@@ -405,7 +405,7 @@ Eccezioni | L’utente non fornisce i dati corretti. Vai a [UC_7.1](#uc_71-richi
 #### UC_7.2: Conferma di cambio password
 **Nome** | **Conferma di cambio password**
 ---------|---
-Attori | Utente autenticato.
+Attori | Utente.
 Condizione di entrata | L’utente riceve una e-mail di conferma di cambio password.
 Flusso di eventi | <br/><ol><li>L’utente segue le istruzioni della e-mail, e raggiunge il sito sulla pagina di conferma di cambio password. Deve inserire la nuova password due volte<li>Il sistema aggiorna la password</ol>
 Condizione di uscita | La password dell’utente viene aggiornata.
@@ -414,7 +414,7 @@ Eccezioni | Se la nuova password non è valida, vai a [UC_7.3](#uc_73-conferma-d
 #### UC_7.3: Conferma di cambio password fallita
 **Nome** | **Conferma di cambio password fallita**
 ---------|---
-Attori | Utente autenticato.
+Attori | Utente.
 Condizione di entrata | L’utente prova a cambiare la password.
 Flusso di eventi | <br/><ol><li>Il sistema comunica che la password non è valida.<li>L'utente inserisce la nuova password.<li>Il sistema aggiorna la password</ol>
 Condizione di uscita | La password dell’utente viene aggiornata.
@@ -445,6 +445,7 @@ Flusso di eventi | <br/><ol><li>L’utente rifiuta la richiesta<li>Il sistema ca
 Condizione di uscita | La richiesta è stata annullata.
 
 ### Gestione dei film guardati
+![](Use%20case%20diagrams/Gestione%20dei%20film%20guardati.jpg)
 
 #### UC_9: Aggiungere un giudizio
 **Nome** | **Aggiungere un giudizio**
@@ -551,7 +552,15 @@ Condizione di uscita | Il film selezionato verrà suggerito.
 
 ![](Sequence%20diagrams/UC_6%20Autenticare%20un%20account.jpg)
 
+![](Sequence%20diagrams/UC_7%20Richiesta%20di%20cambio%20password.jpg)
+
+![](Sequence%20diagrams/UC_7.2%20Conferma%20di%20cambio%20password.jpg)
+
 ![](Sequence%20diagrams/UC_8%20Richiedere%20amicizia%20tra%20due%20account.jpg)
+
+![](Sequence%20diagrams/UC_8.1%20Confermare%20amicizia%20tra%20due%20account.jpg)
+
+![](Sequence%20diagrams/UC_8.2%20Rifiutare%20amicizia%20tra%20due%20account.jpg)
 
 ### Gestione dei film guardati
 
@@ -572,3 +581,9 @@ Condizione di uscita | Il film selezionato verrà suggerito.
 ![](Sequence%20diagrams/UC_15%20Aggiornare%20la%20presenza%20di%20film%20nelle%20liste.jpg)
 
 ![](Sequence%20diagrams/UC_16%20Seguire%20liste%20altrui.jpg)
+
+### Suggerimenti
+
+![](Sequence%20diagrams/UC_17%20Suggerire%20un%20film%20a%20un%20account%20amico.jpg)
+
+![](Sequence%20diagrams/UC_18%20Suggerimento%20automatico%20di%20un%20film.jpg)
