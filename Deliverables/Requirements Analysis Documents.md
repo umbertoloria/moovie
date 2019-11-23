@@ -540,7 +540,8 @@ Flusso di eventi | <br/><ol><li>L’utente accede alla funzionalità di suggerim
 Condizione di uscita | Il film selezionato verrà suggerito.
 
 ## Object model
-Boundary objects:
+
+###Boundary objects
 * **Area di ricerca**: offre le funzioni di ricerca di film, artisti e utenti
 * **Risultati di ricerca**: presenta i risultati elaborati dopo una ricerca
 * **Pagina film**: mostra le informazioni di un film
@@ -572,6 +573,22 @@ determinato film deve essere presente
 * **Form di selezione amici**: richiede la selezione di almeno uno tra i propri amici
 * **Pagina di suggerimento automatico**: permette di richiedere il suggerimento automatico di un film sconosciuto
 * **Area di presentazione film**: suggerisce un film
+
+### Control objects
+* **Ricerca**: permette di ricercare film, artisti e utenti **(movies, artists, users)**
+* **Redirect**: offre servizi di redirect via browser
+* **Registrazione**: permette di registrare un account, controllando prima la correttezza dei campi inseriti
+* **Guarda più tardi**: aggiunge un film nei "Guarda più tardi" **(add, ...)**
+* **Accesso**: permette di autenticare un account se si conoscono e-mail e password annessi
+* **Richiesta cambio password**: effettua la richiesta di cambio password
+* **Conferma cambio password**: effettua la conferma di cambio password
+* **Amicizie**: richiede, accetta e rifiuta le amicizie **(request, accept, refuse)**
+* **Film guardati**: aggiunge, modifica e rimuove il giudizio di un film **(add, edit, drop)**
+* **Liste**: crea, modifica, cancella una lista. Permette a un account di seguire una lista. Inoltre, fornendo un film
+e una collezione di liste possedute da un account, inserisce questo film solo nelle liste fornite, rimuovendolo (se
+presente) in tutte le altre. **(create, modify, delete, follow, absolute_presence)**
+* **Suggerimenti amici**: permette ad un account di suggerire un film a uno o più account amici
+* **Suggerimenti automatici**: suggerisce un film ad un account in base alle sue preferenze cinematografiche
 
 ## Sequence diagrams
 
