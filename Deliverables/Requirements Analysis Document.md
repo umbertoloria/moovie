@@ -541,7 +541,7 @@ Condizione di uscita | Il film selezionato verrà suggerito.
 
 ## Object model
 
-###Boundary objects
+### Boundary objects
 * **Area di ricerca**: offre le funzioni di ricerca di film, artisti e utenti
 * **Risultati di ricerca**: presenta i risultati elaborati dopo una ricerca
 * **Pagina film**: mostra le informazioni di un film
@@ -589,6 +589,44 @@ e una collezione di liste possedute da un account, inserisce questo film solo ne
 presente) in tutte le altre. **(create, modify, delete, follow, absolute_presence)**
 * **Suggerimenti amici**: permette ad un account di suggerire un film a uno o più account amici
 * **Suggerimenti automatici**: suggerisce un film ad un account in base alle sue preferenze cinematografiche
+
+### Manager objects
+* Film Manager:
+    * cerca film tramite fulltext e criteri avanzati
+    * suggerisce automaticamente un film ad un utente
+* Artista Manager:
+    * cerca artisti tramite fulltext e criteri avanzati
+* Account Manager:
+    * cerca utenti tramite fulltext e criteri avanzati
+    * controlla l'esistenza di un utente con un determinato indirizzo e-mail
+    * crea account composto da: nome, cognome, indirizzo e-mail e password
+    * attiva un account
+    * autentica un account
+    * controlla che un account abbia una determinata password
+    * aggiorna la password di un account
+    * crea una richiesta di amicizia
+    * accetta una richiesta di amicizia
+    * rifiuta una richiesta di amicizia
+    * fornisce una collezione contenente gli amici di un account
+    * suggerisce un film ad un account
+* E-Mail Manager: permette di inviare e-mail
+* Film Guardati Manager:
+    * aggiunge un giudizio su un film guardato
+    * modifica il giudizio di un film guardato
+    * rimuove il giudizio di un film guardato
+* Lista Manager
+    * verifica se un utente possiede una lista con un determinato nome
+    * crea una lista composta da: nome, visibilità (pubblica, amici, privata **(?)**) ed almeno un film
+    * comunica se un utente è proprietario di una lista
+    * modifica nome e visibilità di una lista
+    * cancella una lista
+    * inserisce un film solo nelle liste fornite da un utente, rimuovendolo in tutte le altre liste di sua proprietà
+    * permette ad un account di seguire una lista
+
+### Entity objects
+* Utente
+* Lista
+* Film
 
 ## Sequence diagrams
 
