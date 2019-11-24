@@ -1,4 +1,4 @@
-# Requirements Analysis Documents
+# Requirements Analysis Document
 | Versione |    Data    | Descrizione                  | Autori                   |
 |----------|------------|------------------------------|--------------------------|
 | 0.1      | 30/9/2019  | Prima stesura                | Umberto Loria            |
@@ -631,6 +631,21 @@ presente) in tutte le altre. **(create, modify, delete, follow, absolute_presenc
 
 ## Class diagrams
 ![](Class%20diagrams/Main%20class%20diagram.jpg)
+
+### Ricerca e consulazione
+![](Class%20diagrams/Ricerca%20e%20consultazione.jpg)
+
+### Gestione account
+![](Class%20diagrams/Gestione%20account.jpg)
+
+### Gestione dei film guardati
+![](Class%20diagrams/Gestione%20dei%20film%20guardati.jpg)
+
+### Gestione delle liste
+![](Class%20diagrams/Gestione%20delle%20liste.jpg)
+
+### Suggerimenti
+![](Class%20diagrams/Suggerimenti.jpg)
 
 ## Sequence diagrams
 
