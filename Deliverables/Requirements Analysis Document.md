@@ -74,7 +74,7 @@
         3. Gestione dei film guardati
         4. Gestione delle liste
         5. Suggerimenti
-    7. Dynamic model
+    7. [Class diagram](#class-diagrams)
     8. [Sequence diagrams](#sequence-diagrams)
         1. Ricerca e consulazione
         2. Gestione account
@@ -542,37 +542,38 @@ Condizione di uscita | Il film selezionato verrà suggerito.
 ## Object model
 
 ### Boundary objects
-* **Area di ricerca**: offre le funzioni di ricerca di film, artisti e utenti
-* **Risultati di ricerca**: presenta i risultati elaborati dopo una ricerca
 * **Pagina film**: mostra le informazioni di un film
 * **Pagina artista**: mostra le informazioni di un artista
 * **Pagina utente**: mostra le informazioni di un utente (in funzione della visibilità di queste)
-* **Form di registrazione**: richiede l'inserimento di informazioni necessarie alla creazione di un nuovo account
-* **Pagina iniziale**: mostra informazioni rilevanti per l'utente. Se autenticato, mostra film da guardare, ultime
-attività degli amici e altri contenuti suggeriti. Se ospite, altre informazioni di tendenza.
-* **E-Mail attivazione account**: descrive la procedura per attivare un nuovo account
+* **Pagina iniziale**: mostra informazioni rilevanti per l'utente
+    * Se l'utente è autenticato, mostra film da guardare, ultime attività degli amici e altri contenuti suggeriti
+    * Se l'utente è ospite, la pagina mostra altre informazioni di tendenza
 * **Pagina primi passi**: consente di inserire le prime preferenze cinematografiche dell'utente novizio
-* **Form di accesso**: consente di autenticarsi in un account esistente
-* **Form di richiesta cambio password**: richiede l'inserimento della password attuale per cominciare la procedura di
-aggiornamento della stessa
+* **Pagina film guardati**: mostra i giudizi
+* **Pagina lista**: mostra le informazioni di una lista
+* **Pagina di suggerimento automatico**: permette di richiedere il suggerimento automatico di un film sconosciuto
+* **Area di ricerca**: offre le funzioni di ricerca di film, artisti e utenti
+* **Risultati di ricerca**: presenta i risultati elaborati dopo una ricerca
+* **Area di presentazione film**: suggerisce un film
+* **E-Mail attivazione account**: descrive la procedura per attivare un nuovo account
 * **E-Mail cambio password**: descrive la procedura per cambiare la password
-* **Form di conferma cambio password**: richiede l'inserimento delle password corrente e nuova per poi aggiornarla
 * **Conferma amicizia inviata**: notifica l'avvenuta richiesta di amicizia
 * **Conferma amicizia accettata**: notifica l'avvenuta conferma di amicizia
 * **Conferma amicizia rifiutata**: notifica l'avvenuto rifiuto di amicizia
-* **Form di aggiunta giudizio**: richiede l'inserimento del giudizio da salvare
-* **Pagina film guardati**: mostra i giudizi
-* **Form di modifica giudizio**: richiede l'inserimento del giudizio da aggiornare
-* **Form di creazione lista**: richiede l'inserimento delle informazioni necessarie alla creazione di una nuova lista
-* **Pagina lista**: mostra le informazioni di una lista
 * **Conferma lista modificata**: notifica l'avvenuta modifica di una lista
 * **Conferma lista eliminata**: notifica l'avvenuta rimozione di una lista
+* **Conferma lista seguita**: notifica che si riceveranno aggiornamenti riguardo i cambiamenti di una lista
+* **Form di registrazione**: richiede l'inserimento di informazioni necessarie alla creazione di un nuovo account
+* **Form di accesso**: consente di autenticarsi in un account esistente
+* **Form di richiesta cambio password**: richiede l'inserimento della password attuale per cominciare la procedura di
+aggiornamento della stessa
+* **Form di conferma cambio password**: richiede l'inserimento delle password corrente e nuova per poi aggiornarla
+* **Form di aggiunta giudizio**: richiede l'inserimento del giudizio da salvare
+* **Form di modifica giudizio**: richiede l'inserimento del giudizio da aggiornare
+* **Form di creazione lista**: richiede l'inserimento delle informazioni necessarie alla creazione di una nuova lista
 * **Form di aggiornamento presenza film in liste**: richiede la selezione delle sole proprie liste in cui un
 determinato film deve essere presente
-* **Conferma lista seguita**: notifica che si riceveranno aggiornamenti riguardo i cambiamenti di una lista
 * **Form di selezione amici**: richiede la selezione di almeno uno tra i propri amici
-* **Pagina di suggerimento automatico**: permette di richiedere il suggerimento automatico di un film sconosciuto
-* **Area di presentazione film**: suggerisce un film
 
 ### Control objects
 * **Ricerca**: permette di ricercare film, artisti e utenti **(movies, artists, users)**
@@ -624,9 +625,12 @@ presente) in tutte le altre. **(create, modify, delete, follow, absolute_presenc
     * permette ad un account di seguire una lista
 
 ### Entity objects
-* Utente
-* Lista
-* Film
+* Utente: rappresenta i dati di un utente
+* Lista: rappresenta le informazioni di una lista e film che contiene
+* Film: rappresenta le informazioni di un film
+
+## Class diagrams
+![](Class%20diagrams/Main%20class%20diagram.jpg)
 
 ## Sequence diagrams
 
