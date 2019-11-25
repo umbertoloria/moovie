@@ -8,7 +8,7 @@ class DB {
 	public static function init() {
 		try {
 			$host = "localhost";
-			$db = "michelantonio";
+			$db = "moovie";
 			$usr = "root";
 			$pwd = "ciaociao";
 			self::$c = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $usr, $pwd);

@@ -1,3 +1,2 @@
-<p>
-	Oddio! Hai sbagliato!
-</p>
+<?php include "parts/head.php"; ?>
+<p>Pagina non trovata.</p>

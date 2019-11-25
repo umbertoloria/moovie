@@ -1,3 +1,2 @@
-<p>
-	Siamo noi
-</p>
+<?php include "parts/head.php"; ?>
+<p>Siamo noi</p>
