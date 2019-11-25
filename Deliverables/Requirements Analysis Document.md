@@ -82,7 +82,9 @@
         3. Amicizie
         4. Film
         5. Liste
-    9. User interface-navigational paths and screen mock-ups
+    9. [Statechart diagrams](#statechart-diagrams)
+    10. [Navigational paths](#navigational-paths)
+    11. Screen mock-ups
 4. Glossary
 
 # Introduzione
@@ -721,3 +723,13 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
 ![](Sequence%20diagrams/UC_17%20Aggiornare%20la%20presenza%20di%20film%20nelle%20liste.jpg)
 
 ![](Sequence%20diagrams/UC_18%20Seguire%20liste%20altrui.jpg)
+
+## Statechart diagrams
+![](Statechart%20diagrams/Utente.jpg)
+![](Statechart%20diagrams/Amicizia.jpg)
+
+## Navigational paths
+
+![](Navigational%20paths/Utente%20ospite.jpg)
+
+![](Navigational%20paths/Utente%20autenticato.jpg)
