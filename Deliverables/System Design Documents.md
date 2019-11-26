@@ -1,4 +1,9 @@
 # System Design Document
+| Versione |    Data    | Descrizione                  | Autori                   |
+| :------: | :--------: | :------------------------:   | :----------------------: |
+| 0.1      | 19/11/2019 | Prima stesura                | Michelantonio Panichella, Gianluca Pirone  |
+| 0.2      | 26/11/2019 | Mappatura HW/SW, Gestione Accessi | Gianluca Pirone  |
+
 1. [Introduzione](#introduzione)
     1. Descrizione del Problema
     2. [Design Goals](#designgoals)
@@ -34,9 +39,9 @@
                 1. [SuggerimentiPresentationLayer](#suggerimentipresentationlayer)
                 2. [SuggerimentiApplicationLayer](#suggerimentiapplicationlayer)
                 3. [SuggerimentiDataLayer](#suggerimentidatalayer)
-    3. Mappatura Hardware/Software
+    3. [Mappatura Hardware/Software](#mappatura-hardwaresoftware)
     4. Gestione dei Dati Persistenti
-    5. Gestione degli accessi
+    5. [Gestione degli accessi](#gestione-degli-accessi)
     6. Condizione limite
 3. Servizi dei Sottosistemi
 4. Glossario
@@ -239,7 +244,29 @@ Questo include al suo interno tutte le componenti che offrono operazione di "Sug
 #### SuggerimentiDataLayer
 Questo livello si occupa di gestire i dati riguardanti i suggerimenti agli utenti autenticati all'interno del sistema.
 
+## Mappatura Hardware/Software
+Il sistema avrà un'architettura client/server three-tier con un client che implementa il livello di presentazione, un server che implementa la logica applicativa e un secondo server che comprende un DBMS per la gestione dei dati.  
+Sul client è eseguto un web browser che consentirà all'utente, attraverso una interfaccia grafica, di interagire con il sistema. La comunicazione tra client e server che si occupa della logica di business avverrà tramite protocollo HTTP.
+Questo protocollo permette di trasferire ipertesti tra client di presentazione e server della logica applicativa tramite un meccanismo di richiesta e risposta.
+Dal punto di vista hardware, il client potrà essere una qualsiasi macchina dotata di connesione ad internet, mentre per le specifiche software un sistema operativo con installato uno dei web browser supportati, sarà sufficiente per interagire con il sistema.
+Il server della logica applicativa, dotato di connessione ad internet, avrà installato un Web Server Apache con modulo PHP, e comunicherà con il server della gestione dei dati attravero un protocollo MySql. Infatti quest'ultimo, dotato anche esso di connessione ad intenet, avrà un database realazionale MySql.
 
+
+
+## Gestione degli Accessi
+Moovie prevede differenti tipologie di utenza, ognuna delle quali può usufruire di varie funzionalità, a seconda del tipo di oggetto con cui interagiscono.
+
+Si è scelto di utilizzare una matrice per documentare i diritti di accesso per ogni attore.
+La matrice suddivide la tipologia di attore per colonna, la tipologia di oggetto a cui si accede per riga, e per ogni interazione tra questi è presente l'insieme di operazioni disponibli. 
+  
+
+**Attori / Oggetti** | **Utente** | **Utente Autenticato** | **Gestore**
+-------- | --------| ----- | ---- 
+Utente | CreareAccount()  AttivareAccount() AutenticareAccount() | RichiestaCambioPassword() ConfermaCambioPassword() RicercaUtente() | RichiestaCambioPassword() ConfermaCambioPassword() RicercaUtente() 
+Film | RicercaFilm() | RicercaFilm() AggiungereGiudizioFilm() ModificareGiudizioFilm() RimuovereGiudizioFilm() SuggerimentoAutomaticoFilm() | AggiungiFilm()(**Da aggiungere?**) RicercaFilm() AggiungereGiudizioFilm() ModificareGiudizioFilm() RimuovereGiudizioFilm() SuggerimentoAutomaticoFilm() 
+Artista | RicercaArtista() | RicercaArtista() | AggiungiArtista()(**Da aggungere?**) RicercaArtista()
+Lista | | CreareLista() ModificareLista() EliminareLista() AggiornarePresenzaFilmLista() SeguireListeAltrui() | CreareLista() ModificareLista() EliminareLista() AggiornarePresenzaFilmLista() SeguireListeAltrui()
+Amicizia | | RichiestaAmiciziaAccount() ConfermaAmiciziaAccount() RifiutaAmiciziaAccount() SuggerireFilmAccountAmico() | RichiestaAmiciziaAccount() ConfermaAmiciziaAccount() RifiutaAmiciziaAccount() SuggerireFilmAccountAmico()
 
 
 
