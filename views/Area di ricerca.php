@@ -1,0 +1,17 @@
+<form id="area_di_ricerca" method="post" action="/controllers/Ricerca.php">
+	<div class="dropdown_selecter">
+		<input type="hidden" name="kind" value=""/>
+		<label></label>
+		<ul>
+			<li data-select-value="all">Tutto</li>
+			<li data-select-value="movies" data-select-default>Film</li>
+			<li data-select-value="artists">Artista</li>
+			<li data-select-value="users">Utente</li>
+		</ul>
+	</div>
+	<input type="text" name="fulltext" placeholder="Ricerca..."/>
+	<input type="submit" value="Cerca"/>
+</form>
+<script>
+	new DropdownSelecter("#area_di_ricerca > .dropdown_selecter");
+</script>
