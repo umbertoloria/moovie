@@ -3,9 +3,10 @@
 | :------: | :--------: | :------------------------:   | :----------------------: |
 | 0.1      | 19/11/2019 | Prima stesura                | Michelantonio Panichella, Gianluca Pirone  |
 | 0.2      | 26/11/2019 | Mappatura HW/SW, Gestione Accessi | Gianluca Pirone  |
+| 0.3      | 28/11/2019 | Descrizione del problema | Michelantonio Panichella  |
 
 1. [Introduzione](#introduzione)
-    1. Descrizione del Problema
+    1. [Descrizione del Problema](#-descrizione-del-problema)
     2. [Design Goals](#designgoals)
         1. [Usability](#dg_1_usability)
         2. [Reliability](#dg_2_reliability)
@@ -49,14 +50,25 @@
 # Introduzione
 
 ## Descrizione del problema
+-------------
+La web-Application da noi proposta è stata progettata per poter permettere a chiunque fosse interessato e appassionato di cinema, di gestire, e non solo, i propri film nella maniera quanto più semplice e divertente possibile.
+Moovie infatti offrè la possibilità di trovare al suo interno tantissime informazioni riguardanti il mondo del cinema e consentirà a tutti gli utenti di avere delle vere e proprie liste di film che potrà condividere con i proprio amici.
+L'Obiettivo del sito è quello di facilitare a tutti il reperimento di dati riguardanti il mondo del cinema, fornendo una piattaforma che sia in grado di condividere informazioni cinematografiche nella quale ogni utente potrà registrarsi e condividere le sue informazioni e le cose che più gli interessano ai suoi amici.
+Tutto ciò verrà offerto attraverso delle funzionalità che il sito offre quali:
 
+ - Gestione del proprio Account
+ 
+ - Ricerca di un film, di un attore o di un utente ricevendo informazioni su di esso
 
-
-
-
-
+ - Gestione dele amicizie inviando, ricevendo, accettando o rifiutandone una
+ 
+ - Gestione delle liste creando, modificando, o rimuovendo delle liste
+ 
+ - Gestione dei film aggiungendo, modificando o rimuovendo un giudizio su un film
+    
 
 ##  DesignGoals
+---------------
 Il sito Moovie sarà progettato in modo tale da offrire all'utente, attraverso una grafica  composta da bottoni, finestre di dialogo ed icone, una navigazione e fruizione delle funzionalità nel modo più intuitivo e semplice possibile. Gli Utenti, anche coloro che hanno scarse conoscenze del sistema, saranno in grado di muoversi all'interno della Web-Application e operare in maniera lampante
 
 //Il sito Moovie sarà progettato in modo tale da fare avere all'utente una Web-Application di qualità. La qualità fornita è visibile all'interno del sistema laddove ci interfacciamo con esso in quanto Moovie dovrà offrire un interfaccia facile e semplice da ulizzare da parte di tutti gli utenti, laddove eseguiamo delle funzionalità in quanto Moovie dovrà garantire tempi di risposta minima, nel trattamento dei dati, nell'uso del sistema su diverse piattaforme senza avere problemi di "adattabilità" e 
