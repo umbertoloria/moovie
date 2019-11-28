@@ -1,0 +1,96 @@
+/* Pagina film, artista e utente */
+section {
+	display: flex;
+	flex-wrap: wrap;
+	width: 1200px;
+}
+
+#presentation {
+	width: 100%;
+	flex-grow: 1;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	margin: 30px;
+}
+
+#presentation img {
+	width: 200px;
+	height: 250px;
+	border-radius: 3px;
+	object-fit: cover;
+}
+
+#presentation div {
+	flex-grow: 1;
+}
+
+#presentation div h1 {
+	font-size: 2em;
+	margin: 0 0 10px 0;
+}
+
+#presentation div span {
+	display: inline-block;
+	padding: 2px 5px;
+	border-radius: 2px;
+	margin: 0 0 10px 0;
+	background: rgba(0, 0, 0, .15);
+}
+
+#presentation div p {
+	margin: 0;
+}
+
+.group {
+	margin: 30px;
+	/*width: calc(50% - 60px);*/
+	width: 100%;
+}
+
+.group label {
+	display: block;
+	line-height: 40px;
+	padding: 0 20px;
+	background: #ccc;
+}
+
+.group ul {
+	margin: 0;
+	padding: 20px 0 0 0;
+	display: grid;
+	grid-gap: 20px;
+	/*grid-template-columns: 1fr 1fr 1fr;*/
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.group ul li {
+	display: block;
+	list-style: none;
+}
+
+.group ul li a {
+	display: block;
+	text-decoration: none;
+	font: inherit;
+}
+
+.group ul li a img {
+	display: block;
+	width: 100%;
+	height: 230px;
+	object-fit: cover;
+	border-radius: 2px;
+	transition: .2s;
+}
+
+.group ul li a:hover img {
+	transform: scale(1.03);
+}
+
+.group ul li a span {
+	display: block;
+	padding: 5px 0;
+	line-height: 1.2em;
+	background: #ddd;
+}

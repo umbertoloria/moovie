@@ -13,5 +13,6 @@
 	<input type="submit" value="Cerca"/>
 </form>
 <script>
+	// TODO: Retrieve throw get("name") instead of creating it
 	new DropdownSelecter("#area_di_ricerca > .dropdown_selecter");
 </script>

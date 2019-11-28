@@ -6,14 +6,14 @@ class Recitazione
 	/** @var int */
 	private $film;
 	/** @var int */
-	private $artista;
+	private $attore;
 	/** @var string */
 	private $personaggio;
 
-	public function __construct(int $film, int $artista, string $personaggio)
+	public function __construct(int $film, int $attore, string $personaggio)
 	{
 		$this->film = $film;
-		$this->artista = $artista;
+		$this->attore = $attore;
 		$this->personaggio = $personaggio;
 	}
 
@@ -22,9 +22,9 @@ class Recitazione
 		return $this->film;
 	}
 
-	public function getArtista(): int
+	public function getAttore(): int
 	{
-		return $this->artista;
+		return $this->attore;
 	}
 
 	public function getPersonaggio(): string

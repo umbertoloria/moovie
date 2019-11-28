@@ -2,15 +2,16 @@
 
 class Regia
 {
+
 	/** @var int */
 	private $film;
 	/** @var int */
-	private $artista;
+	private $regista;
 
-	public function __construct(int $film, int $artista)
+	public function __construct(int $film, int $regista)
 	{
 		$this->film = $film;
-		$this->artista = $artista;
+		$this->regista = $regista;
 	}
 
 	public function getFilm(): int
@@ -18,9 +19,9 @@ class Regia
 		return $this->film;
 	}
 
-	public function getArtista(): int
+	public function getRegista(): int
 	{
-		return $this->artista;
+		return $this->regista;
 	}
 
 }
