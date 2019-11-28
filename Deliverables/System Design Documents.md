@@ -5,6 +5,7 @@
 | 0.2      | 26/11/2019 | Mappatura HW/SW, Gestione Accessi | Gianluca Pirone  |
 | 0.3      | 28/11/2019 | Descrizione del problema | Michelantonio Panichella  |
 | 0.4      | 28/11/2019 | Revisione sottositemi | Michelantonio Panichella, Gianluca Pirone  |
+| 0.5      | 28/11/2019 | Aggiunta diagrammi, condizione limite e servizi sottosistemi | Michelantonio Panichella, Gianluca Pirone  |    
 
 1. [Introduzione](#introduzione)
     1. [Descrizione del Problema](#-descrizione-del-problema)
@@ -39,9 +40,17 @@
                 3. [ListeDataLayer](#listedatalayer)
     3. [Mappatura Hardware/Software](#mappatura-hardwaresoftware)
     4. Gestione dei Dati Persistenti
+        1. [Inizializzazione](#inizializzazione)
+        2. [Terminazione](#terminazione)
+        3. [Fallimenti](#fallimenti)
     5. [Gestione degli accessi](#gestione-degli-accessi)
-    6. Condizione limite
-3. Servizi dei Sottosistemi
+    6. [Condizione limite](#-condizione-limite)
+3. [Servizi dei Sottosistemi](#servizi-dei-sottositemi)
+    1. [Sottosistema "Accounts"](#sottosistema-accounts)
+    2. [Sottosistema "Richerche"](#sottosistema-ricerche)
+    3. [Sottosistema "Amicizie"](#sottosistema-amicizie)
+    4. [Sottosistema "Film"](#sottosistema-film)
+    5. [Sottosistema "Liste"](#sottosistema-liste)
 4. Glossario
 
 # Introduzione
@@ -114,12 +123,7 @@ La decomposizione in sosttositemi è stata fatta cercando di raggruppare argomen
  - Film;
  - Liste;
 
-
-
-
-
-
-
+![](Package%20diagrams/Macro%20decomposizione.jpg)
 
 
 L'immagine mostrata, rappresenta le varie suddivisioni fatte all'interno del sistema mostrando dunque, per ogni layer, i sottosistemi che includono e descrivendo anche le relazioni che ci sono tra i vari layer.
@@ -128,10 +132,11 @@ L'immagine mostrata, rappresenta le varie suddivisioni fatte all'interno del sis
 ### Decomposizione in micro-sistemi
 Per procedere ad uno sviluppo e ad una progettazione semplificata dell'intero sistema si è deciso di suddividere i sottosistemi in tre stati:
  - PresentationLayer: Strato che si occupa delle interfaccie grafiche con il quale l'utente dovra interagire;
- - ApplicationLayer: Strato che si occupa di gestire tutte le richieste che l'utente fa attraverso il "PresentationLayaer", ricevendo, elaborando e alla fine mostrando graficamente il risultato di un' operazione da lui fatta;
- - Storage: Strato che si occupa di gestire i dati del sistema.
+ - ApplicationLayer: Strato che si occupa di gestire tutte le richieste che l'utente fa attraverso il "PresentationLayer", ricevendo, elaborando e alla fine mostrando graficamente il risultato di un' operazione da lui fatta;
+ - Data: Strato che si occupa di gestire i dati del sistema.
 
 #### Ricerche
+![](Package%20diagrams/Ricerche.jpeg)
 Il sottosistema di "Ricerche" si occupa di gestire le ricerche di tutti gli utenti offrendo diverse funzionalità quali:
  - Ricerca di un film;
  - Ricerca di un artista;	
@@ -153,6 +158,7 @@ Questo include al suo interno tutte le componenti che offrono operazioni rigurda
 Questo livello si occupa di gestire i dati riguardanti le richerche degli utenti all'interno del sistema.
 
 #### Accounts
+![](Package%20diagrams/Accounts.jpg)
 Il sottosistema di "Accounts" si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
  - Creare un account
  - Attivare un account 
@@ -181,6 +187,7 @@ Questo include al suo interno tutte le componenti che offrono operazioni rigurda
 Questo livello si occupa di gestire i dati riguardanti gli utenti dell'intero sistema.
 
 #### Amicizie
+![](Package%20diagrams/Amicizie.jpg)
 Il sottosistema di "Amicizie" si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
  - Richiedere amicizia tra due account
  - Confermare amicizia tra due account
@@ -205,6 +212,7 @@ Questo include al suo interno tutte le componenti che offrono operazioni rigurda
 Questo livello si occupa di gestire le amicizie degli utenti dell'intero sistema.
 
 #### Film
+![](Package%20diagrams/Film.jpeg)
 Il sottosistema di "Film" si occupa di gestire i giudizi di tutti gli utenti autenticati offrendo diverse funzionalità quali:
  - Aggiungere un giudizio;	
  - Modificare un giudizio;
@@ -228,6 +236,7 @@ Questo include al suo interno tutte le componenti che offrono operazioni rigurda
 Questo livello si occupa di gestire i dati riguardanti i giudizi sui film  degli utenti autenticati, e il suggerimento automatico all'interno del sistema.
 
 #### Liste
+![](Package%20diagrams/Liste.jpg)
 Il sottosistema di "Liste" si occupa di gestire le liste del sistema offrendo diverse funzionalità quali: 
  - Creare una lista
  - Modificare una lista
@@ -255,6 +264,7 @@ Questo livello include tutte le componenti che offronto operazioni riguardanti i
 Questo livello si occupa di gestire i dati riguardanti le liste all'interno del sistema.
 
 ## Mappatura Hardware/Software
+![](Package%20diagrams/Mapping%20HW%20SW.jpeg)
 Il sistema avrà un'architettura client/server three-tier con un tier che implementa il livello di presentazione, un secondo tier che implementa la logica applicativa e un terzo tier che comprende un DBMS per la gestione dei dati persistenti.  
 Sul primo tier è eseguto un web browser che consentirà all'utente, attraverso una interfaccia grafica, di interagire con il sistema. La comunicazione tra primo e secondo tier che si occupa della logica di business avverrà tramite protocollo HTTP.
 Questo protocollo permette di trasferire ipertesti tra tier di presentazione e tier della logica applicativa tramite un meccanismo di richiesta e risposta.
@@ -277,6 +287,116 @@ Film | RicercaFilm() | RicercaFilm()<br/>AggiungereGiudizio()<br/>ModificareGiud
 Artista | RicercaArtista() | RicercaArtista() | AggiungiArtista()(**Da aggungere?**)<br/>RicercaArtista()
 Lista | | CreareLista()<br/>ModificareLista()<br/>EliminareLista()<br/>AggiornarePresenzaFilm()<br/>SeguireListeAltrui() | CreareLista()<br/>ModificareLista()<br/>EliminareLista()<br/>AggiornarePresenzaFilm()<br/>SeguireListeAltrui()
 Amicizia | | RichiestaAmiciziaAccount()<br/>ConfermaAmiciziaAccount()<br/>RifiutaAmiciziaAccount()<br/>SuggerisciFilmAccountAmico() | RichiestaAmiciziaAccount()<br/>ConfermaAmiciziaAccount()<br/>RifiutaAmiciziaAccount()<br/>SuggerisciFilmAccountAmico()
+
+
+## Condizione Limite
+--------------------
+### Inizializzazione
+Allo start-up del sistema è necessario l'avvio di un Web-Server Apache, il quale, attraverso MySQL acquisirà le informazioni necessarie all'interno del database per permettere all'utente la viusualizzazione della HomePage
+Ritrovandosi su questa, l'utente avrà la possibilità di usufrurire di tutte le funzionalità che Moovie offre.
+
+### Terminazione
+In fase di terminazione del sistema sarà garantita una corretta persistenza dei dati annullando le eventuali operazioni in esecuzione. Inoltre ogni sottosistema cesserà di operare correttamente.
+
+### Fallimenti
+In caso di errore o fallimento del sistema o dei suoi sottosistemi, Moovie garantirà di tornare ad una condizione precedente di funzionamento ottimale
+
+
+
+# Servizi dei Sottositemi
+Il sito Moovie per semplicità è stato decomposto in sottositemi e per ognuno di questi sono previste delle operazioni che sono i servizi che la web-application offre.
+
+## Sottosistema "Accounts"
+| Sottosistema | Descrizione |
+|----------|-------------------|
+| Accounts | Il sottosistema "Account" si occupa di fornire tutti i servizi che permettono ad un utente di gestire il proprio account|
+
+| Servizi | Descrizione |
+|-----------|----------------|
+| CreareAccount() | Servizio che offre la possibilità di creare un account ad un utente che non ne posside uno |
+| AttivareAccount() | Servizio che offre la possibilità di attivare un account appena creato |
+| AutenticareAccount() | Servizie che permette ad un utente di autenticarsi all'interno del sito |
+| RichiestaCambioPassword() | Servizio che permette di effettuare una richiesta di cambio password |
+| ConfermaCambioPassword() | Servizio che permette ad un utente di accettare il cambio password effettuato in precedenza |
+
+
+## Sottosistema "Ricerche"
+| Sottosistema | Descrizione |
+|----------|-------------------|
+| Ricerche | Il sottosistema "Richerche" si occupa di fornire tutti i servizi che offrono la possibilità di effettuare delle ricerche e ricevere delle informazioni sul sito |
+
+| Servizi | Descrizione |
+|-----------|----------------|
+| RicercaFilm() | Servizio che offre la possibilità di ricercare un film all'interno di Moovie |
+| RicercaArtista() | Servizio che offre la possibilità di ricercare un determinato artista all'interno di Moovie |
+| RicercaUtente() | Servizio che offre la possibilità di ricercare un utente all'interno di Moovie |
+
+## Sottosistema "Amicizie"
+| Sottosistema | Descrizione |
+|----------|-------------------|
+| Amicizie | Il sosttosistema "Amicizie" si occupa di fornire tuttti i servizi che permettono ad un utente di gestire le proprie amicizie presenti su Moovie |
+
+| Servizi | Descrizione |
+|-----------|----------------|
+| RichiestaAmiciziaAccount() | Servizio che offre la possibilità di richiedere, ad un altro utente registrato sul sito, la sua amicizia |
+| ConfermaAmiciziaAccount() | Servizio che offre la possibilità di confermare una amicizia ricevuta da parte di un altro utente |
+| RifiutaAmiciziaAccount() | Servizio che permette ad un utente di declinare una amicizia rivecuta da parte di un altro utente |
+| SuggerisciFilmAccountAmico() | Servizio che offre la possibilità di suggerire un particolare film ad un altro amico |
+
+## Sottosistema "Film"
+| Sottosistema | Descrizione |
+|----------|-------------------|
+| FIlm | Il sottosistema "Film" si occupa di fornire tutti i servizi che permettono ad un utente di gestire i giudizi riguardanti i film e di farsi suggerire dei film dal sistema |
+
+| Servizi | Descrizione |
+|-----------|----------------|
+| AggiungereGiudizio() | Servizio che offre la possibilità di aggiungere un giudizio su un film che l'utente ha visto |
+| ModificareGiudizio() | Servizio che offre la possibilità modificare un giudizio, fatto in precedenza, su un film visto |
+| RimuovereGiudizio() | Servizio che offre la possibilità di rimuovere un giudizio su un film |
+| SuggerimentoAutomatico() | Servizio che offre la possibilità ad un utente di farsi suggerire un film in linea con i suoi gusti |
+
+## Sottosistema "Liste"
+| Sottosistema | Descrizione |
+|--------------|-------------|
+| Liste | Il sottosistema "liste" si occupa di fornire tutti i servizi che permettono ad un utente di gestire le liste |
+
+| Servizi | Descrizione |
+|----------|------------|
+| CreareListe() | Servizio che offre la possibilità ad un utente di creare varie liste in base alle esigenze che lui possiede |
+| ModificareLista() | Servizio che offre la possibilità di modificare una determinata lista, cambiandone il nome e i privilegi che un utente ha scelto in precedenza |
+| EliminareLista() | Servizio che offre la possibilità di eliminare una lista |
+| AggionrnarePresenzaFilm() | Servizio che offre la possibilità di aggiungere o rimuovere un determinato film da una lista |
+| SeguireListeAltrui() | Servizio che offre la possibilità di seguire una lista di un amico |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
