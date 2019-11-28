@@ -4,6 +4,7 @@
 | 0.1      | 19/11/2019 | Prima stesura                | Michelantonio Panichella, Gianluca Pirone  |
 | 0.2      | 26/11/2019 | Mappatura HW/SW, Gestione Accessi | Gianluca Pirone  |
 | 0.3      | 28/11/2019 | Descrizione del problema | Michelantonio Panichella  |
+| 0.4      | 28/11/2019 | Revisione sottositemi | Michelantonio Panichella, Gianluca Pirone  |
 
 1. [Introduzione](#introduzione)
     1. [Descrizione del Problema](#-descrizione-del-problema)
@@ -20,26 +21,22 @@
     2. [Decomposizione in sottosistemi](#decomposizione-in-sottosistemi)
         1. [Decomposizione in macro-sistemi](#decomposizione-in-macro-sistemi)
         2. [Decomposizione in miscro-sistemi](#decomposizione-in-micro-sistemi)
-            1. [Ricerca e consultazione](#ricerca-e-consultazione)
-                1. [RicercaConsultazionePresentationLayer](#ricercaconsultazionepresentationlayer)
-                2. [RicercaConsultazioneApplicationLayer](#ricercaconsultazioneapplicationlayer)
-                3. [RicercaConsultazioneDataLayer](#ricercaconsultazionedatalayer)
-            2. [Gestione account](#gestione-account)
-                1. [GestioneAccountPresentationLayer](#gestioneaccountpresentationlayer)
-                2. [GestioneAccountApplicationLayer](#gestioneaccountapplicationlayer)
-                3. [GestioneAccountDataLayer](#gestioneaccountdatalayer)
-            3. [Gestione dei film guardati](#gestione-dei-film-guardati)
-                1. [GestioneFilmGuardatiPresentationLayer](#gestionefilmguardatipresentationlayer)
-                2. [GestioneFilmGuardatiApplicationLayer](#gestionefilmguardatiapplicationlayer)
-                3. [GestioneFilmGuardatiDataLayer](#gestionefilmguardatidatalayer)
-            4. [Gestione delle liste](#gestione-delle-liste)
-                1. [GestioneDelleListePresentationLayer](#gestionedellelistepresentationlayer)
-                2. [GestioneDelleListeApplicationLayer](#gestionedellelisteapplicationlayer)
-                3. [GestioneDelleListeDataLayer](#gestionedellelistedatalayer)
-            5. [Suggerimenti](#suggerimenti)
-                1. [SuggerimentiPresentationLayer](#suggerimentipresentationlayer)
-                2. [SuggerimentiApplicationLayer](#suggerimentiapplicationlayer)
-                3. [SuggerimentiDataLayer](#suggerimentidatalayer)
+            1. [Ricerche](#ricerche)
+                1. [RicerchePresentationLayer](#ricerchepresentationlayer)
+                2. [RicercheApplicationLayer](#ricercheapplicationlayer)
+                3. [RicercheDataLayer](#ricerchedatalayer)
+            2. [Accounts](#accounts)
+                1. [AccountsPresentationLayer](#accountspresentationlayer)
+                2. [AccountsApplicationLayer](#accountsapplicationlayer)
+                3. [AccountsDataLayer](#accountsdatalayer)
+            3. [Film](#film)
+                1. [FilmPresentationLayer](#filmpresentationlayer)
+                2. [FilmApplicationLayer](#filmapplicationlayer)
+                3. [FilmDataLayer](#filmdatalayer)
+            4. [Liste](#liste)
+                1. [ListePresentationLayer](#listepresentationlayer)
+                2. [ListeApplicationLayer](#listeapplicationlayer)
+                3. [ListeDataLayer](#listedatalayer)
     3. [Mappatura Hardware/Software](#mappatura-hardwaresoftware)
     4. Gestione dei Dati Persistenti
     5. [Gestione degli accessi](#gestione-degli-accessi)
@@ -111,11 +108,11 @@ In questo pattern le componenti del sistema hanno 3 ruoli principali quali:
 ## Decomposizione in sottosistemi
 ### Decomposizione in macro-sistemi
 La decomposizione in sosttositemi è stata fatta cercando di raggruppare argomenti che sono tra loro quanto più simili possibili. Una macro suddivisione del sistema è stata fatta in questo modo:
- - Ricerca e consultazione;
- - Gestione account;
- - Gestione dei film guardati;   
- - Gestione delle liste;
- - Suggerimenti;
+ - Ricerche;
+ - Accounts;
+ - Amicizie;   
+ - Film;
+ - Liste;
 
 
 
@@ -134,134 +131,135 @@ Per procedere ad uno sviluppo e ad una progettazione semplificata dell'intero si
  - ApplicationLayer: Strato che si occupa di gestire tutte le richieste che l'utente fa attraverso il "PresentationLayaer", ricevendo, elaborando e alla fine mostrando graficamente il risultato di un' operazione da lui fatta;
  - Storage: Strato che si occupa di gestire i dati del sistema.
 
-#### Ricerca e consultazione
-Il sottosistema di "Ricerca e consultazione" si occupa di gestire le ricerche di tutti gli utenti offrendo diverse funzionalità quali:
+#### Ricerche
+Il sottosistema di "Ricerche" si occupa di gestire le ricerche di tutti gli utenti offrendo diverse funzionalità quali:
  - Ricerca di un film;
  - Ricerca di un artista;	
  - Ricerca di un utente;
 
-#### RicercaConsultazionePresentationLayer
-Questo livello include tutte le componenti dell'interfaccia che offrono funzionalità riguardanti la ricerca e consultazione:
+#### RicerchePresentationLayer
+Questo livello include tutte le componenti dell'interfaccia che offrono funzionalità riguardanti le ricerche:
  - GUI - Ricerca di un film: interfacce che offrono all'utente la possibilità di ricercare un film.
  - GUI - Ricerca di un artista: interfacce che offrono all'utente la possibilità di ricercare un artista.
  - GUI - Ricerca di un utente: interfacce che offrono all'utente autenticato la possibilità di ricercare un altro utente.
 
-#### RicercaConsultazioneApplicationLayer
-Questo include al suo interno tutte le componenti che offrono operazione di "Ricerca e consultazione" al sistema:
- - RicercaFilm(): incoropora operazioni che permettono di ricercare un film ad un utente.
+#### RicercheApplicationLayer
+Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema di "Ricerche" nel sistema:
+- RicercaFilm(): incoropora operazioni che permettono di ricercare un film ad un utente.
 - RicercaArtista(): incoropora operazioni che permettono di ricercare un artista ad un utente.
 - RicercaUtente(): incoropora operazioni che permettono di ricercare un altro utente ad un utente autenticato.
 
-#### RicercaConsultazioneDataLayer
+#### RicercheDataLayer
 Questo livello si occupa di gestire i dati riguardanti le richerche degli utenti all'interno del sistema.
 
-#### Gestione account
-Il sottosistema di "Gestione account" si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
+#### Accounts
+Il sottosistema di "Accounts" si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
  - Creare un account
  - Attivare un account 
  - Autenticare un account
  - Richiesta di cambio password
  - Conferma di cambio password
- - Richiede amicizia tra due account
- - Conferma amicizia tra due account
 
 
-#### GestioneAccountPresentationLayer
+#### AccountsPresentationLayer
 Questo livello include tutte le componenti dell'interfaccia che offrono funzionalità riguardanti la gestione di un account:
  - GUI - Creare un account: interfacce che offrono all'utente la possibilità di creare il proprio account immettendo le proprie informazioni;
  - GUI - Attivare un account: interfacce che offrono all'utente la possibilità di attivare l'account che prima ha creato;
  - GUI - Autenticare un account: interfacce che offrono all'utente la possibilità di potersi autenticare all'interno del sito;
  - GUI - Richiesta di cambio password: interfacce che offrono all'utente la possibilità di cambiare la password del proprio account;
  - GUI - Conferma di cambio password: interfacce che offrono all'utente la possibilità di accettare le modifiche precedentemente fatte alla password;
- - GUI - Richiede amicizia tra due account: interfacce che offrono all'utente la possibilità di richiedere l'amicizia ad un altro account;
- - GUI - Conferma amicizia tra due account: interfacce che offrono la possibilità confermare la richiesta di amicizia ricevuta da un altro account.
 
-#### GestioneAccountApplicationLayer
-Questo include al suo interno tutte le componenti che offrono operazione di "Gestione account" al sistema:
- - CreareUnAccount(): incorpora operazioni che permettono di creare un nuovo account ad un utente;
- - AttivareUnAccount(): incorpora operazioni che permettono all'utente di accettare la creazione dell'account e successivamente l'effettiva creazione di esso all'interno del sistema;
- - AutenticareUnAccount(): incorpora operazioni che permettono ad un utente di autenticarsi all'interno di Moovie;
- - RichiestadiCambioPassoword: incorpora operazioni che permettono all'utente di modificare la propria password;
- - ConfermaDiCambioPassword(): incorpora operazioni che permettono all'utente di accettare i cambiamenti precedentementi fatti alla propria password;
- - RichiestaAmiciziaTraDueAccount(): incorpora operazioni che permettono all'utente di richiedere un amicizia ad un altro account;
- - ConfermaAmiciziaTraDueAccount(): incorpora operazioni che permettono all'utente di accettare l'amicizia arrivata da un altro utente.
+#### AccountsApplicationLayer
+Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema di "Accounts" nel sistema:
+ - CreareAccount(): incorpora operazioni che permettono di creare un nuovo account ad un utente;
+ - AttivareAccount(): incorpora operazioni che permettono all'utente di accettare la creazione dell'account e successivamente l'effettiva creazione di esso all'interno del sistema;
+ - AutenticareAccount(): incorpora operazioni che permettono ad un utente di autenticarsi all'interno di Moovie;
+ - RichiestaCambioPassoword: incorpora operazioni che permettono all'utente di modificare la propria password;
+ - ConfermaCambioPassword(): incorpora operazioni che permettono all'utente di accettare i cambiamenti precedentementi fatti alla propria password;
 
-#### GestioneAccountDataLayer
+#### AccountsDataLayer
 Questo livello si occupa di gestire i dati riguardanti gli utenti dell'intero sistema.
 
+#### Amicizie
+Il sottosistema di "Amicizie" si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
+ - Richiedere amicizia tra due account
+ - Confermare amicizia tra due account
+ - Rifiutare amicizia tra due account
+ - Suggerire un film a un account amico
+ 
+#### AmiciziePresentationLayer
+Questo livello include tutte le componenti dell'interfaccia che offrono funzionalità riguardanti le amicizie:
+ - GUI - Richiedere amicizia tra due account: interfacce che offrono all'utente autenticato la possibilità di inviare una richiesta di amicizia ad un altro account;
+ - GUI - Confermare amicizia tra due account: interfacce che offrono all'utente autenticato la possibilità di confermare una richiesta di amicizia proveniente da un altro account;
+ - GUI - Rifiutare amicizia tra due account: interfacce che offrono all'utente autenticato la possibilità di rifiutare una richiesta di amicizia proveniente da un altro account;
+ - GUI - Suggerire un film a un account amico: interfacce che offrono all'utente autenticato la possibilità di suggerire un film ad un account amico;
 
-#### Gestione dei film guardati
-Il sottosistema di "Gestione dei film guardati" si occupa di gestire i giudizi di tutti gli utenti autenticati offrendo diverse funzionalità quali:
- - Aggiungere giudizio su un film aggiungendolo in “Film guardati”;	
- - Modificare giudizio su un film;
- - Rimuovere giudizio su un film (rimuovendo il film da “Film guardati”);
+#### AmicizieApplicationLayer
+Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema di "Amicizie" nel sistema:
+ - RichiestaAmciziaAccount(): incorpora operazioni che permettono all'utente autenticato di richiedere l'amicizia ad un altro utente;
+ - ConfermaAmiciziaAccount(): incorpora operazioni che permettono all'utente autenticato di accettare l'amicizia di un altro utente;
+ - RifiutaAmiciziaAccount() (): incorpora operazioni che permettono all'utente autenticato di rifiutare l'amicizia di un altro utente;
+ - SuggerisciFilmAccountAmico(): incorpora operazioni che permettono all'utente autenticato di suggerire un film ad un utente amico;
 
-#### GestioneFilmGuardatiPresentationLayer
-Questo include al suo interno tutte le componenti che offrono operazione di "Gestione dei film guardati" al sistema:
- - GUI - Aggiungere giudizio su un film aggiungendolo in “Film guardati”:  interfacce che offrono all'utente autenticato la possibilità di aggiungere un giudizio su un film aggiungendolo in "Film guardati".
- - GUI - Modificare giudizio su un film: interfacce che offrono all'utente autenticato la possibilità di modificare un giudizio su un film.
- - GUI - Rimuovere giudizio su un film (rimuovendo il film da “Film guardati”): interfacce che offrono all'utente autenticato la possibilità di rimuovere un giudizio su un film rimuovendolo da "Film guardati".
+#### AmicizieDataLayer
+Questo livello si occupa di gestire le amicizie degli utenti dell'intero sistema.
 
-#### GestioneFilmGuardatiApplicationLayer
- - AggiungereGiudizioFilm(): incoropora operazioni che permettono di aggiungere un giudizio su un film, aggiungendolo in "Film guardati", ad un utente autenticato.
-- ModificareGiudizioFilm(): incoropora operazioni che permettono di modificare un giudizio su un film ad un utente autenticato.
-- RimuovereGiudizioFilm(): incoropora operazioni che permettono di rimuovere un giudizio su un film, rimuovendolo da "Film guardati", ad un utente autenticato.
+#### Film
+Il sottosistema di "Film" si occupa di gestire i giudizi di tutti gli utenti autenticati offrendo diverse funzionalità quali:
+ - Aggiungere un giudizio;	
+ - Modificare un giudizio;
+ - Rimuovere un giudizio;
+ - Suggerimento automatico di un film:
 
-#### GestioneFilmGuardatiDataLayer
-Questo livello si occupa di gestire i dati riguardanti i giudizi degli utenti autenticati all'interno del sistema.
+#### FilmPresentationLayer
+Questo include al suo interno tutte le componenti dell'interfaccia che offrono operazioni riguardanti "Film" nel sistema:
+ - GUI - Aggiungere un giudizio:  interfacce che offrono all'utente autenticato la possibilità di aggiungere un giudizio su un film aggiungendolo in "Film guardati".
+ - GUI - Modificare giudizio: interfacce che offrono all'utente autenticato la possibilità di modificare un giudizio su un film.
+ - GUI - Rimuovere giudizio: interfacce che offrono all'utente autenticato la possibilità di rimuovere un giudizio su un film rimuovendolo da "Film guardati".
+ - GUI - Suggerimento automatico di un film: interfacce che offrono all'utente autenticato la possibilità di farsi suggerire dal sistema un film in linea con i suoi gusti.
+#### FilmApplicationLayer
+Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema di "Film" al sistema:
+- AggiungereGiudizio(): incoropora operazioni che permettono di aggiungere un giudizio su un film, aggiungendolo in "Film guardati", ad un utente autenticato.
+- ModificareGiudizio(): incoropora operazioni che permettono di modificare un giudizio su un film ad un utente autenticato.
+- RimuovereGiudizio(): incoropora operazioni che permettono di rimuovere un giudizio su un film, rimuovendolo da "Film guardati", ad un utente autenticato.
+- SuggerimentoAutomatico(): incoropora operazioni che permettono di farsi suggerire un film dal sistema ad un utente autenticato.
 
-#### Gestione delle Liste
-Il sottosistema di "Gestione liste" si occupa di gestire le liste del sistema offrendo diverse funzionalità quali: 
+#### FilmDataLayer
+Questo livello si occupa di gestire i dati riguardanti i giudizi sui film  degli utenti autenticati, e il suggerimento automatico all'interno del sistema.
+
+#### Liste
+Il sottosistema di "Liste" si occupa di gestire le liste del sistema offrendo diverse funzionalità quali: 
  - Creare una lista
  - Modificare una lista
  - Eliminare una lista
- - Aggiungere o rimuovere un film a una lista
+ - Aggiornare la presenza di film nelle liste
  - Seguire liste altrui
 
-
-
-#### GestioneDelleListePresentationLayer
+#### ListePresentationLayer
 Questo livello include tutte le componenti dell'interfaccia che offrono funzionalità riguardanti la gestione delle liste:
- - GUI - Creare una lista: interfacce che offrono la possibilità all'utente di creare una propria lista;
- - GUI - Modificare una lista: interfacce che offrono all'utente la possibilità di modificare una lista(cambio nome e privilegi);
- - GUI - Eliminare una lista: interfacce che offrono all'utente la possibilità di eliminare una lista da lui creata all'interno del sito;
- - GUI - Aggiungere o rimuovere un film a una lista: interfacce che offrono la possibilità all'utente di aggiungere o di rimuovere, da una lista ove lui possiede i privilegi, films;
- - GUI - Seguire liste altrui: interfacce che offrono la possibilità all'utente di seguire lite di altri amici;
+ - GUI - Creare una lista: interfacce che offrono la possibilità all'utente autenticato di creare una propria lista;
+ - GUI - Modificare una lista: interfacce che offrono all'utente autenticato la possibilità di modificare una lista(cambio nome e privilegi);
+ - GUI - Eliminare una lista: interfacce che offrono all'utente autenticato la possibilità di eliminare una lista da lui creata all'interno del sito;
+ - GUI - Aggiornare la presenza di film nelle liste: interfacce che offrono la possibilità all'utente autenticato di aggiungere o di rimuovere, da una lista ove lui possiede i privilegi, film;
+ - GUI - Seguire liste altrui: interfacce che offrono la possibilità all'utente autenticato di seguire lite di altri amici;
 
-#### GestioneDelleListeApplicationLayer
-Questo livello include tutte le componenti che offronto operazioni di "Gestione delle liste" al sistema:
- - CreareUnaLista(): incorpora operazioni che permettono ad un utente di creare una lista;
- - ModificareUnaLista(): incorpora operazioni che permettono ad un utente di modificare una lista;
- - EliminareUnaLista(): incorpora operazioni che permettono ad un utente di eliminare una lista all'interno del sito;
- - AggiungereORimuovereUnFilmAUnaLista(): incorpora operazioni che permettono ad un utente di aggiungere o rimuovere un film da una lista;
- - SeguireListeAltrui(): incorpora operazioni che permettono ad un utente di seguire delle liste delle quali possiede i privilegi.
+#### ListeApplicationLayer
+Questo livello include tutte le componenti che offronto operazioni riguardanti il sottosistema di "Liste" nel sistema:
+ - CreareLista(): incorpora operazioni che permettono ad un utente autenticato di creare una lista;
+ - ModificareLista(): incorpora operazioni che permettono ad un utente autenticato di modificare una lista;
+ - EliminareLista(): incorpora operazioni che permettono ad un utente autenticato di eliminare una lista all'interno del sito;
+ - AggiornarePresenzaFilm(): incorpora operazioni che permettono ad un utente autenticato di aggiungere o rimuovere un film da una lista;
+ - SeguireListeAltrui(): incorpora operazioni che permettono ad un utente autenticato di seguire liste di altri utenti.
 
-#### GestioneDelleListeDataLayer
+#### ListeDataLayer
 Questo livello si occupa di gestire i dati riguardanti le liste all'interno del sistema.
 
-#### Suggerimenti
-Il sottosistema di "Suggerimenti" si occupa di gestire i suggerimenti offrendo diverse funzionalità quali:
- - Suggerire un film a un account amico;
- - Suggerimento automatico di un film;
-
-#### SuggerimentiPresentationLayer
-Questo include al suo interno tutte le componenti che offrono operazione di "Suggerimenti" al sistema:
-- GUI - Suggerire un film a un account amico: interfacce che offrono all'utente autenticato la possibilità di consigliare un film ad un account amico.
- - GUI - Suggerimento automatico di un film: interfacce che offrono all'utente autenticato la possibilità di farsi consigliare un film dal sistema in linea con i propri gusti.
-
-#### SuggerimentiApplicationLayer
- - SuggerireFilmAccountAmico(): incoropora operazioni che permettono ad un utente autenticato di consigliare un film ad un account amico.
- - SuggerimentoAutomaticoFilm(): incoropora operazioni che permettono di farsi consigliare un film dal sistema ad un utente autenticato.
-
-#### SuggerimentiDataLayer
-Questo livello si occupa di gestire i dati riguardanti i suggerimenti agli utenti autenticati all'interno del sistema.
-
 ## Mappatura Hardware/Software
-Il sistema avrà un'architettura client/server three-tier con un client che implementa il livello di presentazione, un server che implementa la logica applicativa e un secondo server che comprende un DBMS per la gestione dei dati.  
-Sul client è eseguto un web browser che consentirà all'utente, attraverso una interfaccia grafica, di interagire con il sistema. La comunicazione tra client e server che si occupa della logica di business avverrà tramite protocollo HTTP.
-Questo protocollo permette di trasferire ipertesti tra client di presentazione e server della logica applicativa tramite un meccanismo di richiesta e risposta.
-Dal punto di vista hardware, il client potrà essere una qualsiasi macchina dotata di connesione ad internet, mentre per le specifiche software un sistema operativo con installato uno dei web browser supportati, sarà sufficiente per interagire con il sistema.
-Il server della logica applicativa, dotato di connessione ad internet, avrà installato un Web Server Apache con modulo PHP, e comunicherà con il server della gestione dei dati attravero un protocollo MySql. Infatti quest'ultimo, dotato anche esso di connessione ad intenet, avrà un database realazionale MySql.
+Il sistema avrà un'architettura client/server three-tier con un tier che implementa il livello di presentazione, un secondo tier che implementa la logica applicativa e un terzo tier che comprende un DBMS per la gestione dei dati persistenti.  
+Sul primo tier è eseguto un web browser che consentirà all'utente, attraverso una interfaccia grafica, di interagire con il sistema. La comunicazione tra primo e secondo tier che si occupa della logica di business avverrà tramite protocollo HTTP.
+Questo protocollo permette di trasferire ipertesti tra tier di presentazione e tier della logica applicativa tramite un meccanismo di richiesta e risposta.
+Dal punto di vista hardware, il primo tier potrà essere una qualsiasi macchina dotata di connesione ad internet, mentre per le specifiche software un sistema operativo con installato uno dei web browser supportati, sarà sufficiente per interagire con il sistema.
+Il tier della logica applicativa, dotato di connessione ad internet, avrà installato un Web Server Apache con modulo PHP, e comunicherà con il tier della gestione dei dati attravero un protocollo MySql. Infatti quest'ultimo, dotato anche esso di connessione ad intenet, avrà un database realazionale MySql.
 
 
 
@@ -274,11 +272,11 @@ La matrice suddivide la tipologia di attore per colonna, la tipologia di oggetto
 
 **Attori / Oggetti** | **Utente** | **Utente Autenticato** | **Gestore**
 -------- | --------| ----- | ---- 
-Utente | CreareAccount()  AttivareAccount() AutenticareAccount() | RichiestaCambioPassword() ConfermaCambioPassword() RicercaUtente() | RichiestaCambioPassword() ConfermaCambioPassword() RicercaUtente() 
-Film | RicercaFilm() | RicercaFilm() AggiungereGiudizioFilm() ModificareGiudizioFilm() RimuovereGiudizioFilm() SuggerimentoAutomaticoFilm() | AggiungiFilm()(**Da aggiungere?**) RicercaFilm() AggiungereGiudizioFilm() ModificareGiudizioFilm() RimuovereGiudizioFilm() SuggerimentoAutomaticoFilm() 
-Artista | RicercaArtista() | RicercaArtista() | AggiungiArtista()(**Da aggungere?**) RicercaArtista()
-Lista | | CreareLista() ModificareLista() EliminareLista() AggiornarePresenzaFilmLista() SeguireListeAltrui() | CreareLista() ModificareLista() EliminareLista() AggiornarePresenzaFilmLista() SeguireListeAltrui()
-Amicizia | | RichiestaAmiciziaAccount() ConfermaAmiciziaAccount() RifiutaAmiciziaAccount() SuggerireFilmAccountAmico() | RichiestaAmiciziaAccount() ConfermaAmiciziaAccount() RifiutaAmiciziaAccount() SuggerireFilmAccountAmico()
+Utente | CreareAccount()<br/>AttivareAccount()<br/>AutenticareAccount() | RichiestaCambioPassword()<br/>ConfermaCambioPassword()<br/>RicercaUtente() | RichiestaCambioPassword()<br/>ConfermaCambioPassword()<br/>RicercaUtente() 
+Film | RicercaFilm() | RicercaFilm()<br/>AggiungereGiudizio()<br/>ModificareGiudizio()<br/>RimuovereGiudizio()<br/>SuggerimentoAutomatico() | AggiungiFilm()(**Da aggiungere?**)<br/>RicercaFilm()<br/>AggiungereGiudizio()<br/>ModificareGiudizio()<br>RimuovereGiudizio()<br/>SuggerimentoAutomatico() 
+Artista | RicercaArtista() | RicercaArtista() | AggiungiArtista()(**Da aggungere?**)<br/>RicercaArtista()
+Lista | | CreareLista()<br/>ModificareLista()<br/>EliminareLista()<br/>AggiornarePresenzaFilm()<br/>SeguireListeAltrui() | CreareLista()<br/>ModificareLista()<br/>EliminareLista()<br/>AggiornarePresenzaFilm()<br/>SeguireListeAltrui()
+Amicizia | | RichiestaAmiciziaAccount()<br/>ConfermaAmiciziaAccount()<br/>RifiutaAmiciziaAccount()<br/>SuggerisciFilmAccountAmico() | RichiestaAmiciziaAccount()<br/>ConfermaAmiciziaAccount()<br/>RifiutaAmiciziaAccount()<br/>SuggerisciFilmAccountAmico()
 
 
 
