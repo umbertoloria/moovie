@@ -5,7 +5,8 @@
 | 0.2      | 26/11/2019 | Mappatura HW/SW, Gestione Accessi | Gianluca Pirone  |
 | 0.3      | 28/11/2019 | Descrizione del problema | Michelantonio Panichella  |
 | 0.4      | 28/11/2019 | Revisione sottositemi | Michelantonio Panichella, Gianluca Pirone  |
-| 0.5      | 28/11/2019 | Aggiunta diagrammi, condizione limite e servizi sottosistemi | Michelantonio Panichella, Gianluca Pirone  |    
+| 0.5      | 28/11/2019 | Aggiunta diagrammi, condizione limite e servizi sottosistemi | Michelantonio Panichella, Gianluca Pirone  |  
+| 0.6      | 29/11/2019 | Aggiunta definizioni, acronimi e abbreviazioni, riferimenti e panoramica | Gianluca Pirone  |   
 
 1. [Introduzione](#introduzione)
     1. [Descrizione del Problema](#-descrizione-del-problema)
@@ -14,9 +15,9 @@
         2. [Reliability](#dg_2_reliability)
         3. [Performance](#dg_3_performance)
         4. [Supportability](#dg_4_supportability)
-    3. Definizioni,Acronimi e Abbreviazioni
-    4. Riferimenti
-    5. Panoramica
+    3. [Definizioni, Acronimi e Abbreviazioni](#definizioni-acronimi-e-abbreviazioni)
+    4. [Riferimenti](#riferimenti)
+    5. [Panoramica](#panoramica)
 2. [Architettura del Sistema](#architettura-del-sistema)
     1. [Panoramica](#panoramica)
     2. [Decomposizione in sottosistemi](#decomposizione-in-sottosistemi)
@@ -104,10 +105,34 @@ Sarà totalmente gratuito
 Vincoli (pseudo requisiti)
 
     Il sito prevede l’utilizzo delle seguenti tecnologie: Apache, MySQL, PHP
-    
+
+## Definizioni, Acronimi e Abbreviazioni
+
+**Acronimo** | **Descrizione** 
+-------- | -------- 
+RAD | Requirements Analysis Document
+HTTP | HyperText Transfer Protocol 
+GUI | Graphic User Interface
+DBMS | Database Management System  
+DB | DataBase 
+PDO | PHP Data Objects
+
+## Riferimenti
+ - RAD Moovie 0.8
+ - Object-Oriented Software Engineering Using UML, Patterns, and Java™ Third Edition 
+ - https://it.wikipedia.org/
+ 
+## Panoramica
+Il documento è stato diviso in quattro sezioni fondamentali, ognuna fornita di una breve descrizione.
+Queste sono:
+ - Introduzione: sezione che vuole illustrare l'ambito che ha portato alla progettazione della web-Application. Vengono forniti e descritti gli obiettivi proposti dal sistema, le varie funzionalità messe a disposizione dei vari utenti e i criteri da rispettare. 
+ - Architettura del Sistema: sezione che descrive la decomposizione in macro-sistemi e quella in micro-sistemi, la mappatura Hardware/Software del sistema, la gestione dei dati persistenti, la gestione degli accessi e la condizione limite.
+ - Servizi dei Sottosistemi: sezione che fornisce informazioni riguardo i servizi forniti da ogni Sottosistema.
+ - Glossario: sezione contenente un glossario che raccoglie termini contenuti nel sistema proposto. 
+
 # Architettura del sistema  
 ## Panoramica
-Il sistema saraà contruito seguendo il pattern architetturale MVC (Model Controller View).
+Il sistema sarà contruito seguendo il pattern architetturale MVC (Model Controller View).
 In questo pattern le componenti del sistema hanno 3 ruoli principali quali:
 - Model permette al nostro sito di accedere, attraverso vari metodi, ai dati del software;
 - Controller si occupa di ricevere le azioni dell'utente attreaverso dei metodi con i quali l'utente può modificare lo stato delle altre due componenti (Model, View);
@@ -116,7 +141,7 @@ In questo pattern le componenti del sistema hanno 3 ruoli principali quali:
 
 ## Decomposizione in sottosistemi
 ### Decomposizione in macro-sistemi
-La decomposizione in sosttositemi è stata fatta cercando di raggruppare argomenti che sono tra loro quanto più simili possibili. Una macro suddivisione del sistema è stata fatta in questo modo:
+La decomposizione in sottosistemi è stata fatta cercando di raggruppare argomenti che sono tra loro quanto più simili possibili. Una macro suddivisione del sistema è stata fatta in questo modo:
  - Ricerche;
  - Accounts;
  - Amicizie;   
