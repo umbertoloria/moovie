@@ -31,10 +31,10 @@
     4. [Scenari](#scenari)
         1. [Voglio vedere un bel film sabato sera](#voglio-vedere-un-bel-film-sabato-sera)
         2. [Ho guardato uno splendido film](#ho-guardato-uno-splendido-film)
-        3. [Suggerire dei film ad un amico che non è registrato su Moovie](#suggerire-dei-film-ad-un-amico-che-non--registrato-su-moovie)
+        3. [Suggerire dei film ad un amico che non è registrato su Moovie](#suggerire-dei-film-ad-un-amico-che-non-è-registrato-su-moovie)
         4. [Voglio informazioni su un attore, sceneggiatore o regista](#voglio-informazioni-su-un-attore-sceneggiatore-o-regista)
         5. [Voglio aggiungere un film ad una mia lista](#voglio-aggiungere-un-film-ad-una-mia-lista)
-        6. [Suggerire un film ad un amico che è registrato su Moovie](#suggerire-un-film-ad-un-amico-che--registrato-su-moovie)
+        6. [Suggerire un film ad un amico che è registrato su Moovie](#suggerire-un-film-ad-un-amico-che-è-registrato-su-moovie)
     5. [Use case models](#use-case-models)
         1. [Ricerche](#ricerche)
             1. [UC_1: Ricerca di un film](#uc_1-ricerca-di-un-film)
@@ -46,13 +46,11 @@
         2. [Accounts](#accounts)
             1. [UC_4: Creare un account](#uc_4-creare-un-account)
             2. [UC_4.1: Registrazione fallita](#uc_41-registrazione-fallita)
-            3. [UC_5: Attivare un account](#uc_5-attivare-un-account)
-            4. [UC_6: Autenticare un account](#uc_6-autenticare-un-account)
-            5. [UC_6.1: Autenticazione fallita](#uc_61-autenticazione-fallita)
-            6. [UC_7: Richiesta di cambio password](#uc_7-richiesta-di-cambio-password)
-            7. [UC_7.1: Richiesta di cambio password fallita](#uc_71-richiesta-di-cambio-password-fallita)
-            8. [UC_7.2: Conferma di cambio password](#uc_72-conferma-di-cambio-password)
-            9. [UC_7.3: Conferma di cambio password fallita](#uc_73-conferma-di-cambio-password-fallita)
+            3. [UC_5: Autenticare un account](#uc_5-autenticare-un-account)
+            4. [UC_6: Richiesta di cambio password](#uc_6-richiesta-di-cambio-password)
+            5. [UC_6.1: Richiesta di cambio password fallita](#uc_61-richiesta-di-cambio-password-fallita)
+            6. [UC_7: Conferma di cambio password](#uc_7-conferma-di-cambio-password)
+            7. [UC_7.1: Conferma di cambio password fallita](#uc_71-conferma-di-cambio-password-fallita)
         3. [Amicizie](#amicizie)
             1. [UC_8: Richiedere amicizia tra due account](#uc_8-richiedere-amicizia-tra-due-account)
             2. [UC_8.1: Confermare amicizia tra due account](#uc_81-confermare-amicizia-tra-due-account)
@@ -70,7 +68,7 @@
             4. [UC_17: Aggiornare la presenza di film nelle liste](#uc_17-aggiornare-la-presenza-di-film-nelle-liste)
             5. [UC_18: Seguire liste altrui](#uc_18-seguire-liste-altrui)
     6. [Object model](#object-model)
-    7. [Class diagram](#class-diagrams)
+    7. [Class diagrams](#class-diagrams)
         1. Ricerche
         2. Accounts
         3. Amicizie
@@ -128,12 +126,11 @@ Identificativo | Descrizione | Priorità
 RF_1.1 | Ricerca di un film
 RF_1.2 | Ricerca di un artista
 RF_1.3 | Ricerca di un utente
-**M_RF_2** | Accounts | Alta
+**M_RF_2** | Account | Alta
 RF_2.1 | Creare un account
-RF_2.2 | Attivare un account
-RF_2.3 | Autenticare un account
-RF_2.4 | Richiesta di cambio password
-RF_2.5 | Conferma di cambio password
+RF_2.2 | Autenticare un account
+RF_2.3 | Richiesta di cambio password
+RF_2.4 | Conferma di cambio password
 **M_RF_3** | Amicizie | Media
 RF_3.1 | Richiedere amicizia tra due account
 RF_3.2 | Confermare amicizia tra due account
@@ -224,24 +221,8 @@ schermata che chiede in input alcuni campi: nella voce “nome completo” inser
 fuori del campo “password” appare una scritta che suggerisce “La password non è valida: devi inserire almeno un numero”.
 Allora Stefano sostituisce la password con “ciaociao1”. Nella voce “conferma password” inserisce “ciaociao1”.
 
-Michele potrebbe anche chiedere a Stefano di inserire la sua e-mail, durante la sua fase di registrazione, nella voce
-“consigliato da”, per poter sbloccare le funzionalità dell’Account Pro, ma ovviamente Michele ha già queste funzionalità
-da tempo, avendo consigliato il sito a tanti amici. In particolare, Michele ha dovuto consigliare questo sito ad almeno
-5 utenti per poter usufruire delle funzionalità dell’Account Pro. Se Stefano indica un account nella suddetta voce,
-questo account sarà automaticamente amico dell’account di Stefano.
-
-Stefano, a questo punto, clicca su “Registrati”. La nuova pagina che si presenta mostra il testo “attiva l’account
-tramite la e-mail che ti abbiamo inviato”. Dopo un po’, sulla casella e-mail di Stefano arriva una nuova e-mail inviata
-da Moovie. In questa mail viene spiegata la procedura di attivazione dell’account appena creato. Questa procedura
-prevede di cliccare sul link di attivazione presente nella e-mail.
-
-Appena Stefano clicca sul link di Moovie, la pagina che si apre presenta la fase “Primi passi”. Questa pagina contiene
-un titolo “Quali film hai già visto?” e una griglia di film, e Stefano deve scegliere quelli che ha già visto. Se ha
-inserito nel campo “consigliato da” la mail di un utente, i film presenti nella pagina saranno film simili a quelli
-dell’account amico (visto che quell’account è amico dell’account di Stefano). Stefano, in ogni caso, deve selezionare
-almeno 5 film, e inserire un voto (da 1 a 10) per ogni film, altrimenti il sistema non lo farà continuare. Una volta
-aver scelto il numero minimo di film, il pulsante “Entra nel fantastico mondo di Moovie” si abiliterà, e una volta
-cliccato, Stefano sarà riportato alla pagina iniziale, dove potrà usare il suo account Moovie in piena libertà.
+Stefano, a questo punto, clicca su “Registrati”. La nuova pagina che si presenta mostra il testo “Benvenuto nel
+fantastico mondo di Moovie”. Stefano sarà riportato alla pagina iniziale, dove potrà usare il suo nuovo account Moovie.
 
 ### Voglio informazioni su un attore, sceneggiatore o regista
 Amanda vuole vedere un altro film diretto da “Tarantino”, visto che ha particolarmente apprezzato il film “Pulp Fiction”
@@ -353,7 +334,7 @@ Condizione di uscita | Moovie comunica che l’account non esiste.
 ---------|---
 Attori | Utente.
 Condizione di entrata | L’utente si trova nella pagina di registrazione.
-Flusso di eventi | <br/><ol><li>L’utente inserisce i seguenti dati: nome, cognome, indirizzo e-mail, password (due volte), e-mail utente che ha suggerito la registrazione (opzionale)<li>Il sistema controlla i dati, verifica che non ci siano account con l’indirizzo e-mail fornito, e salva i dati. Se è stato fornito anche l’indirizzo e-mail dell’account che ha suggerito la registrazione, e questo è il quinto account che lo fornisce, allora quell’account diventa account pro e amico dell'account che si sta registrando. Il sistema invierà in ogni caso una e-mail di attivazione all'account appena registrato.</ol>
+Flusso di eventi | <br/><ol><li>L’utente inserisce i seguenti dati: nome, cognome, indirizzo e-mail e password (due volte)<li>Il sistema controlla i dati, verifica che non ci siano account con l’indirizzo e-mail fornito, e salva i dati.</ol>
 Condizione di uscita | Il sistema comunica che l'account è stato creato.
 Eccezioni | L’indirizzo e-mail fornito è occupato. Vai a [UC_4.1](#uc_41-registrazione-fallita).
 
@@ -362,71 +343,54 @@ Eccezioni | L’indirizzo e-mail fornito è occupato. Vai a [UC_4.1](#uc_41-regi
 ---------|---
 Attori | Utente.
 Condizione di entrata | L’utente ha inserito dati non accettabili durante la registrazione.
-Flusso di eventi | <br/><ol><li>Il sistema si accorge che uno dei campi inseriti non è valido e avvisa l'utente<li>L'utente inserisce dei dati corretti<li>Il sistema controlla i dati e li salva. Se è stato fornito l'indirizzo e-mail di un account esistente, ed è la quinta volta che questo suggerisce il sito ad un utente, allora questo account diventa account pro, e amico dell'account appena registrato.</ol>
-Condizione di uscita | L'account viene creato.
+Flusso di eventi | <br/><ol><li>Il sistema si accorge che uno dei campi inseriti non è valido e avvisa l'utente<li>L'utente inserisce dei dati corretti<li>Il sistema controlla i dati, verifica che non ci siano account con l’indirizzo e-mail fornito, e salva i dati.</ol>
+Condizione di uscita | Il sistema comunica che l'account è stato creato.
 Eccezioni | L’indirizzo e-mail fornito è occupato. Vai a [UC_4.1](#uc_41-registrazione-fallita).
 
-#### UC_5: Attivare un account
-**Nome** | **Attivare un account**
----------|---
-Attori | Utente registrato ma non attivato.
-Condizione di entrata | L’utente riceve la e-mail di attivazione.
-Flusso di eventi | <br/><ol><li>L’utente segue le istruzioni della e-mail, e arriva sul sito<li>Il sistema attiva l’account e reindirizza l’utente alla pagina iniziale</ol>
-Condizione di uscita | L’account viene attivato.
-
-#### UC_6: Autenticare un account
+#### UC_5: Autenticare un account
 **Nome** | **Autenticare un account**
 ---------|---
 Attori | Utente.
-Condizione di entrata | L’utente si trova nella pagina di accesso
+Condizione di entrata | L’utente si trova nella pagina di accesso.
 Flusso di eventi | <br/><ol><li>L’utente inserisce e-mail e password del suo account e prosegue<li>Moovie verifica la correttezza dei dati inseriti e autentica l'account</ol>
 Condizione di uscita | Il sistema comunica che l'accesso è stato effettuato.
-Eccezioni | Indirizzo e-mail o password non corretti. Vai a [UC_6.1](#uc_61-autenticazione-fallita).<br/>L’utente non possiede un account. Vai a [UC_4.1](#uc_41-registrazione-fallita).
+Eccezioni | Se i dati sono sbagliati, effettua questo caso d'uso:<br/>**Condizione di entrata**: l'utente ha inserito i dati sbagliati<br/>**Flusso di eventi**: <br/><br/><ol><li>Il sistema comunica che i dati sono sbagliati.<li>L'utente inserisce di nuovo i dati.<li>Il sistema verifica la correttezza dei dati e autentica l'account.</ol>**Condizione di uscita**: L'accesso è stato effettuato.
 
-#### UC_6.1: Autenticazione fallita
-**Nome** | **Autenticazione fallita**
----------|---
-Attori | Utente.
-Condizione di entrata | L’utente ha inseriti i dati sbagliati nella pagina di login.
-Flusso di eventi | <br/><ol><li>Il sistema comunica che i dati sono sbagliati<li>L'utente inserisce e-mail e password del suo account e prosegue<li>Il sistema verifica la correttezza dei dati e autentica l'account</ol>
-Condizione di uscita | L'accesso è stato effettuato.
-Eccezioni | Indirizzo e-mail o password non corretti. Vai a [UC_6.1](#uc_61-autenticazione-fallita).<br/>L’utente non possiede un account. Vai a [UC_4.1](#uc_41-registrazione-fallita).
-
-#### UC_7: Richiesta di cambio password
+#### UC_6: Richiesta di cambio password
 **Nome** | **Richiesta di cambio password**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente comincia la richiesta di cambio password.
 Flusso di eventi | <br/><ol><li>L’utente inserisce la sua vecchia password<li>Il sistema controlla che la password corrisponda, ed invia una e-mail all’utente per effettuare il cambio di password</ol>
 Condizione di uscita | Il sistema comunca di segure le istruzioni della e-mail inviata.
-Eccezioni | L’utente non fornisce i dati corretti. Vai a [UC_7.1](#uc_71-richiesta-di-cambio-password-fallita).
+Eccezioni | L’utente non fornisce i dati corretti. Vai a [UC_6.1](#uc_61-richiesta-di-cambio-password-fallita).
 
-#### UC_7.1: Richiesta di cambio password fallita
+#### UC_6.1: Richiesta di cambio password fallita
 **Nome** | **Richiesta di cambio password fallita**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente fornisce una password che non è la sua.
-Flusso di eventi | <br/><ol><li>Il sistema afferma che la password fornita è sbagliata.<li>L'utente inserisce la propria password<li>Il sistema controlla che la password corrisponda, ed invia una e-mail all’utente per attivare la effettuare il cambio di password</ol>
+Flusso di eventi | <br/><ol><li>Il sistema afferma che la password fornita è sbagliata.<li>L'utente inserisce la propria password<li>Il sistema controlla che la password corrisponda, ed invia una e-mail all’utente per effettuare il cambio di password</ol>
 Condizione di uscita | Il sistema comunca di segure le istruzioni della e-mail inviata.
-Eccezioni | L’utente non fornisce i dati corretti. Vai a [UC_7.1](#uc_71-richiesta-di-cambio-password-fallita).
+Eccezioni | L’utente non fornisce i dati corretti. Vai a [UC_6.1](#uc_61-richiesta-di-cambio-password-fallita).
 
-#### UC_7.2: Conferma di cambio password
+#### UC_7: Conferma di cambio password
 **Nome** | **Conferma di cambio password**
 ---------|---
 Attori | Utente.
-Condizione di entrata | L’utente riceve una e-mail di conferma di cambio password.
-Flusso di eventi | <br/><ol><li>L’utente segue le istruzioni della e-mail, e raggiunge il sito sulla pagina di conferma di cambio password. Deve reinserire la vecchia password e due volte la nuova<li>Il sistema aggiorna la password</ol>
+Condizione di entrata | L’utente si trova nella pagina di conferma di cambio password.
+Flusso di eventi | <br/><ol><li>L’utente inserisce la password vecchia e due volte la nuova<li>Il sistema aggiorna la password</ol>
 Condizione di uscita | Il sistema comunica che la password è stata aggiornata.
-Eccezioni | Se la nuova password non è valida, vai a [UC_7.3](#uc_73-conferma-di-cambio-password-fallita).
+Eccezioni | Se la nuova password non è valida, oppure la vecchia non corrisponde, vai a [UC_7.1](#uc_71-conferma-di-cambio-password-fallita).
 
-#### UC_7.3: Conferma di cambio password fallita
+#### UC_7.1: Conferma di cambio password fallita
 **Nome** | **Conferma di cambio password fallita**
 ---------|---
 Attori | Utente.
-Condizione di entrata | L’utente prova a cambiare la password.
-Flusso di eventi | <br/><ol><li>Il sistema comunica che la password non è valida.<li>L'utente inserisce la nuova password.<li>Il sistema aggiorna la password</ol>
+Condizione di entrata | L’utente inserisce come password attuale sbagliata, oppure inserisce una nuova password non valida.
+Flusso di eventi | <br/><ol><li>Il sistema comunica che i dati non sono validi<li>L'utente inserisce dei dati giusti<li>Il sistema aggiorna la password</ol>
 Condizione di uscita | Il sistema comunica che la password è stata aggiornata.
-Eccezioni | Se la nuova password non è valida, vai a [UC_7.3](#uc_73-conferma-di-cambio-password-fallita).
+Eccezioni | Se la nuova password non è valida, oppure la vecchia non corrisponde, vai a [UC_7.1](#uc_71-conferma-di-cambio-password-fallita).
 
 ### Amicizie
 ![](Use%20case%20diagrams/Amicizie.jpg)
@@ -561,12 +525,10 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
         * Form di accesso: consente di autenticarsi in un account esistente
     * Registrazione:
         * Form di registrazione: richiede l'inserimento di informazioni necessarie alla creazione di un nuovo account
-        * E-Mail attivazione account: descrive la procedura per attivare un nuovo account
         * Conferma registrazione: notifica l'avvenuta registrazione dell'account
     * Cambio password:
         * Form di richiesta cambio password: richiede l'inserimento della password attuale per cominciare la procedura
         di aggiornamento della stessa
-        * E-Mail cambio password: descrive la procedura per cambiare la password
         * Conferma richiesta cambio password: notifica l'avvenuta richiesta di cambio password
         * Form di conferma cambio password: richiede l'inserimento delle password corrente e nuova per poi aggiornarla
         * Conferma cambio password: notifica l'avvenuto aggiornamento della password
@@ -591,10 +553,11 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
     * Conferma lista seguita: notifica che si riceveranno aggiornamenti riguardo i cambiamenti di una lista
 
 ### Control objects
-* Redirect: offre servizi di redirect via browser
+* Ricerche:
+    * Ricerca: permette di ricercare film, artisti e utenti
+    * Redirect: offre servizi di redirect via browser
 * Accounts:
     * Accesso: permette di autenticare un account se si conoscono e-mail e password annessi
-    * Attivazione: permette di attivare un account
     * Registrazione: permette di registrare un account, controllando prima la correttezza dei campi inseriti
     * Cambio password: richiede o effettua un cambio di password
 * Amicizie:
@@ -607,8 +570,6 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
     * Liste: crea, modifica, cancella una lista. Permette a un account di seguire una lista. Inoltre, fornendo un film
     e una collezione di liste possedute da un account, inserisce questo film solo nelle liste fornite, rimuovendolo (se
     presente) in tutte le altre.
-* Ricerche:
-    * Ricerca: permette di ricercare film, artisti e utenti
 
 ### Manager objects
 * Film Manager:
@@ -620,7 +581,6 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
     * cerca utenti tramite fulltext e criteri avanzati
     * controlla l'esistenza di un utente con un determinato indirizzo e-mail
     * crea account composto da: nome, cognome, indirizzo e-mail e password
-    * attiva un account
     * autentica un account
     * controlla che un account abbia una determinata password
     * aggiorna la password di un account
@@ -651,6 +611,7 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
 * Lista: rappresenta le informazioni di una lista e film che contiene
 * Amicizia: rappresenta le informazioni di una richiesta di amicizia
 * Amicizia Accettata: specializza una amicizia integrando le informazioni di accettazione di questa
+* E-Mail cambio password: descrive la procedura per cambiare la password
 
 ## Class diagrams
 ![](Class%20diagrams/Main%20class%20diagram.jpg)
@@ -684,13 +645,11 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
 
 ![](Sequence%20diagrams/UC_4%20Creare%20un%20account.jpg)
 
-![](Sequence%20diagrams/UC_5%20Attivare%20un%20account.jpg)
+![](Sequence%20diagrams/UC_5%20Autenticare%20un%20account.jpg)
 
-![](Sequence%20diagrams/UC_6%20Autenticare%20un%20account.jpg)
+![](Sequence%20diagrams/UC_6%20Richiesta%20di%20cambio%20password.jpg)
 
-![](Sequence%20diagrams/UC_7%20Richiesta%20di%20cambio%20password.jpg)
-
-![](Sequence%20diagrams/UC_7.2%20Conferma%20di%20cambio%20password.jpg)
+![](Sequence%20diagrams/UC_7%20Conferma%20di%20cambio%20password.jpg)
 
 ### Amicizie
 
