@@ -11,6 +11,7 @@ menu {
 
 	background: #333;
 	color: #eee;
+	z-index: 90;
 }
 
 menu ul {

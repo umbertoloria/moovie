@@ -5,11 +5,11 @@ class FilmManager {
 	// AGGIUNTE
 
 	public static function doRetrieveByID(int $id) {
-		$stmt = DB::stmt("
-				SELECT id, titolo, durata, anno, descrizione
+		$stmt = DB::stmt(
+			"SELECT id, titolo, durata, anno, descrizione
 				FROM films
-				JOIN films_descrizioni
-					ON films.id = films_descrizioni.film
+					JOIN films_descrizioni
+						ON films.id = films_descrizioni.film
 				WHERE id = ?");
 		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Film($r["id"], $r["titolo"], $r["durata"], $r["anno"], $r["descrizione"]);

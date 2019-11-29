@@ -9,7 +9,7 @@ section {
 	width: 100%;
 	flex-grow: 1;
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	gap: 30px;
 	margin: 30px;
 }
@@ -23,6 +23,7 @@ section {
 
 #presentation div {
 	flex-grow: 1;
+	width: calc(100% - 30px - 200px);
 }
 
 #presentation div h1 {

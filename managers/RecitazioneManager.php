@@ -14,4 +14,14 @@ class RecitazioneManager {
 		return $res;
 	}
 
+	/** @return Recitazione[] */
+	public static function doRetrieveByFilm(int $id): array {
+		$res = [];
+		$stmt = DB::stmt("SELECT film, attore, personaggio FROM recitazioni WHERE film = ?");
+		if ($stmt->execute([$id]))
+			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
+				$res[] = new Recitazione($r["film"], $r["attore"], $r["personaggio"]);
+		return $res;
+	}
+
 }

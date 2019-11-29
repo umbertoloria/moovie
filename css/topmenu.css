@@ -11,6 +11,7 @@ nav {
 	background: #222;
 	text-align: center;
 	color: #eee;
+	z-index: 95;
 }
 
 nav > a {
