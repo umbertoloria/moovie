@@ -6,7 +6,9 @@
 | 0.3      | 28/11/2019 | Descrizione del problema | Michelantonio Panichella  |
 | 0.4      | 28/11/2019 | Revisione sottositemi | Michelantonio Panichella, Gianluca Pirone  |
 | 0.5      | 28/11/2019 | Aggiunta diagrammi, condizione limite e servizi sottosistemi | Michelantonio Panichella, Gianluca Pirone  |  
-| 0.6      | 29/11/2019 | Aggiunta definizioni, acronimi e abbreviazioni, riferimenti e panoramica | Gianluca Pirone  |   
+| 0.6      | 29/11/2019 | Aggiunta definizioni, acronimi e abbreviazioni, riferimenti e panoramica | Gianluca Pirone  |
+| 0.7      | 29/11/2019 | Aggiunta Gestione dati persistenti | Gianluca Pirone  |  
+ 
 
 1. [Introduzione](#introduzione)
     1. [Descrizione del Problema](#-descrizione-del-problema)
@@ -40,12 +42,12 @@
                 2. [ListeApplicationLayer](#listeapplicationlayer)
                 3. [ListeDataLayer](#listedatalayer)
     3. [Mappatura Hardware/Software](#mappatura-hardwaresoftware)
-    4. Gestione dei Dati Persistenti
+    4. [Gestione dei Dati Persistenti](#gestione-dei-dati-persitenti)
+    5. [Gestione degli accessi](#gestione-degli-accessi)
+    6. [Condizione limite](#-condizione-limite)
         1. [Inizializzazione](#inizializzazione)
         2. [Terminazione](#terminazione)
         3. [Fallimenti](#fallimenti)
-    5. [Gestione degli accessi](#gestione-degli-accessi)
-    6. [Condizione limite](#-condizione-limite)
 3. [Servizi dei Sottosistemi](#servizi-dei-sottositemi)
     1. [Sottosistema "Accounts"](#sottosistema-accounts)
     2. [Sottosistema "Richerche"](#sottosistema-ricerche)
@@ -76,9 +78,7 @@ Tutto ciò verrà offerto attraverso delle funzionalità che il sito offre quali
 
 ##  DesignGoals
 ---------------
-Il sito Moovie sarà progettato in modo tale da offrire all'utente, attraverso una grafica  composta da bottoni, finestre di dialogo ed icone, una navigazione e fruizione delle funzionalità nel modo più intuitivo e semplice possibile. Gli Utenti, anche coloro che hanno scarse conoscenze del sistema, saranno in grado di muoversi all'interno della Web-Application e operare in maniera lampante
-
-//Il sito Moovie sarà progettato in modo tale da fare avere all'utente una Web-Application di qualità. La qualità fornita è visibile all'interno del sistema laddove ci interfacciamo con esso in quanto Moovie dovrà offrire un interfaccia facile e semplice da ulizzare da parte di tutti gli utenti, laddove eseguiamo delle funzionalità in quanto Moovie dovrà garantire tempi di risposta minima, nel trattamento dei dati, nell'uso del sistema su diverse piattaforme senza avere problemi di "adattabilità" e 
+Il sito Moovie sarà progettato in modo tale da fare avere all'utente una Web-Application di qualità. La qualità fornita è visibile all'interno del sistema laddove ci interfacciamo con esso in quanto Moovie dovrà offrire un interfaccia facile e semplice da ulizzare da parte di tutti gli utenti, dovrà garantire tempi di risposta minima, dovrà offrire un servizio di qualitò nel trattamento dei dati, e dovrà essere utlizzabile su diverse piattaforme senza avere alcun tipo di problema.
 
 ### DG_1_Usability
 
@@ -101,10 +101,6 @@ Sarà totalmente gratuito
 
 ### DG_4_Supportability
 2.4.1 Sarà supportato dai browser Google Chrome, Mozilla Firefox, Safari 
-
-Vincoli (pseudo requisiti)
-
-    Il sito prevede l’utilizzo delle seguenti tecnologie: Apache, MySQL, PHP
 
 ## Definizioni, Acronimi e Abbreviazioni
 
@@ -162,7 +158,8 @@ Per procedere ad uno sviluppo e ad una progettazione semplificata dell'intero si
 
 #### Ricerche
 ![](Package%20diagrams/Ricerche.jpeg)
-Il sottosistema di "Ricerche" si occupa di gestire le ricerche di tutti gli utenti offrendo diverse funzionalità quali:
+
+Il sottosistema  "Ricerche" si occupa di gestire le ricerche di tutti gli utenti offrendo diverse funzionalità quali:
  - Ricerca di un film;
  - Ricerca di un artista;	
  - Ricerca di un utente;
@@ -174,7 +171,7 @@ Questo livello include tutte le componenti dell'interfaccia che offrono funziona
  - GUI - Ricerca di un utente: interfacce che offrono all'utente autenticato la possibilità di ricercare un altro utente.
 
 #### RicercheApplicationLayer
-Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema di "Ricerche" nel sistema:
+Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema "Ricerche" nel sistema:
 - RicercaFilm(): incoropora operazioni che permettono di ricercare un film ad un utente.
 - RicercaArtista(): incoropora operazioni che permettono di ricercare un artista ad un utente.
 - RicercaUtente(): incoropora operazioni che permettono di ricercare un altro utente ad un utente autenticato.
@@ -184,7 +181,8 @@ Questo livello si occupa di gestire i dati riguardanti le richerche degli utenti
 
 #### Accounts
 ![](Package%20diagrams/Accounts.jpg)
-Il sottosistema di "Accounts" si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
+
+Il sottosistema "Accounts" si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
  - Creare un account
  - Attivare un account 
  - Autenticare un account
@@ -201,7 +199,7 @@ Questo livello include tutte le componenti dell'interfaccia che offrono funziona
  - GUI - Conferma di cambio password: interfacce che offrono all'utente la possibilità di accettare le modifiche precedentemente fatte alla password;
 
 #### AccountsApplicationLayer
-Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema di "Accounts" nel sistema:
+Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema "Accounts" nel sistema:
  - CreareAccount(): incorpora operazioni che permettono di creare un nuovo account ad un utente;
  - AttivareAccount(): incorpora operazioni che permettono all'utente di accettare la creazione dell'account e successivamente l'effettiva creazione di esso all'interno del sistema;
  - AutenticareAccount(): incorpora operazioni che permettono ad un utente di autenticarsi all'interno di Moovie;
@@ -213,7 +211,8 @@ Questo livello si occupa di gestire i dati riguardanti gli utenti dell'intero si
 
 #### Amicizie
 ![](Package%20diagrams/Amicizie.jpg)
-Il sottosistema di "Amicizie" si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
+
+Il sottosistema "Amicizie" si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
  - Richiedere amicizia tra due account
  - Confermare amicizia tra due account
  - Rifiutare amicizia tra due account
@@ -227,7 +226,7 @@ Questo livello include tutte le componenti dell'interfaccia che offrono funziona
  - GUI - Suggerire un film a un account amico: interfacce che offrono all'utente autenticato la possibilità di suggerire un film ad un account amico;
 
 #### AmicizieApplicationLayer
-Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema di "Amicizie" nel sistema:
+Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema "Amicizie" nel sistema:
  - RichiestaAmciziaAccount(): incorpora operazioni che permettono all'utente autenticato di richiedere l'amicizia ad un altro utente;
  - ConfermaAmiciziaAccount(): incorpora operazioni che permettono all'utente autenticato di accettare l'amicizia di un altro utente;
  - RifiutaAmiciziaAccount() (): incorpora operazioni che permettono all'utente autenticato di rifiutare l'amicizia di un altro utente;
@@ -238,7 +237,8 @@ Questo livello si occupa di gestire le amicizie degli utenti dell'intero sistema
 
 #### Film
 ![](Package%20diagrams/Film.jpeg)
-Il sottosistema di "Film" si occupa di gestire i giudizi di tutti gli utenti autenticati offrendo diverse funzionalità quali:
+
+Il sottosistema "Film" si occupa di gestire i giudizi di tutti gli utenti autenticati offrendo diverse funzionalità quali:
  - Aggiungere un giudizio;	
  - Modificare un giudizio;
  - Rimuovere un giudizio;
@@ -251,7 +251,7 @@ Questo include al suo interno tutte le componenti dell'interfaccia che offrono o
  - GUI - Rimuovere giudizio: interfacce che offrono all'utente autenticato la possibilità di rimuovere un giudizio su un film rimuovendolo da "Film guardati".
  - GUI - Suggerimento automatico di un film: interfacce che offrono all'utente autenticato la possibilità di farsi suggerire dal sistema un film in linea con i suoi gusti.
 #### FilmApplicationLayer
-Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema di "Film" al sistema:
+Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema "Film" al sistema:
 - AggiungereGiudizio(): incoropora operazioni che permettono di aggiungere un giudizio su un film, aggiungendolo in "Film guardati", ad un utente autenticato.
 - ModificareGiudizio(): incoropora operazioni che permettono di modificare un giudizio su un film ad un utente autenticato.
 - RimuovereGiudizio(): incoropora operazioni che permettono di rimuovere un giudizio su un film, rimuovendolo da "Film guardati", ad un utente autenticato.
@@ -262,7 +262,8 @@ Questo livello si occupa di gestire i dati riguardanti i giudizi sui film  degli
 
 #### Liste
 ![](Package%20diagrams/Liste.jpg)
-Il sottosistema di "Liste" si occupa di gestire le liste del sistema offrendo diverse funzionalità quali: 
+
+Il sottosistema "Liste" si occupa di gestire le liste del sistema offrendo diverse funzionalità quali: 
  - Creare una lista
  - Modificare una lista
  - Eliminare una lista
@@ -278,7 +279,7 @@ Questo livello include tutte le componenti dell'interfaccia che offrono funziona
  - GUI - Seguire liste altrui: interfacce che offrono la possibilità all'utente autenticato di seguire lite di altri amici;
 
 #### ListeApplicationLayer
-Questo livello include tutte le componenti che offronto operazioni riguardanti il sottosistema di "Liste" nel sistema:
+Questo livello include tutte le componenti che offronto operazioni riguardanti il sottosistema "Liste" nel sistema:
  - CreareLista(): incorpora operazioni che permettono ad un utente autenticato di creare una lista;
  - ModificareLista(): incorpora operazioni che permettono ad un utente autenticato di modificare una lista;
  - EliminareLista(): incorpora operazioni che permettono ad un utente autenticato di eliminare una lista all'interno del sito;
@@ -290,11 +291,165 @@ Questo livello si occupa di gestire i dati riguardanti le liste all'interno del 
 
 ## Mappatura Hardware/Software
 ![](Package%20diagrams/Mapping%20HW%20SW.jpeg)
+
 Il sistema avrà un'architettura client/server three-tier con un tier che implementa il livello di presentazione, un secondo tier che implementa la logica applicativa e un terzo tier che comprende un DBMS per la gestione dei dati persistenti.  
 Sul primo tier è eseguto un web browser che consentirà all'utente, attraverso una interfaccia grafica, di interagire con il sistema. La comunicazione tra primo e secondo tier che si occupa della logica di business avverrà tramite protocollo HTTP.
 Questo protocollo permette di trasferire ipertesti tra tier di presentazione e tier della logica applicativa tramite un meccanismo di richiesta e risposta.
 Dal punto di vista hardware, il primo tier potrà essere una qualsiasi macchina dotata di connesione ad internet, mentre per le specifiche software un sistema operativo con installato uno dei web browser supportati, sarà sufficiente per interagire con il sistema.
 Il tier della logica applicativa, dotato di connessione ad internet, avrà installato un Web Server Apache con modulo PHP, e comunicherà con il tier della gestione dei dati attravero un protocollo MySql. Infatti quest'ultimo, dotato anche esso di connessione ad intenet, avrà un database realazionale MySql.
+
+
+## Gestione dei dati persitenti
+Il sito Moovie ha al suo interno alcuni dati che devono essere mantenuti affinché il suo funzionamento sia valido. La persistenza di questi, è stata scelta di dargliela, memorizzando
+essi in un database relazionale nel quale i dati persistenti vengono rappresentati attraverso delle tabelle, ognuna delle quali è composta da righe(gli elementi, le istanze di ogni dato) e le colonne(attributi, descrizioni di ogni istanza di dato).
+I dati vengono gestiti attraverso MySQL che è un DBMS (Data Base ManagEment System) che permette di manipolare le informazioni che si vogliono controllare sulla base di dati.
+
+![](Database%20Scheme/SchemaDataBase.png)
+
+L'immagine sopra presente, descrive quello che è lo schema dei dati che dovranno essere mantenuti nel nostro database in maniera persistente. 
+
+### Struttura Tabelle
+
+#### Tabella Saga
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| id      | INT  |Primaria |
+| titolo      | VARCHAR(100) | | 
+
+#### Tabella SagaFilm
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| film      | INT  |Primaria, Esterna(derivante da Film(id) |
+| saga      | INT | Primaria, Esterna(derivante da Saga(id) | 
+
+#### Tabella Genere
+
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| id      | INT  |Primaria |
+| nome     | VARCHAR(100) | | 
+
+#### Tabella GenereFilm
+
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| film | INT |Primaria, Esterna(derivante da Film(id) |
+| genere | INT | Primaria, Esterna(derivante da Genere(id) | 
+| id | INT | Primaria, Esterna(derivante da Genere(id) |
+
+
+
+#### Tabella Recitazione
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| attore     | INT  | Primaria, Esterna(derivante da Artista(id) |
+| film    | INT  | Primaria, Esterna(derivante da Film(id) |
+| personaggio     | VARCHAR(100)  ||
+
+
+#### Tabella Artista
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| id    | INT  |Primaria |
+| nome | VARCHAR(100)  | |
+| nascita    | VARCHAR(10)  | |
+
+#### Tabella ArtistaFacce
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| artista    | INT  |Primaria, Esterna(derivante da Artista(id) |
+| faccia | MEDIUMBLOB | |
+
+#### Tabella ArtistiDescrizioni
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| artista    | INT  |Primaria, Esterna(derivante da Artista(id) |
+| descrizione | TEXT | |
+
+#### Tabella FilmCopertine
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| film    | INT  |Primaria, Esterna(derivante da Film(id) |
+| faccia | MEDIUMBLOB | |
+
+#### Tabella FilmDescrizioni
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| film    | INT  |Primaria, Esterna(derivante da Film(id) |
+| descrizione | TEXT | |
+
+
+#### Tabella FilmGuardati
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| film | INT  |Primaria, Esterna (derivante da Film(id)|
+| utente | INT  |Primaria, Esterna(derivante da Utente(id)|
+| voto   | INT  | |
+| momento | DATETIME  | |
+
+#### Tabella FilmDaGuardare
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| film | INT  |Primaria, Esterna (derivante da Film(id)|
+| utente | INT  |Primaria, Esterna(derivante da Utente(id)|
+|    momento | DATETIME  | |
+
+#### Tabella Amicizia
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| mittente  | INT |Primaria, Esterna (derivante da Utente(id)|
+| destinatario    | INT  |Primaria, Esterna (derivante da Utente(id) |
+| momento_richiesta | DATETIME | |
+
+#### Tabella Lista
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| visibilità    | ENUM("pubblica", "amici", "privata";  | |
+| proprietario    | INT  | Esterna(derivante da Utente(id)|
+| id    | INT  |Primaria |
+| nome | VARCHAR(100)  | |
+
+#### Tabella ListaFilm
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| film    | INT  |Primaria, Esterna(derivante da Film(id) |
+| lista | INT  | Primaria, Esterna(derivante da Lista(id) |
+
+
+#### Tabella Follow
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| lista | INT  | Primaria, Esterna(derivante da Lista(id) |
+| utente | INT | Primaria, Esterna(derivante da Utente(id) |
+
+#### Tabella Utente
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| id    | INT  |Primaria |
+| nome | VARCHAR(100)  | |
+| cognome    | VARCHAR(10)  | |
+| email    | VARCHAR(100)  ||
+| password  | VARCHAR(100)  ||
+
+#### Tabella Film
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| id    | int  |Primaria |
+| titolo | varchar(100)  | |
+| durata    | INT  | |
+| anno    | YEAR  ||
+
+#### Tabella Regia
+| Attributo |    Tipo    | Chiave |
+|----------|------------|------------------------------|
+| id_film   | INT |Primaria, Esterna(derivante da Film(id) |
+| id_artista| INT | Primaria, Esterna(derivante da Artista(id)|
+
+#### Tabella ListaFilm
+|   Attributo   |   Tipo    |   Chiave  |
+|---------------|-----------|-----------|
+| id_film | INT | Primaria |
+| id_lista | INT | Primaria |
 
 
 
@@ -315,7 +470,7 @@ Amicizia | | RichiestaAmiciziaAccount()<br/>ConfermaAmiciziaAccount()<br/>Rifiut
 
 
 ## Condizione Limite
---------------------
+
 ### Inizializzazione
 Allo start-up del sistema è necessario l'avvio di un Web-Server Apache, il quale, attraverso MySQL acquisirà le informazioni necessarie all'interno del database per permettere all'utente la viusualizzazione della HomePage
 Ritrovandosi su questa, l'utente avrà la possibilità di usufrurire di tutte le funzionalità che Moovie offre.
