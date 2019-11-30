@@ -1,15 +1,13 @@
 # System Design Document
-| Versione |    Data    | Descrizione                  | Autori                   |
-| :------: | :--------: | :------------------------:   | :----------------------: |
-| 0.1      | 19/11/2019 | Prima stesura                | Michelantonio Panichella, Gianluca Pirone  |
-| 0.2      | 26/11/2019 | Mappatura HW/SW, Gestione Accessi | Gianluca Pirone  |
-| 0.3      | 28/11/2019 | Descrizione del problema | Michelantonio Panichella  |
-| 0.4      | 28/11/2019 | Revisione sottositemi | Michelantonio Panichella, Gianluca Pirone  |
-| 0.5      | 28/11/2019 | Aggiunta diagrammi, condizione limite e servizi sottosistemi | Michelantonio Panichella, Gianluca Pirone  |  
-| 0.6      | 29/11/2019 | Aggiunta definizioni, acronimi e abbreviazioni, riferimenti e panoramica | Gianluca Pirone  |
-| 0.7      | 29/11/2019 | Aggiunta Gestione dati persistenti | Gianluca Pirone  |  
- 
-
+| Versione | Data    | Descrizione                                                                 | Autori                                     |
+|----------|------------| -------------------------------------------------------------------------|--------------------------------------------|
+| 0.1      | 19/11/2019 | Prima stesura                                                            | Michelantonio Panichella, Gianluca Pirone  |
+| 0.2      | 26/11/2019 | Mappatura HW/SW, Gestione Accessi                                        | Gianluca Pirone                            |
+| 0.3      | 28/11/2019 | Descrizione del problema                                                 | Michelantonio Panichella                   |
+| 0.4      | 28/11/2019 | Revisione sottositemi                                                    | Michelantonio Panichella, Gianluca Pirone  |      |
+| 0.5      | 28/11/2019 | Aggiunta diagrammi, condizione limite e servizi sottosistemi             | Michelantonio Panichella, Gianluca Pirone  |  
+| 0.6      | 29/11/2019 | Aggiunta definizioni, acronimi e abbreviazioni, riferimenti e panoramica | Gianluca Pirone                            |
+| 0.7      | 29/11/2019 | Aggiunta Gestione dati persistenti                                       | Michelantonio Panichella                   | 
 1. [Introduzione](#introduzione)
     1. [Descrizione del Problema](#-descrizione-del-problema)
     2. [Design Goals](#designgoals)
