@@ -4,13 +4,15 @@
 	--super-color: #8aa399;
 	--super-color: #7d84b2;
 	--super-color: #db5461;
+	--super-color: #07b;
 	--font-color: #333;
+	--background: #ddd;
 }
 
 body {
 	margin: 0;
 	overflow-y: scroll;
-	background: #ddd;
+	background: var(--background);
 	font-family: sans-serif;
 	font-size: 14px;
 	position: relative;
@@ -29,4 +31,6 @@ a {
 input,
 textarea {
 	font: inherit;
+	outline: 0;
+	box-shadow: none;
 }

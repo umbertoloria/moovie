@@ -4,6 +4,7 @@
 //$append = str_repeat("../", count(explode("/", $path)) - 1);
 
 include $_SERVER["DOCUMENT_ROOT"] . "/php/database.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/php/Validator.php";
 
 include $_SERVER["DOCUMENT_ROOT"] . "/models/Utente.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/models/Artista.php";

@@ -1,5 +1,11 @@
+<?php
+$uri = $_SERVER["REQUEST_URI"];
+?>
 <menu>
 	<ul>
+		<li <?php echo $uri == "/registrazione.php" ? "class='active'" : ""; ?>>
+			<a href="/registrazione.php">Registrazione</a>
+		</li>
 		<li>
 			<a>Suggeriscimi un film</a>
 		</li>

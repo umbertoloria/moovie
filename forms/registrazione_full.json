@@ -1,0 +1,33 @@
+{
+  "title": "Registrazione",
+  "id": "registrazione",
+  "submit": "Iscriviti!",
+  "access": "GUEST",
+  "columns": 3,
+  "fields": {
+	"username": {
+	  "type": "text",
+	  "min": 5,
+	  "max": 50,
+	  "label": "Nome e cognome",
+	  "placeholder": "Pinco Pallina"
+	},
+	"email": {
+	  "type": "email",
+	  "label": "La tua email personale"
+	},
+	"password": {
+	  "type": "password",
+	  "label": "Password"
+	},
+	"copassword": {
+	  "type": "password",
+	  "label": "Conferma password"
+	},
+	"tipo": {
+	  "type": "select",
+	  "label": "Tipo utente",
+	  "collection": "tipi_utenti"
+	}
+  }
+}
