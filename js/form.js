@@ -160,8 +160,6 @@ function Form(querySelector, validator) {
 		thisHandle.validate();
 		if (thisHandle.isValid()) {
 			disableSumbit();
-			alert("OK");
-			// enableSubmit();
 		} else {
 			e.preventDefault();
 		}

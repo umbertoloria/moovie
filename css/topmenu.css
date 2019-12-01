@@ -50,4 +50,5 @@ nav > a {
 	border: 2px solid var(--super-color);
 	border-left: 0;
 	border-radius: 0 10px 10px 0;
+	cursor: pointer;
 }

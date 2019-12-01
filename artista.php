@@ -8,26 +8,27 @@ if ($id === null) {
 } elseif (!$artista = ArtistaManager::doRetrieveByID($id)) {
 	print("artista non trovato");
 } else {
+	unset($id);
 	$films = [];
 	$recitazioni = RecitazioneManager::doRetrieveByAttore($artista->getID());
-	$regie = RegiaManager::doRetrieveByRegista($artista->getID());
 	foreach ($recitazioni as $recitazione) {
 		if (!array_key_exists($recitazione->getFilm(), $films)) {
 			$films[$recitazione->getFilm()] = FilmManager::doRetrieveByID($recitazione->getFilm());
 		}
 	}
-	foreach ($regie as $regia) {
-		if (!array_key_exists($regia->getFilm(), $films)) {
-			$films[$regia->getFilm()] = FilmManager::doRetrieveByID($regia->getFilm());
+	$registi = RegiaManager::get_films_from_artista($artista->getID());
+	foreach ($registi as $regista) {
+		if (!array_key_exists($regista, $films)) {
+			$films[$regista] = FilmManager::doRetrieveByID($regista);
 		}
 	}
 	$_REQUEST["artista"] = $artista;
 	$_REQUEST["recitazioni"] = $recitazioni;
-	$_REQUEST["regie"] = $regie;
+	$_REQUEST["registi"] = $registi;
 	$_REQUEST["films"] = $films;
 	unset($artista);
 	unset($recitazioni);
-	unset($regie);
+	unset($registi);
 	unset($films);
 	include "views/Pagina artista.php";
 }

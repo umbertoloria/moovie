@@ -8,6 +8,7 @@ if ($id === null) {
 } elseif (!$film = FilmManager::doRetrieveByID($id)) {
 	print("film non trovato");
 } else {
+	unset($id);
 	$artisti = [];
 	$recitazioni = RecitazioneManager::doRetrieveByFilm($film->getID());
 	foreach ($recitazioni as $recitazione) {
@@ -15,20 +16,20 @@ if ($id === null) {
 			$artisti[$recitazione->getAttore()] = ArtistaManager::doRetrieveByID($recitazione->getAttore());
 		}
 	}
-	$regie = RegiaManager::doRetrieveByFilm($film->getID());
-	foreach ($regie as $regia) {
-		if (!array_key_exists($regia->getRegista(), $artisti)) {
-			$artisti[$regia->getRegista()] = ArtistaManager::doRetrieveByID($regia->getRegista());
+	$registi = RegiaManager::get_artisti_from_film($film->getID());
+	foreach ($registi as $regista) {
+		if (!array_key_exists($regista, $artisti)) {
+			$artisti[$regista] = ArtistaManager::doRetrieveByID($regista);
 		}
 	}
 	$_REQUEST["film"] = $film;
 	$_REQUEST["recitazioni"] = $recitazioni;
-	$_REQUEST["regie"] = $regie;
+	$_REQUEST["registi"] = $registi;
 	$_REQUEST["artisti"] = $artisti;
 	$_REQUEST["generi"] = GenereManager::doRetrieveByFilm($film->getID());
 	unset($film);
 	unset($recitazioni);
-	unset($regie);
+	unset($registi);
 	unset($artisti);
 	include "views/Pagina film.php";
 }

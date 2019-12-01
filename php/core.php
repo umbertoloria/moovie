@@ -4,13 +4,13 @@
 //$append = str_repeat("../", count(explode("/", $path)) - 1);
 
 include $_SERVER["DOCUMENT_ROOT"] . "/php/database.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/php/Validator.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/php/validator.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/php/formats.php";
 
 include $_SERVER["DOCUMENT_ROOT"] . "/models/Utente.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/models/Artista.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/models/Film.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/models/Recitazione.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/models/Regia.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/models/Genere.php";
 
 include $_SERVER["DOCUMENT_ROOT"] . "/managers/ArtistaManager.php";

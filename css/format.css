@@ -26,6 +26,7 @@ a {
 	color: inherit;
 	text-decoration: underline;
 	font-weight: bold;
+	outline: 0;
 }
 
 input,
@@ -33,4 +34,28 @@ textarea {
 	font: inherit;
 	outline: 0;
 	box-shadow: none;
+}
+
+/****** TAGS ******/
+div.tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+}
+
+div.tags span,
+div.tags a {
+	display: block;
+	padding: 3px 6px;
+	border-radius: 2px;
+	background: rgba(0, 0, 0, .15);
+}
+
+div.tags a {
+	text-decoration: none;
+	transition: .3s;
+}
+
+div.tags a:hover {
+	background: rgba(0, 0, 0, .25);
 }

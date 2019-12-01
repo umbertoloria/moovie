@@ -3,14 +3,14 @@
 	"nome": {
 	  "minlength": 5,
 	  "maxlength": 50,
-	  "exp": "^[a-zA-Z' ]+$",
-	  "expErr": "Caratteri ammessi: lettere alfabetiche, apostrofi e spazi (ma non da soli)"
+	  "exp": "^[a-zA-Z' àèéìòù]+$",
+	  "expErr": "Caratteri ammessi: lettere (accentate), apostrofi e spazi (ma non da soli)"
 	},
 	"cognome": {
 	  "minlength": 5,
 	  "maxlength": 50,
-	  "exp": "^[a-zA-Z' ]+$",
-	  "expErr": "Caratteri ammessi: lettere alfabetiche, apostrofi e spazi (ma non da soli)"
+	  "exp": "^[a-zA-Z' àèéìòù]+$",
+	  "expErr": "Caratteri ammessi: lettere (accentate), apostrofi e spazi (ma non da soli)"
 	},
 	"email": {
 	  "minlength": 5,

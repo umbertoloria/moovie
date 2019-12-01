@@ -1,4 +1,9 @@
-<form id="area_di_ricerca" method="post" action="/controllers/Ricerca.php">
+<!--
+TODO: Se sono in Risultati di ricerca:
+	 * il default kind deve essere quello della ricerca attuale
+	 * così come anche il campo fulltext
+ -->
+<form id="area_di_ricerca" method="get" action="/controllers/Ricerca.php">
 	<div class="dropdown_selecter">
 		<input type="hidden" name="kind" value=""/>
 		<label></label>

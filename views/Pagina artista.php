@@ -7,22 +7,25 @@ assert($artista instanceof Artista);
 		<img src="image.php?kind=artist&id=<?php echo $artista->getID(); ?>" alt=""/>
 		<div>
 			<h1> <?php echo $artista->getNome(); ?> </h1>
-			<span> <?php echo $artista->getNascita(); ?> </span>
+			<div class="tags">
+				<!-- TODO: Mostrare una data più umana. -->
+				<span> <?php echo Formats\data($artista->getNascita()); ?> </span>
+			</div>
 			<p> <?php echo $artista->getDescrizione(); ?></p>
 		</div>
 	</div>
 	<?php
 	$recitazioni = $_REQUEST["recitazioni"];
-	$regie = $_REQUEST["regie"];
+	$registi = $_REQUEST["registi"];
 	$films = $_REQUEST["films"];
 
 	$orders = ["Recitazioni", "Regie"];
 	if (count($recitazioni) == 0)
 		unset($orders[0]);
-	if (count($regie) == 0)
+	if (count($registi) == 0)
 		unset($orders[1]);
 	if (count($orders) == 2)
-		if (count($recitazioni) < count($regie))
+		if (count($recitazioni) < count($registi))
 			$orders = array_reverse($orders);
 	foreach ($orders as $order) {
 		echo "<div class='group'>";
@@ -42,9 +45,8 @@ assert($artista instanceof Artista);
 				echo "</li>";
 			}
 		} else {
-			foreach ($regie as $regia) {
-				assert($regia instanceof Regia);
-				$film = $films[$regia->getFilm()];
+			foreach ($registi as $regia) {
+				$film = $films[$regia];
 				assert($film instanceof Film);
 				echo "<li>";
 				echo "<a href='film.php?id={$film->getID()}'>";

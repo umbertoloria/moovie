@@ -7,22 +7,25 @@ assert($film instanceof Film);
 		<img src="image.php?kind=movie&id=<?php echo $film->getID(); ?>" alt=""/>
 		<div>
 			<h1> <?php echo $film->getTitolo(); ?> </h1>
-			<span> <?php echo $film->getAnno(); ?> </span>
-			<?php
-			$generi = $_REQUEST["generi"];
-			foreach ($generi as $genere) {
-				assert($genere instanceof Genere);
-				echo "<a href='genere.php?id={$genere->getID()}'>";
-				echo "<span>{$genere->getNome()}</span>";
-				echo "</a>\n";
-			}
-			?>
+			<div class="tags">
+				<span> <?php echo $film->getAnno(); ?> </span>
+				<span> <?php echo Formats\durata($film->getDurata()); ?> </span>
+				<?php
+				$generi = $_REQUEST["generi"];
+				foreach ($generi as $genere) {
+					assert($genere instanceof Genere);
+					echo "<a href='genere.php?id={$genere->getID()}'>";
+					echo "{$genere->getNome()}";
+					echo "</a>\n";
+				}
+				?>
+			</div>
 			<p> <?php echo $film->getDescrizione(); ?> </p>
 		</div>
 	</div>
 	<?php
 	$recitazioni = $_REQUEST["recitazioni"];
-	$regie = $_REQUEST["regie"];
+	$registi = $_REQUEST["registi"];
 	$artisti = $_REQUEST["artisti"];
 
 	$orders = ["Recitazioni", "Regie"];
@@ -44,9 +47,8 @@ assert($film instanceof Film);
 				echo "</li>";
 			}
 		} else {
-			foreach ($regie as $regia) {
-				assert($regia instanceof Regia);
-				$artista = $artisti[$regia->getRegista()];
+			foreach ($registi as $regia) {
+				$artista = $artisti[$regia];
 				assert($artista instanceof Artista);
 				echo "<li>";
 				echo "<a href='artista.php?id={$artista->getID()}'>";

@@ -27,20 +27,12 @@ section {
 }
 
 #presentation div h1 {
-	font-size: 2em;
+	font-size: 2.1em;
 	margin: 0 0 10px 0;
-}
-
-#presentation div span {
-	display: inline-block;
-	padding: 2px 5px;
-	border-radius: 2px;
-	margin: 0 0 10px 0;
-	background: rgba(0, 0, 0, .15);
 }
 
 #presentation div p {
-	margin: 0;
+	margin: 10px 0 0 0;
 }
 
 .group {

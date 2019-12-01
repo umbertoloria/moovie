@@ -7,9 +7,7 @@ $cognome = trim(@$_POST["nome"]);
 $email = trim(@$_POST["email"]);
 $password = trim(@$_POST["password"]);
 
-$json = json_decode(file_get_contents("../forms/registrazione.json"));
-
-$valid = Validator\validate($json, [
+$valid = Validator\validate("../forms/registrazione.json", [
 	"nome" => $nome,
 	"cognome" => $cognome,
 	"email" => $email,

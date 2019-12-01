@@ -70,14 +70,17 @@ section form input[type='submit'] {
 	background: var(--super-color);
 	border-radius: 5px;
 
-	cursor: pointer;
 	transition: .3s;
 }
 
-section form input[type='submit']:hover {
-	box-shadow: 0 0 20px rgba(0, 0, 0, .4);
+section form input[type='submit']:not([disabled]) {
+	cursor: pointer;
 }
 
 section form input[type='submit'][disabled] {
 	opacity: .5;
+}
+
+section form input[type='submit']:not([disabled]):hover {
+	box-shadow: 0 0 20px rgba(0, 0, 0, .4);
 }

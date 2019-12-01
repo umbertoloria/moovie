@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="/css/dropdown_selecter.css"/>
 	<link rel="stylesheet" href="/css/content.css"/>
 	<link rel="stylesheet" href="/css/form.css"/>
+	<link rel="stylesheet" href="/css/risultati_di_ricerca.css"/>
 	<script src="/js/jquery-3.4.1.min.js"></script>
 	<script src="/js/dropdown-selecter.js"></script>
 	<script src="/js/form.js"></script>
