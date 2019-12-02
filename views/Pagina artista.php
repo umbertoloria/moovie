@@ -8,7 +8,6 @@ assert($artista instanceof Artista);
 		<div>
 			<h1><?php echo $artista->getNome(); ?></h1>
 			<div class="tags">
-				<!-- TODO: Mostrare una data più umana. -->
 				<span><?php echo Formats\data($artista->getNascita()); ?></span>
 			</div>
 			<p><?php echo $artista->getDescrizione(); ?></p>

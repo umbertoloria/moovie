@@ -1,17 +1,18 @@
 /* Pagina film, artista e utente */
 section {
-	display: flex;
-	flex-wrap: wrap;
+	display: block;
 	width: 1200px;
 }
 
+section > * {
+	margin: 30px;
+}
+
 #presentation {
-	width: 100%;
 	flex-grow: 1;
 	display: flex;
 	flex-wrap: nowrap;
 	gap: 30px;
-	margin: 30px;
 }
 
 #presentation img {
@@ -33,12 +34,6 @@ section {
 
 #presentation div p {
 	margin: 10px 0 0 0;
-}
-
-.group {
-	margin: 30px;
-	/*width: calc(50% - 60px);*/
-	width: 100%;
 }
 
 .group label {

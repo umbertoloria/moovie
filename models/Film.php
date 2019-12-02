@@ -1,5 +1,6 @@
 <?php
 
+/** @author Gianluca Pirone */
 class Film
 {
 
@@ -47,7 +48,5 @@ class Film
 	{
 		return $this->descrizione;
 	}
-
-	// TODO copertina
 
 }

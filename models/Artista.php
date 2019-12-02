@@ -1,5 +1,6 @@
 <?php
 
+/** @author Gianluca Pirone */
 class Artista
 {
 
@@ -39,7 +40,5 @@ class Artista
 	{
 		return $this->descrizione;
 	}
-
-	// TODO faccia
 
 }

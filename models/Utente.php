@@ -1,5 +1,6 @@
 <?php
 
+/** @author Umberto Loria */
 class Utente {
 
 	/** @var int */

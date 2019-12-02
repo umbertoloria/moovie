@@ -1,5 +1,4 @@
 <section>
-
 	<div id="risultati_di_ricerca">
 		<div class="risultati">
 			<?php

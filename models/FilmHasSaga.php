@@ -1,5 +1,6 @@
 <?php
 
+/** @author Gianluca Pirone */
 class FilmHasSaga
 {
 

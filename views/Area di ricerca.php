@@ -32,8 +32,7 @@ if ($_SERVER["PHP_SELF"] === "/controllers/Ricerca.php") {
 	<input type="submit" value="Cerca"/>
 </form>
 <script>
-	// TODO: Retrieve throw get("name") instead of creating it
-	new DropdownSelecter("#area_di_ricerca > .dropdown_selecter");
+	$("#area_di_ricerca > .dropdown_selecter").dropdown_selecter();
 	// Per usare la ricerca, il campo "fulltext" non deve essere vuoto
 	const area_di_ricerca_form = $("#area_di_ricerca");
 	const area_di_ricerca_fulltext = area_di_ricerca_form.find("[name='fulltext']");
