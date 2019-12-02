@@ -8,8 +8,17 @@ if ($id === null) {
 } elseif (!$genere = GenereManager::doRetrieveByID($id)) {
 	print("genere non trovato");
 } else {
-	unset($id);
+	$genere_films = GenereManager::get_generi_from_film($genere->getID());
+	$films = [];
+	foreach ($genere_films as $film_id)
+		if (!isset($films[$film_id]))
+			$films[$film_id] = FilmManager::doRetrieveByID($film_id);
 	$_REQUEST["genere"] = $genere;
+	$_REQUEST["genere_films"] = $genere_films;
+	$_REQUEST["films"] = $films;
+	unset($id);
 	unset($genere);
+	unset($genere_films);
+	unset($films);
 	include "views/Pagina genere.php";
 }

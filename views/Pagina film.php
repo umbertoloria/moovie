@@ -4,23 +4,23 @@ assert($film instanceof Film);
 ?>
 <section>
 	<div id="presentation">
-		<img src="image.php?kind=movie&id=<?php echo $film->getID(); ?>" alt=""/>
+		<img src="/image.php?kind=movie&id=<?php echo $film->getID(); ?>" alt=""/>
 		<div>
-			<h1> <?php echo $film->getTitolo(); ?> </h1>
+			<h1><?php echo $film->getTitolo(); ?></h1>
 			<div class="tags">
-				<span> <?php echo $film->getAnno(); ?> </span>
-				<span> <?php echo Formats\durata($film->getDurata()); ?> </span>
+				<span><?php echo $film->getAnno(); ?></span>
+				<span><?php echo Formats\durata($film->getDurata()); ?></span>
 				<?php
 				$generi = $_REQUEST["generi"];
 				foreach ($generi as $genere) {
 					assert($genere instanceof Genere);
-					echo "<a href='genere.php?id={$genere->getID()}'>";
+					echo "<a href='/genere.php?id={$genere->getID()}'>";
 					echo "{$genere->getNome()}";
-					echo "</a>\n";
+					echo "</a>";
 				}
 				?>
 			</div>
-			<p> <?php echo $film->getDescrizione(); ?> </p>
+			<p><?php echo $film->getDescrizione(); ?></p>
 		</div>
 	</div>
 	<?php
@@ -39,8 +39,8 @@ assert($film instanceof Film);
 				$artista = $artisti[$recitazione->getAttore()];
 				assert($artista instanceof Artista);
 				echo "<li>";
-				echo "<a href='artista.php?id={$artista->getID()}'>";
-				echo "<img src='image.php?kind=artist&id={$artista->getID()}' alt=''/>";
+				echo "<a href='/artista.php?id={$artista->getID()}'>";
+				echo "<img src='/image.php?kind=artist&id={$artista->getID()}' alt=''/>";
 				echo "<span>{$recitazione->getPersonaggio()}</span>";
 				echo "<span>{$artista->getNome()}</span>";
 				echo "</a>";
@@ -51,8 +51,8 @@ assert($film instanceof Film);
 				$artista = $artisti[$regia];
 				assert($artista instanceof Artista);
 				echo "<li>";
-				echo "<a href='artista.php?id={$artista->getID()}'>";
-				echo "<img src='image.php?kind=artist&id={$artista->getID()}' alt=''/>";
+				echo "<a href='/artista.php?id={$artista->getID()}'>";
+				echo "<img src='/image.php?kind=artist&id={$artista->getID()}' alt=''/>";
 				echo "<span>{$artista->getNome()}</span>";
 				echo "</a>";
 				echo "</li>";

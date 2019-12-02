@@ -4,14 +4,14 @@ assert($artista instanceof Artista);
 ?>
 <section>
 	<div id="presentation">
-		<img src="image.php?kind=artist&id=<?php echo $artista->getID(); ?>" alt=""/>
+		<img src="/image.php?kind=artist&id=<?php echo $artista->getID(); ?>" alt=""/>
 		<div>
-			<h1> <?php echo $artista->getNome(); ?> </h1>
+			<h1><?php echo $artista->getNome(); ?></h1>
 			<div class="tags">
 				<!-- TODO: Mostrare una data più umana. -->
-				<span> <?php echo Formats\data($artista->getNascita()); ?> </span>
+				<span><?php echo Formats\data($artista->getNascita()); ?></span>
 			</div>
-			<p> <?php echo $artista->getDescrizione(); ?></p>
+			<p><?php echo $artista->getDescrizione(); ?></p>
 		</div>
 	</div>
 	<?php
@@ -37,8 +37,8 @@ assert($artista instanceof Artista);
 				$film = $films[$recitazione->getFilm()];
 				assert($film instanceof Film);
 				echo "<li>";
-				echo "<a href='film.php?id={$film->getID()}'>";
-				echo "<img src='image.php?kind=movie&id={$film->getID()}' alt=''/>";
+				echo "<a href='/film.php?id={$film->getID()}'>";
+				echo "<img src='/image.php?kind=movie&id={$film->getID()}' alt=''/>";
 				echo "<span>{$recitazione->getPersonaggio()}</span>";
 				echo "<span>{$film->getTitolo()}</span>";
 				echo "</a>";
@@ -49,8 +49,8 @@ assert($artista instanceof Artista);
 				$film = $films[$regia];
 				assert($film instanceof Film);
 				echo "<li>";
-				echo "<a href='film.php?id={$film->getID()}'>";
-				echo "<img src='image.php?kind=movie&id={$film->getID()}' alt=''/>";
+				echo "<a href='/film.php?id={$film->getID()}'>";
+				echo "<img src='/image.php?kind=movie&id={$film->getID()}' alt=''/>";
 				echo "<span>{$film->getTitolo()}</span>";
 				echo "</a>";
 				echo "</li>";

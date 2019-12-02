@@ -34,7 +34,7 @@
 										foreach ($film_generi[$risultato->getID()] as $genere_id) {
 											$genere = $generi[$genere_id];
 											assert($genere instanceof Genere);
-											echo "<a href='/genere.php?id={$genere->getID()}'>{$genere->getNome()}</a> ";
+											echo "<a href='/genere.php?id={$genere->getID()}'>{$genere->getNome()}</a>";
 										}
 									}
 									?>

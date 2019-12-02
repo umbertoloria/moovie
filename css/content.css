@@ -42,10 +42,12 @@ section {
 }
 
 .group label {
-	display: block;
+	display: inline-block;
+	font-size: 1.3em;
 	line-height: 40px;
 	padding: 0 20px;
-	background: #ccc;
+	background: rgba(0, 0, 0, .15);
+	border-radius: 2px;
 }
 
 .group ul {

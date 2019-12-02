@@ -19,7 +19,7 @@ $uri = $_SERVER["REQUEST_URI"];
 			<a>Le liste</a>
 			<ul>
 				<li>
-					<a href="#">Migliori film a colori</a>
+					<a>Migliori film a colori</a>
 				</li>
 				<li>
 					<a>Migliori horror</a>
@@ -41,7 +41,7 @@ $uri = $_SERVER["REQUEST_URI"];
 	</ul>
 	<ul>
 		<li>
-			<a href="utente.php?id=0">Umberto Loria</a>
+			<a href="/utente.php?id=0">Umberto Loria</a>
 		</li>
 		<li>
 			<a>Impostazioni</a>

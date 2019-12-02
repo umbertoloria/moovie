@@ -52,4 +52,18 @@ class GenereManager {
 		return $res;
 	}
 
+	/**
+	 * Restituisce i FilmID di un dato GenereID
+	 * @param int $id
+	 * @return int[]
+	 */
+	public static function get_films_from_genere(int $id) {
+		$res = [];
+		$stmt = DB::stmt("SELECT film FROM film_has_genere WHERE genere = ?");
+		if ($stmt->execute([$id]))
+			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
+				$res[] = $r["film"];
+		return $res;
+	}
+
 }
