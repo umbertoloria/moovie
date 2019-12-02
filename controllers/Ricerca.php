@@ -4,19 +4,7 @@ include "../php/core.php";
 
 $kind = @$_GET["kind"];
 $fulltext = @$_GET["fulltext"];
-
 $risultati = [];
-
-$ids = range(1, 16);
-$to_download = [];
-foreach (range(1, 6) as $_) {
-	while (!in_array($i = rand(1, count($ids)), $ids)) ;
-	array_splice($ids, array_search($i, $ids), 1);
-	array_push($to_download, $i);
-}
-
-unset($fulltext);
-
 if ($kind === "movies") {
 	// GenereID => GenereOBJ
 	$generi = [];
@@ -27,8 +15,7 @@ if ($kind === "movies") {
 	$artisti = [];
 	// FilmID => [ArtistaID1, ArtistaID2, ...]
 	$film_artisti = [];
-	foreach ($to_download as $id) {
-		$film = FilmManager::doRetrieveByID($id);
+	foreach (FilmManager::search($fulltext) as $film) {
 		$film_generi[$film->getID()] = [];
 		foreach (GenereManager::get_generi_from_film($film->getID()) as $genere_id) {
 			$film_generi[$film->getID()][] = $genere_id;
@@ -48,7 +35,6 @@ if ($kind === "movies") {
 			if (!isset($artisti[$film_id]))
 				$artisti[$film_id] = ArtistaManager::doRetrieveByID($film_id);
 		}
-
 		$risultati[] = $film;
 	}
 	$_REQUEST["generi"] = $generi;
@@ -62,8 +48,7 @@ if ($kind === "movies") {
 } elseif ($kind === "artists") {
 	$films = [];
 	$artista_films = [];
-	foreach ($to_download as $id) {
-		$artista = ArtistaManager::doRetrieveByID($id);
+	foreach (ArtistaManager::search($fulltext) as $artista) {
 		$artista_films[$artista->getID()] = [];
 		foreach (RecitazioneManager::doRetrieveByAttore($artista->getID()) as $recitazione) {
 			$artista_films[$artista->getID()][] = $recitazione->getFilm();
@@ -91,6 +76,7 @@ if ($kind === "movies") {
 }
 
 unset($kind);
+unset($fulltext);
 include "../parts/head.php";
 include "../parts/leftmenu.php";
 include "../parts/topmenu.php";

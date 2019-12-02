@@ -13,16 +13,18 @@
 	grid-gap: 30px;
 }
 
-#risultati_di_ricerca .risultati > div {
-	/*display: flex;
-	flex-wrap: wrap;
-	gap: 10px;
-	align-content: flex-start;*/
+#risultati_di_ricerca .risultati > p {
+	margin: 0;
 	background: #eee;
 	padding: 20px;
 	border-radius: 2px;
 }
 
+#risultati_di_ricerca .risultati > div {
+	background: #eee;
+	padding: 20px;
+	border-radius: 2px;
+}
 
 #risultati_di_ricerca .risultati > div > div:first-child {
 	display: flex;
@@ -88,83 +90,6 @@
 	/*background: var(--super-color);*/
 	box-shadow: inset 0 25px 0 var(--super-color);
 }
-
-/*
-#risultati_di_ricerca .risultati > div > a {
-display: block;
-width: 100px;
-height: 125px;
-}
-
-#risultati_di_ricerca .risultati > div > a img {
-display: block;
-width: 100%;
-height: 100%;
-object-fit: cover;
-border-radius: 2px;
-}
-
-#risultati_di_ricerca .risultati > div > div:nth-child(2) {
-width: calc(100% - 100px - 10px);
-}
-
-#risultati_di_ricerca .risultati > div > div:nth-child(2) h1 {
-display: block;
-margin: 0 0 10px 0;
-}
-
-#risultati_di_ricerca .risultati > div > div:nth-child(2) h1 a {
-font-weight: normal;
-text-decoration: none;
-transition: .3s;
-}
-
-#risultati_di_ricerca .risultati > div > div:nth-child(2) h1 a:hover {
-color: var(--super-color);
-}
-
-#risultati_di_ricerca .risultati > div > div:nth-child(3),
-#risultati_di_ricerca .risultati > div > div:nth-child(4) {
-width: 100%;
-}
-
-#risultati_di_ricerca .risultati > div > div:nth-child(3) h2,
-#risultati_di_ricerca .risultati > div > div:nth-child(4) h2 {
-display: block;
-font-size: 1.2em;
-font-weight: normal;
-margin: 0;
-padding: 0;
-}
-
-#risultati_di_ricerca .risultati > div > div:nth-child(3) div,
-#risultati_di_ricerca .risultati > div > div:nth-child(4) div {
-display: flex;
-flex-wrap: wrap;
-gap: 5px;
-margin: 7px 0 0 0;
-padding: 0;
-}
-
-#risultati_di_ricerca .risultati > div > div:nth-child(3) div a,
-#risultati_di_ricerca .risultati > div > div:nth-child(4) div a {
-display: block;
-font-weight: normal;
-line-height: 25px;
-padding: 0 6px;
-margin: 2px 0 0 0;
-background: #ddd;
-border-radius: 2px;
-text-decoration: none;
-transition: .2s;
-}
-
-#risultati_di_ricerca .risultati > div > div:nth-child(3) div a:hover,
-#risultati_di_ricerca .risultati > div > div:nth-child(4) div a:hover {
-color: rgba(255, 255, 255, .8);
-/*background: var(--super-color);*
-box-shadow: inset 0 25px 0 var(--super-color);
-}*/
 
 #risultati_di_ricerca .filtri {
 	display: block;

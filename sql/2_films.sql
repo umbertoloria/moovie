@@ -6,7 +6,8 @@ create table films
         primary key,
     titolo varchar(100) not null,
     durata int          not null,
-    anno   year         not null
+    anno   year         not null,
+    fulltext (titolo)
 );
 
 INSERT INTO films (id, titolo, durata, anno)
@@ -49,9 +50,8 @@ create table films_descrizioni
     film        int  not null
         primary key,
     descrizione text not null,
-    constraint films_descrizioni_ibfk_1
-        foreign key (film) references films (id)
-            on update cascade
+    fulltext (descrizione),
+    foreign key (film) references films (id) on update cascade
 );
 
 INSERT INTO films_descrizioni (film, descrizione)

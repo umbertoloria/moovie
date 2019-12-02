@@ -25,4 +25,18 @@ class FilmManager {
 			return null;
 	}
 
+	public static function search(string $fulltext) {
+		$res = [];
+		$stmt = DB::stmt(
+			"SELECT id, titolo, durata, anno, descrizione
+				FROM films JOIN films_descrizioni
+					ON films.id = films_descrizioni.film
+				WHERE MATCH(titolo) AGAINST(? IN NATURAL LANGUAGE MODE)
+					OR MATCH(descrizione) AGAINST(? IN NATURAL LANGUAGE MODE)");
+		if ($stmt->execute([$fulltext, $fulltext]))
+			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
+				$res[] = new Film($r["id"], $r["titolo"], $r["durata"], $r["anno"], $r["descrizione"]);
+		return $res;
+	}
+
 }

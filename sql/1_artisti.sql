@@ -4,7 +4,8 @@ create table artisti
 (
     id      int auto_increment primary key,
     nome    varchar(100) not null,
-    nascita date         not null
+    nascita date         not null,
+    fulltext (nome)
 );
 
 INSERT INTO artisti (id, nome, nascita)
@@ -86,6 +87,7 @@ create table artisti_descrizioni
 (
     artista     int  not null primary key,
     descrizione text not null,
+    fulltext (descrizione),
     foreign key (artista) references artisti (id) on update cascade
 );
 

@@ -33,7 +33,7 @@ nav > a {
 	height: 30px;
 }
 
-#area_di_ricerca div.dropdown_selecter > label{
+#area_di_ricerca div.dropdown_selecter > label {
 	border-right: 0;
 	border-radius: 10px 0 0 10px;
 }
@@ -50,5 +50,11 @@ nav > a {
 	border: 2px solid var(--super-color);
 	border-left: 0;
 	border-radius: 0 10px 10px 0;
+	transition: .3s;
 	cursor: pointer;
+}
+
+#area_di_ricerca input[type="submit"][disabled] {
+	filter: grayscale(0.7);
+	cursor: default;
 }

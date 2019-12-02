@@ -25,4 +25,18 @@ class ArtistaManager {
 			return null;
 	}
 
+	public static function search(string $fulltext) {
+		$res = [];
+		$stmt = DB::stmt(
+			"SELECT id, nome, nascita, descrizione
+				FROM artisti JOIN artisti_descrizioni
+					ON artisti.id = artisti_descrizioni.artista
+				WHERE MATCH(nome) AGAINST(? IN NATURAL LANGUAGE MODE)
+					OR MATCH(descrizione) AGAINST(? IN NATURAL LANGUAGE MODE)");
+		if ($stmt->execute([$fulltext, $fulltext]))
+			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
+				$res[] = new Artista($r["id"], $r["nome"], $r["nascita"], $r["descrizione"]);
+		return $res;
+	}
+
 }

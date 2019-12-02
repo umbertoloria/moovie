@@ -7,6 +7,7 @@
 }
 
 .dropdown_selecter label {
+	position: relative;
 	display: block;
 	min-width: 80px;
 	height: 30px;
@@ -17,6 +18,25 @@
 	border: 2px solid #aaa;
 	border-radius: 3px;
 	cursor: pointer;
+}
+
+
+.dropdown_selecter label::after {
+	content: "";
+	display: block;
+	position: absolute;
+	right: 3px;
+	bottom: 3px;
+	width: 18px;
+	height: 18px;
+	background-image: url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-down-b-512.png");
+	background-size: cover;
+	opacity: 0.6;
+	transition: .3s;
+}
+
+.dropdown_selecter.open label::after {
+	transform: rotatez(180deg);
 }
 
 .dropdown_selecter > ul {
