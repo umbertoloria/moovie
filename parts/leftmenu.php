@@ -6,11 +6,11 @@ $uri = $_SERVER["REQUEST_URI"];
 		<li>
 			<a>Suggeriscimi un film</a>
 		</li>
-		<li>
-			<a>Film da guardare</a>
+		<li <?php echo $uri == "/___film_da_guardare.php" ? "class='active'" : ""; ?>>
+			<a href="/___film_da_guardare.php">Film da guardare</a>
 		</li>
-		<li>
-			<a>Film guardati</a>
+		<li <?php echo $uri == "/___film_guardati.php" ? "class='active'" : ""; ?>>
+			<a href="/___film_guardati.php">Film guardati</a>
 		</li>
 		<li>
 			<a>Le liste</a>
@@ -38,8 +38,8 @@ $uri = $_SERVER["REQUEST_URI"];
 	</ul>
 	<ul>
 		<?php
-		$userid = @$_COOKIE["userid"];
-		if ($userid === null) {
+		$logged_user = Auth::getLoggedUser();
+		if ($logged_user === null) {
 			?>
 			<li <?php echo $uri == "/accesso.php" ? "class='active'" : ""; ?>>
 				<a href="/accesso.php">Accesso</a>
@@ -49,18 +49,22 @@ $uri = $_SERVER["REQUEST_URI"];
 			</li>
 			<?php
 		} else {
+			assert($logged_user instanceof Utente);
 			?>
 			<li class="userli">
-				<a href="/utente.php?id=<?php echo $userid; ?>">Umberto Loria</a>
+				<a href="/utente.php?id=<?php echo $logged_user->getID(); ?>">
+					<?php echo $logged_user->getNome() . " " . $logged_user->getCognome(); ?>
+				</a>
 			</li>
 			<li>
 				<a>Impostazioni</a>
 			</li>
 			<li>
-				<a href="/controllers/logout.php">Esci</a>
+				<a href="/controllers/___logout.php">Esci</a>
 			</li>
 			<?php
 		}
+		unset($logged_user);
 		?>
 	</ul>
 </menu>

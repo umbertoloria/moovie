@@ -1,21 +1,3 @@
-create table utenti (
-    id       int auto_increment
-        primary key,
-    username varchar(50)                           not null,
-    email    varchar(100)                          not null,
-    password varchar(40)                           not null,
-    ruolo    enum ('Amministratore', 'Moderatore') null,
-    constraint email
-        unique (email),
-    constraint username
-        unique (username)
-);
-
-INSERT INTO moovie.utenti (id, username, email, password, ruolo) VALUES (1, 'umbertolo', 'umberto.loria@gmail.com', 'ciaociao', 'Amministratore');
-INSERT INTO moovie.utenti (id, username, email, password, ruolo) VALUES (2, 'losmilzo', 's.calabrese20@studenti.unisa.it', 'password', null);
-INSERT INTO moovie.utenti (id, username, email, password, ruolo) VALUES (3, 'mariorom', 'marioromano1998@gmail.com', 'pizza', null);
-INSERT INTO moovie.utenti (id, username, email, password, ruolo) VALUES (4, 'michelantonio', 'm.panichella@studenti.unisa.it', 'riccia', 'Moderatore');
-INSERT INTO moovie.utenti (id, username, email, password, ruolo) VALUES (5, 'serenadurso', 'dursoserena61@gmail.com', 'ciaociao', null);
 create table software_houses (
     id   int auto_increment
         primary key,

@@ -14,5 +14,7 @@
 	<script src="/js/jquery-3.4.1.min.js"></script>
 	<script src="/js/dropdown-selecter.js"></script>
 	<script src="/js/form.js"></script>
+	<script src="/js/overlay.js"></script>
 </head>
 <body>
+<div id="overlay"></div>

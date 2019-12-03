@@ -1,12 +1,21 @@
 <?php
 $film = $_REQUEST["film"];
 assert($film instanceof Film);
+$logged_user = Auth::getLoggedUser();
 ?>
 <section>
 	<div id="presentation">
 		<img src="/image.php?kind=movie&id=<?php echo $film->getID(); ?>" alt=""/>
 		<div>
 			<h1><?php echo $film->getTitolo(); ?></h1>
+			<?php if ($logged_user) { ?>
+				<div class="socialbar">
+					<a data-action="suggest">Suggerisci</a>
+					<a data-action="add_film_guardato">+ Film guardati</a>
+					<a data-action="add_film_da_guardare">+ Film da guardare</a>
+					<a data-action="add_to_liste">+ Liste</a>
+				</div>
+			<?php } ?>
 			<div class="tags">
 				<span><?php echo $film->getAnno(); ?></span>
 				<span><?php echo Formats\durata($film->getDurata()); ?></span>
@@ -64,3 +73,20 @@ assert($film instanceof Film);
 	// TODO: film più collegati
 	?>
 </section>
+<?php if ($logged_user) { ?>
+<script>
+	$(".socialbar a[data-action='suggest']").click(function () {
+		Overlay.popup("A chi vuoi suggerirlo?");
+		// TODO: Scegliere uno o più amici e suggerirgli il film.
+	});
+	$(".socialbar a[data-action='add_film_guardato']").click(function () {
+		// TODO: Chiedere il voto e salvare.
+	});
+	$(".socialbar a[data-action='add_film_da_guardare']").click(function () {
+		// TODO: Salvare.
+	});
+	$(".socialbar a[data-action='add_to_liste']").click(function () {
+		// TODO: Scegliere su quale liste inserire (sulle deselezionate verrà rimosso se già presente).
+	});
+</script>
+<?php } ?>

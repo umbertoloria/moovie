@@ -110,9 +110,7 @@ create table films_copertine
     film      int        not null
         primary key,
     copertina mediumblob not null,
-    constraint films_copertine_ibfk_1
-        foreign key (film) references films (id)
-            on update cascade
+    foreign key (film) references films (id) on update cascade
 );
 
 INSERT INTO films_copertine (film, copertina)

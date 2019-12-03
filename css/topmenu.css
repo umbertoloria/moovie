@@ -11,7 +11,7 @@ nav {
 	background: #222;
 	text-align: center;
 	color: #eee;
-	z-index: 95;
+	z-index: 80;
 }
 
 nav > a {
@@ -45,7 +45,7 @@ nav > a {
 }
 
 #area_di_ricerca input[type="submit"] {
-	color: rgba(255, 255, 255, .8);
+	color: rgba(255, 255, 255, .7);
 	background: var(--super-color);
 	border: 2px solid var(--super-color);
 	border-left: 0;

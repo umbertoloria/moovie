@@ -16,31 +16,31 @@ section > h1 {
 	flex-grow: 1;
 	display: flex;
 	flex-wrap: nowrap;
-	gap: 30px;
 }
 
-#presentation img {
+#presentation > img {
 	width: 200px;
 	height: 250px;
 	border-radius: 3px;
 	object-fit: cover;
+	margin-right: 30px;
 }
 
-#presentation div {
+#presentation > div {
 	flex-grow: 1;
 	width: calc(100% - 30px - 200px);
 }
 
-#presentation div h1 {
+#presentation > div h1 {
 	font-size: 2.1em;
 	margin: 0 0 10px 0;
 }
 
-#presentation div p {
+#presentation > div p {
 	margin: 10px 0 0 0;
 }
 
-.group label {
+.group > label {
 	display: inline-block;
 	font-size: 1.3em;
 	line-height: 40px;
@@ -61,6 +61,7 @@ section > h1 {
 .group ul li {
 	display: block;
 	list-style: none;
+	position: relative;
 }
 
 .group ul li a {
@@ -87,4 +88,59 @@ section > h1 {
 	padding: 5px 0;
 	line-height: 1.2em;
 	background: #ddd;
+}
+
+.group ul li label {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top: -12px;
+	margin-right: -12px;
+
+	width: 35px;
+	line-height: 35px;
+	text-align: center;
+
+	color: rgba(255, 255, 255, .7);
+	font-size: 1.1em;
+
+	border-radius: 100%;
+	background: var(--super-color);
+}
+
+.socialbar {
+	width: auto;
+	display: flex;
+	flex-wrap: nowrap;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+
+.socialbar a {
+	display: block;
+	padding: 0 5px;
+	line-height: 22px;
+	color: rgba(255, 255, 255, .7);
+	background: var(--super-color);
+	border: 2px solid #005383;
+	border-right-width: 0;
+	font-weight: normal;
+	text-decoration: none;
+	transition: .3s;
+	cursor: pointer;
+}
+
+.socialbar a:first-child {
+	margin-left: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+.socialbar a:last-child {
+	border-radius: 0 3px 3px 0;
+	border-right-width: 2px;
+}
+
+.socialbar a:hover {
+	background: #005383;
 }

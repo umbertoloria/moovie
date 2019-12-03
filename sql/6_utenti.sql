@@ -7,3 +7,6 @@ CREATE TABLE utenti
     password varchar(40)  not null,
     UNIQUE (email)
 );
+
+INSERT INTO moovie.utenti (id, nome, cognome, email, password)
+VALUES (1, 'Umberto', 'Loria', 'umberto.loria@gmail.com', '225edfa608b8aab103f6ae4a9396f858cfd9af66');

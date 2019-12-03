@@ -38,13 +38,14 @@ textarea {
 
 /****** TAGS ******/
 div.tags {
+	margin: -5px;
 	display: flex;
 	flex-wrap: wrap;
-	gap: 5px;
 }
 
 div.tags span,
 div.tags a {
+	margin: 5px;
 	display: block;
 	padding: 3px 6px;
 	border-radius: 2px;
@@ -58,4 +59,32 @@ div.tags a {
 
 div.tags a:hover {
 	background: rgba(0, 0, 0, .25);
+}
+
+#overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, .5);
+	z-index: 100;
+}
+
+#overlay.shown {
+	display: block;
+}
+
+#overlay div {
+	display: block;
+	background: #fff;
+	margin: 50vh auto 0 auto;
+	padding: 30px;
+	box-sizing: border-box;
+	transform: translate(0, -50%);
+	width: 250px;
+	border-radius: 3px;
+	text-align: center;
+	font-size: 1.2em;
 }

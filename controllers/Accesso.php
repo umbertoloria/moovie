@@ -15,6 +15,6 @@ if (!$valid)
 elseif (!$utente = AccountManager::authenticate($email, $password))
 	echo "I dati non corrispondono";
 else {
-	setcookie("userid", $utente->getID(), time() + 60*60*3, "/");
+	Auth::setLoggedUser($utente);
 	header("Location: /");
 }

@@ -27,13 +27,13 @@
 #risultati_di_ricerca .risultati > div > div:first-child {
 	display: flex;
 	flex-wrap: nowrap;
-	gap: 10px;
 }
 
 #risultati_di_ricerca .risultati > div > div:first-child > a {
 	display: block;
 	width: 100px;
 	height: 125px;
+	margin-right: 10px;
 }
 
 #risultati_di_ricerca .risultati > div > div:first-child > a img {
@@ -67,12 +67,12 @@
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
-	gap: 5px;
 	padding: 0;
-	margin-top: 10px;
+	margin: 5px -5px -5px -5px;
 }
 
 #risultati_di_ricerca .risultati > div > div:last-child a {
+	margin: 5px;
 	display: block;
 	font-weight: normal;
 	line-height: 25px;
@@ -84,7 +84,7 @@
 }
 
 #risultati_di_ricerca .risultati > div > div:last-child a:hover {
-	color: rgba(255, 255, 255, .8);
+	color: rgba(255, 255, 255, .7);
 	/*background: var(--super-color);*/
 	box-shadow: inset 0 25px 0 var(--super-color);
 }
