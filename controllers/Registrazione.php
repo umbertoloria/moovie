@@ -3,7 +3,7 @@
 include "../php/core.php";
 
 $nome = trim(@$_POST["nome"]);
-$cognome = trim(@$_POST["nome"]);
+$cognome = trim(@$_POST["cognome"]);
 $email = trim(@$_POST["email"]);
 $password = trim(@$_POST["password"]);
 
@@ -21,7 +21,7 @@ elseif (AccountManager::exists($email))
 else {
 	$utente = AccountManager::create($nome, $cognome, $email, $password);
 	if ($utente) {
-		echo "ok. ora creo la lettera.";
+		header("Location: /conferma_registrazione.php");
 	} else {
 		echo "ops";
 	}

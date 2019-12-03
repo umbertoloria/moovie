@@ -8,6 +8,10 @@ section > * {
 	margin: 30px;
 }
 
+section > h1 {
+	font-size: 2em;
+}
+
 #presentation {
 	flex-grow: 1;
 	display: flex;

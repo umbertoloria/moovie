@@ -3,9 +3,6 @@ $uri = $_SERVER["REQUEST_URI"];
 ?>
 <menu>
 	<ul>
-		<li <?php echo $uri == "/registrazione.php" ? "class='active'" : ""; ?>>
-			<a href="/registrazione.php">Registrazione</a>
-		</li>
 		<li>
 			<a>Suggeriscimi un film</a>
 		</li>
@@ -40,14 +37,30 @@ $uri = $_SERVER["REQUEST_URI"];
 		</li>
 	</ul>
 	<ul>
-		<li>
-			<a href="/utente.php?id=0">Umberto Loria</a>
-		</li>
-		<li>
-			<a>Impostazioni</a>
-		</li>
-		<li>
-			<a>Esci</a>
-		</li>
+		<?php
+		$userid = @$_COOKIE["userid"];
+		if ($userid === null) {
+			?>
+			<li <?php echo $uri == "/accesso.php" ? "class='active'" : ""; ?>>
+				<a href="/accesso.php">Accesso</a>
+			</li>
+			<li <?php echo $uri == "/registrazione.php" ? "class='active'" : ""; ?>>
+				<a href="/registrazione.php">Registrazione</a>
+			</li>
+			<?php
+		} else {
+			?>
+			<li class="userli">
+				<a href="/utente.php?id=<?php echo $userid; ?>">Umberto Loria</a>
+			</li>
+			<li>
+				<a>Impostazioni</a>
+			</li>
+			<li>
+				<a href="/controllers/logout.php">Esci</a>
+			</li>
+			<?php
+		}
+		?>
 	</ul>
 </menu>

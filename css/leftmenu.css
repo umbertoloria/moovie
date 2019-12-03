@@ -66,6 +66,6 @@ menu > ul:last-child {
 	background: #222;
 }
 
-menu > ul:last-child > li:first-child > a {
+menu > ul:last-child > li.userli > a {
 	font-size: 1.1em;
 }

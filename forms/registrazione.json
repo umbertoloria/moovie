@@ -16,7 +16,7 @@
 	  "minlength": 5,
 	  "maxlength": 50,
 	  "exp": "^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}$",
-	  "expErr": "L'indirizzo E-Mail deve essere valido"
+	  "expErr": "Indirizzo non valido"
 	},
 	"password": {
 	  "minlength": 6,
@@ -27,7 +27,7 @@
 	  "maxlength": 16,
 	  "onlyClient": true,
 	  "equals": "password",
-	  "equalsErr": "deve essere uguale!"
+	  "equalsErr": "Le password sono diverse"
 	}
   }
 }

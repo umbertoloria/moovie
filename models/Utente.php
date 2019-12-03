@@ -41,8 +41,8 @@ class Utente {
 	public function getPassword(): string {
 		return $this->password;
 	}
-
-	/** @return Utente? */
+/*
+	/** @return Utente? *
 	public static function register(string $nome, string $cognome, string $email, string $password) {
 		$stmt = DB::stmt("INSERT INTO utenti (nome, cognome, email, password) VALUES (?, ?, ?, ?)");
 		if ($stmt->execute([$nome, $cognome, $email, $password]))
@@ -51,7 +51,7 @@ class Utente {
 			return null;
 	}
 
-	/** @return Utente? */
+	/** @return Utente? *
 	public static function retrieveByID(int $id) {
 		$stmt = DB::stmt("SELECT * FROM utenti WHERE id = ?");
 		if ($stmt->execute([$id])) {
@@ -62,7 +62,7 @@ class Utente {
 		}
 	}
 
-	/** @return Utente? */
+	/** @return Utente? *
 	public static function retrieveByEmail(string $email) {
 		$stmt = DB::stmt("SELECT * FROM utenti WHERE email = ?");
 		if ($stmt->execute([$email])) {
@@ -73,10 +73,10 @@ class Utente {
 		}
 	}
 
-	/** @return bool */
+	/** @return bool *
 	public static function deleteByID(int $id) {
 		$stmt = DB::stmt("DELETE FROM utenti WHERE id = ?");
 		return $stmt->execute([$id]) and $stmt->rowCount() > 0;
 	}
-
+*/
 }

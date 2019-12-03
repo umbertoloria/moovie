@@ -8,16 +8,25 @@ class AccountManager {
 	}
 
 	public static function create(string $nome, string $cognome, string $email, string $password) {
+		$password = sha1($password);
 		$stmt = DB::stmt("INSERT INTO utenti (nome, cognome, email, password) VALUES (?, ?, ?, ?)");
 		if ($stmt->execute([$nome, $cognome, $email, $password]))
-			return self::get(DB::lastInsertedID());
+			return new Utente(DB::lastInsertedID(), $nome, $cognome, $email, $password);
+		else
+			return null;
+	}
+
+	public static function authenticate(string $email, string $password) {
+		$stmt = DB::stmt("SELECT id, nome, cognome, email, password FROM utenti WHERE email = ? AND password = ?");
+		if ($stmt->execute([$email, sha1($password)]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
+			return new Utente($r["id"], $r["nome"], $r["cognome"], $r["email"], $r["password"]);
 		else
 			return null;
 	}
 
 	// AGGIUNTE
 
-	public static function get(int $id) {
+	public static function doRetrieveByID(int $id) {
 		$stmt = DB::stmt("SELECT id, nome, cognome, email, password FROM utenti WHERE id = ?");
 		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Utente($r["id"], $r["nome"], $r["cognome"], $r["email"], $r["password"]);

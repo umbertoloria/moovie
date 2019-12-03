@@ -8,7 +8,7 @@ if ($id === null) {
 } elseif (!$genere = GenereManager::doRetrieveByID($id)) {
 	print("genere non trovato");
 } else {
-	$genere_films = GenereManager::get_generi_from_film($genere->getID());
+	$genere_films = GenereManager::get_films_from_genere($genere->getID());
 	$films = [];
 	foreach ($genere_films as $film_id)
 		if (!isset($films[$film_id]))

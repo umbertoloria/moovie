@@ -62,7 +62,7 @@
 							</a>
 							<div>
 								<h1>
-									<a href="/film.php?id=<?php echo $risultato->getID(); ?>">
+									<a href="/artista.php?id=<?php echo $risultato->getID(); ?>">
 										<?php echo $risultato->getNome(); ?>
 									</a>
 								</h1>
