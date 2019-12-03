@@ -19,3 +19,6 @@ function data($data) {
 	return (int)($comps[2]) . " " . $mesi[$comps[1] - 1] . " " . $comps[0];
 }
 
+function startswith ($needle, $haystack) {
+	return substr($haystack, 0, strlen($needle)) === $needle;
+}

@@ -4,7 +4,7 @@ function Form(querySelector, validator) {
 
 	const form = $(querySelector);
 	const fields = [];
-	form.find("fieldset label input").each(function () {
+	form.find("fieldset label [name]").each(function () {
 		fields[$(this).attr("name")] = $(this);
 	});
 	/*
@@ -75,29 +75,47 @@ function Form(querySelector, validator) {
 	/** Valida immediatamente il field (se esiste), e se non c'è nessuno che sbircia, si aggiunge al keyup. */
 	this.inspectField = function (field) {
 		if (fields.hasOwnProperty(field)) {
+			console.log("inspecting " + field);
 			// Il field esiste
 			const fieldDOM = fields[field];
+			// Visto che lo sto mettendo adesso in ispezione, disattivo il "blur": altrimenti tenterà inutilmente
+			// di metterlo in ispezione. Ai select non viene mai attivato "blur", percui evito di disattivarlo.
+			if (fieldDOM.is("select"))
+				fieldDOM.off("blur");
 			// Viene validato immediatamente
 			validateField(field, fieldDOM, validator.rules[field]);
 			// E se non lo fa nessun'altro...
 			if (!inspectingFields.includes(field)) {
 				// ... ora lo facciamo noi
 				inspectingFields.push(field);
-				// Verrà validato ad ogni keyup
-				fieldDOM.keyup(function () {
+
+				function inspectFunction() {
 					validateField(field, fieldDOM, validator.rules[field]);
-				});
+				}
+
+				// Verrà validato ad ogni keyup (se select è già stato ispezionato in "change" all'inizio)
+				if (!fieldDOM.is("select"))
+					fieldDOM.keyup(inspectFunction);
 			}
 		} else
 			console.log(querySelector + ": \"" + field + "\" not found in inspectField");
 	};
 
+	// Dopo il primo "blur" di un input, questo verrà messo in ispezione
 	const thisHandle = this;
 	for (const field in fields) {
 		const input = fields[field];
-		input.one("blur", function () {
+
+		function inspectFunction() {
 			thisHandle.inspectField(field)
-		});
+		}
+
+		// Faccio ispezionare gli input (tranne i select) inizialmente solo in "blur".
+		// I select li faccio ispezionare in "change" direttamente qui.
+		if (input.is("select"))
+			input.change(inspectFunction);
+		else
+			input.one("blur", inspectFunction);
 	}
 
 	/////////////////// VALIDATION ///////////////////
@@ -117,6 +135,8 @@ function Form(querySelector, validator) {
 			thisHandle.putNotice(inputName, rule.expErr);
 		else if (rule.hasOwnProperty("equals") && rule.hasOwnProperty("equalsErr") && val !== fields[rule.equals].val())
 			thisHandle.putNotice(inputName, rule.equalsErr);
+		else if (rule.hasOwnProperty("cases") && !rule.cases.includes(val))
+			thisHandle.putNotice(inputName, "Scelta non valida");
 		else
 			thisHandle.clearNotice(inputName);
 		// Aggiorna chi mi spia
@@ -131,13 +151,6 @@ function Form(querySelector, validator) {
 		else
 			disableSumbit();
 	}
-
-	this.validate = function () {
-		// Valido tutti i field (sfruttando la validazione istantanea di inspectField)
-		// e metto delle spie a controllare se d'ora in poi i valori cambieranno
-		for (const field in thisHandle.getFields())
-			thisHandle.inspectField(field);
-	};
 
 	this.isValid = function () {
 		// Il form è valido solo se non ci sono notices
@@ -157,12 +170,15 @@ function Form(querySelector, validator) {
 	///////////////////// ONCLICK ////////////////////
 
 	form.submit(function (e) {
-		thisHandle.validate();
-		if (thisHandle.isValid()) {
+		// Valido tutti i field (sfruttando la validazione istantanea di inspectField)
+		// e metto delle spie a controllare se d'ora in poi i valori cambieranno
+		for (const field in thisHandle.getFields())
+			thisHandle.inspectField(field);
+		// Controllo se, dopo la validazione istantanea, tutti siano validi
+		if (thisHandle.isValid())
 			disableSumbit();
-		} else {
+		else
 			e.preventDefault();
-		}
 	});
 
 }

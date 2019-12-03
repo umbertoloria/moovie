@@ -1,0 +1,11 @@
+{
+  "rules": {
+	"nome": {
+	  "minlength": 5,
+	  "maxlength": 50
+	},
+	"visibilità": {
+	  "cases": ["tutti", "amici", "solo_tu"]
+	}
+  }
+}

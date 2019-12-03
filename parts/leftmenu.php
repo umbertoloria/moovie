@@ -31,7 +31,7 @@ $uri = $_SERVER["REQUEST_URI"];
 					<a>Top 10 DC</a>
 				</li>
 				<li class="add-more">
-					<a>Aggiungi una lista</a>
+					<a href="/creazione_lista.php">+ lista</a>
 				</li>
 			</ul>
 		</li>
@@ -51,7 +51,7 @@ $uri = $_SERVER["REQUEST_URI"];
 		} else {
 			assert($logged_user instanceof Utente);
 			?>
-			<li class="userli">
+			<li class="userli <?php echo Formats\startswith("/utente.php", $uri) ? "active" : ""; ?>">
 				<a href="/utente.php?id=<?php echo $logged_user->getID(); ?>">
 					<?php echo $logged_user->getNome() . " " . $logged_user->getCognome(); ?>
 				</a>
