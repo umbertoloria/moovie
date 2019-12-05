@@ -5,12 +5,12 @@ include "../php/core.php";
 $kind = @$_GET["kind"];
 $fulltext = @$_GET["fulltext"];
 $risultati = [];
+
 if ($kind === "movies") {
 	// GenereID => GenereOBJ
 	$generi = [];
 	// FilmID => [GenereID1, GenereID2, ...]
 	$film_generi = [];
-
 	// ArtistaID => ArtistaOBJ
 	$artisti = [];
 	// FilmID => [ArtistaID1, ArtistaID2, ...]
@@ -69,7 +69,10 @@ if ($kind === "movies") {
 	unset($films);
 	unset($artista);
 } elseif ($kind === "users") {
-	// TODO: implementami ti prego (insieme al mio amico in /views/Risultati di ricerca.php)
+	foreach (AccountManager::search($fulltext) as $user) {
+		assert($user instanceof Utente);
+		$risultati[] = $user;
+	}
 } else {
 	header("Location: /404.php");
 	die();

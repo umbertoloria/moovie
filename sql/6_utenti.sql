@@ -5,8 +5,13 @@ CREATE TABLE utenti
     cognome  varchar(50)  not null,
     email    varchar(100) not null,
     password varchar(40)  not null,
-    UNIQUE (email)
+    unique (email),
+    fulltext (nome),
+    fulltext (cognome)
 );
 
-INSERT INTO moovie.utenti (id, nome, cognome, email, password)
+INSERT INTO utenti (id, nome, cognome, email, password)
 VALUES (1, 'Umberto', 'Loria', 'umberto.loria@gmail.com', '225edfa608b8aab103f6ae4a9396f858cfd9af66');
+INSERT INTO utenti (id, nome, cognome, email, password)
+VALUES (2, 'Michelantonio', 'Panichella', 'michelantoniopanichella@gmail.com',
+        '225edfa608b8aab103f6ae4a9396f858cfd9af66');

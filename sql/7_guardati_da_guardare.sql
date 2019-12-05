@@ -5,7 +5,7 @@ create table film_guardati
     utente    int,
     film      int,
     voto      float                              not null,
-    timestamp datetime default CURRENT_TIMESTAMP not null,
+    timestamp datetime default current_timestamp not null,
     primary key (utente, film),
     foreign key (utente) references utenti (id) on update cascade,
     foreign key (film) references films (id) on update cascade

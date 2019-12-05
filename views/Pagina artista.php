@@ -3,16 +3,18 @@ $artista = $_REQUEST["artista"];
 assert($artista instanceof Artista);
 ?>
 <section>
-	<div id="presentation">
-		<img src="/image.php?kind=artist&id=<?php echo $artista->getID(); ?>" alt=""/>
-		<div>
+	<header>
+		<div class="left">
+			<img src="/image.php?kind=artist&id=<?php echo $artista->getID(); ?>" alt=""/>
+		</div>
+		<div class="right">
 			<h1><?php echo $artista->getNome(); ?></h1>
 			<div class="tags">
 				<span><?php echo Formats\data($artista->getNascita()); ?></span>
 			</div>
 			<p><?php echo $artista->getDescrizione(); ?></p>
 		</div>
-	</div>
+	</header>
 	<?php
 	$recitazioni = $_REQUEST["recitazioni"];
 	$registi = $_REQUEST["registi"];
@@ -27,9 +29,9 @@ assert($artista instanceof Artista);
 		if (count($recitazioni) < count($registi))
 			$orders = array_reverse($orders);
 	foreach ($orders as $order) {
-		echo "<div class='group'>";
+		echo "<div class='dashboard'>";
 		echo "<label>{$order}</label>";
-		echo "<ul>";
+		echo "<ul class='foto_pv'>";
 		if ($order === "Recitazioni") {
 			foreach ($recitazioni as $recitazione) {
 				assert($recitazione instanceof Recitazione);

@@ -13,42 +13,27 @@ $logged_user = Auth::getLoggedUser();
 		<li <?php echo $uri == "/___film_guardati.php" ? "class='active'" : ""; ?>>
 			<a href="/___film_guardati.php">Film guardati</a>
 		</li>
-		<li>
-			<a>Le liste</a>
-			<ul>
-				<?php
-				if ($logged_user) {
-					$liste = ListaManager::getAllOf($logged_user->getID());
-					foreach ($liste as $lista) {
-						echo "<li>";
-						echo "<a href='/lista.php?id={$lista->getID()}'>";
-						echo $lista->getNome();
-						echo "<span>" . count($lista->getFilms()) . "</span>";
-						echo "</a>";
-						echo "</li>";
-					}
-				}
-				?>
-				<!--<li>
-					<a>Migliori film a colori</a>
-				</li>
-				<li>
-					<a>Migliori horror</a>
-				</li>
-				<li>
-					<a>Migliori drammatici</a>
-				</li>
-				<li>
-					<a>Top 10 Marvel</a>
-				</li>
-				<li>
-					<a>Top 10 DC</a>
-				</li>-->
-				<li class="add-more">
-					<a href="/creazione_lista.php">+ lista</a>
-				</li>
-			</ul>
-		</li>
+		<?php
+		if ($logged_user) {
+			echo "<li>";
+			echo "<a>Le liste</a>";
+			echo "<ul>";
+			$liste = ListaManager::getAllOf($logged_user->getID());
+			foreach ($liste as $lista) {
+				echo "<li>";
+				echo "<a href='/lista.php?id={$lista->getID()}'>";
+				echo $lista->getNome();
+				echo "<span>" . count($lista->getFilms()) . "</span>";
+				echo "</a>";
+				echo "</li>";
+			}
+			echo "<li class='add-more'>";
+			echo "<a href='/creazione_lista.php'>";
+			echo "+ lista</a></li>";
+			echo "</ul>";
+			echo "</li>";
+		}
+		?>
 	</ul>
 	<ul>
 		<?php

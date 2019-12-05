@@ -7,9 +7,9 @@ $films = @$_REQUEST["films"];
 <section>
 	<?php
 	if (count($genere_films) > 0) {
-		echo "<div class='group'>";
+		echo "<div class='dashboard'>";
 		echo "<label>{$genere->getNome()}</label>";
-		echo "<ul>";
+		echo "<ul class='foto_pv'>";
 		foreach ($genere_films as $film_id) {
 			$film = $films[$film_id];
 			assert($film instanceof Film);

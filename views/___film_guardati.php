@@ -3,9 +3,9 @@
 	$films = @$_REQUEST["films"];
 	$film_guardati = @$_REQUEST["film_guardati"];
 	if (count($film_guardati) > 0) {
-		echo "<div class='group'>";
+		echo "<div class='dashboard'>";
 		echo "<label>Film guardati</label>";
-		echo "<ul>";
+		echo "<ul class='foto_pv'>";
 		foreach ($film_guardati as $film_guardato) {
 			assert($film_guardato instanceof FilmGuardato);
 			$film = $films[$film_guardato->getFilm()];

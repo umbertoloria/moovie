@@ -2,11 +2,11 @@
 include "parts/initial_page.php";
 $id = @$_GET["id"];
 if ($id === null) {
-	print("non mi hai dato un id");
+	echo "non mi hai dato un id";
 } elseif (!ctype_digit($id)) {
-	print("dammi un numero per id");
+	echo "dammi un numero per id";
 } elseif (!$genere = GenereManager::doRetrieveByID($id)) {
-	print("genere non trovato");
+	echo "genere non trovato";
 } else {
 	$genere_films = GenereManager::get_films_from_genere($genere->getID());
 	$films = [];

@@ -89,6 +89,20 @@
 	box-shadow: inset 0 25px 0 var(--super-color);
 }
 
+#risultati_di_ricerca .risultati > a {
+	display: block;
+	padding: 0 20px;
+	line-height: 55px;
+	background: #fff;
+	border-radius: 2px;
+	text-decoration: none;
+	transition: .3s;
+}
+
+#risultati_di_ricerca .risultati > a:hover {
+	box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+}
+
 #risultati_di_ricerca .filtri {
 	display: block;
 	background: #eee;

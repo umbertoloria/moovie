@@ -34,4 +34,16 @@ class AccountManager {
 			return null;
 	}
 
+	public static function search(string $fulltext): array {
+		$res = [];
+		$stmt = DB::stmt(
+			"SELECT id, nome, cognome, email, password FROM utenti
+				WHERE MATCH(nome) AGAINST(? IN NATURAL LANGUAGE MODE)
+					OR MATCH(cognome) AGAINST(? IN NATURAL LANGUAGE MODE)");
+		if ($stmt->execute([$fulltext, $fulltext]))
+			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
+				$res[] = new Utente($r["id"], $r["nome"], $r["cognome"], $r["email"], $r["password"]);
+		return $res;
+	}
+
 }

@@ -2,11 +2,11 @@
 include "parts/initial_page.php";
 $id = @$_GET["id"];
 if ($id === null) {
-	print("non mi hai dato un id");
+	echo "non mi hai dato un id";
 } elseif (!ctype_digit($id)) {
-	print("dammi un numero per id");
+	echo "dammi un numero per id";
 } elseif (!$film = FilmManager::doRetrieveByID($id)) {
-	print("film non trovato");
+	echo "film non trovato";
 } else {
 	unset($id);
 	$artisti = [];
