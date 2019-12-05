@@ -9,12 +9,9 @@ class Auth {
 			self::$user_cache = AccountManager::doRetrieveByID($_COOKIE["userid"]);
 	}
 
+	/** @return Utente? */
 	public static function getLoggedUser() {
 		return self::$user_cache;
-//		if (isset($_COOKIE["userid"]))
-//			return AccountManager::doRetrieveByID($_COOKIE["userid"]);
-//		else
-//			return null;
 	}
 
 	public static function setLoggedUser(Utente $utente) {

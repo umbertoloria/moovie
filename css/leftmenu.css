@@ -24,12 +24,8 @@ menu ul {
 }
 
 menu ul li {
+	position: relative;
 	list-style: none;
-	margin-bottom: 3px;
-}
-
-menu ul li:last-child {
-	margin-bottom: 0;
 }
 
 menu ul li a {
@@ -39,6 +35,7 @@ menu ul li a {
 	text-decoration: none;
 	color: rgba(255, 255, 255, .7);
 	transition: .2s;
+	margin-bottom: 3px;
 }
 
 menu ul li a:hover {
@@ -51,6 +48,20 @@ menu ul li.active a {
 	color: #fff;
 	background: var(--super-color);
 	border-left-width: 6px;
+}
+
+menu ul li a span {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 20px;
+	font-size: 0.9em;
+	font-weight: bold;
+	line-height: 20px;
+	text-align: center;
+	color: #aaa;
+	background: #555;
+	border-radius: 100%;
 }
 
 menu ul li ul li a {

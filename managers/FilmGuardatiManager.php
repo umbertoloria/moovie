@@ -5,7 +5,7 @@ class FilmGuardatiManager {
 	// AGGIUNTE
 
 	/** @return FilmGuardato[] */
-	public static function get(int $id) {
+	public static function get(int $id): array {
 		$res = [];
 		$stmt = DB::stmt(
 			"SELECT utente, film, voto, timestamp

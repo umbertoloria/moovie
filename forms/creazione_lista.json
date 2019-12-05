@@ -5,7 +5,11 @@
 	  "maxlength": 50
 	},
 	"visibilità": {
-	  "cases": ["tutti", "amici", "solo_tu"]
+	  "cases": [
+		"tutti",
+		"amici",
+		"solo_tu"
+	  ]
 	}
   }
 }

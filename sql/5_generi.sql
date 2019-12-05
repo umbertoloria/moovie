@@ -32,8 +32,8 @@ VALUES (9, 'Western');
 
 create table film_has_genere
 (
-    film   int not null,
-    genere int not null,
+    film   int,
+    genere int,
     primary key (film, genere),
     foreign key (film) references films (id) on update cascade,
     foreign key (genere) references generi (id) on update cascade

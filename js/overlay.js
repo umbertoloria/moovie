@@ -4,22 +4,20 @@ class Overlay {
 		$("#overlay").addClass("shown").html("<div>" + msg + "</div>");
 	}
 
-	static putHTML(html) {
-		$("#overlay").addClass("shown").html(html);
+	static close() {
+		$("#overlay").removeClass("shown").html("");
 	}
 
 }
 
-/*class Notification {
+$(function () {
 
-	static push(msg) {
-		if (this.timeout !== undefined) {
-			clearTimeout(this.timeout);
-		}
-		$("#notification").addClass("shown").html(msg);
-		this.timeout = setTimeout(function () {
-			$("#notification").removeClass("shown");
-		}, 3000);
-	}
+	$("#overlay").click(function () {
+		Overlay.close();
+	});
 
-}*/
+	$("#overlay").on("click", "> div", function (e) {
+		e.stopPropagation();
+	});
+
+});

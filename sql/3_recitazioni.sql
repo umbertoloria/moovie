@@ -1,7 +1,7 @@
 create table recitazioni
 (
-    film        int          not null,
-    attore      int          not null,
+    film        int,
+    attore      int,
     personaggio varchar(100) not null,
     primary key (film, attore),
     foreign key (film) references films (id) on update cascade,

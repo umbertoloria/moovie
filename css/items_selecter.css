@@ -1,0 +1,32 @@
+.items_selecter {
+}
+
+.items_selecter ul {
+	display: block;
+	margin: 0;
+	padding: 0;
+	background: #eee;
+}
+
+.items_selecter ul li {
+	list-style: none;
+	display: block;
+	line-height: 22px;
+	padding-left: 20px;
+	margin-bottom: 2px;
+	border-left: 4px solid #ccc;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.items_selecter ul li:last-child {
+	margin-bottom: 0;
+}
+
+.items_selecter ul li:hover {
+	border-color: #888;
+}
+
+.items_selecter ul li.selected {
+	border-color: var(--super-color);
+}

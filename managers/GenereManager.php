@@ -15,7 +15,7 @@ class GenereManager {
 
 	// AGGIUNTE
 
-	public static function doRetrieveByID(int $id) {
+	public static function doRetrieveByID(int $id): ?Genere {
 		$stmt = DB::stmt("SELECT id, nome FROM generi WHERE id = ?");
 		if ($stmt->execute([$id]) && $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Genere($r["id"], $r["nome"]);
@@ -24,7 +24,7 @@ class GenereManager {
 	}
 
 	/** @return Genere[] */
-	public static function doRetrieveByFilm(int $id) {
+	public static function doRetrieveByFilm(int $id): array {
 		$res = [];
 		$stmt = DB::stmt(
 			"SELECT id, nome
@@ -43,7 +43,7 @@ class GenereManager {
 	 * @param int $id
 	 * @return int[]
 	 */
-	public static function get_generi_from_film(int $id) {
+	public static function get_generi_from_film(int $id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT genere FROM film_has_genere WHERE film = ?");
 		if ($stmt->execute([$id]))
@@ -57,7 +57,7 @@ class GenereManager {
 	 * @param int $id
 	 * @return int[]
 	 */
-	public static function get_films_from_genere(int $id) {
+	public static function get_films_from_genere(int $id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT film FROM film_has_genere WHERE genere = ?");
 		if ($stmt->execute([$id]))

@@ -23,7 +23,7 @@
 				       autocomplete="off"/>
 			</label>
 		</fieldset>
-		<input type="submit" value="Registrati"/>
+		<input type="submit" class="button" value="Registrati"/>
 	</form>
 </section>
 <script>

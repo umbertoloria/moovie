@@ -20,7 +20,7 @@ class RegiaManager {
 	 * @param int $id
 	 * @return int[]
 	 */
-	public static function get_films_from_artista(int $id) {
+	public static function get_films_from_artista(int $id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT film FROM regie WHERE regista = ?");
 		if ($stmt->execute([$id]))
@@ -34,7 +34,7 @@ class RegiaManager {
 	 * @param int $id
 	 * @return int[]
 	 */
-	public static function get_artisti_from_film(int $id) {
+	public static function get_artisti_from_film(int $id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT regista FROM regie WHERE film = ?");
 		if ($stmt->execute([$id]))

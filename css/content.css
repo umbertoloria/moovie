@@ -40,6 +40,24 @@ section > h1 {
 	margin: 10px 0 0 0;
 }
 
+#title {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+#title h1 {
+	margin: 0;
+}
+
+#title .tags {
+	margin-left: 10px;
+}
+
+#title p {
+	margin-left: 10px;
+}
+
 .group > label {
 	display: inline-block;
 	font-size: 1.3em;

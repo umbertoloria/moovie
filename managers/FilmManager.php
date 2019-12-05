@@ -4,7 +4,7 @@ class FilmManager {
 
 	// AGGIUNTE
 
-	public static function doRetrieveByID(int $id) {
+	public static function doRetrieveByID(int $id): ?Film {
 		$stmt = DB::stmt(
 			"SELECT id, titolo, durata, anno, descrizione
 				FROM films
@@ -25,7 +25,7 @@ class FilmManager {
 			return null;
 	}
 
-	public static function search(string $fulltext) {
+	public static function search(string $fulltext): array {
 		$res = [];
 		$stmt = DB::stmt(
 			"SELECT id, titolo, durata, anno, descrizione

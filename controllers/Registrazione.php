@@ -20,9 +20,8 @@ elseif (AccountManager::exists($email))
 	echo "Già esiste";
 else {
 	$utente = AccountManager::create($nome, $cognome, $email, $password);
-	if ($utente) {
+	if ($utente)
 		header("Location: /conferma_registrazione.php");
-	} else {
+	else
 		echo "ops";
-	}
 }

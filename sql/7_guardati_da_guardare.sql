@@ -2,8 +2,8 @@
 
 create table film_guardati
 (
-    utente    int                                not null,
-    film      int                                not null,
+    utente    int,
+    film      int,
     voto      float                              not null,
     timestamp datetime default CURRENT_TIMESTAMP not null,
     primary key (utente, film),
@@ -32,8 +32,8 @@ VALUES (1, 16, '2019-01-23 23:59:54', 10);
 
 create table film_da_guardare
 (
-    utente    int                                not null,
-    film      int                                not null,
+    utente    int,
+    film      int,
     timestamp datetime default CURRENT_TIMESTAMP not null,
     primary key (utente, film),
     foreign key (utente) references utenti (id) on update cascade,

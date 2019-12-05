@@ -1,5 +1,6 @@
 <?php
 $uri = $_SERVER["REQUEST_URI"];
+$logged_user = Auth::getLoggedUser();
 ?>
 <menu>
 	<ul>
@@ -15,7 +16,20 @@ $uri = $_SERVER["REQUEST_URI"];
 		<li>
 			<a>Le liste</a>
 			<ul>
-				<li>
+				<?php
+				if ($logged_user) {
+					$liste = ListaManager::getAllOf($logged_user->getID());
+					foreach ($liste as $lista) {
+						echo "<li>";
+						echo "<a href='/lista.php?id={$lista->getID()}'>";
+						echo $lista->getNome();
+						echo "<span>" . count($lista->getFilms()) . "</span>";
+						echo "</a>";
+						echo "</li>";
+					}
+				}
+				?>
+				<!--<li>
 					<a>Migliori film a colori</a>
 				</li>
 				<li>
@@ -29,7 +43,7 @@ $uri = $_SERVER["REQUEST_URI"];
 				</li>
 				<li>
 					<a>Top 10 DC</a>
-				</li>
+				</li>-->
 				<li class="add-more">
 					<a href="/creazione_lista.php">+ lista</a>
 				</li>

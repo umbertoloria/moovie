@@ -10,7 +10,7 @@
 				<input type="password" class="input" name="password" placeholder="Password" autocomplete="off"/>
 			</label>
 		</fieldset>
-		<input type="submit" value="Accedi"/>
+		<input type="submit" class="button" value="Accedi"/>
 	</form>
 </section>
 <script>

@@ -4,7 +4,7 @@ class ArtistaManager {
 
 	// AGGIUNTE
 
-	public static function doRetrieveByID(int $id) {
+	public static function doRetrieveByID(int $id): ?Artista {
 		$stmt = DB::stmt("
 				SELECT id, nome, nascita, descrizione
 				FROM artisti
@@ -25,7 +25,8 @@ class ArtistaManager {
 			return null;
 	}
 
-	public static function search(string $fulltext) {
+	/** @return Artista[] */
+	public static function search(string $fulltext): array {
 		$res = [];
 		$stmt = DB::stmt(
 			"SELECT id, nome, nascita, descrizione

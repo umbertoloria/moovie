@@ -2,6 +2,7 @@ function DropdownSelecter(obj) {
 
 	let default_value = undefined;
 	const available_values = [];
+	obj.addClass("dropdown_selecter");
 	obj.find("ul li[data-select-value]").each(function () {
 		const select_value = $(this).attr("data-select-value");
 		if ($(this).is("[data-select-default]")) {

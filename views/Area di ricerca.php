@@ -9,7 +9,7 @@ if ($_SERVER["PHP_SELF"] === "/controllers/Ricerca.php") {
 }
 ?>
 <form id="area_di_ricerca" method="get" action="/controllers/Ricerca.php">
-	<div class="dropdown_selecter">
+	<div>
 		<input type="hidden" name="kind"/>
 		<label></label>
 		<ul>
@@ -32,7 +32,7 @@ if ($_SERVER["PHP_SELF"] === "/controllers/Ricerca.php") {
 	<input type="submit" value="Cerca"/>
 </form>
 <script>
-	$("#area_di_ricerca > .dropdown_selecter").dropdown_selecter();
+	$("#area_di_ricerca > div").dropdown_selecter();
 	// Per usare la ricerca, il campo "fulltext" non deve essere vuoto
 	const area_di_ricerca_form = $("#area_di_ricerca");
 	const area_di_ricerca_fulltext = area_di_ricerca_form.find("[name='fulltext']");

@@ -1,7 +1,7 @@
 create table regie
 (
-    film    int not null,
-    regista int not null,
+    film    int,
+    regista int,
     primary key (film, regista),
     foreign key (film) references films (id) on update cascade,
     foreign key (regista) references artisti (id) on update cascade
