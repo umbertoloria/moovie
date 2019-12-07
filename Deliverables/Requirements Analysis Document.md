@@ -435,24 +435,24 @@ Condizione di uscita | Il sistema conferma che il film è stato suggerito.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nell'area di aggiunta di un giudizio.
-Flusso di eventi | <br/><ol><li>L’utente inserisce un giudizio<li>Moovie aggiungerà il film (col voto relativo) alla lista “Film guardati”, e sarà in grado di suggerire meglio i film all’utente</ol>
-Condizione di uscita | L’utente vedrà il proprio giudizio all’interno dei “Film guardati”.
+Flusso di eventi | <br/><ol><li>L’utente inserisce un giudizio<li>Moovie aggiunge il film (col voto relativo) ai film guardati, e rimanda l'utente alla pagina del film</ol>
+Condizione di uscita | Il film (e il giudizio) è stato salvato nei film guardati.
 
 #### UC_11: Modificare un giudizio
 **Nome** | **Modificare un giudizio**
 ---------|---
 Attori | Utente autenticato.
-Condizione di entrata | L’utente si trova nella pagina dei film guardati.
-Flusso di eventi | <br/><ol><li>L’utente seleziona il giudizio da modificare e inserisce il nuovo giudizio<li>Moovie modificherà il giudizio sul film presente nella lista “Film guardati”</ol>
-Condizione di uscita | L’utente vedrà il proprio giudizio all’interno dei “Film guardati”.
+Condizione di entrata | L’utente si trova nell'area di modifica di un giudizio.
+Flusso di eventi | <br/><ol><li>L’utente inserisce il nuovo giudizio<li>Moovie modificherà il giudizio sul film presente nei film guardati</ol>
+Condizione di uscita | Il giudizio verrà aggiornato.
 
 #### UC_12: Rimuovere un giudizio
 **Nome** | **Rimuovere un giudizio**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella pagina dei film guardati.
-Flusso di eventi | <br/><ol><li>L’utente seleziona il giudizio da rimuovere<li>Moovie rimuoverà il film (e il voto) dalla lista “Film guardati”</ol>
-Condizione di uscita | Il film verrà rimosso dai “Film guardati”.
+Flusso di eventi | <br/><ol><li>L’utente seleziona il giudizio da rimuovere<li>Moovie rimuove il giudizio, e aggiorna la pagina dei film guardati</ol>
+Condizione di uscita | Il giudizio verrà rimosso.
 
 #### UC_13: Suggerimento automatico di un film
 **Nome** | **Suggerimento automatico di un film**
@@ -470,25 +470,25 @@ Condizione di uscita | Il sistema suggerisce il film che è stato selezionato.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella pagina di creazione di una lista.
-Flusso di eventi | <br/><ol><li>L’utente inserisce il nome della lista nel campo apposito<li>L’utente sceglie i film che desidera inserire all’interno della propria lista<li>L’utente sceglie la visibilità della propria lista (tutti, amici, solo io)<li>Il sistema crea la lista e notifica l’utente</ol>
+Flusso di eventi | <br/><ol><li>L’utente inserisce il nome e sceglie la visibilità (tutti, amici, solo tu) della lista da creare<li>Il sistema porta l'utente nella pagina della lista appena creata</ol>
 Condizione di uscita | La lista viene creata.
-Eccezioni | L’utente non ha selezionato nessun film da inserire.<br/>L’utente ha inserito un nome già esistente tra le sue liste.
+Eccezioni | L’utente ha inserito, come nome della nuova lista, il nome di una propria lista già esistente.
 
 #### UC_15: Modificare una lista
 **Nome** | **Modificare una lista**
 ---------|---
 Attori | Utente autenticato.
-Condizione di entrata | L’utente si trova nella pagina della sua lista da modificare.
-Flusso di eventi | <br/><ol><li>L’utente inserisce il nuovo nome della lista che vuole modificare<li>L’utente modifica i privilegi della lista (tutti, amici, solo io)<li>Il sistema riceve le nuove informazioni, le applica alla lista (rifacendo il controllo di sicurezza) e invia una notifica di avvenuta modifica all’utente</ol>
-Condizione di uscita | Il sistema conferma che la lista è stata modificata.
+Condizione di entrata | L’utente si trova nella pagina di una sua lista da modificare.
+Flusso di eventi | <br/><ol><li>L’utente inserisce il nuovo nome e/o la nuova visibilità (tutti, amici, solo tu) della lista che vuole modificare<li>Il sistema aggiorna la lista, scollega gli eventuali follower non più compatibili con la nuova visibilità della lista, e porta l'utente nella pagina della lista modificata</ol>
+Condizione di uscita | La lista viene modificata.
 
 #### UC_16: Eliminare una lista
 **Nome** | **Eliminare una lista**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella pagina della sua lista da eliminare.
-Flusso di eventi | <br/><ol><li>L’utente elimina la lista<li>Il sistema cancella la lista</ol>
-Condizione di uscita | Il sistema conferma che la lista è stata cancellata.
+Flusso di eventi | <br/><ol><li>L’utente attiva la funzione di eliminazione<li>Il sistema cancella la lista, e conferma all'utente la cancellazione</ol>
+Condizione di uscita | La lista viene cancellata.
 
 #### UC_17: Aggiornare la presenza di film nelle liste
 **Nome** | **Aggiornare la presenza di film nelle liste**
@@ -496,7 +496,7 @@ Condizione di uscita | Il sistema conferma che la lista è stata cancellata.
 Attori | Utente autenticato.
 Condizione di entrata | L’utente deve selezionare le liste in cui inserire un film, e deselezionare le liste in cui rimuovere un film, nell'area di aggiornamento presenza film in liste.
 Flusso di eventi | <br/><ol><li>L’utente seleziona le liste in cui inserire il film, e deseleziona le liste in cui rimuovere il film se già presente (quindi già selezionate)<li>Il sistema aggiunge il film alle liste selezionate, e rimuove il film dalle liste deselezionate</ol>
-Condizione di uscita | Il film viene aggiunto/rimosso dalle liste selezionate/deselezionate.
+Condizione di uscita | Il film viene aggiunto alle liste selezionate, e rimosso dalle liste deselezionate.
 
 #### UC_18: Seguire liste altrui
 **Nome** | **Seguire liste altrui**
@@ -540,13 +540,13 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
     * Conferma amici suggeriti: notifica l'avvenuto suggerimento di film agli amici selezionati
 * Film:
     * Form di aggiunta giudizio: richiede l'inserimento del giudizio da salvare
-    * Pagina di film guardati: mostra i giudizi
     * Form di modifica giuizio: richiede l'inserimento del giudizio da aggiornare
+    * Pagina film guardati: mostra i giudizi
     * Pagina di suggerimento automatico: permette di richiedere il suggerimento automatico di un film sconosciuto
     * Area di presentazione film suggerito: suggerisce un film
 * Liste:
     * Form di creazione lista: richiede l'inserimento delle informazioni necessarie alla creazione di una nuova lista
-    * Conferma lista modificata: notifica l'avvenuta modifica di una lista
+    * Form di modifica lista: richiede l'inserimento delle informazioni da aggiornare in una lista
     * Conferma lista eliminata: notifica l'avvenuta rimozione di una lista
     * Form di aggiornamento presenza film in liste: richiede la selezione delle sole proprie liste in cui un determinato
     film deve essere presente
@@ -564,12 +564,17 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
     * Amicizie: richiede, accetta e rifiuta le amicizie
     * Suggerimenti amici: permette ad un account di suggerire un film a uno o più account amici
 * Film:
-    * Film guardati: aggiunge, modifica e rimuove il giudizio di un film
+    * Aggiungi film guardato: aggiunge il giudizio di un film
+    * Modifica film guardato: modifica un giudizio dato ad un film
+    * Rimuovi film guardato: rimuove un giudizio dato ad un film
     * Suggerimenti automatici: suggerisce un film ad un account in base alle sue preferenze cinematografiche
 * Liste:
-    * Liste: crea, modifica, cancella una lista. Permette a un account di seguire una lista. Inoltre, fornendo un film
-    e una collezione di liste possedute da un account, inserisce questo film solo nelle liste fornite, rimuovendolo (se
-    presente) in tutte le altre.
+    * Crea lista: crea una nuova lista
+    * Modifica lista: modifica una lista esistente
+    * Cancella lista: cancella una lista esistente
+    * Inserisci film solo in liste: fornendo un film e un sottoinsieme delle liste possedute da un account, inserisce
+    questo film solo nelle liste fornite, rimuovendolo (se presente) in tutte le altre liste dell'account.
+    * Segui lista: permette a un account di seguire una lista
 
 ### Manager objects
 * Film Manager:
@@ -580,7 +585,7 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
 * Account Manager:
     * cerca utenti tramite fulltext e criteri avanzati
     * controlla l'esistenza di un utente con un determinato indirizzo e-mail
-    * crea account composto da: nome, cognome, indirizzo e-mail e password
+    * crea un account composto dalle seguenti informazioni: nome, cognome, indirizzo e-mail e password
     * autentica un account
     * controlla che un account abbia una determinata password
     * aggiorna la password di un account
@@ -597,7 +602,7 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
     * rimuove il giudizio di un film guardato
 * Lista Manager
     * verifica se un utente possiede una lista con un determinato nome
-    * crea una lista composta da: nome, visibilità (pubblica, amici, privata **(va messo qui?)**) ed almeno un film
+    * crea una lista composta dalle seguenti informazioni: nome e visibilità (tutti, amici, solo tu)
     * comunica se un utente è proprietario di una lista
     * modifica nome e visibilità di una lista
     * cancella una lista
@@ -608,10 +613,11 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
 * Film: rappresenta le informazioni di un film
 * Artista: rappresenta le informazioni di un artista
 * Utente: rappresenta i dati di un utente
-* Lista: rappresenta le informazioni di una lista e film che contiene
+* E-Mail cambio password: descrive la procedura per cambiare la password
 * Amicizia: rappresenta le informazioni di una richiesta di amicizia
 * Amicizia Accettata: specializza una amicizia integrando le informazioni di accettazione di questa
-* E-Mail cambio password: descrive la procedura per cambiare la password
+* Film Guardato: rappresenta il giudizio dato da un account ad un film in un dato orario
+* Lista: rappresenta le informazioni di una lista e film che contiene
 
 ## Class diagrams
 ![](Class%20diagrams/Main%20class%20diagram.jpg)
