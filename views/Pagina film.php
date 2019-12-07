@@ -90,7 +90,12 @@ if ($logged_user) {
 			})
 		});
 		$(".actions a[data-action='add_film_da_guardare']").click(function () {
-			// TODO: Salvare.
+            $.get("/controllers/___aggiungi_film_da_guardare.php", "film_id=<?php echo $film->getID(); ?>", function (output) {
+                if(output === "ok")
+                    Overlay.popup("Film aggiunto in film da guardare");
+                else
+                    Overlay.popup("Film non aggiunto");
+            });
 		});
 		$(".actions a[data-action='add_to_liste']").click(function () {
 			$.get("/controllers/___aggiornamento_presenza_film_in_liste.php", "film_id=<?php echo $film->getID(); ?>", function (x) {

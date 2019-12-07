@@ -17,4 +17,13 @@ class FilmDaGuardareManager {
 		return $res;
 	}
 
+    /** @return Boolean */
+    public static function add(int $utente, int $film) {
+        $stmt = DB::stmt("INSERT INTO film_da_guardare (utente, film) VALUES (? ,?)");
+        if ($stmt->execute([$utente, $film]))
+            return true;
+        else
+            return false;
+    }
+
 }
