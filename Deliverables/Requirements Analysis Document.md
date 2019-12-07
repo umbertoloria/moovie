@@ -106,9 +106,9 @@ Senza l'utilizzo di Moovie, l'utente interessato al mondo del cinema attualmente
 informazioni di suo interesse.
 * Per scoprire la filmografia di un artista è possibile consultare siti come [Wikipedia](https://wikipedia.org),
 [MYmovies](https://www.mymovies.it) e altri.
-* Per conteggiare i film già visti, si potrebbero utilizzare le funzionalità dell'applicazione mobile
-[TV Time](https://tvtime.com). Essendo però un'app orientata sulle serie TV, al momento le funzionalità relative al
-cinema sono profondamente inferiori. Inoltre, molti film sono addirittura assenti.
+* Per conteggiare i film già visti si possono utilizzare le funzionalità di [IMDb](https://www.imdb.com/), oppure
+[TV Time](https://tvtime.com), che però è un'app molto più orientata sulle serie TV, e al momento le funzioni relative
+al cinema sono davvero poco stabili, e manca grande supporto al catalogo di film.
 * Per suggerire un film ad un amico, si utilizzano i mezzi generali di comunicazione reali o virtuali già esistenti.
 * Per ricevere un suggerimento di film in linea con le proprie preferenze, bisogna conoscere un altro appassionato di
 cinema che conosca e rispetti queste preferenze.
@@ -174,73 +174,73 @@ RF_5.5 | Seguire una lista altrui
 Dopo una settimana di lavoro, Michele non vede l’ora di guardare un bel film il sabato sera, in televisione accanto
 alla sua fornitissima collezione di Blu Ray. Se un film manca nella collezione, lo noleggia e se gli piace lo compra.
 Mentre è in autobus verso il noleggio Blu Ray, prende il suo cellulare e va sul sito web www.moovie.me. Cliccando su
-“**Accesso**”, si presenta una schermata di input che richiede alcuni campi. Alla voce “e-mail” scrive
-“michele@pippo.pluto”, e alla voce “password” scrive “adnam”. Clicca “Accesso” ma il sistema notifica “I dati immessi
-non corrispondono”. Si accorge di aver sbagliato e scrive “adnama”. Clicca “Accesso”, e il sistema accede. A questo
+**accesso**, si presenta una schermata di input che richiede alcuni campi. Alla voce "e-mail" scrive
+"michele@pippo.pluto", e alla voce "password" scrive "adnam". Clicca su "accedi" ma il sistema notifica "I dati non
+corrispondono". Si accorge di aver sbagliato e scrive "adnama". Clicca di nuovo su "accedi", e il sistema accede. A questo
 punto, per scegliere il prossimo film da guardare, Michele può:
 
-* consultare le proprie liste, aprire la lista “Guarda più tardi”, e scegliere un film;
+* consultare le proprie liste, aprire la lista "film da guardare", e scegliere un film;
 
-* cercare il profilo della sua amica Amanda, aprire la sua lista “Migliori film del secolo” (può vedere le sue liste
-solo avendo l’amicizia), scegliere un film dalla lista ed aggiungerlo nella propria lista “Guarda più tardi”;
+* cercare il profilo della sua amica Amanda, aprire la sua lista "Migliori film del secolo" (può vedere le sue liste
+solo avendo l’amicizia), scegliere un film dalla lista ed aggiungerlo nella propria lista "film da guardare";
 
-* cliccare su “Suggerisci” e scegliere un film tra i suggerimenti automatici presenti nella schermata successiva.
+* cliccare su "suggerisci" e scegliere un film tra i suggerimenti automatici presenti nella schermata successiva.
 
 Una volta scelto il film, lo noleggia, torna a casa e lo guarda.
 
 ### Ho guardato uno splendido film
-Michele ha appena finito di guardare “Eternal Sunshine of the Spotless Mind”. Gli è piaciuto talmente tanto che
+Michele ha appena finito di guardare "Eternal Sunshine of the Spotless Mind". Gli è piaciuto talmente tanto che
 vorrebbe consigliarlo ai suoi amici, specialmente Amanda. Qualche mese prima avrebbe mandato molti messaggi a questi
 ultimi, oppure ne avrebbe parlato a lavoro con i colleghi, ma da quando ha cominciato a usare Moovie, i suoi giudizi li
 esprime direttamente lì.
 
-Michele allora prende il suo cellulare, va su www.moovie.me, e cerca la voce “Accesso” ma risulta già loggato, visto che
-aveva effettuato l’accesso poche ore prima. Sulla pagina iniziale, trova già i film presenti nella sua lista “Guarda più
-tardi”, trova quello che ha appena visto e ci clicca sopra. Arrivato alla pagina del film e clicca su “Ho già visto
-questo film”. Si aprirà una schermata popup che chiederà un voto da 1 a 10. Michele scrive 9 e clicca “Applica”.
+Michele allora prende il suo cellulare, va su www.moovie.me, e cerca la voce "accesso" ma risulta già loggato, visto che
+aveva effettuato l’accesso poche ore prima. Sulla pagina iniziale, trova già i film presenti in "film da guardare",
+trova quello che ha appena visto e ci clicca sopra. Arrivato alla pagina del film, clicca su "ho già visto questo film".
+Si aprirà una schermata popup che chiederà un voto da 1 a 10. Michele scrive 9 e clicca "aggiungi".
 
 La schermata si chiude, e Michele si troverà sempre sulla pagina del film. In questo modo, Michele sta aggiungendo
 informazioni riguardo i suoi gusti sulla piattaforma, che sarà in grado di suggerirgli film ancora più in linea con i
 suoi gusti.
 
-Clicca su “Aggiungi ad una lista…”, si apre una schermata popup contenente tutte le sue liste, sceglie “Film che
-consiglio”, e la schermata si chiude, mostrando sempre la pagina del film. In questo modo, tutti gli utenti che
-“seguono” questa lista saranno notificati del nuovo aggiornamento.
+Clicca su "aggiungi ad una lista...", si apre una schermata popup contenente tutte le sue liste, sceglie "Film che
+consiglio", e la schermata si chiude, mostrando sempre la pagina del film. In questo modo, tutti gli utenti che
+"seguono" questa lista saranno notificati del nuovo aggiornamento.
 
 Se quel film fosse già stato votato, e Michele avesse voluto modificare quel giudizio, sarebbe potuto andare sulla lista
-“Film guardati”, scegliere il film, e cliccare su “Modifica giudizio”, per poi inserire il nuovo voto, sempre da 1 a 10.
+"film guardati", scegliere il film, e cliccare su "modifica", per poi inserire il nuovo voto, sempre da 1 a 10.
 
 ### Suggerire dei film ad un amico che non è registrato su Moovie
 A Stefano piacciono molto i film, mai però quanto a Michele. Quest’ultimo ha capito i gusti di Stefano, e vuole
 consigliargli tanti di quei film che quasi non gli vengono in mente. Proprio per questo motivo, Michele consiglia a
-Stefano di crearsi un account su Moovie, per poter consultare la sua lista “migliori film biografici”.
+Stefano di crearsi un account su Moovie, per poter consultare la sua lista "migliori film biografici".
 
-Stefano allora apre una nuova scheda sul browser, va su www.moovie.me e clicca su “Registrazione”. Gli si presenta una
-schermata che chiede in input alcuni campi: nella voce “nome completo” inserisce “Stefano Bisettrice”, nella voce
-“indirizzo e-mail” inserisce “stefano@pippo.pluto”, nella voce “password” inserisce “ciaociao”. Appena clicca al di
-fuori del campo “password” appare una scritta che suggerisce “La password non è valida: devi inserire almeno un numero”.
-Allora Stefano sostituisce la password con “ciaociao1”. Nella voce “conferma password” inserisce “ciaociao1”.
+Stefano allora apre una nuova scheda sul browser, va su www.moovie.me e clicca su "registrazione". Gli si presenta una
+schermata che chiede in input alcuni campi: nella voce "nome completo" inserisce "Stefano Bisettrice", nella voce
+"indirizzo e-mail" inserisce "stefano@pippo.pluto", nella voce "password" inserisce "ciao". Appena clicca al di fuori
+del campo "password" appare una scritta che suggerisce "Minimo 6 massimo 16 caratteri". Allora Stefano sostituisce la
+password con "ciaociao". Nella voce "conferma password" inserisce "ciaociao".
 
-Stefano, a questo punto, clicca su “Registrati”. La nuova pagina che si presenta mostra il testo “Benvenuto nel
-fantastico mondo di Moovie”. Stefano sarà riportato alla pagina iniziale, dove potrà usare il suo nuovo account Moovie.
+Stefano, a questo punto, clicca su "Registrati". La nuova pagina che si presenta mostra il testo "Benvenuto nel
+fantastico mondo di Moovie". Stefano sarà riportato alla pagina iniziale, dove potrà usare il suo nuovo account Moovie.
 
 ### Voglio informazioni su un attore, sceneggiatore o regista
-Amanda vuole vedere un altro film diretto da “Tarantino”, visto che ha particolarmente apprezzato il film “Pulp Fiction”
+Amanda vuole vedere un altro film diretto da "Tarantino", visto che ha particolarmente apprezzato il film "Pulp Fiction"
 che lei e Michele hanno visto il giorno prima. Allora prende il suo tablet, apre il browser, va su www.moovie.me, accede
 alle funzionalità di ricerca raggiungibili nel menu del sito (autenticazione non necessaria). In realtà le basterebbe
-accedere al suo account e andare nella lista “film guardati”. Nello spazio di ricerca, Amanda inserisce “Pulp Fiction” e
-preme Invio. La nuova pagina che si presenta conterrà i risultati della ricerca, e tra questi clicca sulla voce “Pulp
-Fiction”. Giunta alla scheda del film, ricca di informazioni riguardo gli attori, il regista, e le saghe di cui potrebbe
-far parte, clicca sulla voce “Quentin Tarantino”, e finalmente arriva alla pagina delle informazioni del noto regista.
-In questa pagina ci sono tutti i film diretti, scritti e recitati da Tarantino. Amanda si accorge che “Pulp Fiction”,
-oltre ad essere stato girato, è stato anche scritto da “Tarantino”!
+accedere al suo account e andare nella lista "film guardati". Nello spazio di ricerca, Amanda inserisce "Pulp Fiction" e
+preme Invio. La nuova pagina che si presenta conterrà i risultati della ricerca, e tra questi clicca sulla voce "Pulp
+Fiction". Giunta alla scheda del film, ricca di informazioni riguardo gli attori, il regista, e le saghe di cui potrebbe
+far parte, clicca sulla voce "Quentin Tarantino", e finalmente arriva alla pagina delle informazioni del noto regista.
+In questa pagina ci sono tutti i film diretti, scritti e recitati da Tarantino. Amanda si accorge che "Pulp Fiction",
+oltre ad essere stato girato, è stato anche scritto da "Tarantino"!
 
 ### Voglio aggiungere un film ad una mia lista
-Amanda si trova sulla pagina di “Quentin Tarantino” su Moovie. Interessata, comincia a sbirciare tra tutti i lavori di
+Amanda si trova sulla pagina di "Quentin Tarantino" su Moovie. Interessata, comincia a sbirciare tra tutti i lavori di
 questo artista, per poter cercare il prossimo film da vedere. La pagina dell’artista mostra tutti i film in cui
-Tarantino ha partecipato. Nel caso specifico, ci saranno tanti film nel reparto “regie”, e alcuni film nel reparto
-“recitazioni”. Una volta scelto il film, Amanda raggiunge la sua scheda informativa, e clicca su “Guarda più tardi“. Il
-sito adesso saprà che tra i film da guardare c’è “Kill Bill: Volume 1”.
+Tarantino ha partecipato. Nel caso specifico, ci saranno tanti film nel reparto "regie", e alcuni film nel reparto
+"recitazioni". Una volta scelto il film, Amanda raggiunge la sua scheda informativa, e clicca su "Guarda più tardi". Il
+sito adesso saprà che tra i film da guardare c’è "Kill Bill: Volume 1".
 
 ### Suggerire un film ad un amico che è registrato su Moovie
 Stefano ha una scheda di browser aperta sul suo computer al sito www.moovie.me, e dopo aver effettuato l’accesso, si è
@@ -248,26 +248,25 @@ subito reso conto di aver trovato un sito davvero valido.
 
 Allora raggiunge l’area di ricerca presente nel menu, e cerca il proprio amico Michele. La pagina successiva mostra i
 vari risultati della ricerca, e tra questi è presente l’account di Michele. Cliccandoci sopra, la nuova pagina mostra il
-profilo di Michele, tutte le liste e attività pubbliche. Stefano trova quindi la voce “Aggiungi agli amici”, e
-cliccandoci sopra, viene notificato dell’invio della richiesta di amicizia. Intanto Michele, che stava usando Moovie,
-trova la richiesta di amicizia di Stefano nella sezione delle notifiche. Allora, Michele clicca sulla notifica, che lo
-porta sul profilo di Stefano. Quando lo riconosce, clicca su “Accetta richiesta” (situata nello stesso punto dove c’era
-“Aggiungi agli amici” sul computer di Stefano). Fatto questo, la pagina prima mostra un popup contenente il messaggio
-“Amicizia accettata”, e successivamente si aggiorna, mostrando di nuovo il profilo di Stefano.
+profilo di Michele, tutte le liste e attività pubbliche. Stefano trova quindi la voce "invia richiesta di amicizia", e
+cliccandoci sopra, viene notificato dell’invio della richiesta. Intanto Michele, che stava usando Moovie, trova la
+richiesta di amicizia di Stefano nella sezione delle notifiche. Allora, Michele clicca sulla notifica, che lo porta sul
+profilo di Stefano. Quando lo riconosce, clicca su "accetta richiesta di amicizia". Fatto questo, la pagina prima mostra
+il messaggio "amicizia accettata", e successivamente aggiorna le informazioni mostrate sul profilo di Stefano.
 
 Stefano, intanto, ha notato la notifica della conferma dell’amicizia (sempre nella sezione notifiche), e clicca su
-questa notifica, arrivando sul profilo di Michele. A questo punto, Stefano sbircia nella lista “film guardati” di
+questa notifica, arrivando sul profilo di Michele. A questo punto, Stefano sbircia nella lista "film guardati" di
 Michele. Cliccando su questa lista, la pagina cambia mostrando i film presenti nella lista. Tra questi, Stefano nota
-subito che non è presente “Forrest Gump”, il suo film preferito. Sconcertato che un appassionato di cinema come Michele
+subito che non è presente "Forrest Gump", il suo film preferito. Sconcertato che un appassionato di cinema come Michele
 non abbia mai visto questo famosissimo film, glielo suggerisce immediatamente. Accede alle funzionalità di ricerca,
-cerca “Forrest Gump”, arriva alla pagina dei risultati, e tra questi clicca sulla scheda del film. Arrivato alla scheda
-del film, Stefano prima aggiunge il film alla propria lista dei “film guardati” (con voto 10), e poi clicca su
-“Suggerisci a un amico”. Sul popup che si è appena aperto, Stefano vede tutti i suoi amici (in questo caso solo
-Michele), seleziona questa voce, preme “Suggerisci”, il popup si chiude, e se ne apre un altro che contiene la scritta
-“Film suggerito”.
+cerca "Forrest Gump", arriva alla pagina dei risultati, e tra questi clicca sulla scheda del film. Arrivato alla scheda
+del film, Stefano prima aggiunge il film alla propria lista dei "film guardati" (con voto 10), e poi clicca su
+"suggerisci". Sul popup che si è appena aperto, Stefano vede tutti i suoi amici (in questo caso solo
+Michele), seleziona questa voce, preme "suggerisci", il popup si chiude, e se ne apre un altro che contiene la scritta
+"Film suggerito".
 
-Intanto Michele, che è ancora collegato su Moovie, trova una nuova notifica che dice “Stefano ti consiglia Forrest
-Gump”. Michele allora clicca sul film, arriva sulla sua scheda, e lo aggiunge subito alla lista “film guardati” (con
+Intanto Michele, che è ancora collegato su Moovie, trova una nuova notifica che dice "Stefano ti consiglia Forrest
+Gump". Michele allora clicca sul film, arriva sulla sua scheda, e lo aggiunge subito alla lista "film guardati" (con
 voto 10), perché ovviamente lui lo aveva già visto, ma prima di conoscere Moovie.
 
 ## Use case models
@@ -400,7 +399,7 @@ Eccezioni | Se la nuova password non è valida, oppure la vecchia non corrispond
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella pagina dell’account a cui vuole richiedere l’amicizia.
-Flusso di eventi | <br/><ol><li>L’utente clicca su “Aggiungi agli amici”<li>Moovie invia la richiesta al destinatario</ol>
+Flusso di eventi | <br/><ol><li>L’utente clicca su "Aggiungi agli amici"<li>Moovie invia la richiesta al destinatario</ol>
 Condizione di uscita | Il sistema comunica l'invio della richiesta
 
 #### UC_8.1: Confermare amicizia tra due account
@@ -424,7 +423,7 @@ Condizione di uscita | Il sistema comunica che la richiesta è stata rifiutata.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente è sulla pagina del film che vuole consigliare.
-Flusso di eventi | <br/><ol><li>L’utente clicca su “Suggerisci”<li>Il sistema presenta tutti gli amici a cui è possibile suggerire il film<li>L’utente sceglie gli account a cui consigliare il film<li>Il sistema invia il suggerimento agli utenti</ol>
+Flusso di eventi | <br/><ol><li>L’utente clicca su "Suggerisci"<li>Il sistema presenta tutti gli amici a cui è possibile suggerire il film<li>L’utente sceglie gli account a cui consigliare il film<li>Il sistema invia il suggerimento agli utenti</ol>
 Condizione di uscita | Il sistema conferma che il film è stato suggerito.
 
 ### Film
