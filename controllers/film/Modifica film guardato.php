@@ -1,6 +1,6 @@
 <?php
 
-include "../php/core.php";
+include "../../php/core.php";
 
 $logged_user = Auth::getLoggedUser();
 assert($logged_user);
@@ -8,7 +8,7 @@ assert($logged_user);
 $film_id = @$_POST["film_id"];
 $voto = @$_POST["voto"];
 
-$valid = Validator\validate("../forms/aggiunta_e_modifica_giudizio.json", [
+$valid = Validator\validate("../../forms/aggiunta_e_modifica_giudizio.json", [
 	"voto" => $voto
 ]);
 

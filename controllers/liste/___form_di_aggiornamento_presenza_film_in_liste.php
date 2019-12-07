@@ -1,6 +1,6 @@
 <?php
 
-include "../php/core.php";
+include "../../php/core.php";
 
 $film_id = @$_GET["film_id"];
 if ($film_id === null)
@@ -22,4 +22,4 @@ $_REQUEST["liste"] = $liste;
 $_REQUEST["liste_contenenti"] = $liste_contenenti;
 $_REQUEST["film_id"] = $film_id;
 
-include "../views/Form di aggiornamento presenza film in liste.php";
+include "../../views/Form di aggiornamento presenza film in liste.php";

@@ -1,6 +1,6 @@
 <?php
 
-include "../php/core.php";
+include "../../php/core.php";
 
 $logged_user = Auth::getLoggedUser();
 assert($logged_user);
@@ -16,4 +16,4 @@ unset($_GET['film_id']);
 unset($film_id);
 unset($film_guardato);
 
-include "../views/Form di modifica giudizio.php";
+include "../../views/Form di modifica giudizio.php";

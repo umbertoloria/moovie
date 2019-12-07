@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER["PHP_SELF"] === "/controllers/Ricerca.php") {
+if ($_SERVER["PHP_SELF"] === "/controllers/ricerche/Ricerca.php") {
 	// FIXME: injections
 	$kind_default = @$_GET["kind"];
 	$fulltext_default = @$_GET["fulltext"];
@@ -8,7 +8,7 @@ if ($_SERVER["PHP_SELF"] === "/controllers/Ricerca.php") {
 	$fulltext_default = "";
 }
 ?>
-<form id="area_di_ricerca" method="get" action="/controllers/Ricerca.php">
+<form id="area_di_ricerca" method="get" action="/controllers/ricerche/Ricerca.php">
 	<div>
 		<input type="hidden" name="kind"/>
 		<label></label>

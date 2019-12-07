@@ -1,11 +1,11 @@
 <?php
 
-include "../php/core.php";
+include "../../php/core.php";
 
 $email = trim(@$_POST["email"]);
 $password = trim(@$_POST["password"]);
 
-$valid = Validator\validate("../forms/accesso.json", [
+$valid = Validator\validate("../../forms/accesso.json", [
 	"email" => $email,
 	"password" => $password
 ]);

@@ -1,6 +1,6 @@
 <?php
 
-include "../php/core.php";
+include "../../php/core.php";
 
 $logged_user = Auth::getLoggedUser();
 assert($logged_user);

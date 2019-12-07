@@ -1,4 +1,4 @@
-<form class="form" id="form_di_creazione_lista" method="post" action="/controllers/Crea lista.php">
+<form class="form" id="form_di_creazione_lista" method="post" action="/controllers/liste/Crea lista.php">
 	<fieldset>
 		<label>
 			<span>Nome</span>

@@ -38,12 +38,12 @@ if (count($film_guardati) > 0) {
 
 	<script>
 		$(".dashboard label[data-action='edit']").click(function () {
-			$.get("/controllers/___form_di_modifica_giudizio.php", "film_id=" + $(this).attr("data-id"), function (output) {
+			$.get("/controllers/film/___form_di_modifica_giudizio.php", "film_id=" + $(this).attr("data-id"), function (output) {
 				Overlay.popup(output);
 			})
 		});
 		$(".dashboard label[data-action='drop']").click(function () {
-			location.href = "/controllers/Rimuovi film guardato.php?film_id=" + $(this).attr("data-id");
+			location.href = "/controllers/film/Rimuovi film guardato.php?film_id=" + $(this).attr("data-id");
 		});
 	</script>
 

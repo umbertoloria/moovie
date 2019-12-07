@@ -59,7 +59,7 @@ $logged_user = Auth::getLoggedUser();
 				<a>Impostazioni</a>
 			</li>
 			<li>
-				<a href="/controllers/___logout.php">Esci</a>
+				<a href="/controllers/accounts/___logout.php">Esci</a>
 			</li>
 			<?php
 		}

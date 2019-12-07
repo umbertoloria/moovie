@@ -1,4 +1,4 @@
-<form class="form" id="form_di_aggiunta_giudizio" method="post" action="/controllers/Aggiungi film guardato.php">
+<form class="form" id="form_di_aggiunta_giudizio" method="post" action="/controllers/film/Aggiungi film guardato.php">
 	<input type="hidden" name="film_id" value="<?php echo $_REQUEST["film_id"]; ?>"/>
 	<fieldset>
 		<label>

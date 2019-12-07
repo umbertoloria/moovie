@@ -1,4 +1,4 @@
-<form class="form" id="form_di_registrazione" method="post" action="/controllers/Registrazione.php">
+<form class="form" id="form_di_registrazione" method="post" action="/controllers/accounts/Registrazione.php">
 	<fieldset>
 		<label>
 			<span>Nome</span>

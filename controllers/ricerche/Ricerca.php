@@ -1,12 +1,20 @@
 <?php
 
-include "../php/core.php";
+$kind = @$_GET["kind"];
+if (!in_array($kind, ["all", "movies", "artists", "users"])) {
+	header("Location: /404.php");
+	die();
+}
+
+include "../../parts/initial_page.php";
 
 $kind = @$_GET["kind"];
 $fulltext = @$_GET["fulltext"];
 $risultati = [];
 
-if ($kind === "movies") {
+if ($kind === "all") {
+	// TODO: implementami ti prego :-(
+} elseif ($kind === "movies") {
 	// GenereID => GenereOBJ
 	$generi = [];
 	// FilmID => [GenereID1, GenereID2, ...]
@@ -73,16 +81,10 @@ if ($kind === "movies") {
 		assert($user instanceof Utente);
 		$risultati[] = $user;
 	}
-} else {
-	header("Location: /404.php");
-	die();
 }
 
 unset($kind);
 unset($fulltext);
-include "../parts/head.php";
-include "../parts/leftmenu.php";
-include "../parts/topmenu.php";
 $_REQUEST["risultati"] = $risultati;
 unset($risultati);
-include "../views/Risultati di ricerca.php";
+include "../../views/Risultati di ricerca.php";
