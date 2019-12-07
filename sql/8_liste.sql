@@ -14,6 +14,7 @@ INSERT INTO liste (id, proprietario, nome, visibilità) VALUES (1, 1, 'Migliori 
 INSERT INTO liste (id, proprietario, nome, visibilità) VALUES (2, 1, 'TOP drama', 'amici');
 INSERT INTO liste (id, proprietario, nome, visibilità) VALUES (3, 1, 'Chris BALE', 'solo_tu');
 INSERT INTO liste (id, proprietario, nome, visibilità) VALUES (4, 2, 'Epici', 'amici');
+INSERT INTO liste (id, proprietario, nome, visibilità) VALUES (5, 3, 'Marvel', 'tutti');
 
 create table lista_has_film
 (
@@ -32,7 +33,9 @@ INSERT INTO lista_has_film (lista, film) VALUES (2, 6);
 INSERT INTO lista_has_film (lista, film) VALUES (4, 7);
 INSERT INTO lista_has_film (lista, film) VALUES (1, 8);
 INSERT INTO lista_has_film (lista, film) VALUES (4, 8);
+INSERT INTO lista_has_film (lista, film) VALUES (5, 8);
 INSERT INTO lista_has_film (lista, film) VALUES (1, 9);
+INSERT INTO lista_has_film (lista, film) VALUES (5, 9);
 INSERT INTO lista_has_film (lista, film) VALUES (2, 11);
 INSERT INTO lista_has_film (lista, film) VALUES (1, 12);
 INSERT INTO lista_has_film (lista, film) VALUES (1, 13);

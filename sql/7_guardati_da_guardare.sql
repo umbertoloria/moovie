@@ -27,6 +27,10 @@ INSERT INTO film_guardati (utente, film, timestamp, voto)
 VALUES (1, 15, '2018-12-01 22:14:32', 10);
 INSERT INTO film_guardati (utente, film, timestamp, voto)
 VALUES (1, 16, '2019-01-23 23:59:54', 10);
+INSERT INTO film_guardati (utente, film, voto, timestamp)
+VALUES (3, 1, 6, '2019-12-07 11:09:05');
+INSERT INTO film_guardati (utente, film, voto, timestamp)
+VALUES (3, 16, 8, '2019-12-07 11:08:28');
 
 # FILM DA GUARDARE
 

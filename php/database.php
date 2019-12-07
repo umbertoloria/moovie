@@ -10,7 +10,7 @@ class DB {
 			$host = "localhost";
 			$db = "moovie";
 			$usr = "root";
-			$pwd = "ciaociao";
+			$pwd = "root";
 			self::$c = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $usr, $pwd);
 		} catch (PDOException $e) {
 			die("MySQL error connection: " . $e->getMessage());

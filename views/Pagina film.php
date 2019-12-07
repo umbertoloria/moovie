@@ -85,7 +85,9 @@ if ($logged_user) {
 			// TODO: Scegliere uno o più amici e suggerirgli il film.
 		});
 		$(".actions a[data-action='add_film_guardato']").click(function () {
-			// TODO: Chiedere il voto e salvare.
+			$.get("/controllers/___aggiungi_film_guardato.php", "film_id=<?php echo $film->getID(); ?>", function (output) {
+				Overlay.popup(output);
+			})
 		});
 		$(".actions a[data-action='add_film_da_guardare']").click(function () {
 			// TODO: Salvare.

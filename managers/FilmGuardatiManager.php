@@ -17,4 +17,13 @@ class FilmGuardatiManager {
 		return $res;
 	}
 
+	/** @return Boolean */
+	public static function add(int $utente, int $film, float $voto) {
+
+		$stmt = DB::stmt("INSERT INTO film_guardati (utente, film, voto) VALUES (? ,?, ?)");
+		if ($stmt->execute([$utente, $film, $voto]))
+			return true;
+		else
+			return false;
+	}
 }
