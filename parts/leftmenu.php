@@ -4,17 +4,17 @@ $logged_user = Auth::getLoggedUser();
 ?>
 <menu>
 	<ul>
-		<li>
-			<a>Suggeriscimi un film</a>
-		</li>
-		<li <?php echo $uri == "/___film_da_guardare.php" ? "class='active'" : ""; ?>>
-			<a href="/___film_da_guardare.php">Film da guardare</a>
-		</li>
-		<li <?php echo $uri == "/___film_guardati.php" ? "class='active'" : ""; ?>>
-			<a href="/___film_guardati.php">Film guardati</a>
-		</li>
 		<?php
 		if ($logged_user) {
+
+			echo "<li><a>Suggeriscimi un film</a></li>";
+
+			echo "<li" . ($uri == "/___film_da_guardare.php" ? " class='active'" : "") . ">";
+			echo "<a href='/___film_da_guardare.php'>Film da guardare</a></li>";
+
+			echo "<li" . ($uri == "/film_guardati.php" ? " class='active'" : "") . ">";
+			echo "<a href='/film_guardati.php'>Film guardati</a></li>";
+
 			echo "<li>";
 			echo "<a>Le liste</a>";
 			echo "<ul>";

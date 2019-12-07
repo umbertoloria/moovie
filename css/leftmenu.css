@@ -35,7 +35,6 @@ menu ul li a {
 	text-decoration: none;
 	color: rgba(255, 255, 255, .7);
 	transition: .2s;
-	margin-bottom: 3px;
 }
 
 menu ul li a:hover {

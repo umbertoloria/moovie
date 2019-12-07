@@ -5,7 +5,7 @@ $film_id = @$_REQUEST["film_id"];
 $liste_contenenti = @$_REQUEST["liste_contenenti"];
 // FIXME: e se non le ha ancora?
 ?>
-<form id="form_di_aggiornamento_presenza_film_in_liste" method="post" action="/controllers/Liste.php">
+<form class="form" id="form_di_aggiornamento_presenza_film_in_liste" method="post" action="/controllers/Liste.php">
 	<input type="hidden" name="kind" value="absolute_presence"/>
 	<input type="hidden" name="film_id" value="<?php echo $film_id; ?>"/>
 	<div>

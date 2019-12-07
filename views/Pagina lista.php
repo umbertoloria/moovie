@@ -9,7 +9,6 @@ $testi_visibilità = [
 	"solo_tu" => "Solo tu",
 ];
 ?>
-<section>
 	<header>
 		<div class="right">
 			<h1><?php echo $lista->getNome(); ?></h1>
@@ -27,27 +26,25 @@ $testi_visibilità = [
 			?>
 		</div>
 	</header>
-	<?php
-	if (count($lista->getFilms()) > 0) {
-		?>
-		<div class="dashboard">
-			<label>Film</label>
-			<ul class="foto_pv">
-				<?php
-				foreach ($lista->getFilms() as $film_id) {
-					$film = $films[$film_id];
-					assert($film instanceof Film);
-					echo "<li>";
-					echo "<a href='/film.php?id={$film->getID()}'>";
-					echo "<img src='/image.php?kind=movie&id={$film->getID()}' alt=''/>";
-					echo "<span>{$film->getTitolo()}</span>";
-					echo "</a>";
-					echo "</li>";
-				}
-				?>
-			</ul>
-		</div>
-		<?php
-	}
+<?php
+if (count($lista->getFilms()) > 0) {
 	?>
-</section>
+	<div class="dashboard">
+		<label>Film</label>
+		<ul class="foto_pv">
+			<?php
+			foreach ($lista->getFilms() as $film_id) {
+				$film = $films[$film_id];
+				assert($film instanceof Film);
+				echo "<li>";
+				echo "<a href='/film.php?id={$film->getID()}'>";
+				echo "<img src='/image.php?kind=movie&id={$film->getID()}' alt=''/>";
+				echo "<span>{$film->getTitolo()}</span>";
+				echo "</a>";
+				echo "</li>";
+			}
+			?>
+		</ul>
+	</div>
+	<?php
+}

@@ -17,13 +17,14 @@ class FilmDaGuardareManager {
 		return $res;
 	}
 
-    /** @return Boolean */
-    public static function add(int $utente, int $film) {
-        $stmt = DB::stmt("INSERT INTO film_da_guardare (utente, film) VALUES (? ,?)");
-        if ($stmt->execute([$utente, $film]))
-            return true;
-        else
-            return false;
-    }
+	public static function exists(int $utente, int $film): bool {
+		$stmt = DB::stmt("SELECT utente FROM film_da_guardare WHERE utente = ? AND film = ?");
+		return $stmt->execute([$utente, $film]) and $stmt->rowCount() == 1;
+	}
+
+	public static function add(int $utente, int $film): bool {
+		$stmt = DB::stmt("INSERT INTO film_da_guardare (utente, film) VALUES (?, ?)");
+		return $stmt->execute([$utente, $film]);
+	}
 
 }

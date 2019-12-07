@@ -41,7 +41,7 @@ if ($kind === "create") {
 	$selected_lists = trim(@$_POST["selected_lists"]);
 
 	// FIXME: usare questa espressione regolare anche su items-selecter.
-	if ($selected_lists !== "" && !preg_match("/^(\d+;)*\d+$/", $selected_lists))
+	if ($selected_lists !== "" and !preg_match("/^(\d+;)*\d+$/", $selected_lists))
 		echo "aej. il cliente dovrebbe fermarti anche qui";
 	else {
 

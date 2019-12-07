@@ -17,7 +17,7 @@ class GenereManager {
 
 	public static function doRetrieveByID(int $id): ?Genere {
 		$stmt = DB::stmt("SELECT id, nome FROM generi WHERE id = ?");
-		if ($stmt->execute([$id]) && $r = $stmt->fetch(PDO::FETCH_ASSOC))
+		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Genere($r["id"], $r["nome"]);
 		else
 			return null;

@@ -62,7 +62,7 @@ header .actions a {
 	line-height: 22px;
 	color: rgba(255, 255, 255, .7);
 	background: var(--super-color);
-	border: 2px solid #005383;
+	border: 2px solid var(--dark-color);
 	border-right-width: 0;
 	font-weight: normal;
 	text-decoration: none;
@@ -83,7 +83,7 @@ header .actions a:last-child {
 }
 
 header .actions a:hover {
-	background: #005383;
+	background: var(--dark-color);
 }
 
 .dashboard > label {
@@ -113,6 +113,7 @@ header .actions a:hover {
 	display: block;
 	padding: 0 20px;
 	line-height: 50px;
+	/* TODO: standardize this color */
 	background: #f5f5f5;
 	text-decoration: none;
 	border-radius: 2px;
@@ -154,21 +155,42 @@ header .actions a:hover {
 	background: #ddd;
 }
 
-.dashboard ul.foto_pv li label {
-	display: block;
+.dashboard ul.foto_pv li div {
 	position: absolute;
 	top: 0;
 	right: 0;
 	margin-top: -12px;
 	margin-right: -12px;
 
+	display: flex;
+	min-width: 35px;
+	height: 35px;
+
+	color: rgba(255, 255, 255, .7);
+	font-size: 1.1em;
+}
+
+.dashboard ul.foto_pv li div label {
+	display: block;
+	margin-left: 5px;
+
 	width: 35px;
 	line-height: 35px;
 	text-align: center;
 
-	color: rgba(255, 255, 255, .7);
-	font-size: 1.1em;
-
 	border-radius: 100%;
 	background: var(--super-color);
+}
+
+.dashboard ul.foto_pv li div label:first-child {
+	margin-left: 0;
+}
+
+.dashboard ul.foto_pv li div label[data-action] {
+	transition: .3s;
+	cursor: pointer;
+}
+
+.dashboard ul.foto_pv li div label[data-action]:hover {
+	background: var(--error-color);
 }

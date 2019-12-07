@@ -9,21 +9,21 @@ function decode($json_src) {
 function validate($json_filename, $inputs) {
 	$json = json_decode(file_get_contents($json_filename));
 	foreach ($json->rules as $field => $rules) {
-		if (isset($rules->onlyClient) && $rules->onlyClient === true)
+		if (isset($rules->onlyClient) and $rules->onlyClient === true)
 			continue;
 		$input = @$inputs[$field];
 
-		if (isset($rules->minlength) && isset($rules->maxlength) && (strlen($input) < $rules->minlength || strlen($input) > $rules->maxlength))
+		if (isset($rules->minlength) and isset($rules->maxlength) and (strlen($input) < $rules->minlength || strlen($input) > $rules->maxlength))
 			return false;
-		elseif (isset($rules->minlength) && strlen($input) < $rules->minlength)
+		elseif (isset($rules->minlength) and strlen($input) < $rules->minlength)
 			return false;
-		elseif (isset($rules->maxlength) && strlen($input) > $rules->maxlength)
+		elseif (isset($rules->maxlength) and strlen($input) > $rules->maxlength)
 			return false;
-		elseif (isset($rules->exp) && !preg_match("/" . $rules->exp . "/", $input))
+		elseif (isset($rules->exp) and !preg_match("/" . $rules->exp . "/", $input))
 			return false;
-		elseif (isset($rules->equals) && $input !== $inputs[$rules->equals])
+		elseif (isset($rules->equals) and $input !== $inputs[$rules->equals])
 			return false;
-		elseif (isset($rules->cases) && !in_array($input, $rules->cases))
+		elseif (isset($rules->cases) and !in_array($input, $rules->cases))
 			return false;
 	}
 	return true;

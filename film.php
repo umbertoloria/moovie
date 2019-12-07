@@ -27,6 +27,21 @@ if ($id === null) {
 	$_REQUEST["registi"] = $registi;
 	$_REQUEST["artisti"] = $artisti;
 	$_REQUEST["generi"] = GenereManager::doRetrieveByFilm($film->getID());
+
+	$_REQUEST["show_actions"] = [];
+	$logged_user = Auth::getLoggedUser();
+	if ($logged_user) {
+		// TODO: Se hai almeno un amico...
+		$_REQUEST["show_actions"][] = "suggest";
+		if (!FilmGuardatiManager::exists($logged_user->getID(), $film->getID()))
+			$_REQUEST["show_actions"][] = "add_film_guardato";
+		if (!FilmDaGuardareManager::exists($logged_user->getID(), $film->getID()))
+			$_REQUEST["show_actions"][] = "add_film_da_guardare";
+		if (!empty(ListaManager::getAllOf($logged_user->getID())))
+			$_REQUEST["show_actions"][] = "add_to_liste";
+	}
+	unset($logged_user);
+
 	unset($film);
 	unset($recitazioni);
 	unset($registi);
