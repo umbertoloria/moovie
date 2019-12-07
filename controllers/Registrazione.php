@@ -23,5 +23,5 @@ else {
 	if ($utente)
 		header("Location: /conferma_registrazione.php");
 	else
-		echo "ops";
+		echo "Errore interno";
 }

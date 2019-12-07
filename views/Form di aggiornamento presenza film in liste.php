@@ -3,10 +3,9 @@ $liste = @$_REQUEST["liste"];
 assert(count($liste) > 0);
 $film_id = @$_REQUEST["film_id"];
 $liste_contenenti = @$_REQUEST["liste_contenenti"];
-// FIXME: e se non le ha ancora?
+// FIXME: e se non ha ancora nessuna lista?
 ?>
-<form class="form" id="form_di_aggiornamento_presenza_film_in_liste" method="post" action="/controllers/Liste.php">
-	<input type="hidden" name="kind" value="absolute_presence"/>
+<form class="form" id="form_di_aggiornamento_presenza_film_in_liste" method="post" action="/controllers/Inserisci film solo in liste.php">
 	<input type="hidden" name="film_id" value="<?php echo $film_id; ?>"/>
 	<div>
 		<input type="hidden" name="selected_lists"/>

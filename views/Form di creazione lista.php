@@ -1,6 +1,5 @@
-<form class="form" id="form_di_creazione_lista" method="post" action="/controllers/Liste.php">
+<form class="form" id="form_di_creazione_lista" method="post" action="/controllers/Crea lista.php">
 	<fieldset>
-		<input type="hidden" name="kind" value="create"/>
 		<label>
 			<span>Nome</span>
 			<input type="text" class="input" name="nome" placeholder="Nome" autocomplete="off"/>
