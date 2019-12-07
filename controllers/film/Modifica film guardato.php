@@ -15,7 +15,7 @@ $valid = Validator\validate("../../forms/aggiunta_e_modifica_giudizio.json", [
 if (!$valid)
 	echo "Il client non ti ha bloccato?";
 elseif (!ctype_digit($film_id))
-	echo "film non trovato";
+	echo "dammi un numero per id";
 elseif (FilmGuardatiManager::edit($logged_user->getID(), $film_id, $voto))
 	header("Location: /film_guardati.php");
 else

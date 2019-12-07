@@ -34,7 +34,6 @@ class FilmGuardatiManager {
 
 	public static function doRetrieveByUtenteAndFilm(int $utente, int $film): ?FilmGuardato {
 		$stmt = DB::stmt("SELECT utente, film, voto, timestamp FROM film_guardati WHERE utente = ? AND film = ?");
-		// FIXME: Secondo me era meglio &&
 		if ($stmt->execute([$utente, $film]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new FilmGuardato($r["utente"], $r["film"], $r["voto"], $r["timestamp"]);
 		else
@@ -43,7 +42,7 @@ class FilmGuardatiManager {
 
 	public static function exists(int $utente, int $film): bool {
 		$stmt = DB::stmt("SELECT utente FROM film_guardati WHERE utente = ? AND film = ?");
-		return $stmt->execute([$utente, $film]) and $stmt->rowCount() == 1;
+		return $stmt->execute([$utente, $film]) and $stmt->rowCount() === 1;
 	}
 
 }

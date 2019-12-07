@@ -1,31 +1,36 @@
 <?php
-$lista = $_REQUEST["lista"];
-assert($lista instanceof Lista);
-$films = $_REQUEST["films"];
-$logged_user = Auth::getLoggedUser();
 $testi_visibilità = [
 	"tutti" => "Tutti",
 	"amici" => "Amici",
 	"solo_tu" => "Solo tu",
 ];
+$lista = $_REQUEST["lista"];
+assert($lista instanceof Lista);
+$films = $_REQUEST["films"];
+$show_actions = @$_REQUEST["show_actions"];
 ?>
-	<header>
-		<div class="right">
-			<h1><?php echo $lista->getNome(); ?></h1>
-			<div class="tags">
-				<span><?php echo $testi_visibilità[$lista->getVisibilità()]; ?></span>
-			</div>
-			<?php if ($logged_user) { ?>
-				<div class="actions">
-					<a data-action="follow">Segui</a>
-				</div>
-			<?php } ?>
-			<?php
-			if (count($lista->getFilms()) === 0)
-				echo "<p>La lista è vuota</p>";
-			?>
+<header>
+	<div class="right">
+		<h1><?php echo $lista->getNome(); ?></h1>
+		<div class="tags">
+			<span><?php echo $testi_visibilità[$lista->getVisibilità()]; ?></span>
 		</div>
-	</header>
+		<?php
+		if (!empty($show_actions)) {
+			echo "<div class='actions'>";
+			if (in_array("follow", $show_actions))
+				echo "<a data-action='follow'>Segui</a>";
+			if (in_array("modify", $show_actions))
+				echo "<a data-action='modify'>Modifica</a>";
+			if (in_array("delete", $show_actions))
+				echo "<a data-action='delete'>Cancella</a>";
+			echo "</div>";
+		}
+		if (count($lista->getFilms()) === 0)
+			echo "<p>La lista è vuota</p>";
+		?>
+	</div>
+</header>
 <?php
 if (count($lista->getFilms()) > 0) {
 	?>
@@ -48,3 +53,25 @@ if (count($lista->getFilms()) > 0) {
 	</div>
 	<?php
 }
+?>
+<script>
+
+	<?php if (in_array("follow", $show_actions)) { ?>
+	$(".actions a[data-action='follow']").click(function () {
+		// TODO: implementami ti prego :-(
+	});
+	<?php } ?>
+
+	<?php if (in_array("modify", $show_actions)) { ?>
+	$(".actions a[data-action='modify']").click(function () {
+		// TODO: implementami ti prego :-(
+	});
+	<?php } ?>
+
+	<?php if (in_array("delete", $show_actions)) { ?>
+	$(".actions a[data-action='delete']").click(function () {
+		location.href = "/controllers/liste/Cancella lista.php?list_id=<?php echo $lista->getID(); ?>";
+	});
+	<?php } ?>
+
+</script>

@@ -19,7 +19,7 @@ class FilmDaGuardareManager {
 
 	public static function exists(int $utente, int $film): bool {
 		$stmt = DB::stmt("SELECT utente FROM film_da_guardare WHERE utente = ? AND film = ?");
-		return $stmt->execute([$utente, $film]) and $stmt->rowCount() == 1;
+		return $stmt->execute([$utente, $film]) and $stmt->rowCount() === 1;
 	}
 
 	public static function add(int $utente, int $film): bool {

@@ -18,7 +18,18 @@ class ListaManager {
 
 	public static function is_owner(int $user_id, int $list_id): bool {
 		$stmt = DB::stmt("SELECT id FROM liste WHERE id = ? AND proprietario = ?");
-		return $stmt->execute([$list_id, $user_id]) and $stmt->rowCount() == 1;
+		return $stmt->execute([$list_id, $user_id]) and $stmt->rowCount() === 1;
+	}
+
+	public static function delete(int $list_id): bool {
+		// TODO: Transazione
+		$stmt1 = DB::stmt("DELETE FROM lista_has_film WHERE lista = ?");
+		if (!$stmt1->execute([$list_id]))
+			return false;
+		$stmt2 = DB::stmt("DELETE FROM liste WHERE id = ?");
+		if (!$stmt2->execute([$list_id]))
+			return false;
+		return $stmt2->rowCount() === 1;
 	}
 
 	/**
@@ -94,7 +105,7 @@ class ListaManager {
 
 	public static function contains(int $lista_id, int $film_id): bool {
 		$stmt = DB::stmt("SELECT film FROM lista_has_film WHERE lista = ? AND film = ?");
-		return $stmt->execute([$lista_id, $film_id]) and $stmt->rowCount() == 1;
+		return $stmt->execute([$lista_id, $film_id]) and $stmt->rowCount() === 1;
 	}
 
 }

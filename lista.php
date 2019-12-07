@@ -10,8 +10,8 @@ if ($id === null) {
 } else {
 	unset($id);
 
+	$logged_user = Auth::getLoggedUser();
 	if ($lista->getVisibilità() !== "tutti") {
-		$logged_user = Auth::getLoggedUser();
 		if (!$logged_user) {
 			header("Location: /404.php");
 			die();
@@ -29,6 +29,18 @@ if ($id === null) {
 		$films[$film_id] = FilmManager::doRetrieveByID($film_id);
 	$_REQUEST["lista"] = $lista;
 	$_REQUEST["films"] = $films;
+
+	$_REQUEST["show_actions"] = [];
+	if ($logged_user) {
+		if ($logged_user->getID() !== $lista->getProprietario())
+			$_REQUEST["show_actions"][] = "follow";
+		else {
+			$_REQUEST["show_actions"][] = "modify";
+			$_REQUEST["show_actions"][] = "delete";
+		}
+	}
+	unset($logged_user);
+
 	unset($lista);
 	unset($films);
 	include "views/Pagina lista.php";
