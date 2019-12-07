@@ -91,7 +91,7 @@ if (!empty($show_actions)) {
 
 		<?php if (in_array("add_film_guardato", $show_actions)) { ?>
 		$(".actions a[data-action='add_film_guardato']").click(function () {
-			$.get("/controllers/___aggiungi_film_guardato.php", "film_id=<?php echo $film->getID(); ?>", function (output) {
+			$.get("/controllers/___form_di_aggiunta_giudizio.php", "film_id=<?php echo $film->getID(); ?>", function (output) {
 				Overlay.popup(output);
 			})
 		});
@@ -105,7 +105,7 @@ if (!empty($show_actions)) {
 
 		<?php if (in_array("add_to_liste", $show_actions)) { ?>
 		$(".actions a[data-action='add_to_liste']").click(function () {
-			$.get("/controllers/___aggiornamento_presenza_film_in_liste.php", "film_id=<?php echo $film->getID(); ?>", function (x) {
+			$.get("/controllers/___form_di_aggiornamento_presenza_film_in_liste.php", "film_id=<?php echo $film->getID(); ?>", function (x) {
 				Overlay.popup(x);
 			});
 		});

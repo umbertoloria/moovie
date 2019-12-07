@@ -18,8 +18,7 @@
 		</label>
 		<label>
 			<span>Conferma password</span>
-			<input type="password" class="input" name="copassword" placeholder="Conferma password"
-			       autocomplete="off"/>
+			<input type="password" class="input" name="copassword" placeholder="Conferma password" autocomplete="off"/>
 		</label>
 	</fieldset>
 	<input type="submit" class="button" value="Registrati"/>
