@@ -20,10 +20,11 @@ $logged_user = Auth::getLoggedUser();
 			echo "<ul>";
 			$liste = ListaManager::getAllOf($logged_user->getID());
 			foreach ($liste as $lista) {
+				$films = ListaManager::getFilmsOf($lista->getID());
 				echo "<li>";
 				echo "<a href='/lista.php?id={$lista->getID()}'>";
 				echo $lista->getNome();
-				echo "<span>" . count($lista->getFilms()) . "</span>";
+				echo "<span>" . count($films) . "</span>";
 				echo "</a>";
 				echo "</li>";
 			}
@@ -38,7 +39,7 @@ $logged_user = Auth::getLoggedUser();
 	<ul>
 		<?php
 		$logged_user = Auth::getLoggedUser();
-		if ($logged_user === null) {
+		if (!$logged_user) {
 			?>
 			<li <?php echo $uri == "/accesso.php" ? "class='active'" : ""; ?>>
 				<a href="/accesso.php">Accesso</a>

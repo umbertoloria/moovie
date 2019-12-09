@@ -11,16 +11,14 @@ class Lista {
 	private $nome;
 	/** @var string */
 	private $visibilità;
-	/** @var int[] */
-	private $films;
 
 	/** @param int[] $films */
-	public function __construct(int $id, int $proprietario, string $nome, string $visibilità, array $films) {
+	public function __construct(int $id, int $proprietario, string $nome, string $visibilità) {
+		assert($visibilità === "tutti" || $visibilità === "amici" || $visibilità === "solo_tu");
 		$this->id = $id;
 		$this->proprietario = $proprietario;
 		$this->nome = $nome;
 		$this->visibilità = $visibilità;
-		$this->films = $films;
 	}
 
 	public function getID(): int {
@@ -35,13 +33,17 @@ class Lista {
 		return $this->nome;
 	}
 
+	public function setNome(string $nome) {
+		$this->nome = $nome;
+	}
+
 	public function getVisibilità(): string {
 		return $this->visibilità;
 	}
 
-	/** @return int[] */
-	public function getFilms(): array {
-		return $this->films;
+	public function setVisibilità(string $visibilità) {
+		assert($visibilità === "tutti" || $visibilità === "amici" || $visibilità === "solo_tu");
+		$this->visibilità = $visibilità;
 	}
 
 }

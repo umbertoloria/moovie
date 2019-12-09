@@ -1,13 +1,13 @@
 <?php
 $liste = @$_REQUEST["liste"];
 assert(count($liste) > 0);
-$film_id = @$_REQUEST["film_id"];
+$id = @$_REQUEST["id"];
 $liste_contenenti = @$_REQUEST["liste_contenenti"];
 // FIXME: e se non ha ancora nessuna lista?
 ?>
 <form class="form" id="form_di_aggiornamento_presenza_film_in_liste" method="post"
       action="/controllers/liste/Inserisci film solo in liste.php">
-	<input type="hidden" name="film_id" value="<?php echo $film_id; ?>"/>
+	<input type="hidden" name="id" value="<?php echo $id; ?>"/>
 	<div>
 		<input type="hidden" name="selected_lists"/>
 		<ul>

@@ -12,7 +12,7 @@ if ($id === null) {
 	$tutte_liste = ListaManager::getAllOf($utente->getID());
 	$liste = [];
 	$logged_user = Auth::getLoggedUser();
-	if ($logged_user === null || $logged_user->getID() !== $utente->getID()) {
+	if (!$logged_user || $logged_user->getID() !== $utente->getID()) {
 		// Se non sono il proprietario di questo account, posso vedere solo "tutti" o "amici" (se amico)
 		foreach ($tutte_liste as $lista) {
 			if ($lista->getVisibilità() === "solo_tu")

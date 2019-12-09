@@ -1,22 +1,27 @@
 <?php
-$id = trim(@$_REQUEST["id"]);
-$nome = trim(@$_REQUEST["nome"]);
-$visibilità = trim(@$_REQUEST["visibilità"]);
+$lista = @$_REQUEST["lista"];
+assert($lista instanceof Lista);
 ?>
 <form class="form" id="form_di_modifica_lista" method="post" action="/controllers/liste/Modifica lista.php">
-	<input type="hidden" name="list_id" value="<?php echo $id; ?>"/>
+	<input type="hidden" name="list_id" value="<?php echo $lista->getID(); ?>"/>
 	<fieldset>
 		<label>
 			<span>Nome</span>
-			<input type="text" class="input" name="nome" placeholder="Nome" value="<?php echo $nome; ?>"
+			<input type="text" class="input" name="nome" placeholder="Nome" value="<?php echo $lista->getNome(); ?>"
 			       autocomplete="off"/>
 		</label>
 		<label>
 			<span>Visibilità</span>
 			<select class="input" name="visibilità">
-				<option value="tutti" <?php echo $visibilità === "tutti" ? "selected" : ""; ?>>Tutti</option>
-				<option value="amici" <?php echo $visibilità === "amici" ? "selected" : ""; ?>>Amici</option>
-				<option value="solo_tu" <?php echo $visibilità === "solo_tu" ? "selected" : ""; ?>>Solo tu</option>
+				<option value="tutti"
+					<?php echo $lista->getVisibilità() === "tutti" ? "selected" : ""; ?>>Tutti
+				</option>
+				<option value="amici"
+					<?php echo $lista->getVisibilità() === "amici" ? "selected" : ""; ?>>Amici
+				</option>
+				<option value="solo_tu"
+					<?php echo $lista->getVisibilità() === "solo_tu" ? "selected" : ""; ?>>Solo tu
+				</option>
 			</select>
 		</label>
 	</fieldset>

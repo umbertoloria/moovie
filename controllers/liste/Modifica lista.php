@@ -14,15 +14,22 @@ $valid = Validator\validate("../../forms/creazione_e_modifica_lista.json", [
 	"visibilità" => $visibilità
 ]);
 
-if (!ctype_digit($id) or !$valid)
-	echo "Il client non ti ha bloccato?";
-elseif (!$lista = ListaManager::doRetrieveByID($id))
+if (!$valid or !ctype_digit($id))
 	echo "Il client non ti ha bloccato?";
 else {
-	if ($nome == $lista->getNome() && $visibilità === $lista->getVisibilità())
+
+	$lista = ListaManager::doRetrieveByID($id);
+	if (!$lista)
+		echo "Il client non ti ha bloccato?";
+	elseif ($nome == $lista->getNome() && $visibilità === $lista->getVisibilità())
 		header("Location: /lista.php?id=" . $lista->getID());
-	elseif ($new_lista = ListaManager::modify($lista->getID(), $nome, $visibilità))
-		header("Location: /lista.php?id=" . $new_lista->getID());
-	else
-		echo "Errore interno";
+	else {
+		$lista->setNome($nome);
+		$lista->setVisibilità($visibilità);
+		if (ListaManager::update($lista))
+			header("Location: /lista.php?id=" . $lista->getID());
+		else
+			echo "Errore interno";
+	}
+
 }

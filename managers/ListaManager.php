@@ -7,11 +7,15 @@ class ListaManager {
 		return $stmt->execute([$user_id, $list_name]) and $stmt->rowCount() === 1;
 	}
 
-	public static function create(int $user_id, string $name, string $visibility): ?Lista {
-		assert($visibility === "tutti" || $visibility === "amici" || $visibility === "solo_tu");
+	public static function create(Lista $lista): ?Lista {
 		$stmt = DB::stmt("INSERT INTO liste (proprietario, nome, visibilità) VALUES (?, ?, ?)");
-		if ($stmt->execute([$user_id, $name, $visibility]))
-			return new Lista(DB::lastInsertedID(), $user_id, $name, $visibility, []);
+		if ($stmt->execute([$lista->getProprietario(), $lista->getNome(), $lista->getVisibilità()]))
+			return new Lista(
+				DB::lastInsertedID(),
+				$lista->getProprietario(),
+				$lista->getNome(),
+				$lista->getVisibilità()
+			);
 		else
 			return null;
 	}
@@ -21,13 +25,9 @@ class ListaManager {
 		return $stmt->execute([$list_id, $user_id]) and $stmt->rowCount() === 1;
 	}
 
-	public static function modify(int $list_id, string $nome, string $visibility): ?Lista {
-		assert($visibility === "tutti" || $visibility === "amici" || $visibility === "solo_tu");
+	public static function update(Lista $lista): bool {
 		$stmt = DB::stmt("UPDATE liste SET nome = ?, visibilità = ? WHERE id = ?");
-		if ($stmt->execute([$nome, $visibility, $list_id]) and $stmt->rowCount() === 1)
-			return self::doRetrieveByID($list_id);
-		else
-			return null;
+		return $stmt->execute([$lista->getNome(), $lista->getVisibilità(), $lista->getID()]);
 	}
 
 	public static function delete(int $list_id): bool {
@@ -90,14 +90,9 @@ class ListaManager {
 	// AGGIUNTE
 
 	public static function doRetrieveByID(int $id): ?Lista {
-		$stmt1 = DB::stmt("SELECT id, proprietario, nome, visibilità FROM liste WHERE id = ?");
-		if ($stmt1->execute([$id]) and $r1 = $stmt1->fetch(PDO::FETCH_ASSOC)) {
-			$films = [];
-			$stmt2 = DB::stmt("SELECT film FROM lista_has_film WHERE lista = ?");
-			if ($stmt2->execute([$id]))
-				while ($r2 = $stmt2->fetch(PDO::FETCH_ASSOC))
-					$films[] = $r2["film"];
-			return new Lista($r1["id"], $r1["proprietario"], $r1["nome"], $r1["visibilità"], $films);
+		$stmt = DB::stmt("SELECT id, proprietario, nome, visibilità FROM liste WHERE id = ?");
+		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			return new Lista($r["id"], $r["proprietario"], $r["nome"], $r["visibilità"]);
 		} else
 			return null;
 	}
@@ -115,6 +110,16 @@ class ListaManager {
 	public static function contains(int $lista_id, int $film_id): bool {
 		$stmt = DB::stmt("SELECT film FROM lista_has_film WHERE lista = ? AND film = ?");
 		return $stmt->execute([$lista_id, $film_id]) and $stmt->rowCount() === 1;
+	}
+
+	/** @return Film[] */
+	public static function getFilmsOf(int $list_id): array {
+		$res = [];
+		$stmt = DB::stmt("SELECT film FROM lista_has_film WHERE lista = ?");
+		if ($stmt->execute([$list_id]))
+			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
+				$res[] = FilmManager::doRetrieveByID($r["film"]);
+		return $res;
 	}
 
 }

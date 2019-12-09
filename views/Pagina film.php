@@ -105,7 +105,7 @@ if (!empty($show_actions)) {
 
 		<?php if (in_array("add_to_liste", $show_actions)) { ?>
 		$(".actions a[data-action='add_to_liste']").click(function () {
-			$.get("/controllers/liste/___form_di_aggiornamento_presenza_film_in_liste.php", "film_id=<?php echo $film->getID(); ?>", function (x) {
+			$.get("/controllers/liste/___form_di_aggiornamento_presenza_film_in_liste.php", "id=<?php echo $film->getID(); ?>", function (x) {
 				Overlay.popup(x);
 			});
 		});

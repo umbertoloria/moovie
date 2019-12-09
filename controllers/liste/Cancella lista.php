@@ -3,15 +3,14 @@
 include "../../php/core.php";
 
 $logged_user = Auth::getLoggedUser();
-assert($logged_user);
-
-$list_id = @$_GET["list_id"];
-
-if (!ctype_digit($list_id))
+$id = @$_GET["id"];
+if (!$logged_user)
+	echo "devi essere loggato";
+elseif (!ctype_digit($id))
 	echo "dammi un numero per id";
-elseif (!ListaManager::is_owner($logged_user->getID(), $list_id))
+elseif (!ListaManager::is_owner($logged_user->getID(), $id))
 	echo "devi esserne in proprietario";
-elseif (ListaManager::delete($list_id))
+elseif (ListaManager::delete($id))
 	header("Location: /conferma_lista_eliminata.php");
 else
 	echo "Errore interno";

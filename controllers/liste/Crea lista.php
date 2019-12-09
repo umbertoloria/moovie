@@ -17,7 +17,18 @@ if (!$valid)
 	echo "Il client non ti ha bloccato?";
 elseif (ListaManager::exists($logged_user->getID(), $nome))
 	echo "Hai già una lista con questo nome";
-elseif ($lista = ListaManager::create($logged_user->getID(), $nome, $visibilità))
-	header("Location: /lista.php?id=" . $lista->getID());
-else
-	echo "Errore interno";
+else {
+
+	$tmp_lista = new Lista(
+		0,
+		$logged_user->getID(),
+		$nome,
+		$visibilità
+	);
+
+	if ($lista = ListaManager::create($tmp_lista))
+		header("Location: /lista.php?id=" . $lista->getID());
+	else
+		echo "Errore interno";
+
+}

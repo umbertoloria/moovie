@@ -23,12 +23,8 @@ if ($id === null) {
 		}
 	}
 
-	$films = [];
-	// Sono sicuro che non ci saranno doppioni
-	foreach ($lista->getFilms() as $film_id)
-		$films[$film_id] = FilmManager::doRetrieveByID($film_id);
 	$_REQUEST["lista"] = $lista;
-	$_REQUEST["films"] = $films;
+	$_REQUEST["films"] = ListaManager::getFilmsOf($lista->getID());
 
 	$_REQUEST["show_actions"] = [];
 	if ($logged_user) {
@@ -40,8 +36,6 @@ if ($id === null) {
 		}
 	}
 	unset($logged_user);
-
 	unset($lista);
-	unset($films);
 	include "views/Pagina lista.php";
 }

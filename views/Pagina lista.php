@@ -26,20 +26,19 @@ $show_actions = @$_REQUEST["show_actions"];
 				echo "<a data-action='delete'>Cancella</a>";
 			echo "</div>";
 		}
-		if (count($lista->getFilms()) === 0)
+		if (count($films) === 0)
 			echo "<p>La lista è vuota</p>";
 		?>
 	</div>
 </header>
 <?php
-if (count($lista->getFilms()) > 0) {
+if (count($films) > 0) {
 	?>
 	<div class="dashboard">
 		<label>Film</label>
 		<ul class="foto_pv">
 			<?php
-			foreach ($lista->getFilms() as $film_id) {
-				$film = $films[$film_id];
+			foreach ($films as $film) {
 				assert($film instanceof Film);
 				echo "<li>";
 				echo "<a href='/film.php?id={$film->getID()}'>";
@@ -64,7 +63,7 @@ if (count($lista->getFilms()) > 0) {
 
 	<?php if (in_array("modify", $show_actions)) { ?>
 	$(".actions a[data-action='modify']").click(function () {
-		$.get("/controllers/liste/___form_di_modifica_lista.php", "lista_id=<?php echo $lista->getID(); ?>", function (output) {
+		$.get("/controllers/liste/___form_di_modifica_lista.php", "id=<?php echo $lista->getID(); ?>", function (output) {
 			Overlay.popup(output);
 		});
 	});
@@ -72,7 +71,7 @@ if (count($lista->getFilms()) > 0) {
 
 	<?php if (in_array("delete", $show_actions)) { ?>
 	$(".actions a[data-action='delete']").click(function () {
-		location.href = "/controllers/liste/Cancella lista.php?list_id=<?php echo $lista->getID(); ?>";
+		location.href = "/controllers/liste/Cancella lista.php?id=<?php echo $lista->getID(); ?>";
 	});
 	<?php } ?>
 
