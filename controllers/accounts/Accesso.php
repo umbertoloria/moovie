@@ -12,9 +12,14 @@ $valid = Validator\validate("../../forms/accesso.json", [
 
 if (!$valid)
 	echo "Il client non ti ha bloccato?";
-elseif (!$utente = AccountManager::authenticate($email, $password))
-	echo "I dati non corrispondono";
 else {
-	Auth::setLoggedUser($utente);
-	header("Location: /");
+
+	$utente = AccountManager::authenticate($email, $password);
+	if ($utente) {
+		Auth::setLoggedUser($utente);
+		header("Location: /");
+	} else {
+		echo "I dati non corrispondono";
+	}
+
 }

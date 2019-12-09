@@ -19,8 +19,14 @@ if (!$valid)
 elseif (AccountManager::exists($email))
 	echo "Già esiste";
 else {
-	$utente = AccountManager::create($nome, $cognome, $email, $password);
-	if ($utente)
+	$tmp_utente = new Utente(
+		0,
+		$nome,
+		$cognome,
+		$email,
+		sha1($password)
+	);
+	if (AccountManager::save($tmp_utente))
 		header("Location: /conferma_registrazione.php");
 	else
 		echo "Errore interno";

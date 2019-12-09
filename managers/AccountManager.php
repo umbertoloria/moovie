@@ -7,11 +7,16 @@ class AccountManager {
 		return $stmt->execute([$email]) and $stmt->rowCount() === 1;
 	}
 
-	public static function create(string $nome, string $cognome, string $email, string $password): ?Utente {
-		$password = sha1($password);
+	public static function save(Utente $utente): ?Utente {
 		$stmt = DB::stmt("INSERT INTO utenti (nome, cognome, email, password) VALUES (?, ?, ?, ?)");
-		if ($stmt->execute([$nome, $cognome, $email, $password]))
-			return new Utente(DB::lastInsertedID(), $nome, $cognome, $email, $password);
+		if ($stmt->execute([$utente->getNome(), $utente->getCognome(), $utente->getEmail(), $utente->getPassword()]))
+			return new Utente(
+				DB::lastInsertedID(),
+				$utente->getNome(),
+				$utente->getCognome(),
+				$utente->getEmail(),
+				$utente->getPassword()
+			);
 		else
 			return null;
 	}
