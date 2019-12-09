@@ -87,4 +87,4 @@ unset($kind);
 unset($fulltext);
 $_REQUEST["risultati"] = $risultati;
 unset($risultati);
-include "../../views/Risultati di ricerca.php";
+include "../../views/ricerche/Risultati di ricerca.php";
