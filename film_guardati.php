@@ -14,4 +14,4 @@ unset($logged_user);
 unset($film_guardato);
 unset($films);
 
-include "views/Pagina film guardati.php";
+include "views/film/Pagina film guardati.php";

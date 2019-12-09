@@ -37,7 +37,7 @@ menu ul li a {
 	transition: .2s;
 }
 
-menu ul li a:hover {
+menu ul li a[href]:hover {
 	color: #fff;
 	border-color: var(--super-color);
 	border-left-width: 6px;

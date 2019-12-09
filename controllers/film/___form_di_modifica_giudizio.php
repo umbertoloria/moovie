@@ -14,5 +14,5 @@ else {
 	unset($_GET['id']);
 	unset($id);
 	unset($film_guardato);
-	include "../../views/Form di modifica giudizio.php";
+	include "../../views/film/Form di modifica giudizio.php";
 }

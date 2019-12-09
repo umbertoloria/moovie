@@ -37,5 +37,5 @@ if ($id === null) {
 	}
 	unset($logged_user);
 	unset($lista);
-	include "views/Pagina lista.php";
+	include "views/liste/Pagina lista.php";
 }

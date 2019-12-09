@@ -5,6 +5,7 @@ $logged_user = Auth::getLoggedUser();
 <menu>
 	<ul>
 		<?php
+		echo "<li><a href='/classifica_film.php'>Classifica dei film</a></li>";
 		if ($logged_user) {
 
 			echo "<li><a>Suggeriscimi un film</a></li>";

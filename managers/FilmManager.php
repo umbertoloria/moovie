@@ -39,4 +39,23 @@ class FilmManager {
 		return $res;
 	}
 
+	public static function getClassifica(): array {
+		$res = [];
+		$stmt = DB::stmt(
+			"select films.*, descrizione, voto_medio
+				from films
+				         left join (select film, AVG(film_guardati.voto) voto_medio from film_guardati group by film) x
+				                   on films.id = x.film
+				         join films_descrizioni on films.id = films_descrizioni.film
+				order by voto_medio desc
+				limit 30");
+		if ($stmt->execute())
+			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
+				$res[] = [
+					$r["voto_medio"],
+					new Film($r["id"], $r["titolo"], $r["durata"], $r["anno"], $r["descrizione"])
+				];
+		return $res;
+	}
+
 }

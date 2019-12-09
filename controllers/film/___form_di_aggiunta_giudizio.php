@@ -8,5 +8,5 @@ if (!$logged_user)
 else {
 	$_REQUEST["id"] = $_GET['id'];
 	unset($_GET['film_id']);
-	include "../../views/Form di aggiunta giudizio.php";
+	include "../../views/film/Form di aggiunta giudizio.php";
 }
