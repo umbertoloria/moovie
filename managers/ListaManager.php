@@ -91,9 +91,9 @@ class ListaManager {
 
 	public static function doRetrieveByID(int $id): ?Lista {
 		$stmt = DB::stmt("SELECT id, proprietario, nome, visibilità FROM liste WHERE id = ?");
-		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC)) {
+		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Lista($r["id"], $r["proprietario"], $r["nome"], $r["visibilità"]);
-		} else
+		else
 			return null;
 	}
 

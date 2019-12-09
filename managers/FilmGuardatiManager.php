@@ -2,19 +2,20 @@
 
 class FilmGuardatiManager {
 
-	public static function add(int $utente, int $film, float $voto): bool {
+	public static function save(FilmGuardato $film_guardato): bool {
 		$stmt = DB::stmt("INSERT INTO film_guardati (utente, film, voto) VALUES (?, ?, ?)");
-		return $stmt->execute([$utente, $film, $voto]);
+		return $stmt->execute([$film_guardato->getUtente(), $film_guardato->getFilm(), $film_guardato->getVoto()]);
 	}
 
-	public static function edit(int $utente, int $film, float $voto): bool {
+	public static function update(FilmGuardato $film_guardato): bool {
 		$stmt = DB::stmt("UPDATE film_guardati SET voto = ?, timestamp = DEFAULT WHERE utente = ? AND film = ?");
-		return $stmt->execute([$voto, $utente, $film]) and $stmt->rowCount() === 1;
+		return $stmt->execute([$film_guardato->getVoto(), $film_guardato->getUtente(), $film_guardato->getFilm()])
+			and $stmt->rowCount() === 1;
 	}
 
-	public static function drop(int $utente, int $film): bool {
+	public static function drop(int $utente_id, int $film_id): bool {
 		$stmt = DB::stmt("DELETE FROM film_guardati WHERE utente = ? AND film = ?");
-		return $stmt->execute([$utente, $film]) and $stmt->rowCount() === 1;
+		return $stmt->execute([$utente_id, $film_id]) and $stmt->rowCount() === 1;
 	}
 
 	// AGGIUNTE

@@ -5,7 +5,7 @@ include "../../php/core.php";
 $logged_user = Auth::getLoggedUser();
 assert($logged_user);
 
-$id = trim(@$_POST["list_id"]);
+$id = trim(@$_POST["id"]);
 $nome = trim(@$_POST["nome"]);
 $visibilità = trim(@$_POST["visibilità"]);
 

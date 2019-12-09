@@ -3,20 +3,31 @@
 include "../../php/core.php";
 
 $logged_user = Auth::getLoggedUser();
-assert($logged_user);
-
-$film_id = @$_POST["film_id"];
+$id = @$_POST["id"];
 $voto = @$_POST["voto"];
 
 $valid = Validator\validate("../../forms/aggiunta_e_modifica_giudizio.json", [
 	"voto" => $voto
 ]);
 
-if (!$valid)
+if (!$logged_user)
 	echo "Il client non ti ha bloccato?";
-elseif (!ctype_digit($film_id))
+elseif (!$valid)
+	echo "Il client non ti ha bloccato?";
+elseif (!ctype_digit($id))
 	echo "dammi un numero per id";
-elseif (FilmGuardatiManager::add($logged_user->getID(), $film_id, $voto))
-	header("Location: /film.php?id=" . $film_id);
-else
-	echo "Errore interno";
+else {
+
+	$film_guardato = new FilmGuardato(
+		$logged_user->getID(),
+		$id,
+		$voto,
+		""
+	);
+
+	if (FilmGuardatiManager::save($film_guardato))
+		header("Location: /film.php?id=" . $id);
+	else
+		echo "Errore interno";
+
+}
