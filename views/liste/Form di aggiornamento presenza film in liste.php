@@ -6,7 +6,7 @@ $liste_contenenti = @$_REQUEST["liste_contenenti"];
 // FIXME: e se non ha ancora nessuna lista?
 ?>
 <form class="form" id="form_di_aggiornamento_presenza_film_in_liste" method="post"
-      action="/controllers/liste/Inserisci film solo in liste.php">
+      action="/controllers/liste/Inserisci%20film%20solo%20in%20liste.php">
 	<input type="hidden" name="id" value="<?php echo $id; ?>"/>
 	<div>
 		<input type="hidden" name="selected_lists"/>

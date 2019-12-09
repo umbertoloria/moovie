@@ -1,3 +1,3 @@
 <?php
 include "parts/initial_page.php";
-include "views/Conferma lista eliminata.php";
+include "views/liste/Conferma lista eliminata.php";

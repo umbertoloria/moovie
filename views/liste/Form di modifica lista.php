@@ -2,7 +2,7 @@
 $lista = @$_REQUEST["lista"];
 assert($lista instanceof Lista);
 ?>
-<form class="form" id="form_di_modifica_lista" method="post" action="/controllers/liste/Modifica lista.php">
+<form class="form" id="form_di_modifica_lista" method="post" action="/controllers/liste/Modifica%20lista.php">
 	<input type="hidden" name="list_id" value="<?php echo $lista->getID(); ?>"/>
 	<fieldset>
 		<label>

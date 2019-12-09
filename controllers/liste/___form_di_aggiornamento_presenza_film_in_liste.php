@@ -25,6 +25,6 @@ else {
 	unset($liste);
 	unset($liste_contenenti);
 
-	include "../../views/Form di aggiornamento presenza film in liste.php";
+	include "../../views/liste/Form di aggiornamento presenza film in liste.php";
 
 }

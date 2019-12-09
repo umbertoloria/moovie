@@ -17,6 +17,6 @@ else {
 	$_REQUEST["lista"] = $lista;
 	unset($lista);
 
-	include "../../views/Form di modifica lista.php";
+	include "../../views/liste/Form di modifica lista.php";
 
 }

@@ -1,3 +1,3 @@
 <?php
 include "parts/initial_page.php";
-include "views/Form di creazione lista.php";
+include "views/liste/Form di creazione lista.php";
