@@ -1,3 +1,3 @@
 <?php
 include "parts/initial_page.php";
-include "views/Form di registrazione.php";
+include "views/accounts/Form di registrazione.php";
