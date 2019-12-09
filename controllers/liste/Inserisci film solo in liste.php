@@ -6,7 +6,7 @@ $id = trim(@$_POST["id"]);
 $selected_lists = trim(@$_POST["selected_lists"]);
 $logged_user = Auth::getLoggedUser();
 if (!$logged_user)
-	echo "Il client non ti ha bloccato?";
+echo "Il client non ti ha bloccato?";
 elseif (!ctype_digit($id))
 	echo "Il client non ti ha bloccato?";
 elseif ($selected_lists !== "" and !preg_match("/^(\d+;)*\d+$/", $selected_lists))

@@ -2,32 +2,63 @@
 $utente = $_REQUEST["utente"];
 assert($utente instanceof Utente);
 $liste = $_REQUEST["liste"];
-$logged_user = Auth::getLoggedUser();
+$show_actions = @$_REQUEST["show_actions"];
 ?>
-<header>
-	<div class="right">
-		<h1><?php echo $utente->getNome() . " " . $utente->getCognome(); ?></h1>
-		<?php if ($logged_user) { ?>
-			<div class="actions">
-				<a data-action="request_friendship">Invia richiesta di amicizia</a>
-				<a data-action="accept_friendship">Accetta richiesta di amicizia</a>
-				<a data-action="refuse_friendship">Rifiuta richiesta di amicizia</a>
-			</div>
-		<?php } ?>
+	<header>
+		<div class="right">
+			<h1><?php echo $utente->getNome() . " " . $utente->getCognome(); ?></h1>
+
+			<?php
+			if (!empty($show_actions)) {
+				echo "<div class='actions'>";
+				if (in_array("remove_friendship_request", $show_actions))
+					echo "<a data-action='remove_friendship_request'>Cancella la richiesta di amicizia</a>";
+				if (in_array("remove_friendship", $show_actions))
+					echo "<a data-action='remove_friendship'>Cancella l'amicizia</a>";
+				if (in_array("request_friendship", $show_actions))
+					echo "<a data-action='request_friendship'>Invia richiesta di amicizia</a>";
+				if (in_array("accept_friendship", $show_actions))
+					echo "<a data-action='accept_friendship'>Accetta richiesta di amicizia</a>";
+				if (in_array("refuse_friendship", $show_actions))
+					echo "<a data-action='refuse_friendship'>Rifiuta richiesta di amicizia</a>";
+				echo "</div>";
+			}
+			?>
+		</div>
+	</header>
+	<div class="dashboard">
+		<label>Liste</label>
+		<ul class="info_pv">
+			<?php
+			foreach ($liste as $lista) {
+				assert($lista instanceof Lista);
+				echo "<li>";
+				echo "<a href='/lista.php?id={$lista->getID()}'>";
+				echo $lista->getNome();
+				echo "</a>";
+				echo "</li>";
+			}
+			?>
+		</ul>
 	</div>
-</header>
-<div class="dashboard">
-	<label>Liste</label>
-	<ul class="info_pv">
-		<?php
-		foreach ($liste as $lista) {
-			assert($lista instanceof Lista);
-			echo "<li>";
-			echo "<a href='/lista.php?id={$lista->getID()}'>";
-			echo $lista->getNome();
-			echo "</a>";
-			echo "</li>";
-		}
-		?>
-	</ul>
-</div>
+<?php
+if (!empty($show_actions)) {
+	?>
+	<script>
+
+		<?php if (in_array("request_friendship", $show_actions)) { ?>
+		$(".actions a[data-action='request_friendship']").click(function () {
+			console.log("prt");
+			$.get("/controllers/amicizie/Amicizie.php", "kind=request&to_user_id=<?php echo $utente->getID(); ?>", function (output) {
+				if (output === "ok")
+					location.href = "/conferma_amicizia_inviata.php";
+				else
+					Overlay.popup(output);
+			});
+		});
+		<?php } ?>
+
+	</script>
+
+	<?php
+}

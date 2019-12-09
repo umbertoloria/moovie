@@ -13,7 +13,7 @@ function validate($json_filename, $inputs) {
 			continue;
 		$input = @$inputs[$field];
 
-		if (isset($rules->minlength) and isset($rules->maxlength) and (strlen($input) < $rules->minlength || strlen($input) > $rules->maxlength))
+		if (isset($rules->minlength) and isset($rules->maxlength) and (strlen($input) < $rules->minlength or strlen($input) > $rules->maxlength))
 			return false;
 		elseif (isset($rules->minlength) and strlen($input) < $rules->minlength)
 			return false;
