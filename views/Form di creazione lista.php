@@ -18,6 +18,6 @@
 <script>
 	new Form(
 		"#form_di_creazione_lista",
-		JSON.parse("<?php echo Validator\decode("forms/creazione_lista.json"); ?>")
+		JSON.parse("<?php echo Validator\decode("forms/creazione_e_modifica_lista.json"); ?>")
 	);
 </script>

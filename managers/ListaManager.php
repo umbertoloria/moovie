@@ -21,6 +21,15 @@ class ListaManager {
 		return $stmt->execute([$list_id, $user_id]) and $stmt->rowCount() === 1;
 	}
 
+	public static function modify(int $list_id, string $nome, string $visibility): ?Lista {
+		assert($visibility === "tutti" || $visibility === "amici" || $visibility === "solo_tu");
+		$stmt = DB::stmt("UPDATE liste SET nome = ?, visibilità = ? WHERE id = ?");
+		if ($stmt->execute([$nome, $visibility, $list_id]) and $stmt->rowCount() === 1)
+			return self::doRetrieveByID($list_id);
+		else
+			return null;
+	}
+
 	public static function delete(int $list_id): bool {
 		// TODO: Transazione
 		$stmt1 = DB::stmt("DELETE FROM lista_has_film WHERE lista = ?");

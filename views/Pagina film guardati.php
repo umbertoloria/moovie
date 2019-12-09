@@ -37,14 +37,17 @@ if (count($film_guardati) > 0) {
 	</div>
 
 	<script>
+
 		$(".dashboard label[data-action='edit']").click(function () {
 			$.get("/controllers/film/___form_di_modifica_giudizio.php", "film_id=" + $(this).attr("data-id"), function (output) {
 				Overlay.popup(output);
-			})
+			});
 		});
+
 		$(".dashboard label[data-action='drop']").click(function () {
 			location.href = "/controllers/film/Rimuovi film guardato.php?film_id=" + $(this).attr("data-id");
 		});
+
 	</script>
 
 	<?php

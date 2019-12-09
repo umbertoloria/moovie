@@ -17,9 +17,13 @@ foreach ($liste as $lista)
 	if (ListaManager::contains($lista->getID(), $film_id))
 		$liste_contenenti[] = $lista->getID();
 
-unset($_GET["film_id"]);
 $_REQUEST["liste"] = $liste;
 $_REQUEST["liste_contenenti"] = $liste_contenenti;
 $_REQUEST["film_id"] = $film_id;
+unset($_GET["film_id"]);
+unset($film_id);
+unset($logged_user);
+unset($liste);
+unset($liste_contenenti);
 
 include "../../views/Form di aggiornamento presenza film in liste.php";

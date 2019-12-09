@@ -8,7 +8,7 @@ assert($logged_user);
 $nome = trim(@$_POST["nome"]);
 $visibilità = trim(@$_POST["visibilità"]);
 
-$valid = Validator\validate("../../forms/creazione_lista.json", [
+$valid = Validator\validate("../../forms/creazione_e_modifica_lista.json", [
 	"nome" => $nome,
 	"visibilità" => $visibilità
 ]);

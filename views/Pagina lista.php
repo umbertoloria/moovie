@@ -64,7 +64,9 @@ if (count($lista->getFilms()) > 0) {
 
 	<?php if (in_array("modify", $show_actions)) { ?>
 	$(".actions a[data-action='modify']").click(function () {
-		// TODO: implementami ti prego :-(
+		$.get("/controllers/liste/___form_di_modifica_lista.php", "lista_id=<?php echo $lista->getID(); ?>", function (output) {
+			Overlay.popup(output);
+		});
 	});
 	<?php } ?>
 
