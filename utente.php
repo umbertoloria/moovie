@@ -15,24 +15,19 @@ if ($id === null) {
 	$_REQUEST["show_actions"] = [];
 	if ($logged_user and $logged_user->getID() !== $utente->getID()) {
 		if (AmiciziaManager::existsFriendshipBetween($logged_user->getID(), $utente->getID())) {
-			// Esiste una amicizia accettata.
+			// Esiste una amicizia accettata
 			$_REQUEST["show_actions"][] = "remove_friendship";
-		} elseif (AmiciziaManager::existsRequestBetween($logged_user->getID(), $utente->getID())) {
-			// Esiste una richiesta di amicizia
-			$amicizia = AmiciziaManager::doRetrieveByFromAndTo($utente->getID(), $logged_user->getID());
-			if ($amicizia) {
-				// Se questo utente mi ha mandato una richiesta, io posso accettarla o rifiutarla
-				$_REQUEST["show_actions"][] = "accept_friendship";
-				$_REQUEST["show_actions"][] = "refuse_friendship";
-			} else {
-				$_REQUEST["show_actions"][] = "remove_friendship_request";
-			}
+		} elseif (AmiciziaManager::existsRequestFromTo($utente->getID(), $logged_user->getID())) {
+			// Questo utente mi ha mandato una richiesta
+			$_REQUEST["show_actions"][] = "accept_friendship";
+			$_REQUEST["show_actions"][] = "refuse_friendship";
+		} elseif (AmiciziaManager::existsRequestFromTo($logged_user->getID(), $utente->getID())) {
+			// Io ho mandato una richiesta a questo utente
+			$_REQUEST["show_actions"][] = "remove_friendship_request";
 		} else {
-			// Non esiste nessuna amicizia né richiesta in atto...
+			// Non esiste nessuna amicizia né richiesta tra di noi
 			$_REQUEST["show_actions"][] = "request_friendship";
 		}
-
-
 	}
 	if (!$logged_user or $logged_user->getID() !== $utente->getID()) {
 		// Se non sono il proprietario di questo account, posso vedere solo "tutti" o "amici" (se amico)

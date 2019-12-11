@@ -16,6 +16,9 @@ $logged_user = Auth::getLoggedUser();
 			echo "<li" . ($uri == "/film_guardati.php" ? " class='active'" : "") . ">";
 			echo "<a href='/film_guardati.php'>Film guardati</a></li>";
 
+			echo "<li" . ($uri == "/___amici.php" ? " class='active'" : "") . ">";
+			echo "<a href='/___amici.php'>Amici</a></li>";
+
 			echo "<li>";
 			echo "<a>Le liste</a>";
 			echo "<ul>";

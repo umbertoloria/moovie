@@ -100,7 +100,13 @@ header .actions a:hover {
 	padding: 20px 0 0 0;
 	display: grid;
 	grid-gap: 20px;
-	/*grid-template-columns: 1fr 1fr 1fr;*/
+}
+
+.dashboard ul.info_pv {
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.dashboard ul.foto_pv {
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
