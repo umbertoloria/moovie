@@ -41,48 +41,40 @@ class ListaManager {
 		return $stmt2->rowCount() === 1;
 	}
 
-	/**
-	 * @param int[] $selected_lists
-	 * @return bool
-	 */
-	public static function insert_film_only(int $user_id, int $film_id, array $selected_lists) {
+	/** @param int[] $list_to_insert_ids */
+	public static function insert_film_only(int $user_id, int $film_id, array $list_to_insert_ids): bool {
 		// TODO: Transazione
 		// FIXME: Controlla se esiste questo film
-		$list_ids = [];
+		$all_list_ids = [];
 		$stmt = DB::stmt("SELECT id FROM liste WHERE proprietario = ?");
 		if ($stmt->execute([$user_id]))
 			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
-				$list_ids[] = $r["id"];
+				$all_list_ids[] = $r["id"];
 
-		foreach ($selected_lists as $selected_list)
-			if (!in_array($selected_list, $list_ids))
+		foreach ($list_to_insert_ids as $selected_list)
+			if (!in_array($selected_list, $all_list_ids))
 				return false;
 
 		$errors = [];
-		foreach ($list_ids as $list_id) {
-			if (in_array($list_id, $selected_lists)) {
+		foreach ($all_list_ids as $list_id) {
+			if (in_array($list_id, $list_to_insert_ids)) {
 				$stmt = DB::stmt("SELECT film FROM lista_has_film WHERE lista = ? AND film = ?");
-				if (!$stmt->execute([$list_id, $film_id])) {
+				if (!$stmt->execute([$list_id, $film_id]))
 					$errors[] = "impossibile sapere se il film {$film_id} è nella lista {$list_id}";
-				}
 				if ($stmt->rowCount() === 0) {
 					// Non c'era già, e lo devo creare
 					$stmt = DB::stmt("INSERT INTO lista_has_film SET lista = ?, film = ?");
-					if (!$stmt->execute([$list_id, $film_id])) {
+					if (!$stmt->execute([$list_id, $film_id]))
 						$errors[] = "impossibile inserire il film {$film_id} nella lista {$list_id}";
-					}
 				}
 				// put it in
 			} else {
 				// drop it out
 				$stmt = DB::stmt("DELETE FROM lista_has_film WHERE lista = ? AND film = ?");
-				if (!$stmt->execute([$list_id, $film_id])) {
+				if (!$stmt->execute([$list_id, $film_id]))
 					$errors[] = "impossibile eliminare il film {$film_id} dalla lista {$list_id}";
-				}
 			}
 		}
-
-		var_dump($errors);
 
 		return $errors === [];
 	}

@@ -31,8 +31,9 @@ if ($id === null) {
 	$_REQUEST["show_actions"] = [];
 	$logged_user = Auth::getLoggedUser();
 	if ($logged_user) {
-		// TODO: Se hai almeno un amico...
-		$_REQUEST["show_actions"][] = "suggest";
+		// FIXME: Spreco di memoria!
+		if (count(AmiciziaManager::getFriendships($logged_user->getID())) > 0)
+			$_REQUEST["show_actions"][] = "suggest";
 		if (!FilmGuardatiManager::exists($logged_user->getID(), $film->getID()))
 			$_REQUEST["show_actions"][] = "add_film_guardato";
 		if (!FilmDaGuardareManager::exists($logged_user->getID(), $film->getID()))

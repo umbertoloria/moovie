@@ -43,6 +43,14 @@ menu ul li a[href]:hover {
 	border-left-width: 6px;
 }
 
+menu ul li a[data-action] {
+	cursor: pointer;
+}
+
+menu ul li a[data-action]:hover {
+	background: #222;
+}
+
 menu ul li.active a {
 	color: #fff;
 	background: var(--super-color);
@@ -67,8 +75,7 @@ menu ul li ul li a {
 	padding-left: 30px;
 }
 
-menu > ul > li > a,
-menu > ul > li > ul > li > a {
+menu ul li a {
 	border-left: 3px solid transparent;
 }
 
@@ -76,6 +83,53 @@ menu > ul:last-child {
 	background: #222;
 }
 
-menu > ul:last-child > li.userli > a {
+menu > ul:last-child li.userli a {
 	font-size: 1.1em;
 }
+
+/*
+menu li.lateral_containing {
+	cursor: pointer;
+}
+
+menu li.lateral_containing > a:hover {
+	background: #222;
+}
+
+menu li.lateral_containing ul.lateral {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+	opacity: 0;
+	visibility: hidden;
+	transition: .3s;
+}
+
+menu li.lateral_containing.open ul.lateral {
+	opacity: 1;
+	visibility: visible;
+}
+
+menu li.lateral_containing ul.lateral li {
+	display: block;
+}
+
+menu li.lateral_containing ul.lateral li a {
+	display: block;
+	padding: 5px 10px;
+	text-decoration: none;
+}
+
+menu li.lateral_containing ul.lateral li a:first-child {
+	color: #333;
+}
+
+menu li.lateral_containing ul.lateral li a:last-child {
+	color: #777;
+}
+
+/* FIXME: Continua qui... */

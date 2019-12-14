@@ -2,7 +2,7 @@
 $films_voti = $_REQUEST["films_voti"];
 ?>
 <div class='dashboard'>
-	<label>Film da guardare</label>
+	<label>Classifica film</label>
 	<ul class='foto_pv'>
 		<?php
 		foreach ($films_voti as $film_voto) {

@@ -9,6 +9,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/models/FilmGuardato.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/models/FilmDaGuardare.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/models/Lista.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/models/Amicizia.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/models/SuggerimentoFilm.php";
 
 include $_SERVER["DOCUMENT_ROOT"] . "/managers/ArtistaManager.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/managers/AccountManager.php";

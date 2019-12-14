@@ -1,42 +1,80 @@
 <?php
+// FIXME: Far arrivare tramite $_REQUEST[...];
 $uri = $_SERVER["REQUEST_URI"];
 $logged_user = Auth::getLoggedUser();
 ?>
 <menu>
 	<ul>
+		<li <?php echo $uri === "/___classifica_film.php" ? " class='active'" : ""; ?>>
+			<a href='/___classifica_film.php'>Classifica dei film</a>
+		</li>
 		<?php
-		echo "<li><a href='/classifica_film.php'>Classifica dei film</a></li>";
 		if ($logged_user) {
-
-			echo "<li><a>Suggeriscimi un film</a></li>";
-
-			echo "<li" . ($uri == "/___film_da_guardare.php" ? " class='active'" : "") . ">";
-			echo "<a href='/___film_da_guardare.php'>Film da guardare</a></li>";
-
-			echo "<li" . ($uri == "/film_guardati.php" ? " class='active'" : "") . ">";
-			echo "<a href='/film_guardati.php'>Film guardati</a></li>";
-
-			echo "<li" . ($uri == "/___amici.php" ? " class='active'" : "") . ">";
-			echo "<a href='/___amici.php'>Amici</a></li>";
-
-			echo "<li>";
-			echo "<a>Le liste</a>";
-			echo "<ul>";
-			$liste = ListaManager::getAllOf($logged_user->getID());
-			foreach ($liste as $lista) {
-				$films = ListaManager::getFilmsOf($lista->getID());
-				echo "<li>";
-				echo "<a href='/lista.php?id={$lista->getID()}'>";
-				echo $lista->getNome();
-				echo "<span>" . count($films) . "</span>";
-				echo "</a>";
-				echo "</li>";
-			}
-			echo "<li class='add-more'>";
-			echo "<a href='/creazione_lista.php'>";
-			echo "+ lista</a></li>";
-			echo "</ul>";
-			echo "</li>";
+			?>
+			<li>
+				<a>Suggeriscimi un film</a>
+			</li>
+			<li <?php echo $uri == "/___film_da_guardare.php" ? " class='active'" : ""; ?>>
+				<a href='/___film_da_guardare.php'>Film da guardare</a>
+			</li>
+			<li <?php echo $uri == "/film_guardati.php" ? " class='active'" : ""; ?>>
+				<a href='/film_guardati.php'>Film guardati</a>
+			</li>
+			<li <?php echo $uri == "/___amici.php" ? " class='active'" : ""; ?>>
+				<a href='/___amici.php'>
+					Amici
+					<?php
+					// FIXME: Non sprecare memoria
+					$numero_richieste_da_accettare = 0;
+					foreach (AmiciziaManager::getRequests($logged_user->getID()) as $richiesta)
+						if ($richiesta->getUtenteFrom() !== $logged_user->getID())
+							$numero_richieste_da_accettare++;
+					if ($numero_richieste_da_accettare > 0)
+						echo "<span>$numero_richieste_da_accettare</span>";
+					unset($numero_richieste_da_accettare);
+					?>
+				</a>
+			</li>
+			<li>
+				<a>Le liste</a>
+				<ul>
+					<?php
+					foreach (ListaManager::getAllOf($logged_user->getID()) as $lista) {
+						echo "<li><a href='/lista.php?id={$lista->getID()}'>";
+						echo $lista->getNome();
+						// FIXME: Evitare di sprecare memoria!
+						echo "<span>" . count(ListaManager::getFilmsOf($lista->getID())) . "</span>";
+						echo "</a></li>";
+					}
+					?>
+					<li class="add-more">
+						<a href="/creazione_lista.php">
+							+ lista
+						</a>
+					</li>
+				</ul>
+			</li>
+		<?php
+		// FIXME: Non sprecare memoria!
+		$num_suggerimenti = count(AmiciziaManager::getSuggestionsTo($logged_user->getID()));
+		if ($num_suggerimenti > 0) {
+		?>
+			<li>
+				<a data-action='retrieve_film_suggestions'>
+					Suggerimenti
+					<span><?php echo $num_suggerimenti; ?></span>
+				</a>
+			</li>
+			<script>
+				$("a[data-action='retrieve_film_suggestions']").click(function () {
+					$.get("/controllers/amicizie/___area_suggerimenti_di_film.php", function (output) {
+						Overlay.popup(output);
+					});
+				});
+			</script>
+			<?php
+		}
+			unset($num_suggerimenti);
 		}
 		?>
 	</ul>
@@ -53,7 +91,6 @@ $logged_user = Auth::getLoggedUser();
 			</li>
 			<?php
 		} else {
-			assert($logged_user instanceof Utente);
 			?>
 			<li class="userli <?php echo Formats\startswith("/utente.php", $uri) ? "active" : ""; ?>">
 				<a href="/utente.php?id=<?php echo $logged_user->getID(); ?>">

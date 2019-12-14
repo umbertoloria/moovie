@@ -48,7 +48,7 @@ if (!empty($show_actions)) {
 
 		<?php if (in_array("request_friendship", $show_actions)) { ?>
 		$(".actions a[data-action='request_friendship']").click(function () {
-			$.get("/controllers/amicizie/Amicizie.php", "kind=request&to_user_id=<?php echo $utente->getID(); ?>", function (output) {
+			$.get("/controllers/amicizie/___request_friendship.php", "to_user_id=<?php echo $utente->getID(); ?>", function (output) {
 				if (output === "ok")
 					location.href = "/conferma_amicizia_inviata.php";
 				else

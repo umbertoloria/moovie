@@ -18,4 +18,6 @@ if (count($films_da_guardare) > 0) {
 	}
 	echo "</ul>";
 	echo "</div>";
+} else {
+	echo "<p>Non ci sono film</p>";
 }

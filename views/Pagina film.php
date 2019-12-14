@@ -13,7 +13,7 @@ $show_actions = @$_REQUEST["show_actions"];
 			if (!empty($show_actions)) {
 				echo "<div class='actions'>";
 				if (in_array("suggest", $show_actions))
-					echo "<a data-action='suggest'>Suggerisci</a>";
+					echo "<a data-action='suggest'>Suggerisci agli amici</a>";
 				if (in_array("add_film_guardato", $show_actions))
 					echo "<a data-action='add_film_guardato'>+ Film guardati</a>";
 				if (in_array("add_film_da_guardare", $show_actions))
@@ -84,8 +84,9 @@ if (!empty($show_actions)) {
 
 		<?php if (in_array("suggest", $show_actions)) { ?>
 		$(".actions a[data-action='suggest']").click(function () {
-			Overlay.popup("A chi vuoi suggerirlo?");
-			// TODO: Scegliere uno o più amici e suggerirgli il film.
+			$.get("/controllers/amicizie/___form_di_selezione_amici_da_suggerire.php", "id=<?php echo $film->getID(); ?>", function (output) {
+				Overlay.popup(output);
+			});
 		});
 		<?php } ?>
 
