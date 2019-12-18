@@ -5,6 +5,7 @@
 | 0.2      | 26/11/2019 | Mappatura HW/SW, gestione accessi                                                          | Gianluca Pirone                            |
 | 0.3      | 28/11/2019 | Descrizione del problema, revisione sottosistemi, condizioni limite e servizi sottosistemi | Michelantonio Panichella                   |
 | 0.4      | 29/11/2019 | Definizioni, acronimi, abbreviazioni, riferimenti, panoramica e gestione dati persistenti  | Michelantonio Panichella, Gianluca Pirone  |
+| 0.5      | 18/12/2019 | Revisione sottosistemi, revisione diagrammi e revisione tavola degli accessi               | Team                                       |
 
 # Indice
 1. [Introduzione](#introduzione)
@@ -46,8 +47,8 @@
         2. [Terminazione](#terminazione)
         3. [Fallimenti](#fallimenti)
 3. [Servizi dei Sottosistemi](#servizi-dei-sottositemi)
-    1. [Sottosistema "Accounts"](#sottosistema-accounts)
-    2. [Sottosistema "Richerche"](#sottosistema-ricerche)
+    1. [Sottosistema "Ricerche"](#sottosistema-ricerche)
+    2. [Sottosistema "Accounts"](#sottosistema-accounts)
     3. [Sottosistema "Amicizie"](#sottosistema-amicizie)
     4. [Sottosistema "Film"](#sottosistema-film)
     5. [Sottosistema "Liste"](#sottosistema-liste)
@@ -113,7 +114,7 @@ DB | DataBase
 PDO | PHP Data Objects
 
 ## Riferimenti
- - RAD Moovie 0.8
+ - RAD Moovie v0.9
  - Object-Oriented Software Engineering Using UML, Patterns, and Java™ Third Edition 
  - https://it.wikipedia.org/
  
@@ -194,10 +195,8 @@ Questo livello si occupa di gestire i dati riguardanti le richerche degli utenti
 
 Il sottosistema "Accounts" si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
  - Creare un account
- - Attivare un account 
  - Autenticare un account
- - Richiesta di cambio password
- - Conferma di cambio password
+ - Cambiare password
 
 
 #### AccountsPresentationLayer
@@ -205,23 +204,17 @@ Questo livello include tutte le componenti dell'interfaccia che offrono funziona
 di un account:
  - GUI - Creare un account: interfacce che offrono all'utente la possibilità di creare il proprio account immettendo 
  le proprie informazioni;
- - GUI - Attivare un account: interfacce che offrono all'utente la possibilità di attivare l'account che prima ha creato;
- - GUI - Autenticare un account: interfacce che offrono all'utente la possibilità di potersi autenticare all'interno 
+  - GUI - Autenticare un account: interfacce che offrono all'utente la possibilità di potersi autenticare all'interno 
  del sito;
- - GUI - Richiesta di cambio password: interfacce che offrono all'utente la possibilità di cambiare la password 
- del proprio account;
- - GUI - Conferma di cambio password: interfacce che offrono all'utente la possibilità di accettare le modifiche 
+ - GUI - Cambiare password: interfacce che offrono all'utente la possibilità di accettare le modifiche 
  precedentemente fatte alla password;
 
 #### AccountsApplicationLayer
 Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema "Accounts" 
 nel sistema:
  - CreareAccount(): incorpora operazioni che permettono di creare un nuovo account ad un utente;
- - AttivareAccount(): incorpora operazioni che permettono all'utente di accettare la creazione dell'account e 
- successivamente l'effettiva creazione di esso all'interno del sistema;
  - AutenticareAccount(): incorpora operazioni che permettono ad un utente di autenticarsi all'interno di Moovie;
- - RichiestaCambioPassoword: incorpora operazioni che permettono all'utente di modificare la propria password;
- - ConfermaCambioPassword(): incorpora operazioni che permettono all'utente di accettare i cambiamenti precedentementi 
+ - CambiarePassword(): incorpora operazioni che permettono all'utente di accettare i cambiamenti precedentementi 
  fatti alla propria password;
 
 #### AccountsDataLayer
@@ -231,33 +224,42 @@ Questo livello si occupa di gestire i dati riguardanti gli utenti dell'intero si
 ![](Package%20diagrams/Amicizie.jpg)
 
 Il sottosistema "Amicizie" si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
- - Richiedere amicizia tra due account
- - Confermare amicizia tra due account
- - Rifiutare amicizia tra due account
- - Suggerire un film a un account amico
+ - Inviare richiesta di amicizia
+ - Cancellare richiesta di amicizia
+ - Accettare richiesta di amicizia
+ - Rifiutare richiesta di amicizia
+ - Cancellare amicizia
+ - Suggerire un film ad amici
  
 #### AmiciziePresentationLayer
 Questo livello include tutte le componenti dell'interfaccia che offrono funzionalità riguardanti le amicizie:
- - GUI - Richiedere amicizia tra due account: interfacce che offrono all'utente autenticato la possibilità di inviare 
+ - GUI - Inviare richiesta di amicizia: interfacce che offrono all'utente autenticato la possibilità di inviare 
  una richiesta di amicizia ad un altro account;
- - GUI - Confermare amicizia tra due account: interfacce che offrono all'utente autenticato la possibilità di confermare 
+ - GUI - Cancellare richiesta di amicizia: interfacce che offrono all'utente autenticato la possibilità di cancellare 
+ una richiesta di amicizia ad un altro account;
+ - GUI - Accettare richiesta di amicizia: interfacce che offrono all'utente autenticato la possibilità di accettare 
  una richiesta di amicizia proveniente da un altro account;
- - GUI - Rifiutare amicizia tra due account: interfacce che offrono all'utente autenticato la possibilità di rifiutare 
+ - GUI - Rifiutare richiesta di amicizia: interfacce che offrono all'utente autenticato la possibilità di rifiutare 
  una richiesta di amicizia proveniente da un altro account;
- - GUI - Suggerire un film a un account amico: interfacce che offrono all'utente autenticato la possibilità di suggerire 
- un film ad un account amico;
+ - GUI - Cancellare amicizia: interfacce che offrono all'utente autenticato la possibilità di cancellare 
+ un'amicizia con un altro account;
+ - GUI - Suggerire un film ad amici: interfacce che offrono all'utente autenticato la possibilità di suggerire 
+ un film ad account amici;
 
 #### AmicizieApplicationLayer
 Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema "Amicizie" 
 nel sistema:
- - RichiestaAmciziaAccount(): incorpora operazioni che permettono all'utente autenticato di richiedere l'amicizia ad un 
+ - InviareRichiestaAmcizia(): incorpora operazioni che permettono all'utente autenticato di richiedere l'amicizia ad un 
  altro utente;
- - ConfermaAmiciziaAccount(): incorpora operazioni che permettono all'utente autenticato di accettare l'amicizia di un 
+ - CancellareRichiestaAmcizia(): incorpora operazioni che permettono all'utente autenticato di cancellare la richiesta d'amicizia ad un 
+  altro utente;
+ - AccettareRichiestaAmicizia(): incorpora operazioni che permettono all'utente autenticato di accettare l'amicizia di un 
  altro utente;
- - RifiutaAmiciziaAccount() (): incorpora operazioni che permettono all'utente autenticato di rifiutare l'amicizia di un 
+ - RifiutareRichiestaAmicizia(): incorpora operazioni che permettono all'utente autenticato di rifiutare l'amicizia di un 
  altro utente;
- - SuggerisciFilmAccountAmico(): incorpora operazioni che permettono all'utente autenticato di suggerire un film ad un 
- utente amico;
+ - CancellareAmicizia(): incorpora operazioni che permettono all'utente autenticato di cancellare l'amicizia con un 
+ altro utente;
+ - SuggerireFilmAmici(): incorpora operazioni che permettono all'utente autenticato di suggerire un film ad utenti amici;
 
 #### AmicizieDataLayer
 Questo livello si occupa di gestire le amicizie degli utenti dell'intero sistema.
@@ -341,9 +343,9 @@ un secondo tier che implementa la logica applicativa e un terzo tier che compren
 persistenti.  
 Sul primo tier è eseguto un web browser che consentirà all'utente, attraverso una interfaccia grafica, di interagire 
 con il sistema. La comunicazione tra primo e secondo tier che si occupa della logica di business avverrà 
-tramite protocollo HTTP.Questo protocollo permette di trasferire ipertesti tra tier di presentazione e tier della logica
+tramite protocollo HTTP. Questo protocollo permette di trasferire ipertesti tra tier di presentazione e tier della logica
 applicativa tramite un meccanismo di richiesta e risposta.
-Dal punto di vista hardware, il primo tier potrà essere una qualsiasi macchina dotata di connesione ad internet, 
+Dal punto di vista hardware, il primo tier potrà essere una qualsiasi macchina dotata di connessione ad internet, 
 mentre per le specifiche software un sistema operativo con installato uno dei web browser supportati, sarà sufficiente 
 per interagire con il sistema.
 Il tier della logica applicativa, dotato di connessione ad internet, avrà installato un Web Server Apache 
@@ -355,7 +357,7 @@ Infatti quest'ultimo, dotato anche esso di connessione ad intenet, avrà un data
 Il sito Moovie ha al suo interno alcuni dati che devono essere mantenuti affinché il suo funzionamento sia valido. 
 La persistenza di questi, è stata scelta di dargliela, memorizzando
 essi in un database relazionale nel quale i dati persistenti vengono rappresentati attraverso delle tabelle, 
-ognuna delle quali è composta da righe(gli elementi, le istanze di ogni dato) e le colonne(attributi, 
+ognuna delle quali è composta da righe (gli elementi, le istanze di ogni dato) e le colonne (attributi, 
 descrizioni di ogni istanza di dato).
 I dati vengono gestiti attraverso MySQL che è un DBMS (Data Base ManagEment System) che permette di manipolare 
 le informazioni che si vogliono controllare sulla base di dati.
@@ -466,8 +468,6 @@ in maniera persistente.
 | proprietario | INT                                  | Esterna(derivante da Utente(id) |
 | nome         | VARCHAR(100)                         |                                 |
 
-
-
 #### Tabella Follow
 | Attributo |    Tipo    | Chiave                                    |
 |-----------|------------|-------------------------------------------|
@@ -512,16 +512,14 @@ a seconda del tipo di oggetto con cui interagiscono.
 Si è scelto di utilizzare una matrice per documentare i diritti di accesso per ogni attore.
 La matrice suddivide la tipologia di attore per colonna, la tipologia di oggetto a cui si accede per riga, 
 e per ogni interazione tra questi è presente l'insieme di operazioni disponibli. 
-  
 
-**Attori / Oggetti** | **Utente** | **Utente Autenticato** | **Gestore**
+**Attori / Macro-sistemi** | **Utente** | **Utente Autenticato** | **Gestore**
 -------- | --------| ----- | ---- 
-Utente | CreareAccount()<br/>AttivareAccount()<br/>AutenticareAccount() | RichiestaCambioPassword()<br/>ConfermaCambioPassword()<br/>RicercaUtente() | RichiestaCambioPassword()<br/>ConfermaCambioPassword()<br/>RicercaUtente() 
-Film | RicercaFilm() | RicercaFilm()<br/>AggiungereGiudizio()<br/>ModificareGiudizio()<br/>RimuovereGiudizio()<br/>SuggerimentoAutomatico() | AggiungiFilm()(**Da aggiungere?**)<br/>RicercaFilm()<br/>AggiungereGiudizio()<br/>ModificareGiudizio()<br>RimuovereGiudizio()<br/>SuggerimentoAutomatico() 
-Artista | RicercaArtista() | RicercaArtista() | AggiungiArtista()(**Da aggungere?**)<br/>RicercaArtista()
-Lista | | CreareLista()<br/>ModificareLista()<br/>EliminareLista()<br/>AggiornarePresenzaFilm()<br/>SeguireListeAltrui() | CreareLista()<br/>ModificareLista()<br/>EliminareLista()<br/>AggiornarePresenzaFilm()<br/>SeguireListeAltrui()
-Amicizia | | RichiestaAmiciziaAccount()<br/>ConfermaAmiciziaAccount()<br/>RifiutaAmiciziaAccount()<br/>SuggerisciFilmAccountAmico() | RichiestaAmiciziaAccount()<br/>ConfermaAmiciziaAccount()<br/>RifiutaAmiciziaAccount()<br/>SuggerisciFilmAccountAmico()
-
+Ricerche | RicercaFilm()<br/>RicercaArtista()<br/>RicercaUtente() | RicercaFilm()<br/>RicercaArtista()<br/>RicercaUtente() | RicercaFilm()<br/>RicercaArtista()<br/>RicercaUtente()
+Accounts | CreareAccount()<br/>AutenticareAccount() | CambiarePassword()<br/> | CambiarePassword()<br/>  
+Amicizie | | InviareRichiestaAmicizia()<br/>CancellareRichiestaAmicizia()<br/>AccettareRichiestaAmicizia()<br/>RifiutareRichiestaAmicizia()<br/>CancellareAmicizia()<br/>SuggerireFilmAmici() | InviareRichiestaAmicizia()<br/>CancellareRichiestaAmicizia()<br/>AccettareRichiestaAmicizia()<br/>RifiutareRichiestaAmicizia()<br/>CancellareAmicizia()<br/>SuggerireFilmAmici()  
+Film | | AggiungereGiudizio()<br/>ModificareGiudizio()<br/>RimuovereGiudizio()<br/>SuggerimentoAutomatico()<br/> | AggiungereGiudizio()<br/>ModificareGiudizio()<br/>RimuovereGiudizio()<br/>SuggerimentoAutomatico()<br/>
+Liste | | CreareLista()<br/>ModificareLista()<br/>EliminareLista()<br/>AggiornarePresenzaFilm()<br/>SeguireListeAltrui() | CreareLista()<br/>ModificareLista()<br/>EliminareLista()<br/>AggiornarePresenzaFilm()<br/>SeguireListeAltrui()
 
 ## Condizione Limite
 
@@ -538,35 +536,31 @@ in esecuzione. Inoltre ogni sottosistema cesserà di operare correttamente.
 In caso di errore o fallimento del sistema o dei suoi sottosistemi, Moovie garantirà di tornare ad una condizione 
 precedente di funzionamento ottimale
 
-
-
 # Servizi dei Sottositemi
 Il sito Moovie per semplicità è stato decomposto in sottositemi e per ognuno di questi sono previste delle operazioni 
 che sono i servizi che la web-application offre.
 
-## Sottosistema "Accounts"
-Sottosistema | Descrizione
----|---
-Accounts | Il sottosistema "Account" si occupa di fornire tutti i servizi che permettono ad un utente di gestire il proprio account
-
-Servizi | Descrizione
----|---
-CreareAccount() | Servizio che offre la possibilità di creare un account ad un utente che non ne posside uno
-AttivareAccount() | Servizio che offre la possibilità di attivare un account appena creato
-AutenticareAccount() | Servizie che permette ad un utente di autenticarsi all'interno del sito
-RichiestaCambioPassword() | Servizio che permette di effettuare una richiesta di cambio password
-ConfermaCambioPassword() | Servizio che permette ad un utente di accettare il cambio password effettuato in precedenza
-
 ## Sottosistema "Ricerche"
 Sottosistema | Descrizione 
 ---|---
-Ricerche | Il sottosistema "Richerche" si occupa di fornire tutti i servizi che offrono la possibilità di effettuare delle ricerche e ricevere delle informazioni sul sito 
+Ricerche | Il sottosistema "Ricerche" si occupa di fornire tutti i servizi che offrono la possibilità di effettuare delle ricerche e ricevere delle informazioni sul sito 
 
 Servizi | Descrizione 
 ---|---
 RicercaFilm() | Servizio che offre la possibilità di ricercare un film all'interno di Moovie 
 RicercaArtista() | Servizio che offre la possibilità di ricercare un determinato artista all'interno di Moovie 
 RicercaUtente() | Servizio che offre la possibilità di ricercare un utente all'interno di Moovie 
+
+## Sottosistema "Accounts"
+Sottosistema | Descrizione
+---|---
+Accounts | Il sottosistema "Accounts" si occupa di fornire tutti i servizi che permettono ad un utente di gestire il proprio account
+
+Servizi | Descrizione
+---|---
+CreareAccount() | Servizio che offre la possibilità di creare un account ad un utente che non ne posside uno
+AutenticareAccount() | Servizio che permette ad un utente di autenticarsi all'interno del sito
+CambiarePassword() | Servizio che permette ad un utente di effettuare il cambio password
 
 ## Sottosistema "Amicizie"
 Sottosistema | Descrizione 
@@ -575,10 +569,12 @@ Amicizie | Il sosttosistema "Amicizie" si occupa di fornire tuttti i servizi che
 
 Servizi | Descrizione 
 ---|---
-RichiestaAmiciziaAccount() | Servizio che offre la possibilità di richiedere, ad un altro utente registrato sul sito, la sua amicizia 
-ConfermaAmiciziaAccount() | Servizio che offre la possibilità di confermare una amicizia ricevuta da parte di un altro utente 
-RifiutaAmiciziaAccount() | Servizio che permette ad un utente di declinare una amicizia rivecuta da parte di un altro utente 
-SuggerisciFilmAccountAmico() | Servizio che offre la possibilità di suggerire un particolare film ad un altro amico 
+InviareRichiestaAmicizia() | Servizio che offre la possibilità di richiedere, ad un altro utente registrato sul sito, la sua amicizia
+CancellareRichiestaAmicizia() | Servizio che offre la possibilità di cancellare la richiesta di amicizia ad un altro utente registrato sul sito
+AccettareRichiestaAmicizia() | Servizio che offre la possibilità di confermare una amicizia ricevuta da parte di un altro utente 
+RifiutareRichiestaAmicizia() | Servizio che permette ad un utente di rifiutare una richiesta di amicizia ricevuta da parte di un altro utente
+CancellareAmicizia() | Servizio che permette ad un utente di cancellare l'amicizia con un altro utente 
+SuggerireFilmAmici() | Servizio che offre la possibilità di suggerire un particolare film ad altri amici 
 
 ## Sottosistema "Film"
 Sottosistema | Descrizione 
@@ -595,11 +591,11 @@ SuggerimentoAutomatico() | Servizio che offre la possibilità ad un utente di fa
 ## Sottosistema "Liste"
 Sottosistema | Descrizione 
 ---|---
-Liste | Il sottosistema "liste" si occupa di fornire tutti i servizi che permettono ad un utente di gestire le liste 
+Liste | Il sottosistema "Liste" si occupa di fornire tutti i servizi che permettono ad un utente di gestire le liste 
 
 Servizi | Descrizione 
 ---|---
-CreareListe() | Servizio che offre la possibilità ad un utente di creare varie liste in base alle esigenze che lui possiede 
+CreareLista() | Servizio che offre la possibilità ad un utente di creare una lista in base alle esigenze che lui possiede 
 ModificareLista() | Servizio che offre la possibilità di modificare una determinata lista, cambiandone il nome e i privilegi che un utente ha scelto in precedenza 
 EliminareLista() | Servizio che offre la possibilità di eliminare una lista 
 AggionrnarePresenzaFilm() | Servizio che offre la possibilità di aggiungere o rimuovere un determinato film da una lista 
