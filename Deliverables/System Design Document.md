@@ -150,7 +150,7 @@ possibili. Una macro suddivisione del sistema è stata fatta in questo modo:
  - Film;
  - Liste;
 
-![](Package%20diagrams/Macro%20decomposizione.jpg)
+![](Package%20diagrams/Macro%20decomposizione.png)
 
 
 L'immagine mostrata, rappresenta le varie suddivisioni fatte all'interno del sistema mostrando dunque, per ogni layer, 
@@ -191,7 +191,7 @@ sistema:
 Questo livello si occupa di gestire i dati riguardanti le richerche degli utenti all'interno del sistema.
 
 #### Accounts
-![](Package%20diagrams/Accounts.jpg)
+![](Package%20diagrams/Account.png)
 
 Il sottosistema "Accounts" si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
  - Creare un account
@@ -221,7 +221,7 @@ nel sistema:
 Questo livello si occupa di gestire i dati riguardanti gli utenti dell'intero sistema.
 
 #### Amicizie
-![](Package%20diagrams/Amicizie.jpg)
+![](Package%20diagrams/Amicizie.png)
 
 Il sottosistema "Amicizie" si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
  - Inviare richiesta di amicizia
@@ -301,7 +301,7 @@ Questo livello si occupa di gestire i dati riguardanti i giudizi sui film  degli
 e il suggerimento automatico all'interno del sistema.
 
 #### Liste
-![](Package%20diagrams/Liste.jpg)
+![](Package%20diagrams/Liste.png)
 
 Il sottosistema "Liste" si occupa di gestire le liste del sistema offrendo diverse funzionalità quali: 
  - Creare una lista
