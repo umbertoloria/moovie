@@ -25,6 +25,7 @@ class FilmManager {
 			return null;
 	}
 
+	/** @return Film[] */
 	public static function search(string $fulltext): array {
 		$res = [];
 		$stmt = DB::stmt(

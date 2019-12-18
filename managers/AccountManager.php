@@ -39,6 +39,7 @@ class AccountManager {
 			return null;
 	}
 
+	/** @return Utente[] */
 	public static function search(string $fulltext): array {
 		$res = [];
 		$stmt = DB::stmt(
