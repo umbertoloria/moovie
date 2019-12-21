@@ -48,9 +48,9 @@ if (!empty($show_actions)) {
 
 		<?php if (in_array("request_friendship", $show_actions)) { ?>
 		$(".actions a[data-action='request_friendship']").click(function () {
-			$.get("/controllers/amicizie/___request_friendship.php", "to_user_id=<?php echo $utente->getID(); ?>", function (output) {
+			$.get("/controllers/amicizie/Richiedi amicizia.php", "to_user_id=<?php echo $utente->getID(); ?>", function (output) {
 				if (output === "ok")
-					location.href = "/conferma_amicizia_inviata.php";
+					location.href = "/conferma_richiesta_amicizia_inviata.php";
 				else
 					Overlay.popup(output);
 			});
@@ -59,9 +59,9 @@ if (!empty($show_actions)) {
 
 		<?php if (in_array("remove_friendship_request", $show_actions)) { ?>
 		$(".actions a[data-action='remove_friendship_request']").click(function () {
-			$.get("/controllers/amicizie/___remove_friendship_request.php", "to_user_id=<?php echo $utente->getID(); ?>", function (output) {
+			$.get("/controllers/amicizie/Cancella richiesta amicizia.php", "to_user_id=<?php echo $utente->getID(); ?>", function (output) {
 				if (output === "ok")
-					location.href = "/___conferma_richiesta_amicizia_cancellata.php";
+					location.href = "/conferma_richiesta_amicizia_cancellata.php";
 				else
 					Overlay.popup(output);
 			});
@@ -70,9 +70,9 @@ if (!empty($show_actions)) {
 
 		<?php if (in_array("accept_friendship", $show_actions)) { ?>
 		$(".actions a[data-action='accept_friendship']").click(function () {
-			$.get("/controllers/amicizie/___accept_friendship.php", "from_user_id=<?php echo $utente->getID(); ?>", function (output) {
+			$.get("/controllers/amicizie/Accetta richiesta amicizia.php", "from_user_id=<?php echo $utente->getID(); ?>", function (output) {
 				if (output === "ok")
-					location.href = "/conferma_amicizia_accettata.php";
+					location.href = "/conferma_richiesta_amicizia_accettata.php";
 				else
 					Overlay.popup(output);
 			});
@@ -81,9 +81,9 @@ if (!empty($show_actions)) {
 
 		<?php if (in_array("refuse_friendship", $show_actions)) { ?>
 		$(".actions a[data-action='refuse_friendship']").click(function () {
-			$.get("/controllers/amicizie/___refuse_friendship.php", "from_user_id=<?php echo $utente->getID(); ?>", function (output) {
+			$.get("/controllers/amicizie/Rifiuta richiesta amicizia.php", "from_user_id=<?php echo $utente->getID(); ?>", function (output) {
 				if (output === "ok")
-					location.href = "/conferma_amicizia_rifiutata.php";
+					location.href = "/conferma_richiesta_amicizia_rifiutata.php";
 				else
 					Overlay.popup(output);
 			});
@@ -92,9 +92,9 @@ if (!empty($show_actions)) {
 
 		<?php if (in_array("remove_friendship", $show_actions)) { ?>
 		$(".actions a[data-action='remove_friendship']").click(function () {
-			$.get("/controllers/amicizie/___remove_friendship.php", "with_user_id=<?php echo $utente->getID(); ?>", function (output) {
+			$.get("/controllers/amicizie/Cancella amicizia.php", "with_user_id=<?php echo $utente->getID(); ?>", function (output) {
 				if (output === "ok")
-					location.href = "/___conferma_amicizia_cancellata.php";
+					location.href = "/conferma_amicizia_cancellata.php";
 				else
 					Overlay.popup(output);
 			});

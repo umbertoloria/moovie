@@ -2,9 +2,9 @@
 
 include "../../php/core.php";
 
-$id = @$_GET["id"];
+$film_id = @$_GET["film_id"];
 $logged_user = Auth::getLoggedUser();
-if (!ctype_digit($id))
+if (!ctype_digit($film_id))
 	echo "Errore interno";
 elseif (!$logged_user)
 	echo "Accedi per usare questa funzionalità";
@@ -15,17 +15,17 @@ else {
 		$uid = $amicizia->getUtenteFrom() === $logged_user->getID()
 			? $amicizia->getUtenteTo()
 			: $amicizia->getUtenteFrom();
-		if (!AmiciziaManager::existsSuggestion($logged_user->getID(), $uid, $id))
+		if (!AmiciziaManager::existsSuggestion($logged_user->getID(), $uid, $film_id))
 			$amici[] = AccountManager::doRetrieveByID($uid);
 	}
 
 	if (empty($amici))
 		die("Hai già suggerito questo film a tutti i tuoi amici");
 
-	$_REQUEST["id"] = $id;
+	$_REQUEST["film_id"] = $film_id;
 	$_REQUEST["amici"] = $amici;
-	unset($_GET["id"]);
-	unset($id);
+	unset($_GET["film_id"]);
+	unset($film_id);
 	unset($logged_user);
 	unset($amici);
 

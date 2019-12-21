@@ -7,7 +7,7 @@ class AccountManager {
 		return $stmt->execute([$email]) and $stmt->rowCount() === 1;
 	}
 
-	public static function save(Utente $utente): ?Utente {
+	public static function create(Utente $utente): ?Utente {
 		$stmt = DB::stmt("INSERT INTO utenti (nome, cognome, email, password) VALUES (?, ?, ?, ?)");
 		if ($stmt->execute([$utente->getNome(), $utente->getCognome(), $utente->getEmail(), $utente->getPassword()]))
 			return new Utente(

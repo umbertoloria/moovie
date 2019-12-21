@@ -126,8 +126,6 @@ class AmiciziaManager {
 				$errors[] = "impossibile suggerire il film {$film_id} all'utente {$friend_to_suggest_id}";
 		}
 
-		var_dump($errors);
-
 		return $errors === [];
 
 	}

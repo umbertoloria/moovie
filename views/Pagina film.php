@@ -84,7 +84,7 @@ if (!empty($show_actions)) {
 
 		<?php if (in_array("suggest", $show_actions)) { ?>
 		$(".actions a[data-action='suggest']").click(function () {
-			$.get("/controllers/amicizie/___form_di_selezione_amici_da_suggerire.php", "id=<?php echo $film->getID(); ?>", function (output) {
+			$.get("/controllers/amicizie/___form_di_selezione_amici_da_suggerire.php", "film_id=<?php echo $film->getID(); ?>", function (output) {
 				Overlay.popup(output);
 			});
 		});

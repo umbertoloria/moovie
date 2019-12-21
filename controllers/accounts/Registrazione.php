@@ -26,7 +26,7 @@ else {
 		$email,
 		sha1($password)
 	);
-	if (AccountManager::save($tmp_utente))
+	if (AccountManager::create($tmp_utente))
 		header("Location: /conferma_registrazione.php");
 	else
 		echo "Errore interno";

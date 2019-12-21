@@ -1,11 +1,11 @@
 <?php
 $amici = @$_REQUEST["amici"];
 assert(count($amici) > 0);
-$id = @$_REQUEST["id"];
+$film_id = @$_REQUEST["film_id"];
 ?>
 <form class="form" id="form_di_selezione_amici_da_suggerire" method="post"
       action="/controllers/amicizie/Suggerimenti amici.php">
-	<input type="hidden" name="id" value="<?php echo $id; ?>"/>
+	<input type="hidden" name="film_id" value="<?php echo $film_id; ?>"/>
 	<div>
 		<input type="hidden" name="selected_friends"/>
 		<ul>
