@@ -37,48 +37,40 @@
         6. [Suggerire un film ad un amico che è registrato su Moovie](#suggerire-un-film-ad-un-amico-che-è-registrato-su-moovie)
     5. [Use case models](#use-case-models)
         1. [Ricerche](#ricerche)
-            1. [UC_1: Ricerca di un film](#uc_1-ricerca-di-un-film)
-            2. [UC_1.1: Ricerca di un film fallita](#uc_11-ricerca-di-un-film-fallita)
-            3. [UC_2: Ricerca di un artista](#uc_2-ricerca-di-un-artista)
-            4. [UC_2.1: Ricerca di un artista fallita](#uc_21-ricerca-di-un-artista-fallita)
-            5. [UC_3: Ricerca di un utente](#uc_3-ricerca-di-un-utente)
-            6. [UC_3.1: Ricerca di un utente fallita](#uc_31-ricerca-di-un-utente-fallita)
+            1. [UC_RIC_1: Ricerca di un film](#uc_ric_1-ricerca-di-un-film)
+            2. [UC_RIC_1.1: Ricerca di un film fallita](#uc_ric_11-ricerca-di-un-film-fallita)
+            3. [UC_RIC_2: Ricerca di un artista](#uc_ric_2-ricerca-di-un-artista)
+            4. [UC_RIC_2.1: Ricerca di un artista fallita](#uc_ric_21-ricerca-di-un-artista-fallita)
+            5. [UC_RIC_3: Ricerca di un utente](#uc_ric_3-ricerca-di-un-utente)
+            6. [UC_RIC_3.1: Ricerca di un utente fallita](#uc_ric_31-ricerca-di-un-utente-fallita)
         2. [Accounts](#accounts)
-            1. [UC_4: Creare un account](#uc_4-creare-un-account)
-            2. [UC_4.1: Registrazione fallita](#uc_41-registrazione-fallita)
-            3. [UC_5: Autenticare un account](#uc_5-autenticare-un-account)
-            4. UC_6: Cambiare password
+            1. [UC_ACC_1: Creare un account](#uc_acc_1-creare-un-account)
+            2. [UC_ACC_1.1: Registrazione fallita](#uc_acc_11-registrazione-fallita)
+            3. [UC_ACC_2: Autenticare un account](#uc_acc_2-autenticare-un-account)
+            4. [UC_ACC_3: Cambiare password](#uc_acc_3-cambiare-password)
+            4. [UC_ACC_3.1: Cambio password fallito](#uc_acc_31-cambio-password-fallito)
         3. [Amicizie](#amicizie)
-            1. [UC_7: Inviare richiesta di amicizia](#uc_7-inviare-richiesta-di-amicizia)
-            2. [UC_8: Cancellare richiesta di amicizia](#uc_8-cancellare-richiesta-di-amicizia)
-            4. [UC_9: Accettare richiesta di amicizia](#uc_9-accettare-richiesta-di-amicizia)
-            5. [UC_10: Rifiutare richiesta di amicizia](#uc_10-rifiutare-richiesta-di-amicizia)
-            5. [UC_11: Cancellare amicizia](#uc_11-cancellare-amicizia)
-            6. [UC_12: Suggerirere un film ad amici](#uc_12-suggerire-un-film-ad-amici)
+            1. [UC_AMI_1: Inviare richiesta di amicizia](#uc_ami_1-inviare-richiesta-di-amicizia)
+            2. [UC_AMI_2: Cancellare richiesta di amicizia](#uc_ami_2-cancellare-richiesta-di-amicizia)
+            4. [UC_AMI_3: Accettare richiesta di amicizia](#uc_ami_3-accettare-richiesta-di-amicizia)
+            5. [UC_AMI_4: Rifiutare richiesta di amicizia](#uc_ami_4-rifiutare-richiesta-di-amicizia)
+            5. [UC_AMI_5: Cancellare amicizia](#uc_ami_5-cancellare-amicizia)
+            6. [UC_AMI_6: Suggerirere un film ad amici](#uc_ami_6-suggerire-un-film-ad-amici)
+            6. [UC_AMI_7: Visualizzare suggerimenti di film](#uc_ami_7-visualizzare-suggerimenti-di-film)
         3. [Film](#film)
-            1. [UC_13: Aggiungere un giudizio](#uc_13-aggiungere-un-giudizio)
-            2. [UC_14: Modificare un giudizio](#uc_14-modificare-un-giudizio)
-            3. [UC_15: Rimuovere un giudizio](#uc_15-rimuovere-un-giudizio)
-            4. [UC_16: Suggerimento automatico di un film](#uc_16-suggerimento-automatico-di-un-film)
+            1. [UC_FILM_1: Aggiungere un giudizio](#uc_film_1-aggiungere-un-giudizio)
+            2. [UC_FILM_2: Modificare un giudizio](#uc_film_2-modificare-un-giudizio)
+            3. [UC_FILM_3: Rimuovere un giudizio](#uc_film_3-rimuovere-un-giudizio)
+            4. [UC_FILM_4: Suggerimento automatico di un film](#uc_film_4-suggerimento-automatico-di-un-film)
         4. [Liste](#liste)
-            1. [UC_17: Creare una lista](#uc_17-creare-una-lista)
-            2. [UC_18: Modificare una lista](#uc_18-modificare-una-lista)
-            3. [UC_19: Eliminare una lista](#uc_19-eliminare-una-lista)
-            4. [UC_20: Aggiornare la presenza di film nelle liste](#uc_20-aggiornare-la-presenza-di-film-nelle-liste)
-            5. [UC_21: Seguire liste altrui](#uc_21-seguire-liste-altrui)
+            1. [UC_LIST_1: Creare una lista](#uc_list_1-creare-una-lista)
+            2. [UC_LIST_2: Modificare una lista](#uc_list_2-modificare-una-lista)
+            3. [UC_LIST_3: Eliminare una lista](#uc_list_3-eliminare-una-lista)
+            4. [UC_LIST_4: Aggiornare la presenza di film nelle liste](#uc_list_4-aggiornare-la-presenza-di-film-nelle-liste)
+            5. [UC_LIST_5: Seguire liste altrui](#uc_list_5-seguire-liste-altrui)
     6. [Object model](#object-model)
     7. [Class diagrams](#class-diagrams)
-        1. Ricerche
-        2. Accounts
-        3. Amicizie
-        4. Film
-        5. Liste
     8. [Sequence diagrams](#sequence-diagrams)
-        1. Ricerche
-        2. Accounts
-        3. Amicizie
-        4. Film
-        5. Liste
     9. [Statechart diagrams](#statechart-diagrams)
     10. [Navigational paths](#navigational-paths)
     11. Screen mock-ups
@@ -121,32 +113,33 @@ I requisiti descritti sono catalogati secondo il modello **F.U.R.P.S.**
 ## Requisiti funzionali
 Identificativo | Descrizione | Priorità
 :-------------:|-------------|:-------:
-**M_RF_1** | Ricerche | Alta
-RF_1.1 | Ricerca di un film
-RF_1.2 | Ricerca di un artista
-RF_1.3 | Ricerca di un utente
-**M_RF_2** | Account | Alta
-RF_2.1 | Creare un account
-RF_2.2 | Autenticare un account
-RF_2.3 | Cambiare password
-**M_RF_3** | Amicizie | Media
-RF_3.1 | Inviare richiesta di amicizia
-RF_3.2 | Cancellare richiesta di amicizia
-RF_3.3 | Accettare richiesta di amicizia
-RF_3.4 | Rifiutare richiesta di amicizia
-RF_3.5 | Cancellare amicizia
-RF_3.6 | Suggerire un film ad amici
-**M_RF_4** | Film | Alta
-RF_4.1 | Aggiungere un giudizio
-RF_4.2 | Modificare un giudizio
-RF_4.3 | Rimuovere un giudizio
-RF_4.4 | Suggerimento automatico di un film
-**M_RF_5** | Liste | Media
-RF_5.1 | Creare una lista
-RF_5.2 | Modificare una lista
-RF_5.3 | Eliminare una lista
-RF_5.4 | Aggiornare la presenza di film nelle liste
-RF_5.5 | Seguire una lista altrui
+**M_RF_RIC** | Ricerche | Alta
+RF_RIC.1 | Ricerca di un film
+RF_RIC.2 | Ricerca di un artista
+RF_RIC.3 | Ricerca di un utente
+**M_RF_ACC** | Account | Alta
+RF_ACC.1 | Creare un account
+RF_ACC.2 | Autenticare un account
+RF_ACC.3 | Cambiare password
+**M_RF_AMI** | Amicizie | Media
+RF_AMI.1 | Inviare richiesta di amicizia
+RF_AMI.2 | Cancellare richiesta di amicizia
+RF_AMI.3 | Accettare richiesta di amicizia
+RF_AMI.4 | Rifiutare richiesta di amicizia
+RF_AMI.5 | Cancellare amicizia
+RF_AMI.6 | Suggerire un film ad amici
+RF_AMI.7 | Visualizzare suggerimenti di film
+**M_RF_FILM** | Film | Alta
+RF_FILM.1 | Aggiungere un giudizio
+RF_FILM.2 | Modificare un giudizio
+RF_FILM.3 | Rimuovere un giudizio
+RF_FILM.4 | Suggerimento automatico di un film
+**M_RF_LIST** | Liste | Media
+RF_LIST.1 | Creare una lista
+RF_LIST.2 | Modificare una lista
+RF_LIST.3 | Eliminare una lista
+RF_LIST.4 | Aggiornare la presenza di film nelle liste
+RF_LIST.5 | Seguire una lista altrui
 
 ## Requisiti non-funzionali
 ### Usability
@@ -275,7 +268,7 @@ voto 10), perché ovviamente lui lo aveva già visto, ma prima di conoscere Moov
 ### Ricerche
 ![](Use%20case%20diagrams/Ricerche.jpg)
 
-#### UC_1: Ricerca di un film
+#### UC_RIC_1: Ricerca di un film
 **Nome** | **Ricerca di un film**
 ---------|---
 Attori | Utente.
@@ -284,7 +277,7 @@ Flusso di eventi |<br/><ol><li>L’utente inserisce il titolo, genere, attori pa
 Condizione di uscita | L’utente potrà visualizzare la scheda informativa del film.
 Eccezioni | Ricerca di un film fallita.
 
-#### UC_1.1: Ricerca di un film fallita
+#### UC_RIC_1.1: Ricerca di un film fallita
 **Nome** | **Ricerca di un film fallita**
 ---------|---
 Attori | Utente.
@@ -292,7 +285,7 @@ Condizione di entrata | L’utente cerca un film non presente.
 Flusso di eventi | Moovie non trova il film cercato.
 Condizione di uscita | Moovie comunica che il film non è presente.
 
-#### UC_2: Ricerca di un artista
+#### UC_RIC_2: Ricerca di un artista
 **Nome** | **Ricerca di un artista**
 ---------|---
 Attori | Utente.
@@ -300,7 +293,7 @@ Condizione di entrata | L’utente si trova nell’area di ricerca.
 Flusso di eventi | <br/><ol><li>L’utente inserisce il nome di un artista<li>Moovie elabora i dati inseriti e mostra il risultato della ricerca<li>L’utente seleziona l’artista cercato<li>Moovie reindirizza l’utente sulla pagina corrispondente alla scheda informativa dell’artista cercato</ol>
 Condizione di uscita | L’utente potrà visualizzare la scheda informativa dell’artista.
 
-#### UC_2.1: Ricerca di un artista fallita
+#### UC_RIC_2.1: Ricerca di un artista fallita
 **Nome** | **UC_2.1: Ricerca di un artista fallita**
 ---------|---
 Attori | Utente.
@@ -308,16 +301,16 @@ Condizione di entrata | L’utente cerca un artista non presente.
 Flusso di eventi | Moovie non trova l’artista cercato.
 Condizione di uscita | Moovie comunica che l’artista non è presente.
 
-#### UC_3: Ricerca di un utente
+#### UC_RIC_3: Ricerca di un utente
 **Nome** | **Ricerca di un utente**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nell’area di ricerca.
 Flusso di eventi | <br/><ol><li>L’utente inserisce il nome, cognome, e-mail (se visibile) di un utente<li>Moovie elabora i dati inseriti e mostra il risultato della ricerca<li>L’utente seleziona l’utente cercato<li>Moovie reindirizza l’utente sulla pagina corrispondente alla scheda informativa dell’utente cercato</ol>
 Condizione di uscita | L’utente potrà visualizzare la scheda informativa dell’utente.
-Eccezioni | Se l’utente cercato non è presente, vai a [UC_3.1](#uc_31-ricerca-di-un-utente-fallita).
+Eccezioni | Se l’utente cercato non è presente, vai a [UC_RIC_3.1](#uc_ric_31-ricerca-di-un-utente-fallita).
 
-#### UC_3.1: Ricerca di un utente fallita
+#### UC_RIC_3.1: Ricerca di un utente fallita
 **Nome** | **Ricerca di un utente fallita**
 ---------|---
 Attori | Utente autenticato.
@@ -328,25 +321,25 @@ Condizione di uscita | Moovie comunica che l’account non esiste.
 ### Accounts
 ![](Use%20case%20diagrams/Accounts.jpg)
 
-#### UC_4: Creare un account
+#### UC_ACC_1: Creare un account
 **Nome** | **Creare un account**
 ---------|---
 Attori | Utente.
 Condizione di entrata | L’utente si trova nella pagina di registrazione.
 Flusso di eventi | <br/><ol><li>L’utente inserisce i seguenti dati: nome, cognome, indirizzo e-mail e password (due volte)<li>Il sistema controlla i dati, verifica che non ci siano account con l’indirizzo e-mail fornito, e salva i dati.</ol>
 Condizione di uscita | Il sistema comunica che l'account è stato creato.
-Eccezioni | L’indirizzo e-mail fornito è occupato. Vai a [UC_4.1](#uc_41-registrazione-fallita).
+Eccezioni | L’indirizzo e-mail fornito è occupato. Vai a [UC_ACC_1.1](#uc_acc_11-registrazione-fallita).
 
-#### UC_4.1: Registrazione fallita
+#### UC_ACC_1.1: Registrazione fallita
 **Nome** | **Registrazione fallita**
 ---------|---
 Attori | Utente.
 Condizione di entrata | L’utente ha inserito dati non accettabili durante la registrazione.
 Flusso di eventi | <br/><ol><li>Il sistema si accorge che uno dei campi inseriti non è valido e avvisa l'utente<li>L'utente inserisce dei dati corretti<li>Il sistema controlla i dati, verifica che non ci siano account con l’indirizzo e-mail fornito, e salva i dati.</ol>
 Condizione di uscita | Il sistema comunica che l'account è stato creato.
-Eccezioni | L’indirizzo e-mail fornito è occupato. Vai a [UC_4.1](#uc_41-registrazione-fallita).
+Eccezioni | L’indirizzo e-mail fornito è occupato. Vai a [UC_ACC_1.1](#uc_acc_11-registrazione-fallita).
 
-#### UC_5: Autenticare un account
+#### UC_ACC_2: Autenticare un account
 **Nome** | **Autenticare un account**
 ---------|---
 Attori | Utente.
@@ -355,28 +348,28 @@ Flusso di eventi | <br/><ol><li>L’utente inserisce e-mail e password del suo a
 Condizione di uscita | Il sistema comunica che l'accesso è stato effettuato.
 Eccezioni | Se i dati sono sbagliati, effettua questo caso d'uso:<br/>**Condizione di entrata**: l'utente ha inserito i dati sbagliati<br/>**Flusso di eventi**: <br/><br/><ol><li>Il sistema comunica che i dati sono sbagliati.<li>L'utente inserisce di nuovo i dati.<li>Il sistema verifica la correttezza dei dati e autentica l'account.</ol>**Condizione di uscita**: L'accesso è stato effettuato.
 
-#### UC_6: Cambiare password
+#### UC_ACC_3: Cambiare password
 **Nome** | **Cambiare password**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nell'area di cambio password.
 Flusso di eventi | <br/><ol><li>L’utente inserisce la vecchia e nuova password<li>Il sistema controlla che la vecchia password corrisponda, e aggiorna la nuova</ol>
 Condizione di uscita | Il sistema comunca che la password è stata aggiornata.
-Eccezioni | L’utente non fornisce i dati corretti. Vai a [UC_6.1](#uc_61-cambio-password-fallito).
+Eccezioni | L’utente non fornisce i dati corretti. Vai a [UC_ACC_3.1](#uc_acc_31-cambio-password-fallito).
 
-#### UC_6.1: Cambio password fallito
+#### UC_ACC_3.1: Cambio password fallito
 **Nome** | **Cambio password fallito**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente fornisce come vecchia password una password che non è la sua.
 Flusso di eventi | <br/><ol><li>Il sistema afferma che la password fornita è sbagliata.<li>L'utente inserisce la vecchia password giusta<li>Il sistema controlla che la vecchia password corrisponda, e aggiorna la nuova</ol>
 Condizione di uscita | Il sistema comunca che la password è stata aggiornata.
-Eccezioni | L’utente non fornisce i dati corretti. Vai a [UC_6.1](#uc_61-cambio-password-fallito).
+Eccezioni | L’utente non fornisce i dati corretti. Vai a [UC_ACC_3.1](#uc_acc_31-cambio-password-fallito).
 
 ### Amicizie
 ![](Use%20case%20diagrams/Amicizie.jpg)
 
-#### UC_7: Inviare richiesta di amicizia
+#### UC_AMI_1: Inviare richiesta di amicizia
 **Nome** | **Inviare richiesta di amicizia**
 ---------|---
 Attori | Utente autenticato.
@@ -384,7 +377,7 @@ Condizione di entrata | L’utente si trova nella pagina dell’account a cui vu
 Flusso di eventi | <br/><ol><li>L’utente clicca per inviare una richiesta di amicizia<li>Moovie invia la richiesta al destinatario</ol>
 Condizione di uscita | Il sistema comunica l'invio della richiesta
 
-#### UC_8: Cancellare richiesta di amicizia
+#### UC_AMI_2: Cancellare richiesta di amicizia
 **Nome** | **Cancellare richiesta di amicizia**
 ---------|---
 Attori | Utente autenticato.
@@ -392,7 +385,7 @@ Condizione di entrata | L’utente si trova sulla pagina dell’utente al quale 
 Flusso di eventi | <br/><ol><li>L’utente clicca per cancellare la richiesta di amicizia che aveva inviato<li>Il sistema cancella la richiesta</ol>
 Condizione di uscita | Il sistema comunica che la richiesta è stata cancellata.
 
-#### UC_9: Accettare richiesta di amicizia
+#### UC_AMI_3: Accettare richiesta di amicizia
 **Nome** | **Accettare richiesta di amicizia**
 ---------|---
 Attori | Utente autenticato.
@@ -400,7 +393,7 @@ Condizione di entrata | L’utente si trova sulla pagina dell’utente che ha ri
 Flusso di eventi | <br/><ol><li>L’utente clicca per accettare la richiesta inviatagli<li>Il sistema stabilisce l’amicizia</ol>
 Condizione di uscita | Il sistema comunica che gli utenti sono diventati amici.
 
-#### UC_10: Rifiutare richiesta di amicizia
+#### UC_AMI_4: Rifiutare richiesta di amicizia
 **Nome** | **Rifiutare richiesta di amicizia**
 ---------|---
 Attori | Utente autenticato.
@@ -408,7 +401,7 @@ Condizione di entrata | L’utente si trova sulla pagina dell’utente che ha ri
 Flusso di eventi | <br/><ol><li>L’utente clicca per rifiutare la richiesta inviatagli<li>Il sistema cancella la richiesta di amicizia</ol>
 Condizione di uscita | Il sistema comunica che la richiesta di amicizia è stata rifiutata.
 
-#### UC_11: Cancellare amicizia
+#### UC_AMI_5: Cancellare amicizia
 **Nome** | **Cancellare amicizia**
 ---------|---
 Attori | Utente autenticato.
@@ -416,7 +409,7 @@ Condizione di entrata | L’utente si trova sulla pagina dell’utente con cui v
 Flusso di eventi | <br/><ol><li>L’utente clicca per cancellare l'amicizia<li>Il sistema cancella l'amicizia</ol>
 Condizione di uscita | Il sistema conferma che l'amicizia è stata cancellata
 
-#### UC_12: Suggerire un film ad amici
+#### UC_AMI_6: Suggerire un film ad amici
 **Nome** | **Suggerire un film ad amici**
 ---------|---
 Attori | Utente autenticato.
@@ -424,10 +417,18 @@ Condizione di entrata | L’utente è nell'area di selezione degli amici a cui s
 Flusso di eventi | <br/><ol><li>L’utente seleziona tutti gli amici a cui vuole suggerire il film<li>Il sistema invia i suggerimenti agli utenti selezionati</ol>
 Condizione di uscita | Il sistema conferma l'invio dei suggerimenti.
 
+#### UC_AMI_7: Visualizzare suggerimenti di film
+**Nome** | **Visualizzare suggerimenti di film**
+---------|---
+Attori | Utente autenticato.
+Condizione di entrata | L’utente si trova in una pagina del sito.
+Flusso di eventi | <br/><ol><li>L'utente seleziona il pulsante che mostra i suggerimenti<li>Il sistema preleva i suggerimenti diretti all'utente e glieli mostra.</ol>
+Condizione di uscita | Il sistema mostra i suggerimenti inviati verso l'utente.
+
 ### Film
 ![](Use%20case%20diagrams/Film.jpg)
 
-#### UC_13: Aggiungere un giudizio
+#### UC_FILM_1: Aggiungere un giudizio
 **Nome** | **Aggiungere un giudizio**
 ---------|---
 Attori | Utente autenticato.
@@ -435,7 +436,7 @@ Condizione di entrata | L’utente si trova nell'area di aggiunta di un giudizio
 Flusso di eventi | <br/><ol><li>L’utente inserisce un giudizio<li>Moovie aggiunge il film (col voto relativo) ai film guardati, e rimanda l'utente alla pagina del film</ol>
 Condizione di uscita | Il film (e il giudizio) è stato salvato nei film guardati.
 
-#### UC_14: Modificare un giudizio
+#### UC_FILM_2: Modificare un giudizio
 **Nome** | **Modificare un giudizio**
 ---------|---
 Attori | Utente autenticato.
@@ -443,7 +444,7 @@ Condizione di entrata | L’utente si trova nell'area di modifica di un giudizio
 Flusso di eventi | <br/><ol><li>L’utente inserisce il nuovo giudizio<li>Moovie modificherà il giudizio sul film presente nei film guardati</ol>
 Condizione di uscita | Il giudizio verrà aggiornato.
 
-#### UC_15: Rimuovere un giudizio
+#### UC_FILM_3: Rimuovere un giudizio
 **Nome** | **Rimuovere un giudizio**
 ---------|---
 Attori | Utente autenticato.
@@ -451,7 +452,7 @@ Condizione di entrata | L’utente si trova nella pagina dei film guardati.
 Flusso di eventi | <br/><ol><li>L’utente seleziona il giudizio da rimuovere<li>Moovie rimuove il giudizio, e aggiorna la pagina dei film guardati</ol>
 Condizione di uscita | Il giudizio verrà rimosso.
 
-#### UC_16: Suggerimento automatico di un film
+#### UC_FILM_4: Suggerimento automatico di un film
 **Nome** | **Suggerimento automatico di un film**
 ---------|---
 Attori | Utente autenticato.
@@ -462,7 +463,7 @@ Condizione di uscita | Il sistema suggerisce il film che è stato selezionato.
 ### Liste
 ![](Use%20case%20diagrams/Liste.jpg)
 
-#### UC_17: Creare una lista
+#### UC_LIST_1: Creare una lista
 **Nome** | **Creare una lista**
 ---------|---
 Attori | Utente autenticato.
@@ -471,7 +472,7 @@ Flusso di eventi | <br/><ol><li>L’utente inserisce il nome e sceglie la visibi
 Condizione di uscita | La lista viene creata.
 Eccezioni | L’utente ha inserito, come nome della nuova lista, il nome di una propria lista già esistente.
 
-#### UC_18: Modificare una lista
+#### UC_LIST_2: Modificare una lista
 **Nome** | **Modificare una lista**
 ---------|---
 Attori | Utente autenticato.
@@ -479,7 +480,7 @@ Condizione di entrata | L’utente si trova nella pagina di una sua lista da mod
 Flusso di eventi | <br/><ol><li>L’utente inserisce il nuovo nome e/o la nuova visibilità (tutti, amici, solo tu) della lista che vuole modificare<li>Il sistema aggiorna la lista, scollega gli eventuali follower non più compatibili con la nuova visibilità della lista, e porta l'utente nella pagina della lista modificata</ol>
 Condizione di uscita | La lista viene modificata.
 
-#### UC_19: Eliminare una lista
+#### UC_LIST_3: Eliminare una lista
 **Nome** | **Eliminare una lista**
 ---------|---
 Attori | Utente autenticato.
@@ -487,7 +488,7 @@ Condizione di entrata | L’utente si trova nella pagina della sua lista da elim
 Flusso di eventi | <br/><ol><li>L’utente attiva la funzione di eliminazione<li>Il sistema cancella la lista, e conferma all'utente la cancellazione</ol>
 Condizione di uscita | La lista viene cancellata.
 
-#### UC_20: Aggiornare la presenza di film nelle liste
+#### UC_LIST_4: Aggiornare la presenza di film nelle liste
 **Nome** | **Aggiornare la presenza di film nelle liste**
 ---------|---
 Attori | Utente autenticato.
@@ -495,7 +496,7 @@ Condizione di entrata | L’utente deve selezionare le liste in cui inserire un 
 Flusso di eventi | <br/><ol><li>L’utente seleziona le liste in cui inserire il film, e deseleziona le liste in cui rimuovere il film se già presente (quindi già selezionate)<li>Il sistema aggiunge il film alle liste selezionate, e rimuove il film dalle liste deselezionate</ol>
 Condizione di uscita | Il film viene aggiunto alle liste selezionate, e rimosso dalle liste deselezionate.
 
-#### UC_21: Seguire liste altrui
+#### UC_LIST_5: Seguire liste altrui
 **Nome** | **Seguire liste altrui**
 ---------|---
 Attori | Utente autenticato.
@@ -513,6 +514,7 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
     * Pagina film: mostra le informazioni di un film
     * Pagina artista: mostra le informazioni di un artista
     * Pagina utente: mostra le informazioni di un utente (basandosi sulla visibilità di queste)
+    * Leftmenu: permette di visualizzare i suggerimenti
 * Ricerche:
     * Area di ricerca: offre le funzioni di ricerca di film, artisti e utenti
     * Risultati di ricerca: presenta i risultati elaborati dopo una ricerca
@@ -534,6 +536,7 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
     * Conferma amicizia cancellata: notifica l'avvenuta cancellazione di un'amicizia precedente
     * Form di selezione amici da suggerire: richiede la selezione di almeno uno tra i propri amici
     * Conferma amici suggeriti: notifica l'avvenuto suggerimento di film agli amici selezionati
+    * Area di suggerimenti di film: permette di visualizzare i suggerimenti inviatici dagli amici
 * Film:
     * Form di aggiunta giudizio: richiede l'inserimento del giudizio da salvare
     * Form di modifica giuizio: richiede l'inserimento del giudizio da aggiornare
@@ -564,6 +567,7 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
     * Rifiuta richiesta amicizia: rifiuta una richiesta di amicizia
     * Cancella amicizia: cancella un'amicizia precedente
     * Suggerimenti amici: permette ad un account di suggerire un film a uno o più account amici
+    * Visualizza suggerimenti di film: preleva i suggerimenti verso un account e li invia al boundary per farli mostrare
 * Film:
     * Aggiungi film guardato: aggiunge il giudizio di un film
     * Modifica film guardato: modifica un giudizio dato ad un film
@@ -600,6 +604,7 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
     * verifica l'esistenza di un'amicizia tra due account
     * cancella un'amicizia esistente tra due account
     * suggerisce un film ad un insieme di account
+    * preleva i suggerimenti verso un account
 * Film Guardati Manager:
     * aggiunge un giudizio su un film guardato
     * modifica il giudizio di un film guardato
@@ -619,8 +624,10 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
 * Utente: rappresenta i dati di un utente
 * Amicizia: rappresenta le informazioni di una richiesta di amicizia
 * Amicizia Accettata: specializza una amicizia integrando le informazioni di accettazione di questa
+* Suggerimento film: rappresenta le informazioni di un suggerimento di un film di un utente ad un altro utente in un
+dato orario
 * Film Guardato: rappresenta il giudizio dato da un account ad un film in un dato orario
-* Lista: rappresenta le informazioni di una lista e film che contiene
+* Lista: rappresenta le informazioni di una lista e i film che contiene
 
 ## Class diagrams
 ![](Class%20diagrams/Main%20class%20diagram.jpg)
@@ -644,55 +651,57 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
 
 ### Ricerche
 
-![](Sequence%20diagrams/UC_1%20Ricerca%20di%20un%20film.jpg)
+![](Sequence%20diagrams/UC_RIC_1%20Ricerca%20di%20un%20film.jpg)
 
-![](Sequence%20diagrams/UC_2%20Ricerca%20di%20un%20artista.jpg)
+![](Sequence%20diagrams/UC_RIC_2%20Ricerca%20di%20un%20artista.jpg)
 
-![](Sequence%20diagrams/UC_3%20Ricerca%20di%20un%20utente.jpg)
+![](Sequence%20diagrams/UC_RIC_3%20Ricerca%20di%20un%20utente.jpg)
 
 ### Accounts
 
-![](Sequence%20diagrams/UC_4%20Creare%20un%20account.jpg)
+![](Sequence%20diagrams/UC_ACC_1%20Creare%20un%20account.jpg)
 
-![](Sequence%20diagrams/UC_5%20Autenticare%20un%20account.jpg)
+![](Sequence%20diagrams/UC_ACC_2%20Autenticare%20un%20account.jpg)
 
-![](Sequence%20diagrams/UC_6%20Cambiare%20password.jpg)
+![](Sequence%20diagrams/UC_ACC_3%20Cambiare%20password.jpg)
 
 ### Amicizie
 
-![](Sequence%20diagrams/UC_7%20Inviare%20richiesta%20di%20amicizia.jpg)
+![](Sequence%20diagrams/UC_AMI_1%20Inviare%20richiesta%20di%20amicizia.jpg)
 
-![](Sequence%20diagrams/UC_8%20Cancellare%20richiesta%20di%20amicizia.jpg)
+![](Sequence%20diagrams/UC_AMI_2%20Cancellare%20richiesta%20di%20amicizia.jpg)
 
-![](Sequence%20diagrams/UC_9%20Accettare%20richiesta%20di%20amicizia.jpg)
+![](Sequence%20diagrams/UC_AMI_3%20Accettare%20richiesta%20di%20amicizia.jpg)
 
-![](Sequence%20diagrams/UC_10%20Rifiutare%20richiesta%20di%20amicizia.jpg)
+![](Sequence%20diagrams/UC_AMI_4%20Rifiutare%20richiesta%20di%20amicizia.jpg)
 
-![](Sequence%20diagrams/UC_11%20Cancellare%20amicizia.jpg)
+![](Sequence%20diagrams/UC_AMI_5%20Cancellare%20amicizia.jpg)
 
-![](Sequence%20diagrams/UC_12%20Suggerire%20un%20film%20ad%20amici.jpg)
+![](Sequence%20diagrams/UC_AMI_6%20Suggerire%20un%20film%20ad%20amici.jpg)
+
+![](Sequence%20diagrams/UC_AMI_7%20Visualizzare%20suggerimenti%20di%20film.jpg)
 
 ### Film
 
-![](Sequence%20diagrams/UC_13%20Aggiungere%20un%20giudizio.jpg)
+![](Sequence%20diagrams/UC_FILM_1%20Aggiungere%20un%20giudizio.jpg)
 
-![](Sequence%20diagrams/UC_14%20Modificare%20un%20giudizio.jpg)
+![](Sequence%20diagrams/UC_FILM_2%20Modificare%20un%20giudizio.jpg)
 
-![](Sequence%20diagrams/UC_15%20Rimuovere%20un%20giudizio.jpg)
+![](Sequence%20diagrams/UC_FILM_3%20Rimuovere%20un%20giudizio.jpg)
 
-![](Sequence%20diagrams/UC_16%20Suggerimento%20automatico%20di%20un%20film.jpg)
+![](Sequence%20diagrams/UC_FILM_4%20Suggerimento%20automatico%20di%20un%20film.jpg)
 
 ### Liste
 
-![](Sequence%20diagrams/UC_17%20Creare%20una%20lista.jpg)
+![](Sequence%20diagrams/UC_LIST_1%20Creare%20una%20lista.jpg)
 
-![](Sequence%20diagrams/UC_18%20Modificare%20una%20lista.jpg)
+![](Sequence%20diagrams/UC_LIST_2%20Modificare%20una%20lista.jpg)
 
-![](Sequence%20diagrams/UC_19%20Eliminare%20una%20lista.jpg)
+![](Sequence%20diagrams/UC_LIST_3%20Eliminare%20una%20lista.jpg)
 
-![](Sequence%20diagrams/UC_1%20Ricerca%20di%20un%20film.jpg)
+![](Sequence%20diagrams/UC_LIST_4%20Aggiornare%20la%20presenza%20di%20film%20nelle%20liste.jpg)
 
-![](Sequence%20diagrams/UC_21%20Seguire%20liste%20altrui.jpg)
+![](Sequence%20diagrams/UC_LIST_5%20Seguire%20liste%20altrui.jpg)
 
 ## Statechart diagrams
 ![](Statechart%20diagrams/Utente.jpg)
