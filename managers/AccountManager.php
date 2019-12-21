@@ -29,6 +29,16 @@ class AccountManager {
 			return null;
 	}
 
+	public static function is_user_password(int $id, string $password): bool {
+		$stmt = DB::stmt("SELECT id FROM utenti WHERE id = ? AND password = ?");
+		return $stmt->execute([$id, sha1($password)]) and $stmt->rowCount() === 1;
+	}
+
+	public static function set_user_password(int $id, string $password): bool {
+		$stmt = DB::stmt("UPDATE utenti SET password = ? WHERE id = ?");
+		return $stmt->execute([sha1($password), $id]) and $stmt->rowCount() === 1;
+	}
+
 	// AGGIUNTE
 
 	public static function doRetrieveByID(int $id): ?Utente {

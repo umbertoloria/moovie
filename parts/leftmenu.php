@@ -97,8 +97,8 @@ $logged_user = Auth::getLoggedUser();
 					<?php echo $logged_user->getNome() . " " . $logged_user->getCognome(); ?>
 				</a>
 			</li>
-			<li>
-				<a>Impostazioni</a>
+			<li <?php echo $uri == "/___impostazioni.php" ? "class='active'" : ""; ?>>
+				<a href="/___impostazioni.php">Impostazioni</a>
 			</li>
 			<li>
 				<a href="/controllers/accounts/___logout.php">Esci</a>
