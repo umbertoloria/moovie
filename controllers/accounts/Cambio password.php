@@ -15,9 +15,15 @@ $valid = Validator\validate("../../forms/cambio_password.json", [
 
 if (!$valid)
 	echo "Il client non ti ha bloccato?";
-elseif (!AccountManager::is_user_password($logged_user->getID(), $cur_pwd))
+elseif ($logged_user->getPassword() !== sha1($cur_pwd))
 	echo "La password attuale fornita non corrisponde";
-elseif (AccountManager::set_user_password($logged_user->getID(), $new_pwd))
-	header("Location: /conferma_cambio_password.php");
-else
-	echo "Errore interno";
+else {
+	$logged_user->setPassword(sha1($new_pwd));
+	$saved_user = AccountManager::doUpdate($logged_user);
+	if ($saved_user) {
+		unset($logged_user);
+		Auth::setLoggedUser($saved_user);
+		header("Location: /conferma_cambio_password.php");
+	} else
+		echo "Errore interno";
+}

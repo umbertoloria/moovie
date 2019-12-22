@@ -29,17 +29,71 @@ class AccountManager {
 			return null;
 	}
 
-	public static function is_user_password(int $id, string $password): bool {
-		$stmt = DB::stmt("SELECT id FROM utenti WHERE id = ? AND password = ?");
-		return $stmt->execute([$id, sha1($password)]) and $stmt->rowCount() === 1;
-	}
-
-	public static function set_user_password(int $id, string $password): bool {
-		$stmt = DB::stmt("UPDATE utenti SET password = ? WHERE id = ?");
-		return $stmt->execute([sha1($password), $id]) and $stmt->rowCount() === 1;
-	}
-
 	// AGGIUNTE
+
+	public static function doUpdate(Utente $utente): ?Utente {
+
+		$utente_reale = self::doRetrieveByID($utente->getID());
+		if (!$utente_reale)
+			return null;
+
+		$same_nome = $utente_reale->getNome() === $utente->getNome();
+		$same_cognome = $utente_reale->getCognome() === $utente->getCognome();
+		$same_email = $utente_reale->getEmail() === $utente->getEmail();
+		$same_password = $utente_reale->getPassword() === $utente->getPassword();
+
+		if ($same_nome and $same_cognome and $same_email and $same_password)
+			return $utente;
+
+		DB::beginTransaction();
+
+		if (!$same_nome) {
+			$stmt_nome = DB::stmt("UPDATE utenti SET nome = ? WHERE id = ?");
+			if (
+				!$stmt_nome->execute([$utente->getNome(), $utente->getID()])
+				or $stmt_nome->rowCount() === 0
+			) {
+				DB::rollbackTransaction();
+				return null;
+			}
+		}
+
+		if (!$same_cognome) {
+			$stmt_cognome = DB::stmt("UPDATE utenti SET cognome = ? WHERE id = ?");
+			if (
+				!$stmt_cognome->execute([$utente->getCognome(), $utente->getID()])
+				or $stmt_cognome->rowCount() === 0
+			) {
+				DB::rollbackTransaction();
+				return null;
+			}
+		}
+
+		if (!$same_email) {
+			$stmt_email = DB::stmt("UPDATE utenti SET email = ? WHERE id = ?");
+			if (
+				!$stmt_email->execute([$utente->getEmail(), $utente->getID()])
+				or $stmt_email->rowCount() === 0
+			) {
+				DB::rollbackTransaction();
+				return null;
+			}
+		}
+
+		if (!$same_password) {
+			$stmt_password = DB::stmt("UPDATE utenti SET password = ? WHERE id = ?");
+			if (
+				!$stmt_password->execute([$utente->getPassword(), $utente->getID()])
+				or $stmt_password->rowCount() === 0
+			) {
+				DB::rollbackTransaction();
+				return null;
+			}
+		}
+
+		DB::commitTransaction();
+		return self::doRetrieveByID($utente->getID());
+	}
 
 	public static function doRetrieveByID(int $id): ?Utente {
 		$stmt = DB::stmt("SELECT id, nome, cognome, email, password FROM utenti WHERE id = ?");

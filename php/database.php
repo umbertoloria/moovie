@@ -25,6 +25,18 @@ class DB {
 		return self::$c->lastInsertId();
 	}
 
+	public static function beginTransaction() {
+		self::$c->beginTransaction();
+	}
+
+	public static function rollbackTransaction() {
+		self::$c->rollBack();
+	}
+
+	public static function commitTransaction() {
+		self::$c->commit();
+	}
+
 }
 
 DB::init();
