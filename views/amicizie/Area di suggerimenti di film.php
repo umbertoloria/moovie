@@ -4,7 +4,6 @@ if (empty($suggerimenti))
 	die("Non ci sono suggerimenti");
 $films = @$_REQUEST["films"];
 $users = @$_REQUEST["users"];
-
 ?>
 <div class="suggerimenti">
 	<ul>

@@ -25,6 +25,6 @@ else {
 	unset($films);
 	unset($users);
 
-	include "../../views/amicizie/___area_suggerimenti_di_film.php";
+	include "../../views/amicizie/Area di suggerimenti di film.php";
 
 }

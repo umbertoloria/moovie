@@ -71,7 +71,7 @@ $logged_user = Auth::getLoggedUser();
 			</li>
 			<script>
 				$("a[data-action='retrieve_film_suggestions']").click(function () {
-					$.get("/controllers/amicizie/___area_suggerimenti_di_film.php", function (output) {
+					$.get("/controllers/amicizie/Visualizza suggerimenti di film.php", function (output) {
 						Overlay.popup(output);
 					});
 				});
