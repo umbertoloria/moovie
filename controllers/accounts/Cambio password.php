@@ -19,7 +19,7 @@ elseif ($logged_user->getPassword() !== sha1($cur_pwd))
 	echo "La password attuale fornita non corrisponde";
 else {
 	$logged_user->setPassword(sha1($new_pwd));
-	$saved_user = AccountManager::doUpdate($logged_user);
+	$saved_user = AccountManager::update($logged_user);
 	if ($saved_user) {
 		unset($logged_user);
 		Auth::setLoggedUser($saved_user);

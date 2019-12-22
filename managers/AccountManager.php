@@ -21,17 +21,7 @@ class AccountManager {
 			return null;
 	}
 
-	public static function authenticate(string $email, string $password): ?Utente {
-		$stmt = DB::stmt("SELECT id, nome, cognome, email, password FROM utenti WHERE email = ? AND password = ?");
-		if ($stmt->execute([$email, sha1($password)]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
-			return new Utente($r["id"], $r["nome"], $r["cognome"], $r["email"], $r["password"]);
-		else
-			return null;
-	}
-
-	// AGGIUNTE
-
-	public static function doUpdate(Utente $utente): ?Utente {
+	public static function update(Utente $utente): ?Utente {
 
 		$utente_reale = self::doRetrieveByID($utente->getID());
 		if (!$utente_reale)
@@ -94,6 +84,16 @@ class AccountManager {
 		DB::commitTransaction();
 		return self::doRetrieveByID($utente->getID());
 	}
+
+	public static function authenticate(string $email, string $password): ?Utente {
+		$stmt = DB::stmt("SELECT id, nome, cognome, email, password FROM utenti WHERE email = ? AND password = ?");
+		if ($stmt->execute([$email, sha1($password)]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
+			return new Utente($r["id"], $r["nome"], $r["cognome"], $r["email"], $r["password"]);
+		else
+			return null;
+	}
+
+	// AGGIUNTE
 
 	public static function doRetrieveByID(int $id): ?Utente {
 		$stmt = DB::stmt("SELECT id, nome, cognome, email, password FROM utenti WHERE id = ?");

@@ -27,7 +27,7 @@ class ListaManager {
 
 	public static function update(Lista $lista): bool {
 		$stmt = DB::stmt("UPDATE liste SET nome = ?, visibilità = ? WHERE id = ?");
-		return $stmt->execute([$lista->getNome(), $lista->getVisibilità(), $lista->getID()]);
+		return $stmt->execute([$lista->getNome(), $lista->getVisibilità(), $lista->getID()]) and $stmt->rowCount() === 1;
 	}
 
 	public static function delete(int $list_id): bool {
