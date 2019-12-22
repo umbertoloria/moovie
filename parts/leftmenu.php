@@ -40,14 +40,18 @@ $logged_user = Auth::getLoggedUser();
 				<ul>
 					<?php
 					foreach (ListaManager::getAllOf($logged_user->getID()) as $lista) {
-						echo "<li><a href='/lista.php?id={$lista->getID()}'>";
+						echo "<li";
+						if ($uri == "/lista.php?id={$lista->getID()}")
+							echo " class='active'";
+						echo ">";
+						echo "<a href='/lista.php?id={$lista->getID()}'>";
 						echo $lista->getNome();
 						// FIXME: Evitare di sprecare memoria!
 						echo "<span>" . count(ListaManager::getFilmsOf($lista->getID())) . "</span>";
 						echo "</a></li>";
 					}
 					?>
-					<li class="add-more">
+					<li class="add-more <?php echo $uri == "/creazione_lista.php" ? "active" : ""; ?>">
 						<a href="/creazione_lista.php">
 							+ lista
 						</a>
