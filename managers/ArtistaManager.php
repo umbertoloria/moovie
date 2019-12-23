@@ -4,7 +4,7 @@ class ArtistaManager {
 
 	// AGGIUNTE
 
-	public static function doRetrieveByID(int $id): ?Artista {
+	public static function get_from_id(int $id): ?Artista {
 		$stmt = DB::stmt("
 				SELECT id, nome, nascita, descrizione
 				FROM artisti
@@ -38,6 +38,28 @@ class ArtistaManager {
 			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
 				$res[] = new Artista($r["id"], $r["nome"], $r["nascita"], $r["descrizione"]);
 		return $res;
+	}
+
+	public static function create(Artista $artista, $faccia_bin): ?Artista {
+		DB::beginTransaction();
+		$stmt1 = DB::stmt("INSERT INTO artisti (nome, nascita) VALUES (?, ?)");
+		if (!$stmt1->execute([$artista->getNome(), $artista->getNascita()])) {
+			DB::rollbackTransaction();
+			return null;
+		}
+		$artista_id = DB::lastInsertedID();
+		$stmt2 = DB::stmt("INSERT INTO artisti_descrizioni (artista, descrizione) VALUES (?, ?)");
+		if (!$stmt2->execute([$artista_id, $artista->getDescrizione()])) {
+			DB::rollbackTransaction();
+			return null;
+		}
+		$stmt3 = DB::stmt("INSERT INTO artisti_facce (artista, faccia) VALUES (?, ?)");
+		if (!$stmt3->execute([$artista_id, $faccia_bin])) {
+			DB::rollbackTransaction();
+			return null;
+		}
+		DB::commitTransaction();
+		return self::get_from_id($artista_id);
 	}
 
 }

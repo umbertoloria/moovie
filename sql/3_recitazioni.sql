@@ -4,8 +4,8 @@ create table recitazioni
     attore      int,
     personaggio varchar(100) not null,
     primary key (film, attore),
-    foreign key (film) references films (id) on update cascade,
-    foreign key (attore) references artisti (id) on update cascade
+    foreign key (film) references films (id) on update cascade on delete cascade,
+    foreign key (attore) references artisti (id) on update cascade on delete cascade
 );
 
 INSERT INTO recitazioni (film, attore, personaggio)

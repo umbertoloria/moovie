@@ -8,7 +8,7 @@ create table giudizi
     timestamp datetime default current_timestamp not null,
     primary key (utente, film),
     foreign key (utente) references utenti (id) on update cascade,
-    foreign key (film) references films (id) on update cascade
+    foreign key (film) references films (id) on update cascade on delete cascade
 );
 
 INSERT INTO giudizi (utente, film, timestamp, voto)
@@ -41,7 +41,7 @@ create table promemoria
     timestamp datetime default CURRENT_TIMESTAMP not null,
     primary key (utente, film),
     foreign key (utente) references utenti (id) on update cascade,
-    foreign key (film) references films (id) on update cascade
+    foreign key (film) references films (id) on update cascade on delete cascade
 );
 
 INSERT INTO promemoria (utente, film, timestamp)

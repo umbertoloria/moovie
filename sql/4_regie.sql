@@ -3,8 +3,8 @@ create table regie
     film    int,
     regista int,
     primary key (film, regista),
-    foreign key (film) references films (id) on update cascade,
-    foreign key (regista) references artisti (id) on update cascade
+    foreign key (film) references films (id) on update cascade on delete cascade,
+    foreign key (regista) references artisti (id) on update cascade on delete cascade
 );
 
 INSERT INTO regie (film, regista)

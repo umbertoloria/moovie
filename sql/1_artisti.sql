@@ -88,7 +88,7 @@ create table artisti_descrizioni
     artista     int  not null primary key,
     descrizione text not null,
     fulltext (descrizione),
-    foreign key (artista) references artisti (id) on update cascade
+    foreign key (artista) references artisti (id) on update cascade on delete cascade
 );
 
 INSERT INTO artisti_descrizioni (artista, descrizione)
@@ -173,7 +173,7 @@ create table artisti_facce
 (
     artista int        not null primary key,
     faccia  mediumblob not null,
-    foreign key (artista) references artisti (id) on update cascade
+    foreign key (artista) references artisti (id) on update cascade on delete cascade
 );
 
 INSERT INTO artisti_facce (artista, faccia)

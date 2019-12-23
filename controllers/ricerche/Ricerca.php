@@ -34,7 +34,7 @@ if ($kind === "movies" or $kind === "all") {
 		foreach ($result["generi"] as $genere_id)
 			$generi_cache[$genere_id] = null;
 
-		foreach (RecitazioneManager::doRetrieveByFilm($film->getID()) as $recitazione)
+		foreach (RecitazioneManager::get_from_film($film->getID()) as $recitazione)
 			$result["artisti"][] = $recitazione->getAttore();
 
 		foreach (RegiaManager::get_artisti_from_film($film->getID()) as $regista_id)
@@ -93,7 +93,7 @@ foreach ($generi_cache as $genere_id => $value)
 
 foreach ($artisti_cache as $artista_id => $value)
 	if (!$value)
-		$artisti_cache[$artista_id] = ArtistaManager::doRetrieveByID($artista_id);
+		$artisti_cache[$artista_id] = ArtistaManager::get_from_id($artista_id);
 
 $_REQUEST["risultati"] = $risultati;
 unset($risultati);

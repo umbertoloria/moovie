@@ -75,7 +75,6 @@ function Form(querySelector, validator) {
 	/** Valida immediatamente il field (se esiste), e se non c'è nessuno che sbircia, si aggiunge al keyup. */
 	this.inspectField = function (field) {
 		if (fields.hasOwnProperty(field)) {
-			console.log("inspecting " + field);
 			// Il field esiste
 			const fieldDOM = fields[field];
 			// Visto che lo sto mettendo adesso in ispezione, disattivo il "blur": altrimenti tenterà inutilmente

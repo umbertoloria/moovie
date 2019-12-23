@@ -20,4 +20,11 @@ $(function () {
 		e.stopPropagation();
 	});
 
+	$("a[data-confirm]").click(function (e) {
+		if (!confirm("Sei sicuro di voler proseguire?")) {
+			e.preventDefault();
+			e.stopPropagation();
+		}
+	});
+
 });

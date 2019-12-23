@@ -8,7 +8,7 @@ if (!isset($_GET["id"]))
 	$result["status"] = "ID is required";
 elseif (!ctype_digit($_GET["id"]))
 	$result["status"] = "ID must be an INT";
-elseif (!$artista = ArtistaManager::doRetrieveByID($_GET["id"]))
+elseif (!$artista = ArtistaManager::get_from_id($_GET["id"]))
 	$result["status"] = "Artist is not present";
 else {
 	$result["id"] = $artista->getID();

@@ -3,7 +3,6 @@ $films = @$_REQUEST["films"];
 $giudizi = @$_REQUEST["giudizi"];
 if (count($giudizi) > 0) {
 	?>
-
 	<div class="dashboard">
 		<label>Giudizi</label>
 		<ul class="foto_pv">
@@ -19,15 +18,15 @@ if (count($giudizi) > 0) {
 						<span><?php echo $film->getTitolo(); ?></span>
 					</a>
 					<div>
-						<label>
+						<a>
 							<?php echo $giudizio->getVoto(); ?>
-						</label>
-						<label data-action="edit" data-id="<?php echo $film->getID(); ?>">
+						</a>
+						<a data-action="edit" data-id="<?php echo $film->getID(); ?>">
 							Edit
-						</label>
-						<label data-action="drop" data-id="<?php echo $film->getID(); ?>">
+						</a>
+						<a href="/controllers/film/Rimuovi giudizio.php?id=<?php echo $film->getID(); ?>">
 							Drop
-						</label>
+						</a>
 					</div>
 				</li>
 				<?php
@@ -35,22 +34,17 @@ if (count($giudizi) > 0) {
 			?>
 		</ul>
 	</div>
-
 	<script>
-
-		$(".dashboard label[data-action='edit']").click(function () {
+		$(".dashboard [data-action='edit']").click(function () {
 			$.get("/controllers/film/___form_di_modifica_giudizio.php", "id=" + $(this).attr("data-id"), function (output) {
 				Overlay.popup(output);
 			});
 		});
-
-		$(".dashboard label[data-action='drop']").click(function () {
+		$(".dashboard [data-action='drop']").click(function () {
 			location.href = "/controllers/film/Rimuovi giudizio.php?id=" + $(this).attr("data-id");
 		});
-
 	</script>
-
 	<?php
 } else {
-	echo "<p>Non ci sono film</p>";
+	echo "<h1>Non ci sono giudizi</h1>";
 }

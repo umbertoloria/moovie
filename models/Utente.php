@@ -13,13 +13,16 @@ class Utente {
 	private $email;
 	/** @var string */
 	private $password;
+	/** @var bool */
+	private $gestore;
 
-	public function __construct(int $id, string $nome, string $cognome, string $email, string $password) {
+	public function __construct(int $id, string $nome, string $cognome, string $email, string $password, bool $gestore = false) {
 		$this->id = $id;
 		$this->nome = $nome;
 		$this->cognome = $cognome;
 		$this->email = $email;
 		$this->password = $password;
+		$this->gestore = $gestore;
 	}
 
 	public function getID(): int {
@@ -44,6 +47,14 @@ class Utente {
 
 	public function setPassword(string $password) {
 		$this->password = $password;
+	}
+
+	public function isGestore(): bool {
+		return $this->gestore;
+	}
+
+	public function setGestore(bool $gestore) {
+		$this->gestore = $gestore;
 	}
 
 }

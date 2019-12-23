@@ -1,20 +1,32 @@
-.form fieldset {
+.form {
 	width: 700px;
+	margin: auto;
+}
+
+.form fieldset {
 	border: 0;
-	padding: 0;
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-column-gap: 30px;
+	padding: 20px;
+	margin: 0px;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .form fieldset label {
 	display: block;
-	margin-bottom: 20px;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.form fieldset label {
+	width: 50%;
 }
 
 .form fieldset label:last-child {
 	margin-bottom: 0;
+}
+
+.form fieldset label.fullrow {
+	width: 100%;
 }
 
 .form fieldset label span {
@@ -26,19 +38,26 @@
 .form fieldset label .input {
 	width: 100%;
 	height: 40px;
-	padding: 0;
+	padding: 0 10px;
 	text-align: center;
+	background: #fff;
 	border: 3px solid var(--background);
 	border-radius: 5px;
 	box-sizing: border-box;
 	transition: .3s;
 }
 
-.form fieldset label p {
-	display: block;
-	padding: 0 10px;
-	margin: 10px 0 0 0;
-	color: var(--error-color);
+.form fieldset label textarea.input {
+	padding: 10px;
+	text-align: left;
+	min-height: 100px;
+	resize: vertical;
+	transition: resize 0s, border-color 0.3s;
+}
+
+.form fieldset label input[type='file'].input {
+	padding-top: 6px;
+	text-align: left;
 }
 
 .form fieldset label .input:hover {
@@ -47,6 +66,13 @@
 
 .form fieldset label .input:focus {
 	border-color: var(--super-color);
+}
+
+.form fieldset label p {
+	display: block;
+	padding: 0 10px;
+	margin: 10px 0 0 0;
+	color: var(--error-color);
 }
 
 form .button {

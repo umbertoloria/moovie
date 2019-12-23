@@ -44,6 +44,21 @@ $logged_user = Auth::getLoggedUser();
 				</a>
 			</li>
 			<?php
+			if ($logged_user->isGestore()) {
+				?>
+				<li>
+					<a>Gestisci...</a>
+					<ul>
+						<li <?php echo $uri == "/___aggiungi_un_film.php" ? " class='active'" : ""; ?>>
+							<a href="/___aggiungi_un_film.php">+ film</a>
+						</li>
+						<li <?php echo $uri == "/___aggiungi_un_artista.php" ? " class='active'" : ""; ?>>
+							<a href="/___aggiungi_un_artista.php">+ artista</a>
+						</li>
+					</ul>
+				</li>
+				<?php
+			}
 		}
 		?>
 	</ul>

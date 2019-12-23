@@ -15,13 +15,9 @@ $films_voti = $_REQUEST["films_voti"];
 			echo "<span>{$film->getTitolo()}</span>";
 			echo "</a>";
 			if ($voto) {
-				echo "<div>";
-				echo "<label>";
-				echo $voto;
-				echo "</label>";
-				echo "</div>";
-				echo "</li>";
+				echo "<div><a>$voto</a></div>";
 			}
+			echo "</li>";
 		}
 		?>
 	</ul>

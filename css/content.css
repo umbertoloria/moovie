@@ -115,7 +115,7 @@ header .actions a:hover {
 	display: block;
 }
 
-.dashboard ul.info_pv li a {
+.dashboard ul.info_pv > li > a {
 	display: block;
 	padding: 0 20px;
 	line-height: 50px;
@@ -176,7 +176,7 @@ header .actions a:hover {
 	font-size: 1.1em;
 }
 
-.dashboard ul.foto_pv li div label {
+.dashboard ul.foto_pv li div a {
 	display: block;
 	margin-left: 5px;
 
@@ -188,16 +188,18 @@ header .actions a:hover {
 	background: var(--super-color);
 }
 
-.dashboard ul.foto_pv li div label:first-child {
+.dashboard ul.foto_pv li div a:first-child {
 	margin-left: 0;
 }
 
-.dashboard ul.foto_pv li div label[data-action] {
+.dashboard ul.foto_pv li div a[href],
+.dashboard ul.foto_pv li div a[data-action] {
 	font-size: 0.75em;
 	transition: .3s;
 	cursor: pointer;
 }
 
-.dashboard ul.foto_pv li div label[data-action]:hover {
+.dashboard ul.foto_pv li div a[href]:hover,
+.dashboard ul.foto_pv li div a[data-action]:hover {
 	background: var(--error-color);
 }

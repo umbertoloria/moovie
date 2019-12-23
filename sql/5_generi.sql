@@ -35,8 +35,8 @@ create table film_has_genere
     film   int,
     genere int,
     primary key (film, genere),
-    foreign key (film) references films (id) on update cascade,
-    foreign key (genere) references generi (id) on update cascade
+    foreign key (film) references films (id) on update cascade on delete cascade,
+    foreign key (genere) references generi (id) on update cascade on delete cascade
 );
 
 INSERT INTO film_has_genere (film, genere)

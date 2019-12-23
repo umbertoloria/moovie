@@ -15,7 +15,11 @@ $show_actions = @$_REQUEST["show_actions"];
 				if (in_array("add_giudizio", $show_actions))
 					echo "<a data-action='add_giudizio'>+ giudizi</a>";
 				if (in_array("add_promemoria", $show_actions))
-					echo "<a data-action='add_promemoria'>+ promemoria</a>";
+					echo "<a href='/controllers/film/___aggiungi_promemoria.php?film_id={$film->getID()}'>+ promemoria</a>";
+				if (in_array("update", $show_actions))
+					echo "<a href='/___modifica_un_film.php?id={$film->getID()}'>modifica</a>";
+				if (in_array("delete", $show_actions))
+					echo "<a href='/controllers/gestione/___rimuovi_film.php?film_id={$film->getID()}' data-confirm>rimuovi</a>";
 				echo "</div>";
 			}
 			?>
@@ -76,7 +80,6 @@ foreach ($orders as $order) {
 if (!empty($show_actions)) {
 	?>
 	<script>
-
 		<?php if (in_array("add_giudizio", $show_actions)) { ?>
 		$(".actions a[data-action='add_giudizio']").click(function () {
 			$.get("/controllers/film/___form_di_aggiunta_giudizio.php", "id=<?php echo $film->getID(); ?>", function (output) {
@@ -84,14 +87,6 @@ if (!empty($show_actions)) {
 			});
 		});
 		<?php } ?>
-
-		<?php if (in_array("add_promemoria", $show_actions)) { ?>
-		$(".actions a[data-action='add_promemoria']").click(function () {
-			location.href = "/controllers/film/___aggiungi_promemoria.php?film_id=<?php echo $film->getID(); ?>";
-		});
-		<?php } ?>
-
 	</script>
-
 	<?php
 }

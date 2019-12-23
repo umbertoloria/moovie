@@ -51,7 +51,7 @@ create table films_descrizioni
         primary key,
     descrizione text not null,
     fulltext (descrizione),
-    foreign key (film) references films (id) on update cascade
+    foreign key (film) references films (id) on update cascade on delete cascade
 );
 
 INSERT INTO films_descrizioni (film, descrizione)
@@ -110,7 +110,7 @@ create table films_copertine
     film      int        not null
         primary key,
     copertina mediumblob not null,
-    foreign key (film) references films (id) on update cascade
+    foreign key (film) references films (id) on update cascade on delete cascade
 );
 
 INSERT INTO films_copertine (film, copertina)

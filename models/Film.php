@@ -1,6 +1,6 @@
 <?php
 
-/** @author Gianluca Pirone */
+/** @author Gianluca Pirone, Umberto Loria */
 class Film
 {
 
@@ -34,9 +34,19 @@ class Film
 		return $this->titolo;
 	}
 
+	public function setTitolo(string $titolo)
+	{
+		$this->titolo = $titolo;
+	}
+
 	public function getDurata(): int
 	{
 		return $this->durata;
+	}
+
+	public function setDurata(int $durata)
+	{
+		$this->durata = $durata;
 	}
 
 	public function getAnno(): int
@@ -44,9 +54,19 @@ class Film
 		return $this->anno;
 	}
 
+	public function setAnno(int $anno)
+	{
+		$this->anno = $anno;
+	}
+
 	public function getDescrizione(): string
 	{
 		return $this->descrizione;
+	}
+
+	public function setDescrizione(string $descrizione)
+	{
+		$this->descrizione = $descrizione;
 	}
 
 }

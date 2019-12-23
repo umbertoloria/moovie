@@ -1,7 +1,7 @@
 <?php
 // Visualizza artista
 include "parts/initial_page.php";
-$artista = ArtistaManager::doRetrieveByID(@$_GET["id"]);
+$artista = ArtistaManager::get_from_id(@$_GET["id"]);
 if (!$artista) {
 	header("Location: /404.php");
 	die();
