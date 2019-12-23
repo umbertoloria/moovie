@@ -1,0 +1,48 @@
+#timeline {
+	position: relative;
+}
+
+#timeline::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 13px;
+	width: 4px;
+	height: 100%;
+	background: #bbb;
+	z-index: -1;
+}
+
+#timeline div {
+	margin-bottom: 20px;
+	display: grid;
+	grid-template-columns: 30px auto auto;
+	grid-gap: 10px;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+#timeline div:last-child {
+	margin-bottom: 0;
+}
+
+#timeline div span {
+	background: #bbb;
+	border-radius: 100%;
+	box-shadow: 0 0 0 5px #ddd;
+	width: 30px;
+	line-height: 30px;
+	height: 30px;
+	text-align: center;
+}
+
+#timeline div p {
+	margin: 0;
+}
+
+#timeline div time {
+	display: block;
+	border-radius: 2px;
+	color: #555;
+}

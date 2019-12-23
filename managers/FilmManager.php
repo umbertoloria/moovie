@@ -2,9 +2,7 @@
 
 class FilmManager {
 
-	// AGGIUNTE
-
-	public static function doRetrieveByID(int $id): ?Film {
+	public static function get_from_id(int $id): ?Film {
 		$stmt = DB::stmt(
 			"SELECT id, titolo, durata, anno, descrizione
 				FROM films
@@ -13,14 +11,6 @@ class FilmManager {
 				WHERE id = ?");
 		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Film($r["id"], $r["titolo"], $r["durata"], $r["anno"], $r["descrizione"]);
-		else
-			return null;
-	}
-
-	public static function downloadCopertina(int $id) {
-		$stmt = DB::stmt("SELECT copertina FROM films_copertine WHERE film = ?");
-		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
-			return $r["copertina"];
 		else
 			return null;
 	}
@@ -38,6 +28,16 @@ class FilmManager {
 			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
 				$res[] = new Film($r["id"], $r["titolo"], $r["durata"], $r["anno"], $r["descrizione"]);
 		return $res;
+	}
+
+	// AGGIUNTE
+
+	public static function downloadCopertina(int $id) {
+		$stmt = DB::stmt("SELECT copertina FROM films_copertine WHERE film = ?");
+		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
+			return $r["copertina"];
+		else
+			return null;
 	}
 
 	public static function getClassifica(): array {

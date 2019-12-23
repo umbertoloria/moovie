@@ -10,7 +10,7 @@ $films = [];
 $genere_films = GenereManager::get_films_from_genere($genere->getID());
 foreach ($genere_films as $film_id)
 	if (!isset($films[$film_id]))
-		$films[$film_id] = FilmManager::doRetrieveByID($film_id);
+		$films[$film_id] = FilmManager::get_from_id($film_id);
 $_REQUEST["genere"] = $genere;
 $_REQUEST["films"] = $films;
 $_REQUEST["genere_films"] = $genere_films;

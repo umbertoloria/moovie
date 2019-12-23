@@ -21,13 +21,21 @@ class GiudizioManager {
 	// AGGIUNTE
 
 	/** @return Giudizio[] */
-	public static function getAllOf(int $utente): array {
+	public static function getAllOf(array $utenti): array {
+		$where_clause = "";
+		$parameters = [];
+		if (count($utenti) > 0) {
+			$primo_utente = array_pop($utenti);
+			$where_clause .= "WHERE utente = ?";
+			$parameters = [$primo_utente];
+			foreach ($utenti as $utente) {
+				$where_clause .= " OR utente = ?";
+				$parameters[] = $utente;
+			}
+		}
 		$res = [];
-		$stmt = DB::stmt(
-			"SELECT utente, film, voto, timestamp
-			FROM giudizi WHERE utente = ?
-			ORDER BY timestamp DESC");
-		if ($stmt->execute([$utente]))
+		$stmt = DB::stmt("SELECT utente, film, voto, timestamp FROM giudizi $where_clause ORDER BY timestamp DESC");
+		if ($stmt->execute($parameters))
 			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
 				$res[] = new Giudizio($r["utente"], $r["film"], $r["voto"], $r["timestamp"]);
 		return $res;

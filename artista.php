@@ -1,4 +1,5 @@
 <?php
+// Visualizza artista
 include "parts/initial_page.php";
 $artista = ArtistaManager::doRetrieveByID(@$_GET["id"]);
 if (!$artista) {
@@ -10,13 +11,13 @@ $films = [];
 $recitazioni = RecitazioneManager::doRetrieveByAttore($artista->getID());
 foreach ($recitazioni as $recitazione) {
 	if (!array_key_exists($recitazione->getFilm(), $films)) {
-		$films[$recitazione->getFilm()] = FilmManager::doRetrieveByID($recitazione->getFilm());
+		$films[$recitazione->getFilm()] = FilmManager::get_from_id($recitazione->getFilm());
 	}
 }
 $registi = RegiaManager::get_films_from_artista($artista->getID());
 foreach ($registi as $regista) {
 	if (!array_key_exists($regista, $films)) {
-		$films[$regista] = FilmManager::doRetrieveByID($regista);
+		$films[$regista] = FilmManager::get_from_id($regista);
 	}
 }
 $_REQUEST["artista"] = $artista;

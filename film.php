@@ -1,6 +1,7 @@
 <?php
+// Visualizza film
 include "parts/initial_page.php";
-$film = FilmManager::doRetrieveByID(@$_GET["id"]);
+$film = FilmManager::get_from_id(@$_GET["id"]);
 if (!$film) {
 	header("Location: /404.php");
 	die();

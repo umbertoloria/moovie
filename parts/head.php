@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="/css/risultati_di_ricerca.css"/>
 	<link rel="stylesheet" href="/css/items_selecter.css"/>
 	<link rel="stylesheet" href="/css/overlay.css"/>
+	<link rel="stylesheet" href="/css/timeline.css"/>
 	<script src="/js/jquery-3.4.1.min.js"></script>
 	<script src="/js/dropdown-selecter.js"></script>
 	<script src="/js/form.js"></script>

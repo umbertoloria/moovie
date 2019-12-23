@@ -85,7 +85,7 @@ unset($fulltext);
 
 foreach ($films_cache as $film_id => $value)
 	if (!$value)
-		$films_cache[$film_id] = FilmManager::doRetrieveByID($film_id);
+		$films_cache[$film_id] = FilmManager::get_from_id($film_id);
 
 foreach ($generi_cache as $genere_id => $value)
 	if (!$value)
