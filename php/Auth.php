@@ -6,7 +6,7 @@ class Auth {
 
 	public static function init() {
 		if (isset($_COOKIE["userid"]))
-			self::$user_cache = AccountManager::doRetrieveByID($_COOKIE["userid"]);
+			self::$user_cache = AccountManager::get_from_id($_COOKIE["userid"]);
 	}
 
 	/** @return Utente? */

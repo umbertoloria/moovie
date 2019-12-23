@@ -59,7 +59,7 @@ menu ul li.active a {
 
 menu ul li a span {
 	position: absolute;
-	top: 5px;
+	top: 6px;
 	right: 10px;
 	width: 20px;
 	font-size: 0.9em;

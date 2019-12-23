@@ -1,16 +1,16 @@
 <?php
 $films = @$_REQUEST["films"];
-$film_guardati = @$_REQUEST["film_guardati"];
-if (count($film_guardati) > 0) {
+$giudizi = @$_REQUEST["giudizi"];
+if (count($giudizi) > 0) {
 	?>
 
 	<div class="dashboard">
-		<label>Film guardati</label>
+		<label>Giudizi</label>
 		<ul class="foto_pv">
 			<?php
-			foreach ($film_guardati as $film_guardato) {
-				assert($film_guardato instanceof FilmGuardato);
-				$film = $films[$film_guardato->getFilm()];
+			foreach ($giudizi as $giudizio) {
+				assert($giudizio instanceof Giudizio);
+				$film = $films[$giudizio->getFilm()];
 				assert($film instanceof Film);
 				?>
 				<li>
@@ -20,7 +20,7 @@ if (count($film_guardati) > 0) {
 					</a>
 					<div>
 						<label>
-							<?php echo $film_guardato->getVoto(); ?>
+							<?php echo $giudizio->getVoto(); ?>
 						</label>
 						<label data-action="edit" data-id="<?php echo $film->getID(); ?>">
 							Edit
@@ -45,7 +45,7 @@ if (count($film_guardati) > 0) {
 		});
 
 		$(".dashboard label[data-action='drop']").click(function () {
-			location.href = "/controllers/film/Rimuovi film guardato.php?id=" + $(this).attr("data-id");
+			location.href = "/controllers/film/Rimuovi giudizio.php?id=" + $(this).attr("data-id");
 		});
 
 	</script>

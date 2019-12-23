@@ -1,7 +1,6 @@
 <?php
 $utente = $_REQUEST["utente"];
 assert($utente instanceof Utente);
-$liste = $_REQUEST["liste"];
 $show_actions = @$_REQUEST["show_actions"];
 ?>
 	<header>
@@ -26,21 +25,6 @@ $show_actions = @$_REQUEST["show_actions"];
 			?>
 		</div>
 	</header>
-	<div class="dashboard">
-		<label>Liste</label>
-		<ul class="info_pv">
-			<?php
-			foreach ($liste as $lista) {
-				assert($lista instanceof Lista);
-				echo "<li>";
-				echo "<a href='/lista.php?id={$lista->getID()}'>";
-				echo $lista->getNome();
-				echo "</a>";
-				echo "</li>";
-			}
-			?>
-		</ul>
-	</div>
 <?php
 if (!empty($show_actions)) {
 	?>

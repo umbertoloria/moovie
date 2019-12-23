@@ -18,14 +18,14 @@ elseif (!ctype_digit($id))
 	echo "dammi un numero per id";
 else {
 
-	$film_guardato = new FilmGuardato(
+	$tmp_giudizio = new Giudizio(
 		$logged_user->getID(),
 		$id,
 		$voto,
 		""
 	);
 
-	if (FilmGuardatiManager::save($film_guardato))
+	if (GiudizioManager::create($tmp_giudizio))
 		header("Location: /film.php?id=" . $id);
 	else
 		echo "Errore interno";

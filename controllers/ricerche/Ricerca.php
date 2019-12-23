@@ -103,15 +103,4 @@ $_REQUEST["generi"] = $generi_cache;
 unset($generi_cache);
 $_REQUEST["artisti"] = $artisti_cache;
 unset($artisti_cache);
-/*
-echo "<pre>ARTISTI\n";
-var_dump($_REQUEST["artisti"]);
-echo "</pre>";
-echo "<pre>FILMS\n";
-var_dump($_REQUEST["films"]);
-echo "</pre>";
-echo "<pre>RISULTATI\n";
-var_dump($_REQUEST["risultati"]);
-echo "</pre>";
-*/
 include "../../views/ricerche/Risultati di ricerca.php";

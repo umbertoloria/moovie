@@ -9,12 +9,7 @@ class AmiciziaManager {
 			"SELECT utente_from, utente_to, timestamp_richiesta, timestamp_accettazione
 				FROM amicizie WHERE utente_from = ? AND utente_to = ?");
 		if ($stmt->execute([$user_from, $user_to]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
-			return new Amicizia(
-				$r["utente_from"],
-				$r["utente_to"],
-				$r["timestamp_richiesta"],
-				$r["timestamp_accettazione"]
-			);
+			return new Amicizia($r["utente_from"], $r["utente_to"], $r["timestamp_richiesta"], $r["timestamp_accettazione"]);
 		else
 			return null;
 	}
@@ -27,12 +22,7 @@ class AmiciziaManager {
 				FROM amicizie WHERE timestamp_accettazione IS NOT NULL AND (utente_from = ? OR utente_to = ?)");
 		if ($stmt->execute([$user_id, $user_id]))
 			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
-				$res[] = new Amicizia(
-					$r["utente_from"],
-					$r["utente_to"],
-					$r["timestamp_richiesta"],
-					$r["timestamp_accettazione"]
-				);
+				$res[] = new Amicizia($r["utente_from"], $r["utente_to"], $r["timestamp_richiesta"], $r["timestamp_accettazione"]);
 		return $res;
 	}
 
@@ -44,12 +34,7 @@ class AmiciziaManager {
 				FROM amicizie WHERE timestamp_accettazione IS NULL AND (utente_from = ? OR utente_to = ?)");
 		if ($stmt->execute([$user_id, $user_id]))
 			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
-				$res[] = new Amicizia(
-					$r["utente_from"],
-					$r["utente_to"],
-					$r["timestamp_richiesta"],
-					null
-				);
+				$res[] = new Amicizia($r["utente_from"], $r["utente_to"], $r["timestamp_richiesta"], null);
 		return $res;
 	}
 
@@ -106,48 +91,6 @@ class AmiciziaManager {
 			"DELETE FROM amicizie WHERE timestamp_accettazione IS NOT NULL
 				AND (utente_from = ? AND utente_to = ?) OR (utente_from = ? AND utente_to = ?)");
 		return $stmt->execute([$user1, $user2, $user2, $user1]) and $stmt->rowCount() === 1;
-	}
-
-	// SUGGERIMENTI
-
-	/** @param int[] $friend_to_suggest_ids */
-	public static function suggest(int $user_id, string $film_id, array $friend_to_suggest_ids): bool {
-		// TODO: Transazione
-		// FIXME: Controlla se esiste questo film
-		assert(!in_array($user_id, $friend_to_suggest_ids));
-		foreach ($friend_to_suggest_ids as $friend_to_suggest_id)
-			// FIXME: Spreco di memoria!
-			assert(self::existsFriendshipBetween($user_id, $friend_to_suggest_id));
-
-		$errors = [];
-		foreach ($friend_to_suggest_ids as $friend_to_suggest_id) {
-			$stmt = DB::stmt("INSERT INTO suggerimenti_film SET utente_from = ?, utente_to = ?, film = ?");
-			if (!$stmt->execute([$user_id, $friend_to_suggest_id, $film_id]))
-				$errors[] = "impossibile suggerire il film {$film_id} all'utente {$friend_to_suggest_id}";
-		}
-
-		return $errors === [];
-
-	}
-
-	/** @return SuggerimentoFilm[] */
-	public static function getSuggestionsTo(int $user_id): array {
-		$res = [];
-		$stmt = DB::stmt("SELECT utente_from, utente_to, film, timestamp FROM suggerimenti_film WHERE utente_to = ?");
-		if ($stmt->execute([$user_id]))
-			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
-				$res[] = new SuggerimentoFilm($r["utente_from"], $r["utente_to"], $r["film"], $r["timestamp"]);
-		return $res;
-	}
-
-	public static function dropSuggestion(int $user_from, int $user_to, int $film_id): bool {
-		$stmt = DB::stmt("DELETE FROM suggerimenti_film WHERE utente_from = ? AND utente_to = ? AND film = ?");
-		return $stmt->execute([$user_from, $user_to, $film_id]) and $stmt->rowCount() === 1;
-	}
-
-	public static function existsSuggestion(int $user_from, int $user_to, int $film): bool {
-		$stmt = DB::stmt("SELECT * FROM suggerimenti_film WHERE utente_from = ? AND utente_to = ? AND film = ?");
-		return $stmt->execute([$user_from, $user_to, $film]) and $stmt->rowCount() === 1;
 	}
 
 }

@@ -1,21 +1,18 @@
 <?php
 
 /** @author Umberto Loria */
-class FilmGuardato {
+class Promemoria {
 
 	/** @var int */
 	private $utente;
 	/** @var int */
 	private $film;
-	/** @var float */
-	private $voto;
 	/** @var string */
 	private $timestamp;
 
-	public function __construct(int $utente, int $film, float $voto, string $timestamp) {
+	public function __construct(int $utente, int $film, string $timestamp) {
 		$this->utente = $utente;
 		$this->film = $film;
-		$this->voto = $voto;
 		$this->timestamp = $timestamp;
 	}
 
@@ -25,10 +22,6 @@ class FilmGuardato {
 
 	public function getFilm(): int {
 		return $this->film;
-	}
-
-	public function getVoto(): float {
-		return $this->voto;
 	}
 
 	public function getTimestamp(): string {

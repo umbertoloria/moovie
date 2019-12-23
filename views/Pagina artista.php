@@ -59,4 +59,3 @@ foreach ($orders as $order) {
 	echo "</ul>";
 	echo "</div>";
 }
-// TODO: colleghi più collegati

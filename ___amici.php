@@ -13,7 +13,7 @@ foreach ($amicizie_strette as $amicizia) {
 		? $amicizia->getUtenteTo()
 		: $amicizia->getUtenteFrom();
 	if (!isset($utenti[$uid]))
-		$utenti[$uid] = AccountManager::doRetrieveByID($uid);
+		$utenti[$uid] = AccountManager::get_from_id($uid);
 }
 $_REQUEST["amicizie_strette"] = $amicizie_strette;
 unset($amicizie_strette);
@@ -24,7 +24,7 @@ foreach ($amicizie_richieste as $amicizia) {
 		? $amicizia->getUtenteTo()
 		: $amicizia->getUtenteFrom();
 	if (!isset($utenti[$uid]))
-		$utenti[$uid] = AccountManager::doRetrieveByID($uid);
+		$utenti[$uid] = AccountManager::get_from_id($uid);
 }
 $_REQUEST["amicizie_richieste"] = $amicizie_richieste;
 unset($amicizie_richieste);

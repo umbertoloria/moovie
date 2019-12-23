@@ -10,20 +10,22 @@ class AccountManager {
 	public static function create(Utente $utente): ?Utente {
 		$stmt = DB::stmt("INSERT INTO utenti (nome, cognome, email, password) VALUES (?, ?, ?, ?)");
 		if ($stmt->execute([$utente->getNome(), $utente->getCognome(), $utente->getEmail(), $utente->getPassword()]))
-			return new Utente(
-				DB::lastInsertedID(),
-				$utente->getNome(),
-				$utente->getCognome(),
-				$utente->getEmail(),
-				$utente->getPassword()
-			);
+			return self::get_from_id(DB::lastInsertedID());
+		else
+			return null;
+	}
+
+	public static function get_from_id(int $id): ?Utente {
+		$stmt = DB::stmt("SELECT id, nome, cognome, email, password FROM utenti WHERE id = ?");
+		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
+			return new Utente($r["id"], $r["nome"], $r["cognome"], $r["email"], $r["password"]);
 		else
 			return null;
 	}
 
 	public static function update(Utente $utente): ?Utente {
 
-		$utente_reale = self::doRetrieveByID($utente->getID());
+		$utente_reale = self::get_from_id($utente->getID());
 		if (!$utente_reale)
 			return null;
 
@@ -82,22 +84,12 @@ class AccountManager {
 		}
 
 		DB::commitTransaction();
-		return self::doRetrieveByID($utente->getID());
+		return self::get_from_id($utente->getID());
 	}
 
 	public static function authenticate(string $email, string $password): ?Utente {
 		$stmt = DB::stmt("SELECT id, nome, cognome, email, password FROM utenti WHERE email = ? AND password = ?");
 		if ($stmt->execute([$email, sha1($password)]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
-			return new Utente($r["id"], $r["nome"], $r["cognome"], $r["email"], $r["password"]);
-		else
-			return null;
-	}
-
-	// AGGIUNTE
-
-	public static function doRetrieveByID(int $id): ?Utente {
-		$stmt = DB::stmt("SELECT id, nome, cognome, email, password FROM utenti WHERE id = ?");
-		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Utente($r["id"], $r["nome"], $r["cognome"], $r["email"], $r["password"]);
 		else
 			return null;

@@ -14,11 +14,19 @@ $logged_user = Auth::getLoggedUser();
 			<li>
 				<a>Suggeriscimi un film</a>
 			</li>
-			<li <?php echo $uri == "/___film_da_guardare.php" ? " class='active'" : ""; ?>>
-				<a href='/___film_da_guardare.php'>Film da guardare</a>
+			<li <?php echo $uri == "/giudizi.php" ? " class='active'" : ""; ?>>
+				<a href='/giudizi.php'>Giudizi</a>
 			</li>
-			<li <?php echo $uri == "/film_guardati.php" ? " class='active'" : ""; ?>>
-				<a href='/film_guardati.php'>Film guardati</a>
+			<li <?php echo $uri == "/___promemoria.php" ? " class='active'" : ""; ?>>
+				<a href='/___promemoria.php'>
+					Promemoria
+					<?php
+					$numero_promemoria = count(PromemoriaManager::get($logged_user->getID()));
+					if ($numero_promemoria > 0)
+						echo "<span>$numero_promemoria</span>";
+					unset($numero_promemoria);
+					?>
+				</a>
 			</li>
 			<li <?php echo $uri == "/___amici.php" ? " class='active'" : ""; ?>>
 				<a href='/___amici.php'>
@@ -35,50 +43,7 @@ $logged_user = Auth::getLoggedUser();
 					?>
 				</a>
 			</li>
-			<li>
-				<a>Le liste</a>
-				<ul>
-					<?php
-					foreach (ListaManager::getAllOf($logged_user->getID()) as $lista) {
-						echo "<li";
-						if ($uri == "/lista.php?id={$lista->getID()}")
-							echo " class='active'";
-						echo ">";
-						echo "<a href='/lista.php?id={$lista->getID()}'>";
-						echo $lista->getNome();
-						// FIXME: Evitare di sprecare memoria!
-						echo "<span>" . count(ListaManager::getFilmsOf($lista->getID())) . "</span>";
-						echo "</a></li>";
-					}
-					?>
-					<li class="add-more <?php echo $uri == "/creazione_lista.php" ? "active" : ""; ?>">
-						<a href="/creazione_lista.php">
-							+ lista
-						</a>
-					</li>
-				</ul>
-			</li>
-		<?php
-		// FIXME: Non sprecare memoria!
-		$num_suggerimenti = count(AmiciziaManager::getSuggestionsTo($logged_user->getID()));
-		if ($num_suggerimenti > 0) {
-		?>
-			<li>
-				<a data-action='retrieve_film_suggestions'>
-					Suggerimenti
-					<span><?php echo $num_suggerimenti; ?></span>
-				</a>
-			</li>
-			<script>
-				$("a[data-action='retrieve_film_suggestions']").click(function () {
-					$.get("/controllers/amicizie/Visualizza suggerimenti di film.php", function (output) {
-						Overlay.popup(output);
-					});
-				});
-			</script>
 			<?php
-		}
-			unset($num_suggerimenti);
 		}
 		?>
 	</ul>

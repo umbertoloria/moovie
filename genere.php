@@ -1,24 +1,20 @@
 <?php
 include "parts/initial_page.php";
-$id = @$_GET["id"];
-if ($id === null) {
-	echo "non mi hai dato un id";
-} elseif (!ctype_digit($id)) {
-	echo "dammi un numero per id";
-} elseif (!$genere = GenereManager::doRetrieveByID($id)) {
-	echo "genere non trovato";
-} else {
-	$genere_films = GenereManager::get_films_from_genere($genere->getID());
-	$films = [];
-	foreach ($genere_films as $film_id)
-		if (!isset($films[$film_id]))
-			$films[$film_id] = FilmManager::doRetrieveByID($film_id);
-	$_REQUEST["genere"] = $genere;
-	$_REQUEST["genere_films"] = $genere_films;
-	$_REQUEST["films"] = $films;
-	unset($id);
-	unset($genere);
-	unset($genere_films);
-	unset($films);
-	include "views/Pagina genere.php";
+$genere = GenereManager::doRetrieveByID(@$_GET["id"]);
+if (!$genere) {
+	header("Location: /404.php");
+	die();
 }
+
+$films = [];
+$genere_films = GenereManager::get_films_from_genere($genere->getID());
+foreach ($genere_films as $film_id)
+	if (!isset($films[$film_id]))
+		$films[$film_id] = FilmManager::doRetrieveByID($film_id);
+$_REQUEST["genere"] = $genere;
+$_REQUEST["films"] = $films;
+$_REQUEST["genere_films"] = $genere_films;
+unset($genere);
+unset($films);
+unset($genere_films);
+include "views/Pagina genere.php";

@@ -8,11 +8,11 @@ if (!$logged_user)
 else {
 	$id = $_GET["id"];
 	$_REQUEST["id"] = $id;
-	$film_guardato = FilmGuardatiManager::doRetrieveByUtenteAndFilm($logged_user->getID(), $id);
-	$_REQUEST["selected"] = $film_guardato->getVoto();
+	$giudizio = GiudizioManager::doRetrieveByUtenteAndFilm($logged_user->getID(), $id);
+	$_REQUEST["selected"] = $giudizio->getVoto();
 	unset($logged_user);
 	unset($_GET['id']);
 	unset($id);
-	unset($film_guardato);
+	unset($giudizio);
 	include "../../views/film/Form di modifica giudizio.php";
 }

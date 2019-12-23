@@ -193,6 +193,7 @@ header .actions a:hover {
 }
 
 .dashboard ul.foto_pv li div label[data-action] {
+	font-size: 0.75em;
 	transition: .3s;
 	cursor: pointer;
 }

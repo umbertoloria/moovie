@@ -45,7 +45,7 @@ class FilmManager {
 		$stmt = DB::stmt(
 			"select films.*, descrizione, voto_medio
 				from films
-				         left join (select film, AVG(film_guardati.voto) voto_medio from film_guardati group by film) x
+				         left join (select film, AVG(giudizi.voto) voto_medio from giudizi group by film) x
 				                   on films.id = x.film
 				         join films_descrizioni on films.id = films_descrizioni.film
 				order by voto_medio desc
