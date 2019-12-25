@@ -37,11 +37,10 @@ else {
 		$copertina_bin = file_get_contents($copertina["tmp_name"]);
 
 		$saved_film = FilmManager::create($tmp_film, $copertina_bin);
-		if ($saved_film) {
+		if ($saved_film)
 			header("Location: /film.php?id=" . $saved_film->getID());
-		} else {
+		else
 			echo "Errore interno";
-		}
 
 	}
 

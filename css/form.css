@@ -1,41 +1,48 @@
 .form {
 	width: 700px;
-	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.form > h1 {
+	font-size: 2em;
+	text-align: center;
+	margin: 0;
 }
 
 .form fieldset {
 	border: 0;
 	padding: 20px;
-	margin: 0px;
+	margin: 0;
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.form fieldset label {
+.form fieldset > label {
 	display: block;
-	padding: 20px;
+	padding: 10px;
 	box-sizing: border-box;
 }
 
-.form fieldset label {
+.form fieldset > label {
 	width: 50%;
 }
 
-.form fieldset label:last-child {
+.form fieldset > label:last-child {
 	margin-bottom: 0;
 }
 
-.form fieldset label.fullrow {
+.form fieldset > label.fullrow {
 	width: 100%;
 }
 
-.form fieldset label span {
+.form fieldset > label span {
 	display: block;
 	width: 150px;
 	margin-bottom: 10px;
 }
 
-.form fieldset label .input {
+.form fieldset > label .input {
 	width: 100%;
 	height: 40px;
 	padding: 0 10px;
@@ -47,7 +54,7 @@
 	transition: .3s;
 }
 
-.form fieldset label textarea.input {
+.form fieldset > label textarea.input {
 	padding: 10px;
 	text-align: left;
 	min-height: 100px;
@@ -55,17 +62,37 @@
 	transition: resize 0s, border-color 0.3s;
 }
 
-.form fieldset label input[type='file'].input {
+.form fieldset > label input[type='file'].input {
 	padding-top: 6px;
 	text-align: left;
 }
 
-.form fieldset label .input:hover {
+.form fieldset > label .input:hover {
 	border-color: #ccc;
 }
 
-.form fieldset label .input:focus {
+.form fieldset > label .input:focus {
 	border-color: var(--super-color);
+}
+
+.form fieldset .checkboxes {
+	width: 100%;
+	background: #fff;
+	border-radius: 2px;
+	padding: 10px;
+}
+
+.form fieldset .checkboxes label {
+	display: inline-block;
+	margin: 5px;
+	background: #eee;
+	border-radius: 2px;
+	padding: 7px 7px 5px 7px;
+}
+
+.form fieldset .checkboxes label input {
+	display: inline-block;
+	margin: 0 5px 0 0;
 }
 
 .form fieldset label p {

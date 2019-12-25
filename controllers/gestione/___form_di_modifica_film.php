@@ -30,10 +30,9 @@ else {
 	$film->setDescrizione($descrizione);
 
 	$saved_film = FilmManager::update($film);
-	if ($saved_film) {
+	if ($saved_film)
 		header("Location: /film.php?id=" . $saved_film->getID());
-	} else {
+	else
 		echo "Errore interno";
-	}
 
 }

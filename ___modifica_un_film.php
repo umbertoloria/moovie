@@ -18,11 +18,6 @@ $_REQUEST["artisti"] = $artisti;
 $_REQUEST["recitazioni"] = $recitazioni;
 $_REQUEST["regie"] = $regie;
 include "views/gestione/___form_di_aggiornamento_partecipazioni_film.php";
-$generi = [];
-$fhgs = GenereManager::get_generi_from_film($film->getID());
-foreach ($fhgs as $fhg)
-	if (!isset($generi[$fhg]))
-		$generi[$fhg] = GenereManager::doRetrieveByID($fhg);
-$_REQUEST["generi"] = $generi;
-$_REQUEST["fhgs"] = $fhgs;
+$_REQUEST["generi"] = GenereManager::get_all();
+$_REQUEST["film_generi"] = GenereManager::get_generi_from_film($film->getID());
 include "views/gestione/___form_di_aggiornamento_generi_film.php";

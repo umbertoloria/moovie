@@ -1,6 +1,6 @@
-<h1 style="text-align: center;">Aggiungi un artista</h1>
 <form class="form" id="form_di_aggiunta_artista" method="post"
       action="/controllers/gestione/___form_di_aggiunta_artista.php" enctype="multipart/form-data">
+	<h1>Aggiungi un artista</h1>
 	<fieldset>
 		<label>
 			<span>Nome e cognome</span>

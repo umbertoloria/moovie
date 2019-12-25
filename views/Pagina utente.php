@@ -6,7 +6,6 @@ $show_actions = @$_REQUEST["show_actions"];
 	<header>
 		<div class="right">
 			<h1><?php echo $utente->getNome() . " " . $utente->getCognome(); ?></h1>
-
 			<?php
 			if (!empty($show_actions)) {
 				echo "<div class='actions'>";

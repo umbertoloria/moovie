@@ -32,11 +32,10 @@ else {
 		$faccia_bin = file_get_contents($faccia["tmp_name"]);
 
 		$saved_artista = ArtistaManager::create($tmp_artista, $faccia_bin);
-		if ($saved_artista) {
+		if ($saved_artista)
 			header("Location: /artista.php?id=" . $saved_artista->getID());
-		} else {
+		else
 			echo "Errore interno";
-		}
 
 	}
 
