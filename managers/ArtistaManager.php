@@ -62,4 +62,19 @@ class ArtistaManager {
 		return self::get_from_id($artista_id);
 	}
 
+	/** @return Artista[] */
+	public static function get_all(): array {
+		$res = [];
+		$stmt = DB::stmt("
+				SELECT id, nome, nascita, descrizione
+				FROM artisti
+				JOIN artisti_descrizioni
+					ON artisti.id = artisti_descrizioni.artista
+				ORDER BY nome, nascita");
+		if ($stmt->execute([]))
+			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
+				$res[] = new Artista($r["id"], $r["nome"], $r["nascita"], $r["descrizione"]);
+		return $res;
+	}
+
 }

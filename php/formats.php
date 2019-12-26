@@ -22,3 +22,11 @@ function data($data) {
 function startswith($needle, $haystack) {
 	return substr($haystack, 0, strlen($needle)) === $needle;
 }
+
+function endswith($needle, $haystack) {
+	$length = strlen($needle);
+	if ($length == 0)
+		return true;
+	else
+		return substr($haystack, -$length) === $needle;
+}

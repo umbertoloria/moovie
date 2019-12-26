@@ -2,8 +2,7 @@
 $generi = $_REQUEST["generi"];
 $film_generi = $_REQUEST["film_generi"];
 ?>
-<form class="form" id="form_di_aggiornamento_generi_film" method="post"
-      action="/controllers/gestione/___form_di_aggiornamento_generi_film.php">
+<form class="form" method="post" action="/controllers/gestione/___form_di_aggiornamento_generi_in_film.php">
 	<h1>Modifica il genere</h1>
 	<fieldset>
 		<input type="hidden" name="film_id" value="<?php echo $film->getID(); ?>"/>

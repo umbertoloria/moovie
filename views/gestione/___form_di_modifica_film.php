@@ -3,7 +3,7 @@ $film = $_REQUEST["film"];
 assert($film instanceof Film);
 ?>
 <form class="form" id="form_di_modifica_film" method="post" action="/controllers/gestione/___form_di_modifica_film.php">
-	<h1>Modifica il film <b><?php echo $film->getTitolo(); ?></b></h1>
+	<h1>Modifica <a href="/film.php?id=<?php echo $film->getID(); ?>"><?php echo $film->getTitolo(); ?></a></h1>
 	<fieldset>
 		<input type="hidden" name="id" value="<?php echo $film->getID(); ?>"/>
 		<label>
