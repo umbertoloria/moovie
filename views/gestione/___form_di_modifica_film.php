@@ -5,7 +5,7 @@ assert($film instanceof Film);
 <form class="form" id="form_di_modifica_film" method="post" action="/controllers/gestione/___form_di_modifica_film.php">
 	<h1>Modifica <a href="/film.php?id=<?php echo $film->getID(); ?>"><?php echo $film->getTitolo(); ?></a></h1>
 	<fieldset>
-		<input type="hidden" name="id" value="<?php echo $film->getID(); ?>"/>
+		<input type="hidden" name="film_id" value="<?php echo $film->getID(); ?>"/>
 		<label>
 			<span>Titolo</span>
 			<input type="text" class="input" name="titolo" placeholder="Titolo"
@@ -16,7 +16,7 @@ assert($film instanceof Film);
 			<input type="time" class="input" name="durata" placeholder="Durata (ore:minuti)"
 			       value="<?php
 			       $ore = (int)($film->getDurata() / 60);
-			       if ($ore)
+			       if ($ore <= 9)
 				       $ore = "0$ore";
 			       $minuti = $film->getDurata() % 60;
 			       echo "$ore:$minuti";

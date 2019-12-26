@@ -39,4 +39,4 @@ foreach ($giudizi as $giudizio)
 		$films[$giudizio->getFilm()] = FilmManager::get_from_id($giudizio->getFilm());
 $_REQUEST["giudizi"] = $giudizi;
 $_REQUEST["films"] = $films;
-include "views/film/___visualizza_giudizi.php";
+include "views/film/___timeline_giudizi.php";

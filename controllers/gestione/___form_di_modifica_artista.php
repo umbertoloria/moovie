@@ -2,7 +2,7 @@
 
 include "../../php/core.php";
 
-$id = trim(@$_POST["id"]);
+$artista_id = trim(@$_POST["artista_id"]);
 $nome = trim(@$_POST["nome"]);
 $nascita = trim(@$_POST["nascita"]);
 $descrizione = trim(@$_POST["descrizione"]);
@@ -15,7 +15,7 @@ $valid = Validator\validate("../../forms/modifica_artista_film.json", [
 
 if (!$valid)
 	echo "Il client non ti ha bloccato?";
-if (!$artista = ArtistaManager::get_from_id($id))
+if (!$artista = ArtistaManager::get_from_id($artista_id))
 	echo "Il client non ti ha bloccato?";
 else {
 

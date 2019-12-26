@@ -2,7 +2,7 @@
 
 include "../../php/core.php";
 
-$id = trim(@$_POST["id"]);
+$film_id = trim(@$_POST["film_id"]);
 $titolo = trim(@$_POST["titolo"]);
 $durata = trim(@$_POST["durata"]);
 $anno = trim(@$_POST["anno"]);
@@ -17,7 +17,7 @@ $valid = Validator\validate("../../forms/aggiunta_film.json", [
 
 if (!$valid)
 	echo "Il client non ti ha bloccato?";
-if (!$film = FilmManager::get_from_id($id))
+if (!$film = FilmManager::get_from_id($film_id))
 	echo "Il client non ti ha bloccato?";
 else {
 

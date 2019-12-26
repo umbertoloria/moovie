@@ -6,7 +6,7 @@ assert($artista instanceof Artista);
       action="/controllers/gestione/___form_di_modifica_artista.php">
 	<h1>Modifica <a href="/artista.php?id=<?php echo $artista->getID(); ?>"><?php echo $artista->getNome(); ?></a></h1>
 	<fieldset>
-		<input type="hidden" name="id" value="<?php echo $artista->getID(); ?>"/>
+		<input type="hidden" name="artista_id" value="<?php echo $artista->getID(); ?>"/>
 		<label>
 			<span>Nome e cognome</span>
 			<input type="text" class="input" name="nome" placeholder="Nome e cognome"

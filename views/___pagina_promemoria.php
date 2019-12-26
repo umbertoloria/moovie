@@ -18,9 +18,8 @@ if (count($promemorias) > 0) {
 						<span><?php echo $film->getTitolo(); ?></span>
 					</a>
 					<div>
-						<a href="/controllers/film/___rimuovi_promemoria.php?id=<?php echo $film->getID(); ?>">
-							Drop
-						</a>
+						<a href="/controllers/film/Rimuovi promemoria.php?film_id=<?php echo $film->getID(); ?>"
+						   data-confirm>Drop</a>
 					</div>
 				</li>
 				<?php

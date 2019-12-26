@@ -27,9 +27,17 @@ class PromemoriaManager {
 		return $stmt->execute([$promemoria->getUtente(), $promemoria->getFilm()]);
 	}
 
-	public static function drop(int $utente, int $film): bool {
+	public static function drop(Promemoria $promemoria): bool {
 		$stmt = DB::stmt("DELETE FROM promemoria WHERE utente = ? AND film = ?");
-		return $stmt->execute([$utente, $film]) and $stmt->rowCount() === 1;
+		return $stmt->execute([$promemoria->getUtente(), $promemoria->getFilm()]) and $stmt->rowCount() === 1;
+	}
+
+	public static function get_from_utente_and_film(int $utente, int $film): ?Promemoria {
+		$stmt = DB::stmt("SELECT utente, film, timestamp FROM promemoria WHERE utente = ? AND film = ?");
+		if ($stmt->execute([$utente, $film]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
+			return new Promemoria($r["utente"], $r["film"], $r["timestamp"]);
+		else
+			return null;
 	}
 
 }

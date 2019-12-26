@@ -15,7 +15,7 @@ $show_actions = @$_REQUEST["show_actions"];
 				if (in_array("add_giudizio", $show_actions))
 					echo "<a data-action='add_giudizio'>+ giudizi</a>";
 				if (in_array("add_promemoria", $show_actions))
-					echo "<a href='/controllers/film/___aggiungi_promemoria.php?film_id={$film->getID()}'>+ promemoria</a>";
+					echo "<a href='/controllers/film/Aggiungi promemoria.php?film_id={$film->getID()}'>+ promemoria</a>";
 				if (in_array("update", $show_actions))
 					echo "<a href='/___modifica_un_film.php?id={$film->getID()}'>modifica</a>";
 				if (in_array("delete", $show_actions))
