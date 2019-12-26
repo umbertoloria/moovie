@@ -2,11 +2,10 @@
 
 include "../../php/core.php";
 
-$logged_user = Auth::getLoggedUser();
-if (!$logged_user)
+if (!Auth::getLoggedUser())
 	echo "Il client non ti ha bloccato?";
 else {
-	$_REQUEST["id"] = $_GET['id'];
+	$_REQUEST["film_id"] = $_GET['film_id'];
 	unset($_GET['film_id']);
 	include "../../views/film/Form di aggiunta giudizio.php";
 }

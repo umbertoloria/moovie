@@ -82,7 +82,7 @@ if (!empty($show_actions)) {
 	<script>
 		<?php if (in_array("add_giudizio", $show_actions)) { ?>
 		$(".actions a[data-action='add_giudizio']").click(function () {
-			$.get("/controllers/film/___form_di_aggiunta_giudizio.php", "id=<?php echo $film->getID(); ?>", function (output) {
+			$.get("/controllers/film/___form_di_aggiunta_giudizio.php", "film_id=<?php echo $film->getID(); ?>", function (output) {
 				Overlay.popup(output);
 			});
 		});

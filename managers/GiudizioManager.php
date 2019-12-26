@@ -13,9 +13,9 @@ class GiudizioManager {
 			and $stmt->rowCount() === 1;
 	}
 
-	public static function drop(int $utente, int $film): bool {
+	public static function drop(Giudizio $giudizio): bool {
 		$stmt = DB::stmt("DELETE FROM giudizi WHERE utente = ? AND film = ?");
-		return $stmt->execute([$utente, $film]) and $stmt->rowCount() === 1;
+		return $stmt->execute([$giudizio->getUtente(), $giudizio->getFilm()]) and $stmt->rowCount() === 1;
 	}
 
 	// AGGIUNTE

@@ -18,15 +18,10 @@ if (count($giudizi) > 0) {
 						<span><?php echo $film->getTitolo(); ?></span>
 					</a>
 					<div>
-						<a>
-							<?php echo $giudizio->getVoto(); ?>
-						</a>
-						<a data-action="edit" data-id="<?php echo $film->getID(); ?>">
-							Edit
-						</a>
-						<a href="/controllers/film/Rimuovi giudizio.php?id=<?php echo $film->getID(); ?>">
-							Drop
-						</a>
+						<a><?php echo $giudizio->getVoto(); ?></a>
+						<a data-action="edit" data-id="<?php echo $film->getID(); ?>">Edit</a>
+						<a href="/controllers/film/Rimuovi giudizio.php?film_id=<?php echo $film->getID(); ?>"
+						   data-confirm>Drop</a>
 					</div>
 				</li>
 				<?php
@@ -36,12 +31,9 @@ if (count($giudizi) > 0) {
 	</div>
 	<script>
 		$(".dashboard [data-action='edit']").click(function () {
-			$.get("/controllers/film/___form_di_modifica_giudizio.php", "id=" + $(this).attr("data-id"), function (output) {
+			$.get("/controllers/film/___form_di_modifica_giudizio.php", "film_id=" + $(this).attr("data-id"), function (output) {
 				Overlay.popup(output);
 			});
-		});
-		$(".dashboard [data-action='drop']").click(function () {
-			location.href = "/controllers/film/Rimuovi giudizio.php?id=" + $(this).attr("data-id");
 		});
 	</script>
 	<?php
