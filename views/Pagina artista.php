@@ -1,6 +1,7 @@
 <?php
 $artista = $_REQUEST["artista"];
 assert($artista instanceof Artista);
+$show_actions = $_REQUEST["show_actions"];
 ?>
 	<header>
 		<div class="left">
@@ -8,6 +9,16 @@ assert($artista instanceof Artista);
 		</div>
 		<div class="right">
 			<h1><?php echo $artista->getNome(); ?></h1>
+			<?php
+			if (!empty($show_actions)) {
+				echo "<div class='actions'>";
+				if (in_array("update", $show_actions))
+					echo "<a href='/___modifica_un_artista.php?id={$artista->getID()}'>modifica</a>";
+				if (in_array("delete", $show_actions))
+					echo "<a href='/controllers/gestione/___rimuovi_artista.php?artista_id={$artista->getID()}' data-confirm>rimuovi</a>";
+				echo "</div>";
+			}
+			?>
 			<div class="tags">
 				<span><?php echo Formats\data($artista->getNascita()); ?></span>
 			</div>

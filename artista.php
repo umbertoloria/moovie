@@ -28,4 +28,13 @@ unset($artista);
 unset($recitazioni);
 unset($registi);
 unset($films);
+
+$_REQUEST["show_actions"] = [];
+$logged_user = Auth::getLoggedUser();
+if ($logged_user and $logged_user->isGestore()) {
+	$_REQUEST["show_actions"][] = "update";
+	$_REQUEST["show_actions"][] = "delete";
+}
+unset($logged_user);
+
 include "views/Pagina artista.php";

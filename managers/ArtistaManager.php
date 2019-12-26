@@ -77,4 +77,9 @@ class ArtistaManager {
 		return $res;
 	}
 
+	public static function delete(int $artista_id): bool {
+		$stmt = DB::stmt("DELETE FROM artisti WHERE id = ?");
+		return $stmt->execute([$artista_id]) and $stmt->rowCount() === 1;
+	}
+
 }
