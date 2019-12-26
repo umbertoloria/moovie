@@ -15,7 +15,7 @@ $valid = Validator\validate("../../forms/modifica_artista_film.json", [
 
 if (!$valid)
 	echo "Il client non ti ha bloccato?";
-if (!$artista = ArtistaManager::get_from_id($artista_id))
+elseif (!$artista = ArtistaManager::get_from_id($artista_id))
 	echo "Il client non ti ha bloccato?";
 else {
 

@@ -1,6 +1,6 @@
 <?php
 
-/** @author Gianluca Pirone */
+/** @author Gianluca Pirone, Umberto Loria */
 class Genere
 {
 
@@ -23,6 +23,11 @@ class Genere
 	public function getNome(): string
 	{
 		return $this->nome;
+	}
+
+	public function setNome(string $nome)
+	{
+		$this->nome = $nome;
 	}
 
 }

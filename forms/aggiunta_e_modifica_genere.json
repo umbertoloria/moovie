@@ -1,0 +1,8 @@
+{
+  "rules": {
+	"nome": {
+	  "minlength": 3,
+	  "maxlength": 50
+	}
+  }
+}

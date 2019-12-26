@@ -132,4 +132,30 @@ class GenereManager {
 		return true;
 	}
 
+	public static function create(Genere $genere): ?Genere {
+		$stmt = DB::stmt("INSERT INTO generi SET nome = ?");
+		if ($stmt->execute([$genere->getNome()]))
+			return self::doRetrieveByID(DB::lastInsertedID());
+		else
+			return null;
+	}
+
+	public static function update(Genere $genere): ?Genere {
+		$stmt = DB::stmt("UPDATE generi SET nome = ? WHERE id = ?");
+		if ($stmt->execute([$genere->getNome(), $genere->getID()]) and $stmt->rowCount() === 1)
+			return self::doRetrieveByID($genere->getID());
+		else
+			return null;
+	}
+
+	public static function delete(int $genere_id): bool {
+		$stmt = DB::stmt("DELETE FROM generi WHERE id = ?");
+		return $stmt->execute([$genere_id]) and $stmt->rowCount() === 1;
+	}
+
+	public static function exists(string $nome): bool {
+		$stmt = DB::stmt("SELECT id FROM generi WHERE nome = ?");
+		return $stmt->execute([$nome]) and $stmt->rowCount() > 0;
+	}
+
 }

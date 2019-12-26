@@ -17,7 +17,7 @@ $valid = Validator\validate("../../forms/aggiunta_film.json", [
 
 if (!$valid)
 	echo "Il client non ti ha bloccato?";
-if (!$film = FilmManager::get_from_id($film_id))
+elseif (!$film = FilmManager::get_from_id($film_id))
 	echo "Il client non ti ha bloccato?";
 else {
 
