@@ -77,6 +77,58 @@ class ArtistaManager {
 		return $res;
 	}
 
+	public static function update(Artista $artista): ?Artista {
+
+		$artista_reale = self::get_from_id($artista->getID());
+		if (!$artista_reale)
+			return null;
+
+		$same_nome = $artista_reale->getNome() === $artista->getNome();
+		$same_nascita = $artista_reale->getNascita() === $artista->getNascita();
+		$same_descrizione = $artista_reale->getDescrizione() === $artista->getDescrizione();
+
+		if ($same_nome and $same_nascita and $same_descrizione)
+			return $artista;
+
+		DB::beginTransaction();
+
+		if (!$same_nome) {
+			$stmt_nome = DB::stmt("UPDATE artisti SET nome = ? WHERE id = ?");
+			if (
+				!$stmt_nome->execute([$artista->getNome(), $artista->getID()])
+				or $stmt_nome->rowCount() === 0
+			) {
+				DB::rollbackTransaction();
+				return null;
+			}
+		}
+
+		if (!$same_nascita) {
+			$stmt_nascita = DB::stmt("UPDATE artisti SET nascita = ? WHERE id = ?");
+			if (
+				!$stmt_nascita->execute([$artista->getNascita(), $artista->getID()])
+				or $stmt_nascita->rowCount() === 0
+			) {
+				DB::rollbackTransaction();
+				return null;
+			}
+		}
+
+		if (!$same_descrizione) {
+			$stmt_descrizione = DB::stmt("UPDATE artisti_descrizioni SET descrizione = ? WHERE artista = ?");
+			if (
+				!$stmt_descrizione->execute([$artista->getDescrizione(), $artista->getID()])
+				or $stmt_descrizione->rowCount() === 0
+			) {
+				DB::rollbackTransaction();
+				return null;
+			}
+		}
+
+		DB::commitTransaction();
+		return self::get_from_id($artista->getID());
+	}
+
 	public static function delete(int $artista_id): bool {
 		$stmt = DB::stmt("DELETE FROM artisti WHERE id = ?");
 		return $stmt->execute([$artista_id]) and $stmt->rowCount() === 1;

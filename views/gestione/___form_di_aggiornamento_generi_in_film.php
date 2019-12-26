@@ -1,4 +1,5 @@
 <?php
+$film = $_REQUEST["film"];
 $generi = $_REQUEST["generi"];
 $film_generi = $_REQUEST["film_generi"];
 ?>

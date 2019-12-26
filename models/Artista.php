@@ -1,6 +1,6 @@
 <?php
 
-/** @author Gianluca Pirone */
+/** @author Gianluca Pirone, Umberto Loria */
 class Artista
 {
 
@@ -31,14 +31,29 @@ class Artista
 		return $this->nome;
 	}
 
+	public function setNome(string $nome)
+	{
+		$this->nome = $nome;
+	}
+
 	public function getNascita(): string
 	{
 		return $this->nascita;
 	}
 
+	public function setNascita(string $nascita)
+	{
+		$this->nascita = $nascita;
+	}
+
 	public function getDescrizione(): string
 	{
 		return $this->descrizione;
+	}
+
+	public function setDescrizione(string $descrizione)
+	{
+		$this->descrizione = $descrizione;
 	}
 
 }
