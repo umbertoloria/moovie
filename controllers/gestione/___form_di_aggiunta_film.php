@@ -7,7 +7,7 @@ $durata = trim(@$_POST["durata"]);
 $anno = trim(@$_POST["anno"]);
 $descrizione = trim(@$_POST["descrizione"]);
 
-$valid = Validator\validate("../../forms/aggiunta_film.json", [
+$valid = Validator\validate("../../forms/aggiunta_e_modifica_film.json", [
 	"titolo" => $titolo,
 	"durata" => $durata,
 	"anno" => $anno,

@@ -10,9 +10,9 @@ foreach ($_POST as $key => $val) {
 	if (Formats\startswith("rec_", $key)) {
 		$ind = substr($key, 4, -4);
 		if (Formats\endswith("_att", $key))
-			$final_recs[$ind]["att"] = $val;
+			$final_recs[$ind]["att"] = trim($val);
 		elseif (Formats\endswith("_per", $key))
-			$final_recs[$ind]["per"] = $val;
+			$final_recs[$ind]["per"] = trim($val);
 	}
 }
 

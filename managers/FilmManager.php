@@ -40,6 +40,11 @@ class FilmManager {
 			return null;
 	}
 
+	public static function uploadCopertina(int $id, $copertina_bin): bool {
+		$stmt = DB::stmt("UPDATE films_copertine SET copertina = ? WHERE film = ?");
+		return $stmt->execute([$copertina_bin, $id]) and $stmt->rowCount() === 1;
+	}
+
 	public static function getClassifica(): array {
 		$res = [];
 		$stmt = DB::stmt(

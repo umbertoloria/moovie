@@ -28,6 +28,6 @@
 <script>
 	new Form(
 		"#form_di_aggiunta_film",
-		JSON.parse("<?php echo Validator\decode("forms/aggiunta_film.json"); ?>")
+		JSON.parse("<?php echo Validator\decode("forms/aggiunta_e_modifica_film.json"); ?>")
 	);
 </script>

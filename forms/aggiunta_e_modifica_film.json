@@ -1,0 +1,20 @@
+{
+  "rules": {
+	"titolo": {
+	  "minlength": 5,
+	  "maxlength": 100
+	},
+	"durata": {
+	  "exp": "^([01]?[0-9]|2[0-3]):[0-5][0-9]$",
+	  "expErr": "Intervallo ammesso: da 00:00 a 23:59"
+	},
+	"anno": {
+	  "exp": "^[0-9]{4}$",
+	  "expErr": "Anno non valido"
+	},
+	"copertina": {},
+	"descrizione": {
+	  "minlength": 10
+	}
+  }
+}
