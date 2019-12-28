@@ -25,6 +25,11 @@ class ArtistaManager {
 			return null;
 	}
 
+	public static function uploadFaccia(int $id, $faccia_bin): bool {
+		$stmt = DB::stmt("UPDATE artisti_facce SET faccia = ? WHERE artista = ?");
+		return $stmt->execute([$faccia_bin, $id]) and $stmt->rowCount() === 1;
+	}
+
 	/** @return Artista[] */
 	public static function search(string $fulltext): array {
 		$res = [];

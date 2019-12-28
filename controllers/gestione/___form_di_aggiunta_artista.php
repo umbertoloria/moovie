@@ -6,7 +6,7 @@ $nome = trim(@$_POST["nome"]);
 $nascita = trim(@$_POST["nascita"]);
 $descrizione = trim(@$_POST["descrizione"]);
 
-$valid = Validator\validate("../../forms/aggiunta_artista.json", [
+$valid = Validator\validate("../../forms/aggiunta_e_modifica_artista.json", [
 	"nome" => $nome,
 	"nascita" => $nascita,
 	"descrizione" => $descrizione

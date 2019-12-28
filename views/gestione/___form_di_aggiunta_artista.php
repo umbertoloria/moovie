@@ -24,6 +24,6 @@
 <script>
 	new Form(
 		"#form_di_aggiunta_artista",
-		JSON.parse("<?php echo Validator\decode("forms/aggiunta_artista.json"); ?>")
+		JSON.parse("<?php echo Validator\decode("forms/aggiunta_e_modifica_artista.json"); ?>")
 	);
 </script>
