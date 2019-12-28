@@ -15,7 +15,7 @@ INSERT INTO utenti (id, nome, cognome, email, password, gestore)
 VALUES (1, 'Umberto', 'Loria', 'umberto.loria@gmail.com', '225edfa608b8aab103f6ae4a9396f858cfd9af66', true);
 INSERT INTO utenti (id, nome, cognome, email, password, gestore)
 VALUES (2, 'Michelantonio', 'Panichella', 'michelantoniopanichella@gmail.com',
-        '225edfa608b8aab103f6ae4a9396f858cfd9af66', false);
+        '225edfa608b8aab103f6ae4a9396f858cfd9af66', true);
 INSERT INTO utenti (id, nome, cognome, email, password, gestore)
 VALUES (3, 'Gianluca', 'Pirone', 'gianluca.pirone9@gmail.com', 'd839552700ad004d4e968844eb85bcb5080214b5', false);
 INSERT INTO utenti (id, nome, cognome, email, password, gestore)

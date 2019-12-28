@@ -102,6 +102,44 @@ INSERT INTO artisti (id, nome, nascita)
 VALUES (46, 'Jim Carrey', '1962-01-17');
 INSERT INTO artisti (id, nome, nascita)
 VALUES (47, 'Kate Winslet', '1975-10-05');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (48, 'Ron Howard', '1954-03-01');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (49, 'Daniel Bruhl', '1978-06-16');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (50, 'Chris Hemsworth', '1983-08-11');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (51, 'Damien Chazelle', '1985-01-19');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (52, 'Emma Stone', '1988-11-06');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (53, 'Chris Columbus', '1958-09-10');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (54, 'Macaulay Carson Culkin', '1980-08-26');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (55, 'David O. Russell', '1958-08-20');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (56, 'Jennifer Lawrence', '1990-08-15');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (57, 'Tom Sizemore', '1961-11-29');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (58, 'Gennaro Nunziante', '1963-10-30');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (59, 'Luca Pasquale Medici (Checco Zalone)', '1977-06-03');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (60, 'Massimo Troisi', '1953-01-19');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (61, 'Michael Radford', '1946-02-24');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (62, 'Maria Grazia Cucinotta', '1968-09-27');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (63, 'Philippe Noirette', '1930-10-01');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (64, 'Lello Arena', '1953-11-01');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (65, 'Fiorenza Marchegiani', '1953-07-31');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (66, 'Roberto Benigni', '1952-10-27');
 
 # ARTISTI DESCRIZIONI
 
@@ -179,8 +217,7 @@ VALUES (31, 'Famoso protagonista del cinema moderno.');
 INSERT INTO artisti_descrizioni (artista, descrizione)
 VALUES (32, 'Famoso protagonista del cinema moderno.');
 INSERT INTO artisti_descrizioni (artista, descrizione)
-VALUES (33, 'Uno dei migliori registi al mondo!
-');
+VALUES (33, 'Uno dei migliori registi al mondo!');
 INSERT INTO artisti_descrizioni (artista, descrizione)
 VALUES (34, 'Il suo esordio cinematografico risale al 2007 in 300 di Zack Snyder.');
 INSERT INTO artisti_descrizioni (artista, descrizione)
@@ -218,3 +255,53 @@ VALUES (46,
         'Jim Carrey, all''anagrafe James Eugene Redmond Carrey (Newmarket, 17 gennaio 1962), è un attore, comico, cabarettista, imitatore, produttore cinematografico e produttore televisivo canadese naturalizzato statunitense.');
 INSERT INTO artisti_descrizioni (artista, descrizione)
 VALUES (47, 'Kate Elizabeth Winslet è una famosa attrice britannica.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (48,
+        'Ronald William "Ron" Howard (Duncan, 1º marzo 1954) è un regista, sceneggiatore, attore e produttore cinematografico statunitense.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (49,
+        'Daniel Brühl, all''anagrafe Daniel César Martín Brühl González Domingo (Barcellona, 16 giugno 1978), è un attore tedesco con cittadinanza spagnola.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (50, 'Christopher "Chris" Hemsworth (Melbourne, 11 agosto 1983) è un attore australiano.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (51,
+        'Damien Sayre Chazelle (Providence, 19 gennaio 1985) è un regista, sceneggiatore e produttore cinematografico statunitense.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (52, 'Emily Jean Stone, detta Emma (Scottsdale, 6 novembre 1988), è un''attrice statunitense.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (53,
+        'Chris Joseph Columbus (Spangler, 10 settembre 1958) è un regista, sceneggiatore e produttore cinematografico statunitense.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (54,
+        'Macaulay Carson Culkin (New York, 26 agosto 1980) è un attore e musicista statunitense, noto soprattutto come attore bambino per la sua interpretazione di Kevin McCallister nei film Mamma, ho perso l''aereo (1990) e Mamma, ho riperso l''aereo: mi sono smarrito a New York (1992).');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (55, 'David Owen Russell (New York, 20 agosto 1958) è un regista e sceneggiatore statunitense.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (56, 'Jennifer Shrader Lawrence (Louisville, 15 agosto 1990) è un''attrice statunitense.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (57,
+        'Thomas Edward "Tom" Sizemore, Jr. (Detroit, 29 novembre 1961[1]) è un attore, produttore cinematografico e cantante statunitense.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (58, 'Gennaro Nunziante (Bari, 30 ottobre 1963) è un regista, sceneggiatore e attore cinematografico italiano.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (59,
+        'Checco Zalone, nome d''arte di Luca Pasquale Medici[1] (Bari, 3 giugno 1977), è un comico, cabarettista, attore, conduttore televisivo, imitatore, musicista, cantautore, sceneggiatore e regista italiano.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (60,
+        'Massimo Troisi (San Giorgio a Cremano, 19 febbraio 1953 – Roma, 4 giugno 1994) è stato un attore, regista, sceneggiatore e cabarettista italiano.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (61,
+        'Michael Radford (Nuova Delhi, 24 febbraio 1946) è un regista, sceneggiatore e produttore cinematografico britannico.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (62,
+        'Maria Grazia Cucinotta (Messina, 27 luglio 1968) è un''attrice, produttrice cinematografica ed ex modella italiana.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (63, 'Philippe Noiret (Lilla, 1º ottobre 1930 – Parigi, 23 novembre 2006) è stato un attore francese.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (64,
+        'Lello Arena, all''anagrafe Raffaele Arena (Napoli, 1º novembre 1953), è un cabarettista e attore italiano, esponente della nuova comicità napoletana (portata alla ribalta dal gruppo teatrale La Smorfia nella seconda metà degli anni settanta), assieme a Massimo Troisi ed Enzo Decaro.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (65, 'Fiorenza Marchegiani (Osimo, 31 luglio 1953) è un''attrice italiana.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (66,
+        'Roberto Remigio Benigni (Castiglion Fiorentino, 27 ottobre 1952) è un attore, comico, regista e sceneggiatore italiano.');

@@ -110,3 +110,45 @@ INSERT INTO recitazioni (film, attore, personaggio)
 VALUES (24, 44, 'Mark Zuckerberg');
 INSERT INTO recitazioni (film, attore, personaggio)
 VALUES (25, 46, 'Joel Barish');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (26, 49, 'Niki Lauda');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (26, 50, 'James Hunt');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (27, 11, 'Sebastian Wilder');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (27, 52, 'Mia Dolan');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (28, 54, 'Kevin McCallister');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (29, 54, 'Kevin McCallister');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (30, 2, 'Pat Solitano');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (30, 41, 'Pat Solitano Sr.');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (30, 56, 'Tiffany');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (31, 8, 'John Miller');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (31, 16, 'Francis Ryan');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (31, 57, 'Sergente Horwath');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (32, 59, 'Checco');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (33, 60, 'Mario Ruoppolo');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (33, 62, 'Beatrice Russo');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (33, 63, 'Pablo Neruda');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (34, 60, 'Gaetano');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (34, 64, 'Lello');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (34, 65, 'Marta');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (35, 60, 'Mario');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (35, 66, 'Saverio');

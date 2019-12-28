@@ -102,7 +102,7 @@ where film_has_genere.genere in (
 				                   on films.id = x.film
 				         join films_descrizioni on films.id = films_descrizioni.film
 				order by voto_medio desc
-				limit 30");
+				limit 50");
 		if ($stmt->execute())
 			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
 				$res[] = [

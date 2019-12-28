@@ -46,6 +46,30 @@ VALUES (1, 24, 10, '2019-12-27 17:35:30');
 INSERT INTO giudizi (utente, film, voto, timestamp)
 VALUES (1, 25, 10, '2019-12-27 17:42:33');
 INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (2, 2, 9, '2019-12-28 16:04:00');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (2, 3, 9, '2019-12-28 16:04:16');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (2, 6, 9, '2019-12-28 11:22:48');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (2, 8, 10, '2019-12-28 16:23:38');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (2, 24, 9, '2019-12-28 16:22:19');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (2, 26, 9, '2019-12-28 11:34:34');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (2, 27, 8, '2019-12-28 16:02:20');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (2, 28, 8, '2019-12-28 16:03:39');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (2, 29, 8, '2019-12-28 16:03:51');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (2, 31, 8, '2019-12-28 16:03:29');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (2, 33, 10, '2019-12-28 16:04:08');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (2, 34, 10, '2019-12-28 16:09:02');
+INSERT INTO giudizi (utente, film, voto, timestamp)
 VALUES (3, 1, 6, '2019-12-07 11:09:05');
 INSERT INTO giudizi (utente, film, voto, timestamp)
 VALUES (3, 16, 8, '2019-12-07 11:08:28');
@@ -63,4 +87,18 @@ create table promemoria
 );
 
 INSERT INTO promemoria (utente, film, timestamp)
+VALUES (1, 4, '2019-12-28 19:00:25');
+INSERT INTO promemoria (utente, film, timestamp)
 VALUES (1, 18, '2019-12-27 16:04:56');
+INSERT INTO promemoria (utente, film, timestamp)
+VALUES (1, 27, '2019-12-28 19:00:29');
+INSERT INTO promemoria (utente, film, timestamp)
+VALUES (1, 31, '2019-12-28 19:00:21');
+INSERT INTO promemoria (utente, film, timestamp)
+VALUES (2, 10, '2019-12-28 16:23:49');
+INSERT INTO promemoria (utente, film, timestamp)
+VALUES (2, 21, '2019-12-28 16:23:53');
+INSERT INTO promemoria (utente, film, timestamp)
+VALUES (2, 30, '2019-12-28 16:02:08');
+INSERT INTO promemoria (utente, film, timestamp)
+VALUES (2, 35, '2019-12-28 16:22:09');

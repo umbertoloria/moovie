@@ -35,6 +35,12 @@ INSERT INTO generi (id, nome)
 VALUES (13, 'Storico');
 INSERT INTO generi (id, nome)
 VALUES (14, 'Sportivo');
+INSERT INTO generi (id, nome)
+VALUES (15, 'Musicale');
+INSERT INTO generi (id, nome)
+VALUES (16, 'Comico');
+INSERT INTO generi (id, nome)
+VALUES (17, 'Satirico');
 
 # FILM HAS GENERE
 
@@ -66,6 +72,8 @@ VALUES (22, 1);
 INSERT INTO film_has_genere (film, genere)
 VALUES (24, 1);
 INSERT INTO film_has_genere (film, genere)
+VALUES (26, 1);
+INSERT INTO film_has_genere (film, genere)
 VALUES (1, 2);
 INSERT INTO film_has_genere (film, genere)
 VALUES (3, 2);
@@ -77,6 +85,20 @@ INSERT INTO film_has_genere (film, genere)
 VALUES (24, 2);
 INSERT INTO film_has_genere (film, genere)
 VALUES (25, 2);
+INSERT INTO film_has_genere (film, genere)
+VALUES (27, 2);
+INSERT INTO film_has_genere (film, genere)
+VALUES (28, 2);
+INSERT INTO film_has_genere (film, genere)
+VALUES (29, 2);
+INSERT INTO film_has_genere (film, genere)
+VALUES (30, 2);
+INSERT INTO film_has_genere (film, genere)
+VALUES (32, 2);
+INSERT INTO film_has_genere (film, genere)
+VALUES (34, 2);
+INSERT INTO film_has_genere (film, genere)
+VALUES (35, 2);
 INSERT INTO film_has_genere (film, genere)
 VALUES (1, 3);
 INSERT INTO film_has_genere (film, genere)
@@ -120,6 +142,14 @@ VALUES (24, 3);
 INSERT INTO film_has_genere (film, genere)
 VALUES (25, 3);
 INSERT INTO film_has_genere (film, genere)
+VALUES (26, 3);
+INSERT INTO film_has_genere (film, genere)
+VALUES (30, 3);
+INSERT INTO film_has_genere (film, genere)
+VALUES (31, 3);
+INSERT INTO film_has_genere (film, genere)
+VALUES (33, 3);
+INSERT INTO film_has_genere (film, genere)
 VALUES (2, 4);
 INSERT INTO film_has_genere (film, genere)
 VALUES (4, 4);
@@ -138,9 +168,13 @@ VALUES (19, 4);
 INSERT INTO film_has_genere (film, genere)
 VALUES (20, 4);
 INSERT INTO film_has_genere (film, genere)
+VALUES (31, 4);
+INSERT INTO film_has_genere (film, genere)
 VALUES (2, 5);
 INSERT INTO film_has_genere (film, genere)
 VALUES (14, 5);
+INSERT INTO film_has_genere (film, genere)
+VALUES (31, 5);
 INSERT INTO film_has_genere (film, genere)
 VALUES (7, 6);
 INSERT INTO film_has_genere (film, genere)
@@ -163,6 +197,8 @@ INSERT INTO film_has_genere (film, genere)
 VALUES (8, 7);
 INSERT INTO film_has_genere (film, genere)
 VALUES (20, 7);
+INSERT INTO film_has_genere (film, genere)
+VALUES (29, 7);
 INSERT INTO film_has_genere (film, genere)
 VALUES (4, 8);
 INSERT INTO film_has_genere (film, genere)
@@ -190,8 +226,22 @@ VALUES (18, 11);
 INSERT INTO film_has_genere (film, genere)
 VALUES (25, 11);
 INSERT INTO film_has_genere (film, genere)
+VALUES (27, 11);
+INSERT INTO film_has_genere (film, genere)
+VALUES (30, 11);
+INSERT INTO film_has_genere (film, genere)
 VALUES (21, 12);
 INSERT INTO film_has_genere (film, genere)
 VALUES (21, 13);
 INSERT INTO film_has_genere (film, genere)
+VALUES (31, 13);
+INSERT INTO film_has_genere (film, genere)
 VALUES (22, 14);
+INSERT INTO film_has_genere (film, genere)
+VALUES (26, 14);
+INSERT INTO film_has_genere (film, genere)
+VALUES (27, 15);
+INSERT INTO film_has_genere (film, genere)
+VALUES (28, 16);
+INSERT INTO film_has_genere (film, genere)
+VALUES (32, 17);

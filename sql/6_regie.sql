@@ -30,6 +30,8 @@ VALUES (1, 18);
 INSERT INTO regie (film, regista)
 VALUES (6, 19);
 INSERT INTO regie (film, regista)
+VALUES (31, 19);
+INSERT INTO regie (film, regista)
 VALUES (4, 20);
 INSERT INTO regie (film, regista)
 VALUES (8, 21);
@@ -59,3 +61,25 @@ INSERT INTO regie (film, regista)
 VALUES (18, 43);
 INSERT INTO regie (film, regista)
 VALUES (24, 45);
+INSERT INTO regie (film, regista)
+VALUES (26, 48);
+INSERT INTO regie (film, regista)
+VALUES (27, 51);
+INSERT INTO regie (film, regista)
+VALUES (28, 53);
+INSERT INTO regie (film, regista)
+VALUES (29, 53);
+INSERT INTO regie (film, regista)
+VALUES (30, 55);
+INSERT INTO regie (film, regista)
+VALUES (32, 58);
+INSERT INTO regie (film, regista)
+VALUES (33, 60);
+INSERT INTO regie (film, regista)
+VALUES (34, 60);
+INSERT INTO regie (film, regista)
+VALUES (35, 60);
+INSERT INTO regie (film, regista)
+VALUES (33, 61);
+INSERT INTO regie (film, regista)
+VALUES (35, 66);

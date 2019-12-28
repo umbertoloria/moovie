@@ -60,6 +60,26 @@ INSERT INTO films (id, titolo, durata, anno)
 VALUES (24, 'The Social Network', 121, 2010);
 INSERT INTO films (id, titolo, durata, anno)
 VALUES (25, 'Se mi lasci ti cancello', 108, 2004);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (26, 'Rush', 123, 2013);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (27, 'La La Land', 128, 2016);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (28, 'Mamma, ho perso l''aereo', 99, 1990);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (29, 'Mamma, ho riperso l''aereo: mi sono smarrito a New York', 120, 1992);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (30, 'Il lato positivo', 122, 2012);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (31, 'Salvate il soldato Ryan', 169, 1998);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (32, 'Quo Vado?', 86, 2016);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (33, 'Il postino', 108, 1994);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (34, 'Ricomincio da tre', 108, 1981);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (35, 'Non ci resta che piangere', 167, 1984);
 
 # FILMS DESCRIZIONI
 
@@ -147,3 +167,33 @@ VALUES (24,
 INSERT INTO films_descrizioni (film, descrizione)
 VALUES (25,
         'Il film è stato un successo sia di pubblico che di critica ed è considerato uno dei film più belli del XXI secolo.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (26,
+        'L''austriaco Niki Lauda e l''inglese James Hunt s''incontrano per la prima volta sui circuiti di Formula 3. Uno è metodico, razionale, non particolarmente simpatico; l''altro è un donnaiolo che si gode la vita e corre come se non ci fosse un domani. La loro rivalità diventa storica e segna una stagione incredibile dell''automobilismo, fatta di drammi indelebili e miracolose riprese.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (27,
+        'Il film racconta la storia d''amore tra un musicista jazz e un''aspirante attrice, interpretati rispettivamente da Ryan Gosling ed Emma Stone, realizzato come un musical contemporaneo che omaggia i classici film musicali prodotti a cavallo fra gli anni ''50 e ''60. Il titolo del film è sia un riferimento alla città di Los Angeles sia al significato di essere nel "mondo dei sogni" o "fuori dalla realtà"');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (28,
+        'Il piccolo Kevin viene lasciato in casa da solo a Natale e deve difendere la casa da due malintenzionati che vogliono entrare. Per farlo impiega tutta la sua astuzia ed una serie apparentemente interminabile di trappole e di espedienti mirati a far desistere i due malcapitati ladri.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (29,
+        'La numerosa famiglia McCallister decide di passare le vacanze natalizie in Florida, ma all''aeroporto il piccolo Kevin si perde e sbaglia aereo, ritrovandosi così a New York. Mentre i genitori lo cercano, il ragazzino occupa, grazie alla carta di credito del padre, una suite al grand hotel e fa amicizia con una barbona.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (30,
+        'Pat, affetto da sindrome bipolare, ha passato otto mesi in un istituto per malattie mentali dopo aver compiuto un gesto insensato. Dimesso in seguito a un patteggiamento della pena che avrebbe dovuto scontare, è ora affidato alla custodia dei suoi genitori, che, nel tentativo di aiutarlo a rimettersi in sesto cercano di condividere con lui la passione di famiglia per la squadra di football dei Philadelphia Eagles. Nel frattempo, però, conosce una ragazza con cui decide di accettare una sfida.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (31,
+        'Nei giorni seguenti lo sbarco in Normandia, una madre americana sta per ricevere nello stesso giorno la notizia della morte di tre dei suoi figli su diversi fronti della guerra. Il comandante in capo generale Marshall dà ordine che il quarto fratello, Ryan, sbarcato in Normandia, venga rintracciato e portato a casa.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (32,
+        'Un uomo che vive ancora con la famiglia, per timore dell''indipendenza, viene costretto a cambiare la propria vita e doversi adattare ad ogni lavoro, anche i più improbabili e pericolosi.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (33,
+        '1948. Il poeta cileno Pablo Neruda viene esiliato su un''isola del sud d''Italia. L''uomo vi si rifugia con la giovane ed affezionata consorte Matilde. Al disoccupato Mario viene affidato l''incarico di consegnare al poeta una nutrita corrispondenza. Giorno dopo giorno i due uomini così diversi diventano amici.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (34,
+        'Gaetano è un ragazzo napoletano in cerca di nuovi stimoli e decide così di lasciare casa, lavoro e amici per trasferirsi a Firenze dalla zia. Tra situazioni divertenti, il giovane conosce Marta e iniziA con lei un nuovo capitolo della propria vita.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (35,
+        'Un maestro elementare e un bidello si ritrovano, per uno strano scherzo del caso, nel 1492. Decidono di recarsi a Palos, in Andalusia, per fermare Cristoforo Colombo e impedirgli di scoprire le Americhe.');
