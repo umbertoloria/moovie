@@ -55,7 +55,7 @@
 .form fieldset > label textarea.input {
 	padding: 10px;
 	text-align: left;
-	min-height: 100px;
+	min-height: 90px;
 	resize: vertical;
 	transition: resize 0s, border-color 0.3s;
 }

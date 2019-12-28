@@ -30,9 +30,6 @@ else {
 		echo "La copertina deve essere JPG o PNG";
 	} else {
 
-		$min_sec = explode(":", $durata);
-		$durata = $min_sec[0] * 60 + $min_sec[1];
-
 		$tmp_film = new Film(0, $titolo, $durata, $anno, $descrizione);
 		$copertina_bin = file_get_contents($copertina["tmp_name"]);
 

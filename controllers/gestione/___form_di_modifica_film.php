@@ -33,9 +33,6 @@ else {
 		}
 	}
 
-	$min_sec = explode(":", $durata);
-	$durata = $min_sec[0] * 60 + $min_sec[1];
-
 	$film->setTitolo($titolo);
 	$film->setDurata($durata);
 	$film->setAnno($anno);

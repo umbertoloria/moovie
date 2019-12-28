@@ -140,6 +140,20 @@ INSERT INTO artisti (id, nome, nascita)
 VALUES (65, 'Fiorenza Marchegiani', '1953-07-31');
 INSERT INTO artisti (id, nome, nascita)
 VALUES (66, 'Roberto Benigni', '1952-10-27');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (67, 'Robert Zemeckis', '1952-05-14');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (68, 'Guy Pearce', '1967-10-05');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (69, 'Samuel L. Jackson', '1948-12-21');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (70, 'Uma Thurman', '1970-04-29');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (71, 'Jake Gyllenhaal', '1980-12-19');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (72, 'Joaquin Phoenix', '1974-10-28');
+INSERT INTO artisti (id, nome, nascita)
+VALUES (73, 'Edward Norton', '1969-08-18');
 
 # ARTISTI DESCRIZIONI
 
@@ -280,12 +294,12 @@ INSERT INTO artisti_descrizioni (artista, descrizione)
 VALUES (56, 'Jennifer Shrader Lawrence (Louisville, 15 agosto 1990) è un''attrice statunitense.');
 INSERT INTO artisti_descrizioni (artista, descrizione)
 VALUES (57,
-        'Thomas Edward "Tom" Sizemore, Jr. (Detroit, 29 novembre 1961[1]) è un attore, produttore cinematografico e cantante statunitense.');
+        'Thomas Edward "Tom" Sizemore, Jr. (Detroit, 29 novembre 1961) è un attore, produttore cinematografico e cantante statunitense.');
 INSERT INTO artisti_descrizioni (artista, descrizione)
 VALUES (58, 'Gennaro Nunziante (Bari, 30 ottobre 1963) è un regista, sceneggiatore e attore cinematografico italiano.');
 INSERT INTO artisti_descrizioni (artista, descrizione)
 VALUES (59,
-        'Checco Zalone, nome d''arte di Luca Pasquale Medici[1] (Bari, 3 giugno 1977), è un comico, cabarettista, attore, conduttore televisivo, imitatore, musicista, cantautore, sceneggiatore e regista italiano.');
+        'Checco Zalone, nome d''arte di Luca Pasquale Medici (Bari, 3 giugno 1977), è un comico, cabarettista, attore, conduttore televisivo, imitatore, musicista, cantautore, sceneggiatore e regista italiano.');
 INSERT INTO artisti_descrizioni (artista, descrizione)
 VALUES (60,
         'Massimo Troisi (San Giorgio a Cremano, 19 febbraio 1953 – Roma, 4 giugno 1994) è stato un attore, regista, sceneggiatore e cabarettista italiano.');
@@ -305,3 +319,23 @@ VALUES (65, 'Fiorenza Marchegiani (Osimo, 31 luglio 1953) è un''attrice italian
 INSERT INTO artisti_descrizioni (artista, descrizione)
 VALUES (66,
         'Roberto Remigio Benigni (Castiglion Fiorentino, 27 ottobre 1952) è un attore, comico, regista e sceneggiatore italiano.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (67,
+        'Regista di pellicole di culto che hanno avuto un grande successo, tra cui All''inseguimento della pietra verde, la trilogia di film de Ritorno al futuro, Chi ha incastrato Roger Rabbit, La morte ti fa bella, Forrest Gump, Cast Away e A Christmas Carol, nel 1995 vince l''Oscar al miglior regista grazie al suo lavoro in Forrest Gump.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (68, 'Guy Edward Pearce (Ely, 5 ottobre 1967) è un attore australiano.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (69,
+        'Nei primi anni della carriera ha lavorato con Bruce Willis in diverse pellicole tra cui Pulp Fiction, ricevendo per questa una nomination all''Oscar al miglior attore non protagonista (vinto quell''anno da Martin Landau per Ed Wood), Die Hard - Duri a morire e, successivamente, è apparso anche in Unbreakable - Il predestinato.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (70,
+        'È particolarmente nota per l''interpretazione di Mia Wallace nel cult di Quentin Tarantino Pulp Fiction, per la quale ha ricevuto la candidatura al Premio Oscar 1995 come miglior attrice non protagonista, oltre a nomination ai Golden Globe, BAFTA e Screen Actors Guild Award. Ha collaborato sempre con Tarantino in Kill Bill (suddiviso in Kill Bill: Volume 1, del 2003, e Kill Bill: Volume 2 del 2004), film che le hanno fatto ottenere una nomination ai BAFTA come miglior attrice protagonista e due nomination ai Golden Globe come miglior attrice in un film drammatico. Per Gli occhi della vita ha vinto nel 2003 il Golden Globe come miglior attrice in una mini-serie o film tv.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (71,
+        'Oltre al suo impegno nel cinema, ha esordito nel 2002 a teatro recitando al Garrick Theatre di Londra in This Is Our Youth di Kenneth Lonergan. Da allora ha recitato in diverse altre opere di prosa e musical, tra cui La piccola bottega degli orrori e Sunday in the Park with George a Broadway nel 2017. Attivista impegnato in numerosi progetti a sostegno dei diritti umani, contro la violenza e a difesa dell''ambiente, ha partecipato nel 2010 alla campagna "Stand Up to Cancer".');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (72,
+        'Interprete versatile e carismatico, si è reso famoso grazie all''interpretazione di personaggi complessi, come Jimmy Emmett in Da morire, film del 1995 diretto da Gus Van Sant, o crudeli come Commodo, il malvagio imperatore parricida ne Il gladiatore. Ha offerto altre significative interpretazioni in The Master, interpretando il reduce Freddie Quell per cui ha vinto la Coppa Volpi per la migliore interpretazione maschile alla 69ª Mostra internazionale d''arte cinematografica di Venezia, in Two Lovers, in The Yards e in Quando l''amore brucia l''anima - Walk the Line, film drammatico incentrato sulla vita del cantautore Johnny Cash, dove ha mostrato anche doti canore, vincendo il Golden Globe come miglior attore e un Grammy Award. Ha ricevuto 3 candidature ai Premi Oscar: come miglior attore non protagonista per Il gladiatore e come miglior attore protagonista per Quando l''amore brucia l''anima - Walk the Line e The Master.');
+INSERT INTO artisti_descrizioni (artista, descrizione)
+VALUES (73,
+        'Edward Harrison Norton (Boston, 18 agosto 1969) è un attore, produttore cinematografico, regista e sceneggiatore statunitense. Ha ricevuto tre candidature al Premio Oscar per i film Schegge di paura (per il quale ha vinto il Golden Globe come miglior attore non protagonista), American History X e Birdman.');

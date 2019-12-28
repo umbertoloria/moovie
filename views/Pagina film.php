@@ -45,6 +45,13 @@ $registi = $_REQUEST["registi"];
 $artisti = $_REQUEST["artisti"];
 
 $orders = ["Recitazioni", "Regie"];
+if (count($recitazioni) == 0)
+	unset($orders[0]);
+if (count($registi) == 0)
+	unset($orders[1]);
+if (count($orders) == 2)
+	if (count($recitazioni) < count($registi))
+		$orders = array_reverse($orders);
 foreach ($orders as $order) {
 	echo "<div class='dashboard'>";
 	echo "<label>{$order}</label>";

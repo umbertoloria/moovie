@@ -80,6 +80,36 @@ INSERT INTO films (id, titolo, durata, anno)
 VALUES (34, 'Ricomincio da tre', 108, 1981);
 INSERT INTO films (id, titolo, durata, anno)
 VALUES (35, 'Non ci resta che piangere', 167, 1984);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (36, 'Forrest Gump', 142, 1994);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (37, 'Memento', 113, 2000);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (38, 'The Hateful Eight', 187, 2015);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (39, 'Pulp Fiction', 154, 1994);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (40, 'Kill Bill - Volume 1', 106, 2003);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (41, 'Kill Bill: Volume 2', 137, 2004);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (42, 'Il caso Spotlight', 127, 2015);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (43, 'Half Nelson', 106, 2006);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (44, 'Lo sciacallo - Nightcrawler', 117, 2014);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (45, 'Southpaw - L''ultima sfida', 124, 2015);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (46, 'A Christmas Carol', 92, 2009);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (47, 'Don''t Worry', 113, 2018);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (48, 'Joker', 123, 2019);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (49, 'Lars e una ragazza tutta sua', 106, 2007);
+INSERT INTO films (id, titolo, durata, anno)
+VALUES (50, 'Fight Club', 139, 1999);
 
 # FILMS DESCRIZIONI
 
@@ -197,3 +227,47 @@ VALUES (34,
 INSERT INTO films_descrizioni (film, descrizione)
 VALUES (35,
         'Un maestro elementare e un bidello si ritrovano, per uno strano scherzo del caso, nel 1492. Decidono di recarsi a Palos, in Andalusia, per fermare Cristoforo Colombo e impedirgli di scoprire le Americhe.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (36,
+        'Forrest Gump è un film del 1994 diretto da Robert Zemeckis e interpretato da Tom Hanks. Liberamente ispirato all''omonimo romanzo di Winston Groom del 1986, il film narra l''intensa vita di Forrest Gump, un uomo dotato di uno sviluppo cognitivo inferiore alla norma, nato negli Stati Uniti d''America a metà degli anni quaranta e, grazie a una serie di coincidenze favorevoli, diretto testimone di importanti avvenimenti della storia statunitense.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (37,
+        'La sceneggiatura è fondata sul racconto del fratello del regista, Jonathan Nolan, Memento Mori, pubblicato però successivamente alla realizzazione del film. Il film è stato candidato ai Premi Oscar 2002 come migliore sceneggiatura originale e miglior montaggio.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (38,
+        'Si tratta del secondo western di Tarantino dopo Django Unchained. Il film è stato annunciato nel novembre 2013, per poi venire cancellato pochi mesi dopo, quando la sua sceneggiatura è trapelata in rete. In seguito Tarantino ha riscritto parte della sceneggiatura, modificandone il finale, e ha dato il via alla produzione, le cui riprese sono iniziate l''8 dicembre 2014 presso Telluride, in Colorado.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (39,
+        'La pellicola rilanciò John Travolta, ormai in ombra da anni, e consacrò la giovane e già quotata Uma Thurman. Le interpretazioni di entrambi meritarono una candidatura all''Oscar rispettivamente per miglior attore protagonista e miglior attrice non protagonista. Anche Samuel L. Jackson ricevette la candidatura come miglior attore non protagonista.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (40,
+        'Kill Bill - Volume 1 è un film del 2003, scritto e diretto da Quentin Tarantino. È la prima parte di Kill Bill, cui ha fatto seguito Kill Bill - Volume 2 nel 2004.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (41,
+        'Kill Bill - Volume 2 è un film del 2004 scritto e diretto da Quentin Tarantino e interpretato da Uma Thurman, David Carradine, Michael Madsen, Daryl Hannah, Gordon Liu, Michael Parks e Perla Haney-Jardine nella sua prima apparizione cinematografica. Si tratta della seconda parte di Kill Bill - Volume 1.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (42,
+        'Il caso Spotlight (Spotlight) è un film del 2015 co-scritto e diretto da Tom McCarthy, premiato come miglior film e miglior sceneggiatura originale ai premi Oscar 2016.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (43,
+        'Half Nelson è un film del 2006 diretto da Ryan Fleck e interpretato da Ryan Gosling, che per il ruolo del professore di storia tossicodipendente ha vinto svariati premi ed ha ottenuto la nomination all''Oscar come miglior attore protagonista.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (44,
+        'Lo sciacallo - Nightcrawler (Nightcrawler) è un film del 2014 scritto e diretto da Dan Gilroy, al suo debutto come regista, con protagonista Jake Gyllenhaal.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (45,
+        'Southpaw - L''ultima sfida (Southpaw) è un film del 2015 diretto e prodotto da Antoine Fuqua, con protagonista Jake Gyllenhaal.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (46,
+        'A Christmas Carol è un film fantastico del 2009 scritto e diretto da Robert Zemeckis, adattamento cinematografico del racconto Canto di Natale di Charles Dickens. È stato prodotto dalla ImageMovers Digital e dalla Walt Disney Pictures e realizzato in CGI utilizzando la tecnica della performance capture.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (47,
+        'Il film è basato sulla biografia Don''t Worry, He Won''t Get Far on Foot del vignettista satirico John Callahan, interpretato nel film da Joaquin Phoenix. Fanno parte del cast principale anche Jonah Hill, Rooney Mara e Jack Black.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (48,
+        'La pellicola, basata sull''omonimo personaggio dei fumetti DC Comics ma scollegata dai film del DC Extended Universe, vede Joaquin Phoenix interpretare il protagonista affiancato nel cast da Robert De Niro, Zazie Beetz, Frances Conroy e Brett Cullen.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (49, 'Lars e una ragazza tutta sua (Lars and the Real Girl) è un film del 2007 diretto da Craig Gillespie.');
+INSERT INTO films_descrizioni (film, descrizione)
+VALUES (50,
+        'Fight Club è un film del 1999 diretto da David Fincher, basato sull''omonimo romanzo di Chuck Palahniuk. È stato sceneggiato da Jim Uhls e prodotto da Art Linson e Arnon Milchan.');

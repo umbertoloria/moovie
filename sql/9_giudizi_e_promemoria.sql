@@ -46,6 +46,34 @@ VALUES (1, 24, 10, '2019-12-27 17:35:30');
 INSERT INTO giudizi (utente, film, voto, timestamp)
 VALUES (1, 25, 10, '2019-12-27 17:42:33');
 INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (1, 36, 10, '2019-12-28 21:00:00');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (1, 37, 10, '2019-12-28 21:03:23');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (1, 38, 10, '2019-12-28 21:05:32');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (1, 39, 10, '2019-12-28 21:16:26');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (1, 40, 10, '2019-12-28 21:19:04');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (1, 41, 10, '2019-12-28 21:25:15');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (1, 42, 10, '2019-12-28 21:28:00');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (1, 43, 9, '2019-12-28 21:40:17');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (1, 44, 8, '2019-12-28 21:47:50');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (1, 45, 8, '2019-12-28 21:52:02');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (1, 46, 10, '2019-12-28 21:58:02');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (1, 48, 9, '2019-12-28 22:05:15');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (1, 49, 9, '2019-12-28 22:08:00');
+INSERT INTO giudizi (utente, film, voto, timestamp)
+VALUES (1, 50, 9, '2019-12-28 22:11:40');
+INSERT INTO giudizi (utente, film, voto, timestamp)
 VALUES (2, 2, 9, '2019-12-28 16:04:00');
 INSERT INTO giudizi (utente, film, voto, timestamp)
 VALUES (2, 3, 9, '2019-12-28 16:04:16');

@@ -14,16 +14,8 @@ assert($film instanceof Film);
 		</label>
 		<label>
 			<span>Durata</span>
-			<input type="time" class="input" name="durata" placeholder="Durata (ore:minuti)"
-			       value="<?php
-			       $ore = (int)($film->getDurata() / 60);
-			       if ($ore <= 9)
-				       $ore = "0$ore";
-			       $minuti = $film->getDurata() % 60;
-			       if ($minuti <= 9)
-				       $minuti = "0$minuti";
-			       echo "$ore:$minuti";
-			       ?>"/>
+			<input type="number" class="input" name="durata" placeholder="Durata (ore:minuti)" min="1"
+			       value="<?php echo $film->getDurata(); ?>"/>
 		</label>
 		<label>
 			<span>Anno</span>

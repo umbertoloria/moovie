@@ -135,7 +135,7 @@ VALUES (31, 16, 'Francis Ryan');
 INSERT INTO recitazioni (film, attore, personaggio)
 VALUES (31, 57, 'Sergente Horwath');
 INSERT INTO recitazioni (film, attore, personaggio)
-VALUES (32, 59, 'Checco');
+VALUES (32, 59, 'Checco Zalone');
 INSERT INTO recitazioni (film, attore, personaggio)
 VALUES (33, 60, 'Mario Ruoppolo');
 INSERT INTO recitazioni (film, attore, personaggio)
@@ -152,3 +152,37 @@ INSERT INTO recitazioni (film, attore, personaggio)
 VALUES (35, 60, 'Mario');
 INSERT INTO recitazioni (film, attore, personaggio)
 VALUES (35, 66, 'Saverio');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (36, 8, 'Forrest Gump');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (37, 68, 'Leonard Shelby');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (38, 69, 'Magg. Marquis Warren');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (39, 69, 'Jules Winnfield');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (39, 70, 'Mia Wallace');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (40, 70, 'Beatrix Kiddo / Sposa / Black Mamba');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (41, 70, 'Beatrix Kiddo / Sposa / Black Mamba');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (42, 6, 'Michael Rezendes');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (43, 11, 'Dan Dunne');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (44, 71, 'Lou Bloom');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (45, 71, 'Billy Hope');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (46, 46, 'Ebenezer Scrooge; Spiriti del Natale passato, presente e futuro');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (47, 72, 'John Callahan');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (48, 72, 'Arthur Fleck / Joker');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (49, 11, 'Lars Lindstrom');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (50, 12, 'Tyler Durden');
+INSERT INTO recitazioni (film, attore, personaggio)
+VALUES (50, 73, 'Narratore');

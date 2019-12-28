@@ -5,8 +5,8 @@
 	  "maxlength": 100
 	},
 	"durata": {
-	  "exp": "^([01]?[0-9]|2[0-3]):[0-5][0-9]$",
-	  "expErr": "Intervallo ammesso: da 00:00 a 23:59"
+	  "exp": "^\\d+$",
+	  "expErr": "Solo caratteri numerici"
 	},
 	"anno": {
 	  "exp": "^[0-9]{4}$",

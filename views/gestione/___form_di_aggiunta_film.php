@@ -8,7 +8,7 @@
 		</label>
 		<label>
 			<span>Durata</span>
-			<input type="time" class="input" name="durata" placeholder="Durata (ore:minuti)"/>
+			<input type="number" class="input" name="durata" min="1" placeholder="Durata (minuti)"/>
 		</label>
 		<label>
 			<span>Anno</span>

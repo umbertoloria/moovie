@@ -42,4 +42,5 @@ unset($logged_user);
 
 $_REQUEST["film"] = $film;
 unset($film);
+
 include "views/Pagina film.php";
