@@ -11,8 +11,8 @@ $logged_user = Auth::getLoggedUser();
 		<?php
 		if ($logged_user) {
 			?>
-			<li>
-				<a>Suggeriscimi un film</a>
+			<li <?php echo $uri == "/suggeriscimi_un_film.php" ? " class='active'" : ""; ?>>
+				<a href='/suggeriscimi_un_film.php'>Suggeriscimi un film</a>
 			</li>
 			<li <?php echo $uri == "/giudizi.php" ? " class='active'" : ""; ?>>
 				<a href='/giudizi.php'>Giudizi</a>

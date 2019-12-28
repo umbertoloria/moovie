@@ -30,6 +30,54 @@ class FilmManager {
 		return $res;
 	}
 
+	/** @return Film[] */
+	public static function suggest_me(int $utente_id): array {
+		$res = [];
+		$create_view_stmt = DB::stmt("
+create or replace view generi_pesi as
+select film_genere_voto.genere,
+       (
+               sum(voto) / (select count(*)
+                            from film_has_genere
+                            where genere = film_genere_voto.genere
+                              and film in (select film from giudizi where utente = :utente))
+           ) media
+from (
+         select film_has_genere.genere, giudizi_utente.film, giudizi_utente.voto
+         from (
+                  # giudizi dell'utente => (film, voto)
+                  select films.id film, giudizi.voto
+                  from giudizi
+                           join films on giudizi.film = films.id
+                  where utente = :utente
+              ) as giudizi_utente
+                  join film_has_genere on film_has_genere.film = giudizi_utente.film
+     ) as film_genere_voto
+group by genere;
+        ");
+		$create_view_stmt->execute([":utente" => $utente_id]);
+		$take_data_stmt = DB::stmt(
+			"
+select film_has_genere.film
+from film_has_genere
+where film_has_genere.genere in (
+    select genere
+    from generi_pesi
+    where media = (select max(media) from generi_pesi)
+)
+  and film_has_genere.film not in (
+    select film
+    from giudizi
+    where utente = :utente);"
+		);
+		if ($take_data_stmt->execute([":utente" => $utente_id]))
+			while ($r = $take_data_stmt->fetch(PDO::FETCH_ASSOC))
+				$res[] = FilmManager::get_from_id($r["film"]);
+		$drop_view_stmt = DB::stmt("drop view generi_pesi;");
+		$drop_view_stmt->execute();
+		return $res;
+	}
+
 	// AGGIUNTE
 
 	public static function downloadCopertina(int $id) {

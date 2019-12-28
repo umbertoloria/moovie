@@ -33,6 +33,8 @@ INSERT INTO generi (id, nome)
 VALUES (12, 'Gangster');
 INSERT INTO generi (id, nome)
 VALUES (13, 'Storico');
+INSERT INTO generi (id, nome)
+VALUES (14, 'Sportivo');
 
 # FILM HAS GENERE
 
@@ -59,6 +61,8 @@ INSERT INTO film_has_genere (film, genere)
 VALUES (15, 1);
 INSERT INTO film_has_genere (film, genere)
 VALUES (21, 1);
+INSERT INTO film_has_genere (film, genere)
+VALUES (22, 1);
 INSERT INTO film_has_genere (film, genere)
 VALUES (24, 1);
 INSERT INTO film_has_genere (film, genere)
@@ -109,6 +113,8 @@ INSERT INTO film_has_genere (film, genere)
 VALUES (20, 3);
 INSERT INTO film_has_genere (film, genere)
 VALUES (21, 3);
+INSERT INTO film_has_genere (film, genere)
+VALUES (22, 3);
 INSERT INTO film_has_genere (film, genere)
 VALUES (24, 3);
 INSERT INTO film_has_genere (film, genere)
@@ -187,3 +193,5 @@ INSERT INTO film_has_genere (film, genere)
 VALUES (21, 12);
 INSERT INTO film_has_genere (film, genere)
 VALUES (21, 13);
+INSERT INTO film_has_genere (film, genere)
+VALUES (22, 14);
