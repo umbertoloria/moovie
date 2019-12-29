@@ -1,7 +1,7 @@
 <phpunit bootstrap="autoload.php" cacheResult="false">
 	<testsuites>
-		<testsuite name="First tests">
-			<file>tests/UtenteTest.php</file>
+		<testsuite name="Account Manager Test">
+			<file>tests/AccountManagerTest.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>

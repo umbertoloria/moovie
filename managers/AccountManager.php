@@ -7,12 +7,15 @@ class AccountManager {
 		return $stmt->execute([$email]) and $stmt->rowCount() === 1;
 	}
 
+	// Il campo 'id' dell'istanza Utente viene ignorato.
 	public static function create(Utente $utente): ?Utente {
 		$stmt = DB::stmt("INSERT INTO utenti (nome, cognome, email, password, gestore) VALUES (?, ?, ?, ?, ?)");
-		if ($stmt->execute(
-			[$utente->getNome(), $utente->getCognome(), $utente->getEmail(),
-				$utente->getPassword(), $utente->isGestore() ? 1 : 0]
-		))
+		$stmt->bindValue(1, $utente->getNome());
+		$stmt->bindValue(2, $utente->getCognome());
+		$stmt->bindValue(3, $utente->getEmail());
+		$stmt->bindValue(4, $utente->getPassword());
+		$stmt->bindValue(5, $utente->isGestore(), PDO::PARAM_BOOL);
+		if ($stmt->execute())
 			return self::get_from_id(DB::lastInsertedID());
 		else
 			return null;
@@ -125,6 +128,11 @@ class AccountManager {
 				$res[] = new Utente($r["id"], $r["nome"], $r["cognome"], $r["email"],
 					$r["password"], $r["gestore"] == 1);
 		return $res;
+	}
+
+	public static function delete(Utente $utente): bool {
+		$stmt = DB::stmt("DELETE FROM utenti WHERE (id = :id OR email = :email) OR email = :email");
+		return $stmt->execute([":id" => $utente->getID(), ":email" => $utente->getEmail()]) and $stmt->rowCount() === 1;
 	}
 
 }

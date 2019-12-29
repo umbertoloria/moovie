@@ -35,17 +35,10 @@ class FilmManager {
 		$res = [];
 		$create_view_stmt = DB::stmt("
 create or replace view generi_pesi as
-select film_genere_voto.genere,
-       (
-               sum(voto) / (select count(*)
-                            from film_has_genere
-                            where genere = film_genere_voto.genere
-                              and film in (select film from giudizi where utente = :utente))
-           ) media
+select film_genere_voto.genere, sum(voto) / count(genere) media
 from (
-         select film_has_genere.genere, giudizi_utente.film, giudizi_utente.voto
+         select film_has_genere.genere, giudizi_utente.voto
          from (
-                  # giudizi dell'utente => (film, voto)
                   select films.id film, giudizi.voto
                   from giudizi
                            join films on giudizi.film = films.id
@@ -53,12 +46,17 @@ from (
               ) as giudizi_utente
                   join film_has_genere on film_has_genere.film = giudizi_utente.film
      ) as film_genere_voto
-group by genere;
+group by genere
         ");
 		$create_view_stmt->execute([":utente" => $utente_id]);
 		$take_data_stmt = DB::stmt(
 			"
-select film_has_genere.film
+
+select film_has_genere.film,
+       ifnull((
+                  select avg(voto)
+                  from giudizi
+                  where film = film_has_genere.film), 0) media
 from film_has_genere
 where film_has_genere.genere in (
     select genere
@@ -68,7 +66,9 @@ where film_has_genere.genere in (
   and film_has_genere.film not in (
     select film
     from giudizi
-    where utente = :utente);"
+    where utente = :utente)
+order by media desc
+limit 5"
 		);
 		if ($take_data_stmt->execute([":utente" => $utente_id]))
 			while ($r = $take_data_stmt->fetch(PDO::FETCH_ASSOC))
