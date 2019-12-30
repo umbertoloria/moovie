@@ -57,14 +57,20 @@
             4. [UC_AMI_3: Accettare richiesta di amicizia](#uc_ami_3-accettare-richiesta-di-amicizia)
             5. [UC_AMI_4: Rifiutare richiesta di amicizia](#uc_ami_4-rifiutare-richiesta-di-amicizia)
             5. [UC_AMI_5: Cancellare amicizia](#uc_ami_5-cancellare-amicizia)
+            6. [UC_AMI_6: Visualizzare gli amici](#uc_ami_6-visualizzare-gli-amicizia)
         4. [Film](#film)
             1. [UC_FILM_1: Visualizzare un film](#uc_film_1-visualizzare-un-film)
             2. [UC_FILM_2: Visualizzare un artista](#uc_film_2-visualizzare-un-artista)
-            3. [UC_FILM_3: Aggiungere un giudizio](#uc_film_3-aggiungere-un-giudizio)
-            4. [UC_FILM_4: Modificare un giudizio](#uc_film_4-modificare-un-giudizio)
-            5. [UC_FILM_5: Rimuovere un giudizio](#uc_film_5-rimuovere-un-giudizio)
-            6. [UC_FILM_6: Visualizzare i giudizi](#uc_film_6-visualizzare-i-giudizi)
-            7. [UC_FILM_7: Suggerimenti automatici di film](#uc_film_7-suggerimenti-automatici-di-film)
+            3. [UC_FILM_3: Visualizzare un genere](#uc_film_3-visualizzare-un-genere)
+            4. [UC_FILM_4: Aggiungere un giudizio](#uc_film_4-aggiungere-un-giudizio)
+            5. [UC_FILM_5: Modificare un giudizio](#uc_film_5-modificare-un-giudizio)
+            6. [UC_FILM_6: Rimuovere un giudizio](#uc_film_6-rimuovere-un-giudizio)
+            7. [UC_FILM_7: Visualizzare i giudizi](#uc_film_7-visualizzare-i-giudizi)
+            8. [UC_FILM_8: Aggiungere un promemoria](#uc_film_8-aggiungere-un-promemoria)
+            9. [UC_FILM_9: Rimuovere un promemoria](#uc_film_9-rimuovere-un-promemoria)
+            10. [UC_FILM_10: Visualizzare i promemoria](#uc_film_10-visualizzare-i-promemoria)
+            11. [UC_FILM_11: Suggerimenti automatici di film](#uc_film_11-suggerimenti-automatici-di-film)
+            12. [UC_FILM_12: Visualizzare la classifica dei film](#uc_film_12-visualizzare-la-classifica-dei-film)
     6. [Object model](#object-model)
     7. [Class diagrams](#class-diagrams)
     8. [Sequence diagrams](#sequence-diagrams)
@@ -125,14 +131,20 @@ RF_AMI.2 | Cancellare richiesta di amicizia
 RF_AMI.3 | Accettare richiesta di amicizia
 RF_AMI.4 | Rifiutare richiesta di amicizia
 RF_AMI.5 | Cancellare amicizia
+RF_AMI.6 | Visualizzare gli amici
 **M_RF_FILM** | Film | Alta
 RF_FILM.1 | Visualizzare un film
 RF_FILM.2 | Visualizzare un artista
-RF_FILM.3 | Aggiungere un giudizio
-RF_FILM.4 | Modificare un giudizio
-RF_FILM.5 | Rimuovere un giudizio
-RF_FILM.6 | Visualizzare i giudizi
-RF_FILM.7 | Suggerimenti automatici di film
+RF_FILM.3 | Visualizzare un genere
+RF_FILM.4 | Aggiungere un giudizio
+RF_FILM.5 | Modificare un giudizio
+RF_FILM.6 | Rimuovere un giudizio
+RF_FILM.7 | Visualizzare i giudizi
+RF_FILM.8 | Aggiungere un promemoria
+RF_FILM.9 | Rimuovere un promemoria
+RF_FILM.10 | Visualizzare i promemoria
+RF_FILM.11 | Suggerimenti automatici di film
+RF_FILM.12 | Visualizzare la classifica dei film
 
 ## Requisiti non-funzionali
 ### Usability
@@ -411,6 +423,14 @@ Condizione di entrata | L’utente si trova sulla pagina dell’utente con cui v
 Flusso di eventi | <br/><ol><li>L’utente clicca per cancellare l'amicizia<li>Il sistema cancella l'amicizia</ol>
 Condizione di uscita | Il sistema conferma che l'amicizia è stata cancellata
 
+#### UC_AMI_6: Visualizzare gli amicizia
+**Nome** | **Visualizzare gli amicizia**
+---------|---
+Attori | Utente autenticato.
+Condizione di entrata | L’utente è sul sito.
+Flusso di eventi | <br/><ol><li>L’utente clicca sul link agli amici presente nel menu<li>Il sistema preleva tutte le amicizie (accettate o in attesa) e li mostra nella pagina degli amici</ol>
+Condizione di uscita | Il sistema mostra tutte le amicizie che coinvolgono l'utente.
+
 ### Film
 ![](Use%20case%20diagrams/Film.jpg)
 
@@ -427,26 +447,34 @@ Condizione di uscita | L'utente può consultare la pagina del film.
 ---------|---
 Attori | Utente.
 Condizione di entrata | L’utente, tra i risultati di ricerca, trova il link a un artista che vuole visualizzare.
-Flusso di eventi | <br/><ol><li>L'utente clicca sul link dell'artista<li>Il sistema reperisce le informazioni delll'artista e dei film a cui ha partecipato, e le mostra nella pagina film</ol>
+Flusso di eventi | <br/><ol><li>L'utente clicca sul link dell'artista<li>Il sistema reperisce le informazioni dell'artista e dei film a cui ha partecipato, e le mostra nella pagina film</ol>
 Condizione di uscita | L'utente può consultare la pagina dell'artista.
 
-#### UC_FILM_3: Aggiungere un giudizio
+#### UC_FILM_3: Visualizzare un genere
+**Nome** | **Visualizzare un genere**
+---------|---
+Attori | Utente.
+Condizione di entrata | L’utente si trova nella pagina di un film, ed è interessato ad uno dei generi di questo film.
+Flusso di eventi | <br/><ol><li>L'utente clicca sul link al genere a cui è interessato<li>Il sistema reperisce le informazioni del genere e dei suoi film, e le mostra nella pagina del genere</ol>
+Condizione di uscita | L'utente può consultare la pagina del genere desiderato.
+
+#### UC_FILM_4: Aggiungere un giudizio
 **Nome** | **Aggiungere un giudizio**
 ---------|---
 Attori | Utente autenticato.
-Condizione di entrata | L’utente si trova nell'area di aggiunta di un giudizio.
-Flusso di eventi | <br/><ol><li>L’utente inserisce un giudizio<li>Moovie salva il giudizio e rimanda l'utente alla pagina del film</ol>
+Condizione di entrata | L’utente si trova nell'area di aggiunta di un giudizio a un determinato film.
+Flusso di eventi | <br/><ol><li>L’utente inserisce un voto<li>Moovie salva il giudizio e rimanda l'utente alla pagina del film</ol>
 Condizione di uscita | Il giudizio viene salvato.
 
-#### UC_FILM_4: Modificare un giudizio
+#### UC_FILM_5: Modificare un giudizio
 **Nome** | **Modificare un giudizio**
 ---------|---
 Attori | Utente autenticato.
-Condizione di entrata | L’utente si trova nell'area di modifica di un giudizio.
+Condizione di entrata | L’utente si trova nell'area di modifica di un giudizio a un determinato film.
 Flusso di eventi | <br/><ol><li>L’utente inserisce il nuovo voto<li>Moovie aggiorna il giudizio e rimanda l'utente alla pagina dei giudizi</ol>
 Condizione di uscita | Il giudizio viene aggiornato.
 
-#### UC_FILM_5: Rimuovere un giudizio
+#### UC_FILM_6: Rimuovere un giudizio
 **Nome** | **Rimuovere un giudizio**
 ---------|---
 Attori | Utente autenticato.
@@ -454,21 +482,53 @@ Condizione di entrata | L’utente si trova nella pagina dei giudizi.
 Flusso di eventi | <br/><ol><li>L’utente clicca sul pulsante di rimozione di un giudizio<li>Moovie rimuove il giudizio, e aggiorna la pagina dei giudizi</ol>
 Condizione di uscita | Il giudizio viene rimosso.
 
-#### UC_FILM_6: Visualizzare i giudizi
+#### UC_FILM_7: Visualizzare i giudizi
 **Nome** | **Visualizzare i giudizi**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente è sul sito.
-Flusso di eventi | <br/><ol><li>L’utente clicca sul link ai giudizi presente nel menu<li>Il sistema preleva tutti i giudizi dell'utente e glieli mostra nella pagina dei giudizi</ol>
+Flusso di eventi | <br/><ol><li>L’utente clicca sul link ai giudizi presente nel menu<li>Il sistema preleva tutti i giudizi dell'utente e li mostra nella pagina dei giudizi</ol>
 Condizione di uscita | Il sistema mostra tutti i giudizi dell'utente.
 
-#### UC_FILM_7: Suggerimenti automatici di film
+#### UC_FILM_8: Aggiungere un promemoria
+**Nome** | **Aggiungere un promemoria**
+---------|---
+Attori | Utente autenticato.
+Condizione di entrata | L’utente si trova nella pagina di un film.
+Flusso di eventi | <br/><ol><li>L’utente clicca per aggiungere il film tra i promemoria<li>Moovie crea il nuovo promemoria e aggiorna la pagina del film</ol>
+Condizione di uscita | Il promemoria viene salvato
+
+#### UC_FILM_9: Rimuovere un promemoria
+**Nome** | **Rimuovere un promemoria**
+---------|---
+Attori | Utente autenticato.
+Condizione di entrata | L’utente si trova nella pagina dei promemoria.
+Flusso di eventi | <br/><ol><li>L’utente clicca sul pulsante di rimozione di un promemoria<li>Moovie rimuove il promemoria, e aggiorna la pagina dei promemoria</ol>
+Condizione di uscita | Il promemoria viene rimosso.
+
+#### UC_FILM_10: Visualizzare i promemoria
+**Nome** | **Visualizzare i promemoria**
+---------|---
+Attori | Utente autenticato.
+Condizione di entrata | L’utente è sul sito.
+Flusso di eventi | <br/><ol><li>L’utente clicca sul link ai promemoria presente nel menu<li>Il sistema preleva tutti i promemoria dell'utente e li mostra nella pagina dei promemoria</ol>
+Condizione di uscita | Il sistema mostra tutti i promemoria dell'utente.
+
+#### UC_FILM_11: Suggerimenti automatici di film
 **Nome** | **Suggerimenti automatici di film**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente è sul sito.
 Flusso di eventi | <br/><ol><li>L’utente clicca sul link ai suggerimenti automatici presente nel menu<li>Il sistema seleziona alcuni film in linea con le preferenze dell'utente</ol>
 Condizione di uscita | Il sistema suggerisce i film prelevati all'utente.
+
+#### UC_FILM_12: Visualizzare la classifica dei film
+**Nome** | **Visualizzare la classifica dei film**
+---------|---
+Attori | Utente.
+Condizione di entrata | L’utente è sul sito.
+Flusso di eventi | <br/><ol><li>L’utente clicca sul link alla classifica dei film presente nel menu<li>Il sistema mostra i film migliori, scelti secondo i giudizi di tutti gli utenti</ol>
+Condizione di uscita | Il sistema mostra i film nella classifica.
 
 ## Object model
 
@@ -500,10 +560,16 @@ Condizione di uscita | Il sistema suggerisce i film prelevati all'utente.
     * Conferma richiesta amicizia accettata: notifica l'avvenuta accettazione di una richiesta di amicizia
     * Conferma richiesta amicizia rifiutata: notifica l'avvenuto rifiuto di una richiesta di amicizia
     * Conferma amicizia cancellata: notifica l'avvenuta cancellazione di un'amicizia precedente
+    * Pagina amici: mostra tutte le informazioni sulle amicizie (accettate o in attesa) che coinvolgono l'utente che la
+    visualizza
 * Film:
-    * Form di aggiunta giudizio: richiede l'inserimento del giudizio da salvare
-    * Form di modifica giuizio: richiede l'inserimento del giudizio da aggiornare
-    * Pagina giudizi: mostra i giudizi dell'utente che la visualizza
+    * Pagina genere: mostra le informazioni di un genere e tutti i film di quel genere
+    * Giudizi:
+        * Form di aggiunta giudizio: richiede l'inserimento del giudizio da salvare
+        * Form di modifica giuizio: richiede l'inserimento del giudizio da aggiornare
+        * Pagina giudizi: mostra i giudizi dell'utente che la visualizza
+    * Pagina promemoria: mostra i promemoria dell'utente che la visualizza
+    * Classifica film: mostra i film più votati dall'utenza del sito
     * Pagina suggerimenti: suggerisce alcuni film in linea con le preferenze dell'utente che la visualizza
 
 ### Control objects
@@ -522,16 +588,26 @@ Condizione di uscita | Il sistema suggerisce i film prelevati all'utente.
     * Accetta richiesta amicizia: accetta una richiesta di amicizia
     * Rifiuta richiesta amicizia: rifiuta una richiesta di amicizia
     * Cancella amicizia: cancella un'amicizia precedente
+    * Visualizza amici: preleva le informazioni riguardo le amicizie (accettate o in attesa) che coinvolgono l'utente
+    autenticato
 * Film:
-    * Aggiungi giudizio: aggiunge un giudizio
-    * Modifica giudizio: modifica un giudizio esistente
-    * Rimuovi giudizio: rimuove un giudizio esistente
-    * Visualizza giudizi: preleva le informazioni dei giudizi dell'utente autenticato per presentarle
+    * Visualizza genere: preleva le informazioni di un genere e dei suoi film
+    * Giudizi:
+        * Aggiungi giudizio: aggiunge un giudizio
+        * Modifica giudizio: modifica un giudizio esistente
+        * Rimuovi giudizio: rimuove un giudizio esistente
+        * Visualizza giudizi: preleva le informazioni dei giudizi dell'utente autenticato per presentarle
+    * Promemoria:
+        * Aggiungi promemoria: aggiunge un promemoria
+        * Rimuovi promemoria: rimuove un promemoria esistente
+        * Visualizza promemoria: preleva le informazioni dei promemoria dell'utente autenticato per presentarle
+    * Visualizza classifica film: preleva i film più votati dall'utenza del sito e le mostra
     * Suggerimenti automatici: suggerisce alcuni film ad un account in base alle sue preferenze cinematografiche
 
 ### Manager objects
 * Film Manager:
     * preleva il film con un determinato id (se esiste)
+    * preleva tutti i film di un determinato genere
     * cerca film tramite fulltext
     * suggerisce automaticamente alcuni film ad un utente
 * Artista Manager:
@@ -554,15 +630,19 @@ Condizione di uscita | Il sistema suggerisce i film prelevati all'utente.
     * verifica l'esistenza di un'amicizia tra due account
     * cancella un'amicizia esistente tra due account
 * Giudizio Manager:
+    * preleva il giudizio di un determinato utente ad un determinato film
     * aggiunge un giudizio
     * modifica un giudizio esistente
     * rimuove un giudizio esistente
 * Recitazione Manager:
     * preleva la recitazione di tutti gli attori in un determinato film
+    * preleva la recitazione di un determinato attore in tutti i film
 * Regia Manager:
     * preleva le regie di tutti i registi in un determinato film
+    * preleva le regie di un determinato regista in tutti i film
 * Genere Manager:
-    * preleva tutti i generi di un determinato film (se esiste)
+    * preleva il genere con un determinato id (se esiste)
+    * preleva tutti i generi di un determinato film
 
 ### Entity objects
 * Film: rappresenta le informazioni di un film
@@ -571,6 +651,7 @@ Condizione di uscita | Il sistema suggerisce i film prelevati all'utente.
 * Amicizia: rappresenta le informazioni di una richiesta di amicizia
 * Amicizia Accettata: specializza una amicizia integrando le informazioni di accettazione di questa
 * Giudizio: rappresenta il giudizio dato da un account ad un film in un dato orario
+* Promemoria: rappresenta il promemoria di un film fatto da un account in un dato orario
 * Genere: rappresenta le informazioni di un genere cinematografico
 * Recitazione: rappresenta la partecipazione di un attore ad un film e il personaggio che ha interpretato
 * Regia: rappresenta la partecipazione di un artista ad un film nel ruolo di regista
@@ -628,15 +709,25 @@ Condizione di uscita | Il sistema suggerisce i film prelevati all'utente.
 
 ![](Sequence%20diagrams/UC_FILM_2%20Visualizzare%20un%20artista.jpg)
 
-![](Sequence%20diagrams/UC_FILM_3%20Aggiungere%20un%20giudizio.jpg)
+![](Sequence%20diagrams/UC_FILM_3%20Visualizzare%20un%20genere.jpg)
 
-![](Sequence%20diagrams/UC_FILM_4%20Modificare%20un%20giudizio.jpg)
+![](Sequence%20diagrams/UC_FILM_4%20Aggiungere%20un%20giudizio.jpg)
 
-![](Sequence%20diagrams/UC_FILM_5%20Rimuovere%20un%20giudizio.jpg)
+![](Sequence%20diagrams/UC_FILM_5%20Modificare%20un%20giudizio.jpg)
 
-![](Sequence%20diagrams/UC_FILM_6%20Visualizzare%20i%20giudizi.jpg)
+![](Sequence%20diagrams/UC_FILM_6%20Rimuovere%20un%20giudizio.jpg)
 
-![](Sequence%20diagrams/UC_FILM_7%20Suggerimenti%20automatici%20di%20film.jpg)
+![](Sequence%20diagrams/UC_FILM_7%20Visualizzare%20i%20giudizi.jpg)
+
+![](Sequence%20diagrams/UC_FILM_8%20Aggiungere%20un%20promemoria.jpg)
+
+![](Sequence%20diagrams/UC_FILM_9%20Rimuovere%20un%20promemoria.jpg)
+
+![](Sequence%20diagrams/UC_FILM_10%20Visualizzare%20i%20promemoria.jpg)
+
+![](Sequence%20diagrams/UC_FILM_11%20Suggerimenti%20automatici%20di%20film.jpg)
+
+![](Sequence%20diagrams/UC_FILM_12%20Visualizzare%20la%20classifica%20dei%20film.jpg)
 
 ## Statechart diagrams
 ![](Statechart%20diagrams/Utente.jpg)
