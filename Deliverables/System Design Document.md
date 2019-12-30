@@ -422,9 +422,9 @@ e per ogni interazione tra questi è presente l'insieme di operazioni disponibli
 -------- | --------| ----- | ---- 
 Ricerche | RicercaFilm()<br/>RicercaArtista()<br/>RicercaUtente() | RicercaFilm()<br/>RicercaArtista()<br/>RicercaUtente() | RicercaFilm()<br/>RicercaArtista()<br/>RicercaUtente()
 Accounts | CreareAccount()<br/>AutenticareAccount() | CambiarePassword()<br/> | CambiarePassword()<br/>  
-Amicizie | | InviareRichiestaAmicizia()<br/>CancellareRichiestaAmicizia()<br/>AccettareRichiestaAmicizia()<br/>RifiutareRichiestaAmicizia()<br/>CancellareAmicizia()<br/>SuggerireFilmAmici() | InviareRichiestaAmicizia()<br/>CancellareRichiestaAmicizia()<br/>AccettareRichiestaAmicizia()<br/>RifiutareRichiestaAmicizia()<br/>CancellareAmicizia()<br/>SuggerireFilmAmici()  
+Amicizie | | InviareRichiestaAmicizia()<br/>CancellareRichiestaAmicizia()<br/>AccettareRichiestaAmicizia()<br/>RifiutareRichiestaAmicizia()<br/>CancellareAmicizia()| InviareRichiestaAmicizia()<br/>CancellareRichiestaAmicizia()<br/>AccettareRichiestaAmicizia()<br/>RifiutareRichiestaAmicizia()<br/>CancellareAmicizia() 
 Film | | AggiungereGiudizio()<br/>ModificareGiudizio()<br/>RimuovereGiudizio()<br/>SuggerimentoAutomatico()<br/> | AggiungereGiudizio()<br/>ModificareGiudizio()<br/>RimuovereGiudizio()<br/>SuggerimentoAutomatico()<br/>
-Liste | | CreareLista()<br/>ModificareLista()<br/>EliminareLista()<br/>AggiornarePresenzaFilm()<br/>SeguireListeAltrui() | CreareLista()<br/>ModificareLista()<br/>EliminareLista()<br/>AggiornarePresenzaFilm()<br/>SeguireListeAltrui()
+
 
 ## Condizione Limite
 
@@ -479,7 +479,6 @@ CancellareRichiestaAmicizia() | Servizio che offre la possibilità di cancellare
 AccettareRichiestaAmicizia() | Servizio che offre la possibilità di confermare una amicizia ricevuta da parte di un altro utente 
 RifiutareRichiestaAmicizia() | Servizio che permette ad un utente di rifiutare una richiesta di amicizia ricevuta da parte di un altro utente
 CancellareAmicizia() | Servizio che permette ad un utente di cancellare l'amicizia con un altro utente 
-SuggerireFilmAmici() | Servizio che offre la possibilità di suggerire un particolare film ad altri amici 
 
 ## Sottosistema "Film"
 Sottosistema | Descrizione 
@@ -491,17 +490,4 @@ Servizi | Descrizione
 AggiungereGiudizio() | Servizio che offre la possibilità di aggiungere un giudizio su un film che l'utente ha visto 
 ModificareGiudizio() | Servizio che offre la possibilità modificare un giudizio, fatto in precedenza, su un film visto 
 RimuovereGiudizio() | Servizio che offre la possibilità di rimuovere un giudizio su un film 
-SuggerimentoAutomatico() | Servizio che offre la possibilità ad un utente di farsi suggerire un film in linea con i suoi gusti 
 
-## Sottosistema "Liste"
-Sottosistema | Descrizione 
----|---
-Liste | Il sottosistema "Liste" si occupa di fornire tutti i servizi che permettono ad un utente di gestire le liste 
-
-Servizi | Descrizione 
----|---
-CreareLista() | Servizio che offre la possibilità ad un utente di creare una lista in base alle esigenze che lui possiede 
-ModificareLista() | Servizio che offre la possibilità di modificare una determinata lista, cambiandone il nome e i privilegi che un utente ha scelto in precedenza 
-EliminareLista() | Servizio che offre la possibilità di eliminare una lista 
-AggionrnarePresenzaFilm() | Servizio che offre la possibilità di aggiungere o rimuovere un determinato film da una lista 
-SeguireListeAltrui() | Servizio che offre la possibilità di seguire una lista di un amico 
