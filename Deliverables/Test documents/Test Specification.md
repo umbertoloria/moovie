@@ -101,7 +101,7 @@ PRECONDIZIONI | 1. L'utente è area di registrazione
 FLUSSO DI EVENTI | 1. L'utente digita nel campo nome il testo "Michelantonio", nel campo cognome "Panichella", nel campo email "michelantoniopanichella@gmail.com", nel campo passwors "140898", nel campo copassword "140898" <br/> 2. L'utente clicca sul pulsante "Cerca"
 ORACOLO | Il sistema non esegue la registrazione dell'utente
 -------
-### 2.2 AutenticareAccout
+### 2.2 AutenticareAccount
 Test Case ID | TC_2.2_1
 ----|----
 PRECONDIZIONI | 1. L'utente è sulla pagina di accesso di "Moovie" <br/> 2. L'utente possiede un proprio account
@@ -126,32 +126,38 @@ PRECONDIZIONI | 1. L'utente è sulla pagina di accesso di "Moovie" <br/> 2. L'ut
 FLUSSO DI EVENTI | 1. L'utente digita nel campo email "michelantoniopanichella@gmail.com", nel campo password "140898" <br/> 2. L'utente clicca sul pulsande "Accedi" 
 ORACOLO | Il sistema esegue il login dell'utente
 -------
-### 2.3 ConfermaCambioPassword
+### 2.3 CambiarePassword
 **Test Case ID** | TC_2.3_1
 ----|----
 **PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per cambiare la propria password
-**FLUSSO DI EVENTI** | 1. L'utente digita nel campo Password Vecchia il testo "", nel campo Password Nuova "Gianluca", nel campo Conferma Password "Gianluca".<br/> 2. L'utente clicca sul pulsante "Applica"
+**FLUSSO DI EVENTI** | 1. L'utente digita nel campo Password Vecchia il testo "", nel campo Password Nuova "Gianluca".<br/> 2. L'utente clicca sul pulsante "Applica"
 **ORACOLO** | Il sistema comunica che i dati non sono validi
 -------
 **Test Case ID** | TC_2.3_2
 ----|----
 **PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per cambiare la propria password
-**FLUSSO DI EVENTI** | 1. L'utente digita nel campo Password Vecchia il testo "gianluca", nel campo Password Nuova "Luca", nel campo Conferma Password "Gianluca".<br/> 2. L'utente clicca sul pulsante "Applica"
+**FLUSSO DI EVENTI** | 1. L'utente digita nel campo Password Vecchia il testo "gianluca", nel campo Password Nuova "Luca".<br/> 2. L'utente clicca sul pulsante "Applica"
 **ORACOLO** | Il sistema comunica che i dati non sono validi
----
+---------
 **Test Case ID** | TC_2.3_3
 ----|----
 **PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per cambiare la propria password
-**FLUSSO DI EVENTI** | 1. L'utente digita nel campo Password Vecchia il testo "gianluca", nel campo Password Nuova "Gianluca", nel campo Conferma Password "Luca".<br/> 2. L'utente clicca sul pulsante "Applica"
-**ORACOLO** | Il sistema comunica che i dati non sono validi
+**FLUSSO DI EVENTI** | 1. L'utente digita nel campo Password Vecchia il testo "gianluca1", nel campo Password Nuova "Luca".<br/> 2. L'utente clicca sul pulsante "Applica"
+**ORACOLO** | Il sistema comunica che i dati non sono validi(la password vecchia non corrisponde)
 ---
 **Test Case ID** | TC_2.3_4
 ----|----
 **PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per cambiare la propria password
-**FLUSSO DI EVENTI** | 1. L'utente digita nel campo Password Vecchia il testo "gianluca", nel campo Password Nuova "Gianluca", nel campo Conferma Password "Gianluca".<br/> 2. L'utente clicca sul pulsante "Applica"
+**FLUSSO DI EVENTI** | 1. L'utente digita nel campo Password Vecchia il testo "gianluca", nel campo Password Nuova "Gianluca".<br/> 2. L'utente clicca sul pulsante "Applica"
+**ORACOLO** | Il sistema comunica che i dati non sono validi
+---
+**Test Case ID** | TC_2.3_5
+----|----
+**PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per cambiare la propria password
+**FLUSSO DI EVENTI** | 1. L'utente digita nel campo Password Vecchia il testo "gianluca", nel campo Password Nuova "Gianluca".<br/> 2. L'utente clicca sul pulsante "Applica"
 **ORACOLO** | Il sistema comunica che la password è stata aggiornata.
 -------
-### 3.1 RichiestaAmiciziaAccount  
+### 3.1 InviareRichiestaAmicizia  
 Test Case ID | TC_3.1_1  
 ----|----  
 PRECONDIZIONI | 1. L'utente è sulla pagina dell'amico a cui inviare l'amicizia  
@@ -170,7 +176,7 @@ PRECONDIZIONI | 1. L'utente è sulla pagina dell'amico a cui inviare l'amicizia
 FLUSSO DI EVENTI | 1. L'utente clicca sul pulsante "Richiedi Amicizia"
 ORACOLO | Il sistema invia la richiesta di amicizia  
 -------
-### 3.2 ConfermaAmiciziaAccount  
+### 3.2 AccettareRichiestaAmicizia  
 Test Case ID | TC_3.2_1  
 ----|----  
 PRECONDIZIONI | 1. L'utente è sulla pagina delle delle amicizie
@@ -189,7 +195,7 @@ PRECONDIZIONI | 1. L'utente è sulla pagina delle delle amicizie
 FLUSSO DI EVENTI | 1. L'utente clicca sul pulsante "Accetta richiesta di amicizia"
 ORACOLO |  Il sistema crea l'amicizia  
 -------
-### 3.3 RifiutaAmiciziaAccount  
+### 3.3 RifiutareRichiestaAmicizia  
 Test Case ID | TC_3.3_1  
 ----|----  
 PRECONDIZIONI | 1. L'utente è sulla pagina delle delle amicizie
@@ -235,72 +241,3 @@ ORACOLO |  Il sistema rifiuta l'amicizia richiesta
 **FLUSSO DI EVENTI** | 1. L'utente seleziona "8" come voto al film "Bastardi senza gloria" che è non presente in film guardati.<br/> 2. L'utente clicca sul pulsante "Applica"
 **ORACOLO** | Il sistema assegna il  nuovo voto al film.
 ---
-### Test Cases Specification "Liste"
-### 5.1 CreareLista
-**Test Case ID** | TC_5.1_1
-----|----
-**PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per creare una lista
-**FLUSSO DI EVENTI** | 1. L'utente scrive nel campo nome "" e seleziona come visibilità "Amici"<br/> 2. L'utente clicca sul pulsante "Applica"
-**ORACOLO** | Il sistema non crea la lista.
--------
-**Test Case ID** | TC_5.2_1
-----|----
-**PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per creare una lista
-**FLUSSO DI EVENTI** | 1. L'utente scrive nel campo nome "Epici" e seleziona come visibilità "Amici"<br/> 2. L'utente clicca sul pulsante "Applica"
-**ORACOLO** | Il sistema non crea la lista dato che esiste già una lista con quel nome.
--------
-**Test Case ID** | TC_5.3_1
-----|----
-**PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per creare una lista
-**FLUSSO DI EVENTI** | 1. L'utente scrive nel campo nome "Epici" e non seleziona nessuna visibilità<br/> 2. L'utente clicca sul pulsante "Applica"
-**ORACOLO** | Il sistema non crea la lista.
--------
-**Test Case ID** | TC_5.4_1
-----|----
-**PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per creare una lista
-**FLUSSO DI EVENTI** | 1. L'utente scrive nel campo nome "Epici" e seleziona come visibilità "Amici"<br/> 2. L'utente clicca sul pulsante "Applica"
-**ORACOLO** | Il sistema crea la lista.
--------
-### 5.2 ModificareLista
-**Test Case ID** | TC_5.2_1
-----|----
-**PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per modificare una lista
-**FLUSSO DI EVENTI** | 1. L'utente scrive nel campo nome "" e seleziona come visibilità "Amici"<br/> 2. L'utente clicca sul pulsante "Applica"
-**ORACOLO** | Il sistema non modifica la lista.
--------
-**Test Case ID** | TC_5.2_2
-----|----
-**PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per modificare una lista
-**FLUSSO DI EVENTI** | 1. L'utente scrive nel campo nome "Epici" e seleziona come visibilità "Amici"<br/> 2. L'utente clicca sul pulsante "Applica"
-**ORACOLO** | Il sistema non modifica la lista dato che esiste già una lista con quel nome.
--------
-**Test Case ID** | TC_5.2_3
-----|----
-**PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per modificare una lista
-**FLUSSO DI EVENTI** | 1. L'utente scrive nel campo nome "Fantastici" e non seleziona nessuna visibilità<br/> 2. L'utente clicca sul pulsante "Applica"
-**ORACOLO** | Il sistema non modifica la lista.
--------
-**Test Case ID** | TC_5.2_4
-----|----
-**PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per creare una lista
-**FLUSSO DI EVENTI** | 1. L'utente scrive nel campo nome "Fantastici" e seleziona come visibilità "Tutti"<br/> 2. L'utente clicca sul pulsante "Applica"
-**ORACOLO** | Il sistema modifica la lista.
--------
-### 5.2 AggiornarePresenzaFilm
-**Test Case ID** | TC_5.3_1
-----|----
-**PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per modificare la presenza di un film nelle liste
-**FLUSSO DI EVENTI** | 1. L’utente seleziona o deseleziona le liste in cui vuole aggiungere o rimuovere un film<br/> 2. L'utente clicca sul pulsante "Applica"
-**ORACOLO** | Il sistema non inserisce o disinserisce il film dalle liste perchè quest'ultime non esistono.
------
-**Test Case ID** | TC_5.3_2
-----|----
-**PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per modificare la presenza di un film nelle liste
-**FLUSSO DI EVENTI** | 1. L’utente seleziona o deseleziona le liste in cui vuole aggiungere o rimuovere un film<br/> 2. L'utente clicca sul pulsante "Applica"
-**ORACOLO** | Il sistema non inserisce o disinserisce il film dalla liste perchè quest'ultimo non esiste.
-----
-**Test Case ID** | TC_5.3_3
-----|----
-**PRECONDIZIONI** | 1. L'utente è loggato, ed è nell'area apposita per modificare la presenza di un film nelle liste
-**FLUSSO DI EVENTI** | 1. L’utente seleziona o deseleziona le liste in cui vuole aggiungere o rimuovere un film<br/> 2. L'utente clicca sul pulsante "Applica"
-**ORACOLO** | Il sistema inserisce o disinserisce il film dalle liste.
