@@ -57,23 +57,14 @@
             4. [UC_AMI_3: Accettare richiesta di amicizia](#uc_ami_3-accettare-richiesta-di-amicizia)
             5. [UC_AMI_4: Rifiutare richiesta di amicizia](#uc_ami_4-rifiutare-richiesta-di-amicizia)
             5. [UC_AMI_5: Cancellare amicizia](#uc_ami_5-cancellare-amicizia)
-            6. [UC_AMI_6: Suggerirere un film ad amici](#uc_ami_6-suggerire-un-film-ad-amici)
-            6. [UC_AMI_7: Visualizzare suggerimenti di film](#uc_ami_7-visualizzare-suggerimenti-di-film)
-        3. [Film](#film)
+        4. [Film](#film)
             1. [UC_FILM_1: Visualizzare un film](#uc_film_1-visualizzare-un-film)
             2. [UC_FILM_2: Visualizzare un artista](#uc_film_2-visualizzare-un-artista)
             3. [UC_FILM_3: Aggiungere un giudizio](#uc_film_3-aggiungere-un-giudizio)
             4. [UC_FILM_4: Modificare un giudizio](#uc_film_4-modificare-un-giudizio)
             5. [UC_FILM_5: Rimuovere un giudizio](#uc_film_5-rimuovere-un-giudizio)
-            6. [UC_FILM_6: Visualizzare film guardati](#uc_film_6-visualizzare-film-guardati)
-            7. [UC_FILM_7: Suggerimento automatico di un film](#uc_film_7-suggerimento-automatico-di-un-film)
-        4. [Liste](#liste)
-            1. [UC_LIST_1: Visualizzare una lista](#uc_list_1-visualizzare-una-lista)
-            2. [UC_LIST_2: Creare una lista](#uc_list_2-creare-una-lista)
-            3. [UC_LIST_3: Modificare una lista](#uc_list_3-modificare-una-lista)
-            4. [UC_LIST_4: Eliminare una lista](#uc_list_4-eliminare-una-lista)
-            5. [UC_LIST_5: Aggiornare la presenza di film nelle liste](#uc_list_5-aggiornare-la-presenza-di-film-nelle-liste)
-            5. [UC_LIST_5: Seguire liste altrui](#uc_list_6-seguire-liste-altrui)
+            6. [UC_FILM_6: Visualizzare i giudizi](#uc_film_6-visualizzare-i-giudizi)
+            7. [UC_FILM_7: Suggerimenti automatici di film](#uc_film_7-suggerimenti-automatici-di-film)
     6. [Object model](#object-model)
     7. [Class diagrams](#class-diagrams)
     8. [Sequence diagrams](#sequence-diagrams)
@@ -134,23 +125,14 @@ RF_AMI.2 | Cancellare richiesta di amicizia
 RF_AMI.3 | Accettare richiesta di amicizia
 RF_AMI.4 | Rifiutare richiesta di amicizia
 RF_AMI.5 | Cancellare amicizia
-RF_AMI.6 | Suggerire un film ad amici
-RF_AMI.7 | Visualizzare suggerimenti di film
 **M_RF_FILM** | Film | Alta
 RF_FILM.1 | Visualizzare un film
 RF_FILM.2 | Visualizzare un artista
 RF_FILM.3 | Aggiungere un giudizio
 RF_FILM.4 | Modificare un giudizio
 RF_FILM.5 | Rimuovere un giudizio
-RF_FILM.6 | Visualizzare film guardati
-RF_FILM.7 | Suggerimento automatico di un film
-**M_RF_LIST** | Liste | Media
-RF_LIST.1 | Visualizzare una lista
-RF_LIST.2 | Creare una lista
-RF_LIST.3 | Modificare una lista
-RF_LIST.4 | Eliminare una lista
-RF_LIST.5 | Aggiornare la presenza di film nelle liste
-RF_LIST.6 | Seguire una lista altrui
+RF_FILM.6 | Visualizzare i giudizi
+RF_FILM.7 | Suggerimenti automatici di film
 
 ## Requisiti non-funzionali
 ### Usability
@@ -284,8 +266,8 @@ voto 10), perché ovviamente lui lo aveva già visto, ma prima di conoscere Moov
 ---------|---
 Attori | Utente.
 Condizione di entrata | L’utente si trova nell’area di ricerca.
-Flusso di eventi |<br/><ol><li>L’utente inserisce il titolo di un film<li>Il sistema ricerca tra tutti i film e mostra i risultati di ricerca<li>L’utente seleziona il film cercato<li>Il sistema preleva le informazioni e le presenta tramite la pagina del film</ol>
-Condizione di uscita | L’utente potrà visualizzare il film tramite [UC_FILM_1 Visualizzare un film](#uc_film_1-visualizzare-un-film).
+Flusso di eventi |<br/><ol><li>L’utente seleziona "film" e inserisce il titolo di un film<li>Il sistema esegue la ricerca di film e mostra tutti i risultati<li>L’utente seleziona il film cercato<li>Il sistema preleva le informazioni e le presenta tramite la pagina del film</ol>
+Condizione di uscita | L’utente potrà visualizzare il film tramite [UC_FILM_1](#uc_film_1-visualizzare-un-film).
 Eccezioni | Se il film cercato non è presente, vai a [UC_RIC_1.1](#uc_ric_11-ricerca-di-un-film-fallita).
 
 #### UC_RIC_1.1: Ricerca di un film fallita
@@ -301,8 +283,8 @@ Condizione di uscita | Moovie comunica che il film non è presente.
 ---------|---
 Attori | Utente.
 Condizione di entrata | L’utente si trova nell’area di ricerca.
-Flusso di eventi | <br/><ol><li>L’utente inserisce il nome di un artista<li>Il sistema ricerca tra tutti gli artisti e mostra i risultati di ricerca<li>L’utente seleziona l’artista cercato<li>Il sistema preleva le informazioni e le presenta tramite la pagina dell'artista</ol>
-Condizione di uscita | L’utente potrà visualizzare la scheda informativa dell’artista tramite [...].
+Flusso di eventi |<br/><ol><li>L’utente seleziona "artisti" e inserisce il nome di un artista<li>Il sistema esegue la ricerca di artisti e mostra tutti i risultati<li>L’utente seleziona l'artista cercato<li>Il sistema preleva le informazioni e le presenta tramite la pagina dell'artista</ol>
+Condizione di uscita | L’utente potrà visualizzare l'artista tramite [UC_FILM_2](#uc_film_2-visualizzare-un-artista).
 Eccezioni | Se l’utente cercato non è presente, vai a [UC_RIC_2.1](#uc_ric_21-ricerca-di-un-artista-fallita).
 
 #### UC_RIC_2.1: Ricerca di un artista fallita
@@ -318,8 +300,8 @@ Condizione di uscita | Moovie comunica che l’artista non è presente.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nell’area di ricerca.
-Flusso di eventi | <br/><ol><li>L’utente inserisce nome e/o cognome di un utente<li>Il sistema ricerca tra tutti gli utenti e mostra i risultati di ricerca<li>L’utente seleziona l’utente cercato<li>Il sistema preleva le informazioni e le presenta tramite il profilo dell'utente</ol>
-Condizione di uscita | L’utente potrà visualizzare la scheda informativa dell’utente tramite [...].
+Flusso di eventi |<br/><ol><li>L’utente seleziona "utenti" e inserisce il nome di un utente<li>Il sistema esegue la ricerca di utenti e mostra tutti i risultati<li>L’utente seleziona l'utente cercato<li>Il sistema preleva le informazioni e le presenta tramite il profilo dell'utente</ol>
+Condizione di uscita | L’utente potrà visualizzare l'utente tramite [UC_ACC_4](#uc_acc_4-visualizzare-un-profilo).
 Eccezioni | Se l’utente cercato non è presente, vai a [UC_RIC_3.1](#uc_ric_31-ricerca-di-un-utente-fallita).
 
 #### UC_RIC_3.1: Ricerca di un utente fallita
@@ -429,22 +411,6 @@ Condizione di entrata | L’utente si trova sulla pagina dell’utente con cui v
 Flusso di eventi | <br/><ol><li>L’utente clicca per cancellare l'amicizia<li>Il sistema cancella l'amicizia</ol>
 Condizione di uscita | Il sistema conferma che l'amicizia è stata cancellata
 
-#### UC_AMI_6: Suggerire un film ad amici
-**Nome** | **Suggerire un film ad amici**
----------|---
-Attori | Utente autenticato.
-Condizione di entrata | L’utente è nell'area di selezione degli amici a cui suggerire un determinato film.
-Flusso di eventi | <br/><ol><li>L’utente seleziona tutti gli amici a cui vuole suggerire il film<li>Il sistema invia i suggerimenti agli utenti selezionati</ol>
-Condizione di uscita | Il sistema conferma l'invio dei suggerimenti.
-
-#### UC_AMI_7: Visualizzare suggerimenti di film
-**Nome** | **Visualizzare suggerimenti di film**
----------|---
-Attori | Utente autenticato.
-Condizione di entrata | L’utente si trova in una pagina del sito.
-Flusso di eventi | <br/><ol><li>L'utente seleziona il pulsante che mostra i suggerimenti<li>Il sistema preleva i suggerimenti diretti all'utente e glieli mostra.</ol>
-Condizione di uscita | Il sistema mostra i suggerimenti inviati verso l'utente.
-
 ### Film
 ![](Use%20case%20diagrams/Film.jpg)
 
@@ -469,112 +435,60 @@ Condizione di uscita | L'utente può consultare la pagina dell'artista.
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nell'area di aggiunta di un giudizio.
-Flusso di eventi | <br/><ol><li>L’utente inserisce un giudizio<li>Moovie aggiunge il film (col voto relativo) ai film guardati, e rimanda l'utente alla pagina del film</ol>
-Condizione di uscita | Il film (e il giudizio) è stato salvato nei film guardati.
+Flusso di eventi | <br/><ol><li>L’utente inserisce un giudizio<li>Moovie salva il giudizio e rimanda l'utente alla pagina del film</ol>
+Condizione di uscita | Il giudizio viene salvato.
 
 #### UC_FILM_4: Modificare un giudizio
 **Nome** | **Modificare un giudizio**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nell'area di modifica di un giudizio.
-Flusso di eventi | <br/><ol><li>L’utente inserisce il nuovo giudizio<li>Moovie modificherà il giudizio sul film presente nei film guardati</ol>
-Condizione di uscita | Il giudizio verrà aggiornato.
+Flusso di eventi | <br/><ol><li>L’utente inserisce il nuovo voto<li>Moovie aggiorna il giudizio e rimanda l'utente alla pagina dei giudizi</ol>
+Condizione di uscita | Il giudizio viene aggiornato.
 
 #### UC_FILM_5: Rimuovere un giudizio
 **Nome** | **Rimuovere un giudizio**
 ---------|---
 Attori | Utente autenticato.
-Condizione di entrata | L’utente si trova nella pagina dei film guardati.
-Flusso di eventi | <br/><ol><li>L’utente seleziona il giudizio da rimuovere<li>Moovie rimuove il giudizio, e aggiorna la pagina dei film guardati</ol>
-Condizione di uscita | Il giudizio verrà rimosso.
+Condizione di entrata | L’utente si trova nella pagina dei giudizi.
+Flusso di eventi | <br/><ol><li>L’utente clicca sul pulsante di rimozione di un giudizio<li>Moovie rimuove il giudizio, e aggiorna la pagina dei giudizi</ol>
+Condizione di uscita | Il giudizio viene rimosso.
 
-#### UC_FILM_6: Visualizzare film guardati
-**Nome** | **Visualizzare film guardati**
+#### UC_FILM_6: Visualizzare i giudizi
+**Nome** | **Visualizzare i giudizi**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente è sul sito.
-Flusso di eventi | <br/><ol><li>L’utente accede alla funzionalità dei film guardati<li>Il sistema preleva tutti i suoi giudizi e li mostra</ol>
-Condizione di uscita | Il sistema mostra tutti i film guardati dall'utente.
+Flusso di eventi | <br/><ol><li>L’utente clicca sul link ai giudizi presente nel menu<li>Il sistema preleva tutti i giudizi dell'utente e glieli mostra nella pagina dei giudizi</ol>
+Condizione di uscita | Il sistema mostra tutti i giudizi dell'utente.
 
-#### UC_FILM_7: Suggerimento automatico di un film
-**Nome** | **Suggerimento automatico di un film**
+#### UC_FILM_7: Suggerimenti automatici di film
+**Nome** | **Suggerimenti automatici di film**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente è sul sito.
-Flusso di eventi | <br/><ol><li>L’utente accede alla funzionalità di suggerimento film<li>Il sistema seleziona un film in linea con i gusti dell’utente</ol>
-Condizione di uscita | Il sistema suggerisce il film che è stato selezionato.
-
-### Liste
-![](Use%20case%20diagrams/Liste.jpg)
-
-#### UC_LIST_1: Visualizzare una lista
-**Nome** | **Visualizzare una lista**
----------|---
-Attori | Utente autenticato.
-Condizione di entrata | L’utente si trova nel profilo di un utente.
-Flusso di eventi | <br/><ol><li>L’utente clicca su una delle liste mostrate<li>Il sistema reperisce le informazioni della lista, e le mostra</ol>
-Condizione di uscita | L'utente visualizza la pagina della lista.
-
-#### UC_LIST_2: Creare una lista
-**Nome** | **Creare una lista**
----------|---
-Attori | Utente autenticato.
-Condizione di entrata | L’utente si trova nella pagina di creazione di una lista.
-Flusso di eventi | <br/><ol><li>L’utente inserisce il nome e sceglie la visibilità (tutti, amici, solo tu) della lista da creare<li>Il sistema porta l'utente nella pagina della lista appena creata</ol>
-Condizione di uscita | La lista viene creata.
-Eccezioni | L’utente ha inserito, come nome della nuova lista, il nome di una propria lista già esistente.
-
-#### UC_LIST_3: Modificare una lista
-**Nome** | **Modificare una lista**
----------|---
-Attori | Utente autenticato.
-Condizione di entrata | L’utente si trova nella pagina di una sua lista da modificare.
-Flusso di eventi | <br/><ol><li>L’utente inserisce il nuovo nome e/o la nuova visibilità (tutti, amici, solo tu) della lista che vuole modificare<li>Il sistema aggiorna la lista, scollega gli eventuali follower non più compatibili con la nuova visibilità della lista, e porta l'utente nella pagina della lista modificata</ol>
-Condizione di uscita | La lista viene modificata.
-
-#### UC_LIST_4: Eliminare una lista
-**Nome** | **Eliminare una lista**
----------|---
-Attori | Utente autenticato.
-Condizione di entrata | L’utente si trova nella pagina della sua lista da eliminare.
-Flusso di eventi | <br/><ol><li>L’utente attiva la funzione di eliminazione<li>Il sistema cancella la lista, e conferma all'utente la cancellazione</ol>
-Condizione di uscita | La lista viene cancellata.
-
-#### UC_LIST_5: Aggiornare la presenza di film nelle liste
-**Nome** | **Aggiornare la presenza di film nelle liste**
----------|---
-Attori | Utente autenticato.
-Condizione di entrata | L’utente deve selezionare le liste in cui inserire un film, e deselezionare le liste in cui rimuovere un film, nell'area di aggiornamento presenza film in liste.
-Flusso di eventi | <br/><ol><li>L’utente seleziona le liste in cui inserire il film, e deseleziona le liste in cui rimuovere il film se già presente (quindi già selezionate)<li>Il sistema aggiunge il film alle liste selezionate, e rimuove il film dalle liste deselezionate</ol>
-Condizione di uscita | Il film viene aggiunto alle liste selezionate, e rimosso dalle liste deselezionate.
-
-#### UC_LIST_6: Seguire liste altrui
-**Nome** | **Seguire liste altrui**
----------|---
-Attori | Utente autenticato.
-Condizione di entrata | L’utente è sulla pagina di una lista altrui (che può visualizzare).
-Flusso di eventi | <br/><ol><li>L’utente vede tutti i film contenuti nella lista e inizia a seguire la lista che ha scelto<li>Il sistema verifica che l’utente abbia i privilegi per poterla seguire, e lo aggiunge alla liste dei seguaci</ol>
-Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la lista desiderata.
+Flusso di eventi | <br/><ol><li>L’utente clicca sul link ai suggerimenti automatici presente nel menu<li>Il sistema seleziona alcuni film in linea con le preferenze dell'utente</ol>
+Condizione di uscita | Il sistema suggerisce i film prelevati all'utente.
 
 ## Object model
 
 ### Boundary objects
 * Pagine generiche:
     * Pagina iniziale: mostra informazioni rilevanti per l'utente
-        * Se l'utente è autenticato, mostra film da guardare, ultime attività degli amici e altri contenuti suggeriti
-        * Se l'utente è ospite, la pagina mostra altre informazioni di tendenza
+        * Se l'utente è autenticato, mostra i giudizi propri e degli amici
+        * Se l'utente è ospite, la pagina invita alla registrazione o all'accesso
     * Pagina film: mostra le informazioni di un film, degli artisti che vi hanno partecipato, e dei suoi generi
-    * Pagina artista: mostra le informazioni di un artista e dei film a cui ha lavorato
-    * Pagina utente: mostra le informazioni di un utentee delle sue liste (basandosi sulla visibilità di queste)
-    * Leftmenu: permette di visualizzare i film guardati, da guardare, le liste ed i suggerimenti
+    * Pagina artista: mostra le informazioni di un artista e dei film in cui ha lavorato
+    * Pagina utente: mostra i giudizi dell'utente (visibili solo se si è amici) e le funzionalità di amicizia
+    * Leftmenu: permette di visualizzare giudizi, promemoria, suggerimenti automatici, amici
+    * Risultati di ricerca: presenta i risultati elaborati dopo una ricerca
 * Ricerche:
     * Area di ricerca: offre le funzioni di ricerca di film, artisti e utenti
-    * Risultati di ricerca: presenta i risultati elaborati dopo una ricerca
 * Accounts:
     * Accesso:
         * Form di accesso: consente di autenticarsi in un account esistente
     * Registrazione:
-        * Form di registrazione: richiede l'inserimento di informazioni necessarie alla creazione di un nuovo account
+        * Form di registrazione: richiede l'inserimento delle informazioni necessarie alla creazione di un nuovo account
         * Conferma registrazione: notifica l'avvenuta registrazione dell'account
     * Cambio password:
         * Form di cambio password: richiede l'inserimento della password attuale e nuova per aggiornarla
@@ -586,62 +500,42 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
     * Conferma richiesta amicizia accettata: notifica l'avvenuta accettazione di una richiesta di amicizia
     * Conferma richiesta amicizia rifiutata: notifica l'avvenuto rifiuto di una richiesta di amicizia
     * Conferma amicizia cancellata: notifica l'avvenuta cancellazione di un'amicizia precedente
-    * Form di selezione amici da suggerire: richiede la selezione di almeno uno tra i propri amici
-    * Conferma amici suggeriti: notifica l'avvenuto suggerimento di film agli amici selezionati
-    * Area di suggerimenti di film: permette di visualizzare i suggerimenti inviatici dagli amici
 * Film:
     * Form di aggiunta giudizio: richiede l'inserimento del giudizio da salvare
     * Form di modifica giuizio: richiede l'inserimento del giudizio da aggiornare
-    * Pagina film guardati: mostra i giudizi
-    * Pagina di suggerimento automatico: permette di richiedere il suggerimento automatico di un film sconosciuto
-    * Area di presentazione film suggerito: suggerisce un film
-* Liste:
-    * Form di creazione lista: richiede l'inserimento delle informazioni necessarie alla creazione di una nuova lista
-    * Pagina lista: mostra le informazioni di una lista
-    * Form di modifica lista: richiede l'inserimento delle informazioni da aggiornare in una lista
-    * Conferma lista eliminata: notifica l'avvenuta rimozione di una lista
-    * Form di aggiornamento presenza film in liste: richiede la selezione delle sole proprie liste in cui un determinato
-    film deve essere presente
-    * Conferma lista seguita: notifica che si riceveranno aggiornamenti riguardo i cambiamenti di una lista
+    * Pagina giudizi: mostra i giudizi dell'utente che la visualizza
+    * Pagina suggerimenti: suggerisce alcuni film in linea con le preferenze dell'utente che la visualizza
 
 ### Control objects
+* Visualizza film: preleva le informazioni di un film per presentarle
+* Visualizza artista: preleva le informazioni di un artista per presentarle
+* Visualiza profilo: preleva le informazioni riguardanti un utente per presentarle
 * Ricerche:
-    * Ricerca: permette di ricercare film, artisti, utenti, o tutti
-    * Redirect: offre servizi di redirect via browser
+    * Ricerca: permette di ricercare un testo solo tra film, artisti, utenti, o tra tutti questi
 * Accounts:
     * Accesso: permette di autenticare un account se si conoscono e-mail e password annessi
     * Registrazione: permette di registrare un account, controllando prima la correttezza dei campi inseriti
     * Cambio password: effettua un cambio di password
-    * Visualiza profilo: preleva le informazioni riguardanti un utente per presentarle
 * Amicizie:
     * Richiedi amicizia: invia una richiesta di amicizia
     * Cancella richiesta amicizia: cancella una richiesta di amicizia da parte dell'iniziale richiedente
     * Accetta richiesta amicizia: accetta una richiesta di amicizia
     * Rifiuta richiesta amicizia: rifiuta una richiesta di amicizia
     * Cancella amicizia: cancella un'amicizia precedente
-    * Suggerimenti amici: permette ad un account di suggerire un film a uno o più account amici
-    * Visualizza suggerimenti di film: preleva i suggerimenti verso un account per presentarli
 * Film:
-    * Aggiungi film guardato: aggiunge il giudizio di un film
-    * Modifica film guardato: modifica un giudizio dato ad un film
-    * Rimuovi film guardato: rimuove un giudizio dato ad un film
-    * Visualizza film: preleva le informazioni di un film per presentarle
-    * Visualizza artista: preleva le informazioni di un artista per presentarle
-    * Visualizza film guardati: preleva le informazioni dei giudizi dell'utente autenticato per presentarle
-    * Suggerimenti automatici: suggerisce un film ad un account in base alle sue preferenze cinematografiche
-* Liste:
-    * Crea lista: crea una nuova lista
-    * Modifica lista: modifica una lista esistente
-    * Cancella lista: cancella una lista esistente
-    * Inserisci film solo in liste: fornendo un film e un sottoinsieme delle liste possedute da un account, inserisce
-    questo film solo nelle liste fornite, rimuovendolo (se presente) in tutte le altre liste dell'account.
-    * Segui lista: permette a un account di seguire una lista
+    * Aggiungi giudizio: aggiunge un giudizio
+    * Modifica giudizio: modifica un giudizio esistente
+    * Rimuovi giudizio: rimuove un giudizio esistente
+    * Visualizza giudizi: preleva le informazioni dei giudizi dell'utente autenticato per presentarle
+    * Suggerimenti automatici: suggerisce alcuni film ad un account in base alle sue preferenze cinematografiche
 
 ### Manager objects
 * Film Manager:
+    * preleva il film con un determinato id (se esiste)
     * cerca film tramite fulltext
-    * suggerisce automaticamente un film ad un utente
+    * suggerisce automaticamente alcuni film ad un utente
 * Artista Manager:
+    * preleva l'artista con un determinato id (se esiste)
     * cerca artisti tramite fulltext
 * Account Manager:
     * controlla l'esistenza di un utente con un determinato indirizzo e-mail
@@ -659,21 +553,16 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
     * rifiuta una richiesta di amicizia esistente
     * verifica l'esistenza di un'amicizia tra due account
     * cancella un'amicizia esistente tra due account
-    * suggerisce un film ad un insieme di account
-    * preleva i suggerimenti verso un account
-* Film Guardati Manager:
-    * aggiunge un giudizio su un film guardato
-    * modifica il giudizio di un film guardato
-    * rimuove il giudizio di un film guardato
-* Lista Manager
-    * verifica se un utente possiede una lista con un determinato nome
-    * crea una lista composta dalle seguenti informazioni: nome e visibilità (tutti, amici, solo tu)
-    * preleva la lista con un determinato id (se esiste)
-    * preleva le liste create da un determinato utente
-    * modifica nome e visibilità di una lista
-    * cancella una lista
-    * inserisce un film solo nelle liste fornite da un utente, rimuovendolo in tutte le altre liste di sua proprietà
-    * permette ad un account di seguire una lista
+* Giudizio Manager:
+    * aggiunge un giudizio
+    * modifica un giudizio esistente
+    * rimuove un giudizio esistente
+* Recitazione Manager:
+    * preleva la recitazione di tutti gli attori in un determinato film
+* Regia Manager:
+    * preleva le regie di tutti i registi in un determinato film
+* Genere Manager:
+    * preleva tutti i generi di un determinato film (se esiste)
 
 ### Entity objects
 * Film: rappresenta le informazioni di un film
@@ -681,11 +570,10 @@ Condizione di uscita | Il sistema conferma che l'utente ha iniziato a seguire la
 * Utente: rappresenta i dati di un utente
 * Amicizia: rappresenta le informazioni di una richiesta di amicizia
 * Amicizia Accettata: specializza una amicizia integrando le informazioni di accettazione di questa
-* Suggerimento film: rappresenta le informazioni di un suggerimento di un film di un utente ad un altro utente in un
-dato orario
-* Film Guardato: rappresenta il giudizio dato da un account ad un film in un dato orario
-* Lista: rappresenta le informazioni di una lista e i film che contiene
+* Giudizio: rappresenta il giudizio dato da un account ad un film in un dato orario
 * Genere: rappresenta le informazioni di un genere cinematografico
+* Recitazione: rappresenta la partecipazione di un attore ad un film e il personaggio che ha interpretato
+* Regia: rappresenta la partecipazione di un artista ad un film nel ruolo di regista
 
 ## Class diagrams
 ![](Class%20diagrams/Main%20class%20diagram.jpg)
@@ -701,9 +589,6 @@ dato orario
 
 ### Film
 ![](Class%20diagrams/Film.jpg)
-
-### Liste
-![](Class%20diagrams/Liste.jpg)
 
 ## Sequence diagrams
 
@@ -737,10 +622,6 @@ dato orario
 
 ![](Sequence%20diagrams/UC_AMI_5%20Cancellare%20amicizia.jpg)
 
-![](Sequence%20diagrams/UC_AMI_6%20Suggerire%20un%20film%20ad%20amici.jpg)
-
-![](Sequence%20diagrams/UC_AMI_7%20Visualizzare%20suggerimenti%20di%20film.jpg)
-
 ### Film
 
 ![](Sequence%20diagrams/UC_FILM_1%20Visualizzare%20un%20film.jpg)
@@ -753,23 +634,9 @@ dato orario
 
 ![](Sequence%20diagrams/UC_FILM_5%20Rimuovere%20un%20giudizio.jpg)
 
-![](Sequence%20diagrams/UC_FILM_6%20Visualizzare%20film%20guardati.jpg)
+![](Sequence%20diagrams/UC_FILM_6%20Visualizzare%20i%20giudizi.jpg)
 
-![](Sequence%20diagrams/UC_FILM_7%20Suggerimento%20automatico%20di%20un%20film.jpg)
-
-### Liste
-
-![](Sequence%20diagrams/UC_LIST_1%20Visualizzare%20una%20lista.jpg)
-
-![](Sequence%20diagrams/UC_LIST_2%20Creare%20una%20lista.jpg)
-
-![](Sequence%20diagrams/UC_LIST_3%20Modificare%20una%20lista.jpg)
-
-![](Sequence%20diagrams/UC_LIST_4%20Eliminare%20una%20lista.jpg)
-
-![](Sequence%20diagrams/UC_LIST_5%20Aggiornare%20la%20presenza%20di%20film%20nelle%20liste.jpg)
-
-![](Sequence%20diagrams/UC_LIST_6%20Seguire%20liste%20altrui.jpg)
+![](Sequence%20diagrams/UC_FILM_7%20Suggerimenti%20automatici%20di%20film.jpg)
 
 ## Statechart diagrams
 ![](Statechart%20diagrams/Utente.jpg)
