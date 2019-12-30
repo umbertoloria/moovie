@@ -1,6 +1,3 @@
-
-  
-    
 # Test Plan    
  ## Introduzione 
  Molte volte, anche credendo di aver progettato un softare nel migliore dei modi, ci troviamo di fronte a situazioni nelle quali basta un piccolo evento, una piccola azione fatta da un attore, per portare un malfunzionamento a tutto il sistema. Ma come facciamo a trattare questi errori ?     
@@ -14,8 +11,7 @@ Il testing sarà eseguito su queste macro-aree:
  - Ricerche    
  - Account    
  - Amicizie    
- - Film    
- - Liste    
+ - Film 
 ## Relazioni con gli altri documenti 
 Il documento di "Test Plan" è strettamente collegato agli altri documenti che abbiamo sviluppato durante la progettazione del nostro sistema.  
   
@@ -27,10 +23,8 @@ Il Test Plan è strettamente collegato con il Documento di "System Design" poich
   
 ### Relazioni con l'ODD  
 Il Test Plan è strattamente collegato con il documento di "Object Design" poiché dovrà essere il quanto più conforme possibile alle interfaccie definite per ogni classe.  
-  
-    
 ## Panoramica del sistema 
-Per una migliore progettazione della nostra Web-Application, il sistema è stato suddiviso in vari Layer che sono: <b>Presentation Layer </br>, <b>Application Layer </br></b></b> e <b>Data Layer</b> </br>. Questa suddivisione è stata fatta per ottenere basso accoppiamento ( in modo tale che ogni qual volta si modifichi una componente del sistema non c'è la necessità di modificare tutte le altre accoppiate ad essa) ed alta coesione (in moto tale che le classi nel sottosistema svolgono compiti simili e sono correlate tra loro).  
+Per una migliore progettazione della nostra Web-Application, il sistema è stato suddiviso in vari Layer che sono: <b>Presentation Layer</br> <b>Application Layer </br></b></b> <b>Data Layer</b> </br> Questa suddivisione è stata fatta per ottenere basso accoppiamento ( in modo tale che ogni qual volta si modifichi una componente del sistema non c'è la necessità di modificare tutte le altre accoppiate ad essa) ed alta coesione (in moto tale che le classi nel sottosistema svolgono compiti simili e sono correlate tra loro).  
   
 ## Funzionalità da testare/ da non testare  
   In base alla suddivisione in sottosistemi che si è fatta, per ogni sottosistema abbiamo scelto di testare varie funzionalità, qui di seguito quelle indivisuate:    
@@ -41,19 +35,15 @@ Per una migliore progettazione della nostra Web-Application, il sistema è stato
 - Per il sottosistema Accounts    
   - CreareAccount    
   - AutenticareAccount    
-  - ConfermaCamboPassword    
+  - CambiarePassword    
 - Per il sottosistema Amicizie    
-  - RichiestaAmiciziaAccount    
-  - ConfermaAmiciziaAccount    
-  - RifiutAmiciziaAccount    
+  - InviareRichiestaAmicizia   
+  - AccettareRichiestaAmicizia    
+  - RifiutareRichiestaAmicizia
 - Per il sottosistema Film    
-  - AggiungereGiudizio    
-  - ModificareGiudizio  
-- Per il sottosistema Liste    
-  - CreareLista    
-  - ModificareLista    
-  - AggiornarePresenzaFilm   
-       
+  - AggiungereGiudizio
+  - ModificareGiudizio
+         
 ## Criteri Pass/ Field
  Durante l'attività di testing, cercheremo di rilevare errori nel modo più pianificato possibile. Lo scopo di questà attività non è quello di dimostrare che nel sistema non ci sono "failure" ma quello di mostrane la presenza andando ad esercitare ogni funzionalità che il cliente si aspetta.   
 Affinché ogni funzionalità "passi" correttamente lil test, è necessario che l'output derivante da esso sia conforme alle specifiche (ORACOLO) descritte in precedenza dallo sviluppatore.  Nel caso non fosse così, la componente non passerà il test e si dovrà procedere per una correzione. 
@@ -68,7 +58,6 @@ Per procedere all'attività di testing si è deciso deciso di suddividere il tes
 ## Sospensione e ripresa 
 ### Sospensione 
 Ci sarà una sospensione dell'attività di testing solo nel momento in cui avremo testato ognu funzionalità prevista rispettando nel modo quanto più corretto possibile quelli che sono i tempi e i costi da noi previsti.  
-  
 ### Ripresa 
 Ogni qual volta si individueranno dei bag nelle funzionalità sarà necessaria una correzione ad essi. Per verificare che la correzione non abbia portato ulteriori danni al sistema verrà ripresa l'attività di testing, riproponendo gli stessi casi si test che ci hanno condotto al problema.  
 ## Materiale per il testing Per Testare il sistema abbiamo usato:  
@@ -154,7 +143,7 @@ TC_1.3_9 | LNome2,FNome2<br>LCognome2, FCognome2<br> LEmail2, FEmail2<br> LPassw
 ----|---
 **FORMATO**: | ^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}$
 **Lunghezza[LEmail]**: | 1. <5 or >50 [Errore]<br>2. >4 & <51 [Successo_LEmail]
-**Formato[FEmail]:** | 1. Non rispecchia il formato [if_LCognome_OK][Errore]<br/>2. Rispettail formato[if FCognome_OK][Successo_Cognome]+
+**Formato[FEmail]:** | 1. Non rispecchia il formato [if_LEmail_OK][Errore]<br/>2. Rispettail formato[if FEmail_OK][Successo_Cognome]
 
 **PARAMETRO**: | Password
 ----|---
@@ -166,7 +155,7 @@ TC_2.2_1 | LEmail1                          | Errore
 TC_2.2_2 | LEmail2, FEmail1                 | Errore
 TC_2.2_3 | LEmail2, FEmail2<br/> LPassword1 | Errore
 TC_2.2_4 | LEmail2, FEmail2<br/> LPassword2 | Corretto  
-#### ConfermaCambioPassword
+#### CambiarePassword
 **PARAMETRO**: | Utente
 ----|---
 **Loggato[LoUtente]**: | 1. L'utente che vuole cambiare la password non è loggato[Errore] <br/> 2. L'utente che vuole cambiare la password è loggato[Successo_LoUtente]
@@ -174,26 +163,22 @@ TC_2.2_4 | LEmail2, FEmail2<br/> LPassword2 | Corretto
 **PARAMETRO**: | PasswordVecchia
 ----|---
 **Lunghezza[LPasswordVecchia]**: | 1. < 6 or > 16[Errore]<br/> 2. > 5 & < 17[Successo_LPasswordVecchia]
+**Corrispondenza[CPasswordVecchia]**: | 1. La password è diversa da quella precedente[if LPasswordVecchia ok][Errore]<br/> 2. La password inserita corrisponde a quella precenza[if CPasswordVecchia OK][Successo_CPasswordVecchia]
 ---
 **PARAMETRO**: | PasswordNuova
 ----|---
 **Lunghezza[LPasswordNuova]**: | 1. < 6 or > 16[Errore]<br/> 2. > 5 & < 17[Successo_LPasswordNuova]
----
-**PARAMETRO**: | Copassword
-----|---
-**Lunghezza[LCopassword]**: | 1. < 6 or > 16[Errore]<br/> 2. > 5 & < 17[Successo_Copassword]
----
 #### Test cases
-Codice   | Combinazione                                                    | Esito
----------|-----------------------------------------------------------------|--------
-TC_2.3_1 | LoUtente_1                                                      | Errore
-TC_2.3_2 | LoUtente_2, LPasswordVecchia_1                                  | Errore
-TC_2.3_3 | LoUtente_2, LPasswordVecchia_2, LPasswordNuova_1                | Errore
-TC_2.3_4 | LoUtente_2, LPasswordVecchia_2, LPasswordNuova_2, LCopassword_1 | Errore
-TC_2.3_5 | LoUtente_2, LPasswordVecchia_2, LPasswordNuova_2, LCopassword_2 | Corretto    
+Codice   | Combinazione                                                        | Esito
+---------|---------------------------------------------------------------------|--------
+TC_2.3_1 | LoUtente_1                                                          | Errore
+TC_2.3_2 | LoUtente_2, LPasswordVecchia_1                                      | Errore
+TC_2.3_3 | LoUtente_2, LPasswordVecchia_2, CPasswordVecchia_1                  | Errore
+TC_2.3_4 | LoUtente_2, LPasswordVecchia_2, CPasswordVecchia2, LPasswordNuova_1 | Errore
+TC_2.3_5 | LoUtente_2, LPasswordVecchia_2, CPasswordVecchia2, LPasswordNuova_2 | Corretto
     
 ### Amicizia
-#### RichiestaAmiciziaAccount
+#### InviareRichiestaAmicizia
 **PARAMETRO**: | UtenteFrom
 ----|---
 **Loggato[LoUtenteFrom]:**| 1. L'utente che invia l'amicizia non è loggato[Errore] <br/> 2. L'utente che invia l'amicizia è loggato [Successo_LoUtenteFrom]
@@ -210,7 +195,7 @@ TC_3.1_2 | LoUtenteFrom_2, EUtenteTo_1 | Errore
 TC_3.1_3 | LoUtenteFrom_2, EUtenteTo_2 | Corretto
  
 
-#### ConfermaAmiciziaAccount
+#### AccettareRichiestaAmicizia
 **PARAMETRO**: | UtenteTo
 ----|---
 **Loggato[LoUtenteTo]:**| 1. L'utente che invia l'amicizia non è loggato[Errore] <br/> 2. L'utente che invia l'amicizia è loggato [Successo_LoUtenteTo]
@@ -226,7 +211,7 @@ TC_3.2_1 | LoUtenteTo_1                | Errore
 TC_3.2_2 | LoUtenteTo_2, EUtenteFrom_1 | Errore
 TC_3.2_3 | LoUtenteTo_2, EUtenteFrom_2 | Corretto
 
-#### RifiutaAmiciziaAccount
+#### RifiutareRichiestaAmicizia
 **PARAMETRO**: | UtenteTo
 ----|---
 **Loggato[LoUtenteTo]:**| 1. L'utente che invia l'amicizia non è loggato[Errore] <br/> 2. L'utente che invia l'amicizia è loggato [Successo_LoUtenteTo]
@@ -252,13 +237,12 @@ TC_3.3_3 | LoUtenteTo_2, EUtenteFrom_2 | Corretto
 ----|---
 **Presenza[PFilm]:**| 1. Il film è gia presente in film guardati dell'utente[Errore]<br/> 2. Il film non è presente in film guardati dell'utente[Successo_PFilm] 
 
-#### Test cases  
+#### Test cases
 Codice   | Combinazione     | Esito
 ---------|------------------|-------
 TC_4.1_1 | SVoto_1          | Errore
 TC_4.1_2 | SVoto_2, PFilm_1 | Errore
 TC_4.1_3 | SVoto_2, PFilm_2 | Corretto
-  
 #### ModificareGiudizio
 
 **PARAMETRO**: | Voto
@@ -269,76 +253,9 @@ TC_4.1_3 | SVoto_2, PFilm_2 | Corretto
 ----|---
 **Presenza[PFilm]:**| 1. 1. Il film non è presente in film guardati dell'utente[Errore]<br/> 2. Il film è presente in film guardati dell'utente[Successo_PFilm]
 
-  
-#### Test cases  
+#### Test cases
 Codice   | Combinazione     | Esito
 ---------|------------------|-------
 TC_4.2_1 | SVoto_1          | Errore
 TC_4.2_2 | SVoto_2, PFilm_1 | Errore
-TC_4.2_3 | SVoto_2, PFilm_2 | Corretto 
-    
-### Liste
-#### CreareLista
-**PARAMETRO**: | Utente
-----|---
-**Loggato[LoUtente]**: | 1. L'utente che vuole creare una lista non è loggato[Errore] <br/> 2. L'utente che vuole creare una lista è loggato[Successo_LoUtente]
----
-**PARAMETRO**: | Nome
-----|---
-**Lunghezza[LNome]**: | 1.  < 5 or >50[Errore]<br> 2. >4 & <51[Successo_LNome]
-**Esistenza[ENome]**: | 1. Il nome della lista è gia presente nelle liste dell'utente [if_LNome_OK][Errore]<br> 2. Il nome della lista non è presente nelle liste già in possesso [if ENome_OK][Successo_Nome]
----
-**PARAMETRO**: | Visibiltà
-----|---
-**Selezione[SVisibilità]**: | 1. L'Utente non ha selezionato alcun valore[Errore]<br/> 2. L'Utente ha selezionato una delle tre visibilità possibili[Successo_SVisibilità]
-
-#### Test cases  
-Codice   | Combinazione                               | Esito
----------|--------------------------------------------|---
-TC_5.1_1 | LoUtente_1                                 | Errore
-TC_5.1_2 | LoUtente_2, Nome_1                         | Errore
-TC_5.1_3 | LoUtente_2, Nome_2, ENome_1                | Errore
-TC_5.1_4 | LoUtente_2, Nome_2, ENome_2, SVisibilità_1 | Errore
-TC_5.1_5 | LoUtente_2, Nome_2, ENome_2, SVisibilità_2 | Corretto
-    
-#### ModificareLista
-**PARAMETRO**: | Utente
-----|---
-**Loggato[LoUtente]**: | 1. L'utente che vuole modificare una lista non è loggato[Errore] <br/> 2. L'utente che vuole modificare una lista è loggato[Successo_LoUtente]
----
-**PARAMETRO**: | Nome
-----|---
-**Lunghezza[LNome]**: | 1.  < 5 or >50[Errore]<br> 2. >4 & <51[Successo_LNome]
-**Esistenza[ENome]**: | 1. Il nome della lista non è presente nelle liste dell'utente [if_LNome_OK][Errore]<br> 2. Il nome della lista è presente nelle liste già in possesso [if ENome_OK][Successo_Nome]
----
-**PARAMETRO**: | Visibiltà
-----|---
-**Selezione[SVisibilità]**: | 1. L'Utente non ha selezionato alcun valore o ha selezionato lo stesso valore precedente[Errore]<br/> 2. L'Utente ha selezionato una visibilità possibile[Successo_SVisibilità]
-
-#### Test cases  
-Codice   | Combinazione                               | Esito
----------|--------------------------------------------|-------
-TC_5.2_1 | LoUtente_1                                 | Errore
-TC_5.2_2 | LoUtente_2, Nome_1                         | Errore
-TC_5.2_3 | LoUtente_2, Nome_2, ENome_1                | Errore
-TC_5.2_4 | LoUtente_2, Nome_2, ENome_2, SVisibilità_1 | Errore
-TC_5.2_5 | LoUtente_2, Nome_2, ENome_2, SVisibilità_2 | Corretto
-
-#### AggiornarePresenzaFilm
-**PARAMETRO:**| Lista
-----|---
-**Esistenza[ELista]:**| 1. La lista selezionata/ non selezionata non esiste[Errore]<br/>2. La lista selezionata/ non selezionata esiste[Successo_ELista]
-
-PARAMETRO: | Film
-----|---
-**Esistenza[EFilm]:**| 1. Il film selezionato non esiste[Errore]<br/>2. Il film selezionato esiste [Successo_EFilm]
-#### Test cases
-Codice   | Combinazione     | Esito
----------|------------------|--------
-TC_4.3_1 | ELista1          | Errore
-TC_4.3_2 | ELista2, EFilm1  | Errore
-TC_4.3_3 | ELista2, EFilm2  | Corretto
-
-
-
-
+TC_4.2_3 | SVoto_2, PFilm_2 | Corretto
