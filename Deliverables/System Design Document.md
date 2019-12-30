@@ -47,7 +47,6 @@
     2. [Sottosistema "Accounts"](#sottosistema-accounts)
     3. [Sottosistema "Amicizie"](#sottosistema-amicizie)
     4. [Sottosistema "Film"](#sottosistema-film)
-    5. [Sottosistema "Liste"](#sottosistema-liste)
 4. Glossario
 
 # Introduzione
@@ -65,7 +64,6 @@ Tutto ciò verrà offerto attraverso delle funzionalità che il sito offre quali
 * Gestione del proprio Account
 * Ricerca di un film, di un attore o di un utente ricevendo informazioni su di esso
 * Gestione dele amicizie inviando, ricevendo, accettando o rifiutandone una
-* Gestione delle liste creando, modificando, o rimuovendo delle liste
 * Gestione dei film aggiungendo, modificando o rimuovendo un giudizio su un film
 
 ## Design Goals
@@ -144,9 +142,8 @@ possibili. Una macro suddivisione del sistema è stata fatta in questo modo:
  - Accounts;
  - Amicizie;   
  - Film;
- - Liste;
 
-![](Package%20diagrams/Macro%20decomposizione.png)
+![](Package%20diagrams/Sottosistemi.png)
 
 
 L'immagine mostrata, rappresenta le varie suddivisioni fatte all'interno del sistema mostrando dunque, per ogni layer, 
@@ -217,7 +214,7 @@ nel sistema:
 Questo livello si occupa di gestire i dati riguardanti gli utenti dell'intero sistema.
 
 #### Amicizie
-![](Package diagrams/Amicizia.png)
+![](Package%20diagrams/Amicizia.png)
 
 Il sottosistema "Amicizie" si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
  - Inviare richiesta di amicizia
@@ -302,7 +299,7 @@ descrizioni di ogni istanza di dato).
 I dati vengono gestiti attraverso MySQL che è un DBMS (Data Base ManagEment System) che permette di manipolare 
 le informazioni che si vogliono controllare sulla base di dati.
 
-![](Database%20Scheme/DatabaseSchema.png)
+![](Database%20Scheme/DataBaseSchema.png)
 
 L'immagine sopra presente, descrive quello che è lo schema dei dati che dovranno essere mantenuti nel nostro database 
 in maniera persistente. 
