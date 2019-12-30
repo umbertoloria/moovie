@@ -16,10 +16,15 @@ elseif (!ctype_digit($film_id))
 	echo "dammi un numero per id";
 else {
 
-	$tmp_giudizio = new Giudizio($logged_user->getID(), $film_id, $voto, "");
-	if (GiudizioManager::update($tmp_giudizio))
+	$tmp_giudizio = GiudizioManager::get_from_utente_and_film($logged_user->getID(), $film_id);
+	if ($tmp_giudizio->getVoto() == $voto)
 		header("Location: /giudizi.php");
-	else
-		echo "Errore interno";
+	else {
+		$tmp_giudizio->setVoto($voto);
+		if (GiudizioManager::update($tmp_giudizio))
+			header("Location: /giudizi.php");
+		else
+			echo "Errore interno";
+	}
 
 }

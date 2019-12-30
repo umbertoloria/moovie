@@ -31,6 +31,10 @@ class Giudizio {
 		return $this->voto;
 	}
 
+	public function setVoto(float $voto) {
+		$this->voto = $voto;
+	}
+
 	public function getTimestamp(): string {
 		return $this->timestamp;
 	}

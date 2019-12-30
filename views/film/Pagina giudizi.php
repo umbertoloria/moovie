@@ -31,7 +31,7 @@ if (count($giudizi) > 0) {
 	</div>
 	<script>
 		$(".dashboard [data-action='edit']").click(function () {
-			$.get("/controllers/film/___form_di_modifica_giudizio.php", "film_id=" + $(this).attr("data-id"), function (output) {
+			$.get("/controllers/film/Form di modifica giudizio.php", "film_id=" + $(this).attr("data-id"), function (output) {
 				Overlay.popup(output);
 			});
 		});

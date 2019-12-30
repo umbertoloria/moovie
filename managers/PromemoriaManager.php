@@ -27,7 +27,7 @@ class PromemoriaManager {
 		return $stmt->execute([$promemoria->getUtente(), $promemoria->getFilm()]);
 	}
 
-	public static function drop(Promemoria $promemoria): bool {
+	public static function delete(Promemoria $promemoria): bool {
 		$stmt = DB::stmt("DELETE FROM promemoria WHERE utente = ? AND film = ?");
 		return $stmt->execute([$promemoria->getUtente(), $promemoria->getFilm()]) and $stmt->rowCount() === 1;
 	}
