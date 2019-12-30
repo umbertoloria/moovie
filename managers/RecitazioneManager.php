@@ -5,7 +5,7 @@ class RecitazioneManager {
 	// AGGIUNTE
 
 	/** @return Recitazione[] */
-	public static function doRetrieveByAttore(int $id): array {
+	public static function get_from_artist(int $id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT film, attore, personaggio FROM recitazioni WHERE attore = ?");
 		if ($stmt->execute([$id]))

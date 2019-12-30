@@ -61,7 +61,7 @@ if ($kind === "artists" or $kind === "all") {
 			"films" => []
 		];
 
-		foreach (RecitazioneManager::doRetrieveByAttore($artista->getID()) as $recitazione)
+		foreach (RecitazioneManager::get_from_artist($artista->getID()) as $recitazione)
 			$result["films"][] = $recitazione->getFilm();
 
 		foreach (RegiaManager::get_films_from_artista($artista->getID()) as $film_id)
