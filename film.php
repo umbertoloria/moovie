@@ -24,7 +24,7 @@ unset($recitazioni);
 unset($registi);
 unset($artisti);
 
-$_REQUEST["generi"] = GenereManager::doRetrieveByFilm($film->getID());
+$_REQUEST["generi"] = GenereManager::get_from_film($film->getID());
 
 $_REQUEST["show_actions"] = [];
 $logged_user = Auth::getLoggedUser();

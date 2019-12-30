@@ -24,7 +24,7 @@ class AccountManagerTest extends PHPUnit\Framework\TestCase {
 			$this->assertEquals($utente_salvato->getEmail(), $utente->getEmail());
 			$this->assertEquals($utente_salvato->getPassword(), $utente->getPassword());
 			$this->assertEquals($utente_salvato->isGestore(), $utente->isGestore());
-			$this->assertTrue(AccountManager::delete($utente_salvato));
+			$this->assertTrue(AccountManager::delete($utente_salvato->getID()));
 		} else {
 			$utente_salvato = AccountManager::create($utente);
 			$this->assertNull($utente_salvato);

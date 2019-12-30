@@ -20,15 +20,18 @@ class GiudizioManager {
 
 	// AGGIUNTE
 
-	/** @return Giudizio[] */
-	public static function getAllOf(array $utenti): array {
+	/**
+	 * @param int[] $utenti_ids
+	 * @return Giudizio[]
+	 */
+	public static function getAllOf(array $utenti_ids): array {
 		$where_clause = "";
 		$parameters = [];
-		if (count($utenti) > 0) {
-			$primo_utente = array_pop($utenti);
+		if (count($utenti_ids) > 0) {
+			$primo_utente = array_pop($utenti_ids);
 			$where_clause .= "WHERE utente = ?";
 			$parameters = [$primo_utente];
-			foreach ($utenti as $utente) {
+			foreach ($utenti_ids as $utente) {
 				$where_clause .= " OR utente = ?";
 				$parameters[] = $utente;
 			}
@@ -41,17 +44,17 @@ class GiudizioManager {
 		return $res;
 	}
 
-	public static function doRetrieveByUtenteAndFilm(int $utente, int $film): ?Giudizio {
+	public static function get_from_utente_and_film(int $utente_id, int $film_id): ?Giudizio {
 		$stmt = DB::stmt("SELECT utente, film, voto, timestamp FROM giudizi WHERE utente = ? AND film = ?");
-		if ($stmt->execute([$utente, $film]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
+		if ($stmt->execute([$utente_id, $film_id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Giudizio($r["utente"], $r["film"], $r["voto"], $r["timestamp"]);
 		else
 			return null;
 	}
 
-	public static function exists(int $utente, int $film): bool {
+	public static function exists(int $utente_id, int $film_id): bool {
 		$stmt = DB::stmt("SELECT utente FROM giudizi WHERE utente = ? AND film = ?");
-		return $stmt->execute([$utente, $film]) and $stmt->rowCount() === 1;
+		return $stmt->execute([$utente_id, $film_id]) and $stmt->rowCount() === 1;
 	}
 
 }

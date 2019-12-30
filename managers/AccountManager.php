@@ -130,9 +130,9 @@ class AccountManager {
 		return $res;
 	}
 
-	public static function delete(Utente $utente): bool {
-		$stmt = DB::stmt("DELETE FROM utenti WHERE (id = :id OR email = :email) OR email = :email");
-		return $stmt->execute([":id" => $utente->getID(), ":email" => $utente->getEmail()]) and $stmt->rowCount() === 1;
+	public static function delete(int $utente_id): bool {
+		$stmt = DB::stmt("DELETE FROM utenti WHERE id = ?");
+		return $stmt->execute([$utente_id]) and $stmt->rowCount() === 1;
 	}
 
 }

@@ -15,7 +15,7 @@ class GenereManager {
 
 	// AGGIUNTE
 
-	public static function doRetrieveByID(int $id): ?Genere {
+	public static function get_from_id(int $id): ?Genere {
 		$stmt = DB::stmt("SELECT id, nome FROM generi WHERE id = ?");
 		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Genere($r["id"], $r["nome"]);
@@ -24,7 +24,7 @@ class GenereManager {
 	}
 
 	/** @return Genere[] */
-	public static function doRetrieveByFilm(int $id): array {
+	public static function get_from_film(int $film_id): array {
 		$res = [];
 		$stmt = DB::stmt(
 			"SELECT id, nome
@@ -33,7 +33,7 @@ class GenereManager {
 				        ON film_has_genere.genere = generi.id
 				WHERE film = ?
 				ORDER BY nome");
-		if ($stmt->execute([$id]))
+		if ($stmt->execute([$film_id]))
 			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
 				$res[] = new Genere($r["id"], $r["nome"]);
 		return $res;
@@ -135,7 +135,7 @@ class GenereManager {
 	public static function create(Genere $genere): ?Genere {
 		$stmt = DB::stmt("INSERT INTO generi SET nome = ?");
 		if ($stmt->execute([$genere->getNome()]))
-			return self::doRetrieveByID(DB::lastInsertedID());
+			return self::get_from_id(DB::lastInsertedID());
 		else
 			return null;
 	}
@@ -143,7 +143,7 @@ class GenereManager {
 	public static function update(Genere $genere): ?Genere {
 		$stmt = DB::stmt("UPDATE generi SET nome = ? WHERE id = ?");
 		if ($stmt->execute([$genere->getNome(), $genere->getID()]) and $stmt->rowCount() === 1)
-			return self::doRetrieveByID($genere->getID());
+			return self::get_from_id($genere->getID());
 		else
 			return null;
 	}

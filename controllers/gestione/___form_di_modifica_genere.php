@@ -11,7 +11,7 @@ $valid = Validator\validate("../../forms/aggiunta_e_modifica_genere.json", [
 
 if (!$valid)
 	echo "Il client non ti ha bloccato?";
-elseif (!$genere = GenereManager::doRetrieveByID($genere_id))
+elseif (!$genere = GenereManager::get_from_id($genere_id))
 	echo "Il client non ti ha bloccato?";
 elseif (GenereManager::exists($nome))
 	echo "Questo nome è associato ad un genere esistente";

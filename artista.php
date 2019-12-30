@@ -8,7 +8,7 @@ if (!$artista) {
 }
 
 $films = [];
-$recitazioni = RecitazioneManager::get_from_artist($artista->getID());
+$recitazioni = RecitazioneManager::get_from_artista($artista->getID());
 foreach ($recitazioni as $recitazione) {
 	if (!array_key_exists($recitazione->getFilm(), $films)) {
 		$films[$recitazione->getFilm()] = FilmManager::get_from_id($recitazione->getFilm());

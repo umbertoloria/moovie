@@ -32,9 +32,9 @@ class PromemoriaManager {
 		return $stmt->execute([$promemoria->getUtente(), $promemoria->getFilm()]) and $stmt->rowCount() === 1;
 	}
 
-	public static function get_from_utente_and_film(int $utente, int $film): ?Promemoria {
+	public static function get_from_utente_and_film(int $utente_id, int $film_id): ?Promemoria {
 		$stmt = DB::stmt("SELECT utente, film, timestamp FROM promemoria WHERE utente = ? AND film = ?");
-		if ($stmt->execute([$utente, $film]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
+		if ($stmt->execute([$utente_id, $film_id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Promemoria($r["utente"], $r["film"], $r["timestamp"]);
 		else
 			return null;

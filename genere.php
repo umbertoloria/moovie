@@ -1,6 +1,6 @@
 <?php
 include "parts/initial_page.php";
-$genere = GenereManager::doRetrieveByID(@$_GET["id"]);
+$genere = GenereManager::get_from_id(@$_GET["id"]);
 if (!$genere) {
 	header("Location: /404.php");
 	die();
