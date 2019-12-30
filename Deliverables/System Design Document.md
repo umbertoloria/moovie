@@ -35,10 +35,6 @@
                 1. [FilmPresentationLayer](#filmpresentationlayer)
                 2. [FilmApplicationLayer](#filmapplicationlayer)
                 3. [FilmDataLayer](#filmdatalayer)
-            4. [Liste](#liste)
-                1. [ListePresentationLayer](#listepresentationlayer)
-                2. [ListeApplicationLayer](#listeapplicationlayer)
-                3. [ListeDataLayer](#listedatalayer)
     3. [Mappatura Hardware/Software](#mappatura-hardwaresoftware)
     4. [Gestione dei Dati Persistenti](#gestione-dei-dati-persitenti)
     5. [Gestione degli accessi](#gestione-degli-accessi)
@@ -221,7 +217,7 @@ nel sistema:
 Questo livello si occupa di gestire i dati riguardanti gli utenti dell'intero sistema.
 
 #### Amicizie
-![](Package%20diagrams/Amicizie.png)
+![](Package diagrams/Amicizia.png)
 
 Il sottosistema "Amicizie" si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
  - Inviare richiesta di amicizia
@@ -229,7 +225,7 @@ Il sottosistema "Amicizie" si occupa di gestire le amicizie tra account offrendo
  - Accettare richiesta di amicizia
  - Rifiutare richiesta di amicizia
  - Cancellare amicizia
- - Suggerire un film ad amici
+
  
 #### AmiciziePresentationLayer
 Questo livello include tutte le componenti dell'interfaccia che offrono funzionalità riguardanti le amicizie:
@@ -243,8 +239,6 @@ Questo livello include tutte le componenti dell'interfaccia che offrono funziona
  una richiesta di amicizia proveniente da un altro account;
  - GUI - Cancellare amicizia: interfacce che offrono all'utente autenticato la possibilità di cancellare 
  un'amicizia con un altro account;
- - GUI - Suggerire un film ad amici: interfacce che offrono all'utente autenticato la possibilità di suggerire 
- un film ad account amici;
 
 #### AmicizieApplicationLayer
 Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema "Amicizie" 
@@ -259,7 +253,6 @@ nel sistema:
  altro utente;
  - CancellareAmicizia(): incorpora operazioni che permettono all'utente autenticato di cancellare l'amicizia con un 
  altro utente;
- - SuggerireFilmAmici(): incorpora operazioni che permettono all'utente autenticato di suggerire un film ad utenti amici;
 
 #### AmicizieDataLayer
 Questo livello si occupa di gestire le amicizie degli utenti dell'intero sistema.
@@ -300,59 +293,6 @@ un utente autenticato.
 Questo livello si occupa di gestire i dati riguardanti i giudizi sui film  degli utenti autenticati, 
 e il suggerimento automatico all'interno del sistema.
 
-#### Liste
-![](Package%20diagrams/Liste.png)
-
-Il sottosistema "Liste" si occupa di gestire le liste del sistema offrendo diverse funzionalità quali: 
- - Creare una lista
- - Modificare una lista
- - Eliminare una lista
- - Aggiornare la presenza di film nelle liste
- - Seguire liste altrui
-
-#### ListePresentationLayer
-Questo livello include tutte le componenti dell'interfaccia che offrono funzionalità riguardanti la gestione 
-delle liste:
- - GUI - Creare una lista: interfacce che offrono la possibilità all'utente autenticato di creare una propria lista;
- - GUI - Modificare una lista: interfacce che offrono all'utente autenticato la possibilità di modificare 
- una lista(cambio nome e privilegi);
- - GUI - Eliminare una lista: interfacce che offrono all'utente autenticato la possibilità di eliminare 
- una lista da lui creata all'interno del sito;
- - GUI - Aggiornare la presenza di film nelle liste: interfacce che offrono la possibilità all'utente autenticato 
- di aggiungere o di rimuovere, da una lista ove lui possiede i privilegi, film;
- - GUI - Seguire liste altrui: interfacce che offrono la possibilità all'utente autenticato di seguire lite di altri amici;
-
-#### ListeApplicationLayer
-Questo livello include tutte le componenti che offronto operazioni riguardanti il sottosistema "Liste" nel sistema:
- - CreareLista(): incorpora operazioni che permettono ad un utente autenticato di creare una lista;
- - ModificareLista(): incorpora operazioni che permettono ad un utente autenticato di modificare una lista;
- - EliminareLista(): incorpora operazioni che permettono ad un utente autenticato di eliminare una lista all'interno 
- del sito;
- - AggiornarePresenzaFilm(): incorpora operazioni che permettono ad un utente autenticato di aggiungere o rimuovere 
- un film da una lista;
- - SeguireListeAltrui(): incorpora operazioni che permettono ad un utente autenticato di seguire liste di altri utenti.
-
-#### ListeDataLayer
-Questo livello si occupa di gestire i dati riguardanti le liste all'interno del sistema.
-
-## Mappatura Hardware/Software
-![](Package%20diagrams/Mapping%20HW%20SW.jpeg)
-
-Il sistema avrà un'architettura client/server three-tier con un tier che implementa il livello di presentazione, 
-un secondo tier che implementa la logica applicativa e un terzo tier che comprende un DBMS per la gestione dei dati 
-persistenti.  
-Sul primo tier è eseguto un web browser che consentirà all'utente, attraverso una interfaccia grafica, di interagire 
-con il sistema. La comunicazione tra primo e secondo tier che si occupa della logica di business avverrà 
-tramite protocollo HTTP. Questo protocollo permette di trasferire ipertesti tra tier di presentazione e tier della logica
-applicativa tramite un meccanismo di richiesta e risposta.
-Dal punto di vista hardware, il primo tier potrà essere una qualsiasi macchina dotata di connessione ad internet, 
-mentre per le specifiche software un sistema operativo con installato uno dei web browser supportati, sarà sufficiente 
-per interagire con il sistema.
-Il tier della logica applicativa, dotato di connessione ad internet, avrà installato un Web Server Apache 
-con modulo PHP, e comunicherà con il tier della gestione dei dati attravero un protocollo MySql. 
-Infatti quest'ultimo, dotato anche esso di connessione ad intenet, avrà un database realazionale MySql.
-
-
 ## Gestione dei dati persitenti
 Il sito Moovie ha al suo interno alcuni dati che devono essere mantenuti affinché il suo funzionamento sia valido. 
 La persistenza di questi, è stata scelta di dargliela, memorizzando
@@ -362,119 +302,90 @@ descrizioni di ogni istanza di dato).
 I dati vengono gestiti attraverso MySQL che è un DBMS (Data Base ManagEment System) che permette di manipolare 
 le informazioni che si vogliono controllare sulla base di dati.
 
-![](Database%20Scheme/SchemaDataBase.png)
+![](Database%20Scheme/DatabaseSchema.png)
 
 L'immagine sopra presente, descrive quello che è lo schema dei dati che dovranno essere mantenuti nel nostro database 
 in maniera persistente. 
 
 ### Struttura Tabelle
 
-#### Tabella Saga
-| Attributo |    Tipo        | Chiave  |
-|-----------|----------------|---------|
-| id        | INT            |Primaria |     
-| titolo    | VARCHAR(100)   |         | 
-
-#### Tabella SagaFilm
-| Attributo |    Tipo    | Chiave                                   |
-|-----------|------------|------------------------------------------|
-| film      | INT        | Primaria, Esterna(derivante da Film(id)) |
-| saga      | INT        | Primaria, Esterna(derivante da Saga(id))  | 
-
-#### Tabella Genere
+#### Tabella generi
 
 | Attributo |    Tipo      | Chiave   |
 |-----------|--------------|----------|
 | id        | INT          | Primaria |
 | nome      | VARCHAR(100) |          | 
 
-#### Tabella GenereFilm
+#### Tabella film_has_genere
 
 | Attributo |    Tipo    | Chiave                                      |
 |-----------|------------|---------------------------------------------|
-| film      | INT        | Primaria, Esterna(derivante da Film(id))    |
-| genere    | INT        | Primaria, Esterna(derivante da Genere(id))  | 
-| id        | INT        | Primaria, Esterna(derivante da Genere(id))  |
+| film      | INT        | Primaria, Esterna(derivante da films(id))    |
+| genere    | INT        | Primaria, Esterna(derivante da generi(id))  |
 
-
-
-#### Tabella Recitazione
+#### Tabella recitazione
 | Attributo   |    Tipo      | Chiave                                      |
 |-------------|--------------|---------------------------------------------|
-| attore      | INT          | Primaria, Esterna(derivante da Artista(id)) |
-| film        | INT          | Primaria, Esterna(derivante da Film(id)     |
+| attore      | INT          | Primaria, Esterna(derivante da artisti(id)) |
+| film        | INT          | Primaria, Esterna(derivante da films(id)     |
 | personaggio | VARCHAR(100) |                                             |
 
 
-#### Tabella Artista
+#### Tabella artisti
 | Attributo |    Tipo      | Chiave   |
 |-----------|--------------|----------|
 | id        | INT          | Primaria |
 | nome      | VARCHAR(100) |          |
-| nascita   | VARCHAR(10)  |          |
+| nascita   | DATE         |          |
 
-#### Tabella ArtistaFacce
+#### Tabella artisti_facce
 | Attributo |    Tipo    | Chiave                                      |
 |-----------|------------|---------------------------------------------|
-| artista   | INT        | Primaria, Esterna(derivante da Artista(id)) |
+| artista   | INT        | Primaria, Esterna(derivante da artisti(id)) |
 | faccia    | MEDIUMBLOB |                                             |
 
-#### Tabella ArtistiDescrizioni
+#### Tabella artisti_descrizioni
 | Attributo   |    Tipo    | Chiave                                      |
 |-------------|------------|---------------------------------------------|
-| artista     | INT        | Primaria, Esterna(derivante da Artista(id)) |
+| artista     | INT        | Primaria, Esterna(derivante da artisti(id)) |
 | descrizione | TEXT       |                                             |
 
-#### Tabella FilmCopertine
+#### Tabella films_copertine
 | Attributo |    Tipo    | Chiave                                   |
 |-----------|------------|------------------------------------------|
-| film      | INT        | Primaria, Esterna(derivante da Film(id)) |
+| film      | INT        | Primaria, Esterna(derivante da films(id)) |
 | faccia    | MEDIUMBLOB |                                          |
 
-#### Tabella FilmDescrizioni
+#### Tabella films_descrizioni
 | Attributo   |    Tipo    | Chiave                                   |
 |-------------|------------|------------------------------------------|
-| film        | INT        | Primaria, Esterna(derivante da Film(id)) |
+| film        | INT        | Primaria, Esterna(derivante da films(id)) |
 | descrizione | TEXT       |                                          |
 
-
-#### Tabella FilmGuardati
+#### Tabella giudizi
 | Attributo |   Tipo   | Chiave                                     |
 |-----------|----------|--------------------------------------------|
-| film      | INT      | Primaria, Esterna (derivante da Film(id))  |
-| utente    | INT      | Primaria, Esterna(derivante da Utente(id)) |
+| film      | INT      | Primaria, Esterna (derivante da films(id))  |
+| utente    | INT      | Primaria, Esterna(derivante da utenti(id)) |
 | voto      | INT      |                                            |
-| momento   | DATETIME |                                            |
+| timestamp | DATETIME |                                            |
 
-#### Tabella FilmDaGuardare
+#### Tabella promemoria
 | Attributo |    Tipo    | Chiave                                     |
 |-----------|------------|--------------------------------------------|
-| film      | INT        | Primaria, Esterna (derivante da Film(id))  |
-| utente    | INT        | Primaria, Esterna(derivante da Utente(id)) |
-| momento   | DATETIME   |                                            |
+| film      | INT        | Primaria, Esterna (derivante da films(id))  |
+| utente    | INT        | Primaria, Esterna(derivante da utenti(id)) |
+| timestamp | DATETIME   |                                            |
 
-#### Tabella Amicizia
+#### Tabella amicizie
 | Attributo         |    Tipo    | Chiave                                     |
 |-------------------|------------|--------------------------------------------|
-| mittente          | INT        |Primaria, Esterna (derivante da Utente(id)) |
-| destinatario      | INT        |Primaria, Esterna (derivante da Utente(id)) |
+| mittente          | INT        |Primaria, Esterna (derivante da utenti(id)) |
+| destinatario      | INT        |Primaria, Esterna (derivante da utenti(id)) |
 | momento_richiesta | DATETIME   |                                            |
 
-#### Tabella Lista
-| Attributo    |    Tipo                              | Chiave                          |
-|--------------|--------------------------------------|---------------------------------|
-| id           | INT                                  | Primaria                        |
-| visibilità   | ENUM("pubblica", "amici", "privata"; |                                 |
-| proprietario | INT                                  | Esterna(derivante da Utente(id) |
-| nome         | VARCHAR(100)                         |                                 |
 
-#### Tabella Follow
-| Attributo |    Tipo    | Chiave                                    |
-|-----------|------------|-------------------------------------------|
-| lista     | INT        | Primaria, Esterna(derivante da Lista(id)  |
-| utente    | INT        | Primaria, Esterna(derivante da Utente(id) |
-
-#### Tabella Utente
+#### Tabella utenti
 | Attributo |    Tipo      | Chiave                       |
 |-----------|--------------|------------------------------|
 | id        | INT          | Primaria                     |
@@ -482,8 +393,9 @@ in maniera persistente.
 | cognome   | VARCHAR(10)  |                              |
 | email     | VARCHAR(100) |                              |
 | password  | VARCHAR(100) |                              |
+| gestore   | BIT          |                              |
 
-#### Tabella Film
+#### Tabella films
 | Attributo |    Tipo      | Chiave                       |
 |-----------|--------------|------------------------------|
 | id        | int          | Primaria                     |
@@ -491,18 +403,11 @@ in maniera persistente.
 | durata    | INT          |                              |
 | anno      | YEAR         |                              |
 
-#### Tabella Regia
+#### Tabella regie
 | Attributo  |    Tipo    | Chiave                                      |
 |------------|------------|---------------------------------------------|
-| film       | INT        | Primaria, Esterna(derivante da Film(id))    |
-| regista    | INT        | Primaria, Esterna(derivante da Artista(id)) |
-
-#### Tabella ListaFilm
-|   Attributo   |   Tipo    |   Chiave                                  |
-|---------------|-----------|-------------------------------------------|
-| film          | INT       | Primaria, Esterna(derivante da Film(id))  |
-| lista         | INT       | Primaria, Esterna(derivante da Lista(id)) |
-
+| film       | INT        | Primaria, Esterna(derivante da films(id))    |
+| regista    | INT        | Primaria, Esterna(derivante da artisti(id)) |
 
 
 ## Gestione degli Accessi
