@@ -1,5 +1,5 @@
 <?php
-$_REQUEST["films"] = FilmManager::suggest_me($logged_user->getID());
+$films = $_REQUEST["films"];
 if (!empty($films)) {
 	?>
 	<div class="dashboard">

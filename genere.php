@@ -1,4 +1,5 @@
 <?php
+// Visualizza genere
 include "parts/initial_page.php";
 $genere = GenereManager::get_from_id(@$_GET["id"]);
 if (!$genere) {

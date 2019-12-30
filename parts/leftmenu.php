@@ -5,8 +5,8 @@ $logged_user = Auth::getLoggedUser();
 ?>
 <menu>
 	<ul>
-		<li <?php echo $uri === "/___classifica_film.php" ? " class='active'" : ""; ?>>
-			<a href='/___classifica_film.php'>Classifica dei film</a>
+		<li <?php echo $uri === "/classifica_film.php" ? " class='active'" : ""; ?>>
+			<a href='/classifica_film.php'>Classifica dei film</a>
 		</li>
 		<?php
 		if ($logged_user) {
@@ -17,19 +17,19 @@ $logged_user = Auth::getLoggedUser();
 			<li <?php echo $uri == "/giudizi.php" ? " class='active'" : ""; ?>>
 				<a href='/giudizi.php'>Giudizi</a>
 			</li>
-			<li <?php echo $uri == "/___promemoria.php" ? " class='active'" : ""; ?>>
-				<a href='/___promemoria.php'>
+			<li <?php echo $uri == "/promemoria.php" ? " class='active'" : ""; ?>>
+				<a href='/promemoria.php'>
 					Promemoria
 					<?php
-					$numero_promemoria = count(PromemoriaManager::get($logged_user->getID()));
+					$numero_promemoria = count(PromemoriaManager::get_from_utente($logged_user->getID()));
 					if ($numero_promemoria > 0)
 						echo "<span>$numero_promemoria</span>";
 					unset($numero_promemoria);
 					?>
 				</a>
 			</li>
-			<li <?php echo $uri == "/___amici.php" ? " class='active'" : ""; ?>>
-				<a href='/___amici.php'>
+			<li <?php echo $uri == "/amici.php" ? " class='active'" : ""; ?>>
+				<a href='/amici.php'>
 					Amici
 					<?php
 					// FIXME: Non sprecare memoria

@@ -1,4 +1,5 @@
 <?php
+// Visualizza giudizi
 include "parts/initial_page.php";
 $logged_user = Auth::getLoggedUser();
 assert($logged_user);

@@ -7,4 +7,4 @@ if (!$logged_user) {
 	die();
 }
 $_REQUEST["films"] = FilmManager::suggest_me($logged_user->getID());
-include "views/film/Area di presentazione film suggeriti.php";
+include "views/film/Pagina suggerimenti.php";
