@@ -15,4 +15,4 @@ unset($logged_user);
 unset($promemorias);
 unset($films);
 
-include "views/Pagina promemoria.php";
+include "views/film/Pagina promemoria.php";

@@ -27,4 +27,4 @@ unset($logged_user);
 unset($genere);
 unset($films);
 unset($genere_films);
-include "views/Pagina genere.php";
+include "views/film/Pagina genere.php";
