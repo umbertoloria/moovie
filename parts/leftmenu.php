@@ -88,7 +88,7 @@ $logged_user = Auth::getLoggedUser();
 				<a href="/cambia_password.php">Cambia password</a>
 			</li>
 			<li>
-				<a href="/controllers/accounts/___logout.php">Esci</a>
+				<a href="/controllers/accounts/Uscita.php">Esci</a>
 			</li>
 			<?php
 		}
