@@ -377,8 +377,8 @@ Eccezioni | L’utente non fornisce i dati corretti. Vai a [UC_ACC_3.1](#uc_acc_
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nei risultati di ricerca, tra cui c'è un link al profilo che vuole visualizzare.
-Flusso di eventi | <br/><ol><li>L'utente clicca sul link del profilo<li>Il sistema reperisce le informazioni dell'utente cercato e delle sue liste, e le mostra nel suo profilo</ol>
-Condizione di uscita | L'utente può consultare il profilo dell'utente cercato.
+Flusso di eventi | <br/><ol><li>L'utente clicca sul link del profilo<li>Il sistema reperisce le informazioni dell'utente cercato e dei suoi giudizi, e le mostra nel suo profilo</ol>
+Condizione di uscita | L'utente può consultare le informazioni dell'utente cercato e dei suoi giudizi.
 
 ### Amicizie
 ![](Use%20case%20diagrams/Amicizie.jpg)
@@ -702,6 +702,8 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 ![](Sequence%20diagrams/UC_AMI_4%20Rifiutare%20richiesta%20di%20amicizia.jpg)
 
 ![](Sequence%20diagrams/UC_AMI_5%20Cancellare%20amicizia.jpg)
+
+![](Sequence%20diagrams/UC_AMI_6%20Visualizzare%20gli%20amici.jpg)
 
 ### Film
 
