@@ -142,7 +142,7 @@ possibili. Una macro suddivisione del sistema è stata fatta in questo modo:
  - Accounts;
  - Amicizie;   
  - Film;
-
+ - Gestione;
 ![](Package%20diagrams/Sottosistemi.png)
 
 
@@ -289,6 +289,47 @@ un utente autenticato.
 #### FilmDataLayer
 Questo livello si occupa di gestire i dati riguardanti i giudizi sui film  degli utenti autenticati, 
 e il suggerimento automatico all'interno del sistema.
+
+###Gestione 
+Il sosttosistema "Gestione" si occupa di gestire i dati presenti nel sito offrendo diverse funzionalità quali:
+- Aggiungi film
+- Aggiungi genere
+- Aggiungi artista
+- Modifica film
+- Modifica genere
+- Modifica artista
+- Rimuovi film
+- Rimuovi Artista
+- Rimuovi Genere
+
+#### GestionePresentationLayer
+Questo include al suo interno tutte le componenti dell'interfaccia che offrono operazioni riguardanti la "Gestione" dei dati
+nel sistema:
+- GUI - AggiungiFilm: interfacce che offrono all'utente Amministratore la possibilità di aggiungere un film all'interno del sistema.
+- GUI - AggiungiGenere: interfacce che offrono all'utente Amministratore la possibilità di aggiungere un genere all'interno del  sistema.
+- GUI - AggiungiArtista: interfacce che offrono all'utente la possibilità di aggiungere un artista all'interno del sistema.
+- GUI - ModificaFilm: interfacce che offrono all'utente Amministratore la possibilità di modificare un film all'interno del sistema.
+- GUI - ModificaGenere: interfacce che offrono all'utente Amministratore la possibilità di modificare un genere all'interno del sistema.
+- GUI - ModificaArtista: interfacce che offrono all'utente Amministratore la possibilità di modificare un artista all'interno del sistema.
+- GUI - RimuoviFilm: interfacce che offrono all'utente Amministratore la possibilità di rimuovere un film all'interno del sistema.
+- GUI - RimuoviArtista: interfacce che offrono all'utente Amministratore la possibilità di rimuovere un genere all'interno del sistema.
+- GUI - RimuoviGenere: interfacce che offrono all'utente Amministratore la possibilità di rimuovere un artista all'interno del sistema.
+
+#### GestioneApplicationLayer
+Questo include al suo interno tutte le componenti che offrono le operazioni riguardanti il sottosistema "Gestione" del sistema.
+- AggiungiFIlm(): incorpora operazioni che permettono ad un utente amministratore di aggiungere un film all'interno del sitema
+- AggiungiGenere(): incorpora operazioni che permettono ad un utente amministratore di aggiungere un gerenere all'interno del sistema.
+- AggiungiArtista(): incorpora operazioni che permettono ad un utente amministratore di aggiungere un artista all'interno del sistema.
+- ModificaFIlm(): incorpora operazioni che permettono ad un utente amministratore di modificarei dati di un film all'interno del sitema
+- ModificaGenere(): incorpora operazioni che permettono ad un utente amministratore di modificare un gerenere all'interno del sistema.
+- ModificaArtista(): incorpora operazioni che permettono ad un utente amministratore di modificare i dati di un artista all'interno del sistema.
+- RimuoviFIlm(): incorpora operazioni che permettono ad un utente amministratore di rimuovere un film all'interno del sitema
+- RimuoviGenere(): incorpora operazioni che permettono ad un utente amministratore di rimuovere un gerenere all'interno del sistema.
+- RimuoviArtista(): incorpora operazioni che permettono ad un utente amministratore di rimuovere un artista all'interno del sistema.
+
+#### GestioneDataLayer
+Questo livello si occupa di gestire alcuni dati presenti nel sito Moovie, permettendo, ad un utente amministratore di gestirli.
+
 
 ## Gestione dei dati persitenti
 Il sito Moovie ha al suo interno alcuni dati che devono essere mantenuti affinché il suo funzionamento sia valido. 
