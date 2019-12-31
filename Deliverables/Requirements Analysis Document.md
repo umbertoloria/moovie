@@ -50,7 +50,9 @@
             3. [UC_ACC_2: Autenticare un account](#uc_acc_2-autenticare-un-account)
             4. [UC_ACC_3: Cambiare password](#uc_acc_3-cambiare-password)
             5. [UC_ACC_3.1: Cambio password fallito](#uc_acc_31-cambio-password-fallito)
-            6. [UC_ACC_4: Visualizzare un profilo](#uc_acc_4-visualizzare-un-profilo)
+            6. [UC_ACC_4: Deautenticare un account](#uc_acc_4-deautenticare-un-account)
+            7. [UC_ACC_5: Visualizzare un profilo](#uc_acc_5-visualizzare-un-profilo)
+            8. [UC_ACC_6: Visualizzare la pagina iniziale](#uc_acc_6-visualizzare-la-pagina-iniziale)
         3. [Amicizie](#amicizie)
             1. [UC_AMI_1: Inviare richiesta di amicizia](#uc_ami_1-inviare-richiesta-di-amicizia)
             2. [UC_AMI_2: Cancellare richiesta di amicizia](#uc_ami_2-cancellare-richiesta-di-amicizia)
@@ -93,7 +95,9 @@ agli utenti dei film in linea con le loro preferenze. Ognuno di essi potrà crea
 con i propri amici.
 
 ## Obiettivi
-L'obiettivo di Moovie è di realizzare una piattaforma per **condividere informazioni cinematografiche**. Gli utenti del sistema potranno registrarsi e **condividere le proprie informazioni con gli amici**, e utilizzare le funzionalità di suggerimento del sito per **scoprire nuovi film da guardare**.
+L'obiettivo di Moovie è di realizzare una piattaforma per **condividere informazioni cinematografiche**. Gli utenti del
+sistema potranno registrarsi e **condividere le proprie informazioni con gli amici**, e utilizzare le funzionalità di
+suggerimento del sito per **scoprire nuovi film da guardare**.
 
 # Soluzioni attuali
 Senza l'utilizzo di Moovie, l'utente interessato al mondo del cinema attualmente utilizza più servizi per reperire le
@@ -124,7 +128,9 @@ RF_RIC.3 | Ricerca di un utente
 RF_ACC.1 | Creare un account
 RF_ACC.2 | Autenticare un account
 RF_ACC.3 | Cambiare password
-RF_ACC.4 | Visualizzare un profilo
+RF_ACC.4 | Deautenticare un account
+RF_ACC.5 | Visualizzare un profilo
+RF_ACC.6 | Visualizzare la pagina iniziale
 **M_RF_AMI** | Amicizie | Media
 RF_AMI.1 | Inviare richiesta di amicizia
 RF_AMI.2 | Cancellare richiesta di amicizia
@@ -174,8 +180,8 @@ alla sua fornitissima collezione di Blu Ray. Se un film manca nella collezione, 
 Mentre è in autobus verso il noleggio Blu Ray, prende il suo cellulare e va sul sito web www.moovie.me. Cliccando su
 **accesso**, si presenta una schermata di input che richiede alcuni campi. Alla voce "e-mail" scrive
 "michele@pippo.pluto", e alla voce "password" scrive "adnam". Clicca su "accedi" ma il sistema notifica "I dati non
-corrispondono". Si accorge di aver sbagliato e scrive "adnama". Clicca di nuovo su "accedi", e il sistema accede. A questo
-punto, per scegliere il prossimo film da guardare, Michele può:
+corrispondono". Si accorge di aver sbagliato e scrive "adnama". Clicca di nuovo su "accedi", e il sistema accede. A
+questo punto, per scegliere il prossimo film da guardare, Michele può:
 
 * consultare le proprie liste, aprire la lista "film da guardare", e scegliere un film;
 
@@ -372,13 +378,29 @@ Flusso di eventi | <br/><ol><li>Il sistema afferma che la password fornita è sb
 Condizione di uscita | Il sistema comunca che la password è stata aggiornata.
 Eccezioni | L’utente non fornisce i dati corretti. Vai a [UC_ACC_3.1](#uc_acc_31-cambio-password-fallito).
 
-#### UC_ACC_4: Visualizzare un profilo
+#### UC_ACC_4: Deautenticare un account
+**Nome** | **Deautenticare un account**
+---------|---
+Attori | Utente autenticato.
+Condizione di entrata | L’utente si trova nel sito.
+Flusso di eventi | <br/><ol><li>L’utente clicca sul link di uscita nel menu<li>Il sistema deautentica l'account</ol>
+Condizione di uscita | Il sistema comunica che l'uscita è stata effettuata.
+
+#### UC_ACC_5: Visualizzare un profilo
 **Nome** | **Visualizzare un profilo**
 ---------|---
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nei risultati di ricerca, tra cui c'è un link al profilo che vuole visualizzare.
 Flusso di eventi | <br/><ol><li>L'utente clicca sul link del profilo<li>Il sistema reperisce le informazioni dell'utente cercato e dei suoi giudizi, e le mostra nel suo profilo</ol>
 Condizione di uscita | L'utente può consultare le informazioni dell'utente cercato e dei suoi giudizi.
+
+#### UC_ACC_6: Visualizzare la pagina iniziale
+**Nome** | **Visualizzare la pagina iniziale**
+---------|---
+Attori | Utente.
+Condizione di entrata | L’utente si nel sito.
+Flusso di eventi | <br/><ol><li>L'utente clicca sul link alla pagina iniziale nel menu<li>Se l'utente è autenticato, il sistema reperisce le attività sue e dei suoi amici e le mostra nella pagina iniziale<li>Se l'utente è ospite, il sistema gli suggerisce di effettuare l'accesso o la registrazione</ol>
+Condizione di uscita | L'utente può consultare la pagina iniziale.
 
 ### Amicizie
 ![](Use%20case%20diagrams/Amicizie.jpg)
@@ -582,6 +604,9 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
     * Accesso: permette di autenticare un account se si conoscono e-mail e password annessi
     * Registrazione: permette di registrare un account, controllando prima la correttezza dei campi inseriti
     * Cambio password: effettua un cambio di password
+    * Uscita: effettua la deautenticazione dell'utente
+    * Visualizza pagina iniziale: se l'utente è autenticato, preleva i giudizi suoi e dei suoi amici e li presenta,
+    altrimenti suggerisce all'utente ospite di effettuare l'accesso o la registrazione
 * Amicizie:
     * Richiedi amicizia: invia una richiesta di amicizia
     * Cancella richiesta amicizia: cancella una richiesta di amicizia da parte dell'iniziale richiedente
@@ -604,7 +629,7 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
     * Visualizza classifica film: preleva i film più votati dall'utenza del sito e le mostra
     * Suggerimenti automatici: suggerisce alcuni film ad un account in base alle sue preferenze cinematografiche
 
-### Manager objects
+### Entity objects
 * Film Manager:
     * preleva il film con un determinato id (se esiste)
     * preleva tutti i film di un determinato genere
@@ -629,11 +654,17 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
     * rifiuta una richiesta di amicizia esistente
     * verifica l'esistenza di un'amicizia tra due account
     * cancella un'amicizia esistente tra due account
+    * preleva le amicizie accettate che coinvolgono un determinato account
+    * preleva le amicizie in attesa che coinvolgono un determinato account
 * Giudizio Manager:
     * preleva il giudizio di un determinato utente ad un determinato film
     * aggiunge un giudizio
     * modifica un giudizio esistente
     * rimuove un giudizio esistente
+* Promemoria Manager:
+    * preleva tutti i promemoria di un utente
+    * aggiunge un promemoria
+    * rimuove un promemoria
 * Recitazione Manager:
     * preleva la recitazione di tutti gli attori in un determinato film
     * preleva la recitazione di un determinato attore in tutti i film
@@ -643,8 +674,10 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 * Genere Manager:
     * preleva il genere con un determinato id (se esiste)
     * preleva tutti i generi di un determinato film
-
-### Entity objects
+* Auth Manager:
+    * autentica un utente salvandolo nella sessione
+    * preleva l'utente autenticato nella sessione (se presente)
+    * rimuove l'utente autenticato dalla sessione
 * Film: rappresenta le informazioni di un film
 * Artista: rappresenta le informazioni di un artista
 * Utente: rappresenta i dati di un utente
@@ -689,7 +722,11 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 
 ![](Sequence%20diagrams/UC_ACC_3%20Cambiare%20password.jpg)
 
-![](Sequence%20diagrams/UC_ACC_4%20Visualizzare%20un%20profilo.jpg)
+![](Sequence%20diagrams/UC_ACC_4%20Deautenticare%20un%20account.jpg)
+
+![](Sequence%20diagrams/UC_ACC_5%20Visualizzare%20un%20profilo.jpg)
+
+![](Sequence%20diagrams/UC_ACC_6%20Visualizzare%20la%20pagina%20iniziale.jpg)
 
 ### Amicizie
 
