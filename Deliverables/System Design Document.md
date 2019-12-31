@@ -35,6 +35,10 @@
                 1. [FilmPresentationLayer](#filmpresentationlayer)
                 2. [FilmApplicationLayer](#filmapplicationlayer)
                 3. [FilmDataLayer](#filmdatalayer)
+             4. [Gestione](#gestione)
+                1. [GestionePresentationLayer](#gestionepresentationlayer)
+                2. [GestioneApplicationLayer](#gestioneapplicationlayer)
+                3. [GestioneDataLayer](#gestionedatalayer)
     3. [Mappatura Hardware/Software](#mappatura-hardwaresoftware)
     4. [Gestione dei Dati Persistenti](#gestione-dei-dati-persitenti)
     5. [Gestione degli accessi](#gestione-degli-accessi)
@@ -143,6 +147,7 @@ possibili. Una macro suddivisione del sistema è stata fatta in questo modo:
  - Amicizie;   
  - Film;
  - Gestione;
+ 
 ![](Package%20diagrams/Sottosistemi.png)
 
 
