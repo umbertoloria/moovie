@@ -1,6 +1,11 @@
 <?php
 // Visualizza profilo
 include "parts/initial_page.php";
+$logged_user = Auth::getLoggedUser();
+if (!$logged_user) {
+	header("Location: /404.php");
+	die();
+}
 $utente = AccountManager::get_from_id(@$_GET["id"]);
 if (!$utente) {
 	header("Location: /404.php");
@@ -8,8 +13,7 @@ if (!$utente) {
 }
 
 $_REQUEST["show_actions"] = [];
-$logged_user = Auth::getLoggedUser();
-if ($logged_user and $logged_user->getID() !== $utente->getID()) {
+if ($logged_user->getID() !== $utente->getID()) {
 	if (AmiciziaManager::existsFriendshipBetween($logged_user->getID(), $utente->getID())) {
 		// Esiste una amicizia accettata
 		$_REQUEST["show_actions"][] = "remove_friendship";
@@ -31,12 +35,16 @@ include "views/Pagina utente.php";
 unset($_REQUEST["show_actions"]);
 unset($_REQUEST["utente"]);
 
-$giudizi = GiudizioManager::getAllOf([$utente->getID()]);
-unset($utente);
-$films = [];
-foreach ($giudizi as $giudizio)
-	if (!isset($films[$giudizio->getFilm()]))
-		$films[$giudizio->getFilm()] = FilmManager::get_from_id($giudizio->getFilm());
-$_REQUEST["giudizi"] = $giudizi;
-$_REQUEST["films"] = $films;
-include "views/film/___timeline_giudizi.php";
+$logged_user = Auth::getLoggedUser();
+if ($logged_user->getID() === $utente->getID() or AmiciziaManager::existsFriendshipBetween($logged_user->getID(), $utente->getID())) {
+	$giudizi = GiudizioManager::getAllOf([$utente->getID()]);
+	unset($utente);
+	$films = [];
+	foreach ($giudizi as $giudizio)
+		if (!isset($films[$giudizio->getFilm()]))
+			$films[$giudizio->getFilm()] = FilmManager::get_from_id($giudizio->getFilm());
+	$_REQUEST["giudizi"] = $giudizi;
+	$_REQUEST["films"] = $films;
+	include "views/film/Timeline giudizi.php";
+}
+unset($logged_user);

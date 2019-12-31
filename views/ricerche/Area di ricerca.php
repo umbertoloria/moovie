@@ -22,9 +22,13 @@ if ($_SERVER["PHP_SELF"] === "/controllers/ricerche/Ricerca.php") {
 			<li data-select-value="artists"
 				<?php echo $kind_default === "artists" ? "data-select-default" : ""; ?>>Artista
 			</li>
-			<li data-select-value="users"
-				<?php echo $kind_default === "users" ? "data-select-default" : ""; ?>>Utente
-			</li>
+			<?php
+			if ($_REQUEST["search_users_too"]) {
+				echo "<li data-select-value='users'";
+				echo $kind_default === "users" ? " data-select-default" : "";
+				echo ">Utente</li>";
+			}
+			?>
 		</ul>
 	</div>
 	<input type="text" name="fulltext" placeholder="Ricerca..."

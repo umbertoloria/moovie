@@ -1,9 +1,15 @@
 <?php
 
+include "../../php/core.php";
 $kind = @$_GET["kind"];
 $fulltext = @$_GET["fulltext"];
 
-if (!in_array($kind, ["all", "movies", "artists", "users"])) {
+if (is_null(Auth::getLoggedUser()))
+	$kinds = ["all", "movies", "artists"];
+else
+	$kinds = ["all", "movies", "artists", "users"];
+
+if (!in_array($kind, $kinds)) {
 	header("Location: /404.php");
 	die();
 }
@@ -77,7 +83,7 @@ if ($kind === "artists" or $kind === "all") {
 
 }
 
-if ($kind === "users" or $kind === "all") {
+if ($kind === "users" or ($kind === "all" and in_array("users", $kinds))) {
 	$risultati["users"] = AccountManager::search($fulltext);
 }
 unset($kind);

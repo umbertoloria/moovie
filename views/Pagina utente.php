@@ -85,6 +85,5 @@ if (!empty($show_actions)) {
 		<?php } ?>
 
 	</script>
-
 	<?php
 }

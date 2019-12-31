@@ -24,7 +24,7 @@ if ($logged_user) {
 	$_REQUEST["giudizi"] = $giudizi;
 	$_REQUEST["utenti"] = $utenti;
 	$_REQUEST["films"] = $films;
-	include "views/film/___timeline_giudizi.php";
+	include "views/film/Timeline giudizi.php";
 
 } else {
 	unset($logged_user);
