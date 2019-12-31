@@ -1,4 +1,5 @@
 <form class="form" id="form_di_cambio_password" method="post" action="/controllers/accounts/Cambio password.php">
+	<h1>Cambia password</h1>
 	<fieldset>
 		<label>
 			<span>Password attuale</span>
