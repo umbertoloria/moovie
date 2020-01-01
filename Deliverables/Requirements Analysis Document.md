@@ -319,7 +319,7 @@ Condizione di uscita | Moovie comunica che l’artista non è presente.
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nell’area di ricerca.
 Flusso di eventi |<br/><ol><li>L’utente seleziona "utenti" e inserisce il nome di un utente<li>Il sistema esegue la ricerca di utenti e mostra tutti i risultati<li>L’utente seleziona l'utente cercato<li>Il sistema preleva le informazioni e le presenta tramite il profilo dell'utente</ol>
-Condizione di uscita | L’utente potrà visualizzare l'utente tramite [UC_ACC_4](#uc_acc_4-visualizzare-un-profilo).
+Condizione di uscita | L’utente potrà visualizzare l'utente tramite [UC_ACC_5](#uc_acc_5-visualizzare-un-profilo).
 Eccezioni | Se l’utente cercato non è presente, vai a [UC_RIC_3.1](#uc_ric_31-ricerca-di-un-utente-fallita).
 
 #### UC_RIC_3.1: Ricerca di un utente fallita
@@ -358,7 +358,7 @@ Attori | Utente.
 Condizione di entrata | L’utente si trova nella pagina di accesso.
 Flusso di eventi | <br/><ol><li>L’utente inserisce e-mail e password del suo account e prosegue<li>Moovie verifica la correttezza dei dati inseriti e autentica l'account</ol>
 Condizione di uscita | Il sistema comunica che l'accesso è stato effettuato.
-Eccezioni | Se i dati sono sbagliati, effettua questo caso d'uso:<br/>**Condizione di entrata**: l'utente ha inserito i dati sbagliati<br/>**Flusso di eventi**: <br/><br/><ol><li>Il sistema comunica che i dati sono sbagliati.<li>L'utente inserisce di nuovo i dati.<li>Il sistema verifica la correttezza dei dati e autentica l'account.</ol>**Condizione di uscita**: L'accesso è stato effettuato.
+Eccezioni | Se i dati sono sbagliati, effettua questo caso d'uso:<br/>**Attori**: utente<br/>**Condizione di entrata**: l'utente ha inserito i dati sbagliati.<br/>**Flusso di eventi**: <br/><br/><ol><li>Il sistema comunica che i dati sono sbagliati<li>L'utente inserisce di nuovo i dati<li>Il sistema verifica la correttezza dei dati e autentica l'account.</ol>**Condizione di uscita**: L'accesso è stato effettuato.
 
 #### UC_ACC_3: Cambiare password
 **Nome** | **Cambiare password**
@@ -486,7 +486,7 @@ Condizione di uscita | L'utente può consultare la pagina del genere desiderato.
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nell'area di aggiunta di un giudizio a un determinato film.
 Flusso di eventi | <br/><ol><li>L’utente inserisce un voto<li>Moovie salva il giudizio e rimanda l'utente alla pagina del film</ol>
-Condizione di uscita | Il giudizio viene salvato.
+Condizione di uscita | Il giudizio viene salvato e la pagina film viene visualizzata tramite [UC_FILM_1](#uc_film_1-visualizzare-un-film).
 
 #### UC_FILM_5: Modificare un giudizio
 **Nome** | **Modificare un giudizio**
@@ -494,7 +494,7 @@ Condizione di uscita | Il giudizio viene salvato.
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nell'area di modifica di un giudizio a un determinato film.
 Flusso di eventi | <br/><ol><li>L’utente inserisce il nuovo voto<li>Moovie aggiorna il giudizio e rimanda l'utente alla pagina dei giudizi</ol>
-Condizione di uscita | Il giudizio viene aggiornato.
+Condizione di uscita | Il giudizio viene aggiornato e la pagina giudizi viene aggiornata tramite [UC_FILM_7](#uc_film_7-visualizzare-i-giudizi).
 
 #### UC_FILM_6: Rimuovere un giudizio
 **Nome** | **Rimuovere un giudizio**
@@ -502,7 +502,7 @@ Condizione di uscita | Il giudizio viene aggiornato.
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella pagina dei giudizi.
 Flusso di eventi | <br/><ol><li>L’utente clicca sul pulsante di rimozione di un giudizio<li>Moovie rimuove il giudizio, e aggiorna la pagina dei giudizi</ol>
-Condizione di uscita | Il giudizio viene rimosso.
+Condizione di uscita | Il giudizio viene rimosso e la pagina giudizi viene aggiornata tramite [UC_FILM_7](#uc_film_7-visualizzare-i-giudizi).
 
 #### UC_FILM_7: Visualizzare i giudizi
 **Nome** | **Visualizzare i giudizi**
@@ -518,7 +518,7 @@ Condizione di uscita | Il sistema mostra tutti i giudizi dell'utente.
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella pagina di un film.
 Flusso di eventi | <br/><ol><li>L’utente clicca per aggiungere il film tra i promemoria<li>Moovie crea il nuovo promemoria e aggiorna la pagina del film</ol>
-Condizione di uscita | Il promemoria viene salvato
+Condizione di uscita | Il promemoria viene salvato e la pagina film viene visualizzata tramite [UC_FILM_1](#uc_film_1-visualizzare-un-film).
 
 #### UC_FILM_9: Rimuovere un promemoria
 **Nome** | **Rimuovere un promemoria**
@@ -526,7 +526,7 @@ Condizione di uscita | Il promemoria viene salvato
 Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nella pagina dei promemoria.
 Flusso di eventi | <br/><ol><li>L’utente clicca sul pulsante di rimozione di un promemoria<li>Moovie rimuove il promemoria, e aggiorna la pagina dei promemoria</ol>
-Condizione di uscita | Il promemoria viene rimosso.
+Condizione di uscita | Il promemoria viene rimosso e la pagina promemoria viene aggiornata tramite [UC_FILM_10](#uc_film_10-visualizzare-i-promemoria).
 
 #### UC_FILM_10: Visualizzare i promemoria
 **Nome** | **Visualizzare i promemoria**
