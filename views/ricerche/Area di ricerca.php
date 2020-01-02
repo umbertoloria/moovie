@@ -4,7 +4,7 @@ if ($_SERVER["PHP_SELF"] === "/controllers/ricerche/Ricerca.php") {
 	$kind_default = @$_GET["kind"];
 	$fulltext_default = @$_GET["fulltext"];
 } else {
-	$kind_default = "movies";
+	$kind_default = "film";
 	$fulltext_default = "";
 }
 ?>
@@ -13,20 +13,20 @@ if ($_SERVER["PHP_SELF"] === "/controllers/ricerche/Ricerca.php") {
 		<input type="hidden" name="kind"/>
 		<label></label>
 		<ul>
-			<li data-select-value="all"
-				<?php echo $kind_default === "all" ? "data-select-default" : ""; ?>>Tutto
+			<li data-select-value="tutti"
+				<?php echo $kind_default === "tutti" ? "data-select-default" : ""; ?>>Tutti
 			</li>
-			<li data-select-value="movies"
-				<?php echo $kind_default === "movies" ? "data-select-default" : ""; ?>>Film
+			<li data-select-value="film"
+				<?php echo $kind_default === "film" ? "data-select-default" : ""; ?>>Film
 			</li>
-			<li data-select-value="artists"
-				<?php echo $kind_default === "artists" ? "data-select-default" : ""; ?>>Artista
+			<li data-select-value="artisti"
+				<?php echo $kind_default === "artisti" ? "data-select-default" : ""; ?>>Artisti
 			</li>
 			<?php
 			if ($_REQUEST["search_users_too"]) {
-				echo "<li data-select-value='users'";
-				echo $kind_default === "users" ? " data-select-default" : "";
-				echo ">Utente</li>";
+				echo "<li data-select-value='utenti'";
+				echo $kind_default === "utenti" ? " data-select-default" : "";
+				echo ">Utenti</li>";
 			}
 			?>
 		</ul>

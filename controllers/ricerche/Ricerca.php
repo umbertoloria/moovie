@@ -5,9 +5,9 @@ $kind = @$_GET["kind"];
 $fulltext = @$_GET["fulltext"];
 
 if (is_null(Auth::getLoggedUser()))
-	$kinds = ["all", "movies", "artists"];
+	$kinds = ["tutti", "film", "artisti"];
 else
-	$kinds = ["all", "movies", "artists", "users"];
+	$kinds = ["tutti", "film", "artisti", "utenti"];
 
 if (!in_array($kind, $kinds)) {
 	header("Location: /404.php");
@@ -25,7 +25,7 @@ $films_cache = [];
 $generi_cache = [];
 $artisti_cache = [];
 
-if ($kind === "movies" or $kind === "all") {
+if ($kind === "film" or $kind === "tutti") {
 
 	foreach (FilmManager::search($fulltext) as $film) {
 		if (!isset($films_cache[$film->getID()]))
@@ -56,7 +56,7 @@ if ($kind === "movies" or $kind === "all") {
 
 }
 
-if ($kind === "artists" or $kind === "all") {
+if ($kind === "artisti" or $kind === "tutti") {
 
 	foreach (ArtistaManager::search($fulltext) as $artista) {
 		if (!isset($artisti_cache[$artista->getID()]))
@@ -83,7 +83,7 @@ if ($kind === "artists" or $kind === "all") {
 
 }
 
-if ($kind === "users" or ($kind === "all" and in_array("users", $kinds))) {
+if ($kind === "utenti" or ($kind === "tutti" and in_array("utenti", $kinds))) {
 	$risultati["users"] = AccountManager::search($fulltext);
 }
 unset($kind);
