@@ -30,21 +30,21 @@
         8. Packaging
         9. Legal
     4. [Scenari](#scenari)
-        1. [Voglio vedere un bel film sabato sera](#voglio-vedere-un-bel-film-sabato-sera)
-        2. [Ho guardato uno splendido film](#ho-guardato-uno-splendido-film)
-        3. [Suggerire dei film ad un amico che non è registrato su Moovie](#suggerire-dei-film-ad-un-amico-che-non-è-registrato-su-moovie)
-        4. [Voglio informazioni su un attore, sceneggiatore o regista](#voglio-informazioni-su-un-attore-sceneggiatore-o-regista)
-        5. [Voglio aggiungere un film ad una mia lista](#voglio-aggiungere-un-film-ad-una-mia-lista)
-        6. [Suggerire un film ad un amico che è registrato su Moovie](#suggerire-un-film-ad-un-amico-che-è-registrato-su-moovie)
+        1. [Scegliere un film da vedere](#scegliere-un-film-da-vedere)
+        2. [Aggiungere un nuovo giudizio](#aggiungere-un-nuovo-giudizio)
+        3. [Far registrare un amico per suggerirgli dei film](#far-registrare-un-amico-per-suggerirgli-dei-film)
+        4. [Voglio informazioni su un regista o su un attore](#voglio-informazioni-su-un-regista-o-su-un-attore)
+        5. [Voglio aggiungere un film ai promemoria](#voglio-aggiungere-un-film-ai-promemoria)
+        6. [Richiesta e accettazione di amicizia tra due account](#richiesta-e-accettazione-di-amicizia-tra-due-account)
     5. [Use case models](#use-case-models)
-        1. [Ricerche](#ricerche)
+        1. [Ricerca](#ricerca)
             1. [UC_RIC_1: Ricerca di un film](#uc_ric_1-ricerca-di-un-film)
             2. [UC_RIC_1.1: Ricerca di un film fallita](#uc_ric_11-ricerca-di-un-film-fallita)
             3. [UC_RIC_2: Ricerca di un artista](#uc_ric_2-ricerca-di-un-artista)
             4. [UC_RIC_2.1: Ricerca di un artista fallita](#uc_ric_21-ricerca-di-un-artista-fallita)
             5. [UC_RIC_3: Ricerca di un utente](#uc_ric_3-ricerca-di-un-utente)
             6. [UC_RIC_3.1: Ricerca di un utente fallita](#uc_ric_31-ricerca-di-un-utente-fallita)
-        2. [Accounts](#accounts)
+        2. [Account](#account)
             1. [UC_ACC_1: Creare un account](#uc_acc_1-creare-un-account)
             2. [UC_ACC_1.1: Registrazione fallita](#uc_acc_11-registrazione-fallita)
             3. [UC_ACC_2: Autenticare un account](#uc_acc_2-autenticare-un-account)
@@ -53,7 +53,7 @@
             6. [UC_ACC_4: Deautenticare un account](#uc_acc_4-deautenticare-un-account)
             7. [UC_ACC_5: Visualizzare un profilo](#uc_acc_5-visualizzare-un-profilo)
             8. [UC_ACC_6: Visualizzare la pagina iniziale](#uc_acc_6-visualizzare-la-pagina-iniziale)
-        3. [Amicizie](#amicizie)
+        3. [Amicizia](#amicizia)
             1. [UC_AMI_1: Inviare richiesta di amicizia](#uc_ami_1-inviare-richiesta-di-amicizia)
             2. [UC_AMI_2: Cancellare richiesta di amicizia](#uc_ami_2-cancellare-richiesta-di-amicizia)
             4. [UC_AMI_3: Accettare richiesta di amicizia](#uc_ami_3-accettare-richiesta-di-amicizia)
@@ -120,7 +120,7 @@ I requisiti descritti sono catalogati secondo il modello **F.U.R.P.S.**
 ## Requisiti funzionali
 Identificativo | Descrizione | Priorità
 :-------------:|-------------|:-------:
-**M_RF_RIC** | Ricerche | Alta
+**M_RF_RIC** | Ricerca | Alta
 RF_RIC.1 | Ricerca di un film
 RF_RIC.2 | Ricerca di un artista
 RF_RIC.3 | Ricerca di un utente
@@ -131,7 +131,7 @@ RF_ACC.3 | Cambiare password
 RF_ACC.4 | Deautenticare un account
 RF_ACC.5 | Visualizzare un profilo
 RF_ACC.6 | Visualizzare la pagina iniziale
-**M_RF_AMI** | Amicizie | Media
+**M_RF_AMI** | Amicizia | Media
 RF_AMI.1 | Inviare richiesta di amicizia
 RF_AMI.2 | Cancellare richiesta di amicizia
 RF_AMI.3 | Accettare richiesta di amicizia
@@ -174,109 +174,93 @@ RF_FILM.12 | Visualizzare la classifica dei film
 
 ## Scenari
 
-### Voglio vedere un bel film sabato sera
-Dopo una settimana di lavoro, Michele non vede l’ora di guardare un bel film il sabato sera, in televisione accanto
-alla sua fornitissima collezione di Blu Ray. Se un film manca nella collezione, lo noleggia e se gli piace lo compra.
-Mentre è in autobus verso il noleggio Blu Ray, prende il suo cellulare e va sul sito web www.moovie.me. Cliccando su
-**accesso**, si presenta una schermata di input che richiede alcuni campi. Alla voce "e-mail" scrive
+### Scegliere un film da vedere
+Michele, che possiede una fornitissima collezione di Blu Ray, vorrebbe trovare un film da vedere sabato sera. Mentre è
+in autobus verso il noleggio Blu Ray, prende il suo cellulare e va sul sito web www.moovie.me. Cliccando su
+"accesso", si presenta una schermata di input che richiede alcuni campi. Alla voce "e-mail" scrive
 "michele@pippo.pluto", e alla voce "password" scrive "adnam". Clicca su "accedi" ma il sistema notifica "I dati non
-corrispondono". Si accorge di aver sbagliato e scrive "adnama". Clicca di nuovo su "accedi", e il sistema accede. A
-questo punto, per scegliere il prossimo film da guardare, Michele può:
+corrispondono". Si accorge di aver sbagliato la password e scrive "adnama". Clicca di nuovo su "accedi", e il sistema
+autentica l'account. A questo punto, per scegliere il prossimo film da guardare, Michele può:
 
-* consultare le proprie liste, aprire la lista "film da guardare", e scegliere un film;
-
-* cercare il profilo della sua amica Amanda, aprire la sua lista "Migliori film del secolo" (può vedere le sue liste
-solo avendo l’amicizia), scegliere un film dalla lista ed aggiungerlo nella propria lista "film da guardare";
-
-* cliccare su "suggerisci" e scegliere un film tra i suggerimenti automatici presenti nella schermata successiva.
+* cliccare su "promemoria" nel menu a sinistra e scegliere un film tra i suoi **promemoria**;
+* cercare il profilo della sua amica Amanda e scegliere un film tra i **giudizi** di lei;
+* cliccare su "suggeriscimi un film", sempre nel menu a sinistra, e scegliere un film tra i **suggerimenti automatici** presenti nella
+schermata successiva.
 
 Una volta scelto il film, lo noleggia, torna a casa e lo guarda.
 
-### Ho guardato uno splendido film
+### Aggiungere un nuovo giudizio
 Michele ha appena finito di guardare "Eternal Sunshine of the Spotless Mind". Gli è piaciuto talmente tanto che
 vorrebbe consigliarlo ai suoi amici, specialmente Amanda. Qualche mese prima avrebbe mandato molti messaggi a questi
 ultimi, oppure ne avrebbe parlato a lavoro con i colleghi, ma da quando ha cominciato a usare Moovie, i suoi giudizi li
 esprime direttamente lì.
 
-Michele allora prende il suo cellulare, va su www.moovie.me, e cerca la voce "accesso" ma risulta già loggato, visto che
-aveva effettuato l’accesso poche ore prima. Sulla pagina iniziale, trova già i film presenti in "film da guardare",
-trova quello che ha appena visto e ci clicca sopra. Arrivato alla pagina del film, clicca su "ho già visto questo film".
-Si aprirà una schermata popup che chiederà un voto da 1 a 10. Michele scrive 9 e clicca "aggiungi".
+Michele allora prende il suo cellulare, va su www.moovie.me, e cerca la voce "accesso" ma risulta già autenticato, visto
+che aveva effettuato l’accesso poche ore prima. Arrivato nella pagina iniziale, clicca su "promemoria" nel menu a
+sinistra, trova il film che ha appena visto e ci clicca sopra. Arrivato alla pagina del film, clicca su "+ giudizio". Si
+aprirà una schermata popup che chiederà un voto da 1 a 10. Michele scrive 9 e clicca "aggiungi".
 
 La schermata si chiude, e Michele si troverà sempre sulla pagina del film. In questo modo, Michele sta aggiungendo
-informazioni riguardo i suoi gusti sulla piattaforma, che sarà in grado di suggerirgli film ancora più in linea con i
-suoi gusti.
+informazioni riguardo le sue preferenze cinematografiche all'interno della piattaforma, che sarà in grado di suggerirgli
+film ancora più in linea con i suoi gusti. Non solo, da adesso il nuovo giudizio di Michele sarà anche visibile nel suo profilo e nella pagina iniziale da tutti i
+suoi amici.
 
-Clicca su "aggiungi ad una lista...", si apre una schermata popup contenente tutte le sue liste, sceglie "Film che
-consiglio", e la schermata si chiude, mostrando sempre la pagina del film. In questo modo, tutti gli utenti che
-"seguono" questa lista saranno notificati del nuovo aggiornamento.
+Se Michele avesse già un giudizio di quel film nel suo profilo, ma volesse modificarne il voto, sarebbe potuto andare
+nella pagina dei "giudizi", cliccare "edit" sul film, modificare il voto (sempre da 1 a 10) e cliccare "modifica".
 
-Se quel film fosse già stato votato, e Michele avesse voluto modificare quel giudizio, sarebbe potuto andare sulla lista
-"film guardati", scegliere il film, e cliccare su "modifica", per poi inserire il nuovo voto, sempre da 1 a 10.
+### Far registrare un amico per suggerirgli dei film
+A Stefano piacciono molto i film, mai però quanto a Michele. Quest'ultimo, invece di suggerirgli i film alla vecchia
+maniera, consiglia a Stefano di registrarsi su Moovie, così che dopo aver inviato una richiesta di amicizia, e dopo che
+Michele l'abbia accettata, Stefano possa vedere tutti i giudizi di Michele direttamente dal suo profilo.
 
-### Suggerire dei film ad un amico che non è registrato su Moovie
-A Stefano piacciono molto i film, mai però quanto a Michele. Quest’ultimo ha capito i gusti di Stefano, e vuole
-consigliargli tanti di quei film che quasi non gli vengono in mente. Proprio per questo motivo, Michele consiglia a
-Stefano di crearsi un account su Moovie, per poter consultare la sua lista "migliori film biografici".
+Stefano allora apre una nuova scheda sul browser, va su www.moovie.me e clicca su "registrazione" nel menu a sinistra.
+Gli si presenta una schermata che chiede in input alcuni campi: nella voce "nome completo" inserisce "Stefano
+Bisettrice", nella voce "indirizzo e-mail" inserisce "stefano@pippo.pluto", nella voce "password" inserisce "ciao".
+Appena clicca al di fuori del campo "password" appare una scritta che suggerisce "Minimo 6 massimo 16 caratteri". Allora
+Stefano sostituisce la password con "ciaociao". Nella voce "conferma password" inserisce "ciaociao".
 
-Stefano allora apre una nuova scheda sul browser, va su www.moovie.me e clicca su "registrazione". Gli si presenta una
-schermata che chiede in input alcuni campi: nella voce "nome completo" inserisce "Stefano Bisettrice", nella voce
-"indirizzo e-mail" inserisce "stefano@pippo.pluto", nella voce "password" inserisce "ciao". Appena clicca al di fuori
-del campo "password" appare una scritta che suggerisce "Minimo 6 massimo 16 caratteri". Allora Stefano sostituisce la
-password con "ciaociao". Nella voce "conferma password" inserisce "ciaociao".
-
-Stefano, a questo punto, clicca su "Registrati". La nuova pagina che si presenta mostra il testo "Benvenuto nel
+Stefano, a questo punto, clicca su "registrati". La nuova pagina che si presenta mostra il testo "Benvenuto nel
 fantastico mondo di Moovie". Stefano sarà riportato alla pagina iniziale, dove potrà usare il suo nuovo account Moovie.
 
-### Voglio informazioni su un attore, sceneggiatore o regista
+### Voglio informazioni su un regista o su un attore
 Amanda vuole vedere un altro film diretto da "Tarantino", visto che ha particolarmente apprezzato il film "Pulp Fiction"
 che lei e Michele hanno visto il giorno prima. Allora prende il suo tablet, apre il browser, va su www.moovie.me, accede
-alle funzionalità di ricerca raggiungibili nel menu del sito (autenticazione non necessaria). In realtà le basterebbe
-accedere al suo account e andare nella lista "film guardati". Nello spazio di ricerca, Amanda inserisce "Pulp Fiction" e
-preme Invio. La nuova pagina che si presenta conterrà i risultati della ricerca, e tra questi clicca sulla voce "Pulp
-Fiction". Giunta alla scheda del film, ricca di informazioni riguardo gli attori, il regista, e le saghe di cui potrebbe
-far parte, clicca sulla voce "Quentin Tarantino", e finalmente arriva alla pagina delle informazioni del noto regista.
-In questa pagina ci sono tutti i film diretti, scritti e recitati da Tarantino. Amanda si accorge che "Pulp Fiction",
-oltre ad essere stato girato, è stato anche scritto da "Tarantino"!
+alle funzionalità di ricerca raggiungibili nel menu del sito (autenticazione non necessaria se ricerca film). In realtà
+le basterebbe accedere al suo account e andare nella lista "giudizi". Nello spazio di ricerca, Amanda inserisce "Pulp
+Fiction" e preme Invio. La nuova pagina che si presenta conterrà i risultati della ricerca, e tra questi clicca sulla
+voce "Pulp Fiction". Giunta alla scheda del film, ricca di informazioni riguardo gli attori e i registi partecipanti,
+clicca sulla voce "Quentin Tarantino", e finalmente arriva alla pagina delle informazioni del noto regista. In questa
+pagina ci sono tutti i film diretti, scritti e recitati da Tarantino. Amanda si accorge che anche "Django Unchained" è
+stato diretto da "Tarantino"!
 
-### Voglio aggiungere un film ad una mia lista
-Amanda si trova sulla pagina di "Quentin Tarantino" su Moovie. Interessata, comincia a sbirciare tra tutti i lavori di
+### Voglio aggiungere un film ai promemoria
+Amanda si trova nella pagina di "Quentin Tarantino" su Moovie. Interessata, comincia a sbirciare tra tutti i lavori di
 questo artista, per poter cercare il prossimo film da vedere. La pagina dell’artista mostra tutti i film in cui
-Tarantino ha partecipato. Nel caso specifico, ci saranno tanti film nel reparto "regie", e alcuni film nel reparto
-"recitazioni". Una volta scelto il film, Amanda raggiunge la sua scheda informativa, e clicca su "Guarda più tardi". Il
-sito adesso saprà che tra i film da guardare c’è "Kill Bill: Volume 1".
+Tarantino ha partecipato. Nel caso specifico, ci saranno tanti film nella sezione "regie", e alcuni film nella sezione
+"recitazioni". Una volta scelto il film, Amanda raggiunge la sua scheda informativa cliccandoci su, e poi lo aggiunge
+come promemoria cliccando "+ promemoria". Adesso nei promemoria c’è "Kill Bill: Volume 1".
 
-### Suggerire un film ad un amico che è registrato su Moovie
+### Richiesta e accettazione di amicizia tra due account
 Stefano ha una scheda di browser aperta sul suo computer al sito www.moovie.me, e dopo aver effettuato l’accesso, si è
 subito reso conto di aver trovato un sito davvero valido.
 
-Allora raggiunge l’area di ricerca presente nel menu, e cerca il proprio amico Michele. La pagina successiva mostra i
-vari risultati della ricerca, e tra questi è presente l’account di Michele. Cliccandoci sopra, la nuova pagina mostra il
-profilo di Michele, tutte le liste e attività pubbliche. Stefano trova quindi la voce "invia richiesta di amicizia", e
-cliccandoci sopra, viene notificato dell’invio della richiesta. Intanto Michele, che stava usando Moovie, trova la
-richiesta di amicizia di Stefano nella sezione delle notifiche. Allora, Michele clicca sulla notifica, che lo porta sul
-profilo di Stefano. Quando lo riconosce, clicca su "accetta richiesta di amicizia". Fatto questo, la pagina prima mostra
-il messaggio "amicizia accettata", e successivamente aggiorna le informazioni mostrate sul profilo di Stefano.
+Allora raggiunge l’area di ricerca presente nel menu in alto e cerca il proprio amico Michele. La pagina successiva
+mostra i vari risultati della ricerca, e tra questi è presente l’account di Michele. Cliccandoci sopra, la nuova pagina
+mostra il nome di Michele e le opzioni di amicizia. Stefano trova quindi la voce "invia richiesta di amicizia", e
+cliccandoci sopra, viene notificato dell’invio della richiesta. Intanto Michele, che stava usando Moovie, trova una
+nuova richiesta di amicizia vicino alla voce "amici". Clicca su questa voce, arriva nella pagina degli amici, e
+riconosce il nome di Stefano tra le amicizie in attesa. Alloca clicca sulla voce dell'amico e, arrivato nel suo profilo,
+clicca su "accetta richiesta di amicizia". Fatto questo, il sistema mostra il messaggio "amicizia accettata".
 
-Stefano, intanto, ha notato la notifica della conferma dell’amicizia (sempre nella sezione notifiche), e clicca su
-questa notifica, arrivando sul profilo di Michele. A questo punto, Stefano sbircia nella lista "film guardati" di
-Michele. Cliccando su questa lista, la pagina cambia mostrando i film presenti nella lista. Tra questi, Stefano nota
-subito che non è presente "Forrest Gump", il suo film preferito. Sconcertato che un appassionato di cinema come Michele
-non abbia mai visto questo famosissimo film, glielo suggerisce immediatamente. Accede alle funzionalità di ricerca,
-cerca "Forrest Gump", arriva alla pagina dei risultati, e tra questi clicca sulla scheda del film. Arrivato alla scheda
-del film, Stefano prima aggiunge il film alla propria lista dei "film guardati" (con voto 10), e poi clicca su
-"suggerisci". Sul popup che si è appena aperto, Stefano vede tutti i suoi amici (in questo caso solo
-Michele), seleziona questa voce, preme "suggerisci", il popup si chiude, e se ne apre un altro che contiene la scritta
-"Film suggerito".
-
-Intanto Michele, che è ancora collegato su Moovie, trova una nuova notifica che dice "Stefano ti consiglia Forrest
-Gump". Michele allora clicca sul film, arriva sulla sua scheda, e lo aggiunge subito alla lista "film guardati" (con
-voto 10), perché ovviamente lui lo aveva già visto, ma prima di conoscere Moovie.
+Stefano, intanto, notando che Michele ha accettato la sua richiesta, clicca sulla voce "amici" nel menu a sinistra,
+arriva alla pagina degli amici e clicca per andare nel profilo di Michele. Il profilo, che prima presentava solo le
+opzioni di amicizia, adesso mostra anche i giudizi inseriti da Michele su Moovie. Nota con piacere che è presente il
+seguente giudizio: 10 Forrest Gump.
 
 ## Use case models
 ![](Use%20case%20diagrams/Moovie's%20User%20Tasks.jpg)
 
-### Ricerche
+### Ricerca
 ![](Use%20case%20diagrams/Ricerche.jpg)
 
 #### UC_RIC_1: Ricerca di un film
@@ -330,7 +314,7 @@ Condizione di entrata | L’utente cerca un altro utente non esistente.
 Flusso di eventi | Moovie non trova l’account cercato.
 Condizione di uscita | Moovie comunica che l’account non esiste.
 
-### Accounts
+### Account
 ![](Use%20case%20diagrams/Accounts.jpg)
 
 #### UC_ACC_1: Creare un account
@@ -402,7 +386,7 @@ Condizione di entrata | L’utente si nel sito.
 Flusso di eventi | <br/><ol><li>L'utente clicca sul link alla pagina iniziale nel menu<li>Se l'utente è autenticato, il sistema reperisce le attività sue e dei suoi amici e le mostra nella pagina iniziale<li>Se l'utente è ospite, il sistema gli suggerisce di effettuare l'accesso o la registrazione</ol>
 Condizione di uscita | L'utente può consultare la pagina iniziale.
 
-### Amicizie
+### Amicizia
 ![](Use%20case%20diagrams/Amicizie.jpg)
 
 #### UC_AMI_1: Inviare richiesta di amicizia
@@ -564,9 +548,9 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
     * Pagina utente: mostra i giudizi dell'utente (visibili solo se si è amici) e le funzionalità di amicizia
     * Leftmenu: permette di visualizzare giudizi, promemoria, suggerimenti automatici, amici
     * Risultati di ricerca: presenta i risultati elaborati dopo una ricerca
-* Ricerche:
+* Ricerca:
     * Area di ricerca: offre le funzioni di ricerca di film, artisti e utenti
-* Accounts:
+* Account:
     * Accesso:
         * Form di accesso: consente di autenticarsi in un account esistente
     * Registrazione:
@@ -575,7 +559,7 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
     * Cambio password:
         * Form di cambio password: richiede l'inserimento della password attuale e nuova per aggiornarla
         * Conferma cambio password: notifica l'avvenuto aggiornamento della password
-* Amicizie:
+* Amicizia:
     * Conferma richiesta amicizia inviata: notifica l'avvenuta richiesta di amicizia
     * Conferma richiesta amicizia cancellata: notifica l'avvenuta cancellazione di una richiesta di amicizia da parte
     dell'iniziale richiedente
@@ -598,16 +582,16 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 * Visualizza film: preleva le informazioni di un film per presentarle
 * Visualizza artista: preleva le informazioni di un artista per presentarle
 * Visualiza profilo: preleva le informazioni riguardanti un utente per presentarle
-* Ricerche:
+* Ricerca:
     * Ricerca: permette di ricercare un testo solo tra film, artisti, utenti, o tra tutti questi
-* Accounts:
+* Account:
     * Accesso: permette di autenticare un account se si conoscono e-mail e password annessi
     * Registrazione: permette di registrare un account, controllando prima la correttezza dei campi inseriti
     * Cambio password: effettua un cambio di password
     * Uscita: effettua la deautenticazione dell'utente
     * Visualizza pagina iniziale: se l'utente è autenticato, preleva i giudizi suoi e dei suoi amici e li presenta,
     altrimenti suggerisce all'utente ospite di effettuare l'accesso o la registrazione
-* Amicizie:
+* Amicizia:
     * Richiedi amicizia: invia una richiesta di amicizia
     * Cancella richiesta amicizia: cancella una richiesta di amicizia da parte dell'iniziale richiedente
     * Accetta richiesta amicizia: accetta una richiesta di amicizia
@@ -692,13 +676,13 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 ## Class diagrams
 ![](Class%20diagrams/Main%20class%20diagram.jpg)
 
-### Ricerche
+### Ricerca
 ![](Class%20diagrams/Ricerche.jpg)
 
-### Accounts
+### Account
 ![](Class%20diagrams/Accounts.jpg)
 
-### Amicizie
+### Amicizia
 ![](Class%20diagrams/Amicizie.jpg)
 
 ### Film
@@ -706,7 +690,7 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 
 ## Sequence diagrams
 
-### Ricerche
+### Ricerca
 
 ![](Sequence%20diagrams/UC_RIC_1%20Ricerca%20di%20un%20film.jpg)
 
@@ -714,7 +698,7 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 
 ![](Sequence%20diagrams/UC_RIC_3%20Ricerca%20di%20un%20utente.jpg)
 
-### Accounts
+### Account
 
 ![](Sequence%20diagrams/UC_ACC_1%20Creare%20un%20account.jpg)
 
@@ -728,7 +712,7 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 
 ![](Sequence%20diagrams/UC_ACC_6%20Visualizzare%20la%20pagina%20iniziale.jpg)
 
-### Amicizie
+### Amicizia
 
 ![](Sequence%20diagrams/UC_AMI_1%20Inviare%20richiesta%20di%20amicizia.jpg)
 
