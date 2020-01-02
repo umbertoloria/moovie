@@ -39,11 +39,8 @@
     5. [Use case models](#use-case-models)
         1. [Ricerca](#ricerca)
             1. [UC_RIC_1: Ricerca di un film](#uc_ric_1-ricerca-di-un-film)
-            2. [UC_RIC_1.1: Ricerca di un film fallita](#uc_ric_11-ricerca-di-un-film-fallita)
-            3. [UC_RIC_2: Ricerca di un artista](#uc_ric_2-ricerca-di-un-artista)
-            4. [UC_RIC_2.1: Ricerca di un artista fallita](#uc_ric_21-ricerca-di-un-artista-fallita)
-            5. [UC_RIC_3: Ricerca di un utente](#uc_ric_3-ricerca-di-un-utente)
-            6. [UC_RIC_3.1: Ricerca di un utente fallita](#uc_ric_31-ricerca-di-un-utente-fallita)
+            2. [UC_RIC_2: Ricerca di un artista](#uc_ric_2-ricerca-di-un-artista)
+            3. [UC_RIC_3: Ricerca di un utente](#uc_ric_3-ricerca-di-un-utente)
         2. [Account](#account)
             1. [UC_ACC_1: Creare un account](#uc_acc_1-creare-un-account)
             2. [UC_ACC_1.1: Registrazione fallita](#uc_acc_11-registrazione-fallita)
@@ -270,15 +267,6 @@ Attori | Utente.
 Condizione di entrata | L’utente si trova nell’area di ricerca.
 Flusso di eventi |<br/><ol><li>L’utente seleziona "film" e inserisce il titolo di un film<li>Il sistema esegue la ricerca di film e mostra tutti i risultati<li>L’utente seleziona il film cercato<li>Il sistema preleva le informazioni e le presenta tramite la pagina del film</ol>
 Condizione di uscita | L’utente potrà visualizzare il film tramite [UC_FILM_1](#uc_film_1-visualizzare-un-film).
-Eccezioni | Se il film cercato non è presente, vai a [UC_RIC_1.1](#uc_ric_11-ricerca-di-un-film-fallita).
-
-#### UC_RIC_1.1: Ricerca di un film fallita
-**Nome** | **Ricerca di un film fallita**
----------|---
-Attori | Utente.
-Condizione di entrata | L’utente cerca un film non presente.
-Flusso di eventi | Moovie non trova il film cercato.
-Condizione di uscita | Moovie comunica che il film non è presente.
 
 #### UC_RIC_2: Ricerca di un artista
 **Nome** | **Ricerca di un artista**
@@ -287,15 +275,6 @@ Attori | Utente.
 Condizione di entrata | L’utente si trova nell’area di ricerca.
 Flusso di eventi |<br/><ol><li>L’utente seleziona "artisti" e inserisce il nome di un artista<li>Il sistema esegue la ricerca di artisti e mostra tutti i risultati<li>L’utente seleziona l'artista cercato<li>Il sistema preleva le informazioni e le presenta tramite la pagina dell'artista</ol>
 Condizione di uscita | L’utente potrà visualizzare l'artista tramite [UC_FILM_2](#uc_film_2-visualizzare-un-artista).
-Eccezioni | Se l’utente cercato non è presente, vai a [UC_RIC_2.1](#uc_ric_21-ricerca-di-un-artista-fallita).
-
-#### UC_RIC_2.1: Ricerca di un artista fallita
-**Nome** | **UC_2.1: Ricerca di un artista fallita**
----------|---
-Attori | Utente.
-Condizione di entrata | L’utente cerca un artista non presente.
-Flusso di eventi | Moovie non trova l’artista cercato.
-Condizione di uscita | Moovie comunica che l’artista non è presente.
 
 #### UC_RIC_3: Ricerca di un utente
 **Nome** | **Ricerca di un utente**
@@ -304,15 +283,6 @@ Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nell’area di ricerca.
 Flusso di eventi |<br/><ol><li>L’utente seleziona "utenti" e inserisce il nome di un utente<li>Il sistema esegue la ricerca di utenti e mostra tutti i risultati<li>L’utente seleziona l'utente cercato<li>Il sistema preleva le informazioni e le presenta tramite il profilo dell'utente</ol>
 Condizione di uscita | L’utente potrà visualizzare l'utente tramite [UC_ACC_5](#uc_acc_5-visualizzare-un-profilo).
-Eccezioni | Se l’utente cercato non è presente, vai a [UC_RIC_3.1](#uc_ric_31-ricerca-di-un-utente-fallita).
-
-#### UC_RIC_3.1: Ricerca di un utente fallita
-**Nome** | **Ricerca di un utente fallita**
----------|---
-Attori | Utente autenticato.
-Condizione di entrata | L’utente cerca un altro utente non esistente.
-Flusso di eventi | Moovie non trova l’account cercato.
-Condizione di uscita | Moovie comunica che l’account non esiste.
 
 ### Account
 ![](Use%20case%20diagrams/Accounts.jpg)
