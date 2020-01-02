@@ -1,4 +1,4 @@
-<form class="form" id="form_di_accesso" method="post" action="/controllers/accounts/Accesso.php">
+<form class="form" id="form_di_accesso" method="post" action="/controllers/account/Accesso.php">
 	<fieldset>
 		<label>
 			<span>Indirizzo E-Mail</span>

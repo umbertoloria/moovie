@@ -109,4 +109,4 @@ $_REQUEST["generi"] = $generi_cache;
 unset($generi_cache);
 $_REQUEST["artisti"] = $artisti_cache;
 unset($artisti_cache);
-include "../../views/ricerche/Risultati di ricerca.php";
+include "../../views/ricerca/Risultati di ricerca.php";

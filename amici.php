@@ -33,4 +33,4 @@ $_REQUEST["utente_viewer"] = $logged_user->getID();
 $_REQUEST["utenti"] = $utenti;
 unset($logged_user);
 unset($utenti);
-include "views/amicizie/Pagina amici.php";
+include "views/amicizia/Pagina amici.php";

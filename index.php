@@ -28,5 +28,5 @@ if ($logged_user) {
 
 } else {
 	unset($logged_user);
-	include "views/accounts/Pagina iniziale per ospiti.php";
+	include "views/account/Pagina iniziale per ospiti.php";
 }
