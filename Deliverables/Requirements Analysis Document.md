@@ -91,7 +91,7 @@ preferito, ma spesso nel cinema d'autore il numero di film girati dallo stesso r
 procedimenti si potessero semplificare?
 
 Moovie sarà una piattaforma fornita di tantissime informazioni inerenti al mondo del cinema, e sarà pronta a suggerire
-agli utenti dei film in linea con le loro preferenze. Ognuno di essi potrà creare delle liste di film, e condividerle
+agli utenti dei film in linea con le loro preferenze. Ognuno di essi potrà aggiungere giudizi sui film e condividerli
 con i propri amici.
 
 ## Obiettivi
@@ -226,7 +226,7 @@ fantastico mondo di Moovie". Stefano sarà riportato alla pagina iniziale, dove 
 Amanda vuole vedere un altro film diretto da "Tarantino", visto che ha particolarmente apprezzato il film "Pulp Fiction"
 che lei e Michele hanno visto il giorno prima. Allora prende il suo tablet, apre il browser, va su www.moovie.me, accede
 alle funzionalità di ricerca raggiungibili nel menu del sito (autenticazione non necessaria se ricerca film). In realtà
-le basterebbe accedere al suo account e andare nella lista "giudizi". Nello spazio di ricerca, Amanda inserisce "Pulp
+le basterebbe accedere al suo account per vedere i propri giudizi. Nello spazio di ricerca, Amanda inserisce "Pulp
 Fiction" e preme Invio. La nuova pagina che si presenta conterrà i risultati della ricerca, e tra questi clicca sulla
 voce "Pulp Fiction". Giunta alla scheda del film, ricca di informazioni riguardo gli attori e i registi partecipanti,
 clicca sulla voce "Quentin Tarantino", e finalmente arriva alla pagina delle informazioni del noto regista. In questa
