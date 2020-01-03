@@ -72,23 +72,23 @@
             11. [UC_FILM_11: Suggerimenti automatici di film](#uc_film_11-suggerimenti-automatici-di-film)
             12. [UC_FILM_12: Visualizzare la classifica dei film](#uc_film_12-visualizzare-la-classifica-dei-film)
         5. [Gestione](#gestione)
-            1. [UC_GEST_1: Aggiungere un film]
-            2. [UC_GEST_1.1: Inserimento film fallito]
-            3. [UC_GEST_2: Modificare un film]
-            4. [UC_GEST_2.1: Aggiornamento film fallito]
-            5. [UC_GEST_3: Rimuovere un film]
-            6. [UC_GEST_4: Aggiungere un artista]
-            7. [UC_GEST_4.1: Inserimento artista fallito]
-            8. [UC_GEST_5: Modificare un artista]
-            9. [UC_GEST_5.1: Aggiornamento artista fallito]
-            10. [UC_GEST_6: Rimuovere un artista]
-            11. [UC_GEST_7: Aggiungere un genere]
-            12. [UC_GEST_7.1: Inserimento genere fallito]
-            13. [UC_GEST_8: Modificare un genere]
-            14. [UC_GEST_8.1: Aggiornamento genere fallito]
-            15. [UC_GEST_9: Rimuovere un genere]
-            16. [UC_GEST_10: Aggiornare artisti in un film]
-            17. [UC_GEST_11: Aggiornare generi di un film]
+            1. [UC_GEST_1: Aggiungere un film](#uc_gest_1-aggiungere-un-film)
+            2. [UC_GEST_1.1: Inserimento film fallito](#uc_gest_11-inserimento-film-fallito)
+            3. [UC_GEST_2: Modificare un film](#uc_gest_2-modificare-un-film)
+            4. [UC_GEST_2.1: Aggiornamento film fallito](#uc_gest_21-aggiornamento-film-fallito)
+            5. [UC_GEST_3: Rimuovere un film](#uc_gest_3-rimuovere-un-film)
+            6. [UC_GEST_4: Aggiungere un artista](#uc_gest_4-aggiungere-un-artista)
+            7. [UC_GEST_4.1: Inserimento artista fallito](#uc_gest_41-inserimento-film-fallito)
+            8. [UC_GEST_5: Modificare un artista](#uc_gest_5-modificare-un-artista)
+            9. [UC_GEST_5.1: Aggiornamento artista fallito](#uc_gest_51-aggiornamento-artista-fallito)
+            10. [UC_GEST_6: Rimuovere un artista](#uc_gest_6-rimuovere-un-artista)
+            11. [UC_GEST_7: Aggiungere un genere](#uc_gest_7-aggiungere-un-genere)
+            12. [UC_GEST_7.1: Inserimento genere fallito](#uc_gest_71-inserimento-genere-fallito)
+            13. [UC_GEST_8: Modificare un genere](#uc_gest_8-modificare-un-genere)
+            14. [UC_GEST_8.1: Aggiornamento genere fallito](#uc_gest_81-aggiornamento-genere-fallito)
+            15. [UC_GEST_9: Rimuovere un genere](#uc_gest_9-rimuovere-un-genere)
+            16. [UC_GEST_10: Aggiornare artisti in un film](#uc_gest_10-aggiornare-artisti-in-un-film)
+            17. [UC_GEST_11: Aggiornare generi di un film](#uc_gest_11-inserimento-film-fallito)
     6. [Object model](#object-model)
     7. [Class diagrams](#class-diagrams)
     8. [Sequence diagrams](#sequence-diagrams)
