@@ -10,6 +10,7 @@
 | 0.7      | 19/11/2019 | Sequence Diagrams su GitHub    | Team                     |
 | 0.8      | 25/11/2019 | Riorganizzazione sottosistemi  | Umberto Loria            |
 | 0.9      | 23/12/2019 | Miglioramenti di progettazione | Umberto Loria            |
+| 1.0      | 3/1/2020   | Introduzione gestione          | Umberto Loria            |
 
 # Indice
 1. [Introduzione](#introduzione)
@@ -70,6 +71,24 @@
             10. [UC_FILM_10: Visualizzare i promemoria](#uc_film_10-visualizzare-i-promemoria)
             11. [UC_FILM_11: Suggerimenti automatici di film](#uc_film_11-suggerimenti-automatici-di-film)
             12. [UC_FILM_12: Visualizzare la classifica dei film](#uc_film_12-visualizzare-la-classifica-dei-film)
+        5. [Gestione](#gestione)
+            1. [UC_GEST_1: Aggiungere un film]
+            2. [UC_GEST_1.1: Inserimento film fallito]
+            3. [UC_GEST_2: Modificare un film]
+            4. [UC_GEST_2.1: Aggiornamento film fallito]
+            5. [UC_GEST_3: Rimuovere un film]
+            6. [UC_GEST_4: Aggiungere un artista]
+            7. [UC_GEST_4.1: Inserimento artista fallito]
+            8. [UC_GEST_5: Modificare un artista]
+            9. [UC_GEST_5.1: Aggiornamento artista fallito]
+            10. [UC_GEST_6: Rimuovere un artista]
+            11. [UC_GEST_7: Aggiungere un genere]
+            12. [UC_GEST_7.1: Inserimento genere fallito]
+            13. [UC_GEST_8: Modificare un genere]
+            14. [UC_GEST_8.1: Aggiornamento genere fallito]
+            15. [UC_GEST_9: Rimuovere un genere]
+            16. [UC_GEST_10: Aggiornare artisti in un film]
+            17. [UC_GEST_11: Aggiornare generi di un film]
     6. [Object model](#object-model)
     7. [Class diagrams](#class-diagrams)
     8. [Sequence diagrams](#sequence-diagrams)
@@ -117,7 +136,7 @@ I requisiti descritti sono catalogati secondo il modello **F.U.R.P.S.**
 ## Requisiti funzionali
 Identificativo | Descrizione | Priorità
 :-------------:|-------------|:-------:
-**M_RF_RIC** | Ricerca | Alta
+**M_RF_RIC** | Ricerca | Bassa
 RF_RIC.1 | Ricerca di un film
 RF_RIC.2 | Ricerca di un artista
 RF_RIC.3 | Ricerca di un utente
@@ -148,6 +167,18 @@ RF_FILM.9 | Rimuovere un promemoria
 RF_FILM.10 | Visualizzare i promemoria
 RF_FILM.11 | Suggerimenti automatici di film
 RF_FILM.12 | Visualizzare la classifica dei film
+**M_RF_GEST** | Gestione | Alta
+RF_GEST.1 | Aggiungere un film
+RF_GEST.2 | Modificare un film
+RF_GEST.3 | Rimuovere un film
+RF_GEST.4 | Aggiungere un artista
+RF_GEST.5 | Modificare un artista
+RF_GEST.6 | Rimuovere un artista
+RF_GEST.7 | Aggiungere un genere
+RF_GEST.8 | Modificare un genere
+RF_GEST.9 | Rimuovere un genere
+RF_GEST.10 | Aggiornare artisti in un film
+RF_GEST.11 | Aggiornare generi di un film
 
 ## Requisiti non-funzionali
 ### Usability
@@ -258,7 +289,7 @@ seguente giudizio: 10 Forrest Gump.
 ![](Use%20case%20diagrams/Moovie's%20User%20Tasks.jpg)
 
 ### Ricerca
-![](Use%20case%20diagrams/Ricerche.jpg)
+![](Use%20case%20diagrams/Ricerca.jpg)
 
 #### UC_RIC_1: Ricerca di un film
 **Nome** | **Ricerca di un film**
@@ -285,14 +316,14 @@ Flusso di eventi |<br/><ol><li>L’utente seleziona "utenti" e inserisce il nome
 Condizione di uscita | L’utente potrà visualizzare l'utente tramite [UC_ACC_5](#uc_acc_5-visualizzare-un-profilo).
 
 ### Account
-![](Use%20case%20diagrams/Accounts.jpg)
+![](Use%20case%20diagrams/Account.jpg)
 
 #### UC_ACC_1: Creare un account
 **Nome** | **Creare un account**
 ---------|---
 Attori | Utente.
 Condizione di entrata | L’utente si trova nella pagina di registrazione.
-Flusso di eventi | <br/><ol><li>L’utente inserisce i seguenti dati: nome, cognome, indirizzo e-mail e password (due volte)<li>Il sistema controlla i dati, verifica che non ci siano account con l’indirizzo e-mail fornito, e salva i dati.</ol>
+Flusso di eventi | <br/><ol><li>L’utente inserisce i seguenti dati: nome, cognome, indirizzo e-mail e password (due volte) e clicca su "registrati"<li>Il sistema controlla i dati, verifica che non ci siano account con l’indirizzo e-mail fornito, e salva i dati.</ol>
 Condizione di uscita | Il sistema comunica che l'account è stato creato.
 Eccezioni | L’indirizzo e-mail fornito è occupato. Vai a [UC_ACC_1.1](#uc_acc_11-registrazione-fallita).
 
@@ -357,7 +388,7 @@ Flusso di eventi | <br/><ol><li>L'utente clicca sul link alla pagina iniziale ne
 Condizione di uscita | L'utente può consultare la pagina iniziale.
 
 ### Amicizia
-![](Use%20case%20diagrams/Amicizie.jpg)
+![](Use%20case%20diagrams/Amicizia.jpg)
 
 #### UC_AMI_1: Inviare richiesta di amicizia
 **Nome** | **Inviare richiesta di amicizia**
@@ -506,18 +537,168 @@ Condizione di entrata | L’utente è sul sito.
 Flusso di eventi | <br/><ol><li>L’utente clicca sul link alla classifica dei film presente nel menu<li>Il sistema mostra i film migliori, scelti secondo i giudizi di tutti gli utenti</ol>
 Condizione di uscita | Il sistema mostra i film nella classifica.
 
+### Gestione
+![](Use%20case%20diagrams/Gestione.jpg)
+
+#### UC_GEST_1: Aggiungere un film
+**Nome** | **Aggiungere un film**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nel form di aggiunta film.
+Flusso di eventi | <br/><ol><li>L'utente inserisce i dati necessari (titolo, durata, anno, immagine di copertina e descrizione) e clicca su "aggiungi"<li>Il sistema controlla le informazioni ricevute, salva il film, e lo mostra nella relativa pagina film</ol>
+Condizione di uscita | Il film viene aggiunto.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_1.1](#uc_gest_11-inserimento-film-fallito).
+
+#### UC_GEST_1.1: Inserimento film fallito
+**Nome** | **Inserimento film fallito**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente fornisce dati non validi (titolo vuoto, oppure copertina mancante...).
+Flusso di eventi | <br/><ol><li>Il sistema afferma che i dati non sono corretti<li>L'utente inserisce i dati necessari e clicca di nuovo su "aggiungi"<li>Il sistema controlla le informazioni ricevute, salva il film, e lo mostra nella relativa pagina film</ol>
+Condizione di uscita | Il film viene aggiunto.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_1.1](#uc_gest_11-inserimento-film-fallito).
+
+#### UC_GEST_2: Modificare un film
+**Nome** | **Modificare un film**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nel form di modifica film.
+Flusso di eventi | <br/><ol><li>L'utente modifica almeno uno dei campi (titolo, durata, anno, immagine di copertina e descrizione) e clicca su "modifica"<li>Il sistema controlla le informazioni ricevute, aggiorna il film, e lo mostra nella relativa pagina film</ol>
+Condizione di uscita | Il film viene modificato.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_2.1](#uc_gest_21-aggiornamento-film-fallito).
+
+#### UC_GEST_2.1: Aggiornamento film fallito
+**Nome** | **Aggiornamento film fallito**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente fornisce dati non validi (titolo vuoto, oppure copertina mancante...).
+Flusso di eventi | <br/><ol><li>Il sistema afferma che i dati non sono corretti<li>L'utente reinserisce i dati (validi) e clicca di nuovo su "modifica"<li>Il sistema controlla le informazioni ricevute, aggiorna il film, e lo mostra nella relativa pagina film</ol>
+Condizione di uscita | Il film viene modificato.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_2.1](#uc_gest_21-aggiornamento-film-fallito).
+
+#### UC_GEST_3: Rimuovere un film
+**Nome** | **Rimuovere un film**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nella pagina del film che vuole rimuovere.
+Flusso di eventi | <br/><ol><li>L'utente clicca su "rimuovi"<li>Il sistema rimuove il film e redirige l'utente nella pagina iniziale</ol>
+Condizione di uscita | Il film viene rimosso.
+
+#### UC_GEST_4: Aggiungere un artista
+**Nome** | **Aggiungere un artista**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nel form di aggiunta artista.
+Flusso di eventi | <br/><ol><li>L'utente inserisce i dati necessari (nome e cognome, data di nascita, immagine e descrizione) e clicca su "aggiungi"<li>Il sistema controlla le informazioni ricevute, salva l'artista, e lo mostra nella relativa pagina artista</ol>
+Condizione di uscita | L'artista viene aggiunto.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_4.1](#uc_gest_41-inserimento-film-fallito).
+
+#### UC_GEST_4.1: Inserimento film fallito
+**Nome** | **Inserimento film fallito**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente fornisce dati non validi (data di nascita vuota, oppure immagine mancante...).
+Flusso di eventi | <br/><ol><li>Il sistema afferma che i dati non sono corretti<li>L'utente inserisce i dati necessari e clicca di nuovo su "aggiungi"<li>Il sistema controlla le informazioni ricevute, salva l'artista, e lo mostra nella relativa pagina artista</ol>
+Condizione di uscita | L'artista viene aggiunto.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_4.1](#uc_gest_41-inserimento-film-fallito).
+
+#### UC_GEST_5: Modificare un artista
+**Nome** | **Modificare un artista**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nel form di modifica artista.
+Flusso di eventi | <br/><ol><li>L'utente modifica almeno uno dei campi (nome e cognome, data di nascita, immagine e descrizione) e clicca su "modifica"<li>Il sistema controlla le informazioni ricevute, aggiorna l'artista, e lo mostra nella relativa pagina artista</ol>
+Condizione di uscita | L'artista viene modificato.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_5.1](#uc_gest_51-aggiornamento-artista-fallito).
+
+#### UC_GEST_5.1: Aggiornamento artista fallito
+**Nome** | **Aggiornamento artista fallito**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente fornisce dati non validi (data di nascita vuota, oppure immagine mancante...).
+Flusso di eventi | <br/><ol><li>Il sistema afferma che i dati non sono corretti<li>L'utente reinserisce i dati (validi) e clicca di nuovo su "modifica"<li>Il sistema controlla le informazioni ricevute, aggiorna l'artista, e lo mostra nella relativa pagina artista</ol>
+Condizione di uscita | L'artista viene modificato.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_5.1](#uc_gest_51-aggiornamento-artista-fallito).
+
+#### UC_GEST_6: Rimuovere un artista
+**Nome** | **Rimuovere un artista**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nella pagina dell'artista che vuole rimuovere.
+Flusso di eventi | <br/><ol><li>L'utente clicca su "rimuovi"<li>Il sistema rimuove l'artista e redirige l'utente nella pagina iniziale</ol>
+Condizione di uscita | L'artista viene rimosso.
+
+#### UC_GEST_7: Aggiungere un genere
+**Nome** | **Aggiungere un genere**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nel form di aggiunta genere.
+Flusso di eventi | <br/><ol><li>L'utente inserisce il nome del genere e clicca su "aggiungi"<li>Il sistema controlla il nome, salva il genere e lo mostra nella relativa pagina genere</ol>
+Condizione di uscita | Il genere viene aggiunto.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_7.1](#uc_gest_71-inserimento-genere-fallito).
+
+#### UC_GEST_7.1: Inserimento genere fallito
+**Nome** | **Inserimento genere fallito**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente fornisce un nome non valido.
+Flusso di eventi | <br/><ol><li>Il sistema afferma che il nome non è valido<li>L'utente inserisce un nome valido e clicca di nuovo su "aggiungi"<li>Il sistema controlla il nome, salva il genere e lo mostra nella relativa pagina genere</ol>
+Condizione di uscita | Il genere viene aggiunto.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_7.1](#uc_gest_71-inserimento-genere-fallito).
+
+#### UC_GEST_8: Modificare un genere
+**Nome** | **Modificare un genere**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nel form di modifica genere.
+Flusso di eventi | <br/><ol><li>L'utente modifica il nome e clicca su "modifica"<li>Il sistema controlla il nome, aggiorna il genere e lo mostra nella relativa pagina genere</ol>
+Condizione di uscita | Il genere viene modificato.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_8.1](#uc_gest_81-aggiornamento-genere-fallito).
+
+#### UC_GEST_8.1: Aggiornamento genere fallito
+**Nome** | **Aggiornamento genere fallito**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente fornisce un nome non valido.
+Flusso di eventi | <br/><ol><li>Il sistema afferma il nome non è valido<li>L'utente reinserisce un nome valido e clicca di nuovo su "modifica"<li>Il sistema controlla il nome, aggiorna il genere e lo mostra nella relativa pagina genere</ol>
+Condizione di uscita | Il genere viene modificato.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_8.1](#uc_gest_81-aggiornamento-genere-fallito).
+
+#### UC_GEST_9: Rimuovere un genere
+**Nome** | **Rimuovere un genere**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nella pagina del genere che vuole rimuovere.
+Flusso di eventi | <br/><ol><li>L'utente clicca su "rimuovi"<li>Il sistema rimuove il genere e redirige l'utente nella pagina iniziale</ol>
+Condizione di uscita | Il genere viene rimosso.
+
+#### UC_GEST_10: Aggiornare artisti in un film
+**Nome** | **Aggiornare artisti in un film**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nella pagina di aggiornamento delle partecipazioni di artisti in un film.
+Flusso di eventi | <br/><ol><li>L'utente seleziona tutti gli attori che recitano in un film (inserendo anche i relativi personaggi) e tutti i registi che hanno diretto il film<li>Il sistema riceve le informazioni, le analizza, e poi le applica al film, mostrandole nella pagina del film.</ol>
+Condizione di uscita | Le informazioni di partecipazione degli artisti vengono aggiornate.
+
+#### UC_GEST_11: Aggiornare generi di un film
+**Nome** | **Aggiornare generi di un film**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nella pagina di aggiornamento dei generi di un film.
+Flusso di eventi | <br/><ol><li>L'utente seleziona tutti i generi del film e clicca su "aggiorna"<li>Il sistema riceve le informazioni, le analizza, e poi le applica al film, mostrandole nella pagina del film.</ol>
+Condizione di uscita | Le informazioni dei generi di un film vengono aggiornate.
+
 ## Object model
 
 ### Boundary objects
 * Pagine generiche:
-    * Pagina iniziale: mostra informazioni rilevanti per l'utente
-        * Se l'utente è autenticato, mostra i giudizi propri e degli amici
-        * Se l'utente è ospite, la pagina invita alla registrazione o all'accesso
     * Pagina film: mostra le informazioni di un film, degli artisti che vi hanno partecipato, e dei suoi generi
     * Pagina artista: mostra le informazioni di un artista e dei film in cui ha lavorato
     * Pagina utente: mostra i giudizi dell'utente (visibili solo se si è amici) e le funzionalità di amicizia
+    * Pagina iniziale per ospiti: invita l'utente alla registrazione o all'accesso
     * Leftmenu: permette di visualizzare giudizi, promemoria, suggerimenti automatici, amici
     * Risultati di ricerca: presenta i risultati elaborati dopo una ricerca
+    * Timeline giudizi: presenta i giudizi di uno o più utenti
 * Ricerca:
     * Area di ricerca: offre le funzioni di ricerca di film, artisti e utenti
 * Account:
@@ -547,6 +728,19 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
     * Pagina promemoria: mostra i promemoria dell'utente che la visualizza
     * Classifica film: mostra i film più votati dall'utenza del sito
     * Pagina suggerimenti: suggerisce alcuni film in linea con le preferenze dell'utente che la visualizza
+* Gestione:
+    * Film:
+        * Form di aggiunta film: richiede l'inserimento delle informazioni di un nuovo film da salvare
+        * Form di modifica film: richiede l'inserimento delle informazioni di un film da aggiornare
+    * Artista:
+        * Form di aggiunta artista: richiede l'inserimento delle informazioni di un nuovo artista da salvare
+        * Form di modifica artista: richiede l'inserimento delle informazioni di un artista da aggiornare
+        * Form di aggiornamento artisti in film: richiede l'inserimento delle informazioni delle partecipazioni degli
+        artisti ad un film
+    * Genere:
+        * Form di aggiunta genere: richiede l'inserimento delle informazioni di un nuovo genere da salvare
+        * Form di modifica genere: richiede l'inserimento delle informazioni di un genere da aggiornare
+        * Form di aggiornamento generi di film: richiede l'inserimento dei generi di un film
 
 ### Control objects
 * Visualizza film: preleva le informazioni di un film per presentarle
@@ -582,22 +776,46 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
         * Visualizza promemoria: preleva le informazioni dei promemoria dell'utente autenticato per presentarle
     * Visualizza classifica film: preleva i film più votati dall'utenza del sito e le mostra
     * Suggerimenti automatici: suggerisce alcuni film ad un account in base alle sue preferenze cinematografiche
+* Gestione:
+    * Film:
+        * Aggiungi film: aggiunge un film
+        * Modifica film: modifica un film esistente
+        * Rimuovi film: rimuove un film esistente
+    * Artista:
+        * Aggiungi artista: aggiunge un artista
+        * Modifica artista: modifica un artista esistente
+        * Rimuovi artista: rimuove un artista esistente
+        * Aggiornamento artisti in film: aggiorna le informazioni delle partecipazioni degli artisti (come attori o
+        come registi) ai film
+    * Genere:
+        * Aggiungi genere: aggiunge un genere
+        * Modifica genere: modifica un genere esistente
+        * Rimuovi genere: rimuove un genere esistente
+        * Aggiornamento generi di film
 
 ### Entity objects
 * Film Manager:
     * preleva il film con un determinato id (se esiste)
-    * preleva tutti i film di un determinato genere
+    * crea un film
+    * modifica un film
+    * rimuove un film
     * cerca film tramite fulltext
     * suggerisce automaticamente alcuni film ad un utente
+    * preleva la classifica dei miglior film
 * Artista Manager:
     * preleva l'artista con un determinato id (se esiste)
+    * crea un artista
+    * modifica un artista
+    * rimuove un artista
     * cerca artisti tramite fulltext
+    * aggiorna le recitazioni di determinati artisti in un film
+    * aggiorna le regie di determinati artisti in un film
 * Account Manager:
     * controlla l'esistenza di un utente con un determinato indirizzo e-mail
     * crea un account (composto da: nome, cognome, indirizzo e-mail e password)
+    * autentica un account
     * preleva l'account con un determinato id (se esiste)
     * aggiorna le informazioni di un account
-    * autentica un account
     * cerca utenti tramite fulltext
 * Amicizia Manager
     * verifica l'esistenza di qualche relazione tra due account
@@ -610,8 +828,10 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
     * cancella un'amicizia esistente tra due account
     * preleva le amicizie accettate che coinvolgono un determinato account
     * preleva le amicizie in attesa che coinvolgono un determinato account
+    * preleva gli amici di un determinato account
 * Giudizio Manager:
     * preleva il giudizio di un determinato utente ad un determinato film
+    * preleva i giudizi fatti da un determinato insieme di utenti
     * aggiunge un giudizio
     * modifica un giudizio esistente
     * rimuove un giudizio esistente
@@ -619,15 +839,12 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
     * preleva tutti i promemoria di un utente
     * aggiunge un promemoria
     * rimuove un promemoria
-* Recitazione Manager:
-    * preleva la recitazione di tutti gli attori in un determinato film
-    * preleva la recitazione di un determinato attore in tutti i film
-* Regia Manager:
-    * preleva le regie di tutti i registi in un determinato film
-    * preleva le regie di un determinato regista in tutti i film
 * Genere Manager:
     * preleva il genere con un determinato id (se esiste)
     * preleva tutti i generi di un determinato film
+    * crea un genere
+    * modifica un genere
+    * rimuove un genere
 * Auth Manager:
     * autentica un utente salvandolo nella sessione
     * preleva l'utente autenticato nella sessione (se presente)
@@ -647,16 +864,19 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 ![](Class%20diagrams/Main%20class%20diagram.jpg)
 
 ### Ricerca
-![](Class%20diagrams/Ricerche.jpg)
+![](Class%20diagrams/Ricerca.jpg)
 
 ### Account
-![](Class%20diagrams/Accounts.jpg)
+![](Class%20diagrams/Account.jpg)
 
 ### Amicizia
-![](Class%20diagrams/Amicizie.jpg)
+![](Class%20diagrams/Amicizia.jpg)
 
 ### Film
 ![](Class%20diagrams/Film.jpg)
+
+### Gestione
+![](Class%20diagrams/Gestione.jpg)
 
 ## Sequence diagrams
 
@@ -672,9 +892,15 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 
 ![](Sequence%20diagrams/UC_ACC_1%20Creare%20un%20account.jpg)
 
+![](Sequence%20diagrams/UC_ACC_1.1%20Registrazione%20fallita.jpg)
+
 ![](Sequence%20diagrams/UC_ACC_2%20Autenticare%20un%20account.jpg)
 
+![](Sequence%20diagrams/UC_ACC_2.1%20Autenticazione%20fallita.jpg)
+
 ![](Sequence%20diagrams/UC_ACC_3%20Cambiare%20password.jpg)
+
+![](Sequence%20diagrams/UC_ACC_3.1%20Cambio%20password%20fallito.jpg)
 
 ![](Sequence%20diagrams/UC_ACC_4%20Deautenticare%20un%20account.jpg)
 
@@ -722,7 +948,44 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 
 ![](Sequence%20diagrams/UC_FILM_12%20Visualizzare%20la%20classifica%20dei%20film.jpg)
 
+### Gestione
+
+![](Sequence%20diagrams/UC_GEST_1%20Aggiungere%20un%20film.jpg)
+
+![](Sequence%20diagrams/UC_GEST_1.1%20Inserimento%20film%20fallito.jpg)
+
+![](Sequence%20diagrams/UC_GEST_2%20Modificare%20un%20film.jpg)
+
+![](Sequence%20diagrams/UC_GEST_2.1%20Aggiornamento%20film%20fallito.jpg)
+
+![](Sequence%20diagrams/UC_GEST_3%20Rimuovere%20un%20film.jpg)
+
+![](Sequence%20diagrams/UC_GEST_4%20Aggiungere%20un%20artista.jpg)
+
+![](Sequence%20diagrams/UC_GEST_4.1%20Inserimento%20artista%20fallito.jpg)
+
+![](Sequence%20diagrams/UC_GEST_5%20Modificare%20un%20artista.jpg)
+
+![](Sequence%20diagrams/UC_GEST_5.1%20Aggiornamento%20artista%20fallito.jpg)
+
+![](Sequence%20diagrams/UC_GEST_6%20Rimuovere%20un%20artista.jpg)
+
+![](Sequence%20diagrams/UC_GEST_7%20Aggiungere%20un%20genere.jpg)
+
+![](Sequence%20diagrams/UC_GEST_7.1%20Inserimento%20genere%20fallito.jpg)
+
+![](Sequence%20diagrams/UC_GEST_8%20Modificare%20un%20genere.jpg)
+
+![](Sequence%20diagrams/UC_GEST_8.1%20Aggiornamento%20genere%20fallito.jpg)
+
+![](Sequence%20diagrams/UC_GEST_9%20Rimuovere%20un%20genere.jpg)
+
+![](Sequence%20diagrams/UC_GEST_10%20Aggiornare%20artisti%20in%20un%20film.jpg)
+
+![](Sequence%20diagrams/UC_GEST_11%20Aggiornare%20generi%20di%20un%20film.jpg)
+
 ## Statechart diagrams
+
 ![](Statechart%20diagrams/Utente.jpg)
 ![](Statechart%20diagrams/Amicizia.jpg)
 
