@@ -88,7 +88,7 @@
             14. [UC_GEST_8.1: Aggiornamento genere fallito](#uc_gest_81-aggiornamento-genere-fallito)
             15. [UC_GEST_9: Rimuovere un genere](#uc_gest_9-rimuovere-un-genere)
             16. [UC_GEST_10: Aggiornare artisti in un film](#uc_gest_10-aggiornare-artisti-in-un-film)
-            17. [UC_GEST_11: Aggiornare generi di un film](#uc_gest_11-inserimento-film-fallito)
+            17. [UC_GEST_11: Aggiornare generi di un film](#uc_gest_11-aggiornare-generi-di-un-film)
     6. [Object model](#object-model)
     7. [Class diagrams](#class-diagrams)
     8. [Sequence diagrams](#sequence-diagrams)
