@@ -6,7 +6,6 @@ if (!empty($films)) {
 		<label>Film che potrebbero piacerti</label>
 		<ul class="foto_pv">
 			<?php
-			$films = FilmManager::suggest_me($logged_user->getID());
 			foreach ($films as $film) {
 				assert($film instanceof Film);
 				?>

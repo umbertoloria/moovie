@@ -53,7 +53,6 @@ function ItemsSelecter(obj) {
 	this.unselect_value = function (value) {
 		if (available_values.includes(value)) {
 			if (this.is_selected_value(value)) {
-				// FIXME: è sempre così...
 				selected_values.splice(selected_values.indexOf(value), 1);
 				update_hidden_value();
 				obj.find("ul li[data-select-value='" + value + "']").removeClass("selected");
@@ -69,13 +68,10 @@ function ItemsSelecter(obj) {
 	obj.find("ul li").click(function () {
 		const li = $(this);
 		const value = li.attr("data-select-value");
-		if (available_values.includes(value)) {
-			if (this_handler.is_selected_value(value))
-				this_handler.unselect_value(value);
-			else
-				this_handler.select_value(value);
-		} else
-			console.log("fuck");
+		if (this_handler.is_selected_value(value))
+			this_handler.unselect_value(value);
+		else
+			this_handler.select_value(value);
 	});
 
 }
