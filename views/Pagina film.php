@@ -17,9 +17,9 @@ $show_actions = @$_REQUEST["show_actions"];
 				if (in_array("add_promemoria", $show_actions))
 					echo "<a href='/controllers/film/Aggiungi promemoria.php?film_id={$film->getID()}'>+ promemoria</a>";
 				if (in_array("update", $show_actions))
-					echo "<a href='/___modifica_un_film.php?id={$film->getID()}'>modifica</a>";
+					echo "<a href='/modifica_un_film.php?id={$film->getID()}'>modifica</a>";
 				if (in_array("delete", $show_actions))
-					echo "<a href='/controllers/gestione/___rimuovi_film.php?film_id={$film->getID()}' data-confirm>rimuovi</a>";
+					echo "<a href='/controllers/gestione/Rimuovi film.php?film_id={$film->getID()}' data-confirm>rimuovi</a>";
 				echo "</div>";
 			}
 			?>

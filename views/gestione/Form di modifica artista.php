@@ -3,7 +3,7 @@ $artista = $_REQUEST["artista"];
 assert($artista instanceof Artista);
 ?>
 <form class="form" id="form_di_modifica_artista" method="post"
-      action="/controllers/gestione/___form_di_modifica_artista.php" enctype="multipart/form-data">
+      action="/controllers/gestione/Modifica artista.php" enctype="multipart/form-data">
 	<h1>Modifica <a href="/artista.php?id=<?php echo $artista->getID(); ?>"><?php echo $artista->getNome(); ?></a></h1>
 	<fieldset>
 		<input type="hidden" name="artista_id" value="<?php echo $artista->getID(); ?>"/>

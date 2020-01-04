@@ -5,7 +5,7 @@ $artisti = $_REQUEST["artisti"];
 $recitazioni = $_REQUEST["recitazioni"];
 $registi = $_REQUEST["registi"];
 ?>
-<form class="form" method="post" action="/controllers/gestione/___form_di_aggiornamento_artisti_in_film.php">
+<form class="form" method="post" action="/controllers/gestione/Aggiornamento artisti in film.php">
 	<h1>Aggiorna i partecipanti</h1>
 	<fieldset>
 		<input type="hidden" name="film_id" value="<?php echo $film->getID(); ?>"/>

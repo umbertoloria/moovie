@@ -2,7 +2,7 @@
 $genere = $_REQUEST["genere"];
 assert($genere instanceof Genere);
 ?>
-<form class="form" id="form_di_modifica_genere" method="post" action="/controllers/gestione/___form_di_modifica_genere.php">
+<form class="form" id="form_di_modifica_genere" method="post" action="/controllers/gestione/Modifica genere.php">
 	<h1>Modifica <a href="/genere.php?id=<?php echo $genere->getID(); ?>"><?php echo $genere->getNome(); ?></a></h1>
 	<fieldset>
 		<input type="hidden" name="genere_id" value="<?php echo $genere->getID(); ?>"/>

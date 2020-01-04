@@ -1,5 +1,5 @@
 <form class="form" id="form_di_aggiunta_artista" method="post"
-      action="/controllers/gestione/___form_di_aggiunta_artista.php" enctype="multipart/form-data">
+      action="/controllers/gestione/Aggiungi artista.php" enctype="multipart/form-data">
 	<h1>Aggiungi un artista</h1>
 	<fieldset>
 		<label>

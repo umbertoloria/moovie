@@ -49,14 +49,14 @@ $logged_user = Auth::getLoggedUser();
 				<li>
 					<a>Gestisci...</a>
 					<ul>
-						<li <?php echo $uri == "/___aggiungi_un_film.php" ? " class='active'" : ""; ?>>
-							<a href="/___aggiungi_un_film.php">+ film</a>
+						<li <?php echo $uri == "/aggiungi_un_film.php" ? " class='active'" : ""; ?>>
+							<a href="/aggiungi_un_film.php">+ film</a>
 						</li>
-						<li <?php echo $uri == "/___aggiungi_un_artista.php" ? " class='active'" : ""; ?>>
-							<a href="/___aggiungi_un_artista.php">+ artista</a>
+						<li <?php echo $uri == "/aggiungi_un_artista.php" ? " class='active'" : ""; ?>>
+							<a href="/aggiungi_un_artista.php">+ artista</a>
 						</li>
-						<li <?php echo $uri == "/___aggiungi_un_genere.php" ? " class='active'" : ""; ?>>
-							<a href="/___aggiungi_un_genere.php">+ genere</a>
+						<li <?php echo $uri == "/aggiungi_un_genere.php" ? " class='active'" : ""; ?>>
+							<a href="/aggiungi_un_genere.php">+ genere</a>
 						</li>
 					</ul>
 				</li>

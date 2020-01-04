@@ -1,4 +1,4 @@
-<form class="form" id="form_di_aggiunta_film" method="post" action="/controllers/gestione/___form_di_aggiunta_film.php"
+<form class="form" id="form_di_aggiunta_film" method="post" action="/controllers/gestione/Aggiungi film.php"
       enctype="multipart/form-data">
 	<h1>Aggiungi un film</h1>
 	<fieldset>

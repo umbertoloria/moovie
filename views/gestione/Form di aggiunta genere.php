@@ -1,5 +1,5 @@
 <form class="form" id="form_di_aggiunta_genere" method="post"
-      action="/controllers/gestione/___form_di_aggiunta_genere.php">
+      action="/controllers/gestione/Aggiungi genere.php">
 	<h1>Aggiungi un genere</h1>
 	<fieldset>
 		<label>

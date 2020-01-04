@@ -12,9 +12,9 @@ $show_actions = $_REQUEST["show_actions"];
 			if (!empty($show_actions)) {
 				echo "<div class='actions'>";
 				if (in_array("update", $show_actions))
-					echo "<a href='/___modifica_un_genere.php?id={$genere->getID()}'>modifica</a>";
+					echo "<a href='/modifica_un_genere.php?id={$genere->getID()}'>modifica</a>";
 				if (in_array("delete", $show_actions))
-					echo "<a href='/controllers/gestione/___rimuovi_genere.php?genere_id={$genere->getID()}' data-confirm>rimuovi</a>";
+					echo "<a href='/controllers/gestione/Rimuovi genere.php?genere_id={$genere->getID()}' data-confirm>rimuovi</a>";
 				echo "</div>";
 			}
 			?>

@@ -2,7 +2,7 @@
 $film = $_REQUEST["film"];
 assert($film instanceof Film);
 ?>
-<form class="form" id="form_di_modifica_film" method="post" action="/controllers/gestione/___form_di_modifica_film.php"
+<form class="form" id="form_di_modifica_film" method="post" action="/controllers/gestione/Modifica film.php"
       enctype="multipart/form-data">
 	<h1>Modifica <a href="/film.php?id=<?php echo $film->getID(); ?>"><?php echo $film->getTitolo(); ?></a></h1>
 	<fieldset>
