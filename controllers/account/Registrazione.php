@@ -14,11 +14,14 @@ $valid = Validator\validate("../../forms/registrazione.json", [
 	"password" => $password
 ]);
 
+$ff = new FormFeedbacker();
+
 if (!$valid)
-	echo "Il client non ti ha bloccato?";
+	$ff->message("Il client non ti ha bloccato?");
 elseif (AccountManager::exists($email))
-	echo "Già esiste";
+	$ff->message("Già esiste");
 else {
+
 	$tmp_utente = new Utente(
 		0,
 		$nome,
@@ -29,5 +32,8 @@ else {
 	if (AccountManager::create($tmp_utente))
 		header("Location: /conferma_registrazione.php");
 	else
-		echo "Errore interno";
+		$ff->message("Errore interno");
+
 }
+
+$ff->process();

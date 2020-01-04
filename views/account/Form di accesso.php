@@ -2,11 +2,11 @@
 	<fieldset>
 		<label>
 			<span>Indirizzo E-Mail</span>
-			<input type="email" class="input" name="email" placeholder="Indirizzo E-Mail" autocomplete="off"/>
+			<input type="email" class="input" name="email" placeholder="Indirizzo E-Mail"/>
 		</label>
 		<label>
 			<span>Password</span>
-			<input type="password" class="input" name="password" placeholder="Password" autocomplete="off"/>
+			<input type="password" class="input" name="password" placeholder="Password"/>
 		</label>
 	</fieldset>
 	<input type="submit" class="button" value="Accedi"/>

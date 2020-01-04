@@ -10,16 +10,19 @@ $valid = Validator\validate("../../forms/accesso.json", [
 	"password" => $password
 ]);
 
+$ff = new FormFeedbacker();
+
 if (!$valid)
-	echo "Il client non ti ha bloccato?";
+	$ff->message("Il client non ti ha bloccato?");
 else {
 
 	$utente = AccountManager::authenticate($email, $password);
 	if ($utente) {
 		Auth::setLoggedUser($utente);
 		header("Location: /");
-	} else {
-		echo "I dati non corrispondono";
-	}
+	} else
+		$ff->message("I dati non corrispondono");
 
 }
+
+$ff->process();

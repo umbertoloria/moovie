@@ -23,3 +23,5 @@ include $_SERVER["DOCUMENT_ROOT"] . "/php/database.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/php/validator.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/php/formats.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/php/Auth.php";
+
+include $_SERVER["DOCUMENT_ROOT"] . "/parts/FormFeedbacker.php";
