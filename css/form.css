@@ -172,3 +172,12 @@ form .button[disabled] {
 form .button:not([disabled]):hover {
 	box-shadow: 0 0 20px rgba(0, 0, 0, .4);
 }
+
+#overlay .form {
+	width: 290px;
+	margin: 0;
+}
+
+#overlay .form fieldset > label {
+	width: 100%;
+}
