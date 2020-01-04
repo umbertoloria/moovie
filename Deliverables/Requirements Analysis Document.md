@@ -32,8 +32,8 @@
         9. Legal
     4. [Scenari](#scenari)
         1. [Scegliere un film da vedere](#scegliere-un-film-da-vedere)
-        2. [Aggiungere un nuovo giudizio](#aggiungere-un-nuovo-giudizio)
-        3. [Far registrare un amico per suggerirgli dei film](#far-registrare-un-amico-per-suggerirgli-dei-film)
+        2. [Far registrare un amico per suggerirgli dei film](#far-registrare-un-amico-per-suggerirgli-dei-film)
+        3. [Aggiungere un nuovo giudizio](#aggiungere-un-nuovo-giudizio)
         4. [Voglio informazioni su un regista o su un attore](#voglio-informazioni-su-un-regista-o-su-un-attore)
         5. [Voglio aggiungere un film ai promemoria](#voglio-aggiungere-un-film-ai-promemoria)
         6. [Richiesta e accettazione di amicizia tra due account](#richiesta-e-accettazione-di-amicizia-tra-due-account)
@@ -184,7 +184,6 @@ RF_GEST.11 | Aggiornare generi di un film
 ### Usability
 * L’utente non deve sentirsi smarrito durante l’uso delle interfacce di Moovie
 * L’utente deve sempre poter raggiungere la home e login/logout
-* Il sito si adatterà alle dimensioni del dispositivo su cui si naviga
 * Sarà totalmente gratuito
 
 ### Reliability
@@ -204,37 +203,18 @@ RF_GEST.11 | Aggiornare generi di un film
 
 ### Scegliere un film da vedere
 Michele, che possiede una fornitissima collezione di Blu Ray, vorrebbe trovare un film da vedere sabato sera. Mentre è
-in autobus verso il noleggio Blu Ray, prende il suo cellulare e va sul sito web www.moovie.me. Cliccando su
-"accesso", si presenta una schermata di input che richiede alcuni campi. Alla voce "e-mail" scrive
-"michele@pippo.pluto", e alla voce "password" scrive "adnam". Clicca su "accedi" ma il sistema notifica "I dati non
-corrispondono". Si accorge di aver sbagliato la password e scrive "adnama". Clicca di nuovo su "accedi", e il sistema
-autentica l'account. A questo punto, per scegliere il prossimo film da guardare, Michele può:
+ancora a lavoro, apre una scheda nel suo browser e va sul sito web www.moovie.me. Cliccando su "accesso", si presenta
+una schermata di input che richiede alcuni campi. Alla voce "e-mail" scrive "michele@pippo.pluto", e alla voce
+"password" scrive "adnam". Clicca su "accedi" ma il sistema notifica "I dati non corrispondono". Si accorge di aver
+sbagliato la password e scrive "adnama". Clicca di nuovo su "accedi", e il sistema autentica l'account. A questo punto,
+per scegliere il prossimo film da guardare, Michele può:
 
 * cliccare su "promemoria" nel menu a sinistra e scegliere un film tra i suoi **promemoria**;
 * cercare il profilo della sua amica Amanda e scegliere un film tra i **giudizi** di lei;
 * cliccare su "suggeriscimi un film", sempre nel menu a sinistra, e scegliere un film tra i **suggerimenti automatici** presenti nella
 schermata successiva.
 
-Una volta scelto il film, lo noleggia, torna a casa e lo guarda.
-
-### Aggiungere un nuovo giudizio
-Michele ha appena finito di guardare "Eternal Sunshine of the Spotless Mind". Gli è piaciuto talmente tanto che
-vorrebbe consigliarlo ai suoi amici, specialmente Amanda. Qualche mese prima avrebbe mandato molti messaggi a questi
-ultimi, oppure ne avrebbe parlato a lavoro con i colleghi, ma da quando ha cominciato a usare Moovie, i suoi giudizi li
-esprime direttamente lì.
-
-Michele allora prende il suo cellulare, va su www.moovie.me, e cerca la voce "accesso" ma risulta già autenticato, visto
-che aveva effettuato l’accesso poche ore prima. Arrivato nella pagina iniziale, clicca su "promemoria" nel menu a
-sinistra, trova il film che ha appena visto e ci clicca sopra. Arrivato alla pagina del film, clicca su "+ giudizio". Si
-aprirà una schermata popup che chiederà un voto da 1 a 10. Michele scrive 9 e clicca "aggiungi".
-
-La schermata si chiude, e Michele si troverà sempre sulla pagina del film. In questo modo, Michele sta aggiungendo
-informazioni riguardo le sue preferenze cinematografiche all'interno della piattaforma, che sarà in grado di suggerirgli
-film ancora più in linea con i suoi gusti. Non solo, da adesso il nuovo giudizio di Michele sarà anche visibile nel suo profilo e nella pagina iniziale da tutti i
-suoi amici.
-
-Se Michele avesse già un giudizio di quel film nel suo profilo, ma volesse modificarne il voto, sarebbe potuto andare
-nella pagina dei "giudizi", cliccare "edit" sul film, modificare il voto (sempre da 1 a 10) e cliccare "modifica".
+Una volta scelto il film, si dirige verso la videoteca, lo noleggia, torna a casa e lo guarda.
 
 ### Far registrare un amico per suggerirgli dei film
 A Stefano piacciono molto i film, mai però quanto a Michele. Quest'ultimo, invece di suggerirgli i film alla vecchia
@@ -250,16 +230,36 @@ Stefano sostituisce la password con "ciaociao". Nella voce "conferma password" i
 Stefano, a questo punto, clicca su "registrati". La nuova pagina che si presenta mostra il testo "Benvenuto nel
 fantastico mondo di Moovie". Stefano sarà riportato alla pagina iniziale, dove potrà usare il suo nuovo account Moovie.
 
+### Aggiungere un nuovo giudizio
+Michele ha appena finito di guardare "Eternal Sunshine of the Spotless Mind". Gli è piaciuto talmente tanto che
+vorrebbe consigliarlo ai suoi amici, specialmente Amanda. Qualche mese prima avrebbe mandato molti messaggi a questi
+ultimi, oppure ne avrebbe parlato a lavoro con i colleghi, ma da quando ha cominciato a usare Moovie, i suoi giudizi li
+esprime direttamente lì.
+
+Michele allora apre una nuova scheda nel browser all'indirizzo www.moovie.me, e cerca la voce "accesso" ma risulta già
+autenticato, visto che aveva effettuato l’accesso poche ore prima. Arrivato nella pagina iniziale, clicca su
+"promemoria" nel menu a sinistra, trova il film che ha appena visto e ci clicca sopra. Arrivato alla pagina del film,
+clicca su "+ giudizio". Si aprirà una schermata popup che chiederà un voto da 1 a 10. Michele scrive 9 e clicca
+"aggiungi".
+
+La schermata si chiude, e Michele si troverà sempre sulla pagina del film. In questo modo, Michele sta aggiungendo
+informazioni riguardo le sue preferenze cinematografiche all'interno della piattaforma, che sarà in grado di suggerirgli
+film ancora più in linea con i suoi gusti. Non solo, da adesso il nuovo giudizio di Michele sarà anche visibile nel suo
+profilo e nella pagina iniziale da tutti i suoi amici.
+
+Se Michele avesse già un giudizio di quel film nel suo profilo, ma volesse modificarne il voto, sarebbe potuto andare
+nella pagina dei "giudizi", cliccare "edit" sul film, modificare il voto (sempre da 1 a 10) e cliccare "modifica".
+
 ### Voglio informazioni su un regista o su un attore
 Amanda vuole vedere un altro film diretto da "Tarantino", visto che ha particolarmente apprezzato il film "Pulp Fiction"
-che lei e Michele hanno visto il giorno prima. Allora prende il suo tablet, apre il browser, va su www.moovie.me, accede
-alle funzionalità di ricerca raggiungibili nel menu del sito (autenticazione non necessaria se ricerca film). In realtà
-le basterebbe accedere al suo account per vedere i propri giudizi. Nello spazio di ricerca, Amanda inserisce "Pulp
-Fiction" e preme Invio. La nuova pagina che si presenta conterrà i risultati della ricerca, e tra questi clicca sulla
-voce "Pulp Fiction". Giunta alla scheda del film, ricca di informazioni riguardo gli attori e i registi partecipanti,
-clicca sulla voce "Quentin Tarantino", e finalmente arriva alla pagina delle informazioni del noto regista. In questa
-pagina ci sono tutti i film diretti, scritti e recitati da Tarantino. Amanda si accorge che anche "Django Unchained" è
-stato diretto da "Tarantino"!
+che lei e Michele hanno visto il giorno prima. Allora prende il suo notebook, apre il browser, va su www.moovie.me,
+accede alle funzionalità di ricerca raggiungibili nel menu del sito (autenticazione non necessaria se ricerca film). In
+realtà le basterebbe accedere al suo account per vedere i propri giudizi. Nello spazio di ricerca, Amanda inserisce
+"Pulp Fiction" e preme Invio. La nuova pagina che si presenta conterrà i risultati della ricerca, e tra questi clicca
+sulla voce "Pulp Fiction". Giunta alla scheda del film, ricca di informazioni riguardo gli attori e i registi
+partecipanti, clicca sulla voce "Quentin Tarantino", e finalmente arriva alla pagina delle informazioni del noto
+regista. In questa pagina ci sono tutti i film diretti, scritti e recitati da Tarantino. Amanda si accorge che anche
+"Django Unchained" è stato diretto da "Tarantino"!
 
 ### Voglio aggiungere un film ai promemoria
 Amanda si trova nella pagina di "Quentin Tarantino" su Moovie. Interessata, comincia a sbirciare tra tutti i lavori di
@@ -745,7 +745,7 @@ Condizione di uscita | Le informazioni dei generi di un film vengono aggiornate.
 ### Control objects
 * Visualizza film: preleva le informazioni di un film per presentarle
 * Visualizza artista: preleva le informazioni di un artista per presentarle
-* Visualiza profilo: preleva le informazioni riguardanti un utente per presentarle
+* Visualizza profilo: preleva le informazioni riguardanti un utente per presentarle
 * Ricerca:
     * Ricerca: permette di ricercare un testo solo tra film, artisti, utenti, o tra tutti questi
 * Account:
