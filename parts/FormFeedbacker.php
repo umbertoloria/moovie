@@ -8,6 +8,10 @@ class FormFeedbacker {
 		$this->message = $message;
 	}
 
+	public function bug() {
+		$this->message("Errore interno");
+	}
+
 	public function process() {
 		if (!is_null($this->message)) {
 			?>

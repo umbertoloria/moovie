@@ -15,38 +15,60 @@ $valid = Validator\validate("../../forms/aggiunta_e_modifica_film.json", [
 	"descrizione" => $descrizione
 ]);
 
+$ff = new FormFeedbacker();
+
 if (!$valid)
-	echo "Il client non ti ha bloccato?";
+	$ff->message("Il client non ti ha bloccato?");
 elseif (!$film = FilmManager::get_from_id($film_id))
-	echo "Il client non ti ha bloccato?";
+	$ff->message("Il client non ti ha bloccato?");
 else {
 
 	$copertina = @$_FILES["copertina"];
+	$copertina_vuota = true;
+	$copertina_valida = false;
 	if ($copertina["error"] !== UPLOAD_ERR_NO_FILE) {
+		// L'utente ha provato a caricare un'immagine
+		$copertina_vuota = false;
+		$copertina_valida = true;
 		if ($copertina["error"] !== UPLOAD_ERR_OK) {
+			// Si è verificato un errore di caricamento
 			if ($copertina["error"] === UPLOAD_ERR_INI_SIZE)
-				die("Il server rifiuta qualsiasi file più grande di " . ini_get("upload_max_filesize"));
+				$ff->message(
+					"Il server rifiuta qualsiasi file più grande di " . ini_get("upload_max_filesize")
+				);
 			else
-				die("Errore di caricamento (codice " . $copertina["error"] . ")");
+				$ff->message(
+					"Errore di caricamento (codice " . $copertina["error"] . ")"
+				);
+			$copertina_valida = false;
 		} elseif (!in_array($copertina["type"], ["image/jpeg", "image/png"])) {
-			die("La copertina deve essere JPG o PNG");
+			$ff->message("La copertina deve essere JPG o PNG");
+			$copertina_valida = false;
 		}
 	}
 
-	$film->setTitolo($titolo);
-	$film->setDurata($durata);
-	$film->setAnno($anno);
-	$film->setDescrizione($descrizione);
+	if ($copertina_vuota or $copertina_valida) {
 
-	$saved_film = FilmManager::update($film);
+		$film->setTitolo($titolo);
+		$film->setDurata($durata);
+		$film->setAnno($anno);
+		$film->setDescrizione($descrizione);
 
-	$copertina_ok = true;
-	if ($copertina["error"] !== UPLOAD_ERR_NO_FILE)
-		$copertina_ok = FilmManager::uploadCopertina($film->getID(), file_get_contents($copertina["tmp_name"]));
+		$saved_film = FilmManager::update($film);
 
-	if ($saved_film and $copertina_ok)
-		header("Location: /film.php?id=" . $saved_film->getID());
-	else
-		echo "Errore interno";
+		$copertina_ok = true;
+		if ($copertina_valida) {
+			$copertina_bin = file_get_contents($copertina["tmp_name"]);
+			$copertina_ok = FilmManager::uploadCopertina($film->getID(), $copertina_bin);
+		}
+
+		if ($saved_film and $copertina_ok)
+			header("Location: /film.php?id=" . $saved_film->getID());
+		else
+			$ff->bug();
+
+	}
 
 }
+
+$ff->process();

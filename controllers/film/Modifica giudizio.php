@@ -10,10 +10,12 @@ $valid = Validator\validate("../../forms/aggiunta_e_modifica_giudizio.json", [
 	"voto" => $voto
 ]);
 
+$ff = new FormFeedbacker();
+
 if (!$logged_user or !$valid)
-	echo "Il client non ti ha bloccato?";
+	$ff->message("Il client non ti ha bloccato?");
 elseif (!ctype_digit($film_id))
-	echo "dammi un numero per id";
+	$ff->message("dammi un numero per id");
 else {
 
 	$tmp_giudizio = GiudizioManager::get_from_utente_and_film($logged_user->getID(), $film_id);
@@ -24,7 +26,9 @@ else {
 		if (GiudizioManager::update($tmp_giudizio))
 			header("Location: /giudizi.php");
 		else
-			echo "Errore interno";
+			$ff->bug();
 	}
 
 }
+
+$ff->process();

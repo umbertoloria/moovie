@@ -3,7 +3,10 @@
 include "../../php/core.php";
 
 $logged_user = Auth::getLoggedUser();
-assert($logged_user);
+if (!$logged_user) {
+	header("Location: /");
+	die();
+}
 
 $cur_pwd = trim(@$_POST["cur_pwd"]);
 $new_pwd = trim(@$_POST["new_pwd"]);
@@ -13,10 +16,12 @@ $valid = Validator\validate("../../forms/cambio_password.json", [
 	"new_pwd" => $new_pwd
 ]);
 
+$ff = new FormFeedbacker();
+
 if (!$valid)
-	echo "Il client non ti ha bloccato?";
+	$ff->message("Il client non ti ha bloccato?");
 elseif ($logged_user->getPassword() !== sha1($cur_pwd))
-	echo "La password attuale fornita non corrisponde";
+	$ff->message("La password attuale fornita non corrisponde");
 else {
 	$logged_user->setPassword(sha1($new_pwd));
 	$saved_user = AccountManager::update($logged_user);
@@ -25,5 +30,7 @@ else {
 		Auth::setLoggedUser($saved_user);
 		header("Location: /conferma_cambio_password.php");
 	} else
-		echo "Errore interno";
+		$ff->bug();
 }
+
+$ff->process();

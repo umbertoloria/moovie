@@ -2,9 +2,13 @@
 
 include "../../php/core.php";
 
-assert(Auth::getLoggedUser());
+if (!Auth::getLoggedUser()) {
+	header("Location: /");
+	die();
+}
 
 $film_id = trim(@$_POST["film_id"]);
+
 $final_recs = [];
 foreach ($_POST as $key => $val) {
 	if (Formats\startswith("rec_", $key)) {
@@ -25,10 +29,14 @@ foreach ($_POST as $key => $val)
 	if (Formats\startswith("reg_", $key))
 		$registi_da_salvare[substr($key, 4)] = $val;
 
+$ff = new FormFeedbacker();
+
 if (!$film = FilmManager::get_from_id($film_id))
-	echo "Il client non ti ha bloccato?";
+	$ff->message("Il client non ti ha bloccato?");
 elseif (RecitazioneManager::set_only($film->getID(), $recitazioni_da_salvare)
 	and RegiaManager::set_only($film->getID(), $registi_da_salvare))
 	header("Location: /film.php?id=" . $film->getID());
 else
-	echo "Errore interno";
+	$ff->bug();
+
+$ff->process();

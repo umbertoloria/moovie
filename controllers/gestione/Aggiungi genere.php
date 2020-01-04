@@ -8,10 +8,12 @@ $valid = Validator\validate("../../forms/aggiunta_e_modifica_genere.json", [
 	"nome" => $nome
 ]);
 
+$ff = new FormFeedbacker();
+
 if (!$valid)
-	echo "Il client non ti ha bloccato?";
+	$ff->message("Il client non ti ha bloccato?");
 elseif (GenereManager::exists($nome))
-	echo "Questo nome è associato ad un genere esistente";
+	$ff->message("Questo nome è associato ad un genere esistente");
 else {
 
 	$tmp_genere = new Genere(0, $nome);
@@ -19,6 +21,8 @@ else {
 	if ($saved_genere)
 		header("Location: /genere.php?id=" . $saved_genere->getID());
 	else
-		echo "Errore interno";
+		$ff->bug();
 
 }
+
+$ff->process();

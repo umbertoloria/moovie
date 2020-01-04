@@ -32,7 +32,7 @@ else {
 	if (AccountManager::create($tmp_utente))
 		header("Location: /conferma_registrazione.php");
 	else
-		$ff->message("Errore interno");
+		$ff->bug();
 
 }
 

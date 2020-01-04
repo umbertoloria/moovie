@@ -13,37 +13,59 @@ $valid = Validator\validate("../../forms/aggiunta_e_modifica_artista.json", [
 	"descrizione" => $descrizione
 ]);
 
+$ff = new FormFeedbacker();
+
 if (!$valid)
-	echo "Il client non ti ha bloccato?";
+	$ff->message("Il client non ti ha bloccato?");
 elseif (!$artista = ArtistaManager::get_from_id($artista_id))
-	echo "Il client non ti ha bloccato?";
+	$ff->message("Il client non ti ha bloccato?");
 else {
 
 	$faccia = @$_FILES["faccia"];
+	$faccia_vuota = true;
+	$faccia_valida = false;
 	if ($faccia["error"] !== UPLOAD_ERR_NO_FILE) {
+		// L'utente ha provato a caricare un'immagine
+		$faccia_vuota = false;
+		$faccia_valida = true;
 		if ($faccia["error"] !== UPLOAD_ERR_OK) {
+			// Si è verificato un errore di caricamento
 			if ($faccia["error"] === UPLOAD_ERR_INI_SIZE)
-				die("Il server rifiuta qualsiasi file più grande di " . ini_get("upload_max_filesize"));
+				$ff->message(
+					"Il server rifiuta qualsiasi file più grande di " . ini_get("upload_max_filesize")
+				);
 			else
-				die("Errore di caricamento (codice " . $faccia["error"] . ")");
+				$ff->message(
+					"Errore di caricamento (codice " . $faccia["error"] . ")"
+				);
+			$faccia_valida = false;
 		} elseif (!in_array($faccia["type"], ["image/jpeg", "image/png"])) {
-			die("L'immagine deve essere JPG o PNG");
+			$ff->message("L'immagine deve essere JPG o PNG");
+			$faccia_valida = false;
 		}
 	}
 
-	$artista->setNome($nome);
-	$artista->setNascita($nascita);
-	$artista->setDescrizione($descrizione);
+	if ($faccia_vuota or $faccia_valida) {
 
-	$saved_artista = ArtistaManager::update($artista);
+		$artista->setNome($nome);
+		$artista->setNascita($nascita);
+		$artista->setDescrizione($descrizione);
 
-	$faccia_ok = true;
-	if ($faccia["error"] !== UPLOAD_ERR_NO_FILE)
-		ArtistaManager::uploadFaccia($artista->getID(), file_get_contents($faccia["tmp_name"]));
+		$saved_artista = ArtistaManager::update($artista);
 
-	if ($saved_artista and $faccia_ok)
-		header("Location: /artista.php?id=" . $saved_artista->getID());
-	else
-		echo "Errore interno";
+		$faccia_ok = true;
+		if ($faccia_valida) {
+			$faccia_bin = file_get_contents($faccia["tmp_name"]);
+			$faccia_ok = ArtistaManager::uploadFaccia($artista->getID(), $faccia_bin);
+		}
+
+		if ($saved_artista and $faccia_ok)
+			header("Location: /artista.php?id=" . $saved_artista->getID());
+		else
+			$ff->bug();
+
+	}
 
 }
+
+$ff->process();

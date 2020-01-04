@@ -14,20 +14,26 @@ $valid = Validator\validate("../../forms/aggiunta_e_modifica_film.json", [
 	"descrizione" => $descrizione
 ]);
 
+$ff = new FormFeedbacker();
+
 if (!$valid)
-	echo "Il client non ti ha bloccato?";
+	$ff->message("Il client non ti ha bloccato?");
 else {
 
 	$copertina = @$_FILES["copertina"];
 	if ($copertina["error"] !== UPLOAD_ERR_OK) {
 		if ($copertina["error"] === UPLOAD_ERR_INI_SIZE)
-			echo "Il server rifiuta qualsiasi file più grande di " . ini_get("upload_max_filesize");
+			$ff->message(
+				"Il server rifiuta qualsiasi file più grande di " . ini_get("upload_max_filesize")
+			);
 		elseif ($copertina["error"] === UPLOAD_ERR_NO_FILE)
-			echo "Nessun file è stato caricato";
+			$ff->message("Nessun file è stato caricato");
 		else
-			echo "Errore di caricamento (codice " . $copertina["error"] . ")";
+			$ff->message(
+				"Errore di caricamento (codice " . $copertina["error"] . ")"
+			);
 	} elseif (!in_array($copertina["type"], ["image/jpeg", "image/png"])) {
-		echo "La copertina deve essere JPG o PNG";
+		$ff->message("La copertina deve essere JPG o PNG");
 	} else {
 
 		$tmp_film = new Film(0, $titolo, $durata, $anno, $descrizione);
@@ -37,8 +43,10 @@ else {
 		if ($saved_film)
 			header("Location: /film.php?id=" . $saved_film->getID());
 		else
-			echo "Errore interno";
+			$ff->bug();
 
 	}
 
 }
+
+$ff->process();
