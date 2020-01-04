@@ -47,7 +47,7 @@ class GenereManager {
 		$stmt = DB::stmt("SELECT genere FROM film_has_genere WHERE film = ?");
 		if ($stmt->execute([$id]))
 			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
-				$res[] = $r["genere"];
+				$res[] = intval($r["genere"]);
 		return $res;
 	}
 
@@ -61,7 +61,7 @@ class GenereManager {
 		$stmt = DB::stmt("SELECT film FROM film_has_genere WHERE genere = ?");
 		if ($stmt->execute([$id]))
 			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
-				$res[] = $r["film"];
+				$res[] = intval($r["film"]);
 		return $res;
 	}
 

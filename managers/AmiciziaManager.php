@@ -63,7 +63,7 @@ class AmiciziaManager {
 		return $stmt->execute([$user_from, $user_to]) and $stmt->rowCount() === 1;
 	}
 
-	public static function existsFriendshipBetween(int $user1, int $user2) {
+	public static function existsFriendshipBetween(int $user1, int $user2): bool {
 		$stmt = DB::stmt(
 			"SELECT * FROM amicizie WHERE timestamp_accettazione IS NOT NULL
 				AND ((utente_from = ? AND utente_to = ?) OR (utente_from = ? AND utente_to = ?))");

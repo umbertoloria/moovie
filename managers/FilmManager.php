@@ -91,6 +91,7 @@ limit 5"
 		return $stmt->execute([$copertina_bin, $id]) and $stmt->rowCount() === 1;
 	}
 
+	/** @return Film[] */
 	public static function getClassifica(): array {
 		$res = [];
 		$stmt = DB::stmt(

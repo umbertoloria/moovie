@@ -23,7 +23,7 @@ class RecitazioneManager {
 	}
 
 	/** @param Recitazione[] $recitazioni */
-	public static function set_only(int $film_id, array $recitazioni) {
+	public static function set_only(int $film_id, array $recitazioni): bool {
 		// Le recitazioni devono avere sempre lo stesso <film> ma mai lo stesso <attore>
 		$unique_cache = [];
 		foreach ($recitazioni as $recitazione) {

@@ -3,7 +3,7 @@
 include "parts/initial_page.php";
 $logged_user = Auth::getLoggedUser();
 if (!$logged_user) {
-	header("Location: /404.php");
+	header("Location: /");
 	die();
 }
 $utente = AccountManager::get_from_id(@$_GET["id"]);

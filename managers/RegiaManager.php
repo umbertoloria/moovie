@@ -41,7 +41,7 @@ class RegiaManager {
 		return $res;
 	}
 
-	public static function set_only(int $film_id, array $registi_id) {
+	public static function set_only(int $film_id, array $registi_id): bool {
 		// Non devono esserci doppioni
 		$doppioni_cache = [];
 		foreach ($registi_id as $regista_id) {

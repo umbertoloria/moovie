@@ -2,6 +2,8 @@
 
 include "../../php/core.php";
 
+allowOnlyGestore();
+
 $nome = trim(@$_POST["nome"]);
 $nascita = trim(@$_POST["nascita"]);
 $descrizione = trim(@$_POST["descrizione"]);

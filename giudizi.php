@@ -2,7 +2,10 @@
 // Visualizza giudizi
 include "parts/initial_page.php";
 $logged_user = Auth::getLoggedUser();
-assert($logged_user);
+if (!$logged_user) {
+	header("Location: /");
+	die();
+}
 
 $films = [];
 $giudizi = GiudizioManager::getAllOf([$logged_user->getID()]);

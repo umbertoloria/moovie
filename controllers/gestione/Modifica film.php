@@ -2,6 +2,8 @@
 
 include "../../php/core.php";
 
+allowOnlyGestore();
+
 $film_id = trim(@$_POST["film_id"]);
 $titolo = trim(@$_POST["titolo"]);
 $durata = trim(@$_POST["durata"]);

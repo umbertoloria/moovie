@@ -1,7 +1,6 @@
 <?php
 include "parts/initial_page.php";
-$logged_user = Auth::getLoggedUser();
-assert($logged_user->isGestore());
+allowOnlyGestore();
 $film = FilmManager::get_from_id(@$_GET["id"]);
 $_REQUEST["film"] = $film;
 include "views/gestione/Form di modifica film.php";

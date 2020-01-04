@@ -2,7 +2,10 @@
 // Visualizza promemoria
 include "parts/initial_page.php";
 $logged_user = Auth::getLoggedUser();
-assert($logged_user);
+if (!$logged_user) {
+	header("Location: /");
+	die();
+}
 
 $films = [];
 $promemorias = PromemoriaManager::get_from_utente($logged_user->getID());

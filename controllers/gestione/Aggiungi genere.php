@@ -2,6 +2,8 @@
 
 include "../../php/core.php";
 
+allowOnlyGestore();
+
 $nome = trim(@$_POST["nome"]);
 
 $valid = Validator\validate("../../forms/aggiunta_e_modifica_genere.json", [

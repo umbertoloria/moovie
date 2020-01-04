@@ -1,5 +1,4 @@
 <?php
 include "parts/initial_page.php";
-$logged_user = Auth::getLoggedUser();
-assert($logged_user->isGestore());
+allowOnlyGestore();
 include "views/gestione/Form di aggiunta genere.php";

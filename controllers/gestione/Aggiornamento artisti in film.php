@@ -2,10 +2,7 @@
 
 include "../../php/core.php";
 
-if (!Auth::getLoggedUser()) {
-	header("Location: /");
-	die();
-}
+allowOnlyGestore();
 
 $film_id = trim(@$_POST["film_id"]);
 

@@ -1,5 +1,7 @@
 <?php
 include "parts/initial_page.php";
-$logged_user = Auth::getLoggedUser();
-assert($logged_user);
+if (!Auth::getLoggedUser()) {
+	header("Location: /");
+	die();
+}
 include "views/account/Form di cambio password.php";
