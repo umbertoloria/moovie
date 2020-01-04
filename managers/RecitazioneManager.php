@@ -2,8 +2,6 @@
 
 class RecitazioneManager {
 
-	// AGGIUNTE
-
 	/** @return Recitazione[] */
 	public static function get_from_artista(int $artista_id): array {
 		$res = [];

@@ -2,8 +2,6 @@
 
 class AmiciziaManager {
 
-	// AGGIUNTE
-
 	/** @return Amicizia[] */
 	public static function getFriendships(int $user_id): array {
 		$res = [];

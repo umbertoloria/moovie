@@ -1,4 +1,5 @@
 <?php
+// Visualizza amici
 include "parts/initial_page.php";
 $logged_user = Auth::getLoggedUser();
 if (!$logged_user) {

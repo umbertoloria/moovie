@@ -1,4 +1,5 @@
 <?php
+// Visualizza pagina iniziale
 include "parts/initial_page.php";
 
 $logged_user = Auth::getLoggedUser();

@@ -2,8 +2,6 @@
 
 class ArtistaManager {
 
-	// AGGIUNTE
-
 	public static function get_from_id(int $id): ?Artista {
 		$stmt = DB::stmt("
 				SELECT id, nome, nascita, descrizione

@@ -18,8 +18,6 @@ class GiudizioManager {
 		return $stmt->execute([$giudizio->getUtente(), $giudizio->getFilm()]) and $stmt->rowCount() === 1;
 	}
 
-	// AGGIUNTE
-
 	/**
 	 * @param int[] $utenti_ids
 	 * @return Giudizio[]

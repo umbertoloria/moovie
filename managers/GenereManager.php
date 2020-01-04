@@ -13,8 +13,6 @@
  */
 class GenereManager {
 
-	// AGGIUNTE
-
 	public static function get_from_id(int $id): ?Genere {
 		$stmt = DB::stmt("SELECT id, nome FROM generi WHERE id = ?");
 		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))

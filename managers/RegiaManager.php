@@ -13,8 +13,6 @@
  */
 class RegiaManager {
 
-	// AGGIUNTE
-
 	/**
 	 * Dato un ArtistaID, restituisce i FilmID le cui regie sono state curate anche dall'artista.
 	 * @param int $id

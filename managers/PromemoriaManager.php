@@ -2,8 +2,6 @@
 
 class PromemoriaManager {
 
-	// AGGIUNTE
-
 	/** @return Promemoria[] */
 	public static function get_from_utente(int $utente_id): array {
 		$res = [];

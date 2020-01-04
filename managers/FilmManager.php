@@ -78,8 +78,6 @@ limit 5"
 		return $res;
 	}
 
-	// AGGIUNTE
-
 	public static function downloadCopertina(int $id) {
 		$stmt = DB::stmt("SELECT copertina FROM films_copertine WHERE film = ?");
 		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
