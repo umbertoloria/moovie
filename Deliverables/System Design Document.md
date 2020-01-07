@@ -150,7 +150,7 @@ possibili. Una macro suddivisione del sistema è stata fatta in questo modo:
  - Film;
  - Gestione;
  
-![](Package%20diagrams/Sottosistemi.png)
+![](Package%20diagrams/Suddivisione_Sottosistemi.jpg)
 
 
 L'immagine mostrata, rappresenta le varie suddivisioni fatte all'interno del sistema mostrando dunque, per ogni layer, 
@@ -167,7 +167,7 @@ i sottosistemi in tre stati:
  - Data: Strato che si occupa di gestire i dati del sistema.
 
 #### Ricerca
-![](Package%20diagrams/Ricerche.jpeg)
+![](Package%20diagrams/Sottosistema_Ricerca.jpeg)
 
 Il sottosistema  "Ricerca" si occupa di gestire le ricerche di tutti gli utenti offrendo diverse funzionalità quali:
  - Ricerca di un film;
@@ -191,7 +191,7 @@ sistema:
 Questo livello si occupa di gestire i dati riguardanti le richerche degli utenti all'interno del sistema.
 
 #### Account
-![](Package%20diagrams/Account.png)
+![](Package%20diagrams/Sottosistema_Account.jpg)
 
 Il sottosistema "Account" si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
  - Creare un account
@@ -230,7 +230,7 @@ nel sistema:
 Questo livello si occupa di gestire i dati riguardanti gli utenti dell'intero sistema.
 
 #### Amicizia
-![](Package%20diagrams/Amicizia.png)
+![](Package%20diagrams/Sottosistema_Amicizia.jpg)
 
 Il sottosistema "Amicizia" si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
  - Inviare richiesta di amicizia
@@ -243,13 +243,13 @@ Il sottosistema "Amicizia" si occupa di gestire le amicizie tra account offrendo
  
 #### AmiciziaPresentationLayer
 Questo livello include tutte le componenti dell'interfaccia che offrono funzionalità riguardanti le amicizie:
- - GUI - Inviare richiesta di amicizia: interfacce che offrono all'utente autenticato la possibilità di inviare 
+ - GUI - Inviare richiesta amicizia: interfacce che offrono all'utente autenticato la possibilità di inviare 
  una richiesta di amicizia ad un altro account;
- - GUI - Cancellare richiesta di amicizia: interfacce che offrono all'utente autenticato la possibilità di cancellare 
+ - GUI - Cancellare richiesta amicizia: interfacce che offrono all'utente autenticato la possibilità di cancellare 
  una richiesta di amicizia ad un altro account;
- - GUI - Accettare richiesta di amicizia: interfacce che offrono all'utente autenticato la possibilità di accettare 
+ - GUI - Accettare richiesta  amicizia: interfacce che offrono all'utente autenticato la possibilità di accettare 
  una richiesta di amicizia proveniente da un altro account;
- - GUI - Rifiutare richiesta di amicizia: interfacce che offrono all'utente autenticato la possibilità di rifiutare 
+ - GUI - Rifiutare richiesta amicizia: interfacce che offrono all'utente autenticato la possibilità di rifiutare 
  una richiesta di amicizia proveniente da un altro account;
  - GUI - Cancellare amicizia: interfacce che offrono all'utente autenticato la possibilità di cancellare 
  un'amicizia con un altro account;
@@ -268,13 +268,13 @@ nel sistema:
  altro utente;
  - CancellareAmicizia(): incorpora operazioni che permettono all'utente autenticato di cancellare l'amicizia con un 
  altro utente;
- - VisualizzareAmici(): incorpora operazioni che permettono all'utente autenticato di visualizzare le amicizie in cui è coinvolto;
+ - VisualizzaAmici(): incorpora operazioni che permettono all'utente autenticato di visualizzare le amicizie in cui è coinvolto;
 
 #### AmiciziaDataLayer
 Questo livello si occupa di gestire le amicizie degli utenti dell'intero sistema.
 
 #### Film
-![](Package%20diagrams/Film.jpeg)
+![](Package%20diagrams/Sottosistema_Film.jpg)
 
 Il sottosistema "Film" si occupa di gestire i giudizi di tutti gli utenti autenticati offrendo diverse funzionalità 
 quali:
@@ -319,14 +319,16 @@ Questo include al suo interno tutte le componenti che offrono operazioni rigurda
 - AggiungerePromemoria(): incoropora operazioni che permettono all'utente autenticato di aggiungere un determinato film tra i promemoria;
 - RimuoverePromemoria(): incoropora operazioni che permettono all'utente autenticato di rimuovere un promemoria;
 - VisualizzarePromemoria(): incoropora operazioni che permettono all'utente autenticato di visualizzare tutti i suoi promemoria;
-- SuggerimentiAutomaticiFilm(): incoropora operazioni che permettono all'utente autenticato di farsi suggerire dal sistema dei film in linea con le sue preferenze;
+- SuggerimentoAutomaticiFilm(): incoropora operazioni che permettono all'utente autenticato di farsi suggerire dal sistema dei film in linea con le sue preferenze;
 - VisualizzareClassificaFilm(): incoropora operazioni che permettono all'utente autenticato di visualizzare i film nella classifica;
 
 #### FilmDataLayer
 Questo livello si occupa di gestire i dati riguardanti i giudizi sui film  degli utenti autenticati, 
 e i suggerimenti automatici all'interno del sistema.
 
-###Gestione 
+###Gestione
+![](Package%20diagrams/Sottosistema_Gestione.jpg)
+
 Il sosttosistema "Gestione" si occupa di gestire i dati presenti nel sito offrendo diverse funzionalità quali:
 - Aggiungere un film;
 - Aggiungere un artista;
@@ -343,31 +345,31 @@ Il sosttosistema "Gestione" si occupa di gestire i dati presenti nel sito offren
 #### GestionePresentationLayer
 Questo include al suo interno tutte le componenti dell'interfaccia che offrono operazioni riguardanti la "Gestione" dei dati
 nel sistema:
-- GUI - Aggiungere un film: interfacce che offrono all'utente gestore la possibilità di aggiungere un film all'interno del sistema;
-- GUI - Aggiungere un artista: interfacce che offrono all'utente gestore la possibilità di aggiungere un artista all'interno del sistema;
-- GUI - Aggiungere un genere: interfacce che offrono all'utente gestore la possibilità di aggiungere un genere all'interno del  sistema;
-- GUI - Modificare un film: interfacce che offrono all'utente gestore la possibilità di modificare un film all'interno del sistema;
-- GUI - Modifica un genere: interfacce che offrono all'utente gestore la possibilità di modificare un genere all'interno del sistema;
-- GUI - Modificare un artista: interfacce che offrono all'utente gestore la possibilità di modificare un artista all'interno del sistema;
-- GUI - Rimuovere un film: interfacce che offrono all'utente gestore la possibilità di rimuovere un film all'interno del sistema;
-- GUI - Rimuovere un artista: interfacce che offrono all'utente gestore la possibilità di rimuovere un artista all'interno del sistema;
-- GUI - Rimuovere un genere: interfacce che offrono all'utente gestore la possibilità di rimuovere un genere all'interno del sistema;
-- GUI - Aggiornare generi di un film: interfacce che offrono all'utente gestore la possibilità di aggiornare generi di un film all'interno del sistema;
-- GUI - Aggiornare artisti in un film: interfacce che offrono all'utente gestore la possibilità di aggiornare gli artisti in un film all'interno del sistema;
+- GUI - Aggiungi film: interfacce che offrono all'utente gestore la possibilità di aggiungere un film all'interno del sistema;
+- GUI - Aggiungi artista: interfacce che offrono all'utente gestore la possibilità di aggiungere un artista all'interno del sistema;
+- GUI - Aggiungi genere: interfacce che offrono all'utente gestore la possibilità di aggiungere un genere all'interno del  sistema;
+- GUI - Modifica film: interfacce che offrono all'utente gestore la possibilità di modificare un film all'interno del sistema;
+- GUI - Modifica genere: interfacce che offrono all'utente gestore la possibilità di modificare un genere all'interno del sistema;
+- GUI - Modifica artista: interfacce che offrono all'utente gestore la possibilità di modificare un artista all'interno del sistema;
+- GUI - Rimuovi film: interfacce che offrono all'utente gestore la possibilità di rimuovere un film all'interno del sistema;
+- GUI - Rimuovi artista: interfacce che offrono all'utente gestore la possibilità di rimuovere un artista all'interno del sistema;
+- GUI - Rimuovi genere: interfacce che offrono all'utente gestore la possibilità di rimuovere un genere all'interno del sistema;
+- GUI - Aggiornare generi film: interfacce che offrono all'utente gestore la possibilità di aggiornare generi di un film all'interno del sistema;
+- GUI - Aggiornare artisti film: interfacce che offrono all'utente gestore la possibilità di aggiornare gli artisti in un film all'interno del sistema;
 
 #### GestioneApplicationLayer
 Questo include al suo interno tutte le componenti che offrono le operazioni riguardanti il sottosistema "Gestione" del sistema.
-- AggiungereFilm(): incorpora operazioni che permettono ad un utente gestore di aggiungere un film all'interno del sistema;
-- AggiungereArtista(): incorpora operazioni che permettono ad un utente gestore di aggiungere un artista all'interno del sistema;
-- AggiungereGenere(): incorpora operazioni che permettono ad un utente gestore di aggiungere un gerenere all'interno del sistema;
-- ModificareFilm(): incorpora operazioni che permettono ad un utente gestore di modificarei dati di un film all'interno del sistema;
-- ModificareArtista(): incorpora operazioni che permettono ad un utente gestore di modificare i dati di un artista all'interno del sistema;
-- ModificareGenere(): incorpora operazioni che permettono ad un utente gestore di modificare un genere all'interno del sistema;
-- RimuovereFilm(): incorpora operazioni che permettono ad un utente gestore di rimuovere un film all'interno del sistema;
-- RimuovereArtista(): incorpora operazioni che permettono ad un utente gestore di rimuovere un artista all'interno del sistema;
-- RimuovereGenere(): incorpora operazioni che permettono ad un utente gestore di rimuovere un genere all'interno del sistema;
-- AggiornareGeneriFilm(): incorpora operazioni che permettono ad un utente gestore di aggiornare generi di un film all'interno del sistema;
-- AggiornareArtistiFilm(): incorpora operazioni che permettono ad un utente gestore di aggiornare gli artisti in un film all'interno del sistema;
+- AggiungiFilm(): incorpora operazioni che permettono ad un utente gestore di aggiungere un film all'interno del sistema;
+- AggiungiArtista(): incorpora operazioni che permettono ad un utente gestore di aggiungere un artista all'interno del sistema;
+- AggiungiGenere(): incorpora operazioni che permettono ad un utente gestore di aggiungere un gerenere all'interno del sistema;
+- ModificaFilm(): incorpora operazioni che permettono ad un utente gestore di modificarei dati di un film all'interno del sistema;
+- ModificaArtista(): incorpora operazioni che permettono ad un utente gestore di modificare i dati di un artista all'interno del sistema;
+- ModificaGenere(): incorpora operazioni che permettono ad un utente gestore di modificare un genere all'interno del sistema;
+- RimuoviFilm(): incorpora operazioni che permettono ad un utente gestore di rimuovere un film all'interno del sistema;
+- RimuoviArtista(): incorpora operazioni che permettono ad un utente gestore di rimuovere un artista all'interno del sistema;
+- RimuoviGenere(): incorpora operazioni che permettono ad un utente gestore di rimuovere un genere all'interno del sistema;
+- AggiornaGeneriFilm(): incorpora operazioni che permettono ad un utente gestore di aggiornare generi di un film all'interno del sistema;
+- AggiornaArtistiFilm(): incorpora operazioni che permettono ad un utente gestore di aggiornare gli artisti in un film all'interno del sistema;
 
 #### GestioneDataLayer
 Questo livello si occupa di gestire alcuni dati presenti nel sito Moovie, permettendo, ad un utente gestore di gestirli.
@@ -562,7 +564,7 @@ CancellareRichiestaAmicizia() | Servizio che offre la possibilità di cancellare
 AccettareRichiestaAmicizia() | Servizio che offre la possibilità di confermare una amicizia ricevuta da parte di un altro utente 
 RifiutareRichiestaAmicizia() | Servizio che permette ad un utente di rifiutare una richiesta di amicizia ricevuta da parte di un altro utente
 CancellareAmicizia() | Servizio che permette ad un utente di cancellare l'amicizia con un altro utente
-VisualizzareAmici() | Servizio che permette ad un utente di visualizzare tutte le amicizie 
+VisualizzaAmici() | Servizio che permette ad un utente di visualizzare tutte le amicizie 
 
 ## Sottosistema "Film"
 Sottosistema | Descrizione 
@@ -576,11 +578,11 @@ VisualizzareArtista() | Servizio che offre la possibilità di visualizzare la pa
 VisualizzareGenere() | Servizio che offre la possibilità di visualizzare la pagina di un genere 
 ModificareGiudizio() | Servizio che offre la possibilità modificare un giudizio, fatto in precedenza, su un film visto 
 RimuovereGiudizio() | Servizio che offre la possibilità di rimuovere un giudizio su un film
-VisualizzareGiudizi() | Servizio che offre la possibilità di visualizzare tutti i propri giudizi
+VisualizzareGiudizio() | Servizio che offre la possibilità di visualizzare tutti i propri giudizi
 AggiungerePromemoria() | Servizio che offre la possibilità di aggiungere un determinato film tra i promemoria
 RimuoverePromemoria() | Servizio che offre la possibilità di rimuovere un promemoria
 VisualizzarePromemoria() | Servizio che offre la possibilità di visualizzare tutti i propri promemoria
-SuggerimentiAutomaticiFilm() | Servizio che offre la possibilità di farsi suggerire dal sistema dei film in linea con le proprie preferenze
+SuggerimentAutomaticoFilm() | Servizio che offre la possibilità di farsi suggerire dal sistema dei film in linea con le proprie preferenze
 VisualizzareClassificaFilm() | Servizio che offre la possibilità di visualizzare i film nella classifica
 
 ## Sottosistema "Gestione"
@@ -590,14 +592,14 @@ Gestione| Il sottosistema "Gestione" si occupa di fornire tutti i servizi che pe
 
 Servizi | Descrizione
 ---|---
-AggiungereFilm() | Servizio che offre la possibilità di aggiungere un film all'interno del sistema
-AggiungereArtista() | Servizio che offre la possibilità di aggiungere un artista all'interno del sistema
-AggiungereGenere() | Servizio che offre la possibilità di aggiungere un genere all'interno del sistema
-ModificareFilm() | Servizio che offre la possibilità di modificare un film all'interno del sistema
-ModificareArtista() | Servizio che offre la possibilità di modificare un artista all'interno del sistema
-ModificareGenere() | Servizio che offre la possibilità di modificare un genere all'interno del sistema
-RimuovereFilm() | Servizio che offre la possibilità di rimuovere un film all'interno del sistema
-RimuovereArtista() | Servizio che offre la possibilità di rimuovere un artista all'interno del sistema
-RimuovereGenere() | Servizio che offre la possibilità di rimuovere un genere all'interno del sistema
+AggiungiFilm() | Servizio che offre la possibilità di aggiungere un film all'interno del sistema
+AggiungiArtista() | Servizio che offre la possibilità di aggiungere un artista all'interno del sistema
+AggiungiGenere() | Servizio che offre la possibilità di aggiungere un genere all'interno del sistema
+ModificaFilm() | Servizio che offre la possibilità di modificare un film all'interno del sistema
+ModificaArtista() | Servizio che offre la possibilità di modificare un artista all'interno del sistema
+ModificaGenere() | Servizio che offre la possibilità di modificare un genere all'interno del sistema
+RimuoviFilm() | Servizio che offre la possibilità di rimuovere un film all'interno del sistema
+RimuoviArtista() | Servizio che offre la possibilità di rimuovere un artista all'interno del sistema
+RimuoviGenere() | Servizio che offre la possibilità di rimuovere un genere all'interno del sistema
 AggiornareGeneriFilm() | Servizio che offre la possibilità di aggiornare generi di un film all'interno del sistema
 AggiornareArtistiFilm() | Servizio che offre la possibilità di aggiornare gli artisti in un film all'interno del sistema
