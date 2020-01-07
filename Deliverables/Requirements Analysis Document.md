@@ -26,10 +26,6 @@
         3. [Performance](#performance)
         4. [Supportability](#supportability)
         5. [Vincoli](#vincoli-pseudo-requisiti)
-        6. Implementation
-        7. Interface
-        8. Packaging
-        9. Legal
     4. [Scenari](#scenari)
         1. [Scegliere un film da vedere](#scegliere-un-film-da-vedere)
         2. [Far registrare un amico per suggerirgli dei film](#far-registrare-un-amico-per-suggerirgli-dei-film)
@@ -94,8 +90,6 @@
     8. [Sequence diagrams](#sequence-diagrams)
     9. [Statechart diagrams](#statechart-diagrams)
     10. [Navigational paths](#navigational-paths)
-    11. Screen mock-ups
-4. Glossary
 
 # Introduzione
 
@@ -994,3 +988,5 @@ Condizione di uscita | Le informazioni dei generi di un film vengono aggiornate.
 ![](Navigational%20paths/Utente%20ospite.jpg)
 
 ![](Navigational%20paths/Utente%20autenticato.jpg)
+
+![](Navigational%20paths/Utente%20gestore.jpg)
