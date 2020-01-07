@@ -10,6 +10,7 @@
 | 0.7      | 19/11/2019 | Sequence Diagrams su GitHub    | Team                     |
 | 0.8      | 25/11/2019 | Riorganizzazione sottosistemi  | Umberto Loria            |
 | 0.9      | 23/12/2019 | Miglioramenti di progettazione | Umberto Loria            |
+| 1.0      | 3/1/2020   | Introduzione gestione          | Team                     |
 
 # Indice
 1. [Introduzione](#introduzione)
@@ -25,26 +26,19 @@
         3. [Performance](#performance)
         4. [Supportability](#supportability)
         5. [Vincoli](#vincoli-pseudo-requisiti)
-        6. Implementation
-        7. Interface
-        8. Packaging
-        9. Legal
     4. [Scenari](#scenari)
-        1. [Voglio vedere un bel film sabato sera](#voglio-vedere-un-bel-film-sabato-sera)
-        2. [Ho guardato uno splendido film](#ho-guardato-uno-splendido-film)
-        3. [Suggerire dei film ad un amico che non è registrato su Moovie](#suggerire-dei-film-ad-un-amico-che-non-è-registrato-su-moovie)
-        4. [Voglio informazioni su un attore, sceneggiatore o regista](#voglio-informazioni-su-un-attore-sceneggiatore-o-regista)
-        5. [Voglio aggiungere un film ad una mia lista](#voglio-aggiungere-un-film-ad-una-mia-lista)
-        6. [Suggerire un film ad un amico che è registrato su Moovie](#suggerire-un-film-ad-un-amico-che-è-registrato-su-moovie)
+        1. [Scegliere un film da vedere](#scegliere-un-film-da-vedere)
+        2. [Far registrare un amico per suggerirgli dei film](#far-registrare-un-amico-per-suggerirgli-dei-film)
+        3. [Aggiungere un nuovo giudizio](#aggiungere-un-nuovo-giudizio)
+        4. [Voglio informazioni su un regista o su un attore](#voglio-informazioni-su-un-regista-o-su-un-attore)
+        5. [Voglio aggiungere un film ai promemoria](#voglio-aggiungere-un-film-ai-promemoria)
+        6. [Richiesta e accettazione di amicizia tra due account](#richiesta-e-accettazione-di-amicizia-tra-due-account)
     5. [Use case models](#use-case-models)
-        1. [Ricerche](#ricerche)
+        1. [Ricerca](#ricerca)
             1. [UC_RIC_1: Ricerca di un film](#uc_ric_1-ricerca-di-un-film)
-            2. [UC_RIC_1.1: Ricerca di un film fallita](#uc_ric_11-ricerca-di-un-film-fallita)
-            3. [UC_RIC_2: Ricerca di un artista](#uc_ric_2-ricerca-di-un-artista)
-            4. [UC_RIC_2.1: Ricerca di un artista fallita](#uc_ric_21-ricerca-di-un-artista-fallita)
-            5. [UC_RIC_3: Ricerca di un utente](#uc_ric_3-ricerca-di-un-utente)
-            6. [UC_RIC_3.1: Ricerca di un utente fallita](#uc_ric_31-ricerca-di-un-utente-fallita)
-        2. [Accounts](#accounts)
+            2. [UC_RIC_2: Ricerca di un artista](#uc_ric_2-ricerca-di-un-artista)
+            3. [UC_RIC_3: Ricerca di un utente](#uc_ric_3-ricerca-di-un-utente)
+        2. [Account](#account)
             1. [UC_ACC_1: Creare un account](#uc_acc_1-creare-un-account)
             2. [UC_ACC_1.1: Registrazione fallita](#uc_acc_11-registrazione-fallita)
             3. [UC_ACC_2: Autenticare un account](#uc_acc_2-autenticare-un-account)
@@ -53,7 +47,7 @@
             6. [UC_ACC_4: Deautenticare un account](#uc_acc_4-deautenticare-un-account)
             7. [UC_ACC_5: Visualizzare un profilo](#uc_acc_5-visualizzare-un-profilo)
             8. [UC_ACC_6: Visualizzare la pagina iniziale](#uc_acc_6-visualizzare-la-pagina-iniziale)
-        3. [Amicizie](#amicizie)
+        3. [Amicizia](#amicizia)
             1. [UC_AMI_1: Inviare richiesta di amicizia](#uc_ami_1-inviare-richiesta-di-amicizia)
             2. [UC_AMI_2: Cancellare richiesta di amicizia](#uc_ami_2-cancellare-richiesta-di-amicizia)
             4. [UC_AMI_3: Accettare richiesta di amicizia](#uc_ami_3-accettare-richiesta-di-amicizia)
@@ -73,13 +67,29 @@
             10. [UC_FILM_10: Visualizzare i promemoria](#uc_film_10-visualizzare-i-promemoria)
             11. [UC_FILM_11: Suggerimenti automatici di film](#uc_film_11-suggerimenti-automatici-di-film)
             12. [UC_FILM_12: Visualizzare la classifica dei film](#uc_film_12-visualizzare-la-classifica-dei-film)
+        5. [Gestione](#gestione)
+            1. [UC_GEST_1: Aggiungere un film](#uc_gest_1-aggiungere-un-film)
+            2. [UC_GEST_1.1: Inserimento film fallito](#uc_gest_11-inserimento-film-fallito)
+            3. [UC_GEST_2: Modificare un film](#uc_gest_2-modificare-un-film)
+            4. [UC_GEST_2.1: Aggiornamento film fallito](#uc_gest_21-aggiornamento-film-fallito)
+            5. [UC_GEST_3: Rimuovere un film](#uc_gest_3-rimuovere-un-film)
+            6. [UC_GEST_4: Aggiungere un artista](#uc_gest_4-aggiungere-un-artista)
+            7. [UC_GEST_4.1: Inserimento artista fallito](#uc_gest_41-inserimento-film-fallito)
+            8. [UC_GEST_5: Modificare un artista](#uc_gest_5-modificare-un-artista)
+            9. [UC_GEST_5.1: Aggiornamento artista fallito](#uc_gest_51-aggiornamento-artista-fallito)
+            10. [UC_GEST_6: Rimuovere un artista](#uc_gest_6-rimuovere-un-artista)
+            11. [UC_GEST_7: Aggiungere un genere](#uc_gest_7-aggiungere-un-genere)
+            12. [UC_GEST_7.1: Inserimento genere fallito](#uc_gest_71-inserimento-genere-fallito)
+            13. [UC_GEST_8: Modificare un genere](#uc_gest_8-modificare-un-genere)
+            14. [UC_GEST_8.1: Aggiornamento genere fallito](#uc_gest_81-aggiornamento-genere-fallito)
+            15. [UC_GEST_9: Rimuovere un genere](#uc_gest_9-rimuovere-un-genere)
+            16. [UC_GEST_10: Aggiornare artisti in un film](#uc_gest_10-aggiornare-artisti-in-un-film)
+            17. [UC_GEST_11: Aggiornare generi di un film](#uc_gest_11-aggiornare-generi-di-un-film)
     6. [Object model](#object-model)
     7. [Class diagrams](#class-diagrams)
     8. [Sequence diagrams](#sequence-diagrams)
     9. [Statechart diagrams](#statechart-diagrams)
     10. [Navigational paths](#navigational-paths)
-    11. Screen mock-ups
-4. Glossary
 
 # Introduzione
 
@@ -91,7 +101,7 @@ preferito, ma spesso nel cinema d'autore il numero di film girati dallo stesso r
 procedimenti si potessero semplificare?
 
 Moovie sarà una piattaforma fornita di tantissime informazioni inerenti al mondo del cinema, e sarà pronta a suggerire
-agli utenti dei film in linea con le loro preferenze. Ognuno di essi potrà creare delle liste di film, e condividerle
+agli utenti dei film in linea con le loro preferenze. Ognuno di essi potrà aggiungere giudizi sui film e condividerli
 con i propri amici.
 
 ## Obiettivi
@@ -120,7 +130,7 @@ I requisiti descritti sono catalogati secondo il modello **F.U.R.P.S.**
 ## Requisiti funzionali
 Identificativo | Descrizione | Priorità
 :-------------:|-------------|:-------:
-**M_RF_RIC** | Ricerche | Alta
+**M_RF_RIC** | Ricerca | Bassa
 RF_RIC.1 | Ricerca di un film
 RF_RIC.2 | Ricerca di un artista
 RF_RIC.3 | Ricerca di un utente
@@ -131,7 +141,7 @@ RF_ACC.3 | Cambiare password
 RF_ACC.4 | Deautenticare un account
 RF_ACC.5 | Visualizzare un profilo
 RF_ACC.6 | Visualizzare la pagina iniziale
-**M_RF_AMI** | Amicizie | Media
+**M_RF_AMI** | Amicizia | Media
 RF_AMI.1 | Inviare richiesta di amicizia
 RF_AMI.2 | Cancellare richiesta di amicizia
 RF_AMI.3 | Accettare richiesta di amicizia
@@ -151,12 +161,23 @@ RF_FILM.9 | Rimuovere un promemoria
 RF_FILM.10 | Visualizzare i promemoria
 RF_FILM.11 | Suggerimenti automatici di film
 RF_FILM.12 | Visualizzare la classifica dei film
+**M_RF_GEST** | Gestione | Alta
+RF_GEST.1 | Aggiungere un film
+RF_GEST.2 | Modificare un film
+RF_GEST.3 | Rimuovere un film
+RF_GEST.4 | Aggiungere un artista
+RF_GEST.5 | Modificare un artista
+RF_GEST.6 | Rimuovere un artista
+RF_GEST.7 | Aggiungere un genere
+RF_GEST.8 | Modificare un genere
+RF_GEST.9 | Rimuovere un genere
+RF_GEST.10 | Aggiornare artisti in un film
+RF_GEST.11 | Aggiornare generi di un film
 
 ## Requisiti non-funzionali
 ### Usability
 * L’utente non deve sentirsi smarrito durante l’uso delle interfacce di Moovie
 * L’utente deve sempre poter raggiungere la home e login/logout
-* Il sito si adatterà alle dimensioni del dispositivo su cui si naviga
 * Sarà totalmente gratuito
 
 ### Reliability
@@ -174,110 +195,95 @@ RF_FILM.12 | Visualizzare la classifica dei film
 
 ## Scenari
 
-### Voglio vedere un bel film sabato sera
-Dopo una settimana di lavoro, Michele non vede l’ora di guardare un bel film il sabato sera, in televisione accanto
-alla sua fornitissima collezione di Blu Ray. Se un film manca nella collezione, lo noleggia e se gli piace lo compra.
-Mentre è in autobus verso il noleggio Blu Ray, prende il suo cellulare e va sul sito web www.moovie.me. Cliccando su
-**accesso**, si presenta una schermata di input che richiede alcuni campi. Alla voce "e-mail" scrive
-"michele@pippo.pluto", e alla voce "password" scrive "adnam". Clicca su "accedi" ma il sistema notifica "I dati non
-corrispondono". Si accorge di aver sbagliato e scrive "adnama". Clicca di nuovo su "accedi", e il sistema accede. A
-questo punto, per scegliere il prossimo film da guardare, Michele può:
+### Scegliere un film da vedere
+Michele, che possiede una fornitissima collezione di Blu Ray, vorrebbe trovare un film da vedere sabato sera. Mentre è
+ancora a lavoro, apre una scheda nel suo browser e va sul sito web www.moovie.me. Cliccando su "accesso", si presenta
+una schermata di input che richiede alcuni campi. Alla voce "e-mail" scrive "michele@pippo.pluto", e alla voce
+"password" scrive "adnam". Clicca su "accedi" ma il sistema notifica "I dati non corrispondono". Si accorge di aver
+sbagliato la password e scrive "adnama". Clicca di nuovo su "accedi", e il sistema autentica l'account. A questo punto,
+per scegliere il prossimo film da guardare, Michele può:
 
-* consultare le proprie liste, aprire la lista "film da guardare", e scegliere un film;
+* cliccare su "promemoria" nel menu a sinistra e scegliere un film tra i suoi **promemoria**;
+* cercare il profilo della sua amica Amanda e scegliere un film tra i **giudizi** di lei;
+* cliccare su "suggeriscimi un film", sempre nel menu a sinistra, e scegliere un film tra i **suggerimenti automatici** presenti nella
+schermata successiva.
 
-* cercare il profilo della sua amica Amanda, aprire la sua lista "Migliori film del secolo" (può vedere le sue liste
-solo avendo l’amicizia), scegliere un film dalla lista ed aggiungerlo nella propria lista "film da guardare";
+Una volta scelto il film, si dirige verso la videoteca, lo noleggia, torna a casa e lo guarda.
 
-* cliccare su "suggerisci" e scegliere un film tra i suggerimenti automatici presenti nella schermata successiva.
+### Far registrare un amico per suggerirgli dei film
+A Stefano piacciono molto i film, mai però quanto a Michele. Quest'ultimo, invece di suggerirgli i film alla vecchia
+maniera, consiglia a Stefano di registrarsi su Moovie, così che dopo aver inviato una richiesta di amicizia, e dopo che
+Michele l'abbia accettata, Stefano possa vedere tutti i giudizi di Michele direttamente dal suo profilo.
 
-Una volta scelto il film, lo noleggia, torna a casa e lo guarda.
+Stefano allora apre una nuova scheda sul browser, va su www.moovie.me e clicca su "registrazione" nel menu a sinistra.
+Gli si presenta una schermata che chiede in input alcuni campi: nella voce "nome completo" inserisce "Stefano
+Bisettrice", nella voce "indirizzo e-mail" inserisce "stefano@pippo.pluto", nella voce "password" inserisce "ciao".
+Appena clicca al di fuori del campo "password" appare una scritta che suggerisce "Minimo 6 massimo 16 caratteri". Allora
+Stefano sostituisce la password con "ciaociao". Nella voce "conferma password" inserisce "ciaociao".
 
-### Ho guardato uno splendido film
+Stefano, a questo punto, clicca su "registrati". La nuova pagina che si presenta mostra il testo "Benvenuto nel
+fantastico mondo di Moovie". Stefano sarà riportato alla pagina iniziale, dove potrà usare il suo nuovo account Moovie.
+
+### Aggiungere un nuovo giudizio
 Michele ha appena finito di guardare "Eternal Sunshine of the Spotless Mind". Gli è piaciuto talmente tanto che
 vorrebbe consigliarlo ai suoi amici, specialmente Amanda. Qualche mese prima avrebbe mandato molti messaggi a questi
 ultimi, oppure ne avrebbe parlato a lavoro con i colleghi, ma da quando ha cominciato a usare Moovie, i suoi giudizi li
 esprime direttamente lì.
 
-Michele allora prende il suo cellulare, va su www.moovie.me, e cerca la voce "accesso" ma risulta già loggato, visto che
-aveva effettuato l’accesso poche ore prima. Sulla pagina iniziale, trova già i film presenti in "film da guardare",
-trova quello che ha appena visto e ci clicca sopra. Arrivato alla pagina del film, clicca su "ho già visto questo film".
-Si aprirà una schermata popup che chiederà un voto da 1 a 10. Michele scrive 9 e clicca "aggiungi".
+Michele allora apre una nuova scheda nel browser all'indirizzo www.moovie.me, e cerca la voce "accesso" ma risulta già
+autenticato, visto che aveva effettuato l’accesso poche ore prima. Arrivato nella pagina iniziale, clicca su
+"promemoria" nel menu a sinistra, trova il film che ha appena visto e ci clicca sopra. Arrivato alla pagina del film,
+clicca su "+ giudizio". Si aprirà una schermata popup che chiederà un voto da 1 a 10. Michele scrive 9 e clicca
+"aggiungi".
 
 La schermata si chiude, e Michele si troverà sempre sulla pagina del film. In questo modo, Michele sta aggiungendo
-informazioni riguardo i suoi gusti sulla piattaforma, che sarà in grado di suggerirgli film ancora più in linea con i
-suoi gusti.
+informazioni riguardo le sue preferenze cinematografiche all'interno della piattaforma, che sarà in grado di suggerirgli
+film ancora più in linea con i suoi gusti. Non solo, da adesso il nuovo giudizio di Michele sarà anche visibile nel suo
+profilo e nella pagina iniziale da tutti i suoi amici.
 
-Clicca su "aggiungi ad una lista...", si apre una schermata popup contenente tutte le sue liste, sceglie "Film che
-consiglio", e la schermata si chiude, mostrando sempre la pagina del film. In questo modo, tutti gli utenti che
-"seguono" questa lista saranno notificati del nuovo aggiornamento.
+Se Michele avesse già un giudizio di quel film nel suo profilo, ma volesse modificarne il voto, sarebbe potuto andare
+nella pagina dei "giudizi", cliccare "edit" sul film, modificare il voto (sempre da 1 a 10) e cliccare "modifica".
 
-Se quel film fosse già stato votato, e Michele avesse voluto modificare quel giudizio, sarebbe potuto andare sulla lista
-"film guardati", scegliere il film, e cliccare su "modifica", per poi inserire il nuovo voto, sempre da 1 a 10.
-
-### Suggerire dei film ad un amico che non è registrato su Moovie
-A Stefano piacciono molto i film, mai però quanto a Michele. Quest’ultimo ha capito i gusti di Stefano, e vuole
-consigliargli tanti di quei film che quasi non gli vengono in mente. Proprio per questo motivo, Michele consiglia a
-Stefano di crearsi un account su Moovie, per poter consultare la sua lista "migliori film biografici".
-
-Stefano allora apre una nuova scheda sul browser, va su www.moovie.me e clicca su "registrazione". Gli si presenta una
-schermata che chiede in input alcuni campi: nella voce "nome completo" inserisce "Stefano Bisettrice", nella voce
-"indirizzo e-mail" inserisce "stefano@pippo.pluto", nella voce "password" inserisce "ciao". Appena clicca al di fuori
-del campo "password" appare una scritta che suggerisce "Minimo 6 massimo 16 caratteri". Allora Stefano sostituisce la
-password con "ciaociao". Nella voce "conferma password" inserisce "ciaociao".
-
-Stefano, a questo punto, clicca su "Registrati". La nuova pagina che si presenta mostra il testo "Benvenuto nel
-fantastico mondo di Moovie". Stefano sarà riportato alla pagina iniziale, dove potrà usare il suo nuovo account Moovie.
-
-### Voglio informazioni su un attore, sceneggiatore o regista
+### Voglio informazioni su un regista o su un attore
 Amanda vuole vedere un altro film diretto da "Tarantino", visto che ha particolarmente apprezzato il film "Pulp Fiction"
-che lei e Michele hanno visto il giorno prima. Allora prende il suo tablet, apre il browser, va su www.moovie.me, accede
-alle funzionalità di ricerca raggiungibili nel menu del sito (autenticazione non necessaria). In realtà le basterebbe
-accedere al suo account e andare nella lista "film guardati". Nello spazio di ricerca, Amanda inserisce "Pulp Fiction" e
-preme Invio. La nuova pagina che si presenta conterrà i risultati della ricerca, e tra questi clicca sulla voce "Pulp
-Fiction". Giunta alla scheda del film, ricca di informazioni riguardo gli attori, il regista, e le saghe di cui potrebbe
-far parte, clicca sulla voce "Quentin Tarantino", e finalmente arriva alla pagina delle informazioni del noto regista.
-In questa pagina ci sono tutti i film diretti, scritti e recitati da Tarantino. Amanda si accorge che "Pulp Fiction",
-oltre ad essere stato girato, è stato anche scritto da "Tarantino"!
+che lei e Michele hanno visto il giorno prima. Allora prende il suo notebook, apre il browser, va su www.moovie.me,
+accede alle funzionalità di ricerca raggiungibili nel menu del sito (autenticazione non necessaria se ricerca film). In
+realtà le basterebbe accedere al suo account per vedere i propri giudizi. Nello spazio di ricerca, Amanda inserisce
+"Pulp Fiction" e preme Invio. La nuova pagina che si presenta conterrà i risultati della ricerca, e tra questi clicca
+sulla voce "Pulp Fiction". Giunta alla scheda del film, ricca di informazioni riguardo gli attori e i registi
+partecipanti, clicca sulla voce "Quentin Tarantino", e finalmente arriva alla pagina delle informazioni del noto
+regista. In questa pagina ci sono tutti i film diretti, scritti e recitati da Tarantino. Amanda si accorge che anche
+"Django Unchained" è stato diretto da "Tarantino"!
 
-### Voglio aggiungere un film ad una mia lista
-Amanda si trova sulla pagina di "Quentin Tarantino" su Moovie. Interessata, comincia a sbirciare tra tutti i lavori di
+### Voglio aggiungere un film ai promemoria
+Amanda si trova nella pagina di "Quentin Tarantino" su Moovie. Interessata, comincia a sbirciare tra tutti i lavori di
 questo artista, per poter cercare il prossimo film da vedere. La pagina dell’artista mostra tutti i film in cui
-Tarantino ha partecipato. Nel caso specifico, ci saranno tanti film nel reparto "regie", e alcuni film nel reparto
-"recitazioni". Una volta scelto il film, Amanda raggiunge la sua scheda informativa, e clicca su "Guarda più tardi". Il
-sito adesso saprà che tra i film da guardare c’è "Kill Bill: Volume 1".
+Tarantino ha partecipato. Nel caso specifico, ci saranno tanti film nella sezione "regie", e alcuni film nella sezione
+"recitazioni". Una volta scelto il film, Amanda raggiunge la sua scheda informativa cliccandoci su, e poi lo aggiunge
+come promemoria cliccando "+ promemoria". Adesso nei promemoria c’è "Kill Bill: Volume 1".
 
-### Suggerire un film ad un amico che è registrato su Moovie
+### Richiesta e accettazione di amicizia tra due account
 Stefano ha una scheda di browser aperta sul suo computer al sito www.moovie.me, e dopo aver effettuato l’accesso, si è
 subito reso conto di aver trovato un sito davvero valido.
 
-Allora raggiunge l’area di ricerca presente nel menu, e cerca il proprio amico Michele. La pagina successiva mostra i
-vari risultati della ricerca, e tra questi è presente l’account di Michele. Cliccandoci sopra, la nuova pagina mostra il
-profilo di Michele, tutte le liste e attività pubbliche. Stefano trova quindi la voce "invia richiesta di amicizia", e
-cliccandoci sopra, viene notificato dell’invio della richiesta. Intanto Michele, che stava usando Moovie, trova la
-richiesta di amicizia di Stefano nella sezione delle notifiche. Allora, Michele clicca sulla notifica, che lo porta sul
-profilo di Stefano. Quando lo riconosce, clicca su "accetta richiesta di amicizia". Fatto questo, la pagina prima mostra
-il messaggio "amicizia accettata", e successivamente aggiorna le informazioni mostrate sul profilo di Stefano.
+Allora raggiunge l’area di ricerca presente nel menu in alto e cerca il proprio amico Michele. La pagina successiva
+mostra i vari risultati della ricerca, e tra questi è presente l’account di Michele. Cliccandoci sopra, la nuova pagina
+mostra il nome di Michele e le opzioni di amicizia. Stefano trova quindi la voce "invia richiesta di amicizia", e
+cliccandoci sopra, viene notificato dell’invio della richiesta. Intanto Michele, che stava usando Moovie, trova una
+nuova richiesta di amicizia vicino alla voce "amici". Clicca su questa voce, arriva nella pagina degli amici, e
+riconosce il nome di Stefano tra le amicizie in attesa. Alloca clicca sulla voce dell'amico e, arrivato nel suo profilo,
+clicca su "accetta richiesta di amicizia". Fatto questo, il sistema mostra il messaggio "amicizia accettata".
 
-Stefano, intanto, ha notato la notifica della conferma dell’amicizia (sempre nella sezione notifiche), e clicca su
-questa notifica, arrivando sul profilo di Michele. A questo punto, Stefano sbircia nella lista "film guardati" di
-Michele. Cliccando su questa lista, la pagina cambia mostrando i film presenti nella lista. Tra questi, Stefano nota
-subito che non è presente "Forrest Gump", il suo film preferito. Sconcertato che un appassionato di cinema come Michele
-non abbia mai visto questo famosissimo film, glielo suggerisce immediatamente. Accede alle funzionalità di ricerca,
-cerca "Forrest Gump", arriva alla pagina dei risultati, e tra questi clicca sulla scheda del film. Arrivato alla scheda
-del film, Stefano prima aggiunge il film alla propria lista dei "film guardati" (con voto 10), e poi clicca su
-"suggerisci". Sul popup che si è appena aperto, Stefano vede tutti i suoi amici (in questo caso solo
-Michele), seleziona questa voce, preme "suggerisci", il popup si chiude, e se ne apre un altro che contiene la scritta
-"Film suggerito".
-
-Intanto Michele, che è ancora collegato su Moovie, trova una nuova notifica che dice "Stefano ti consiglia Forrest
-Gump". Michele allora clicca sul film, arriva sulla sua scheda, e lo aggiunge subito alla lista "film guardati" (con
-voto 10), perché ovviamente lui lo aveva già visto, ma prima di conoscere Moovie.
+Stefano, intanto, notando che Michele ha accettato la sua richiesta, clicca sulla voce "amici" nel menu a sinistra,
+arriva alla pagina degli amici e clicca per andare nel profilo di Michele. Il profilo, che prima presentava solo le
+opzioni di amicizia, adesso mostra anche i giudizi inseriti da Michele su Moovie. Nota con piacere che è presente il
+seguente giudizio: 10 Forrest Gump.
 
 ## Use case models
 ![](Use%20case%20diagrams/Moovie's%20User%20Tasks.jpg)
 
-### Ricerche
-![](Use%20case%20diagrams/Ricerche.jpg)
+### Ricerca
+![](Use%20case%20diagrams/Ricerca.jpg)
 
 #### UC_RIC_1: Ricerca di un film
 **Nome** | **Ricerca di un film**
@@ -286,15 +292,6 @@ Attori | Utente.
 Condizione di entrata | L’utente si trova nell’area di ricerca.
 Flusso di eventi |<br/><ol><li>L’utente seleziona "film" e inserisce il titolo di un film<li>Il sistema esegue la ricerca di film e mostra tutti i risultati<li>L’utente seleziona il film cercato<li>Il sistema preleva le informazioni e le presenta tramite la pagina del film</ol>
 Condizione di uscita | L’utente potrà visualizzare il film tramite [UC_FILM_1](#uc_film_1-visualizzare-un-film).
-Eccezioni | Se il film cercato non è presente, vai a [UC_RIC_1.1](#uc_ric_11-ricerca-di-un-film-fallita).
-
-#### UC_RIC_1.1: Ricerca di un film fallita
-**Nome** | **Ricerca di un film fallita**
----------|---
-Attori | Utente.
-Condizione di entrata | L’utente cerca un film non presente.
-Flusso di eventi | Moovie non trova il film cercato.
-Condizione di uscita | Moovie comunica che il film non è presente.
 
 #### UC_RIC_2: Ricerca di un artista
 **Nome** | **Ricerca di un artista**
@@ -303,15 +300,6 @@ Attori | Utente.
 Condizione di entrata | L’utente si trova nell’area di ricerca.
 Flusso di eventi |<br/><ol><li>L’utente seleziona "artisti" e inserisce il nome di un artista<li>Il sistema esegue la ricerca di artisti e mostra tutti i risultati<li>L’utente seleziona l'artista cercato<li>Il sistema preleva le informazioni e le presenta tramite la pagina dell'artista</ol>
 Condizione di uscita | L’utente potrà visualizzare l'artista tramite [UC_FILM_2](#uc_film_2-visualizzare-un-artista).
-Eccezioni | Se l’utente cercato non è presente, vai a [UC_RIC_2.1](#uc_ric_21-ricerca-di-un-artista-fallita).
-
-#### UC_RIC_2.1: Ricerca di un artista fallita
-**Nome** | **UC_2.1: Ricerca di un artista fallita**
----------|---
-Attori | Utente.
-Condizione di entrata | L’utente cerca un artista non presente.
-Flusso di eventi | Moovie non trova l’artista cercato.
-Condizione di uscita | Moovie comunica che l’artista non è presente.
 
 #### UC_RIC_3: Ricerca di un utente
 **Nome** | **Ricerca di un utente**
@@ -320,25 +308,16 @@ Attori | Utente autenticato.
 Condizione di entrata | L’utente si trova nell’area di ricerca.
 Flusso di eventi |<br/><ol><li>L’utente seleziona "utenti" e inserisce il nome di un utente<li>Il sistema esegue la ricerca di utenti e mostra tutti i risultati<li>L’utente seleziona l'utente cercato<li>Il sistema preleva le informazioni e le presenta tramite il profilo dell'utente</ol>
 Condizione di uscita | L’utente potrà visualizzare l'utente tramite [UC_ACC_5](#uc_acc_5-visualizzare-un-profilo).
-Eccezioni | Se l’utente cercato non è presente, vai a [UC_RIC_3.1](#uc_ric_31-ricerca-di-un-utente-fallita).
 
-#### UC_RIC_3.1: Ricerca di un utente fallita
-**Nome** | **Ricerca di un utente fallita**
----------|---
-Attori | Utente autenticato.
-Condizione di entrata | L’utente cerca un altro utente non esistente.
-Flusso di eventi | Moovie non trova l’account cercato.
-Condizione di uscita | Moovie comunica che l’account non esiste.
-
-### Accounts
-![](Use%20case%20diagrams/Accounts.jpg)
+### Account
+![](Use%20case%20diagrams/Account.jpg)
 
 #### UC_ACC_1: Creare un account
 **Nome** | **Creare un account**
 ---------|---
 Attori | Utente.
 Condizione di entrata | L’utente si trova nella pagina di registrazione.
-Flusso di eventi | <br/><ol><li>L’utente inserisce i seguenti dati: nome, cognome, indirizzo e-mail e password (due volte)<li>Il sistema controlla i dati, verifica che non ci siano account con l’indirizzo e-mail fornito, e salva i dati.</ol>
+Flusso di eventi | <br/><ol><li>L’utente inserisce i seguenti dati: nome, cognome, indirizzo e-mail e password (due volte) e clicca su "registrati"<li>Il sistema controlla i dati, verifica che non ci siano account con l’indirizzo e-mail fornito, e salva i dati.</ol>
 Condizione di uscita | Il sistema comunica che l'account è stato creato.
 Eccezioni | L’indirizzo e-mail fornito è occupato. Vai a [UC_ACC_1.1](#uc_acc_11-registrazione-fallita).
 
@@ -402,8 +381,8 @@ Condizione di entrata | L’utente si nel sito.
 Flusso di eventi | <br/><ol><li>L'utente clicca sul link alla pagina iniziale nel menu<li>Se l'utente è autenticato, il sistema reperisce le attività sue e dei suoi amici e le mostra nella pagina iniziale<li>Se l'utente è ospite, il sistema gli suggerisce di effettuare l'accesso o la registrazione</ol>
 Condizione di uscita | L'utente può consultare la pagina iniziale.
 
-### Amicizie
-![](Use%20case%20diagrams/Amicizie.jpg)
+### Amicizia
+![](Use%20case%20diagrams/Amicizia.jpg)
 
 #### UC_AMI_1: Inviare richiesta di amicizia
 **Nome** | **Inviare richiesta di amicizia**
@@ -552,21 +531,171 @@ Condizione di entrata | L’utente è sul sito.
 Flusso di eventi | <br/><ol><li>L’utente clicca sul link alla classifica dei film presente nel menu<li>Il sistema mostra i film migliori, scelti secondo i giudizi di tutti gli utenti</ol>
 Condizione di uscita | Il sistema mostra i film nella classifica.
 
+### Gestione
+![](Use%20case%20diagrams/Gestione.jpg)
+
+#### UC_GEST_1: Aggiungere un film
+**Nome** | **Aggiungere un film**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nel form di aggiunta film.
+Flusso di eventi | <br/><ol><li>L'utente inserisce i dati necessari (titolo, durata, anno, immagine di copertina e descrizione) e clicca su "aggiungi"<li>Il sistema controlla le informazioni ricevute, salva il film, e lo mostra nella relativa pagina film</ol>
+Condizione di uscita | Il film viene aggiunto.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_1.1](#uc_gest_11-inserimento-film-fallito).
+
+#### UC_GEST_1.1: Inserimento film fallito
+**Nome** | **Inserimento film fallito**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente fornisce dati non validi (titolo vuoto, oppure copertina mancante...).
+Flusso di eventi | <br/><ol><li>Il sistema afferma che i dati non sono corretti<li>L'utente inserisce i dati necessari e clicca di nuovo su "aggiungi"<li>Il sistema controlla le informazioni ricevute, salva il film, e lo mostra nella relativa pagina film</ol>
+Condizione di uscita | Il film viene aggiunto.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_1.1](#uc_gest_11-inserimento-film-fallito).
+
+#### UC_GEST_2: Modificare un film
+**Nome** | **Modificare un film**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nel form di modifica film.
+Flusso di eventi | <br/><ol><li>L'utente modifica almeno uno dei campi (titolo, durata, anno, immagine di copertina e descrizione) e clicca su "modifica"<li>Il sistema controlla le informazioni ricevute, aggiorna il film, e lo mostra nella relativa pagina film</ol>
+Condizione di uscita | Il film viene modificato.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_2.1](#uc_gest_21-aggiornamento-film-fallito).
+
+#### UC_GEST_2.1: Aggiornamento film fallito
+**Nome** | **Aggiornamento film fallito**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente fornisce dati non validi (titolo vuoto, oppure copertina mancante...).
+Flusso di eventi | <br/><ol><li>Il sistema afferma che i dati non sono corretti<li>L'utente reinserisce i dati (validi) e clicca di nuovo su "modifica"<li>Il sistema controlla le informazioni ricevute, aggiorna il film, e lo mostra nella relativa pagina film</ol>
+Condizione di uscita | Il film viene modificato.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_2.1](#uc_gest_21-aggiornamento-film-fallito).
+
+#### UC_GEST_3: Rimuovere un film
+**Nome** | **Rimuovere un film**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nella pagina del film che vuole rimuovere.
+Flusso di eventi | <br/><ol><li>L'utente clicca su "rimuovi"<li>Il sistema rimuove il film e redirige l'utente nella pagina iniziale</ol>
+Condizione di uscita | Il film viene rimosso.
+
+#### UC_GEST_4: Aggiungere un artista
+**Nome** | **Aggiungere un artista**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nel form di aggiunta artista.
+Flusso di eventi | <br/><ol><li>L'utente inserisce i dati necessari (nome e cognome, data di nascita, immagine e descrizione) e clicca su "aggiungi"<li>Il sistema controlla le informazioni ricevute, salva l'artista, e lo mostra nella relativa pagina artista</ol>
+Condizione di uscita | L'artista viene aggiunto.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_4.1](#uc_gest_41-inserimento-film-fallito).
+
+#### UC_GEST_4.1: Inserimento film fallito
+**Nome** | **Inserimento film fallito**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente fornisce dati non validi (data di nascita vuota, oppure immagine mancante...).
+Flusso di eventi | <br/><ol><li>Il sistema afferma che i dati non sono corretti<li>L'utente inserisce i dati necessari e clicca di nuovo su "aggiungi"<li>Il sistema controlla le informazioni ricevute, salva l'artista, e lo mostra nella relativa pagina artista</ol>
+Condizione di uscita | L'artista viene aggiunto.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_4.1](#uc_gest_41-inserimento-film-fallito).
+
+#### UC_GEST_5: Modificare un artista
+**Nome** | **Modificare un artista**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nel form di modifica artista.
+Flusso di eventi | <br/><ol><li>L'utente modifica almeno uno dei campi (nome e cognome, data di nascita, immagine e descrizione) e clicca su "modifica"<li>Il sistema controlla le informazioni ricevute, aggiorna l'artista, e lo mostra nella relativa pagina artista</ol>
+Condizione di uscita | L'artista viene modificato.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_5.1](#uc_gest_51-aggiornamento-artista-fallito).
+
+#### UC_GEST_5.1: Aggiornamento artista fallito
+**Nome** | **Aggiornamento artista fallito**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente fornisce dati non validi (data di nascita vuota, oppure immagine mancante...).
+Flusso di eventi | <br/><ol><li>Il sistema afferma che i dati non sono corretti<li>L'utente reinserisce i dati (validi) e clicca di nuovo su "modifica"<li>Il sistema controlla le informazioni ricevute, aggiorna l'artista, e lo mostra nella relativa pagina artista</ol>
+Condizione di uscita | L'artista viene modificato.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_5.1](#uc_gest_51-aggiornamento-artista-fallito).
+
+#### UC_GEST_6: Rimuovere un artista
+**Nome** | **Rimuovere un artista**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nella pagina dell'artista che vuole rimuovere.
+Flusso di eventi | <br/><ol><li>L'utente clicca su "rimuovi"<li>Il sistema rimuove l'artista e redirige l'utente nella pagina iniziale</ol>
+Condizione di uscita | L'artista viene rimosso.
+
+#### UC_GEST_7: Aggiungere un genere
+**Nome** | **Aggiungere un genere**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nel form di aggiunta genere.
+Flusso di eventi | <br/><ol><li>L'utente inserisce il nome del genere e clicca su "aggiungi"<li>Il sistema controlla il nome, salva il genere e lo mostra nella relativa pagina genere</ol>
+Condizione di uscita | Il genere viene aggiunto.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_7.1](#uc_gest_71-inserimento-genere-fallito).
+
+#### UC_GEST_7.1: Inserimento genere fallito
+**Nome** | **Inserimento genere fallito**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente fornisce un nome non valido.
+Flusso di eventi | <br/><ol><li>Il sistema afferma che il nome non è valido<li>L'utente inserisce un nome valido e clicca di nuovo su "aggiungi"<li>Il sistema controlla il nome, salva il genere e lo mostra nella relativa pagina genere</ol>
+Condizione di uscita | Il genere viene aggiunto.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_7.1](#uc_gest_71-inserimento-genere-fallito).
+
+#### UC_GEST_8: Modificare un genere
+**Nome** | **Modificare un genere**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nel form di modifica genere.
+Flusso di eventi | <br/><ol><li>L'utente modifica il nome e clicca su "modifica"<li>Il sistema controlla il nome, aggiorna il genere e lo mostra nella relativa pagina genere</ol>
+Condizione di uscita | Il genere viene modificato.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_8.1](#uc_gest_81-aggiornamento-genere-fallito).
+
+#### UC_GEST_8.1: Aggiornamento genere fallito
+**Nome** | **Aggiornamento genere fallito**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente fornisce un nome non valido.
+Flusso di eventi | <br/><ol><li>Il sistema afferma il nome non è valido<li>L'utente reinserisce un nome valido e clicca di nuovo su "modifica"<li>Il sistema controlla il nome, aggiorna il genere e lo mostra nella relativa pagina genere</ol>
+Condizione di uscita | Il genere viene modificato.
+Eccezioni | L’utente non fornisce dati corretti. Vai a [UC_GEST_8.1](#uc_gest_81-aggiornamento-genere-fallito).
+
+#### UC_GEST_9: Rimuovere un genere
+**Nome** | **Rimuovere un genere**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nella pagina del genere che vuole rimuovere.
+Flusso di eventi | <br/><ol><li>L'utente clicca su "rimuovi"<li>Il sistema rimuove il genere e redirige l'utente nella pagina iniziale</ol>
+Condizione di uscita | Il genere viene rimosso.
+
+#### UC_GEST_10: Aggiornare artisti in un film
+**Nome** | **Aggiornare artisti in un film**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nella pagina di aggiornamento delle partecipazioni di artisti in un film.
+Flusso di eventi | <br/><ol><li>L'utente seleziona tutti gli attori che recitano in un film (inserendo anche i relativi personaggi) e tutti i registi che hanno diretto il film<li>Il sistema riceve le informazioni, le analizza, e poi le applica al film, mostrandole nella pagina del film.</ol>
+Condizione di uscita | Le informazioni di partecipazione degli artisti vengono aggiornate.
+
+#### UC_GEST_11: Aggiornare generi di un film
+**Nome** | **Aggiornare generi di un film**
+---------|---
+Attori | Utente gestore.
+Condizione di entrata | L’utente si trova nella pagina di aggiornamento dei generi di un film.
+Flusso di eventi | <br/><ol><li>L'utente seleziona tutti i generi del film e clicca su "aggiorna"<li>Il sistema riceve le informazioni, le analizza, e poi le applica al film, mostrandole nella pagina del film.</ol>
+Condizione di uscita | Le informazioni dei generi di un film vengono aggiornate.
+
 ## Object model
 
 ### Boundary objects
 * Pagine generiche:
-    * Pagina iniziale: mostra informazioni rilevanti per l'utente
-        * Se l'utente è autenticato, mostra i giudizi propri e degli amici
-        * Se l'utente è ospite, la pagina invita alla registrazione o all'accesso
     * Pagina film: mostra le informazioni di un film, degli artisti che vi hanno partecipato, e dei suoi generi
     * Pagina artista: mostra le informazioni di un artista e dei film in cui ha lavorato
     * Pagina utente: mostra i giudizi dell'utente (visibili solo se si è amici) e le funzionalità di amicizia
+    * Pagina iniziale per ospiti: invita l'utente alla registrazione o all'accesso
     * Leftmenu: permette di visualizzare giudizi, promemoria, suggerimenti automatici, amici
     * Risultati di ricerca: presenta i risultati elaborati dopo una ricerca
-* Ricerche:
+    * Timeline giudizi: presenta i giudizi di uno o più utenti
+* Ricerca:
     * Area di ricerca: offre le funzioni di ricerca di film, artisti e utenti
-* Accounts:
+* Account:
     * Accesso:
         * Form di accesso: consente di autenticarsi in un account esistente
     * Registrazione:
@@ -575,7 +704,7 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
     * Cambio password:
         * Form di cambio password: richiede l'inserimento della password attuale e nuova per aggiornarla
         * Conferma cambio password: notifica l'avvenuto aggiornamento della password
-* Amicizie:
+* Amicizia:
     * Conferma richiesta amicizia inviata: notifica l'avvenuta richiesta di amicizia
     * Conferma richiesta amicizia cancellata: notifica l'avvenuta cancellazione di una richiesta di amicizia da parte
     dell'iniziale richiedente
@@ -593,21 +722,34 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
     * Pagina promemoria: mostra i promemoria dell'utente che la visualizza
     * Classifica film: mostra i film più votati dall'utenza del sito
     * Pagina suggerimenti: suggerisce alcuni film in linea con le preferenze dell'utente che la visualizza
+* Gestione:
+    * Film:
+        * Form di aggiunta film: richiede l'inserimento delle informazioni di un nuovo film da salvare
+        * Form di modifica film: richiede l'inserimento delle informazioni di un film da aggiornare
+    * Artista:
+        * Form di aggiunta artista: richiede l'inserimento delle informazioni di un nuovo artista da salvare
+        * Form di modifica artista: richiede l'inserimento delle informazioni di un artista da aggiornare
+        * Form di aggiornamento artisti in film: richiede l'inserimento delle informazioni delle partecipazioni degli
+        artisti ad un film
+    * Genere:
+        * Form di aggiunta genere: richiede l'inserimento delle informazioni di un nuovo genere da salvare
+        * Form di modifica genere: richiede l'inserimento delle informazioni di un genere da aggiornare
+        * Form di aggiornamento generi di film: richiede l'inserimento dei generi di un film
 
 ### Control objects
 * Visualizza film: preleva le informazioni di un film per presentarle
 * Visualizza artista: preleva le informazioni di un artista per presentarle
-* Visualiza profilo: preleva le informazioni riguardanti un utente per presentarle
-* Ricerche:
+* Visualizza profilo: preleva le informazioni riguardanti un utente per presentarle
+* Ricerca:
     * Ricerca: permette di ricercare un testo solo tra film, artisti, utenti, o tra tutti questi
-* Accounts:
+* Account:
     * Accesso: permette di autenticare un account se si conoscono e-mail e password annessi
     * Registrazione: permette di registrare un account, controllando prima la correttezza dei campi inseriti
     * Cambio password: effettua un cambio di password
     * Uscita: effettua la deautenticazione dell'utente
     * Visualizza pagina iniziale: se l'utente è autenticato, preleva i giudizi suoi e dei suoi amici e li presenta,
     altrimenti suggerisce all'utente ospite di effettuare l'accesso o la registrazione
-* Amicizie:
+* Amicizia:
     * Richiedi amicizia: invia una richiesta di amicizia
     * Cancella richiesta amicizia: cancella una richiesta di amicizia da parte dell'iniziale richiedente
     * Accetta richiesta amicizia: accetta una richiesta di amicizia
@@ -628,22 +770,46 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
         * Visualizza promemoria: preleva le informazioni dei promemoria dell'utente autenticato per presentarle
     * Visualizza classifica film: preleva i film più votati dall'utenza del sito e le mostra
     * Suggerimenti automatici: suggerisce alcuni film ad un account in base alle sue preferenze cinematografiche
+* Gestione:
+    * Film:
+        * Aggiungi film: aggiunge un film
+        * Modifica film: modifica un film esistente
+        * Rimuovi film: rimuove un film esistente
+    * Artista:
+        * Aggiungi artista: aggiunge un artista
+        * Modifica artista: modifica un artista esistente
+        * Rimuovi artista: rimuove un artista esistente
+        * Aggiornamento artisti in film: aggiorna le informazioni delle partecipazioni degli artisti (come attori o
+        come registi) ai film
+    * Genere:
+        * Aggiungi genere: aggiunge un genere
+        * Modifica genere: modifica un genere esistente
+        * Rimuovi genere: rimuove un genere esistente
+        * Aggiornamento generi di film
 
 ### Entity objects
 * Film Manager:
     * preleva il film con un determinato id (se esiste)
-    * preleva tutti i film di un determinato genere
+    * crea un film
+    * modifica un film
+    * rimuove un film
     * cerca film tramite fulltext
     * suggerisce automaticamente alcuni film ad un utente
+    * preleva la classifica dei miglior film
 * Artista Manager:
     * preleva l'artista con un determinato id (se esiste)
+    * crea un artista
+    * modifica un artista
+    * rimuove un artista
     * cerca artisti tramite fulltext
+    * aggiorna le recitazioni di determinati artisti in un film
+    * aggiorna le regie di determinati artisti in un film
 * Account Manager:
     * controlla l'esistenza di un utente con un determinato indirizzo e-mail
     * crea un account (composto da: nome, cognome, indirizzo e-mail e password)
+    * autentica un account
     * preleva l'account con un determinato id (se esiste)
     * aggiorna le informazioni di un account
-    * autentica un account
     * cerca utenti tramite fulltext
 * Amicizia Manager
     * verifica l'esistenza di qualche relazione tra due account
@@ -656,8 +822,10 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
     * cancella un'amicizia esistente tra due account
     * preleva le amicizie accettate che coinvolgono un determinato account
     * preleva le amicizie in attesa che coinvolgono un determinato account
+    * preleva gli amici di un determinato account
 * Giudizio Manager:
     * preleva il giudizio di un determinato utente ad un determinato film
+    * preleva i giudizi fatti da un determinato insieme di utenti
     * aggiunge un giudizio
     * modifica un giudizio esistente
     * rimuove un giudizio esistente
@@ -665,15 +833,12 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
     * preleva tutti i promemoria di un utente
     * aggiunge un promemoria
     * rimuove un promemoria
-* Recitazione Manager:
-    * preleva la recitazione di tutti gli attori in un determinato film
-    * preleva la recitazione di un determinato attore in tutti i film
-* Regia Manager:
-    * preleva le regie di tutti i registi in un determinato film
-    * preleva le regie di un determinato regista in tutti i film
 * Genere Manager:
     * preleva il genere con un determinato id (se esiste)
     * preleva tutti i generi di un determinato film
+    * crea un genere
+    * modifica un genere
+    * rimuove un genere
 * Auth Manager:
     * autentica un utente salvandolo nella sessione
     * preleva l'utente autenticato nella sessione (se presente)
@@ -692,21 +857,24 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 ## Class diagrams
 ![](Class%20diagrams/Main%20class%20diagram.jpg)
 
-### Ricerche
-![](Class%20diagrams/Ricerche.jpg)
+### Ricerca
+![](Class%20diagrams/Ricerca.jpg)
 
-### Accounts
-![](Class%20diagrams/Accounts.jpg)
+### Account
+![](Class%20diagrams/Account.jpg)
 
-### Amicizie
-![](Class%20diagrams/Amicizie.jpg)
+### Amicizia
+![](Class%20diagrams/Amicizia.jpg)
 
 ### Film
 ![](Class%20diagrams/Film.jpg)
 
+### Gestione
+![](Class%20diagrams/Gestione.jpg)
+
 ## Sequence diagrams
 
-### Ricerche
+### Ricerca
 
 ![](Sequence%20diagrams/UC_RIC_1%20Ricerca%20di%20un%20film.jpg)
 
@@ -714,13 +882,19 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 
 ![](Sequence%20diagrams/UC_RIC_3%20Ricerca%20di%20un%20utente.jpg)
 
-### Accounts
+### Account
 
 ![](Sequence%20diagrams/UC_ACC_1%20Creare%20un%20account.jpg)
 
+![](Sequence%20diagrams/UC_ACC_1.1%20Registrazione%20fallita.jpg)
+
 ![](Sequence%20diagrams/UC_ACC_2%20Autenticare%20un%20account.jpg)
 
+![](Sequence%20diagrams/UC_ACC_2.1%20Autenticazione%20fallita.jpg)
+
 ![](Sequence%20diagrams/UC_ACC_3%20Cambiare%20password.jpg)
+
+![](Sequence%20diagrams/UC_ACC_3.1%20Cambio%20password%20fallito.jpg)
 
 ![](Sequence%20diagrams/UC_ACC_4%20Deautenticare%20un%20account.jpg)
 
@@ -728,7 +902,7 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 
 ![](Sequence%20diagrams/UC_ACC_6%20Visualizzare%20la%20pagina%20iniziale.jpg)
 
-### Amicizie
+### Amicizia
 
 ![](Sequence%20diagrams/UC_AMI_1%20Inviare%20richiesta%20di%20amicizia.jpg)
 
@@ -768,7 +942,44 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 
 ![](Sequence%20diagrams/UC_FILM_12%20Visualizzare%20la%20classifica%20dei%20film.jpg)
 
+### Gestione
+
+![](Sequence%20diagrams/UC_GEST_1%20Aggiungere%20un%20film.jpg)
+
+![](Sequence%20diagrams/UC_GEST_1.1%20Inserimento%20film%20fallito.jpg)
+
+![](Sequence%20diagrams/UC_GEST_2%20Modificare%20un%20film.jpg)
+
+![](Sequence%20diagrams/UC_GEST_2.1%20Aggiornamento%20film%20fallito.jpg)
+
+![](Sequence%20diagrams/UC_GEST_3%20Rimuovere%20un%20film.jpg)
+
+![](Sequence%20diagrams/UC_GEST_4%20Aggiungere%20un%20artista.jpg)
+
+![](Sequence%20diagrams/UC_GEST_4.1%20Inserimento%20artista%20fallito.jpg)
+
+![](Sequence%20diagrams/UC_GEST_5%20Modificare%20un%20artista.jpg)
+
+![](Sequence%20diagrams/UC_GEST_5.1%20Aggiornamento%20artista%20fallito.jpg)
+
+![](Sequence%20diagrams/UC_GEST_6%20Rimuovere%20un%20artista.jpg)
+
+![](Sequence%20diagrams/UC_GEST_7%20Aggiungere%20un%20genere.jpg)
+
+![](Sequence%20diagrams/UC_GEST_7.1%20Inserimento%20genere%20fallito.jpg)
+
+![](Sequence%20diagrams/UC_GEST_8%20Modificare%20un%20genere.jpg)
+
+![](Sequence%20diagrams/UC_GEST_8.1%20Aggiornamento%20genere%20fallito.jpg)
+
+![](Sequence%20diagrams/UC_GEST_9%20Rimuovere%20un%20genere.jpg)
+
+![](Sequence%20diagrams/UC_GEST_10%20Aggiornare%20artisti%20in%20un%20film.jpg)
+
+![](Sequence%20diagrams/UC_GEST_11%20Aggiornare%20generi%20di%20un%20film.jpg)
+
 ## Statechart diagrams
+
 ![](Statechart%20diagrams/Utente.jpg)
 ![](Statechart%20diagrams/Amicizia.jpg)
 
@@ -777,3 +988,5 @@ Condizione di uscita | Il sistema mostra i film nella classifica.
 ![](Navigational%20paths/Utente%20ospite.jpg)
 
 ![](Navigational%20paths/Utente%20autenticato.jpg)
+
+![](Navigational%20paths/Utente%20gestore.jpg)
