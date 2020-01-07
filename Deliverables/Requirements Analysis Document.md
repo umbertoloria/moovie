@@ -10,7 +10,7 @@
 | 0.7      | 19/11/2019 | Sequence Diagrams su GitHub    | Team                     |
 | 0.8      | 25/11/2019 | Riorganizzazione sottosistemi  | Umberto Loria            |
 | 0.9      | 23/12/2019 | Miglioramenti di progettazione | Umberto Loria            |
-| 1.0      | 3/1/2020   | Introduzione gestione          | Umberto Loria            |
+| 1.0      | 3/1/2020   | Introduzione gestione          | Team                     |
 
 # Indice
 1. [Introduzione](#introduzione)
