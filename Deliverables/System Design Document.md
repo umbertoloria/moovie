@@ -157,7 +157,7 @@ i sottosistemi in tre stati(Layers):
  - DataLayer: Strato che si occupa di gestire i dati del sistema.
 
 #### Ricerca
-![](Package diagrams/DiagramRicerca.jpg)
+![](Package%20diagrams/DiagramRicerca.jpg)
 
 Il sottosistema  "Ricerca" si occupa di gestire le ricerche di tutti gli utenti offrendo diverse funzionalità quali:
  - Ricerca di un film;
@@ -177,7 +177,7 @@ sistema:
 Questo livello si occupa di gestire i dati riguardanti le richerche degli utenti all'interno del sistema.
 
 #### Account
-![](Package diagrams/DiagramAccount.jpg)
+![](Package%20diagrams/DiagramAccount.jpg)
 
 Il sottosistema "Account" si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
  - Creare un account
@@ -221,7 +221,7 @@ nel sistema:
 Questo livello si occupa di gestire i dati riguardanti gli utenti dell'intero sistema.
 
 #### Amicizia
-![](Package diagrams/DiagramAmicizia.jpg)
+![](Package%20diagrams/DiagramAmicizia.jpg)
 
 Il sottosistema "Amicizia" si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
  - Inviare richiesta di amicizia
@@ -323,7 +323,7 @@ Questo livello si occupa di gestire i dati riguardanti i giudizi sui film  degli
 e i suggerimenti automatici all'interno del sistema.
 
 ### Gestione
-![](Package diagrams/DiagramGestione.jpg)
+![](Package%20diagrams/DiagramGestione.jpg)
 
 Il sosttosistema "Gestione" si occupa di gestire i dati presenti nel sito offrendo diverse funzionalità quali:
 - Aggiungere un film;
