@@ -6,24 +6,24 @@
 | 0.3      | 28/11/2019 | Descrizione del problema, revisione sottosistemi, condizioni limite e servizi sottosistemi | Michelantonio Panichella                   |
 | 0.4      | 29/11/2019 | Definizioni, acronimi, abbreviazioni, riferimenti, panoramica e gestione dati persistenti  | Michelantonio Panichella, Gianluca Pirone  |
 | 0.5      | 18/12/2019 | Revisione sottosistemi, revisione diagrammi e revisione tavola degli accessi               | Team                                       |
-| 0.6      | 07/01/2020 | Miglioramento sottosistemi, miglioramento tavola degli accessi                             | Gianluca Pirone                            |
+| 0.6      | 7/1/2020   | Miglioramento sottosistemi, miglioramento tavola degli accessi                             | Gianluca Pirone                            |
+| 0.7      | 9/1/2020   | Revisione sottosistemi, integrazione nuovi diagrammi e miglioramento tavola degli accessi  | Team                                       |
 
 # Indice
 1. [Introduzione](#introduzione)
-    1. [Descrizione del Problema](#-descrizione-del-problema)
-    2. [Design Goals](#designgoals)
-        1. [Usability](#dg_1_usability)
-        2. [Reliability](#dg_2_reliability)
-        3. [Performance](#dg_3_performance)
-        4. [Supportability](#dg_4_supportability)
+    1. [Descrizione del problema](#descrizione-del-problema)
+    2. [Design Goals](#design-goals)
+        1. [DG_1 Usability](#dg_1-usability)
+        2. [DG_2 Reliability](#dg_2-reliability)
+        3. [DG_3 Performance](#dg_3-performance)
+        4. [DG_4 Supportability](#dg_4-supportability)
     3. [Definizioni, Acronimi e Abbreviazioni](#definizioni-acronimi-e-abbreviazioni)
     4. [Riferimenti](#riferimenti)
     5. [Panoramica](#panoramica)
 2. [Architettura del Sistema](#architettura-del-sistema)
     1. [Panoramica](#panoramica)
     2. [Decomposizione in sottosistemi](#decomposizione-in-sottosistemi)
-        1. [Decomposizione in macro-sistemi](#decomposizione-in-macro-sistemi)
-        2. [Decomposizione in miscro-sistemi](#decomposizione-in-micro-sistemi)
+        1. [Sottosistemi](#sottosistemi)
             1. [Ricerca](#ricerca)
                 1. [RicercaPresentationLayer](#ricercapresentationlayer)
                 2. [RicercaApplicationLayer](#ricercaapplicationlayer)
@@ -40,10 +40,10 @@
                 1. [GestionePresentationLayer](#gestionepresentationlayer)
                 2. [GestioneApplicationLayer](#gestioneapplicationlayer)
                 3. [GestioneDataLayer](#gestionedatalayer)
-    3. [Mappatura Hardware/Software](#mappatura-hardwaresoftware)
+    3. [Mappatura Hardware/Software](#mappatura-hardware-software)
     4. [Gestione dei Dati Persistenti](#gestione-dei-dati-persitenti)
     5. [Gestione degli accessi](#gestione-degli-accessi)
-    6. [Condizione limite](#-condizione-limite)
+    6. [Condizione limite](#condizione-limite)
         1. [Inizializzazione](#inizializzazione)
         2. [Terminazione](#terminazione)
         3. [Fallimenti](#fallimenti)
@@ -58,14 +58,11 @@
 # Introduzione
 
 ## Descrizione del problema
-La web-Application da noi proposta è stata progettata per poter permettere a chiunque fosse interessato e appassionato
+La web application da noi proposta è stata progettata per poter permettere a chiunque fosse interessato e appassionato
 di cinema, di gestire, e non solo, i propri film nella maniera quanto più semplice e divertente possibile.
-Moovie infatti offrè la possibilità di trovare al suo interno tantissime informazioni riguardanti il mondo del cinema e
-consentirà a tutti gli utenti di avere delle vere e proprie liste di film che potrà condividere con i proprio amici.
-L'Obiettivo del sito è quello di facilitare a tutti il reperimento di dati riguardanti il mondo del cinema, fornendo
-una piattaforma che sia in grado di condividere informazioni cinematografiche nella quale ogni utente potrà registrarsi
-e condividere le sue informazioni e le cose che più gli interessano ai suoi amici.
-
+Moovie infatti offrè la possibilità di trovare al suo interno tantissime informazioni riguardanti il mondo del cinema e 
+attraverso delle funzionalità ben specifiche di rendere l'utente in grado di gestire al meglio alcuni dati riguardanti 
+i film.
 Tutto ciò verrà offerto attraverso delle funzionalità che il sito offre quali:
 * Gestione del proprio Account
 * Ricerca di un film, di un attore o di un utente ricevendo informazioni su di esso
@@ -73,33 +70,29 @@ Tutto ciò verrà offerto attraverso delle funzionalità che il sito offre quali
 * Gestione dei film aggiungendo, modificando o rimuovendo un giudizio su un film
 
 ## Design Goals
-Il sito Moovie sarà progettato in modo tale da fare avere all'utente una Web-Application di qualità. 
+Il sito Moovie sarà progettato in modo tale da fare avere all'utente una web application di qualità. 
 La qualità fornita è visibile all'interno del sistema laddove ci interfacciamo con esso in quanto Moovie dovrà offrire 
-u'n interfaccia facile e semplice da ulizzare da parte di tutti gli utenti, dovrà garantire tempi di risposta minima, 
-dovrà offrire un servizio di qualitò nel trattamento dei dati, e dovrà essere utlizzabile su diverse piattaforme senza 
-avere alcun tipo di problema.
+un' interfaccia facile e semplice da ulizzare da parte di tutti gli utenti, dovrà garantire tempi di risposta minima e  
+dovrà offrire un servizio di qualità nel trattamento dei dati.
 
-### DG_1_Usability
-
+### DG_1 Usability
 * 2.1.1 Facilità d'uso: il sito Moovie deve offrire la possibiltà di utilizzare ogni  funzionalità del sito in modo
 semplice.
 * 2.1.2 L’utente non deve sentirsi smarrito durante l’uso delle interfacce di Moovie. L’utente deve sempre poter
-raggiungere la home e login/logout. Il sito si adatterà alle dimensioni del dispositivo su cui si naviga.
+raggiungere la home e login/logout.
 Sarà totalmente gratuito.
 
-### DG_2_Reliability
-
+### DG_2 Reliability
 * 2.2.1 Consistenza dei dati: Moovie, attraverso un database Relazionale, garantirà la consistenza dei dati.
-* 2.2.2 Persistenza dei dati: Moovie, offre un sistema di memorizzazione dei dati presenti sul sito attraverso un database 
-relazionale con il quale sarà possible recuperare informazioni il più veloce e semplice possibile.
+* 2.2.2 Persistenza dei dati: Moovie, offre un sistema di memorizzazione dei dati presenti sul sito attraverso 
+un database relazionale con il quale sarà possible recuperare informazioni nel modo più veloce e semplice possibile.
 
-### DG_3_Performance
-
+### DG_3 Performance
 * 2.3.1 Tempo di risposta: Moovie, garantirà un tempo di risposta medio, per ogni tipo di funzionalità, minore di 1s;
 * 2.3.2 Scalabilità: Moovie sarà in grado di gestire un numero elevato di utenti contemporaneamente.
 
 
-### DG_4_Supportability
+### DG_4 Supportability
 * 2.4.1 Sarà supportato dai browser Google Chrome, Mozilla Firefox, Safari 
 
 ## Definizioni, Acronimi e Abbreviazioni
@@ -121,10 +114,10 @@ PDO | PHP Data Objects
 ## Panoramica
 Il documento è stato diviso in quattro sezioni fondamentali, ognuna fornita di una breve descrizione.
 Queste sono:
- - Introduzione: sezione che vuole illustrare l'ambito che ha portato alla progettazione della web-Application. 
+ - Introduzione: sezione che vuole illustrare l'ambito che ha portato alla progettazione della web application. 
  Vengono forniti e descritti gli obiettivi proposti dal sistema, le varie funzionalità messe a disposizione 
  dei vari utenti e i criteri da rispettare. 
- - Architettura del Sistema: sezione che descrive la decomposizione in macro-sistemi e quella in micro-sistemi, 
+ - Architettura del Sistema: sezione che descrive la decomposizione del sistema in sottosistemi, 
  la mappatura Hardware/Software del sistema, la gestione dei dati persistenti, la gestione degli accessi e la condizione
   limite.
  - Servizi dei Sottosistemi: sezione che fornisce informazioni riguardo i servizi forniti da ogni Sottosistema.
@@ -141,9 +134,9 @@ stato delle altre due componenti (Model, View);
 
 
 ## Decomposizione in sottosistemi
-### Decomposizione in macro-sistemi
+### Sottosistemi
 La decomposizione in sottosistemi è stata fatta cercando di raggruppare argomenti che sono tra loro quanto più simili 
-possibili. Una macro suddivisione del sistema è stata fatta in questo modo:
+possibili. La suddivisone di "Moovie" in sottosistemi è la seguente: 
  - Ricerca;
  - Account;
  - Amicizia;   
@@ -152,22 +145,19 @@ possibili. Una macro suddivisione del sistema è stata fatta in questo modo:
  
 ![](Package%20diagrams/Suddivisione_Sottosistemi.jpg)
 
-
 L'immagine mostrata, rappresenta le varie suddivisioni fatte all'interno del sistema mostrando dunque, per ogni layer, 
 i sottosistemi che includono e descrivendo anche le relazioni che ci sono tra i vari layer.
 
-
-### Decomposizione in micro-sistemi
 Per procedere ad uno sviluppo e ad una progettazione semplificata dell'intero sistema si è deciso di suddividere 
-i sottosistemi in tre stati:
+i sottosistemi in tre stati(Layers):
  - PresentationLayer: Strato che si occupa delle interfaccie grafiche con il quale l'utente dovra interagire;
  - ApplicationLayer: Strato che si occupa di gestire tutte le richieste che l'utente fa attraverso 
  il "PresentationLayer", ricevendo, elaborando e alla fine mostrando graficamente il risultato di un' operazione da lui 
  fatta;
- - Data: Strato che si occupa di gestire i dati del sistema.
+ - DataLayer: Strato che si occupa di gestire i dati del sistema.
 
 #### Ricerca
-![](Package%20diagrams/Sottosistema_Ricerca.jpeg)
+![](Package diagrams/DiagramRicerca.jpg)
 
 Il sottosistema  "Ricerca" si occupa di gestire le ricerche di tutti gli utenti offrendo diverse funzionalità quali:
  - Ricerca di un film;
@@ -176,22 +166,18 @@ Il sottosistema  "Ricerca" si occupa di gestire le ricerche di tutti gli utenti 
 
 #### RicercaPresentationLayer
 Questo livello include tutte le componenti dell'interfaccia che offrono funzionalità riguardanti le ricerche:
- - GUI - Ricerca di un film: interfacce che offrono all'utente la possibilità di ricercare un film.
- - GUI - Ricerca di un artista: interfacce che offrono all'utente la possibilità di ricercare un artista.
- - GUI - Ricerca di un utente: interfacce che offrono all'utente autenticato la possibilità di ricercare un altro utente.
+ - GUI - Ricerca: interfacce che offrono all'utente la possibilità di ricercare un film, un utente o un artista
 
 #### RicercaApplicationLayer
 Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema "Ricerca" nel 
 sistema:
-- RicercaFilm(): incoropora operazioni che permettono di ricercare un film ad un utente.
-- RicercaArtista(): incoropora operazioni che permettono di ricercare un artista ad un utente.
-- RicercaUtente(): incoropora operazioni che permettono di ricercare un altro utente ad un utente autenticato.
+- Ricerca(): incoropora operazioni che permettono di ricercare un film, un utente o un artista, ad un utente.
 
 #### RicercaDataLayer
 Questo livello si occupa di gestire i dati riguardanti le richerche degli utenti all'interno del sistema.
 
 #### Account
-![](Package%20diagrams/Sottosistema_Account.jpg)
+![](Package diagrams/DiagramAccount.jpg)
 
 Il sottosistema "Account" si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
  - Creare un account
@@ -200,7 +186,6 @@ Il sottosistema "Account" si occupa di gestire tutti gli account del sistema off
  - Deautenticare un account
  - Visualizzare un profilo
  - Visualizzare la pagina iniziale
-
 
 #### AccountPresentationLayer
 Questo livello include tutte le componenti dell'interfaccia che offrono funzionalità riguardanti la gestione 
@@ -211,26 +196,32 @@ di un account:
  del sito;
  - GUI - Cambiare password: interfacce che offrono all'utente autenticato la possibilità di accettare le modifiche 
  precedentemente fatte alla password;
- - GUI - Deautentiare un account: interfacce che offrono all'utente autenticato la possibilità di deautenticarsi dal sito;
- - GUI - Visualizzare un profilo: interfacce che offrono all'utente autenticato la possibilità di visulizzare un profilo all'interno del sito;
- - GUI - Visualizzare la pagina iniziale: interfacce che offrono all'utente autenticato la possibilità di visulizzare la pagina iniziale del sito;
+ - GUI - Deautentiare un account: interfacce che offrono all'utente autenticato la possibilità di deautenticarsi 
+ dal sito;
+ - GUI - Visualizzare un profilo: interfacce che offrono all'utente autenticato la possibilità di visulizzare un profilo
+  all'interno del sito;
+ - GUI - Visualizzare la pagina iniziale: interfacce che offrono all'utente autenticato la possibilità di visulizzare 
+ la pagina iniziale del sito;
 
 #### AccountApplicationLayer
 Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema "Account" 
 nel sistema:
  - CreareAccount(): incorpora operazioni che permettono di creare un nuovo account ad un utente;
  - AutenticareAccount(): incorpora operazioni che permettono ad un utente di autenticarsi all'interno di Moovie;
- - CambiarePassword(): incorpora operazioni che permettono all'utente autenticato di accettare i cambiamenti precedentementi 
+ - CambiarePassword(): incorpora operazioni che permettono all'utente autenticato di accettare i cambiamenti 
+ precedentementi 
  fatti alla propria password;
  - DeautenticareAccount(): incorpora operazioni che permettono all'utente autenticato di deautenticarsi dal sito;
- - VisualizzareProfilo(): incorpora operazioni che permettono all'utente autenticato di visualizzare un profilo all'interno del sito;
- - VisualizzarePaginaIniziale(): incorpora operazioni che permettono all'utente autenticato di visualizzare la pagina iniziale del sito;
+ - VisualizzareProfilo(): incorpora operazioni che permettono all'utente autenticato di visualizzare un profilo 
+ all'interno del sito;
+ - VisualizzarePaginaIniziale(): incorpora operazioni che permettono all'utente autenticato di visualizzare 
+ la pagina iniziale del sito;
 
 #### AccountDataLayer
 Questo livello si occupa di gestire i dati riguardanti gli utenti dell'intero sistema.
 
 #### Amicizia
-![](Package%20diagrams/Sottosistema_Amicizia.jpg)
+![](Package diagrams/DiagramAmicizia.jpg)
 
 Il sottosistema "Amicizia" si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
  - Inviare richiesta di amicizia
@@ -253,28 +244,33 @@ Questo livello include tutte le componenti dell'interfaccia che offrono funziona
  una richiesta di amicizia proveniente da un altro account;
  - GUI - Cancellare amicizia: interfacce che offrono all'utente autenticato la possibilità di cancellare 
  un'amicizia con un altro account;
- - GUI - Visualizzare gli amici: interfacce che offrono all'utente autenticato la possibilità di visualizzare le amicizie in cui è coinvolto;
+ - GUI - Visualizzare gli amici: interfacce che offrono all'utente autenticato la possibilità di visualizzare 
+ le amicizie in cui è coinvolto;
 
 #### AmiciziaApplicationLayer
 Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema "Amicizia" 
 nel sistema:
  - InviareRichiestaAmcizia(): incorpora operazioni che permettono all'utente autenticato di richiedere l'amicizia ad un 
  altro utente;
- - CancellareRichiestaAmcizia(): incorpora operazioni che permettono all'utente autenticato di cancellare la richiesta d'amicizia ad un 
+ - CancellareRichiestaAmcizia(): incorpora operazioni che permettono all'utente autenticato di cancellare la richiesta 
+ d'amicizia ad un 
   altro utente;
- - AccettareRichiestaAmicizia(): incorpora operazioni che permettono all'utente autenticato di accettare l'amicizia di un 
+ - AccettareRichiestaAmicizia(): incorpora operazioni che permettono all'utente autenticato di accettare 
+ l'amicizia di un 
  altro utente;
- - RifiutareRichiestaAmicizia(): incorpora operazioni che permettono all'utente autenticato di rifiutare l'amicizia di un 
+ - RifiutareRichiestaAmicizia(): incorpora operazioni che permettono all'utente autenticato di rifiutare 
+ l'amicizia di un 
  altro utente;
  - CancellareAmicizia(): incorpora operazioni che permettono all'utente autenticato di cancellare l'amicizia con un 
  altro utente;
- - VisualizzaAmici(): incorpora operazioni che permettono all'utente autenticato di visualizzare le amicizie in cui è coinvolto;
+ - VisualizzaAmici(): incorpora operazioni che permettono all'utente autenticato di visualizzare le amicizie 
+ in cui è coinvolto;
 
 #### AmiciziaDataLayer
-Questo livello si occupa di gestire le amicizie degli utenti dell'intero sistema.
+Questo livello si occupa di gestire i dati riguardanti le amicizie degli utenti dell'intero sistema.
 
 #### Film
-![](Package%20diagrams/Sottosistema_Film.jpg)
+![](Package%20diagrams/DiagramFIlm.jpg)
 
 Il sottosistema "Film" si occupa di gestire i giudizi di tutti gli utenti autenticati offrendo diverse funzionalità 
 quali:
@@ -326,8 +322,8 @@ Questo include al suo interno tutte le componenti che offrono operazioni rigurda
 Questo livello si occupa di gestire i dati riguardanti i giudizi sui film  degli utenti autenticati, 
 e i suggerimenti automatici all'interno del sistema.
 
-###Gestione
-![](Package%20diagrams/Sottosistema_Gestione.jpg)
+### Gestione
+![](Package diagrams/DiagramGestione.jpg)
 
 Il sosttosistema "Gestione" si occupa di gestire i dati presenti nel sito offrendo diverse funzionalità quali:
 - Aggiungere un film;
@@ -374,6 +370,15 @@ Questo include al suo interno tutte le componenti che offrono le operazioni rigu
 #### GestioneDataLayer
 Questo livello si occupa di gestire alcuni dati presenti nel sito Moovie, permettendo, ad un utente gestore di gestirli.
 
+
+## Mappatura Hardware/ Software
+![](Deployment%20diagrams/Mappatura_HW_SW.jpg)
+
+Per il sistema "Moovie" si è scelto di utilizzare una struttura **three-tier** composta da un tier di Presentazione, un tier di Business Logic e un tier di Data Resource. 
+"Ogni tier ha dei ruoli ben precisi" e ognuno ha il proprio tipo di device su cui viene eseguito. Il tier di Presentazione, attraverso la componente di "Web Browser" permette ad un client di interfacciarsi con l'intero sistema, 
+fornendo ad un utente la possibilità di fare richieste e renderdo i risultati di ognuna visibili all'utente. Tutte le richieste che un client esegue, attraverso i protocolli HTTP o HTTPS, arrivano sul web server ( interpretato da Apache), 
+sul quale viene eseguita, tra le altre cose, la logica di business del sito e, in caso di necessità, interfacciarsi con il DBMS per utilizzare i dati persistenti. 
+
 ## Gestione dei dati persitenti
 Il sito Moovie ha al suo interno alcuni dati che devono essere mantenuti affinché il suo funzionamento sia valido. 
 La persistenza di questi, è stata scelta di dargliela, memorizzando essi in un database relazionale nel quale i dati persistenti vengono rappresentati attraverso delle tabelle, 
@@ -390,14 +395,12 @@ in maniera persistente.
 ### Struttura Tabelle
 
 #### Tabella generi
-
 | Attributo |    Tipo      | Chiave   |
 |-----------|--------------|----------|
 | id        | INT          | Primaria |
 | nome      | VARCHAR(100) |          | 
 
 #### Tabella film_has_genere
-
 | Attributo |    Tipo    | Chiave                                      |
 |-----------|------------|---------------------------------------------|
 | film      | INT        | Primaria, Esterna(derivante da films(id))    |
@@ -409,7 +412,6 @@ in maniera persistente.
 | attore      | INT          | Primaria, Esterna(derivante da artisti(id)) |
 | film        | INT          | Primaria, Esterna(derivante da films(id)     |
 | personaggio | VARCHAR(100) |                                             |
-
 
 #### Tabella artisti
 | Attributo |    Tipo      | Chiave   |
@@ -464,7 +466,6 @@ in maniera persistente.
 | destinatario      | INT        |Primaria, Esterna (derivante da utenti(id)) |
 | momento_richiesta | DATETIME   |                                            |
 
-
 #### Tabella utenti
 | Attributo |    Tipo      | Chiave                       |
 |-----------|--------------|------------------------------|
@@ -495,20 +496,19 @@ Moovie prevede differenti tipologie di utenza, ognuna delle quali può usufruire
 a seconda del tipo di oggetto con cui interagiscono.
 
 Si è scelto di utilizzare una matrice per documentare i diritti di accesso per ogni attore.
-La matrice suddivide la tipologia di attore per colonna, la tipologia di oggetto a cui si accede per riga, 
+La matrice suddivide la tipologia di attore per riga, la tipologia di oggetto a cui si accede per colonna, 
 e per ogni interazione tra questi è presente l'insieme di operazioni disponibli. 
 
-**Attori / Macro-sistemi** | **Utente** | **Utente Autenticato** | **Gestore**
--------- | --------| ----- | ---- 
-Ricerca| RicercaFilm()<br/>RicercaArtista() | RicercaFilm()<br/>RicercaArtista()<br/>RicercaUtente() | RicercaFilm()<br/>RicercaArtista()<br/>RicercaUtente()
-Account | CreareAccount()<br/>AutenticareAccount() | CambiarePassword()<br/>DeautenticareAccount()<br/>VisualizzareProfilo()<br/>VisualizzarePaginaIniziale() | CambiarePassword()<br/>DeautenticareAccount()<br/>VisualizzareProfilo()<br/>VisualizzarePaginaIniziale()  
-Amicizia | | InviareRichiestaAmicizia()<br/>CancellareRichiestaAmicizia()<br/>AccettareRichiestaAmicizia()<br/>RifiutareRichiestaAmicizia()<br/>CancellareAmicizia()<br/>VisualizzareAmici() | InviareRichiestaAmicizia()<br/>CancellareRichiestaAmicizia()<br/>AccettareRichiestaAmicizia()<br/>RifiutareRichiestaAmicizia()<br/>CancellareAmicizia()<br/>VisualizzareAmici() 
-Film | VisualizzareFilm()<br/>VisualizzareArtista()<br/>VisualizzareGenere()<br/> | VisualizzareFilm()<br/>VisualizzareArtista()<br/>VisualizzareGenere()<br/>AggiungereGiudizio()<br/>ModificareGiudizio()<br/>RimuovereGiudizio()<br/>VisualizzareGiudizi()<br/>AggiungerePromemoria()<br/>RimuoverePromemoria()<br/>VisualizzarePromemoria()<br/>SuggerimentiAutomaticiFilm()<br/>VisualizzareClassificaFilm()<br/> | VisualizzareFilm()<br/>VisualizzareArtista()<br/>VisualizzareGenere()<br/>AggiungereGiudizio()<br/>ModificareGiudizio()<br/>RimuovereGiudizio()<br/>VisualizzareGiudizi()<br/>AggiungerePromemoria()<br/>RimuoverePromemoria()<br/>VisualizzarePromemoria()<br/>SuggerimentiAutomaticiFilm()<br/>VisualizzareClassificaFilm()<br/> 
-Gestione | | | AggiungereFilm()<br/>AggiungereArtista()<br/>AggiungereGenere()<br/>ModificareFilm()<br/>ModificareArtista()<br/>ModificareGenere()<br/>RimuovereFilm()<br/>RimuovereArtista()<br/>RimuovereGenere()<br/>AggiornareGeneriFilm()<br/>AggiornareArtistiFilm()
+
+**Sottosistemi/ Attori** | **Ricerca**                                            | **Account**                                                                                              | **Amicizia**                                                                                                                                                                    | **Film**                                                                                                                                                                                                                                                                                                                           | **Gestione**                                                                                                                                                                                                                                                |
+-------------------------|--------------------------------------------------------|----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+Utente                   | RicercaFilm()<br/>RicercaArtista()                     | CreareAccount()<br/>AutenticareAccount()                                                                 |                                                                                                                                                                                 | VisualizzareFilm()<br/>VisualizzareArtista()<br/>VisualizzareGenere()<br/>                                                                                                                                                                                                                                                         |                                                                                                                                                                                                                                                             |
+Utente autenticato       | RicercaFilm()<br/>RicercaArtista()<br/>RicercaUtente() | CambiarePassword()<br/>DeautenticareAccount()<br/>VisualizzareProfilo()<br/>VisualizzarePaginaIniziale() | InviareRichiestaAmicizia()<br/>CancellareRichiestaAmicizia()<br/>AccettareRichiestaAmicizia()<br/>RifiutareRichiestaAmicizia()<br/>CancellareAmicizia()<br/>VisualizzareAmici() | VisualizzareFilm()<br/>VisualizzareArtista()<br/>VisualizzareGenere()<br/>AggiungereGiudizio()<br/>ModificareGiudizio()<br/>RimuovereGiudizio()<br/>VisualizzareGiudizi()<br/>AggiungerePromemoria()<br/>RimuoverePromemoria()<br/>VisualizzarePromemoria()<br/>SuggerimentiAutomaticiFilm()<br/>VisualizzareClassificaFilm()<br/> |                                                                                                                                                                                                                                                             |
+Gestore                  | RicercaFilm()<br/>RicercaArtista()<br/>RicercaUtente() | CambiarePassword()<br/>DeautenticareAccount()<br/>VisualizzareProfilo()<br/>VisualizzarePaginaIniziale() | InviareRichiestaAmicizia()<br/>CancellareRichiestaAmicizia()<br/>AccettareRichiestaAmicizia()<br/>RifiutareRichiestaAmicizia()<br/>CancellareAmicizia()<br/>VisualizzareAmici() | VisualizzareFilm()<br/>VisualizzareArtista()<br/>VisualizzareGenere()<br/>AggiungereGiudizio()<br/>ModificareGiudizio()<br/>RimuovereGiudizio()<br/>VisualizzareGiudizi()<br/>AggiungerePromemoria()<br/>RimuoverePromemoria()<br/>VisualizzarePromemoria()<br/>SuggerimentiAutomaticiFilm()<br/>VisualizzareClassificaFilm()<br/> | AggiungereFilm()<br/>AggiungereArtista()<br/>AggiungereGenere()<br/>ModificareFilm()<br/>ModificareArtista()<br/>ModificareGenere()<br/>RimuovereFilm()<br/>RimuovereArtista()<br/>RimuovereGenere()<br/>AggiornareGeneriFilm()<br/>AggiornareArtistiFilm() |
+
 
 
 ## Condizione Limite
-
 ### Inizializzazione
 Allo start-up del sistema è necessario l'avvio di un Web-Server Apache, il quale, attraverso MySQL acquisirà 
 le informazioni necessarie all'interno del database per permettere all'utente la viusualizzazione della HomePage.
@@ -528,37 +528,35 @@ che sono i servizi che la web-application offre.
 
 ## Sottosistema "Ricerca"
 Sottosistema | Descrizione 
----|---
-Ricerche | Il sottosistema "Ricerca" si occupa di fornire tutti i servizi che offrono la possibilità di effettuare delle ricerche e ricevere delle informazioni sul sito 
+-------------|------------
+Ricerche     | Il sottosistema "Ricerca" si occupa di fornire tutti i servizi che offrono la possibilità di effettuare delle ricerche e ricevere delle informazioni sul sito 
 
-Servizi | Descrizione 
----|---
-RicercaFilm() | Servizio che offre la possibilità di ricercare un film all'interno di Moovie 
-RicercaArtista() | Servizio che offre la possibilità di ricercare un determinato artista all'interno di Moovie 
-RicercaUtente() | Servizio che offre la possibilità di ricercare un utente all'interno di Moovie 
+Servizi   | Descrizione 
+----------|-------------
+Ricerca() | Servizio che offre la possibilità di ricercare un film, un utente o un artista all'interno di Moovie
 
 ## Sottosistema "Account"
 Sottosistema | Descrizione
----|---
-Account | Il sottosistema "Account" si occupa di fornire tutti i servizi che permettono ad un utente di gestire il proprio account
+-------------|------------
+Account      | Il sottosistema "Account" si occupa di fornire tutti i servizi che permettono ad un utente di gestire il proprio account
 
-Servizi | Descrizione
----|---
-CreareAccount() | Servizio che offre la possibilità di creare un account ad un utente che non ne posside uno
-AutenticareAccount() | Servizio che permette ad un utente di autenticarsi all'interno del sito
-CambiarePassword() | Servizio che permette ad un utente di effettuare il cambio password
-DeautenticareAccount() | Servizio che permette ad un utente di deautenticarsi dal sito
-VisualizzareProfilo() | Servizio che permette ad un utente di visualizzare un profilo all'interno del sito
+Servizi                      | Descrizione
+-----------------------------|---
+CreareAccount()              | Servizio che offre la possibilità di creare un account ad un utente che non ne posside uno
+AutenticareAccount()         | Servizio che permette ad un utente di autenticarsi all'interno del sito
+CambiarePassword()           | Servizio che permette ad un utente di effettuare il cambio password
+DeautenticareAccount()       | Servizio che permette ad un utente di deautenticarsi dal sito
+VisualizzareProfilo()        | Servizio che permette ad un utente di visualizzare un profilo all'interno del sito
 VisualizzarePaginaIniziale() | Servizio che permette ad un utente di visualizzare la pagina iniziale del sito
 
 
 ## Sottosistema "Amicizia"
 Sottosistema | Descrizione 
----|---
-Amicizie | Il sosttosistema "Amicizia" si occupa di fornire tuttti i servizi che permettono ad un utente di gestire le proprie amicizie presenti su Moovie 
+-------------|------------
+Amicizie     | Il sosttosistema "Amicizia" si occupa di fornire tuttti i servizi che permettono ad un utente di gestire le proprie amicizie presenti su Moovie 
 
 Servizi | Descrizione 
----|---
+--------|-------------
 InviareRichiestaAmicizia() | Servizio che offre la possibilità di richiedere, ad un altro utente registrato sul sito, la sua amicizia
 CancellareRichiestaAmicizia() | Servizio che offre la possibilità di cancellare la richiesta di amicizia ad un altro utente registrato sul sito
 AccettareRichiestaAmicizia() | Servizio che offre la possibilità di confermare una amicizia ricevuta da parte di un altro utente 
@@ -568,14 +566,15 @@ VisualizzaAmici() | Servizio che permette ad un utente di visualizzare tutte le 
 
 ## Sottosistema "Film"
 Sottosistema | Descrizione 
----|---
-FIlm | Il sottosistema "Film" si occupa di fornire tutti i servizi che permettono ad un utente di gestire i giudizi riguardanti i film e di farsi suggerire dei film dal sistema 
+-------------|------------
+FIlm         | Il sottosistema "Film" si occupa di fornire tutti i servizi che permettono ad un utente di gestire i giudizi riguardanti i film e di farsi suggerire dei film dal sistema 
 
 Servizi | Descrizione
----|---
+--------|------------
 VisualizzareFilm() | Servizio che offre la possibilità di visualizzare la pagina di un film
 VisualizzareArtista() | Servizio che offre la possibilità di visualizzare la pagina di un artista
 VisualizzareGenere() | Servizio che offre la possibilità di visualizzare la pagina di un genere 
+AggiungereGiudizio() | Servizio che offre la possibilità di aggiungere un giudizio su un film
 ModificareGiudizio() | Servizio che offre la possibilità modificare un giudizio, fatto in precedenza, su un film visto 
 RimuovereGiudizio() | Servizio che offre la possibilità di rimuovere un giudizio su un film
 VisualizzareGiudizio() | Servizio che offre la possibilità di visualizzare tutti i propri giudizi
@@ -587,11 +586,11 @@ VisualizzareClassificaFilm() | Servizio che offre la possibilità di visualizzar
 
 ## Sottosistema "Gestione"
 Sottosistema | Descrizione 
----|---
-Gestione| Il sottosistema "Gestione" si occupa di fornire tutti i servizi che permettono ad un utente gestore di gestire i dati presenti nel sito
+-------------|------------
+Gestione     | Il sottosistema "Gestione" si occupa di fornire tutti i servizi che permettono ad un utente gestore di gestire i dati presenti nel sito
 
 Servizi | Descrizione
----|---
+--------|-------------
 AggiungiFilm() | Servizio che offre la possibilità di aggiungere un film all'interno del sistema
 AggiungiArtista() | Servizio che offre la possibilità di aggiungere un artista all'interno del sistema
 AggiungiGenere() | Servizio che offre la possibilità di aggiungere un genere all'interno del sistema
