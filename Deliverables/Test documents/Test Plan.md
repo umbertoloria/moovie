@@ -1,17 +1,20 @@
 # Test Plan    
- ## Introduzione 
- Molte volte, anche credendo di aver progettato un softare nel migliore dei modi, ci troviamo di fronte a situazioni nelle quali basta un piccolo evento, una piccola azione fatta da un attore, per portare un malfunzionamento a tutto il sistema. Ma come facciamo a trattare questi errori ?     
+## Introduzione 
+Molte volte, anche credendo di aver progettato un softare nel migliore dei modi, ci troviamo di fronte a situazioni nelle quali basta un piccolo evento, una piccola azione fatta da un attore, per portare un malfunzionamento a tutto il sistema. Ma come facciamo a trattare questi errori?     
 Esistono principalmente tre diversi modi per affrontare il problema:    
--Prevenzione di errori(prima che rilasciamo un sistema)    
--Rilevazione di errori(quando un sistema è in esecuzione)    
--Recupero di errori(dopo che un sistema è stato rilasciato)    
+- Prevenzione di errori(prima che rilasciamo un sistema)    
+- Rilevazione di errori(quando un sistema è in esecuzione)    
+- Recupero di errori(dopo che un sistema è stato rilasciato)
+
 Tra tutte queste tecniche, quella utlizzata per costruire nel migliore dei modi Moovie, noi abbiamo scelto quella di "Rilevazione di errori" in cui è presente l'attività di Testing.    
 In questo documento infatti, andremo ad illustrare come attraverso questa attività di testing, cercheremo di rilevare tutti gli errori che nel sistema sono presenti.    
 Il testing sarà eseguito su queste macro-aree:    
- - Ricerche    
+ - Ricerca    
  - Account    
- - Amicizie    
- - Film 
+ - Amicizia    
+ - Film
+ - Gestione
+
 ## Relazioni con gli altri documenti 
 Il documento di "Test Plan" è strettamente collegato agli altri documenti che abbiamo sviluppato durante la progettazione del nostro sistema.  
   
@@ -23,51 +26,62 @@ Il Test Plan è strettamente collegato con il Documento di "System Design" poich
   
 ### Relazioni con l'ODD  
 Il Test Plan è strattamente collegato con il documento di "Object Design" poiché dovrà essere il quanto più conforme possibile alle interfaccie definite per ogni classe.  
+
 ## Panoramica del sistema 
-Per una migliore progettazione della nostra Web-Application, il sistema è stato suddiviso in vari Layer che sono: <b>Presentation Layer</br> <b>Application Layer </br></b></b> <b>Data Layer</b> </br> Questa suddivisione è stata fatta per ottenere basso accoppiamento ( in modo tale che ogni qual volta si modifichi una componente del sistema non c'è la necessità di modificare tutte le altre accoppiate ad essa) ed alta coesione (in moto tale che le classi nel sottosistema svolgono compiti simili e sono correlate tra loro).  
+Per una migliore progettazione della nostra Web application, il sistema è stato suddiviso in vari Layer che sono: <br/><b>Presentation Layer</b><br/><b>Application Layer</b><br/><b>Data Layer</b><br/> 
+Questa suddivisione è stata fatta per ottenere basso accoppiamento (in modo tale che ogni qual volta si modifichi una componente del sistema non c'è la necessità di modificare tutte le altre accoppiate ad essa) ed alta coesione (in moto tale che le classi nel sottosistema svolgono compiti simili e sono correlate tra loro).  
   
 ## Funzionalità da testare/ da non testare  
-  In base alla suddivisione in sottosistemi che si è fatta, per ogni sottosistema abbiamo scelto di testare varie funzionalità, qui di seguito quelle indivisuate:    
-- Per il sottosistema Ricerche     
+  In base alla suddivisione in sottosistemi che si è fatta, per ogni sottosistema abbiamo scelto di testare varie funzionalità, qui di seguito quelle individuate:    
+- Per il sottosistema Ricerca
   - RicercaFilm 
   - RicercaArtista
   - RicercaUtente
-- Per il sottosistema Accounts    
+- Per il sottosistema Account
   - CreareAccount    
   - AutenticareAccount    
   - CambiarePassword    
-- Per il sottosistema Amicizie    
+- Per il sottosistema Amicizia    
   - InviareRichiestaAmicizia   
   - AccettareRichiestaAmicizia    
   - RifiutareRichiestaAmicizia
 - Per il sottosistema Film    
   - AggiungereGiudizio
   - ModificareGiudizio
-         
+- Per il sottosistema Gestione
+  - AggiungereFilm
+  - AggiungereArtista
+  - AggiungereGenere
+  
 ## Criteri Pass/ Field
- Durante l'attività di testing, cercheremo di rilevare errori nel modo più pianificato possibile. Lo scopo di questà attività non è quello di dimostrare che nel sistema non ci sono "failure" ma quello di mostrane la presenza andando ad esercitare ogni funzionalità che il cliente si aspetta.   
-Affinché ogni funzionalità "passi" correttamente lil test, è necessario che l'output derivante da esso sia conforme alle specifiche (ORACOLO) descritte in precedenza dallo sviluppatore.  Nel caso non fosse così, la componente non passerà il test e si dovrà procedere per una correzione. 
+Durante l'attività di testing, cercheremo di rilevare errori nel modo più pianificato possibile. Lo scopo di questà attività non è quello di dimostrare che nel sistema non ci sono "failure" ma quello di mostrane la presenza andando ad esercitare ogni funzionalità che il cliente si aspetta.   
+Affinché ogni funzionalità "passi" correttamente il test, è necessario che l'output derivante da esso sia conforme alle specifiche (ORACOLO) descritte in precedenza dallo sviluppatore.  Nel caso non fosse così, la componente non passerà il test e si dovrà procedere per una correzione. 
+
 ## Approccio 
-Per procedere all'attività di testing si è deciso deciso di suddividere il test in varie componenti secondo le quali andremo a testare prima le farie funzionalità in modo singolo per poi arrivare a testare l'intero sistema. Le vari componenti individuate sono:     
+Per procedere all'attività di testing si è deciso deciso di suddividere il test in varie componenti secondo le quali andremo a testare prima le varie funzionalità in modo singolo per poi arrivare a testare l'intero sistema. Le vari componenti individuate sono:     
 - Test di unità   
-   - Testare i vari sottosistemi individualmente, testare singolarmente le varie funzionalità dei  sottosistemi. La metodologia scelta per questa fase di testing è la Black-Box testing secondo la quale la selezione dei test va fatta sulle specifiche del sottosistema e non sulla implementazione di esso, non sulla logica. Per testare il sistema nel migliore dei modi cercando di avere una senso di test completo, andremo a testare le varie funzionalità previste individuando i paramentri scelti per ogni funzionalità con le relative categorie e le scelte fatte per ognuna di essa.  
+   - Testare i vari sottosistemi individualmente, testare singolarmente le varie funzionalità dei  sottosistemi. 
+   La metodologia scelta per questa fase di testing è la Black-Box testing secondo la quale la selezione dei test va fatta sulle specifiche del sottosistema 
+   e non sulla implementazione e logica di esso. Per testare il sistema nel migliore dei modi cercando di avere una senso di test completo, andremo a testare le varie funzionalità previste individuando i paramentri scelti per ogni funzionalità con le relative categorie e le scelte fatte per ognuna di essa.  
 - Test di integrazione   
    - Unire alcuni sottosistemi e testarli con tutte le loro funzionalità integrate. Durante questa fase, cercheremo di rilevare gli errori derivanti dalla composizione di alcuni sottosistemi.    
 - Test di sistema    
   - Testare l'intero funzionamento del sistema. Durante questa fase cercheremo di rilevare gli errori derivanti dall'intero sistema e dall'integrazione, dunque, di tutti i sottosistemi prima sviluppati.    
 ## Sospensione e ripresa 
 ### Sospensione 
-Ci sarà una sospensione dell'attività di testing solo nel momento in cui avremo testato ognu funzionalità prevista rispettando nel modo quanto più corretto possibile quelli che sono i tempi e i costi da noi previsti.  
+Ci sarà una sospensione dell'attività di testing solo nel momento in cui avremo testato ogni funzionalità prevista rispettando nel modo quanto più corretto possibile quelli che sono i tempi e i costi da noi previsti.  
+
 ### Ripresa 
-Ogni qual volta si individueranno dei bag nelle funzionalità sarà necessaria una correzione ad essi. Per verificare che la correzione non abbia portato ulteriori danni al sistema verrà ripresa l'attività di testing, riproponendo gli stessi casi si test che ci hanno condotto al problema.  
-## Materiale per il testing Per Testare il sistema abbiamo usato:  
+Ogni qual volta si individueranno dei bag nelle funzionalità sarà necessaria una correzione di essi. Per verificare che la correzione non abbia portato ulteriori danni al sistema verrà ripresa l'attività di testing, riproponendo gli stessi casi si test che ci hanno condotto al problema.  
+
+## Materiale per il testing:  
    Un Database  
    Un Client  
    Un Server  
      
 ## Casi di test 
-### Ricerche 
-#### RicercaFilm 
+### Ricerca
+#### RicercaFilm
 **PARAMETRO**: | RicercaFilm
 ----|---
 **Lunghezza[LRicercaFilm]**: | 1. < 1 or > 100[Errore]<br/>2. > 0 & < 101[Successo_LRicercaFilm]
@@ -77,7 +91,7 @@ Codice   | Combinazione   | Esito
 TC_1.1_1 | LRicercaFilm_1 | Errore
 TC_1.1_2 | LRicercaFilm_2 | Corretto
 ---
-#### RicercaArtista 
+#### RicercaArtista
 **PARAMETRO**: | RicercaArtista
 ----|---
 **Lunghezza[LRicercaArtista]**: | 1. < 1 or > 100[Errore]<br/>2. > 0 & < 101[Successo_LRicercaArtista]
@@ -87,35 +101,41 @@ Codice   | Combinazione      | Esito
 TC_1.2_1 | LRicercaArtista_1 | Errore
 TC_1.2_2 | LRicercaArtista_2 | Corretto
 ---
-#### RicercaUtente 
+#### RicercaUtente
+**PARAMETRO**: | Utente
+----|---
+**Loggato[LoUtente]**: | 1. L'utente che vuole effettuare la ricerca non è loggato[Errore] <br/> 2. L'utente che vuole effettuare la ricerca è loggato[Successo_LoUtente]
+
 **PARAMETRO**: | RicercaUtente
 ----|---
 **Lunghezza[LRicercaUtente]**: | 1. < 1 or > 100[Errore]<br/>2. > 0 & < 101[Successo_LRicercaUtente]
 #### Test cases
-Codice   | Combinazione     | Esito
----------|------------------|-------
-TC_1.3_1 | LRicercaUtente_1 | Errore
-TC_1.3_2 | LRicercaUtente_2 | Corretto    
+Codice   | Combinazione                 | Esito
+---------|----------------------------- |-------
+TC_1.3_1 | LoUtente_1                   | Errore
+TC_1.3_2 | LoUtente_2, LRicercaUtente_1 | Errore
+TC_1.3_3 | LoUtente_2, LRicercaUtente_2 | Corretto
     
-### Accounts
+### Account
 #### CreareAccount
 **PARAMETRO**: | Nome
-  ----|---
-  **FORMATO**: | ^[a-zA-Z' àèéìòù]+$
-  **Lunghezza[LNome]**: | 1. <5 or >50 [Errore]<br/>2. >5 & <50 [Successo_LNome]
-  **Formato[FNome]:** | 1. Non rispecchia il formato [if_LNome_OK][Errore]<br/>2. Rispettail formato[if FNome_OK][Successo_Nome]
+----|---
+**FORMATO**: | ^[a-zA-Z' àèéìòù]+$
+**Lunghezza[LNome]**: | 1. <5 or >50 [Errore]<br/>2. >5 & <50 [Successo_LNome]
+**Formato[FNome]:** | 1. Non rispecchia il formato[if_LNome_OK][Errore]<br/>2. Rispetta il formato[if_FNome_OK][Successo_Nome]
 
 **PARAMETRO**: | Cognome
 ----|---
 **FORMATO**: | ^[a-zA-Z' àèéìòù]+$
 **Lunghezza[LCognome]**: | 1. <5 or >50 [Errore]<br/>2. >5 & <51 [Successo_LCognome]
-**Formato[FNome]:** | >1. Non rispecchia il formato [if_LCognome_OK][Errore]<br/>2. Rispettail formato[if FCognome_OK][Successo_Cognome]
+**Formato[FNome]:** | >1. Non rispecchia il formato [if_LCognome_OK][Errore]<br/>2. Rispetta il formato[if_FCognome_OK][Successo_Cognome]
 
 **PARAMETRO**: | Email
 ----|---
 **FORMATO**: | ^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}$
 **Lunghezza[LEmail]**: | 1. <5 or >50 [Errore]<br>2. >4 & <51 [Successo_LEmail]
-**Formato[FEmail]:** | 1. Non rispecchia il formato [if_LCognome_OK][Errore]<br/>2. Rispettail formato[if FCognome_OK][Successo_Cognome]+
+**Formato[FEmail]:** | 1. Non rispecchia il formato [if_LEmail_OK][Errore]<br/>2. Rispetta il formato[if_FEmail_OK][Successo_FEmail]
+**Presenza[PEmail]:** | 1. Email già in uso [if_FEmail_OK][Errore]<br/>2. Email non in uso [if_FEmail_OK][Successo_Email]
 
 **PARAMETRO**: | Password
 ----|---
@@ -123,51 +143,61 @@ TC_1.3_2 | LRicercaUtente_2 | Corretto
 
 **PARAMETRO**: | Copassword
 ----|---
-**Lunghezza[LCopassword]**: | 1. <6 or >16 [Errore]<br/>2. >5 & <17 [Successo_LCopassword]   
-  
-Codice   | Combinazione                                                                           | Esito
----------|----------------------------------------------------------------------------------------|--------
-TC_2.1_1 | LNome1                                                                                 | Errore
-TC_2.1_2 | LNome2, FNome1                                                                         | Errore
-TC_2.1_3 | LNome2,FNome2<br>LCognome1                                                             | Errore
-TC_2.1_4 | LNome2,FNome2<br>LCognome2, FCognome1                                                  | Errore
-TC_2.1_5 | LNome2,FNome2<br>LCognome2, FCognome2<br> LEmail1                                      | Errore
-TC_2.1_6 | LNome2,FNome2<br>LCognome2, FCognome2<br> LEmail2, FEmail1                             | Errore
-TC_2.1_7 | LNome2,FNome2<br>LCognome2, FCognome2<br>LEmail2, FEmail2<br> LPassword1               | Errore
-TC_2.1_8 | LNome2,FNome2<br>LCognome2, FCognome2<br> LEmail2, FEmail2<br>LPassword2, Copassword1  | Errore
-TC_1.3_9 | LNome2,FNome2<br>LCognome2, FCognome2<br> LEmail2, FEmail2<br> LPassword2, Copassword2 | Corretto 
-   
+**Lunghezza[LCopassword]**: | 1. <6 or >16 [Errore]<br/>2. >5 & <17 [Successo_LCopassword]
+**Corrispondenza[CPassword]**: | 1. La password inserita è diversa da quella scelta[if_LCopassword_ok][Errore]<br/> 2. La password inserita corrisponde a quella scelta[if_CPassword_OK][Successo_Password]   
+
+#### Test cases
+Codice    | Combinazione                                                                                           | Esito
+----------|--------------------------------------------------------------------------------------------------------|--------
+TC_2.1_1  | LNome_1                                                                                                | Errore
+TC_2.1_2  | LNome_2, FNome_1                                                                                       | Errore
+TC_2.1_3  | LNome_2,FNome_2<br>LCognome_1                                                             			   | Errore
+TC_2.1_4  | LNome_2,FNome_2<br>LCognome_2, FCognome_1                                                              | Errore
+TC_2.1_5  | LNome_2,FNome_2<br>LCognome_2, FCognome_2<br> LEmail_1                                                 | Errore
+TC_2.1_6  | LNome_2,FNome_2<br>LCognome_2, FCognome_2<br> LEmail_2, FEmail_1                                       | Errore
+TC_2.1_7  | LNome_2,FNome_2<br>LCognome_2, FCognome_2<br> LEmail_2, FEmail_2, PEmail_1                             | Errore
+TC_2.1_8  | LNome_2,FNome_2<br>LCognome_2, FCognome_2<br> LEmail_2, FEmail_2, PEmail_2, LPassword_1                | Errore
+TC_2.1_9  | LNome_2,FNome_2<br>LCognome_2, FCognome_2<br> LEmail_2, FEmail_2, PEmail_2, LPassword_2, LCopassword_1 | Errore
+TC_2.1_10 | LNome_2,FNome_2<br>LCognome_2, FCognome_2<br> LEmail_2, FEmail_2, PEmail_2, LPassword_2, LCopassword_2 | Corretto  
     
 #### AutenticareAccount 
 **PARAMETRO**: | Email
 ----|---
 **FORMATO**: | ^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}$
 **Lunghezza[LEmail]**: | 1. <5 or >50 [Errore]<br>2. >4 & <51 [Successo_LEmail]
-**Formato[FEmail]:** | 1. Non rispecchia il formato [if_LEmail_OK][Errore]<br/>2. Rispettail formato[if FEmail_OK][Successo_Cognome]
+**Formato[FEmail]:** | 1. Non rispecchia il formato [if_LEmail_OK][Errore]<br/>2. Rispetta il formato[if_FEmail_OK][Successo_Cognome]
+**Corrispondenza[CEmail]:** | 1. Email inserita non corrisponde[if_FEmail_OK][Errore]<br/>2. Email inserita corrisponde[if_FEmail_OK][Successo_Email]
 
 **PARAMETRO**: | Password
 ----|---
 **Lunghezza[LPassword]**: | 1. <6 or >16 [Errore]<br/>2. >5 & <17 [Successo_LPassword]
+**Corrispondenza[CPassword]**: | 1. La password inserita non corrisponde[if_LCopassword_ok][Errore]<br/> 2. La password inserita corrisponde a quella scelta[if_CPassword_OK][Successo_Password]   
 
-Codice   | Combinazione                     | Esito
----------|----------------------------------|---
-TC_2.2_1 | LEmail1                          | Errore
-TC_2.2_2 | LEmail2, FEmail1                 | Errore
-TC_2.2_3 | LEmail2, FEmail2<br/> LPassword1 | Errore
-TC_2.2_4 | LEmail2, FEmail2<br/> LPassword2 | Corretto  
+#### Test cases
+Codice   | Combinazione                                               | Esito
+---------|------------------------------------------------------------|-------
+TC_2.2_1 | LEmail_1                                                   | Errore
+TC_2.2_2 | LEmail_2, FEmail_1                                         | Errore
+TC_2.2_3 | LEmail_2, FEmail_2<br/> CEmail_1                           | Errore
+TC_2.2_4 | LEmail_2, FEmail_2<br/> CEmail_2                           | Errore
+TC_2.2_5 | LEmail_2, FEmail_2<br/> CEmail_2, LPassword_1              | Errore
+TC_2.2_6 | LEmail_2, FEmail_2<br/> CEmail_2, LPassword_2, CPassword_1 | Errore
+TC_2.2_7 | LEmail_2, FEmail_2<br/> CEmail_2, LPassword_2, CPassword_2 | Corretto
+
 #### CambiarePassword
 **PARAMETRO**: | Utente
 ----|---
 **Loggato[LoUtente]**: | 1. L'utente che vuole cambiare la password non è loggato[Errore] <br/> 2. L'utente che vuole cambiare la password è loggato[Successo_LoUtente]
----
+
 **PARAMETRO**: | PasswordVecchia
 ----|---
 **Lunghezza[LPasswordVecchia]**: | 1. < 6 or > 16[Errore]<br/> 2. > 5 & < 17[Successo_LPasswordVecchia]
-**Corrispondenza[CPasswordVecchia]**: | 1. La password è diversa da quella precedente[if LPasswordVecchia ok][Errore]<br/> 2. La password inserita corrisponde a quella precenza[if CPasswordVecchia OK][Successo_CPasswordVecchia]
----
+**Corrispondenza[CPasswordVecchia]**: | 1. La password è diversa da quella precedente[if_LPasswordVecchia ok][Errore]<br/> 2. La password inserita corrisponde a quella precedente[if_CPasswordVecchia OK][Successo_CPasswordVecchia]
+
 **PARAMETRO**: | PasswordNuova
 ----|---
 **Lunghezza[LPasswordNuova]**: | 1. < 6 or > 16[Errore]<br/> 2. > 5 & < 17[Successo_LPasswordNuova]
+
 #### Test cases
 Codice   | Combinazione                                                        | Esito
 ---------|---------------------------------------------------------------------|--------
@@ -193,16 +223,15 @@ Codice   | Combinazione                | Esito
 TC_3.1_1 | LoUtenteFrom_1              | Errore
 TC_3.1_2 | LoUtenteFrom_2, EUtenteTo_1 | Errore
 TC_3.1_3 | LoUtenteFrom_2, EUtenteTo_2 | Corretto
- 
 
 #### AccettareRichiestaAmicizia
 **PARAMETRO**: | UtenteTo
 ----|---
-**Loggato[LoUtenteTo]:**| 1. L'utente che invia l'amicizia non è loggato[Errore] <br/> 2. L'utente che invia l'amicizia è loggato [Successo_LoUtenteTo]
+**Loggato[LoUtenteTo]:**| 1. L'utente che accetta l'amicizia non è loggato[Errore] <br/> 2. L'utente che accetta l'amicizia è loggato [Successo_LoUtenteTo]
 
 **PARAMETRO**: | UtenteFrom
 ----|---
-**Esistenza[EUtenteFrom]:**| 1. L'utente a cui inviare l'amicizia non esiste[Errore]<br> 2. L'utente a cui inviare l'amicizia esiste[Successo_EUtenteFrom]
+**Esistenza[EUtenteFrom]:**| 1. L'utente che invia l'amicizia non esiste[Errore]<br> 2. L'utente che invia l'amicizia esiste[Successo_EUtenteFrom]
 
 #### Test cases 
 Codice   | Combinazione                | Esito
@@ -214,11 +243,11 @@ TC_3.2_3 | LoUtenteTo_2, EUtenteFrom_2 | Corretto
 #### RifiutareRichiestaAmicizia
 **PARAMETRO**: | UtenteTo
 ----|---
-**Loggato[LoUtenteTo]:**| 1. L'utente che invia l'amicizia non è loggato[Errore] <br/> 2. L'utente che invia l'amicizia è loggato [Successo_LoUtenteTo]
+**Loggato[LoUtenteTo]:**| 1. L'utente che rifiuta l'amicizia non è loggato[Errore] <br/> 2. L'utente che rifiuta l'amicizia è loggato [Successo_LoUtenteTo]
 
 **PARAMETRO**: | UtenteFrom
 ----|---
-**Esistenza[EUtenteFrom]:**| 1. L'utente a cui inviare l'amicizia non esiste[Errore]<br> 2. L'utente a cui inviare l'amicizia esiste[Successo_EUtenteFrom]
+**Esistenza[EUtenteFrom]:**| 1. L'utente che invia l'amicizia non esiste[Errore]<br> 2. L'utente che invia l'amicizia esiste[Successo_EUtenteFrom]
 
 #### Test cases 
 Codice   | Combinazione                | Esito
@@ -228,34 +257,150 @@ TC_3.3_2 | LoUtenteTo_2, EUtenteFrom_1 | Errore
 TC_3.3_3 | LoUtenteTo_2, EUtenteFrom_2 | Corretto
     
 ###  Film   
-#### AggiungereGiudizio 
+#### AggiungereGiudizio
+**PARAMETRO**: | Utente
+----|---
+**Loggato[LoUtente]**: | 1. L'utente che vuole aggiungere un giudizio non è loggato[Errore] <br/> 2. L'utente che vuole aggiungere un giudizio è loggato[Successo_LoUtente]
+
 **PARAMETRO**: | Voto
 ----|---
-**Selezione[SVoto]:**| 1. L'Utente non ha selezionato alcun valore[Errore]<br/> 2. L'Utente ha selezionato uno dei dieci voti possibili[Successo_SVoto]
+**Selezione[SVoto]:**| 1. L'utente ha selezionato un valore < 1 or > 10[Errore]<br/> 2. L'utente ha selezionato un valore > 0 & < 11[Successo_SVoto]
 
 **PARAMETRO**: | Film
 ----|---
-**Presenza[PFilm]:**| 1. Il film è gia presente in film guardati dell'utente[Errore]<br/> 2. Il film non è presente in film guardati dell'utente[Successo_PFilm] 
+**Presenza[PFilm]:**| 1. Il film non è presente[Errore]<br/> 2. Il film è presente[Successo_PFilm] 
 
 #### Test cases
-Codice   | Combinazione     | Esito
----------|------------------|-------
-TC_4.1_1 | SVoto_1          | Errore
-TC_4.1_2 | SVoto_2, PFilm_1 | Errore
-TC_4.1_3 | SVoto_2, PFilm_2 | Corretto
+Codice   | Combinazione                 | Esito
+---------|------------------------------|-------
+TC_4.1_1 | LoUtente_1                   | Errore
+TC_4.1_2 | LoUtente_2, SVoto_1          | Errore
+TC_4.1_3 | LoUtente_2, SVoto_2, PFilm_1 | Errore
+TC_4.1_4 | LoUtente_2, SVoto_2, PFilm_2 | Corretto
+
 #### ModificareGiudizio
+**PARAMETRO**: | Utente
+----|---
+**Loggato[LoUtente]**: | 1. L'utente che vuole modificare un giudizio non è loggato[Errore] <br/> 2. L'utente che vuole modificare un giudizio è loggato[Successo_LoUtente]
 
 **PARAMETRO**: | Voto
 ----|---
-**Selezione[SVoto]:**| 1. L'Utente non ha selezionato alcun valore[Errore]<br/> 2. L'Utente ha selezionato uno dei dieci voti possibili[Successo_SVoto]
+**Selezione[SVoto]:**| 1. L'utente ha selezionato un valore < 1 or > 10<br/> 2. L'utente ha selezionato un valore > 0 & < 11 e diverso da quello precedentemente assegnato[Successo_SVoto]
 
 **PARAMETRO**: | Film
 ----|---
-**Presenza[PFilm]:**| 1. 1. Il film non è presente in film guardati dell'utente[Errore]<br/> 2. Il film è presente in film guardati dell'utente[Successo_PFilm]
+**Presenza[PFilm]:**| 1. Il film non è presente[Errore]<br/> 2. Il film è presente[Successo_PFilm] 
 
 #### Test cases
-Codice   | Combinazione     | Esito
----------|------------------|-------
-TC_4.2_1 | SVoto_1          | Errore
-TC_4.2_2 | SVoto_2, PFilm_1 | Errore
-TC_4.2_3 | SVoto_2, PFilm_2 | Corretto
+Codice   | Combinazione                 | Esito
+---------|------------------------------|-------
+TC_4.2_1 | LoUtente_1                   | Errore
+TC_4.2_2 | LoUtente_2, SVoto_1          | Errore
+TC_4.2_3 | LoUtente_2, SVoto_2, PFilm_1 | Errore
+TC_4.2_4 | LoUtente_2, SVoto_2, PFilm_2 | Corretto
+
+###  Gestione   
+#### AggiungereFilm
+**PARAMETRO**: | Utente
+----|---
+**Loggato[LoUtente]**: | 1. L'utente che vuole aggiungere un film non è loggato[Errore] <br/> 2. L'utente che vuole aggiungere un film è loggato[Successo_LoUtente]
+**Gestore[GeUtente]**: | 1. L'utente che vuole aggiungere un film non è gestore[if_LoUtente_OK][Errore] <br/> 2. L'utente che vuole aggiungere un film è gestore[if_GeUtente_OK][Successo_Utente]
+
+**PARAMETRO**: | Titolo
+----|---
+**Lunghezza[LTitolo]:**| 1. < 3 or > 100[Errore]<br/>2. > 2 & < 101[Successo_LTitolo]
+
+**PARAMETRO**: | Durata
+----|---
+**FORMATO**: | ^\\d+$
+**Formato[FDurata]:** | 1. Non rispetta il formato[Errore]<br/>2. Rispetta il formato[Successo_FDurata]
+
+**PARAMETRO**: | Anno
+----|---
+**FORMATO**: | ^[0-9]{4}$
+**Formato[FAnno]:** | 1. Non rispetta il formato[Errore]<br/>2. Rispetta il formato[Successo_FAnno]
+
+**PARAMETRO**: | Descrizione
+----|---
+**Lunghezza[LDescrizione]:**| 1. < 10[Errore]<br/>2. > 9[Successo_LDescrizione]
+
+**PARAMETRO**: | Copertina
+----|---
+**FORMATO**: | JPG or PNG
+**Size[SCopertina]:**| 1. Copertina di dimensione maggiore di quella supportata dal server[Errore]<br/>2. Copertina di dimensione corretta[Successo_SCopertina]
+**Caricamento[CaCopertina]:**| 1. Copertina non caricata[if_SCopertina_OK][Errore]<br/>2. Copertina caricata[if_SCopertina_OK][Successo_CaCopertina]
+**Formato[FCopertina]:** | 1. Non rispetta il formato[if_CaCopertina_OK][Errore]<br/>2. Rispetta il formato[Successo_Copertina]
+
+#### Test cases
+Codice    | Combinazione                                                                                                     | Esito
+----------|------------------------------------------------------------------------------------------------------------------|-------
+TC_5.1_1  | LoUtente_1                                                                                                       | Errore
+TC_5.1_2  | LoUtente_2, GeUtente_1          																				 | Errore
+TC_5.1_3  | LoUtente_2, GeUtente_2, LTitolo_1                                                                                | Errore
+TC_5.1_4  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_1                                                                     | Errore
+TC_5.1_5  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_1                                                            | Errore
+TC_5.1_6  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_2, LDescrizione_1                                            | Errore
+TC_5.1_7  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_1                              | Errore
+TC_5.1_8  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_2, CaCopertina_1               | Errore
+TC_5.1_9  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_2, CaCopertina_2, FCopertina_1 | Errore
+TC_5.1_10 | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_2, CaCopertina_2, FCopertina_2 | Corretto
+ 
+#### AggiungereArtista
+**PARAMETRO**: | Utente
+----|---
+**Loggato[LoUtente]**: | 1. L'utente che vuole aggiungere un artista non è loggato[Errore] <br/> 2. L'utente che vuole aggiungere un artista è loggato[Successo_LoUtente]
+**Gestore[GeUtente]**: | 1. L'utente che vuole aggiungere un artista non è gestore[if_LoUtente_OK][Errore] <br/> 2. L'utente che vuole aggiungere un artista è gestore[if_GeUtente_OK][Successo_Utente]
+
+**PARAMETRO**: | Nome
+----|---
+**Lunghezza[LNome]:**| 1. < 5 or > 100[Errore]<br/>2. > 4 & < 101[Successo_LNome]
+
+**PARAMETRO**: | Nascita
+----|---
+**FORMATO**: | ^((19|20)\\d{2})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$
+**Formato[FNascita]:** | 1. Non rispetta il formato[Errore]<br/>2. Rispetta il formato[Successo_FNascita]
+
+**PARAMETRO**: | Descrizione
+----|---
+**Lunghezza[LDescrizione]:**| 1. < 10[Errore]<br/>2. > 9[Successo_LDescrizione]
+
+**PARAMETRO**: | Faccia
+----|---
+**FORMATO**: | JPG or PNG
+**Size[SFaccia]:**| 1. Faccia di dimensione maggiore di quella supportata dal server[Errore]<br/>2. Faccia di dimensione corretta[Successo_SFaccia]
+**Caricamento[CaFaccia]:**| 1. Faccia non caricata[if_SFaccia_OK][Errore]<br/>2. Faccia caricata[if_SFaccia_OK][Successo_CaFaccia]
+**Formato[FoFaccia]:** | 1. Non rispetta il formato[if_CaFaccia_OK][Errore]<br/>2. Rispetta il formato[Successo_Faccia]
+
+#### Test cases
+Codice   | Combinazione                                                                                              | Esito
+---------|-----------------------------------------------------------------------------------------------------------|-------
+TC_5.2_1 | LoUtente_1                                                                                                | Errore
+TC_5.2_2 | LoUtente_2, GeUtente_1          																			 | Errore
+TC_5.2_3 | LoUtente_2, GeUtente_2, LNome_1                                                                           | Errore
+TC_5.2_4 | LoUtente_2, GeUtente_2, LNome_2, FNascita_1                                                               | Errore
+TC_5.2_5 | LoUtente_2, GeUtente_2, LNome_2, FNascita_2, LDescrizione_1                                               | Errore
+TC_5.2_6 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_1                                       | Errore
+TC_5.2_7 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_1,                        | Errore
+TC_5.2_8 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_2, CaFaccia_1             | Errore
+TC_5.2_9 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_2, CaFaccia_2, FoFaccia_1 | Errore
+TC_5.2_10| LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_2, CaFaccia_2, FoFaccia_2 | Corretto
+
+#### AggiungereGenere
+**PARAMETRO**: | Utente
+----|---
+**Loggato[LoUtente]**: | 1. L'utente che vuole aggiungere un artista non è loggato[Errore] <br/> 2. L'utente che vuole aggiungere un artista è loggato[Successo_LoUtente]
+**Gestore[GeUtente]**: | 1. L'utente che vuole aggiungere un artista non è gestore[if_LoUtente_OK][Errore] <br/> 2. L'utente che vuole aggiungere un artista è gestore[if_GeUtente_OK][Successo_Utente]
+
+**PARAMETRO**: | Nome
+----|---
+**Lunghezza[LNome]:**| 1. < 3 or > 50[Errore]<br/>2. > 3 & < 51[Successo_LNome]
+**Presenza[PNome]:**| 1. Genere già presente[if_LNome_OK][Errore]<br/>2. Genere non presente[if_PNome_OK][Successo_Nome]
+
+#### Test cases
+Codice   | Combinazione                             | Esito
+---------|------------------------------------------|-------
+TC_5.3_1 | LoUtente_1                               | Errore
+TC_5.3_2 | LoUtente_2, GeUtente_1          			| Errore
+TC_5.3_3 | LoUtente_2, GeUtente_2, LNome_1          | Errore
+TC_5.3_4 | LoUtente_2, GeUtente_2, LNome_2, PNome_1 | Errore
+TC_5.3_5 | LoUtente_2, GeUtente_2, LNome_2, PNome_2 | Corretto
