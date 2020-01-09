@@ -46,9 +46,8 @@
                 3. [GestioneDataLayer](#gestionedatalayer)
     3. [Mappatura hardware/software](#mappatura-hardwaresoftware)
     4. [Gestione dei dati persistenti](#gestione-dei-dati-persistenti)
-    5. [Struttura tabelle](#struttura-tabelle)
-    6. [Gestione degli accessi](#gestione-degli-accessi)
-    7. [Condizioni limite](#condizioni-limite)
+    5. [Gestione degli accessi](#gestione-degli-accessi)
+    6. [Condizioni limite](#condizioni-limite)
         1. [Inizializzazione](#inizializzazione)
         2. [Terminazione](#terminazione)
         3. [Fallimenti](#fallimenti)
@@ -156,7 +155,7 @@ PresentationLayer, ricevendo, elaborando e alla fine mostrando il risultato di u
 - DataLayer: strato che si occupa di gestire i dati del sistema.
 
 #### Ricerca
-![](Package%20diagrams/DiagramRicerca.jpg)
+![](Package%20diagrams/Diagram_Ricerca.jpg)
 
 Il sottosistema ricerca si occupa di gestire le ricerche di tutti gli utenti offrendo diverse funzionalità quali:
 - Ricerca di un film;
@@ -175,7 +174,7 @@ Questo include al suo interno tutte le componenti che offrono operazioni rigurda
 Questo livello si occupa di gestire i dati riguardanti le richerche degli utenti all'interno del sistema.
 
 #### Account
-![](Package%20diagrams/DiagramAccount.jpg)
+![](Package%20diagrams/Diagram_Account.jpg)
 
 Il sottosistema account si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
 - Creare un account
@@ -217,7 +216,7 @@ iniziale del sito;
 Questo livello si occupa di gestire i dati riguardanti gli utenti dell'intero sistema.
 
 #### Amicizia
-![](Package%20diagrams/DiagramAmicizia.jpg)
+![](Package%20diagrams/Diagram_Amicizia.jpg)
 
 Il sottosistema amicizia si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
 - Inviare richiesta di amicizia
@@ -263,7 +262,7 @@ coinvolto;
 Questo livello si occupa di gestire i dati riguardanti le amicizie degli utenti dell'intero sistema.
 
 #### Film
-![](Package%20diagrams/DiagramFIlm.jpg)
+![](Package%20diagrams/Diagram_Film.jpg)
 
 Il sottosistema film si occupa di gestire i giudizi di tutti gli utenti autenticati offrendo diverse funzionalità quali:
 - Visualizzare un film;
@@ -326,7 +325,7 @@ tra i promemoria;
 - RimuoverePromemoria(): incoropora operazioni che permettono all'utente autenticato di rimuovere un promemoria;
 - VisualizzarePromemoria(): incoropora operazioni che permettono all'utente autenticato di visualizzare tutti i suoi
 promemoria;
-- SuggerimentoAutomaticiFilm(): incoropora operazioni che permettono all'utente autenticato di farsi suggerire dal
+- SuggerimentiAutomaticiFilm(): incoropora operazioni che permettono all'utente autenticato di farsi suggerire dal
 sistema dei film in linea con le sue preferenze;
 - VisualizzareClassificaFilm(): incoropora operazioni che permettono all'utente autenticato di visualizzare i film nella
 classifica;
@@ -336,7 +335,7 @@ Questo livello si occupa di gestire i dati riguardanti i giudizi sui film  degli
 automatici all'interno del sistema.
 
 ### Gestione
-![](Package%20diagrams/DiagramGestione.jpg)
+![](Package%20diagrams/Diagram_Gestione.jpg)
 
 Il sosttosistema Gestione si occupa di gestire i dati presenti nel sito offrendo diverse funzionalità quali:
 - Aggiungere un film;
@@ -429,6 +428,13 @@ informazioni che si vogliono controllare sulla base di dati.
 
 L'immagine sopra presente, descrive quello che è lo schema dei dati che dovranno essere mantenuti nel nostro database in
 maniera persistente.
+
+All'interno del nostro Data Base, inoltre, sono state salvate anche tutte le immagini che il sito contiene in modo tale
+da avere una locazione unica dei dati e una "maiera" unica per gestire le stesse. Per evitare di avere dei rallentamenti 
+all'interno del sistema, la tabella delle immagini è diversa rispetto a quella a cui si riferisce la stessa 
+(Film, Film Copertina, Artista, Artista Faccia). In questo modo, se vogliamo ottente delle informazioni riguardanti 
+un qualcosa senza necessità di avere l'immagine, la query non sarà appesantita dalla presenza dell'immagine
+e quindi potrà essere restituta più velocemente.
 
 ### Struttura tabelle
 
@@ -615,7 +621,7 @@ VisualizzareGiudizio() | Servizio che offre la possibilità di visualizzare tutt
 AggiungerePromemoria() | Servizio che offre la possibilità di aggiungere un determinato film tra i promemoria
 RimuoverePromemoria() | Servizio che offre la possibilità di rimuovere un promemoria
 VisualizzarePromemoria() | Servizio che offre la possibilità di visualizzare tutti i propri promemoria
-SuggerimentAutomaticoFilm() | Servizio che offre la possibilità di farsi suggerire dal sistema dei film in linea con le proprie preferenze
+SuggerimentiAutomaticiFilm() | Servizio che offre la possibilità di farsi suggerire dal sistema dei film in linea con le proprie preferenze
 VisualizzareClassificaFilm() | Servizio che offre la possibilità di visualizzare i film nella classifica
 
 ## Sottosistema gestione
