@@ -22,5 +22,4 @@ Manuel De Stefano | Tutor
 - [ ] Rilascio del sito Moovie: 10 Gennaio 2020
 
 # Ambiente di esecuzione
-Il sito sarà fruibile sui browser Google Chrome, Mozilla Firefox, Safari, Opera e Microsoft Edge. Sia su versioni
-desktop che su versioni mobile di questi.
+Il sito sarà fruibile sui browser Google Chrome, Mozilla Firefox, Safari, Opera e Microsoft Edge.
