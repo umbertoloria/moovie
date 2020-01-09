@@ -20,7 +20,7 @@
     3. [Definizioni, acronimi e abbreviazioni](#definizioni-acronimi-e-abbreviazioni)
     4. [Riferimenti](#riferimenti)
     5. [Panoramica](#panoramica)
-2. [Architettura del Sistema](#architettura-del-sistema)
+2. [Architettura del sistema](#architettura-del-sistema)
     1. [Panoramica](#panoramica)
     2. [Decomposizione in sottosistemi](#decomposizione-in-sottosistemi)
         1. [Sottosistemi](#sottosistemi)
@@ -36,7 +36,7 @@
                 1. [FilmPresentationLayer](#filmpresentationlayer)
                 2. [FilmApplicationLayer](#filmapplicationlayer)
                 3. [FilmDataLayer](#filmdatalayer)
-            4. [Amicizia](#gestione)
+            4. [Amicizia](#amicizia)
                 1. [AmiciziaPresentationLayer](#amiciziapresentationlayer)
                 2. [AmiciziaApplicationLayer](#amiciziaapplicationlayer)
                 3. [AmiciziaDataLayer](#amiciziadatalayer)
@@ -44,15 +44,15 @@
                 1. [GestionePresentationLayer](#gestionepresentationlayer)
                 2. [GestioneApplicationLayer](#gestioneapplicationlayer)
                 3. [GestioneDataLayer](#gestionedatalayer)
-    3. [Mappatura hardware/software](#mappatura-hardware-software)
-    4. [Gestione dei dati persistenti](#gestione-dei-dati-persitenti)
+    3. [Mappatura hardware/software](#mappatura-hardwaresoftware)
+    4. [Gestione dei dati persistenti](#gestione-dei-dati-persistenti)
     5. [Struttura tabelle](#struttura-tabelle)
     6. [Gestione degli accessi](#gestione-degli-accessi)
     7. [Condizioni limite](#condizioni-limite)
         1. [Inizializzazione](#inizializzazione)
         2. [Terminazione](#terminazione)
         3. [Fallimenti](#fallimenti)
-3. [Servizi dei sottosistemi](#servizi-dei-sottositemi)
+3. [Servizi dei sottosistemi](#servizi-dei-sottosistemi)
     1. [Sottosistema ricerca](#sottosistema-ricerca)
     2. [Sottosistema account](#sottosistema-account)
     3. [Sottosistema amicizia](#sottosistema-amicizia)
@@ -417,7 +417,7 @@ richieste che un client esegue, attraverso i protocolli HTTP o HTTPS, arrivano s
 PHP), sul quale viene eseguita, tra le altre cose, la logica di business del sito e, in caso di necessità,
 interfacciarsi con il DBMS per utilizzare i dati persistenti.
 
-## Gestione dei dati persitenti
+## Gestione dei dati persistenti
 Il sito Moovie ha al suo interno alcuni dati che devono essere mantenuti affinché il suo funzionamento sia valido.
 La persistenza di questi, è stata scelta di dargliela, memorizzando essi in un database relazionale nel quale i dati
 persistenti vengono rappresentati attraverso delle tabelle, ognuna delle quali è composta da righe (gli elementi, le
@@ -557,8 +557,8 @@ in esecuzione. Inoltre ogni sottosistema cesserà di operare correttamente.
 In caso di errore o fallimento del sistema o dei suoi sottosistemi, Moovie garantirà di tornare ad una condizione
 precedente di funzionamento ottimale.
 
-# Servizi dei sottositemi
-Il sito Moovie per semplicità è stato decomposto in sottositemi e per ognuno di questi sono previste delle operazioni
+# Servizi dei sottosistemi
+Il sito Moovie per semplicità è stato decomposto in sottosistemi e per ognuno di questi sono previste delle operazioni
 che sono i servizi che la web application offre.
 
 ## Sottosistema ricerca
