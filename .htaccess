@@ -1,0 +1,4 @@
+ErrorDocument 404 /404.php
+
+# RewriteEngine On
+# RewriteRule ^(.*)? route.php?route=$1 [L,QSA]

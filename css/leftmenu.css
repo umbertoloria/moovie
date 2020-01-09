@@ -1,0 +1,88 @@
+menu {
+	position: fixed;
+	top: 60px;
+	left: 0;
+	bottom: 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	margin: 0;
+	padding: 0;
+
+	width: 300px;
+
+	background: #333;
+	color: #eee;
+	z-index: 70;
+}
+
+menu ul {
+	margin: 0;
+	padding: 0;
+}
+
+menu ul li {
+	position: relative;
+	list-style: none;
+}
+
+menu ul li a {
+	display: block;
+	padding: 0.5em 20px;
+	font-weight: normal;
+	text-decoration: none;
+	color: rgba(255, 255, 255, .7);
+	transition: .2s;
+}
+
+menu ul li a[href]:hover {
+	color: #fff;
+	border-color: var(--super-color);
+	border-left-width: 6px;
+}
+
+menu ul li a[data-action] {
+	cursor: pointer;
+}
+
+menu ul li a[data-action]:hover {
+	background: #222;
+}
+
+menu ul li.active a {
+	color: #fff;
+	background: var(--super-color);
+	border-left-width: 6px;
+}
+
+menu ul li a span {
+	position: absolute;
+	top: 6px;
+	right: 10px;
+	width: 20px;
+	font-size: 0.9em;
+	font-weight: bold;
+	line-height: 20px;
+	text-align: center;
+	color: #aaa;
+	background: #555;
+	border-radius: 100%;
+}
+
+menu ul li ul li a {
+	padding-left: 30px;
+}
+
+menu ul li a {
+	border-left: 3px solid transparent;
+}
+
+menu > ul:last-child {
+	background: #222;
+}
+
+menu > ul:last-child li.userli a {
+	font-size: 1.1em;
+}

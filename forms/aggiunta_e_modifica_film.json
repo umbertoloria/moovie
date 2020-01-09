@@ -1,0 +1,20 @@
+{
+  "rules": {
+	"titolo": {
+	  "minlength": 3,
+	  "maxlength": 100
+	},
+	"durata": {
+	  "exp": "^\\d+$",
+	  "expErr": "Solo caratteri numerici"
+	},
+	"anno": {
+	  "exp": "^[0-9]{4}$",
+	  "expErr": "Anno non valido"
+	},
+	"copertina": {},
+	"descrizione": {
+	  "minlength": 10
+	}
+  }
+}

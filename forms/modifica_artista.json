@@ -1,0 +1,15 @@
+{
+  "rules": {
+	"nome": {
+	  "minlength": 5,
+	  "maxlength": 100
+	},
+	"nascita": {
+	  "exp": "^((19|20)\\d{2})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$",
+	  "expErr": "Intervallo ammesso: dal 01/01/1900 al 31/12/2099"
+	},
+	"descrizione": {
+	  "minlength": 10
+	}
+  }
+}
