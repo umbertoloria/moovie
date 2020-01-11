@@ -9,8 +9,13 @@ include $_SERVER["DOCUMENT_ROOT"] . "/models/Giudizio.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/models/Promemoria.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/models/Amicizia.php";
 
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/IAccountDAO.php";
+
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/DBAccountDAO.php";
+
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/AccountDAOFactory.php";
+
 include $_SERVER["DOCUMENT_ROOT"] . "/managers/ArtistaManager.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/managers/AccountManager.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/managers/FilmManager.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/managers/RecitazioneManager.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/managers/RegiaManager.php";

@@ -15,14 +15,13 @@ $ff = new FormFeedbacker();
 if (!$valid)
 	$ff->message("Il client non ti ha bloccato?");
 else {
-
-	$utente = AccountManager::authenticate($email, $password);
+	$account_dao = AccountDAOFactory::getAccountDAO();
+	$utente = $account_dao->authenticate($email, $password);
 	if ($utente) {
 		Auth::setLoggedUser($utente);
 		header("Location: /");
 	} else
 		$ff->message("I dati non corrispondono");
-
 }
 
 $ff->process();

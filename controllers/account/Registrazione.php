@@ -15,25 +15,18 @@ $valid = Validator\validate("../../forms/registrazione.json", [
 ]);
 
 $ff = new FormFeedbacker();
+$account_dao = AccountDAOFactory::getAccountDAO();
 
 if (!$valid)
 	$ff->message("Il client non ti ha bloccato?");
-elseif (AccountManager::exists($email))
+elseif ($account_dao->exists($email))
 	$ff->message("Già esiste");
 else {
-
-	$tmp_utente = new Utente(
-		0,
-		$nome,
-		$cognome,
-		$email,
-		sha1($password)
-	);
-	if (AccountManager::create($tmp_utente))
+	$tmp_utente = new Utente(0, $nome, $cognome, $email, sha1($password));
+	if ($account_dao->create($tmp_utente))
 		header("Location: /conferma_registrazione.php");
 	else
 		$ff->bug();
-
 }
 
 $ff->process();

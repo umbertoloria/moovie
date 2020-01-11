@@ -16,15 +16,20 @@ if ($logged_user) {
 	$giudizi = GiudizioManager::getAllOf($friends);
 	$utenti = [];
 	$films = [];
+	$account_dao = AccountDAOFactory::getAccountDAO();
 	foreach ($giudizi as $giudizio) {
 		if (!isset($utenti[$giudizio->getUtente()]))
-			$utenti[$giudizio->getUtente()] = AccountManager::get_from_id($giudizio->getUtente());
+			$utenti[$giudizio->getUtente()] = $account_dao->get_from_id($giudizio->getUtente());
 		if (!isset($films[$giudizio->getFilm()]))
 			$films[$giudizio->getFilm()] = FilmManager::get_from_id($giudizio->getFilm());
 	}
+	unset($account_dao);
 	$_REQUEST["giudizi"] = $giudizi;
 	$_REQUEST["utenti"] = $utenti;
 	$_REQUEST["films"] = $films;
+	unset($giudizi);
+	unset($utenti);
+	unset($films);
 	include "views/film/Timeline giudizi.php";
 
 } else {

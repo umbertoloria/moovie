@@ -53,8 +53,4 @@ class Utente {
 		return $this->gestore;
 	}
 
-	public function setGestore(bool $gestore) {
-		$this->gestore = $gestore;
-	}
-
 }

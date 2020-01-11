@@ -1,14 +1,13 @@
 <?php
 
-class AccountManager {
+class DBAccountDAO implements IAccountDAO {
 
-	public static function exists(string $email): bool {
+	public function exists(string $email): bool {
 		$stmt = DB::stmt("SELECT email FROM utenti WHERE email = ?");
 		return $stmt->execute([$email]) and $stmt->rowCount() === 1;
 	}
 
-	// Il campo 'id' dell'istanza Utente viene ignorato.
-	public static function create(Utente $utente): ?Utente {
+	public function create(Utente $utente): ?Utente {
 		$stmt = DB::stmt("INSERT INTO utenti (nome, cognome, email, password, gestore) VALUES (?, ?, ?, ?, ?)");
 		$stmt->bindValue(1, $utente->getNome());
 		$stmt->bindValue(2, $utente->getCognome());
@@ -21,7 +20,7 @@ class AccountManager {
 			return null;
 	}
 
-	public static function get_from_id(int $id): ?Utente {
+	public function get_from_id(int $id): ?Utente {
 		$stmt = DB::stmt("SELECT id, nome, cognome, email, password, gestore FROM utenti WHERE id = ?");
 		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Utente($r["id"], $r["nome"], $r["cognome"], $r["email"],
@@ -30,7 +29,7 @@ class AccountManager {
 			return null;
 	}
 
-	public static function update(Utente $utente): ?Utente {
+	public function update(Utente $utente): ?Utente {
 
 		$utente_reale = self::get_from_id($utente->getID());
 		if (!$utente_reale)
@@ -106,7 +105,7 @@ class AccountManager {
 		return self::get_from_id($utente->getID());
 	}
 
-	public static function authenticate(string $email, string $password): ?Utente {
+	public function authenticate(string $email, string $password): ?Utente {
 		$stmt = DB::stmt(
 			"SELECT id, nome, cognome, email, password, gestore FROM utenti WHERE email = ? AND password = ?");
 		if ($stmt->execute([$email, sha1($password)]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
@@ -116,13 +115,13 @@ class AccountManager {
 			return null;
 	}
 
-	/** @return Utente[] */
-	public static function search(string $fulltext): array {
+	/** @inheritDoc */
+	public function search(string $fulltext): array {
 		$res = [];
 		$stmt = DB::stmt(
 			"SELECT id, nome, cognome, email, password, gestore FROM utenti
-				WHERE MATCH(nome) AGAINST(? IN NATURAL LANGUAGE MODE)
-					OR MATCH(cognome) AGAINST(? IN NATURAL LANGUAGE MODE)");
+					WHERE MATCH(nome) AGAINST(? IN NATURAL LANGUAGE MODE)
+						OR MATCH(cognome) AGAINST(? IN NATURAL LANGUAGE MODE)");
 		if ($stmt->execute([$fulltext, $fulltext]))
 			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
 				$res[] = new Utente($r["id"], $r["nome"], $r["cognome"], $r["email"],
@@ -130,9 +129,9 @@ class AccountManager {
 		return $res;
 	}
 
-	public static function delete(int $utente_id): bool {
+	public function delete(int $id): bool {
 		$stmt = DB::stmt("DELETE FROM utenti WHERE id = ?");
-		return $stmt->execute([$utente_id]) and $stmt->rowCount() === 1;
+		return $stmt->execute([$id]) and $stmt->rowCount() === 1;
 	}
 
 }

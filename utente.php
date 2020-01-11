@@ -6,7 +6,9 @@ if (!$logged_user) {
 	header("Location: /");
 	die();
 }
-$utente = AccountManager::get_from_id(@$_GET["id"]);
+$account_dao = AccountDAOFactory::getAccountDAO();
+$utente = $account_dao->get_from_id(@$_GET["id"]);
+unset($account_dao);
 if (!$utente) {
 	header("Location: /404.php");
 	die();

@@ -24,7 +24,8 @@ elseif ($logged_user->getPassword() !== sha1($cur_pwd))
 	$ff->message("La password attuale fornita non corrisponde");
 else {
 	$logged_user->setPassword(sha1($new_pwd));
-	$saved_user = AccountManager::update($logged_user);
+	$account_dao = AccountDAOFactory::getAccountDAO();
+	$saved_user = $account_dao->update($logged_user);
 	if ($saved_user) {
 		unset($logged_user);
 		Auth::setLoggedUser($saved_user);

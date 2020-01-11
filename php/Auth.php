@@ -5,8 +5,9 @@ class Auth {
 	private static $user_cache = null;
 
 	public static function init() {
+		$account_dao = AccountDAOFactory::getAccountDAO();
 		if (isset($_COOKIE["userid"]))
-			self::$user_cache = AccountManager::get_from_id($_COOKIE["userid"]);
+			self::$user_cache = $account_dao->get_from_id($_COOKIE["userid"]);
 	}
 
 	/** @return Utente? */

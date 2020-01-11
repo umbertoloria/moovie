@@ -83,9 +83,11 @@ if ($kind === "artisti" or $kind === "tutti") {
 
 }
 
+$account_dao = AccountDAOFactory::getAccountDAO();
 if ($kind === "utenti" or ($kind === "tutti" and in_array("utenti", $kinds))) {
-	$risultati["users"] = AccountManager::search($fulltext);
+	$risultati["users"] = $account_dao->search($fulltext);
 }
+unset($account_dao);
 unset($kind);
 unset($fulltext);
 
