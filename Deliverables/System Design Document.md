@@ -8,6 +8,7 @@
 | 0.5      | 18/12/2019 | Revisione sottosistemi, revisione diagrammi e revisione tavola degli accessi               | Team                                      |
 | 0.6      | 7/1/2020   | Miglioramento sottosistemi, miglioramento tavola degli accessi                             | Gianluca Pirone                           |
 | 0.7      | 9/1/2020   | Revisione sottosistemi, integrazione nuovi diagrammi e miglioramento tavola degli accessi  | Team                                      |
+| 0.8      | 10/1/2020  | Ridivisione sottosistemi                                                                   | Team                                      |
 
 # Indice
 1. [Introduzione](#introduzione)
@@ -25,25 +26,10 @@
     2. [Decomposizione in sottosistemi](#decomposizione-in-sottosistemi)
         1. [Sottosistemi](#sottosistemi)
             1. [Ricerca](#ricerca)
-                1. [RicercaPresentationLayer](#ricercapresentationlayer)
-                2. [RicercaApplicationLayer](#ricercaapplicationlayer)
-                3. [RicercaDataLayer](#ricercadatalayer)
             2. [Account](#account)
-                1. [AccountPresentationLayer](#accountpresentationlayer)
-                2. [AccountApplicationLayer](#accountapplicationlayer)
-                3. [AccountDataLayer](#accountdatalayer)
             3. [Film](#film)
-                1. [FilmPresentationLayer](#filmpresentationlayer)
-                2. [FilmApplicationLayer](#filmapplicationlayer)
-                3. [FilmDataLayer](#filmdatalayer)
             4. [Amicizia](#amicizia)
-                1. [AmiciziaPresentationLayer](#amiciziapresentationlayer)
-                2. [AmiciziaApplicationLayer](#amiciziaapplicationlayer)
-                3. [AmiciziaDataLayer](#amiciziadatalayer)
             5. [Gestione](#gestione)
-                1. [GestionePresentationLayer](#gestionepresentationlayer)
-                2. [GestioneApplicationLayer](#gestioneapplicationlayer)
-                3. [GestioneDataLayer](#gestionedatalayer)
     3. [Mappatura hardware/software](#mappatura-hardwaresoftware)
     4. [Gestione dei dati persistenti](#gestione-dei-dati-persistenti)
     5. [Gestione degli accessi](#gestione-degli-accessi)
@@ -133,7 +119,6 @@ In questo pattern le componenti del sistema appartengono ai 3 tipi di componenti
 - View che si occupati di interfacciare l'utente al sistema visualizzando i dati contenuto all'interno dei model.
 
 ## Decomposizione in sottosistemi
-
 ### Sottosistemi
 I sottosistemi sono stati decomposti raggruppando argomenti tra loro simili e dividendo intelligentemente porzioni
 inutilmente legate. Ecco Moovie divisione in sottosistemi:
@@ -141,128 +126,55 @@ inutilmente legate. Ecco Moovie divisione in sottosistemi:
 - Account;
 - Amicizia;
 - Film;
-- Gestione;
+- Gestione.
 
-![](Package%20diagrams/Suddivisione_Sottosistemi.jpg)
+![](Package%20diagrams/Sottosistemi_Diagram.jpg)
 
 L'immagine rappresenta le varie suddivisioni effettuate e i vari collegamenti tra sottosistemi appartenenti a layer
 differenti.
 
 Per procedere verso uno sviluppo più semplice del sistema, questo è stato diviso in tre strati:
-- PresentationLayer: strato che si occupa delle interfacce grafiche con il quale l'utente dovra interagire;
-- ApplicationLayer: strato che si occupa di gestire tutte le richieste che l'utente effettua attraverso il
+- Presentation_Layer: strato che si occupa delle interfacce grafiche con il quale l'utente dovra interagire;
+- Application_Layer: strato che si occupa di gestire tutte le richieste che l'utente effettua attraverso il
 PresentationLayer, ricevendo, elaborando e alla fine mostrando il risultato di un'operazione da lui richiesta;
 - DataLayer: strato che si occupa di gestire i dati del sistema.
 
+
 #### Ricerca
-![](Package%20diagrams/Diagram_Ricerca.jpg)
+![](Package%20diagrams/Ricerca_Diagram.jpg)
 
 Il sottosistema ricerca si occupa di gestire le ricerche di tutti gli utenti offrendo diverse funzionalità quali:
 - Ricerca di un film;
-- Ricerca di un artista;	
-- Ricerca di un utente;
+- Ricerca di un artista;
+- Ricerca di un utente.
 
-#### RicercaPresentationLayer
-Questo livello include tutte le componenti dell'interfaccia che offrono funzionalità riguardanti le ricerche:
-- GUI - Ricerca: interfacce che offrono all'utente la possibilità di ricercare un film, un utente o un artista
-
-#### RicercaApplicationLayer
-Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema ricerca nel sistema:
-- Ricerca(): incoropora operazioni che permettono di ricercare un film, un utente o un artista, ad un utente.
-
-#### RicercaDataLayer
-Questo livello si occupa di gestire i dati riguardanti le richerche degli utenti all'interno del sistema.
 
 #### Account
-![](Package%20diagrams/Diagram_Account.jpg)
+![](Package%20diagrams/Account_Diagram.jpg)
 
 Il sottosistema account si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
-- Creare un account
-- Autenticare un account
-- Cambiare password
-- Deautenticare un account
-- Visualizzare un profilo
-- Visualizzare la pagina iniziale
+- Creare un account;
+- Autenticare un account;
+- Cambiare password;
+- Deautenticare un account;
+- Visualizzare un profilo;
+- Visualizzare la pagina iniziale.
 
-#### AccountPresentationLayer
-Questo livello include tutte le componenti dell'interfaccia che offrono funzionalità riguardanti la gestione di un
-account:
-- GUI - Creare un account: interfacce che offrono all'utente la possibilità di creare il proprio account immettendo le
-proprie informazioni;
-- GUI - Autenticare un account: interfacce che offrono all'utente la possibilità di potersi autenticare all'interno del
-sito;
-- GUI - Cambiare password: interfacce che offrono all'utente autenticato la possibilità di accettare le modifiche
-precedentemente fatte alla password;
-- GUI - Deautentiare un account: interfacce che offrono all'utente autenticato la possibilità di deautenticarsi dal
-sito;
-- GUI - Visualizzare un profilo: interfacce che offrono all'utente autenticato la possibilità di visulizzare un profilo
-all'interno del sito;
-- GUI - Visualizzare la pagina iniziale: interfacce che offrono all'utente autenticato la possibilità di visulizzare la
-pagina iniziale del sito;
-
-#### AccountApplicationLayer
-Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema account nel sistema:
-- CreareAccount(): incorpora operazioni che permettono di creare un nuovo account ad un utente;
-- AutenticareAccount(): incorpora operazioni che permettono ad un utente di autenticarsi all'interno di Moovie;
-- CambiarePassword(): incorpora operazioni che permettono all'utente autenticato di accettare i cambiamenti
-precedentementi fatti alla propria password;
-- DeautenticareAccount(): incorpora operazioni che permettono all'utente autenticato di deautenticarsi dal sito;
-- VisualizzareProfilo(): incorpora operazioni che permettono all'utente autenticato di visualizzare un profilo
-all'interno del sito;
-- VisualizzarePaginaIniziale(): incorpora operazioni che permettono all'utente autenticato di visualizzare la pagina
-iniziale del sito;
-
-#### AccountDataLayer
-Questo livello si occupa di gestire i dati riguardanti gli utenti dell'intero sistema.
 
 #### Amicizia
-![](Package%20diagrams/Diagram_Amicizia.jpg)
+![](Package%20diagrams/Amicizia_Diagram.jpg)
 
 Il sottosistema amicizia si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
-- Inviare richiesta di amicizia
-- Cancellare richiesta di amicizia
-- Accettare richiesta di amicizia
-- Rifiutare richiesta di amicizia
-- Cancellare amicizia
-- Visualizzare gli amici
+- Inviare richiesta di amicizia;
+- Cancellare richiesta di amicizia;
+- Accettare richiesta di amicizia;
+- Rifiutare richiesta di amicizia;
+- Cancellare amicizia;
+- Visualizzare gli amici.
 
- 
-#### AmiciziaPresentationLayer
-Questo livello include tutte le componenti dell'interfaccia che offrono funzionalità riguardanti le amicizie:
-- GUI - Inviare richiesta amicizia: interfacce che offrono all'utente autenticato la possibilità di inviare 
- una richiesta di amicizia ad un altro account;
-- GUI - Cancellare richiesta amicizia: interfacce che offrono all'utente autenticato la possibilità di cancellare 
- una richiesta di amicizia ad un altro account;
-- GUI - Accettare richiesta  amicizia: interfacce che offrono all'utente autenticato la possibilità di accettare 
- una richiesta di amicizia proveniente da un altro account;
-- GUI - Rifiutare richiesta amicizia: interfacce che offrono all'utente autenticato la possibilità di rifiutare 
- una richiesta di amicizia proveniente da un altro account;
-- GUI - Cancellare amicizia: interfacce che offrono all'utente autenticato la possibilità di cancellare 
- un'amicizia con un altro account;
-- GUI - Visualizzare gli amici: interfacce che offrono all'utente autenticato la possibilità di visualizzare 
- le amicizie in cui è coinvolto;
-
-#### AmiciziaApplicationLayer
-Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema amicizia nel
-sistema:
-- InviareRichiestaAmcizia(): incorpora operazioni che permettono all'utente autenticato di richiedere l'amicizia ad un
-altro utente;
-- CancellareRichiestaAmcizia(): incorpora operazioni che permettono all'utente autenticato di cancellare la richiesta
-d'amicizia ad un altro utente;
-- AccettareRichiestaAmicizia(): incorpora operazioni che permettono all'utente autenticato di accettare
-l'amicizia di un altro utente;
-- RifiutareRichiestaAmicizia(): incorpora operazioni che permettono all'utente autenticato di rifiutare
-l'amicizia di un altro utente;
-- CancellareAmicizia(): incorpora operazioni che permettono all'utente autenticato di cancellare l'amicizia con un altro
-utente;
-- VisualizzaAmici(): incorpora operazioni che permettono all'utente autenticato di visualizzare le amicizie in cui è
-coinvolto;
-
-#### AmiciziaDataLayer
-Questo livello si occupa di gestire i dati riguardanti le amicizie degli utenti dell'intero sistema.
 
 #### Film
-![](Package%20diagrams/Diagram_Film.jpg)
+![](Package%20diagrams/Film_Diagram.jpg)
 
 Il sottosistema film si occupa di gestire i giudizi di tutti gli utenti autenticati offrendo diverse funzionalità quali:
 - Visualizzare un film;
@@ -276,66 +188,11 @@ Il sottosistema film si occupa di gestire i giudizi di tutti gli utenti autentic
 - Rimuovere un promemoria;
 - Visualizzare i promemoria;
 - Suggerimenti automatici di film:
-- Visualizzare la classifica dei film;
+- Visualizzare la classifica dei film.
 
-#### FilmPresentationLayer
-Questo include al suo interno tutte le componenti dell'interfaccia che offrono operazioni riguardanti Film nel sistema:
-- GUI - Visualizzare un film:  interfacce che offrono all'utente la possibilità di visualizzare la pagina di un film;
-- GUI - Visualizzare un artista:  interfacce che offrono all'utente la possibilità di visualizzare la pagina di un
-artista;
-- GUI - Visualizzare un genere:  interfacce che offrono all'utente la possibilità di visualizzare la pagina di un
-genere;
-- GUI - Aggiungere un giudizio:  interfacce che offrono all'utente autenticato la possibilità di aggiungere un giudizio
-ad un determinato film;
-- GUI - Modificare un giudizio: interfacce che offrono all'utente autenticato la possibilità di modificare un giudizio
-ad un determinato film;
-- GUI - Rimuovere un giudizio: interfacce che offrono all'utente autenticato la possibilità di rimuovere un giudizio ad
-un determinato film;
-- GUI - Visualizzare i giudizi: interfacce che offrono all'utente autenticato la possibilità di visualizzare tutti i
-suoi giudizi;
-- GUI - Aggiungere un promemoria: interfacce che offrono all'utente autenticato la possibilità di aggiungere un
-determinato film tra i promemoria;
-- GUI - Rimuovere un promemoria: interfacce che offrono all'utente autenticato la possibilità di rimuovere un
-promemoria;
-- GUI - Visualizzare i promemoria: interfacce che offrono all'utente autenticato la possibilità di visualizzare tutti i
-suoi promemoria;
-- GUI - Suggerimenti automatici di film: interfacce che offrono all'utente autenticato la possibilità di farsi suggerire
-dal sistema dei film in linea con le sue preferenze;
-- GUI - Visualizzare la classifica dei film: interfacce che offrono all'utente autenticato la possibilità di
-visualizzare i film nella classifica;
-
-#### FilmApplicationLayer
-Questo include al suo interno tutte le componenti che offrono operazioni rigurdanti il sottosistema film al sistema:
-- VisualizzareFilm(): incoropora operazioni che permettono all'utente la possibilità di visualizzare la pagina di un
-film;
-- VisualizzareArtista(): incoropora operazioni che permettono all'utente la possibilità di visualizzare la pagina di un
-artista;
-- VisualizzareGenere(): incoropora operazioni che permettono all'utente la possibilità di visualizzare la pagina di un
-genere;
-- AggiungereGiudizio(): incoropora operazioni che permettono all'utente autenticato di aggiungere un giudizio ad un
-determinato film;
-- ModificareGiudizio(): incoropora operazioni che permettono all'utente autenticato di modificare un giudizio ad un
-determinato film;
-- RimuovereGiudizio(): incoropora operazioni che permettono all'utente autenticato di rimuovere un giudizio ad un
-determinato film;
-- VisualizzareGiudizi(): incoropora operazioni che permettono all'utente autenticato di visualizzare tutti i suoi
-giudizi;
-- AggiungerePromemoria(): incoropora operazioni che permettono all'utente autenticato di aggiungere un determinato film
-tra i promemoria;
-- RimuoverePromemoria(): incoropora operazioni che permettono all'utente autenticato di rimuovere un promemoria;
-- VisualizzarePromemoria(): incoropora operazioni che permettono all'utente autenticato di visualizzare tutti i suoi
-promemoria;
-- SuggerimentiAutomaticiFilm(): incoropora operazioni che permettono all'utente autenticato di farsi suggerire dal
-sistema dei film in linea con le sue preferenze;
-- VisualizzareClassificaFilm(): incoropora operazioni che permettono all'utente autenticato di visualizzare i film nella
-classifica;
-
-#### FilmDataLayer
-Questo livello si occupa di gestire i dati riguardanti i giudizi sui film  degli utenti autenticati, e i suggerimenti
-automatici all'interno del sistema.
 
 ### Gestione
-![](Package%20diagrams/Diagram_Gestione.jpg)
+![](Package%20diagrams/Gestione_Diagram.jpg)
 
 Il sosttosistema Gestione si occupa di gestire i dati presenti nel sito offrendo diverse funzionalità quali:
 - Aggiungere un film;
@@ -348,61 +205,8 @@ Il sosttosistema Gestione si occupa di gestire i dati presenti nel sito offrendo
 - Rimuovere un artista;
 - Rimuovere un genere;
 - Aggiornare generi di un film;
-- Aggiornare artisti in un film;
+- Aggiornare artisti in un film.
 
-#### GestionePresentationLayer
-Questo include al suo interno tutte le componenti dell'interfaccia che offrono operazioni riguardanti la "Gestione" dei
-dati nel sistema:
-- GUI - Aggiungi film: interfacce che offrono all'utente gestore la possibilità di aggiungere un film all'interno del
-sistema;
-- GUI - Aggiungi artista: interfacce che offrono all'utente gestore la possibilità di aggiungere un artista all'interno
-del sistema;
-- GUI - Aggiungi genere: interfacce che offrono all'utente gestore la possibilità di aggiungere un genere all'interno
-del  sistema;
-- GUI - Modifica film: interfacce che offrono all'utente gestore la possibilità di modificare un film all'interno del
-sistema;
-- GUI - Modifica genere: interfacce che offrono all'utente gestore la possibilità di modificare un genere all'interno
-del sistema;
-- GUI - Modifica artista: interfacce che offrono all'utente gestore la possibilità di modificare un artista all'interno
-del sistema;
-- GUI - Rimuovi film: interfacce che offrono all'utente gestore la possibilità di rimuovere un film all'interno del
-sistema;
-- GUI - Rimuovi artista: interfacce che offrono all'utente gestore la possibilità di rimuovere un artista all'interno
-del sistema;
-- GUI - Rimuovi genere: interfacce che offrono all'utente gestore la possibilità di rimuovere un genere all'interno del
-sistema;
-- GUI - Aggiornare generi film: interfacce che offrono all'utente gestore la possibilità di aggiornare generi di un film
-all'interno del sistema;
-- GUI - Aggiornare artisti film: interfacce che offrono all'utente gestore la possibilità di aggiornare gli artisti in
-un film all'interno del sistema;
-
-#### GestioneApplicationLayer
-Questo include al suo interno tutte le componenti che offrono le operazioni riguardanti il sottosistema gestione del
-sistema.
-- AggiungiFilm(): incorpora operazioni che permettono ad un utente gestore di aggiungere un film all'interno del
-sistema;
-- AggiungiArtista(): incorpora operazioni che permettono ad un utente gestore di aggiungere un artista all'interno del
-sistema;
-- AggiungiGenere(): incorpora operazioni che permettono ad un utente gestore di aggiungere un gerenere all'interno del
-sistema;
-- ModificaFilm(): incorpora operazioni che permettono ad un utente gestore di modificare i dati di un film all'interno
-del sistema;
-- ModificaArtista(): incorpora operazioni che permettono ad un utente gestore di modificare i dati di un artista
-all'interno del sistema;
-- ModificaGenere(): incorpora operazioni che permettono ad un utente gestore di modificare un genere all'interno del
-sistema;
-- RimuoviFilm(): incorpora operazioni che permettono ad un utente gestore di rimuovere un film all'interno del sistema;
-- RimuoviArtista(): incorpora operazioni che permettono ad un utente gestore di rimuovere un artista all'interno del
-sistema;
-- RimuoviGenere(): incorpora operazioni che permettono ad un utente gestore di rimuovere un genere all'interno del
-sistema;
-- AggiornaGeneriFilm(): incorpora operazioni che permettono ad un utente gestore di aggiornare generi di un film
-all'interno del sistema;
-- AggiornaArtistiFilm(): incorpora operazioni che permettono ad un utente gestore di aggiornare gli artisti in un film
-all'interno del sistema;
-
-#### GestioneDataLayer
-Questo livello si occupa di gestire alcuni dati presenti nel sito Moovie, permettendo, ad un utente gestore di gestirli.
 
 ## Mappatura hardware/software
 ![](Deployment%20diagrams/Mappatura_HW_SW.jpg)
