@@ -142,7 +142,7 @@ Presentation_Layer, ricevendo, elaborando e alla fine mostrando il risultato di 
 #### Ricerca
 ![](Package%20diagrams/Ricerca_Diagram.jpg)
 
-Il sottosistema ricerca si occupa di gestire le ricerche di tutti gli utenti offrendo diverse funzionalità quali:
+Il sottosistema **Ricerca** si occupa di gestire le ricerche di tutti gli utenti offrendo diverse funzionalità quali:
 - Ricerca di un film;
 - Ricerca di un artista;
 - Ricerca di un utente.
@@ -150,7 +150,7 @@ Il sottosistema ricerca si occupa di gestire le ricerche di tutti gli utenti off
 #### Account
 ![](Package%20diagrams/Account_Diagram.jpg)
 
-Il sottosistema account si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
+Il sottosistema **Account** si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
 - Creare un account;
 - Autenticare un account;
 - Cambiare password;
@@ -161,7 +161,7 @@ Il sottosistema account si occupa di gestire tutti gli account del sistema offre
 #### Amicizia
 ![](Package%20diagrams/Amicizia_Diagram.jpg)
 
-Il sottosistema amicizia si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
+Il sottosistema **Amicizia** si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
 - Inviare richiesta di amicizia;
 - Cancellare richiesta di amicizia;
 - Accettare richiesta di amicizia;
@@ -172,7 +172,7 @@ Il sottosistema amicizia si occupa di gestire le amicizie tra account offrendo d
 #### Film
 ![](Package%20diagrams/Film_Diagram.jpg)
 
-Il sottosistema film si occupa di gestire i giudizi di tutti gli utenti autenticati offrendo diverse funzionalità quali:
+Il sottosistema **Film** si occupa di gestire i giudizi di tutti gli utenti autenticati offrendo diverse funzionalità quali:
 - Visualizzare un film;
 - Visualizzare un artista;
 - Visualizzare un genere;
@@ -189,7 +189,7 @@ Il sottosistema film si occupa di gestire i giudizi di tutti gli utenti autentic
 ### Gestione
 ![](Package%20diagrams/Gestione_Diagram.jpg)
 
-Il sosttosistema Gestione si occupa di gestire i dati presenti nel sito offrendo diverse funzionalità quali:
+Il sottosistema **Gestione** si occupa di gestire i dati presenti nel sito offrendo diverse funzionalità quali:
 - Aggiungere un film;
 - Aggiungere un artista;
 - Aggiungere un genere;
