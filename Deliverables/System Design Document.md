@@ -116,7 +116,7 @@ Il sistema sarà contruito seguendo il pattern architetturale MVC (Model View Co
 In questo pattern le componenti del sistema appartengono ai 3 tipi di componenti principali:
 - Model: permette di accedere alle informazioni del dominio applicativo;
 - Controller: riceve i comandi dell'utente e li attua modificando lo stato delle altre due componenti;
-- View che si occupati di interfacciare l'utente al sistema visualizzando i dati contenuto all'interno dei model.
+- View: si occupati di interfacciare l'utente al sistema visualizzando i dati contenuto all'interno dei model.
 
 ## Decomposizione in sottosistemi
 ### Sottosistemi
@@ -136,9 +136,8 @@ differenti.
 Per procedere verso uno sviluppo più semplice del sistema, questo è stato diviso in tre strati:
 - Presentation_Layer: strato che si occupa delle interfacce grafiche con il quale l'utente dovra interagire;
 - Application_Layer: strato che si occupa di gestire tutte le richieste che l'utente effettua attraverso il
-PresentationLayer, ricevendo, elaborando e alla fine mostrando il risultato di un'operazione da lui richiesta;
-- DataLayer: strato che si occupa di gestire i dati del sistema.
-
+Presentation_Layer, ricevendo, elaborando e alla fine mostrando il risultato di un'operazione da lui richiesta;
+- Data_Layer: strato che si occupa di gestire i dati del sistema.
 
 #### Ricerca
 ![](Package%20diagrams/Ricerca_Diagram.jpg)
@@ -147,7 +146,6 @@ Il sottosistema ricerca si occupa di gestire le ricerche di tutti gli utenti off
 - Ricerca di un film;
 - Ricerca di un artista;
 - Ricerca di un utente.
-
 
 #### Account
 ![](Package%20diagrams/Account_Diagram.jpg)
@@ -160,7 +158,6 @@ Il sottosistema account si occupa di gestire tutti gli account del sistema offre
 - Visualizzare un profilo;
 - Visualizzare la pagina iniziale.
 
-
 #### Amicizia
 ![](Package%20diagrams/Amicizia_Diagram.jpg)
 
@@ -171,7 +168,6 @@ Il sottosistema amicizia si occupa di gestire le amicizie tra account offrendo d
 - Rifiutare richiesta di amicizia;
 - Cancellare amicizia;
 - Visualizzare gli amici.
-
 
 #### Film
 ![](Package%20diagrams/Film_Diagram.jpg)
@@ -187,9 +183,8 @@ Il sottosistema film si occupa di gestire i giudizi di tutti gli utenti autentic
 - Aggiungere un promemoria;
 - Rimuovere un promemoria;
 - Visualizzare i promemoria;
-- Suggerimenti automatici di film:
+- Suggerimenti automatici di film;
 - Visualizzare la classifica dei film.
-
 
 ### Gestione
 ![](Package%20diagrams/Gestione_Diagram.jpg)
@@ -206,7 +201,6 @@ Il sosttosistema Gestione si occupa di gestire i dati presenti nel sito offrendo
 - Rimuovere un genere;
 - Aggiornare generi di un film;
 - Aggiornare artisti in un film.
-
 
 ## Mappatura hardware/software
 ![](Deployment%20diagrams/Mappatura_HW_SW.jpg)
