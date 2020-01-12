@@ -8,7 +8,7 @@
 | 0.5      | 18/12/2019 | Revisione sottosistemi, revisione diagrammi e revisione tavola degli accessi               | Team                                      |
 | 0.6      | 7/1/2020   | Miglioramento sottosistemi, miglioramento tavola degli accessi                             | Gianluca Pirone                           |
 | 0.7      | 9/1/2020   | Revisione sottosistemi, integrazione nuovi diagrammi e miglioramento tavola degli accessi  | Team                                      |
-| 0.8      | 10/1/2020  | Ridivisione sottosistemi                                                                   | Team                                      |
+| 0.8      | 12/1/2020  | Ridivisione sottosistemi                                                                   | Team                                      |
 
 # Indice
 1. [Introduzione](#introduzione)
@@ -336,15 +336,17 @@ e quindi potrà essere restituta più velocemente.
 Moovie prevede differenti tipologie di utenza, ognuna delle quali può usufruire di varie funzionalità, a seconda del
 tipo di oggetto con cui interagiscono.
 
-Si è scelto di utilizzare una matrice per documentare i diritti di accesso per ogni attore.
-La matrice suddivide la tipologia di attore per riga, la tipologia di oggetto a cui si accede per colonna, e per ogni
-interazione tra questi è presente l'insieme di operazioni disponibli.
+Per documentare i diritti di accesso per ogni attore, viene utilizzata la Matrice di Accessi sottostante.
 
 **Sottosistemi / Attori** | **Ricerca**                                            | **Account**                                                                                              | **Amicizia**                                                                                                                                                                    | **Film**                                                                                                                                                                                                                                                                                                                           | **Gestione**                                                                                                                                                                                                                                                |
 --------------------------|--------------------------------------------------------|----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 Utente                    | RicercaFilm()<br/>RicercaArtista()                     | CreareAccount()<br/>AutenticareAccount()                                                                 |                                                                                                                                                                                 | VisualizzareFilm()<br/>VisualizzareArtista()<br/>VisualizzareGenere()<br/>                                                                                                                                                                                                                                                         |                                                                                                                                                                                                                                                             |
 Utente autenticato        | RicercaFilm()<br/>RicercaArtista()<br/>RicercaUtente() | CambiarePassword()<br/>DeautenticareAccount()<br/>VisualizzareProfilo()<br/>VisualizzarePaginaIniziale() | InviareRichiestaAmicizia()<br/>CancellareRichiestaAmicizia()<br/>AccettareRichiestaAmicizia()<br/>RifiutareRichiestaAmicizia()<br/>CancellareAmicizia()<br/>VisualizzareAmici() | VisualizzareFilm()<br/>VisualizzareArtista()<br/>VisualizzareGenere()<br/>AggiungereGiudizio()<br/>ModificareGiudizio()<br/>RimuovereGiudizio()<br/>VisualizzareGiudizi()<br/>AggiungerePromemoria()<br/>RimuoverePromemoria()<br/>VisualizzarePromemoria()<br/>SuggerimentiAutomaticiFilm()<br/>VisualizzareClassificaFilm()<br/> |                                                                                                                                                                                                                                                             |
 Utente gestore            | RicercaFilm()<br/>RicercaArtista()<br/>RicercaUtente() | CambiarePassword()<br/>DeautenticareAccount()<br/>VisualizzareProfilo()<br/>VisualizzarePaginaIniziale() | InviareRichiestaAmicizia()<br/>CancellareRichiestaAmicizia()<br/>AccettareRichiestaAmicizia()<br/>RifiutareRichiestaAmicizia()<br/>CancellareAmicizia()<br/>VisualizzareAmici() | VisualizzareFilm()<br/>VisualizzareArtista()<br/>VisualizzareGenere()<br/>AggiungereGiudizio()<br/>ModificareGiudizio()<br/>RimuovereGiudizio()<br/>VisualizzareGiudizi()<br/>AggiungerePromemoria()<br/>RimuoverePromemoria()<br/>VisualizzarePromemoria()<br/>SuggerimentiAutomaticiFilm()<br/>VisualizzareClassificaFilm()<br/> | AggiungereFilm()<br/>AggiungereArtista()<br/>AggiungereGenere()<br/>ModificareFilm()<br/>ModificareArtista()<br/>ModificareGenere()<br/>RimuovereFilm()<br/>RimuovereArtista()<br/>RimuovereGenere()<br/>AggiornareGeneriFilm()<br/>AggiornareArtistiFilm() |
+
+Questa matrice ha solo uno scopo esplicativo verso il lettore di questo documento. I controlli NON verranno realizzati
+direttamente tramite un'implementazione della suddetta matrice. Tutti i controlli che quest'ultima impone verranno
+realizzati diversamente.
 
 ## Condizioni limite
 
@@ -372,9 +374,9 @@ Ricerca     | Il sottosistema ricerca si occupa di fornire tutti i servizi che o
 
 Servizi   | Descrizione
 ----------|---
-RicercaUtente() | Servizio che offre la possibilità di ricercare un un utente all'interno di Moovie
+RicercaUtente()  | Servizio che offre la possibilità di ricercare un utente all'interno di Moovie
 RicercaArtista() | Servizio che offre la possibilità di ricercare un artista all'interno di Moovie
-RicercaFilm() | Servizio che offre la possibilità di ricercare un film all'interno di Moovie
+RicercaFilm()    | Servizio che offre la possibilità di ricercare un film all'interno di Moovie
 
 ## Sottosistema account
 Sottosistema | Descrizione
