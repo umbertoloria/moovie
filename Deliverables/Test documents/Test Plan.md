@@ -220,10 +220,9 @@ Codice   | Combinazione                                               | Esito
 TC_2.2_1 | LEmail_1                                                   | Errore
 TC_2.2_2 | LEmail_2, FEmail_1                                         | Errore
 TC_2.2_3 | LEmail_2, FEmail_2<br/> CEmail_1                           | Errore
-TC_2.2_4 | LEmail_2, FEmail_2<br/> CEmail_2                           | Errore
-TC_2.2_5 | LEmail_2, FEmail_2<br/> CEmail_2, LPassword_1              | Errore
-TC_2.2_6 | LEmail_2, FEmail_2<br/> CEmail_2, LPassword_2, CPassword_1 | Errore
-TC_2.2_7 | LEmail_2, FEmail_2<br/> CEmail_2, LPassword_2, CPassword_2 | Corretto
+TC_2.2_4 | LEmail_2, FEmail_2<br/> CEmail_2, LPassword_1              | Errore 
+TC_2.2_5 | LEmail_2, FEmail_2<br/> CEmail_2, LPassword_2, CPassword_1 | Errore
+TC_2.2_6 | LEmail_2, FEmail_2<br/> CEmail_2, LPassword_2, CPassword_2 | Corretto
 
 #### CambiarePassword
 **PARAMETRO**: | Utente
@@ -442,11 +441,10 @@ TC_5.2_2 | LoUtente_2, GeUtente_1          																			 | Errore
 TC_5.2_3 | LoUtente_2, GeUtente_2, LNome_1                                                                           | Errore
 TC_5.2_4 | LoUtente_2, GeUtente_2, LNome_2, FNascita_1                                                               | Errore
 TC_5.2_5 | LoUtente_2, GeUtente_2, LNome_2, FNascita_2, LDescrizione_1                                               | Errore
-TC_5.2_6 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_1                                       | Errore
-TC_5.2_7 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_1,                        | Errore
-TC_5.2_8 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_2, CaFaccia_1             | Errore
-TC_5.2_9 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_2, CaFaccia_2, FoFaccia_1 | Errore
-TC_5.2_10| LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_2, CaFaccia_2, FoFaccia_2 | Corretto
+TC_5.2_6 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SFaccia_1                            | Errore
+TC_5.2_7 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SFaccia_2, CaFaccia_1                | Errore
+TC_5.2_8 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SFaccia_2, CaFaccia_2, FoFaccia_1    | Errore
+TC_5.2_9 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SFaccia_2, CaFaccia_2, FoFaccia_2    | Corretto
 
 #### AggiungereGenere
 **PARAMETRO**: | Utente
@@ -486,7 +484,7 @@ TC_5.4_1 | LoUtente_1                               | Errore
 TC_5.4_2 | LoUtente_2, GeUtente_1          			| Errore
 TC_5.4_3 | LoUtente_2, GeUtente_2, LNome_1          | Errore
 TC_5.4_4 | LoUtente_2, GeUtente_2, LNome_2, PNome_1 | Errore
-TC_5.5_5 | LoUtente_2, GeUtente_2, LNome_2, PNome_2 | Corretto
+TC_5.4_5 | LoUtente_2, GeUtente_2, LNome_2, PNome_2 | Corretto
 
 #### RimuovereGenere
 **PARAMETRO**: | Utente
@@ -516,4 +514,5 @@ Codice   | Combinazione                             | Esito
 ---------|------------------------------------------|-------
 TC_5.6_1 | LoUtente_1                               | Errore
 TC_5.6_2 | LoUtente_2, GeUtente_1          			| Errore
-TC_5.6_3 | LoUtente_2, GeUtente_2                   | Corretto
+TC_5.6_3 | LoUtente_2, GeUtente_2, PGenere_1        | Errore
+TC_5.6_4 | LoUtente_2, GeUtente_2, PGenere_2        | Corretto
