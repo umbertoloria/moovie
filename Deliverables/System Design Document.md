@@ -368,11 +368,13 @@ che sono i servizi che la web application offre.
 ## Sottosistema ricerca
 Sottosistema | Descrizione
 -------------|---
-Ricerche     | Il sottosistema ricerca si occupa di fornire tutti i servizi che offrono la possibilità di effettuare delle ricerche e ricevere delle informazioni sul sito
+Ricerca     | Il sottosistema ricerca si occupa di fornire tutti i servizi che offrono la possibilità di effettuare delle ricerche e ricevere delle informazioni sul sito
 
 Servizi   | Descrizione
 ----------|---
-Ricerca() | Servizio che offre la possibilità di ricercare un film, un utente o un artista all'interno di Moovie
+RicercaUtente() | Servizio che offre la possibilità di ricercare un un utente all'interno di Moovie
+RicercaArtista() | Servizio che offre la possibilità di ricercare un artista all'interno di Moovie
+RicercaFilm() | Servizio che offre la possibilità di ricercare un film all'interno di Moovie
 
 ## Sottosistema account
 Sottosistema | Descrizione
@@ -391,7 +393,7 @@ VisualizzarePaginaIniziale() | Servizio che permette ad un utente di visualizzar
 ## Sottosistema amicizia
 Sottosistema | Descrizione
 -------------|---
-Amicizie     | Il sottosistema amicizia si occupa di fornire tuttti i servizi che permettono ad un utente di gestire le proprie amicizie presenti su Moovie
+Amicizia     | Il sottosistema amicizia si occupa di fornire tuttti i servizi che permettono ad un utente di gestire le proprie amicizie presenti su Moovie
 
 Servizi | Descrizione
 --------|---
