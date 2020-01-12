@@ -1,4 +1,43 @@
-# Test Plan    
+# Test Plan
+# Indice
+1. [Introduzione](#introduzione)
+2. [Relazioni con gli altri documenti](#relazioni-con-gli-altri-documenti)
+    1. [Relazione con RAD](#relazione-con-rad)
+    2. [Relazione con SDD](#relazione-con-sdd)
+    3. [Relazione con ODD](#relazione-con-odd)
+3. [Panoramica del sistema](#panoramica-del-sistema)
+4. [Funzionalità da testare](#funzionalità-da-testare)
+5. [Criteri Pass/Field](#criteri-pass-field)
+6. [Approccio](#approccio)
+7. [Sospensione e ripresa](#sospensione-e-ripresa)
+    1. [Sospensione](#sospensione)
+    2. [Ripresa](#ripresa)
+8. [Materiale per il testing](#materiale-per-il-testing)
+9. [Casi di test](#casi-di-test)
+    1. [Ricerca](#ricerca)
+        1. [RicercaFilm](#ricercafilm)
+        2. [RicercaArtista](#ricercaartista)
+        3. [RicercaUtente](#ricercautente)
+    2. [Account](#account)
+        1. [CreareAccount](#creareaccount)
+        2. [AutenticareAccount](#autenticareaccount)
+        3. [CambiarePassword](#cambiarepassword)
+    3. [Amicizia](#amicizia)
+        1. [InviareRichiestaAmicizia](#inviarerichiestaamicizia)
+        2. [AccettareRichiestaAmicizia](#accettarerichiestaamicizia)
+        3. [RifiutareRichiestaAmicizia](#rifiutarerichiestaamicizia)
+    4. [Film](#film)
+        1. [AggiungereGiudizio](#aggiungeregiudizio)
+        2. [ModificareGiudizio](#modificaregiudizio)
+        3. [RimuovereGiudizio](#rimuoveregiudizio)
+    5. [Gestione](#gestione)
+        1. [AggiungereFilm](#aggiungerefilm)
+        2. [AggiungereArtista](#aggiungereartista)
+        3. [AggiungereGenere](#aggiungeregenere)
+        4. [ModificareGenere](#modificaregenere)
+        5. [RimuovereGenere](#rimuoveregenere)
+        6. [AggiornareGeneriFilm](#aggiornaregenerifilm)
+
 ## Introduzione 
 Molte volte, anche credendo di aver progettato un softare nel migliore dei modi, ci troviamo di fronte a situazioni nelle quali basta un piccolo evento, una piccola azione fatta da un attore, per portare un malfunzionamento a tutto il sistema. Ma come facciamo a trattare questi errori?     
 Esistono principalmente tre diversi modi per affrontare il problema:    
@@ -18,20 +57,20 @@ Il testing sarà eseguito su queste macro-aree:
 ## Relazioni con gli altri documenti 
 Il documento di "Test Plan" è strettamente collegato agli altri documenti che abbiamo sviluppato durante la progettazione del nostro sistema.  
   
-### Relazione con il RAD  
-Il Test Plan è strettamente collegato al documento di Analisi dei requisiti in quanto dai requisiti funzionali emersi durante l'attività di analisi abbiamo individuato le principali funzionalità che il sistema deve avere. Inoltre, dato che abbiamo diviso di Utilizzare la tecnica di "Category Partition", i parametri scelti sono strettamente correlati agli Use Cases Presenti nel RAD.  
+### Relazione con RAD  
+Il Test Plan è strettamente collegato con il documento di Analisi dei requisiti in quanto dai requisiti funzionali emersi durante l'attività di analisi abbiamo individuato le principali funzionalità che il sistema deve avere. Inoltre, dato che abbiamo diviso di Utilizzare la tecnica di "Category Partition", i parametri scelti sono strettamente correlati agli Use Cases Presenti nel RAD.  
   
-### Relazioni con l'SDD  
-Il Test Plan è strettamente collegato con il Documento di "System Design" poiché dovra rispettare tutte le funzionalità ottenute dai vari sottosistemi, facendo riferimento anche alla suddivisione fatta: Presentation Layer, Application Layer e Data Layer.  
+### Relazione con SDD  
+Il Test Plan è strettamente collegato con il documento di "System Design" poiché dovra rispettare tutte le funzionalità ottenute dai vari sottosistemi, facendo riferimento anche alla suddivisione fatta: Presentation Layer, Application Layer e Data Layer.  
   
-### Relazioni con l'ODD  
+### Relazione con ODD  
 Il Test Plan è strattamente collegato con il documento di "Object Design" poiché dovrà essere il quanto più conforme possibile alle interfaccie definite per ogni classe.  
 
 ## Panoramica del sistema 
 Per una migliore progettazione della nostra Web application, il sistema è stato suddiviso in vari Layer che sono: <br/><b>Presentation Layer</b><br/><b>Application Layer</b><br/><b>Data Layer</b><br/> 
 Questa suddivisione è stata fatta per ottenere basso accoppiamento (in modo tale che ogni qual volta si modifichi una componente del sistema non c'è la necessità di modificare tutte le altre accoppiate ad essa) ed alta coesione (in moto tale che le classi nel sottosistema svolgono compiti simili e sono correlate tra loro).  
   
-## Funzionalità da testare/ da non testare  
+## Funzionalità da testare 
   In base alla suddivisione in sottosistemi che si è fatta, per ogni sottosistema abbiamo scelto di testare varie funzionalità, qui di seguito quelle individuate:    
 - Per il sottosistema Ricerca
   - RicercaFilm 
@@ -48,10 +87,14 @@ Questa suddivisione è stata fatta per ottenere basso accoppiamento (in modo tal
 - Per il sottosistema Film    
   - AggiungereGiudizio
   - ModificareGiudizio
+  - RimuovereGiudizio
 - Per il sottosistema Gestione
   - AggiungereFilm
   - AggiungereArtista
   - AggiungereGenere
+  - ModificareGenere
+  - RimuovereGenere
+  - AggiornareGeneriFilm
   
 ## Criteri Pass/ Field
 Durante l'attività di testing, cercheremo di rilevare errori nel modo più pianificato possibile. Lo scopo di questà attività non è quello di dimostrare che nel sistema non ci sono "failure" ma quello di mostrane la presenza andando ad esercitare ogni funzionalità che il cliente si aspetta.   
@@ -74,17 +117,15 @@ Ci sarà una sospensione dell'attività di testing solo nel momento in cui avrem
 ### Ripresa 
 Ogni qual volta si individueranno dei bag nelle funzionalità sarà necessaria una correzione di essi. Per verificare che la correzione non abbia portato ulteriori danni al sistema verrà ripresa l'attività di testing, riproponendo gli stessi casi si test che ci hanno condotto al problema.  
 
-## Materiale per il testing:  
-   Un Database  
-   Un Client  
-   Un Server  
+## Materiale per il testing
+Per eseguire i vari casi di test saranno utilizzati un database, un client e un server.  
      
 ## Casi di test 
 ### Ricerca
 #### RicercaFilm
 **PARAMETRO**: | RicercaFilm
 ----|---
-**Lunghezza[LRicercaFilm]**: | 1. < 1 or > 100[Errore]<br/>2. > 0 & < 101[Successo_LRicercaFilm]
+**Lunghezza[LRicercaFilm]**: | 1. < 1[Errore]<br/>2. > 0[Successo_LRicercaFilm]
 #### Test cases
 Codice   | Combinazione   | Esito
 ---------|----------------|--------
@@ -94,7 +135,7 @@ TC_1.1_2 | LRicercaFilm_2 | Corretto
 #### RicercaArtista
 **PARAMETRO**: | RicercaArtista
 ----|---
-**Lunghezza[LRicercaArtista]**: | 1. < 1 or > 100[Errore]<br/>2. > 0 & < 101[Successo_LRicercaArtista]
+**Lunghezza[LRicercaArtista]**: | 1. < 1[Errore]<br/>2. > 0[Successo_LRicercaArtista]
 #### Test cases
 Codice   | Combinazione      | Esito
 ---------|-------------------|--------
@@ -108,7 +149,7 @@ TC_1.2_2 | LRicercaArtista_2 | Corretto
 
 **PARAMETRO**: | RicercaUtente
 ----|---
-**Lunghezza[LRicercaUtente]**: | 1. < 1 or > 100[Errore]<br/>2. > 0 & < 101[Successo_LRicercaUtente]
+**Lunghezza[LRicercaUtente]**: | 1. < 1[Errore]<br/>2. > 0[Successo_LRicercaUtente]
 #### Test cases
 Codice   | Combinazione                 | Esito
 ---------|----------------------------- |-------
@@ -299,6 +340,28 @@ TC_4.2_2 | LoUtente_2, SVoto_1          | Errore
 TC_4.2_3 | LoUtente_2, SVoto_2, PFilm_1 | Errore
 TC_4.2_4 | LoUtente_2, SVoto_2, PFilm_2 | Corretto
 
+#### RimuovereGiudizio
+**PARAMETRO**: | Utente
+----|---
+**Loggato[LoUtente]**: | 1. L'utente che vuole rimuovere un giudizio non è loggato[Errore] <br/> 2. L'utente che vuole rimuovere un giudizio è loggato[Successo_LoUtente]
+
+**PARAMETRO**: | Film
+----|---
+**Presenza[PFilm]:**| 1. Il film non è presente[Errore]<br/> 2. Il film è presente[Successo_PFilm] 
+
+**PARAMETRO**: | Voto
+----|---
+**Presenza[PVoto]:**| 1. L'utente non ha assegnato nessun giudizio in precedenza<br/> 2. L'utente ha assegnato un giudizio in precedenza[Successo_PVoto]
+
+#### Test cases
+Codice   | Combinazione                 | Esito
+---------|------------------------------|-------
+TC_4.3_1 | LoUtente_1                   | Errore
+TC_4.3_2 | LoUtente_2, PFilm_1          | Errore
+TC_4.3_3 | LoUtente_2, PFilm_2, SVoto_1 | Errore
+TC_4.3_4 | LoUtente_2, PFilm_2, SVoto_2 | Corretto
+
+
 ###  Gestione   
 #### AggiungereFilm
 **PARAMETRO**: | Utente
@@ -388,8 +451,8 @@ TC_5.2_10| LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, 
 #### AggiungereGenere
 **PARAMETRO**: | Utente
 ----|---
-**Loggato[LoUtente]**: | 1. L'utente che vuole aggiungere un artista non è loggato[Errore] <br/> 2. L'utente che vuole aggiungere un artista è loggato[Successo_LoUtente]
-**Gestore[GeUtente]**: | 1. L'utente che vuole aggiungere un artista non è gestore[if_LoUtente_OK][Errore] <br/> 2. L'utente che vuole aggiungere un artista è gestore[if_GeUtente_OK][Successo_Utente]
+**Loggato[LoUtente]**: | 1. L'utente che vuole aggiungere un genere non è loggato[Errore] <br/> 2. L'utente che vuole aggiungere un genere è loggato[Successo_LoUtente]
+**Gestore[GeUtente]**: | 1. L'utente che vuole aggiungere un genere non è gestore[if_LoUtente_OK][Errore] <br/> 2. L'utente che vuole aggiungere un genere è gestore[if_GeUtente_OK][Successo_Utente]
 
 **PARAMETRO**: | Nome
 ----|---
@@ -404,3 +467,53 @@ TC_5.3_2 | LoUtente_2, GeUtente_1          			| Errore
 TC_5.3_3 | LoUtente_2, GeUtente_2, LNome_1          | Errore
 TC_5.3_4 | LoUtente_2, GeUtente_2, LNome_2, PNome_1 | Errore
 TC_5.3_5 | LoUtente_2, GeUtente_2, LNome_2, PNome_2 | Corretto
+
+#### ModificareGenere
+**PARAMETRO**: | Utente
+----|---
+**Loggato[LoUtente]**: | 1. L'utente che vuole modificare un genere non è loggato[Errore] <br/> 2. L'utente che vuole modificare un genere è loggato[Successo_LoUtente]
+**Gestore[GeUtente]**: | 1. L'utente che vuole modificare un genere non è gestore[if_LoUtente_OK][Errore] <br/> 2. L'utente che vuole modificare un genere è gestore[if_GeUtente_OK][Successo_Utente]
+
+**PARAMETRO**: | Nome
+----|---
+**Lunghezza[LNome]:**| 1. < 3 or > 50[Errore]<br/>2. > 3 & < 51[Successo_LNome]
+**Presenza[PNome]:**| 1. Genere già presente[if_LNome_OK][Errore]<br/>2. Genere non presente[if_PNome_OK][Successo_Nome]
+
+#### Test cases
+Codice   | Combinazione                             | Esito
+---------|------------------------------------------|-------
+TC_5.4_1 | LoUtente_1                               | Errore
+TC_5.4_2 | LoUtente_2, GeUtente_1          			| Errore
+TC_5.4_3 | LoUtente_2, GeUtente_2, LNome_1          | Errore
+TC_5.4_4 | LoUtente_2, GeUtente_2, LNome_2, PNome_1 | Errore
+TC_5.5_5 | LoUtente_2, GeUtente_2, LNome_2, PNome_2 | Corretto
+
+#### RimuovereGenere
+**PARAMETRO**: | Utente
+----|---
+**Loggato[LoUtente]**: | 1. L'utente che vuole rimuovere un genere non è loggato[Errore] <br/> 2. L'utente che vuole rimuovere un genere è loggato[Successo_LoUtente]
+**Gestore[GeUtente]**: | 1. L'utente che vuole rimuovere un genere non è gestore[if_LoUtente_OK][Errore] <br/> 2. L'utente che vuole rimuovere un genere è gestore[if_GeUtente_OK][Successo_Utente]
+
+#### Test cases
+Codice   | Combinazione                             | Esito
+---------|------------------------------------------|-------
+TC_5.5_1 | LoUtente_1                               | Errore
+TC_5.5_2 | LoUtente_2, GeUtente_1          			| Errore
+TC_5.5_3 | LoUtente_2, GeUtente_2                   | Corretto
+
+#### AggiornareGeneriFilm
+**PARAMETRO**: | Utente
+----|---
+**Loggato[LoUtente]**: | 1. L'utente che vuole aggiornare generi ad un film non è loggato[Errore] <br/> 2. L'utente che vuole aggiornare generi ad un film è loggato[Successo_LoUtente]
+**Gestore[GeUtente]**: | 1. L'utente che vuole aggiornare generi ad un film non è gestore[if_LoUtente_OK][Errore] <br/> 2. L'utente che vuole aggiornare generi ad un film è gestore[if_GeUtente_OK][Successo_Utente]
+
+**PARAMETRO**: | Genere
+----|---
+**Presenza[PGenere]:**| 1. L'utente ha selezionato un genere non esistente[Errore]<br/> 2. L'utente ha selezionato un genere esistente[Successo_PGenere]
+
+#### Test cases
+Codice   | Combinazione                             | Esito
+---------|------------------------------------------|-------
+TC_5.6_1 | LoUtente_1                               | Errore
+TC_5.6_2 | LoUtente_2, GeUtente_1          			| Errore
+TC_5.6_3 | LoUtente_2, GeUtente_2                   | Corretto
