@@ -6,12 +6,13 @@ $logged_user = Auth::getLoggedUser();
 if ($logged_user) {
 
 	$friends = [$logged_user->getID()];
-	foreach (AmiciziaManager::getFriendships($logged_user->getID()) as $amicizia) {
-		$uid = $amicizia->getUtenteFrom() === $logged_user->getID()
-			? $amicizia->getUtenteTo()
-			: $amicizia->getUtenteFrom();
-		$friends[] = $uid;
+	$amicizia_dao = AmiciziaDAOFactory::getAmiciziaDAO();
+	foreach ($amicizia_dao->getFriendships($logged_user->getID()) as $amicizia) {
+		$friends[] = $amicizia->getUtenteFrom() === $logged_user->getID() ?
+			$amicizia->getUtenteTo() :
+			$amicizia->getUtenteFrom();
 	}
+	unset($amicizia_dao);
 	unset($logged_user);
 	$giudizi = GiudizioManager::getAllOf($friends);
 	$utenti = [];
