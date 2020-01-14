@@ -39,7 +39,8 @@ else {
 		$tmp_artista = new Artista(0, $nome, $nascita, $descrizione);
 		$faccia_bin = file_get_contents($faccia["tmp_name"]);
 
-		$saved_artista = ArtistaManager::create($tmp_artista, $faccia_bin);
+		$artista_dao = ArtistaDAOFactory::getArtistaDAO();
+		$saved_artista = $artista_dao->create($tmp_artista, $faccia_bin);
 		if ($saved_artista)
 			header("Location: /artista.php?id=" . $saved_artista->getID());
 		else

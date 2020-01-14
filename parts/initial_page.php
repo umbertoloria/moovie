@@ -24,12 +24,16 @@ if ($logged_user = Auth::getLoggedUser()) {
 	// pagename_map
 	$pagename_map["/utente.php?id={$logged_user->getID()}"] = "profilo";
 	// numero_promemoria
-	$_REQUEST["numero_promemoria"] = count(PromemoriaManager::get_from_utente($logged_user->getID()));
+	$promemoria_dao = PromemoriaDAOFactory::getPromemoriaDAO();
+	$_REQUEST["numero_promemoria"] = count($promemoria_dao->get_from_utente($logged_user->getID()));
+	unset($promemoria_dao);
 	// numero_richieste_da_accettare
 	$numero_richieste_da_accettare = 0;
-	foreach (AmiciziaManager::getRequests($logged_user->getID()) as $richiesta)
+	$amicizia_dao = AmiciziaDAOFactory::getAmiciziaDAO();
+	foreach ($amicizia_dao->getRequests($logged_user->getID()) as $richiesta)
 		if ($richiesta->getUtenteFrom() !== $logged_user->getID())
 			$numero_richieste_da_accettare++;
+	unset($amicizia_dao);
 	unset($richiesta);
 	$_REQUEST["numero_richieste_da_accettare"] = $numero_richieste_da_accettare;
 	unset($numero_richieste_da_accettare);

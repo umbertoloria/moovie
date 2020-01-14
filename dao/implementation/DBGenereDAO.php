@@ -1,19 +1,8 @@
 <?php
 
-/**
- * Ogni film può avere più generi, e ogni genere può appartenere a più film.
- *
- * GenereManager permette di:
- * * prelevare un genere
- * * prelevare tutti i generi di un film
- * * conoscere solo gli id di tutti i generi di un film
- *
- * @see    Genere
- * @author Umberto Loria
- */
-class GenereManager {
+class DBGenereDAO implements IGenereDAO {
 
-	public static function get_from_id(int $id): ?Genere {
+	public function get_from_id(int $id): ?Genere {
 		$stmt = DB::stmt("SELECT id, nome FROM generi WHERE id = ?");
 		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Genere($r["id"], $r["nome"]);
@@ -21,8 +10,8 @@ class GenereManager {
 			return null;
 	}
 
-	/** @return Genere[] */
-	public static function get_from_film(int $film_id): array {
+	/** @inheritDoc */
+	public function get_from_film(int $film_id): array {
 		$res = [];
 		$stmt = DB::stmt(
 			"SELECT id, nome
@@ -37,12 +26,8 @@ class GenereManager {
 		return $res;
 	}
 
-	/**
-	 * Dato un FilmID, restituisce i GeneriID del film
-	 * @param int $id
-	 * @return int[]
-	 */
-	public static function get_generi_from_film(int $id): array {
+	/** @inheritDoc */
+	public function get_generi_from_film(int $id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT genere FROM film_has_genere WHERE film = ?");
 		if ($stmt->execute([$id]))
@@ -51,12 +36,8 @@ class GenereManager {
 		return $res;
 	}
 
-	/**
-	 * Restituisce i FilmID di un dato GenereID
-	 * @param int $id
-	 * @return int[]
-	 */
-	public static function get_films_from_genere(int $id): array {
+	/** @inheritDoc */
+	public function get_films_from_genere(int $id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT film FROM film_has_genere WHERE genere = ?");
 		if ($stmt->execute([$id]))
@@ -65,8 +46,8 @@ class GenereManager {
 		return $res;
 	}
 
-	/** @return Genere[] */
-	public static function get_all(): array {
+	/** @inheritDoc */
+	public function get_all(): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT id, nome FROM generi ORDER BY nome");
 		if ($stmt->execute([]))
@@ -75,7 +56,7 @@ class GenereManager {
 		return $res;
 	}
 
-	public static function set_only(int $film_id, array $assign_genere_ids): bool {
+	public function set_only(int $film_id, array $assign_genere_ids): bool {
 		DB::beginTransaction();
 		// Prelevo tutti i generi esistenti
 		$all_generes = [];
@@ -130,7 +111,7 @@ class GenereManager {
 		return true;
 	}
 
-	public static function create(Genere $genere): ?Genere {
+	public function create(Genere $genere): ?Genere {
 		$stmt = DB::stmt("INSERT INTO generi SET nome = ?");
 		if ($stmt->execute([$genere->getNome()]))
 			return self::get_from_id(DB::lastInsertedID());
@@ -138,7 +119,7 @@ class GenereManager {
 			return null;
 	}
 
-	public static function update(Genere $genere): ?Genere {
+	public function update(Genere $genere): ?Genere {
 		$stmt = DB::stmt("UPDATE generi SET nome = ? WHERE id = ?");
 		if ($stmt->execute([$genere->getNome(), $genere->getID()]) and $stmt->rowCount() === 1)
 			return self::get_from_id($genere->getID());
@@ -146,12 +127,12 @@ class GenereManager {
 			return null;
 	}
 
-	public static function delete(int $genere_id): bool {
+	public function delete(int $id): bool {
 		$stmt = DB::stmt("DELETE FROM generi WHERE id = ?");
-		return $stmt->execute([$genere_id]) and $stmt->rowCount() === 1;
+		return $stmt->execute([$id]) and $stmt->rowCount() === 1;
 	}
 
-	public static function exists(string $nome): bool {
+	public function exists(string $nome): bool {
 		$stmt = DB::stmt("SELECT id FROM generi WHERE nome = ?");
 		return $stmt->execute([$nome]) and $stmt->rowCount() > 0;
 	}

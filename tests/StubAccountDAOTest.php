@@ -1,6 +1,6 @@
 <?php
 
-class AccountManagerTest extends PHPUnit\Framework\TestCase {
+class StubAccountDAOTest extends PHPUnit\Framework\TestCase {
 
 	/** @var IAccountDAO */
 	private static $account_dao;

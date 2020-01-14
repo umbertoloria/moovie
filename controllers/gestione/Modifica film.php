@@ -19,9 +19,11 @@ $valid = Validator\validate("../../forms/aggiunta_e_modifica_film.json", [
 
 $ff = new FormFeedbacker();
 
+$film_dao = FilmDAOFactory::getFilmDAO();
+
 if (!$valid)
 	$ff->message("Il client non ti ha bloccato?");
-elseif (!$film = FilmManager::get_from_id($film_id))
+elseif (!$film = $film_dao->get_from_id($film_id))
 	$ff->message("Il client non ti ha bloccato?");
 else {
 
@@ -56,12 +58,12 @@ else {
 		$film->setAnno($anno);
 		$film->setDescrizione($descrizione);
 
-		$saved_film = FilmManager::update($film);
+		$saved_film = $film_dao->update($film);
 
 		$copertina_ok = true;
 		if ($copertina_valida) {
 			$copertina_bin = file_get_contents($copertina["tmp_name"]);
-			$copertina_ok = FilmManager::uploadCopertina($film->getID(), $copertina_bin);
+			$copertina_ok = $film_dao->uploadCopertina($film->getID(), $copertina_bin);
 		}
 
 		if ($saved_film and $copertina_ok)

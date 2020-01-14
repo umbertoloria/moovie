@@ -9,20 +9,35 @@ include $_SERVER["DOCUMENT_ROOT"] . "/models/Giudizio.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/models/Promemoria.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/models/Amicizia.php";
 
-include $_SERVER["DOCUMENT_ROOT"] . "/dao/IAccountDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IAccountDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IAmiciziaDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IArtistaDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IFilmDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IGenereDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IGiudizioDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IPromemoriaDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IRecitazioneDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IRegiaDAO.php";
 
-include $_SERVER["DOCUMENT_ROOT"] . "/dao/DBAccountDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBAccountDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBAmiciziaDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBArtistaDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBFilmDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBGenereDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBGiudizioDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBPromemoriaDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBRecitazioneDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBRegiaDAO.php";
 
-include $_SERVER["DOCUMENT_ROOT"] . "/dao/AccountDAOFactory.php";
-
-include $_SERVER["DOCUMENT_ROOT"] . "/managers/ArtistaManager.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/managers/FilmManager.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/managers/RecitazioneManager.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/managers/RegiaManager.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/managers/GenereManager.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/managers/GiudizioManager.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/managers/PromemoriaManager.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/managers/AmiciziaManager.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/AccountDAOFactory.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/AmiciziaDAOFactory.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/ArtistaDAOFactory.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/FilmDAOFactory.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/GenereDAOFactory.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/GiudizioDAOFactory.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/PromemoriaDAOFactory.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/RecitazioneDAOFactory.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/RegiaDAOFactory.php";
 
 include $_SERVER["DOCUMENT_ROOT"] . "/php/database.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/php/validator.php";

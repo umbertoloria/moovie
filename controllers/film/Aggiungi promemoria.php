@@ -12,13 +12,12 @@ if (!$logged_user)
 elseif (!ctype_digit($film_id))
 	$ff->message("Il client non ti ha bloccato?");
 else {
-
+	$promemoria_dao = PromemoriaDAOFactory::getPromemoriaDAO();
 	$tmp_promemoria = new Promemoria($logged_user->getID(), $film_id, "");
-	if (PromemoriaManager::create($tmp_promemoria))
+	if ($promemoria_dao->create($tmp_promemoria))
 		header("Location: /film.php?id=" . $film_id);
 	else
 		$ff->bug();
-
 }
 
 $ff->process();

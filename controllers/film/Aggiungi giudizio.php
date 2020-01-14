@@ -17,13 +17,12 @@ if (!$logged_user or !$valid)
 elseif (!ctype_digit($film_id))
 	$ff->message("dammi un numero per id");
 else {
-
+	$giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
 	$tmp_giudizio = new Giudizio($logged_user->getID(), $film_id, $voto, "");
-	if (GiudizioManager::create($tmp_giudizio))
+	if ($giudizio_dao->create($tmp_giudizio))
 		header("Location: /film.php?id=" . $film_id);
 	else
 		$ff->bug();
-
 }
 
 $ff->process();

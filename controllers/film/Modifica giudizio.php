@@ -18,12 +18,13 @@ elseif (!ctype_digit($film_id))
 	$ff->message("dammi un numero per id");
 else {
 
-	$tmp_giudizio = GiudizioManager::get_from_utente_and_film($logged_user->getID(), $film_id);
+	$giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
+	$tmp_giudizio = $giudizio_dao->get_from_utente_and_film($logged_user->getID(), $film_id);
 	if ($tmp_giudizio->getVoto() == $voto)
 		header("Location: /giudizi.php");
 	else {
 		$tmp_giudizio->setVoto($voto);
-		if (GiudizioManager::update($tmp_giudizio))
+		if ($giudizio_dao->update($tmp_giudizio))
 			header("Location: /giudizi.php");
 		else
 			$ff->bug();

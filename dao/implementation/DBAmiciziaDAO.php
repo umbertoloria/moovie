@@ -1,9 +1,9 @@
 <?php
 
-class AmiciziaManager {
+class DBAmiciziaDAO implements IAmiciziaDAO {
 
-	/** @return Amicizia[] */
-	public static function getFriendships(int $user_id): array {
+	/** @inheritDoc */
+	public function getFriendships(int $user_id): array {
 		$res = [];
 		$stmt = DB::stmt(
 			"SELECT utente_from, utente_to, timestamp_richiesta, timestamp_accettazione
@@ -14,8 +14,8 @@ class AmiciziaManager {
 		return $res;
 	}
 
-	/** @return Amicizia[] */
-	public static function getRequests(int $user_id): array {
+	/** @inheritDoc */
+	public function getRequests(int $user_id): array {
 		$res = [];
 		$stmt = DB::stmt(
 			"SELECT utente_from, utente_to, timestamp_richiesta
@@ -26,44 +26,44 @@ class AmiciziaManager {
 		return $res;
 	}
 
-	public static function existsSomethingBetween(int $user1, int $user2): bool {
+	public function existsSomethingBetween(int $user1, int $user2): bool {
 		$stmt = DB::stmt(
 			"SELECT * FROM amicizie WHERE ((utente_from = ? AND utente_to = ?)
 				OR (utente_from = ? AND utente_to = ?))");
 		return $stmt->execute([$user1, $user2, $user2, $user1]) and $stmt->rowCount() > 0;
 	}
 
-	public static function requestFriendshipFromTo(int $user_from, int $user_to): bool {
+	public function requestFriendshipFromTo(int $user_from, int $user_to): bool {
 		if ($user_from == $user_to)
 			return false;
 		$stmt = DB::stmt("INSERT INTO amicizie SET utente_from = ?, utente_to = ?");
 		return $stmt->execute([$user_from, $user_to]);
 	}
 
-	public static function existsRequestFromTo(int $user_from, int $user_to): bool {
+	public function existsRequestFromTo(int $user_from, int $user_to): bool {
 		$stmt = DB::stmt(
 			"SELECT * FROM amicizie WHERE utente_from = ? AND utente_to = ? AND timestamp_accettazione IS NULL");
 		return $stmt->execute([$user_from, $user_to]) and $stmt->rowCount() === 1;
 	}
 
-	public static function removeFriendshipRequestFromTo(int $user_from, int $user_to): bool {
+	public function removeFriendshipRequestFromTo(int $user_from, int $user_to): bool {
 		$stmt = DB::stmt("DELETE FROM amicizie WHERE utente_from = ? AND utente_to = ?");
 		return $stmt->execute([$user_from, $user_to]) and $stmt->rowCount() === 1;
 	}
 
-	public static function acceptFriendshipRequestFromTo(int $user_from, int $user_to): bool {
+	public function acceptFriendshipRequestFromTo(int $user_from, int $user_to): bool {
 		$stmt = DB::stmt(
 			"UPDATE amicizie SET timestamp_accettazione = current_timestamp WHERE utente_from = ? AND utente_to = ?");
 		return $stmt->execute([$user_from, $user_to]) and $stmt->rowCount() === 1;
 	}
 
-	public static function refuseFriendshipRequestFromTo(int $user_from, int $user_to): bool {
+	public function refuseFriendshipRequestFromTo(int $user_from, int $user_to): bool {
 		$stmt = DB::stmt(
 			"DELETE FROM amicizie WHERE utente_from = ? AND utente_to = ? AND timestamp_accettazione IS NULL");
 		return $stmt->execute([$user_from, $user_to]) and $stmt->rowCount() === 1;
 	}
 
-	public static function existsFriendshipBetween(int $user1, int $user2): bool {
+	public function existsFriendshipBetween(int $user1, int $user2): bool {
 		$stmt = DB::stmt(
 			"SELECT * FROM amicizie WHERE timestamp_accettazione IS NOT NULL
 				AND ((utente_from = ? AND utente_to = ?) OR (utente_from = ? AND utente_to = ?))");
@@ -71,7 +71,7 @@ class AmiciziaManager {
 		return $stmt->rowCount() === 1;
 	}
 
-	public static function removeFriendshipBetween(int $user1, int $user2): bool {
+	public function removeFriendshipBetween(int $user1, int $user2): bool {
 		$stmt = DB::stmt(
 			"DELETE FROM amicizie WHERE timestamp_accettazione IS NOT NULL
 				AND (utente_from = ? AND utente_to = ?) OR (utente_from = ? AND utente_to = ?)");

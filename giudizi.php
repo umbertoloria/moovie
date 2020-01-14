@@ -8,10 +8,13 @@ if (!$logged_user) {
 }
 
 $films = [];
-$giudizi = GiudizioManager::getAllOf([$logged_user->getID()]);
+$giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
+$giudizi = $giudizio_dao->getAllOf([$logged_user->getID()]);
+$film_dao = FilmDAOFactory::getFilmDAO();
 foreach ($giudizi as $giudizio)
 	if (!isset($films[$giudizio->getFilm()]))
-		$films[$giudizio->getFilm()] = FilmManager::get_from_id($giudizio->getFilm());
+		$films[$giudizio->getFilm()] = $film_dao->get_from_id($giudizio->getFilm());
+unset($film_dao);
 $_REQUEST["films"] = $films;
 $_REQUEST["giudizi"] = $giudizi;
 unset($logged_user);

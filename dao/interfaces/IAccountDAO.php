@@ -12,7 +12,10 @@ interface IAccountDAO {
 
 	public function authenticate(string $email, string $password): ?Utente;
 
-	/** @return Utente[] */
+	/**
+	 * @param string $fulltext
+	 * @return Utente[]
+	 */
 	public function search(string $fulltext): array;
 
 	public function delete(int $id): bool;
