@@ -28,7 +28,9 @@ unset($recitazioni);
 unset($registi);
 unset($artisti);
 
-$_REQUEST["generi"] = GenereManager::get_from_film($film->getID());
+$genere_dao = GenereDAOFactory::getGenereDAO();
+$_REQUEST["generi"] = $genere_dao->get_from_film($film->getID());
+unset($genere_dao);
 
 $_REQUEST["show_actions"] = [];
 $logged_user = Auth::getLoggedUser();

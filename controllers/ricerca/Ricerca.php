@@ -28,13 +28,14 @@ $artisti_cache = [];
 if ($kind === "film" or $kind === "tutti") {
 
 	$film_dao = FilmDAOFactory::getFilmDAO();
+	$genere_dao = GenereDAOFactory::getGenereDAO();
 	foreach ($film_dao->search($fulltext) as $film) {
 		if (!isset($films_cache[$film->getID()]))
 			$films_cache[$film->getID()] = $film;
 
 		$result = [
 			"id" => $film->getID(),
-			"generi" => GenereManager::get_generi_from_film($film->getID()),
+			"generi" => $genere_dao->get_generi_from_film($film->getID()),
 			"artisti" => []
 		];
 
@@ -54,6 +55,7 @@ if ($kind === "film" or $kind === "tutti") {
 
 		$risultati["movies"][] = $result;
 	}
+	unset($genere_dao);
 	unset($film_dao);
 
 }
@@ -101,9 +103,11 @@ foreach ($films_cache as $film_id => $value)
 		$films_cache[$film_id] = $film_dao->get_from_id($film_id);
 unset($film_dao);
 
+$genere_dao = GenereDAOFactory::getGenereDAO();
 foreach ($generi_cache as $genere_id => $value)
 	if (!$value)
-		$generi_cache[$genere_id] = GenereManager::get_from_id($genere_id);
+		$generi_cache[$genere_id] = $genere_dao->get_from_id($genere_id);
+unset($genere_dao);
 
 $artista_dao = ArtistaDAOFactory::getArtistaDAO();
 foreach ($artisti_cache as $artista_id => $value)
