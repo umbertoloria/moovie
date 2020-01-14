@@ -18,10 +18,7 @@ class DBGiudizioDAO implements IGiudizioDAO {
 		return $stmt->execute([$giudizio->getUtente(), $giudizio->getFilm()]) and $stmt->rowCount() === 1;
 	}
 
-	/**
-	 * @param int[] $utenti_ids
-	 * @return Giudizio[]
-	 */
+	/** @inheritDoc */
 	public function getAllOf(array $utenti_ids): array {
 		$where_clause = "";
 		$parameters = [];

@@ -24,7 +24,9 @@ if ($logged_user = Auth::getLoggedUser()) {
 	// pagename_map
 	$pagename_map["/utente.php?id={$logged_user->getID()}"] = "profilo";
 	// numero_promemoria
-	$_REQUEST["numero_promemoria"] = count(PromemoriaManager::get_from_utente($logged_user->getID()));
+	$promemoria_dao = PromemoriaDAOFactory::getPromemoriaDAO();
+	$_REQUEST["numero_promemoria"] = count($promemoria_dao->get_from_utente($logged_user->getID()));
+	unset($promemoria_dao);
 	// numero_richieste_da_accettare
 	$numero_richieste_da_accettare = 0;
 	$amicizia_dao = AmiciziaDAOFactory::getAmiciziaDAO();

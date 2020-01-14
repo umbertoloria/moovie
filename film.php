@@ -38,8 +38,10 @@ if ($logged_user) {
 	$giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
 	if (!$giudizio_dao->exists($logged_user->getID(), $film->getID()))
 		$_REQUEST["show_actions"][] = "add_giudizio";
-	if (!PromemoriaManager::exists($logged_user->getID(), $film->getID()))
+	$promemoria_dao = PromemoriaDAOFactory::getPromemoriaDAO();
+	if (!$promemoria_dao->exists($logged_user->getID(), $film->getID()))
 		$_REQUEST["show_actions"][] = "add_promemoria";
+	unset($promemoria_dao);
 	if ($logged_user->isGestore()) {
 		$_REQUEST["show_actions"][] = "update";
 		$_REQUEST["show_actions"][] = "delete";
