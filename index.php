@@ -14,7 +14,9 @@ if ($logged_user) {
 	}
 	unset($amicizia_dao);
 	unset($logged_user);
-	$giudizi = GiudizioManager::getAllOf($friends);
+	$giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
+	$giudizi = $giudizio_dao->getAllOf($friends);
+	unset($giudizio_dao);
 	$utenti = [];
 	$films = [];
 	$account_dao = AccountDAOFactory::getAccountDAO();

@@ -33,7 +33,7 @@ interface IGenereDAO {
 
 	public function update(Genere $genere): ?Genere;
 
-	public function delete(int $genere_id): bool;
+	public function delete(int $id): bool;
 
 	public function exists(string $nome): bool;
 

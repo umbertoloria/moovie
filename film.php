@@ -35,7 +35,8 @@ unset($genere_dao);
 $_REQUEST["show_actions"] = [];
 $logged_user = Auth::getLoggedUser();
 if ($logged_user) {
-	if (!GiudizioManager::exists($logged_user->getID(), $film->getID()))
+	$giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
+	if (!$giudizio_dao->exists($logged_user->getID(), $film->getID()))
 		$_REQUEST["show_actions"][] = "add_giudizio";
 	if (!PromemoriaManager::exists($logged_user->getID(), $film->getID()))
 		$_REQUEST["show_actions"][] = "add_promemoria";
@@ -43,6 +44,7 @@ if ($logged_user) {
 		$_REQUEST["show_actions"][] = "update";
 		$_REQUEST["show_actions"][] = "delete";
 	}
+	unset($giudizio_dao);
 }
 unset($logged_user);
 

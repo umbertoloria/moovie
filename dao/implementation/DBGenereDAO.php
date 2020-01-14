@@ -127,9 +127,9 @@ class DBGenereDAO implements IGenereDAO {
 			return null;
 	}
 
-	public function delete(int $genere_id): bool {
+	public function delete(int $id): bool {
 		$stmt = DB::stmt("DELETE FROM generi WHERE id = ?");
-		return $stmt->execute([$genere_id]) and $stmt->rowCount() === 1;
+		return $stmt->execute([$id]) and $stmt->rowCount() === 1;
 	}
 
 	public function exists(string $nome): bool {

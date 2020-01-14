@@ -42,7 +42,9 @@ unset($_REQUEST["utente"]);
 $logged_user = Auth::getLoggedUser();
 $amicizia_dao = AmiciziaDAOFactory::getAmiciziaDAO();
 if ($logged_user->getID() === $utente->getID() or $amicizia_dao->existsFriendshipBetween($logged_user->getID(), $utente->getID())) {
-	$giudizi = GiudizioManager::getAllOf([$utente->getID()]);
+	$giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
+	$giudizi = $giudizio_dao->getAllOf([$utente->getID()]);
+	unset($giudizio_dao);
 	unset($utente);
 	$films = [];
 	$film_dao = FilmDAOFactory::getFilmDAO();
