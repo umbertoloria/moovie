@@ -1,7 +1,9 @@
 <?php
 // Visualizza artista
 include "parts/initial_page.php";
-$artista = ArtistaManager::get_from_id(@$_GET["id"]);
+$artista_dao = ArtistaDAOFactory::getArtistaDAO();
+$artista = $artista_dao->get_from_id(@$_GET["id"]);
+unset($artista_dao);
 if (!$artista) {
 	header("Location: /404.php");
 	die();

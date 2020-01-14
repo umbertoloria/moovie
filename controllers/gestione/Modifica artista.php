@@ -17,9 +17,11 @@ $valid = Validator\validate("../../forms/aggiunta_e_modifica_artista.json", [
 
 $ff = new FormFeedbacker();
 
+$artista_dao = ArtistaDAOFactory::getArtistaDAO();
+
 if (!$valid)
 	$ff->message("Il client non ti ha bloccato?");
-elseif (!$artista = ArtistaManager::get_from_id($artista_id))
+elseif (!$artista = $artista_dao->get_from_id($artista_id))
 	$ff->message("Il client non ti ha bloccato?");
 else {
 
@@ -53,12 +55,12 @@ else {
 		$artista->setNascita($nascita);
 		$artista->setDescrizione($descrizione);
 
-		$saved_artista = ArtistaManager::update($artista);
+		$saved_artista = $artista_dao->update($artista);
 
 		$faccia_ok = true;
 		if ($faccia_valida) {
 			$faccia_bin = file_get_contents($faccia["tmp_name"]);
-			$faccia_ok = ArtistaManager::uploadFaccia($artista->getID(), $faccia_bin);
+			$faccia_ok = $artista_dao->uploadFaccia($artista->getID(), $faccia_bin);
 		}
 
 		if ($saved_artista and $faccia_ok)

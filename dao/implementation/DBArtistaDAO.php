@@ -1,8 +1,8 @@
 <?php
 
-class ArtistaManager {
+class DBArtistaDAO implements IArtistaDAO {
 
-	public static function get_from_id(int $id): ?Artista {
+	public function get_from_id(int $id): ?Artista {
 		$stmt = DB::stmt("
 				SELECT id, nome, nascita, descrizione
 				FROM artisti
@@ -15,7 +15,7 @@ class ArtistaManager {
 			return null;
 	}
 
-	public static function downloadFaccia(int $id) {
+	public function downloadFaccia(int $id) {
 		$stmt = DB::stmt("SELECT faccia FROM artisti_facce WHERE artista = ?");
 		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return $r["faccia"];
@@ -23,13 +23,13 @@ class ArtistaManager {
 			return null;
 	}
 
-	public static function uploadFaccia(int $id, $faccia_bin): bool {
+	public function uploadFaccia(int $id, $faccia_bin): bool {
 		$stmt = DB::stmt("UPDATE artisti_facce SET faccia = ? WHERE artista = ?");
 		return $stmt->execute([$faccia_bin, $id]) and $stmt->rowCount() === 1;
 	}
 
 	/** @return Artista[] */
-	public static function search(string $fulltext): array {
+	public function search(string $fulltext): array {
 		$res = [];
 		$stmt = DB::stmt(
 			"SELECT id, nome, nascita, descrizione
@@ -43,7 +43,7 @@ class ArtistaManager {
 		return $res;
 	}
 
-	public static function create(Artista $artista, $faccia_bin): ?Artista {
+	public function create(Artista $artista, $faccia_bin): ?Artista {
 		DB::beginTransaction();
 		$stmt1 = DB::stmt("INSERT INTO artisti (nome, nascita) VALUES (?, ?)");
 		if (!$stmt1->execute([$artista->getNome(), $artista->getNascita()])) {
@@ -66,7 +66,7 @@ class ArtistaManager {
 	}
 
 	/** @return Artista[] */
-	public static function get_all(): array {
+	public function get_all(): array {
 		$res = [];
 		$stmt = DB::stmt("
 				SELECT id, nome, nascita, descrizione
@@ -80,7 +80,7 @@ class ArtistaManager {
 		return $res;
 	}
 
-	public static function update(Artista $artista): ?Artista {
+	public function update(Artista $artista): ?Artista {
 
 		$artista_reale = self::get_from_id($artista->getID());
 		if (!$artista_reale)
@@ -132,9 +132,9 @@ class ArtistaManager {
 		return self::get_from_id($artista->getID());
 	}
 
-	public static function delete(int $artista_id): bool {
+	public function delete(int $id): bool {
 		$stmt = DB::stmt("DELETE FROM artisti WHERE id = ?");
-		return $stmt->execute([$artista_id]) and $stmt->rowCount() === 1;
+		return $stmt->execute([$id]) and $stmt->rowCount() === 1;
 	}
 
 }

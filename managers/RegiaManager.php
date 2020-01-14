@@ -8,7 +8,7 @@
  * * in quali film un artista ha partecipato alla regia
  * * quali artisti hanno curato la regia di un film.
  *
- * @see    Film, FilmManager, Artista, ArtistaManager
+ * @see    Film, FilmManager, Artista, IArtistaDAO
  * @author Umberto Loria
  */
 class RegiaManager {

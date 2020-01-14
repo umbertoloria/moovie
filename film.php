@@ -17,8 +17,10 @@ foreach ($recitazioni as $recitazione)
 	$artisti[$recitazione->getAttore()] = null;
 foreach ($registi as $regista)
 	$artisti[$regista] = null;
+$artista_dao = ArtistaDAOFactory::getArtistaDAO();
 foreach ($artisti as $artista_id => $_)
-	$artisti[$artista_id] = ArtistaManager::get_from_id($artista_id);
+	$artisti[$artista_id] = $artista_dao->get_from_id($artista_id);
+unset($artista_dao);
 $_REQUEST["artisti"] = $artisti;
 unset($recitazioni);
 unset($registi);
