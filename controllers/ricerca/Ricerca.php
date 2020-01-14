@@ -47,10 +47,12 @@ if ($kind === "film" or $kind === "tutti") {
 			$result["artisti"][] = $recitazione->getAttore();
 		unset($recitazione_dao);
 
-		foreach (RegiaManager::get_artisti_from_film($film->getID()) as $regista_id)
+		$regia_dao = RegiaDAOFactory::getRegiaDAO();
+		foreach ($regia_dao->get_artisti_from_film($film->getID()) as $regista_id)
 			// Magari questo regista è anche tra gli attori, quindi è già tra gli artisti
 			if (!in_array($regista_id, $result["artisti"]))
 				$result["artisti"][] = $regista_id;
+		unset($regia_dao);
 
 		foreach ($result["artisti"] as $artista_id)
 			$artisti_cache[$artista_id] = null;
@@ -79,10 +81,12 @@ if ($kind === "artisti" or $kind === "tutti") {
 			$result["films"][] = $recitazione->getFilm();
 		unset($recitazione_dao);
 
-		foreach (RegiaManager::get_films_from_artista($artista->getID()) as $film_id)
+		$regia_dao = RegiaDAOFactory::getRegiaDAO();
+		foreach ($regia_dao->get_films_from_artista($artista->getID()) as $film_id)
 			// Magari questo film è già presente tra i film, magari l'artista ha curato sia regia che recitazione
 			if (!in_array($film_id, $result["films"]))
 				$result["films"][] = $film_id;
+		unset($regia_dao);
 
 		foreach ($result["films"] as $film_id)
 			$films_cache[$film_id] = null;

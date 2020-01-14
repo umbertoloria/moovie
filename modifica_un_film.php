@@ -13,7 +13,9 @@ unset($artista_dao);
 $recitazione_dao = RecitazioneDAOFactory::getRecitazioneDAO();
 $_REQUEST["recitazioni"] = $recitazione_dao->get_from_film($film->getID());
 unset($recitazione_dao);
-$_REQUEST["registi"] = RegiaManager::get_artisti_from_film($film->getID());
+$regia_dao = RegiaDAOFactory::getRegiaDAO();
+$_REQUEST["registi"] = $regia_dao->get_artisti_from_film($film->getID());
+unset($regia_dao);
 include "views/gestione/Form di aggiornamento artisti in film.php";
 
 $genere_dao = GenereDAOFactory::getGenereDAO();

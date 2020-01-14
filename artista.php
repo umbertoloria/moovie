@@ -16,7 +16,9 @@ unset($recitazione_dao);
 foreach ($recitazioni as $recitazione)
 	if (!array_key_exists($recitazione->getFilm(), $films))
 		$films[$recitazione->getFilm()] = null;
-$registi = RegiaManager::get_films_from_artista($artista->getID());
+$regia_dao = RegiaDAOFactory::getRegiaDAO();
+$registi = $regia_dao->get_films_from_artista($artista->getID());
+unset($regia_dao);
 foreach ($registi as $regista)
 	if (!array_key_exists($regista, $films))
 		$films[$regista] = null;

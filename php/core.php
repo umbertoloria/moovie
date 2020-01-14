@@ -17,6 +17,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IGenereDAO.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IGiudizioDAO.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IPromemoriaDAO.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IRecitazioneDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IRegiaDAO.php";
 
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBAccountDAO.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBAmiciziaDAO.php";
@@ -26,6 +27,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBGenereDAO.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBGiudizioDAO.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBPromemoriaDAO.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBRecitazioneDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBRegiaDAO.php";
 
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/AccountDAOFactory.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/AmiciziaDAOFactory.php";
@@ -35,8 +37,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/GenereDAOFactory.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/GiudizioDAOFactory.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/PromemoriaDAOFactory.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/RecitazioneDAOFactory.php";
-
-include $_SERVER["DOCUMENT_ROOT"] . "/managers/RegiaManager.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/RegiaDAOFactory.php";
 
 include $_SERVER["DOCUMENT_ROOT"] . "/php/database.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/php/validator.php";

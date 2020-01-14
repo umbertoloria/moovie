@@ -1,23 +1,8 @@
 <?php
 
-/**
- * Regia è un'associazione tra un Film e un Artista.
- * Ogni artista può curare la regia di più film. La regia di ogni film deve essere curata da almeno un artista.
- *
- * RegiaManager permette di conoscere:
- * * in quali film un artista ha partecipato alla regia
- * * quali artisti hanno curato la regia di un film.
- *
- * @see    Film, IFilmDAO, Artista, IArtistaDAO
- * @author Umberto Loria
- */
-class RegiaManager {
+class DBRegiaDAO implements IRegiaDAO {
 
-	/**
-	 * Dato un ArtistaID, restituisce i FilmID le cui regie sono state curate anche dall'artista.
-	 * @param int $id
-	 * @return int[]
-	 */
+	/** @inheritDoc */
 	public static function get_films_from_artista(int $id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT film FROM regie WHERE regista = ?");
@@ -27,11 +12,7 @@ class RegiaManager {
 		return $res;
 	}
 
-	/**
-	 * Dato un FilmID, restituisce gli ArtistiID che hanno curato la sua regia.
-	 * @param int $id
-	 * @return int[]
-	 */
+	/** @inheritDoc */
 	public static function get_artisti_from_film(int $id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT regista FROM regie WHERE film = ?");

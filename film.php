@@ -12,7 +12,9 @@ if (!$film) {
 $recitazione_dao = RecitazioneDAOFactory::getRecitazioneDAO();
 $recitazioni = $recitazione_dao->get_from_film($film->getID());
 unset($recitazione_dao);
-$registi = RegiaManager::get_artisti_from_film($film->getID());
+$regia_dao = RegiaDAOFactory::getRegiaDAO();
+$registi = $regia_dao->get_artisti_from_film($film->getID());
+unset($regia_dao);
 $_REQUEST["recitazioni"] = $recitazioni;
 $_REQUEST["registi"] = $registi;
 
