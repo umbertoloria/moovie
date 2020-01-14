@@ -10,7 +10,9 @@ include "views/gestione/Form di modifica film.php";
 $artista_dao = ArtistaDAOFactory::getArtistaDAO();
 $_REQUEST["artisti"] = $artista_dao->get_all();
 unset($artista_dao);
-$_REQUEST["recitazioni"] = RecitazioneManager::get_from_film($film->getID());
+$recitazione_dao = RecitazioneDAOFactory::getRecitazioneDAO();
+$_REQUEST["recitazioni"] = $recitazione_dao->get_from_film($film->getID());
+unset($recitazione_dao);
 $_REQUEST["registi"] = RegiaManager::get_artisti_from_film($film->getID());
 include "views/gestione/Form di aggiornamento artisti in film.php";
 

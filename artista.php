@@ -10,7 +10,9 @@ if (!$artista) {
 }
 
 $films = [];
-$recitazioni = RecitazioneManager::get_from_artista($artista->getID());
+$recitazione_dao = RecitazioneDAOFactory::getRecitazioneDAO();
+$recitazioni = $recitazione_dao->get_from_artista($artista->getID());
+unset($recitazione_dao);
 foreach ($recitazioni as $recitazione)
 	if (!array_key_exists($recitazione->getFilm(), $films))
 		$films[$recitazione->getFilm()] = null;

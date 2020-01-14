@@ -1,9 +1,9 @@
 <?php
 
-class RecitazioneManager {
+class DBRecitazioneDAO implements IRecitazioneDAO {
 
-	/** @return Recitazione[] */
-	public static function get_from_artista(int $artista_id): array {
+	/** @inheritDoc */
+	public function get_from_artista(int $artista_id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT film, attore, personaggio FROM recitazioni WHERE attore = ?");
 		if ($stmt->execute([$artista_id]))
@@ -12,8 +12,8 @@ class RecitazioneManager {
 		return $res;
 	}
 
-	/** @return Recitazione[] */
-	public static function get_from_film(int $film_id): array {
+	/** @inheritDoc */
+	public function get_from_film(int $film_id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT film, attore, personaggio FROM recitazioni WHERE film = ?");
 		if ($stmt->execute([$film_id]))
@@ -22,8 +22,8 @@ class RecitazioneManager {
 		return $res;
 	}
 
-	/** @param Recitazione[] $recitazioni */
-	public static function set_only(int $film_id, array $recitazioni): bool {
+	/** @inheritDoc */
+	public function set_only(int $film_id, array $recitazioni): bool {
 		// Le recitazioni devono avere sempre lo stesso <film> ma mai lo stesso <attore>
 		$unique_cache = [];
 		foreach ($recitazioni as $recitazione) {
