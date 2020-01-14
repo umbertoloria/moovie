@@ -6,5 +6,7 @@ if (!$logged_user) {
 	header("Location: /");
 	die();
 }
-$_REQUEST["films"] = FilmManager::suggest_me($logged_user->getID());
+$film_dao = FilmDAOFactory::getFilmDAO();
+$_REQUEST["films"] = $film_dao->suggest_me($logged_user->getID());
+unset($film_dao);
 include "views/film/Pagina suggerimenti.php";

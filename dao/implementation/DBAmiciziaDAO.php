@@ -2,7 +2,7 @@
 
 class DBAmiciziaDAO implements IAmiciziaDAO {
 
-	/** @return Amicizia[] */
+	/** @inheritDoc */
 	public function getFriendships(int $user_id): array {
 		$res = [];
 		$stmt = DB::stmt(
@@ -14,7 +14,7 @@ class DBAmiciziaDAO implements IAmiciziaDAO {
 		return $res;
 	}
 
-	/** @return Amicizia[] */
+	/** @inheritDoc */
 	public function getRequests(int $user_id): array {
 		$res = [];
 		$stmt = DB::stmt(

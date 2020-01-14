@@ -28,7 +28,9 @@ foreach ($_POST as $key => $val)
 
 $ff = new FormFeedbacker();
 
-if (!$film = FilmManager::get_from_id($film_id))
+$film_dao = FilmDAOFactory::getFilmDAO();
+
+if (!$film = $film_dao->get_from_id($film_id))
 	$ff->message("Il client non ti ha bloccato?");
 elseif (RecitazioneManager::set_only($film->getID(), $recitazioni_da_salvare)
 	and RegiaManager::set_only($film->getID(), $registi_da_salvare))

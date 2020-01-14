@@ -41,7 +41,8 @@ else {
 		$tmp_film = new Film(0, $titolo, $durata, $anno, $descrizione);
 		$copertina_bin = file_get_contents($copertina["tmp_name"]);
 
-		$saved_film = FilmManager::create($tmp_film, $copertina_bin);
+		$film_dao = FilmDAOFactory::getFilmDAO();
+		$saved_film = $film_dao->create($tmp_film, $copertina_bin);
 		if ($saved_film)
 			header("Location: /film.php?id=" . $saved_film->getID());
 		else

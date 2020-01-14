@@ -1,7 +1,9 @@
 <?php
 include "parts/initial_page.php";
 allowOnlyGestore();
-$film = FilmManager::get_from_id(@$_GET["id"]);
+$film_dao = FilmDAOFactory::getFilmDAO();
+$film = $film_dao->get_from_id(@$_GET["id"]);
+unset($film_dao);
 $_REQUEST["film"] = $film;
 include "views/gestione/Form di modifica film.php";
 

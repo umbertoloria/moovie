@@ -28,7 +28,7 @@ class DBArtistaDAO implements IArtistaDAO {
 		return $stmt->execute([$faccia_bin, $id]) and $stmt->rowCount() === 1;
 	}
 
-	/** @return Artista[] */
+	/** @inheritDoc */
 	public function search(string $fulltext): array {
 		$res = [];
 		$stmt = DB::stmt(
@@ -65,7 +65,7 @@ class DBArtistaDAO implements IArtistaDAO {
 		return self::get_from_id($artista_id);
 	}
 
-	/** @return Artista[] */
+	/** @inheritDoc */
 	public function get_all(): array {
 		$res = [];
 		$stmt = DB::stmt("

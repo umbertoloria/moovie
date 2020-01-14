@@ -1,8 +1,8 @@
 <?php
 
-class FilmManager {
+class DBFilmDAO implements IFilmDAO {
 
-	public static function get_from_id(int $id): ?Film {
+	public function get_from_id(int $id): ?Film {
 		$stmt = DB::stmt(
 			"SELECT id, titolo, durata, anno, descrizione
 				FROM films
@@ -15,8 +15,8 @@ class FilmManager {
 			return null;
 	}
 
-	/** @return Film[] */
-	public static function search(string $fulltext): array {
+	/** @inheritDoc */
+	public function search(string $fulltext): array {
 		$res = [];
 		$stmt = DB::stmt(
 			"SELECT id, titolo, durata, anno, descrizione
@@ -30,8 +30,8 @@ class FilmManager {
 		return $res;
 	}
 
-	/** @return Film[] */
-	public static function suggest_me(int $utente_id): array {
+	/** @inheritDoc */
+	public function suggest_me(int $utente_id): array {
 		$res = [];
 		$create_view_stmt = DB::stmt("
 create or replace view generi_pesi as
@@ -51,7 +51,6 @@ group by genere
 		$create_view_stmt->execute([":utente" => $utente_id]);
 		$take_data_stmt = DB::stmt(
 			"
-
 select film_has_genere.film,
        ifnull((
                   select avg(voto)
@@ -68,17 +67,16 @@ where film_has_genere.genere in (
     from giudizi
     where utente = :utente)
 order by media desc
-limit 5"
-		);
+limit 5");
 		if ($take_data_stmt->execute([":utente" => $utente_id]))
 			while ($r = $take_data_stmt->fetch(PDO::FETCH_ASSOC))
-				$res[] = FilmManager::get_from_id($r["film"]);
+				$res[] = $this->get_from_id($r["film"]);
 		$drop_view_stmt = DB::stmt("drop view generi_pesi;");
 		$drop_view_stmt->execute();
 		return $res;
 	}
 
-	public static function downloadCopertina(int $id) {
+	public function downloadCopertina(int $id) {
 		$stmt = DB::stmt("SELECT copertina FROM films_copertine WHERE film = ?");
 		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return $r["copertina"];
@@ -86,13 +84,13 @@ limit 5"
 			return null;
 	}
 
-	public static function uploadCopertina(int $id, $copertina_bin): bool {
+	public function uploadCopertina(int $id, $copertina_bin): bool {
 		$stmt = DB::stmt("UPDATE films_copertine SET copertina = ? WHERE film = ?");
 		return $stmt->execute([$copertina_bin, $id]) and $stmt->rowCount() === 1;
 	}
 
-	/** @return Film[] */
-	public static function getClassifica(): array {
+	/** @inheritDoc */
+	public function getClassifica(): array {
 		$res = [];
 		$stmt = DB::stmt(
 			"select films.*, descrizione, voto_medio
@@ -111,7 +109,7 @@ limit 5"
 		return $res;
 	}
 
-	public static function create(Film $film, $copertina_bin): ?Film {
+	public function create(Film $film, $copertina_bin): ?Film {
 		DB::beginTransaction();
 		$stmt1 = DB::stmt("INSERT INTO films (titolo, durata, anno) VALUES (?, ?, ?)");
 		if (!$stmt1->execute([$film->getTitolo(), $film->getDurata(), $film->getAnno()])) {
@@ -133,7 +131,7 @@ limit 5"
 		return self::get_from_id($film_id);
 	}
 
-	public static function update(Film $film): ?Film {
+	public function update(Film $film): ?Film {
 
 		$film_reale = self::get_from_id($film->getID());
 		if (!$film_reale)
@@ -197,9 +195,9 @@ limit 5"
 		return self::get_from_id($film->getID());
 	}
 
-	public static function delete(int $film_id): bool {
+	public function delete(int $id): bool {
 		$stmt = DB::stmt("DELETE FROM films WHERE id = ?");
-		return $stmt->execute([$film_id]) and $stmt->rowCount() === 1;
+		return $stmt->execute([$id]) and $stmt->rowCount() === 1;
 	}
 
 }

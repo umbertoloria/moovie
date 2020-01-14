@@ -12,16 +12,18 @@ include $_SERVER["DOCUMENT_ROOT"] . "/models/Amicizia.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IAccountDAO.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IAmiciziaDAO.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IArtistaDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/interfaces/IFilmDAO.php";
 
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBAccountDAO.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBAmiciziaDAO.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBArtistaDAO.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/implementation/DBFilmDAO.php";
 
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/AccountDAOFactory.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/AmiciziaDAOFactory.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/ArtistaDAOFactory.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/dao/factories/FilmDAOFactory.php";
 
-include $_SERVER["DOCUMENT_ROOT"] . "/managers/FilmManager.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/managers/RecitazioneManager.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/managers/RegiaManager.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/managers/GenereManager.php";

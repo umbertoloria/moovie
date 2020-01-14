@@ -18,12 +18,14 @@ if ($logged_user) {
 	$utenti = [];
 	$films = [];
 	$account_dao = AccountDAOFactory::getAccountDAO();
+	$film_dao = FilmDAOFactory::getFilmDAO();
 	foreach ($giudizi as $giudizio) {
 		if (!isset($utenti[$giudizio->getUtente()]))
 			$utenti[$giudizio->getUtente()] = $account_dao->get_from_id($giudizio->getUtente());
 		if (!isset($films[$giudizio->getFilm()]))
-			$films[$giudizio->getFilm()] = FilmManager::get_from_id($giudizio->getFilm());
+			$films[$giudizio->getFilm()] = $film_dao->get_from_id($giudizio->getFilm());
 	}
+	unset($film_dao);
 	unset($account_dao);
 	$_REQUEST["giudizi"] = $giudizi;
 	$_REQUEST["utenti"] = $utenti;

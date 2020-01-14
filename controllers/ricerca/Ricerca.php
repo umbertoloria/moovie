@@ -27,7 +27,8 @@ $artisti_cache = [];
 
 if ($kind === "film" or $kind === "tutti") {
 
-	foreach (FilmManager::search($fulltext) as $film) {
+	$film_dao = FilmDAOFactory::getFilmDAO();
+	foreach ($film_dao->search($fulltext) as $film) {
 		if (!isset($films_cache[$film->getID()]))
 			$films_cache[$film->getID()] = $film;
 
@@ -53,6 +54,7 @@ if ($kind === "film" or $kind === "tutti") {
 
 		$risultati["movies"][] = $result;
 	}
+	unset($film_dao);
 
 }
 
@@ -93,9 +95,11 @@ unset($account_dao);
 unset($kind);
 unset($fulltext);
 
+$film_dao = FilmDAOFactory::getFilmDAO();
 foreach ($films_cache as $film_id => $value)
 	if (!$value)
-		$films_cache[$film_id] = FilmManager::get_from_id($film_id);
+		$films_cache[$film_id] = $film_dao->get_from_id($film_id);
+unset($film_dao);
 
 foreach ($generi_cache as $genere_id => $value)
 	if (!$value)

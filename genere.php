@@ -9,9 +9,11 @@ if (!$genere) {
 
 $films = [];
 $genere_films = GenereManager::get_films_from_genere($genere->getID());
+$film_dao = FilmDAOFactory::getFilmDAO();
 foreach ($genere_films as $film_id)
 	if (!isset($films[$film_id]))
-		$films[$film_id] = FilmManager::get_from_id($film_id);
+		$films[$film_id] = $film_dao->get_from_id($film_id);
+unset($film_dao);
 $_REQUEST["genere"] = $genere;
 $_REQUEST["films"] = $films;
 $_REQUEST["genere_films"] = $genere_films;

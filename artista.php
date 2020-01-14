@@ -11,17 +11,20 @@ if (!$artista) {
 
 $films = [];
 $recitazioni = RecitazioneManager::get_from_artista($artista->getID());
-foreach ($recitazioni as $recitazione) {
-	if (!array_key_exists($recitazione->getFilm(), $films)) {
-		$films[$recitazione->getFilm()] = FilmManager::get_from_id($recitazione->getFilm());
-	}
-}
+foreach ($recitazioni as $recitazione)
+	if (!array_key_exists($recitazione->getFilm(), $films))
+		$films[$recitazione->getFilm()] = null;
 $registi = RegiaManager::get_films_from_artista($artista->getID());
-foreach ($registi as $regista) {
-	if (!array_key_exists($regista, $films)) {
-		$films[$regista] = FilmManager::get_from_id($regista);
-	}
-}
+foreach ($registi as $regista)
+	if (!array_key_exists($regista, $films))
+		$films[$regista] = null;
+
+$film_dao = FilmDAOFactory::getFilmDAO();
+foreach ($films as $key => $film)
+	if ($film == null)
+		$films[$key] = $film_dao->get_from_id($key);
+unset($film_dao);
+
 $_REQUEST["artista"] = $artista;
 $_REQUEST["recitazioni"] = $recitazioni;
 $_REQUEST["registi"] = $registi;

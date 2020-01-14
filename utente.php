@@ -45,9 +45,11 @@ if ($logged_user->getID() === $utente->getID() or $amicizia_dao->existsFriendshi
 	$giudizi = GiudizioManager::getAllOf([$utente->getID()]);
 	unset($utente);
 	$films = [];
+	$film_dao = FilmDAOFactory::getFilmDAO();
 	foreach ($giudizi as $giudizio)
 		if (!isset($films[$giudizio->getFilm()]))
-			$films[$giudizio->getFilm()] = FilmManager::get_from_id($giudizio->getFilm());
+			$films[$giudizio->getFilm()] = $film_dao->get_from_id($giudizio->getFilm());
+	unset($film_dao);
 	$_REQUEST["giudizi"] = $giudizi;
 	$_REQUEST["films"] = $films;
 	include "views/film/Timeline giudizi.php";

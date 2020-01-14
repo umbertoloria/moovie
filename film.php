@@ -1,7 +1,9 @@
 <?php
 // Visualizza film
 include "parts/initial_page.php";
-$film = FilmManager::get_from_id(@$_GET["id"]);
+$film_dao = FilmDAOFactory::getFilmDAO();
+$film = $film_dao->get_from_id(@$_GET["id"]);
+unset($film_dao);
 if (!$film) {
 	header("Location: /404.php");
 	die();
