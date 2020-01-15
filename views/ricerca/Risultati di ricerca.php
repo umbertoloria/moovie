@@ -1,10 +1,12 @@
-<div id="risultati_di_ricerca">
-	<?php
-	$risultati = $_REQUEST["risultati"];
-	$generi = $_REQUEST["generi"];
-	$artisti = $_REQUEST["artisti"];
-	$films = $_REQUEST["films"];
-
+<?php
+$risultati = $_REQUEST["risultati"];
+$generi = $_REQUEST["generi"];
+$artisti = $_REQUEST["artisti"];
+$films = $_REQUEST["films"];
+if (count($risultati["movies"]) + count($risultati["artists"]) + count($risultati["users"]) === 0) {
+	echo "<h1>Nessun risultato trovato</h1>";
+} else {
+	echo "<div id='risultati_di_ricerca'>";
 	foreach ($risultati["movies"] as $film_x) {
 		$film = $films[$film_x["id"]];
 		assert($film instanceof Film);
@@ -88,5 +90,5 @@
 		echo $user->getNome() . " " . $user->getCognome();
 		echo "</a>";
 	}
-	?>
-</div>
+	echo "</div>";
+}
