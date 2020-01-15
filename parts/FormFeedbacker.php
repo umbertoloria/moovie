@@ -8,6 +8,10 @@ class FormFeedbacker {
 		$this->message = $message;
 	}
 
+	public function block() {
+		$this->message("Il client non ti ha bloccato?");
+	}
+
 	public function bug() {
 		$this->message("Errore interno");
 	}
@@ -62,10 +66,7 @@ class FormFeedbacker {
 					z-index: 10;
 				}
 			</style>
-			<div id="form_error">
-				<p>
-					<?php echo $this->message; ?>
-				</p>
+			<div id='form_error'><p><?php echo $this->message; ?></p>
 				<a href='javascript:history.back()'>↩</a>
 			</div>
 			<?php

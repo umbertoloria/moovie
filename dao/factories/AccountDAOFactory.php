@@ -2,15 +2,15 @@
 
 class AccountDAOFactory {
 
-	private static $test = false;
+	private static $stub = null;
 
 	public static function initTest() {
-		self::$test = true;
+		self::$stub = new StubAccountDAO();
 	}
 
 	public static function getAccountDAO(): IAccountDAO {
-		if (self::$test)
-			return new StubAccountDAO();
+		if (self::$stub)
+			return self::$stub;
 		else
 			return new DBAccountDAO();
 	}

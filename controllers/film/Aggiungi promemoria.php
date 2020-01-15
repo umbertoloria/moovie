@@ -1,6 +1,6 @@
 <?php
 
-include "../../php/core.php";
+include_once "../../php/core.php";
 
 $logged_user = Auth::getLoggedUser();
 $film_id = @$_GET["film_id"];
@@ -8,9 +8,9 @@ $film_id = @$_GET["film_id"];
 $ff = new FormFeedbacker();
 
 if (!$logged_user)
-	$ff->message("Il client non ti ha bloccato?");
+	$ff->block();
 elseif (!ctype_digit($film_id))
-	$ff->message("Il client non ti ha bloccato?");
+	$ff->block();
 else {
 	$promemoria_dao = PromemoriaDAOFactory::getPromemoriaDAO();
 	$tmp_promemoria = new Promemoria($logged_user->getID(), $film_id, "");

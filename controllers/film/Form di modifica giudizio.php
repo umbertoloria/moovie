@@ -1,6 +1,6 @@
 <?php
 
-include "../../php/core.php";
+include_once "../../php/core.php";
 
 $logged_user = Auth::getLoggedUser();
 $film_id = $_GET["film_id"];

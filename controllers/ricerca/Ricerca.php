@@ -1,6 +1,6 @@
 <?php
 
-include "../../php/core.php";
+include_once "../../php/core.php";
 $kind = @$_GET["kind"];
 $fulltext = @$_GET["fulltext"];
 
@@ -14,7 +14,7 @@ if (!in_array($kind, $kinds)) {
 	die();
 }
 
-include "../../parts/initial_page.php";
+include_once "../../parts/initial_page.php";
 
 $risultati = [
 	"movies" => [],

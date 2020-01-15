@@ -1,6 +1,6 @@
 <?php
 
-include "../../php/core.php";
+include_once "../../php/core.php";
 
 $logged_user = Auth::getLoggedUser();
 $to_user_id = trim(@$_GET["to_user_id"]);

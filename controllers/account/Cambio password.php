@@ -1,6 +1,6 @@
 <?php
 
-include "../../php/core.php";
+include_once "../../php/core.php";
 
 $logged_user = Auth::getLoggedUser();
 if (!$logged_user) {
@@ -19,9 +19,9 @@ $valid = Validator\validate("../../forms/cambio_password.json", [
 $ff = new FormFeedbacker();
 
 if (!$valid)
-	$ff->message("Il client non ti ha bloccato?");
+	$ff->block();
 elseif ($logged_user->getPassword() !== sha1($cur_pwd))
-	$ff->message("La password attuale fornita non corrisponde");
+	$ff->block();
 else {
 	$logged_user->setPassword(sha1($new_pwd));
 	$account_dao = AccountDAOFactory::getAccountDAO();

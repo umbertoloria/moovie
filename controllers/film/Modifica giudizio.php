@@ -1,6 +1,6 @@
 <?php
 
-include "../../php/core.php";
+include_once "../../php/core.php";
 
 $logged_user = Auth::getLoggedUser();
 $film_id = @$_POST["film_id"];
@@ -13,14 +13,14 @@ $valid = Validator\validate("../../forms/aggiunta_e_modifica_giudizio.json", [
 $ff = new FormFeedbacker();
 
 if (!$logged_user or !$valid)
-	$ff->message("Il client non ti ha bloccato?");
-elseif (!ctype_digit($film_id))
-	$ff->message("dammi un numero per id");
+	$ff->block();
 else {
 
 	$giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
 	$tmp_giudizio = $giudizio_dao->get_from_utente_and_film($logged_user->getID(), $film_id);
-	if ($tmp_giudizio->getVoto() == $voto)
+	if (is_null($tmp_giudizio))
+		$ff->block();
+	elseif ($tmp_giudizio->getVoto() == $voto)
 		header("Location: /giudizi.php");
 	else {
 		$tmp_giudizio->setVoto($voto);

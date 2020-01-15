@@ -1,6 +1,6 @@
 <?php
 include_once $_SERVER["DOCUMENT_ROOT"] . "/php/core.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/parts/head.php";
+include_once $_SERVER["DOCUMENT_ROOT"] . "/parts/head.php";
 
 // pagename_map
 $pagename_map = [

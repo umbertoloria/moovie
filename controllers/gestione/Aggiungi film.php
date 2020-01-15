@@ -1,6 +1,6 @@
 <?php
 
-include "../../php/core.php";
+include_once "../../php/core.php";
 
 allowOnlyGestore();
 
@@ -19,7 +19,7 @@ $valid = Validator\validate("../../forms/aggiunta_e_modifica_film.json", [
 $ff = new FormFeedbacker();
 
 if (!$valid)
-	$ff->message("Il client non ti ha bloccato?");
+	$ff->block();
 else {
 
 	$copertina = @$_FILES["copertina"];

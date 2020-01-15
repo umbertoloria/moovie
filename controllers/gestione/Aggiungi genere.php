@@ -1,6 +1,6 @@
 <?php
 
-include "../../php/core.php";
+include_once "../../php/core.php";
 
 allowOnlyGestore();
 
@@ -15,7 +15,7 @@ $ff = new FormFeedbacker();
 $genere_dao = GenereDAOFactory::getGenereDAO();
 
 if (!$valid)
-	$ff->message("Il client non ti ha bloccato?");
+	$ff->block();
 elseif ($genere_dao->exists($nome))
 	$ff->message("Questo nome è associato ad un genere esistente");
 else {

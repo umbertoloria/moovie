@@ -1,6 +1,6 @@
 <?php
 
-include "../../php/core.php";
+include_once "../../php/core.php";
 
 $email = trim(@$_POST["email"]);
 $password = trim(@$_POST["password"]);
@@ -13,7 +13,7 @@ $valid = Validator\validate("../../forms/accesso.json", [
 $ff = new FormFeedbacker();
 
 if (!$valid)
-	$ff->message("Il client non ti ha bloccato?");
+	$ff->block();
 else {
 	$account_dao = AccountDAOFactory::getAccountDAO();
 	$utente = $account_dao->authenticate($email, sha1($password));

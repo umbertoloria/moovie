@@ -1,5 +1,5 @@
 <?php
-include "../../php/core.php";
+include_once "../../php/core.php";
 allowOnlyGestore();
 $film_id = @$_GET["film_id"];
 $ff = new FormFeedbacker();

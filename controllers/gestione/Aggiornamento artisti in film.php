@@ -1,6 +1,6 @@
 <?php
 
-include "../../php/core.php";
+include_once "../../php/core.php";
 
 allowOnlyGestore();
 
@@ -33,7 +33,7 @@ $recitazione_dao = RecitazioneDAOFactory::getRecitazioneDAO();
 $regia_dao = RegiaDAOFactory::getRegiaDAO();
 
 if (!$film = $film_dao->get_from_id($film_id))
-	$ff->message("Il client non ti ha bloccato?");
+	$ff->block();
 elseif ($recitazione_dao->set_only($film->getID(), $recitazioni_da_salvare)
 	and $regia_dao->set_only($film->getID(), $registi_da_salvare))
 	header("Location: /film.php?id=" . $film->getID());

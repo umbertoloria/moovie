@@ -1,13 +1,13 @@
 {
   "rules": {
 	"nome": {
-	  "minlength": 5,
+	  "minlength": 2,
 	  "maxlength": 50,
 	  "exp": "^[a-zA-Z' àèéìòù]+$",
 	  "expErr": "Caratteri ammessi: lettere (accentate), apostrofi e spazi (ma non da soli)"
 	},
 	"cognome": {
-	  "minlength": 5,
+	  "minlength": 2,
 	  "maxlength": 50,
 	  "exp": "^[a-zA-Z' àèéìòù]+$",
 	  "expErr": "Caratteri ammessi: lettere (accentate), apostrofi e spazi (ma non da soli)"

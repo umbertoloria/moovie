@@ -1,6 +1,6 @@
 <?php
 
-include "../../php/core.php";
+include_once "../../php/core.php";
 
 allowOnlyGestore();
 
@@ -16,7 +16,7 @@ $film_dao = FilmDAOFactory::getFilmDAO();
 $genere_dao = GenereDAOFactory::getGenereDAO();
 
 if (!$film = $film_dao->get_from_id($film_id))
-	$ff->message("Il client non ti ha bloccato?");
+	$ff->block();
 elseif ($genere_dao->set_only($film->getID(), $final_genres))
 	header("Location: /film.php?id=" . $film->getID());
 else

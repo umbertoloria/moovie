@@ -1,7 +1,10 @@
 <phpunit bootstrap="autoload.php" cacheResult="false">
 	<testsuites>
-		<testsuite name="Stub AccountDAO Test">
-			<file>tests/AccountDAOTest.php</file>
+		<testsuite name="AccountDAO test">
+			<file>tests/account/AccountDAOTest.php</file>
+		</testsuite>
+		<testsuite name="Registrazione test">
+			<file>tests/account/RegistrazioneTest.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>

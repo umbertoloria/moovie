@@ -1,5 +1,5 @@
 <?php
-include "../../php/core.php";
+include_once "../../php/core.php";
 allowOnlyGestore();
 $genere_id = @$_GET["genere_id"];
 $ff = new FormFeedbacker();

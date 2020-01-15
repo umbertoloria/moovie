@@ -1,6 +1,6 @@
 <?php
 
-include "../../php/core.php";
+include_once "../../php/core.php";
 
 allowOnlyGestore();
 
@@ -20,9 +20,9 @@ $ff = new FormFeedbacker();
 $artista_dao = ArtistaDAOFactory::getArtistaDAO();
 
 if (!$valid)
-	$ff->message("Il client non ti ha bloccato?");
+	$ff->block();
 elseif (!$artista = $artista_dao->get_from_id($artista_id))
-	$ff->message("Il client non ti ha bloccato?");
+	$ff->block();
 else {
 
 	$faccia = @$_FILES["faccia"];

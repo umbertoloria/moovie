@@ -1,6 +1,6 @@
 <?php
 
-include "../../php/core.php";
+include_once "../../php/core.php";
 
 if (!Auth::getLoggedUser())
 	echo "Il client non ti ha bloccato?";

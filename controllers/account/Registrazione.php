@@ -1,6 +1,6 @@
 <?php
 
-include "../../php/core.php";
+include_once "../../php/core.php";
 
 $nome = trim(@$_POST["nome"]);
 $cognome = trim(@$_POST["cognome"]);
@@ -18,7 +18,7 @@ $ff = new FormFeedbacker();
 $account_dao = AccountDAOFactory::getAccountDAO();
 
 if (!$valid)
-	$ff->message("Il client non ti ha bloccato?");
+	$ff->block();
 elseif ($account_dao->exists($email))
 	$ff->message("Già esiste");
 else {
