@@ -162,29 +162,29 @@ TC_1.3_3 | LoUtente_2, LRicercaUtente_2 | Corretto
 **PARAMETRO**: | Nome
 ----|---
 **FORMATO**: | ^[a-zA-Z' àèéìòù]+$
-**Lunghezza[LNome]**: | 1. <5 or >50 [Errore]<br/>2. >5 & <50 [Successo_LNome]
+**Lunghezza[LNome]**: | 1. <2 or >50 [Errore]<br/>2. >=2 and <=50 [Successo_LNome]
 **Formato[FNome]:** | 1. Non rispecchia il formato[if_LNome_OK][Errore]<br/>2. Rispetta il formato[if_FNome_OK][Successo_Nome]
 
 **PARAMETRO**: | Cognome
 ----|---
 **FORMATO**: | ^[a-zA-Z' àèéìòù]+$
-**Lunghezza[LCognome]**: | 1. <5 or >50 [Errore]<br/>2. >5 & <51 [Successo_LCognome]
+**Lunghezza[LCognome]**: | 1. <2 or >50 [Errore]<br/>2. >=2 and <=50 [Successo_LCognome]
 **Formato[FNome]:** | >1. Non rispecchia il formato [if_LCognome_OK][Errore]<br/>2. Rispetta il formato[if_FCognome_OK][Successo_Cognome]
 
 **PARAMETRO**: | Email
 ----|---
 **FORMATO**: | ^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}$
-**Lunghezza[LEmail]**: | 1. <5 or >50 [Errore]<br>2. >4 & <51 [Successo_LEmail]
+**Lunghezza[LEmail]**: | 1. <5 or >50 [Errore]<br>2. >=5 & <=50 [Successo_LEmail]
 **Formato[FEmail]:** | 1. Non rispecchia il formato [if_LEmail_OK][Errore]<br/>2. Rispetta il formato[if_FEmail_OK][Successo_FEmail]
 **Presenza[PEmail]:** | 1. Email già in uso [if_FEmail_OK][Errore]<br/>2. Email non in uso [if_FEmail_OK][Successo_Email]
 
 **PARAMETRO**: | Password
 ----|---
-**Lunghezza[LPassword]**: | 1. <6 or >16 [Errore]<br/>2. >5 & <17 [Successo_LPassword]
+**Lunghezza[LPassword]**: | 1. <6 or >16 [Errore]<br/>2. >=6 & <=16 [Successo_LPassword]
 
 **PARAMETRO**: | Copassword
 ----|---
-**Lunghezza[LCopassword]**: | 1. <6 or >16 [Errore]<br/>2. >5 & <17 [Successo_LCopassword]
+**Lunghezza[LCopassword]**: | 1. <6 or >16 [Errore]<br/>2. >=6 & <=16 [Successo_LCopassword]
 **Corrispondenza[CPassword]**: | 1. La password inserita è diversa da quella scelta[if_LCopassword_ok][Errore]<br/> 2. La password inserita corrisponde a quella scelta[if_CPassword_OK][Successo_Password]   
 
 #### Test cases
@@ -205,13 +205,13 @@ TC_2.1_10 | LNome_2,FNome_2<br>LCognome_2, FCognome_2<br> LEmail_2, FEmail_2, PE
 **PARAMETRO**: | Email
 ----|---
 **FORMATO**: | ^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}$
-**Lunghezza[LEmail]**: | 1. <5 or >50 [Errore]<br>2. >4 & <51 [Successo_LEmail]
+**Lunghezza[LEmail]**: | 1. <5 or >50 [Errore]<br>2. >=5 & <=50 [Successo_LEmail]
 **Formato[FEmail]:** | 1. Non rispecchia il formato [if_LEmail_OK][Errore]<br/>2. Rispetta il formato[if_FEmail_OK][Successo_Cognome]
 **Corrispondenza[CEmail]:** | 1. Email inserita non corrisponde[if_FEmail_OK][Errore]<br/>2. Email inserita corrisponde[if_FEmail_OK][Successo_Email]
 
 **PARAMETRO**: | Password
 ----|---
-**Lunghezza[LPassword]**: | 1. <6 or >16 [Errore]<br/>2. >5 & <17 [Successo_LPassword]
+**Lunghezza[LPassword]**: | 1. <6 or >16 [Errore]<br/>2. >=6 & <=16 [Successo_LPassword]
 **Corrispondenza[CPassword]**: | 1. La password inserita non corrisponde[if_LCopassword_ok][Errore]<br/> 2. La password inserita corrisponde a quella scelta[if_CPassword_OK][Successo_Password]   
 
 #### Test cases
@@ -231,12 +231,12 @@ TC_2.2_6 | LEmail_2, FEmail_2<br/> CEmail_2, LPassword_2, CPassword_2 | Corretto
 
 **PARAMETRO**: | PasswordVecchia
 ----|---
-**Lunghezza[LPasswordVecchia]**: | 1. < 6 or > 16[Errore]<br/> 2. > 5 & < 17[Successo_LPasswordVecchia]
+**Lunghezza[LPasswordVecchia]**: | 1. < 6 or > 16[Errore]<br/> 2. >=6 & <=16[Successo_LPasswordVecchia]
 **Corrispondenza[CPasswordVecchia]**: | 1. La password è diversa da quella precedente[if_LPasswordVecchia ok][Errore]<br/> 2. La password inserita corrisponde a quella precedente[if_CPasswordVecchia OK][Successo_CPasswordVecchia]
 
 **PARAMETRO**: | PasswordNuova
 ----|---
-**Lunghezza[LPasswordNuova]**: | 1. < 6 or > 16[Errore]<br/> 2. > 5 & < 17[Successo_LPasswordNuova]
+**Lunghezza[LPasswordNuova]**: | 1. < 6 or > 16[Errore]<br/> 2. >=6 & <=16[Successo_LPasswordNuova]
 
 #### Test cases
 Codice   | Combinazione                                                        | Esito
@@ -304,7 +304,7 @@ TC_3.3_3 | LoUtenteTo_2, EUtenteFrom_2 | Corretto
 
 **PARAMETRO**: | Voto
 ----|---
-**Selezione[SVoto]:**| 1. L'utente ha selezionato un valore < 1 or > 10[Errore]<br/> 2. L'utente ha selezionato un valore > 0 & < 11[Successo_SVoto]
+**Selezione[SVoto]:**| 1. L'utente ha selezionato un valore <1 or >10 [Errore]<br/> 2. L'utente ha selezionato un valore >=1 & <=10 [Successo_SVoto]
 
 **PARAMETRO**: | Film
 ----|---
@@ -325,7 +325,7 @@ TC_4.1_4 | LoUtente_2, SVoto_2, PFilm_2 | Corretto
 
 **PARAMETRO**: | Voto
 ----|---
-**Selezione[SVoto]:**| 1. L'utente ha selezionato un valore < 1 or > 10<br/> 2. L'utente ha selezionato un valore > 0 & < 11 e diverso da quello precedentemente assegnato[Successo_SVoto]
+**Selezione[SVoto]:**| 1. L'utente ha selezionato un valore <1 or >10<br/> 2. L'utente ha selezionato un valore >=1 & <=10 e diverso da quello precedentemente assegnato[Successo_SVoto]
 
 **PARAMETRO**: | Film
 ----|---

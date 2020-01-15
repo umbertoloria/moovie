@@ -93,7 +93,7 @@ Test Case ID | TC_2.1_7
 ----|----
 **PRECONDIZIONI** | 1. L'utente è nell'area di registrazione
 **FLUSSO DI EVENTI** | 1. L'utente digita nel campo nome il testo "Giuseppe", nel campo cognome "Verdi", nel campo email "gianluca.pirone9@gmail.com", nel campo password "140898", nel campo copassword "140898" <br/> 2. L'utente clicca sul pulsante "Registrati"
-**ORACOLO** | Il sistema non esegue la registrazione dell'utente, poichè la e-mail è già presente
+**ORACOLO** | Il sistema non esegue la registrazione dell'utente, poichè la e-mail è occupata da un altro utente
 -------
 Test Case ID | TC_2.1_8
 ----|----
@@ -130,7 +130,7 @@ Test Case ID | TC_2.2_3
 ----|----
 **PRECONDIZIONI** | 1. L'utente è sulla pagina di accesso di "Moovie" <br/> 2. L'utente possiede un proprio account
 **FLUSSO DI EVENTI** | 1. L'utente digita nel campo email "gianluca.pirone9@gmail.com", nel campo password "140898" <br/> 2. L'utente clicca sul pulsande "Accedi" 
-**ORACOLO** | Il sistema non esegue il login dell'utente
+**ORACOLO** | Il sistema mostra "I dati non corrispondono"
 -------
 Test Case ID | TC_2.2_4
 ----|----
@@ -167,7 +167,7 @@ Test Case ID | TC_2.2_6
 ----|----
 **PRECONDIZIONI** | 1. L'utente è nell'area apposita per cambiare la propria password
 **FLUSSO DI EVENTI** | 1. L'utente digita nel campo Password Vecchia il testo "140899", nel campo Password Nuova "Verdi09".<br/> 2. L'utente clicca sul pulsante "Cambio Password"
-**ORACOLO** | Il sistema comunica che i dati non sono validi(la password vecchia non corrisponde)
+**ORACOLO** | Il sistema comunica che i dati non sono validi (la password vecchia non corrisponde)
 ---
 **Test Case ID** | TC_2.3_4
 ----|----
