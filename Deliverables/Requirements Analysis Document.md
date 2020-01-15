@@ -130,7 +130,7 @@ I requisiti descritti sono catalogati secondo il modello **F.U.R.P.S.**
 ## Requisiti funzionali
 Identificativo | Descrizione | Priorità
 :-------------:|-------------|:-------:
-**M_RF_RIC** | Ricerca | Bassa
+**M_RF_RIC** | Ricerca | Alta
 RF_RIC.1 | Ricerca di un film
 RF_RIC.2 | Ricerca di un artista
 RF_RIC.3 | Ricerca di un utente
@@ -161,7 +161,7 @@ RF_FILM.9 | Rimuovere un promemoria
 RF_FILM.10 | Visualizzare i promemoria
 RF_FILM.11 | Suggerimenti automatici di film
 RF_FILM.12 | Visualizzare la classifica dei film
-**M_RF_GEST** | Gestione | Alta
+**M_RF_GEST** | Gestione | Media
 RF_GEST.1 | Aggiungere un film
 RF_GEST.2 | Modificare un film
 RF_GEST.3 | Rimuovere un film
@@ -181,16 +181,16 @@ RF_GEST.11 | Aggiornare generi di un film
 * Sarà totalmente gratuito
 
 ### Reliability
-* Moovie dovrà sempre garantire la consistenza dei dati memorizzati
+* Ogni rilascio dovrà garantire l'assenza di malfunzionamenti durante il primo mese
 
 ### Performance
 * Il tempo di attesa di pagina su laptop moderno e rete in fibra sarà minore di 1s
 * Moovie sarà scalabile in numero di utenti
 
 ### Supportability
-* Sarà supportato dai browser Google Chrome, Mozilla Firefox, Safari
+* Moovie dovrà essere facilmente sostenibile sia per aggiunta di business-logic sia per integrazione di nuove tecnologie
 
-### Vincoli (pseudo requisiti)
+### Vincoli (pseudo-requisiti)
 * Il sito prevede l’utilizzo delle seguenti tecnologie: Apache, MySQL, PHP
 
 ## Scenari
