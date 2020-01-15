@@ -17,6 +17,10 @@ Manuel De Stefano | Tutor
 
 <a href="Deliverables/System Design Document.md">System Design Document</a>
 
+<a href="Deliverables/Test documents/Test Plan.md">Test Plan</a>
+
+<a href="Deliverables/Test documents/Test Specification.md">Test Specification</a>
+
 # Piano del progetto
 - [x] Problem Statement: 11 ottobre 2019;
 - [x] Requisiti e casi d’uso: 25 ottobre 2019;
