@@ -3,7 +3,7 @@
 class DB {
 
 	/** @var PDO $c */
-	public static $c;
+	private static $c;
 
 	public static function init() {
 		try {

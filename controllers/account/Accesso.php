@@ -19,7 +19,8 @@ else {
 	$utente = $account_dao->authenticate($email, sha1($password));
 	if ($utente) {
 		Auth::setLoggedUser($utente);
-		header("Location: /");
+		Testing::redirect("/");
+		return;
 	} else
 		$ff->message("I dati non corrispondono");
 }

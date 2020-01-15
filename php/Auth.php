@@ -17,7 +17,10 @@ class Auth {
 
 	public static function setLoggedUser(Utente $utente) {
 		self::$user_cache = $utente;
-		setcookie("userid", $utente->getID(), time() + 60 * 60 * 3, "/");
+		if (Testing::running())
+			$_COOKIE["userid"] = $utente->getID();
+		else
+			setcookie("userid", $utente->getID(), time() + 60 * 60 * 3, "/");
 	}
 
 	public static function delLoggedUser() {

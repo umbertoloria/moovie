@@ -23,9 +23,11 @@ elseif ($account_dao->exists($email))
 	$ff->message("Già esiste");
 else {
 	$tmp_utente = new Utente(0, $nome, $cognome, $email, sha1($password));
-	if ($account_dao->create($tmp_utente))
-		header("Location: /conferma_registrazione.php");
-	else
+	if ($saved_utente = $account_dao->create($tmp_utente)) {
+		Testing::setFeedback($saved_utente->getID());
+		Testing::redirect("/conferma_registrazione.php");
+		return;
+	} else
 		$ff->bug();
 }
 

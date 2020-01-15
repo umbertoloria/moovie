@@ -4,7 +4,7 @@ class AccountDAOFactory {
 
 	private static $stub = null;
 
-	public static function initTest() {
+	public static function useStub() {
 		self::$stub = new StubAccountDAO();
 	}
 

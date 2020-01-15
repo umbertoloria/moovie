@@ -1,10 +1,6 @@
 <?php
 
-include_once "../../php/database.php";
-include_once "../../models/Utente.php";
-include_once "../../dao/factories/AccountDAOFactory.php";
-include_once "../../dao/interfaces/IAccountDAO.php";
-include_once "../../dao/implementation/DBAccountDAO.php";
+include_once "../../php/core.php";
 include_once "stubs/StubAccountDAO.php";
 
 class AccountDAOTest extends PHPUnit\Framework\TestCase {
@@ -14,14 +10,10 @@ class AccountDAOTest extends PHPUnit\Framework\TestCase {
 	/** @var Utente[] */
 	private static $saves = [];
 
-	/** @beforeClass */
-	public static function init() {
-		AccountDAOFactory::initTest();
+	public static function setUpBeforeClass(): void {
+		AccountDAOFactory::useStub();
 		self::$account_dao = AccountDAOFactory::getAccountDAO();
 	}
-
-//	protected function setUp(): void {
-//	}
 
 	private function realExistsTest($nome, $cognome, $email, $password, $isGestore) {
 		$utente = new Utente(0, $nome, $cognome, $email, sha1($password), $isGestore);

@@ -46,5 +46,6 @@ include_once $_SERVER["DOCUMENT_ROOT"] . "/php/validator.php";
 include_once $_SERVER["DOCUMENT_ROOT"] . "/php/formats.php";
 include_once $_SERVER["DOCUMENT_ROOT"] . "/php/Auth.php";
 include_once $_SERVER["DOCUMENT_ROOT"] . "/php/safety.php";
+include_once $_SERVER["DOCUMENT_ROOT"] . "/php/Testing.php";
 
 include_once $_SERVER["DOCUMENT_ROOT"] . "/parts/FormFeedbacker.php";
