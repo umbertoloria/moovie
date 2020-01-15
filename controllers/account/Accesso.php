@@ -16,7 +16,7 @@ if (!$valid)
 	$ff->message("Il client non ti ha bloccato?");
 else {
 	$account_dao = AccountDAOFactory::getAccountDAO();
-	$utente = $account_dao->authenticate($email, $password);
+	$utente = $account_dao->authenticate($email, sha1($password));
 	if ($utente) {
 		Auth::setLoggedUser($utente);
 		header("Location: /");

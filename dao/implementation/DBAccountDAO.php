@@ -108,7 +108,7 @@ class DBAccountDAO implements IAccountDAO {
 	public function authenticate(string $email, string $password): ?Utente {
 		$stmt = DB::stmt(
 			"SELECT id, nome, cognome, email, password, gestore FROM utenti WHERE email = ? AND password = ?");
-		if ($stmt->execute([$email, sha1($password)]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
+		if ($stmt->execute([$email, $password]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Utente($r["id"], $r["nome"], $r["cognome"], $r["email"],
 				$r["password"], $r["gestore"] == 1);
 		else

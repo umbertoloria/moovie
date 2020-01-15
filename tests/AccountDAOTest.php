@@ -1,6 +1,6 @@
 <?php
 
-class StubAccountDAOTest extends PHPUnit\Framework\TestCase {
+class AccountDAOTest extends PHPUnit\Framework\TestCase {
 
 	/** @var IAccountDAO */
 	private static $account_dao;
@@ -17,7 +17,7 @@ class StubAccountDAOTest extends PHPUnit\Framework\TestCase {
 //	}
 
 	private function realExistsTest($nome, $cognome, $email, $password, $isGestore) {
-		$utente = new Utente(0, $nome, $cognome, $email, $password, $isGestore);
+		$utente = new Utente(0, $nome, $cognome, $email, sha1($password), $isGestore);
 
 		$oracle = false;
 		foreach (self::$saves as $save)
@@ -25,19 +25,11 @@ class StubAccountDAOTest extends PHPUnit\Framework\TestCase {
 				$oracle = true;
 
 		$result = self::$account_dao->exists($utente->getEmail());
-//		echo "\nresult ";
-//		var_dump($result);
-//		echo "oracle ";
-//		var_dump($oracle);
+
 		$this->assertEquals($result, $oracle);
 	}
 
 	private function utenti_uguali(Utente $utente1, Utente $utente2): bool {
-//		$this->assertEquals($utente_salvato->getNome(), $utente->getNome());
-//		$this->assertEquals($utente_salvato->getCognome(), $utente->getCognome());
-//		$this->assertEquals($utente_salvato->getEmail(), $utente->getEmail());
-//		$this->assertEquals($utente_salvato->getPassword(), $utente->getPassword());
-//		$this->assertEquals($utente_salvato->isGestore(), $utente->isGestore());
 		return $utente1->getNome() == $utente2->getNome() and
 			$utente1->getCognome() == $utente2->getCognome() and
 			$utente1->getEmail() == $utente2->getEmail() and
@@ -54,12 +46,12 @@ class StubAccountDAOTest extends PHPUnit\Framework\TestCase {
 
 	/** @dataProvider create_and_retrieve_users_provider */
 	public function testExistsBeforeCreation($nome, $cognome, $email, $password, $isGestore) {
-		$this->realExistsTest($nome, $cognome, $email, $password, $isGestore);
+		$this->realExistsTest($nome, $cognome, $email, sha1($password), $isGestore);
 	}
 
 	/** @dataProvider create_and_retrieve_users_provider */
 	public function testCreateUser($nome, $cognome, $email, $password, $isGestore) {
-		$utente = new Utente(0, $nome, $cognome, $email, $password, $isGestore);
+		$utente = new Utente(0, $nome, $cognome, $email, sha1($password), $isGestore);
 		$utente_salvato = self::$account_dao->create($utente);
 		$this->assertNotNull($utente_salvato);
 		$this->assertTrue($this->utenti_uguali($utente_salvato, $utente));
@@ -68,17 +60,17 @@ class StubAccountDAOTest extends PHPUnit\Framework\TestCase {
 
 	/** @dataProvider create_and_retrieve_users_provider */
 	public function testExistsAfterCreation($nome, $cognome, $email, $password, $isGestore) {
-		$this->realExistsTest($nome, $cognome, $email, $password, $isGestore);
+		$this->realExistsTest($nome, $cognome, $email, sha1($password), $isGestore);
 	}
 
 	/** @dataProvider create_and_retrieve_users_provider */
 	public function testGetFromID($nome, $cognome, $email, $password, $isGestore) {
-		$app = new Utente(0, $nome, $cognome, $email, $password, $isGestore);
+		$app = new Utente(0, $nome, $cognome, $email, sha1($password), $isGestore);
 		$utente = null;
 		foreach (self::$saves as $save)
 			if ($this->utenti_uguali($app, $save))
 				$utente = $save;
-		$this->assertNotNull($utente);
+		assert(!is_null($utente));
 		$utente_salvato = self::$account_dao->get_from_id($utente->getID());
 		$this->assertNotNull($utente_salvato);
 		$this->assertTrue($this->utenti_uguali($utente_salvato, $utente));
@@ -93,13 +85,13 @@ class StubAccountDAOTest extends PHPUnit\Framework\TestCase {
 
 	/** @dataProvider update_users_provider */
 	public function testUpdateUser($nome, $cognome, $email, $password, $isGestore, $nuova_password) {
-		$app = new Utente(0, $nome, $cognome, $email, $password, $isGestore);
+		$app = new Utente(0, $nome, $cognome, $email, sha1($password), $isGestore);
 		$utente = null;
 		foreach (self::$saves as $save)
 			if ($this->utenti_uguali($app, $save))
 				$utente = $save;
-		$this->assertNotNull($utente);
-		$utente->setPassword($nuova_password);
+		assert(!is_null($utente));
+		$utente->setPassword(sha1($nuova_password));
 		$utente_salvato = self::$account_dao->update($utente);
 		$this->assertTrue($this->utenti_uguali($utente, $utente_salvato));
 	}
@@ -113,14 +105,14 @@ class StubAccountDAOTest extends PHPUnit\Framework\TestCase {
 
 	/** @dataProvider authenticate_users_provider */
 	public function testAuthenticateUser($email, $password) {
-		$utente = null;
+		$oracle = null;
 		foreach (self::$saves as $save)
-			if ($save->getEmail() == $email and $save->getPassword() == $password)
-				$utente = $save;
-		$this->assertNotNull($utente);
-		$utente_loggato = self::$account_dao->authenticate($email, $password);
+			if ($save->getEmail() == $email and $save->getPassword() == sha1($password))
+				$oracle = $save;
+		assert(!is_null($oracle));
+		$utente_loggato = self::$account_dao->authenticate($email, sha1($password));
 		$this->assertNotNull($utente_loggato);
-		$this->assertTrue($this->utenti_uguali($utente, $utente_loggato));
+		$this->assertTrue($this->utenti_uguali($utente_loggato, $oracle));
 	}
 
 	public function delete_users_provider() {
@@ -132,13 +124,13 @@ class StubAccountDAOTest extends PHPUnit\Framework\TestCase {
 
 	/** @dataProvider delete_users_provider */
 	public function testDeleteUser($nome, $cognome, $email, $password, $isGestore) {
-		$app = new Utente(0, $nome, $cognome, $email, $password, $isGestore);
+		$app = new Utente(0, $nome, $cognome, $email, sha1($password), $isGestore);
 		$save_key = -1;
 		foreach (self::$saves as $key => $save)
 			if ($this->utenti_uguali($app, $save))
 				$save_key = $key;
 		$utente = self::$saves[$save_key];
-		$this->assertNotNull($utente);
+		assert(!is_null($utente));
 		unset(self::$saves[$save_key]);
 		$res = self::$account_dao->delete($utente->getID());
 		$this->assertTrue($res);
