@@ -28,10 +28,7 @@ class CambioPasswordTest extends GenericTest {
 	}
 
 	private function callController($userid, $cur_pwd, $new_pwd) {
-		if (is_int($userid))
-			$_COOKIE["userid"] = $userid;
-		else
-			unset($_COOKIE["userid"]);
+		$_COOKIE["userid"] = $userid;
 		Auth::init();
 		$_POST["cur_pwd"] = $cur_pwd;
 		$_POST["new_pwd"] = $new_pwd;
@@ -52,7 +49,7 @@ class CambioPasswordTest extends GenericTest {
 	public function test_TC23_2() {
 		$response = $this->callController(self::$userid, "", "Verdi09");
 		$this->assertTrue(
-			Testing::assert_message($response, "Il client non ti ha bloccato?")
+			Testing::assert_block($response)
 		);
 	}
 
@@ -66,7 +63,7 @@ class CambioPasswordTest extends GenericTest {
 	public function test_TC23_4() {
 		$response = $this->callController(self::$userid, "140898", "");
 		$this->assertTrue(
-			Testing::assert_message($response, "Il client non ti ha bloccato?")
+			Testing::assert_block($response)
 		);
 	}
 

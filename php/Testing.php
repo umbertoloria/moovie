@@ -19,10 +19,14 @@ class Testing {
 			header("Location: $url");
 	}
 
+	public static function assert_block($response) {
+		return self::assert_message($response, "Il client non ti ha bloccato?");
+	}
+
 	public static function assert_message($response, $msg) {
 		$result = [1 => null];
 		preg_match("/<div id='form_error'><p>(.*)<\/p>/", $response, $result);
-		return $result[1] === $msg;
+		return @$result[1] === $msg;
 	}
 
 	public static function assert_redirect($response, $url) {

@@ -101,7 +101,7 @@ class GiudizioDAOTest extends GenericTest {
 			}
 			$this->assertTrue($trovato);
 			unset($oracle[$key]);
-			// see tutto va bene (giudizio è presente nell'oracolo) allora rimuovo la parte dell'oracolo
+			// se tutto va bene (giudizio è presente nell'oracolo) allora rimuovo la parte dell'oracolo
 			// corrispondente al giudizio su cui sto iterando
 		}
 		// se i dati combaciano, l'oracolo dovrebbe essersi svuotato

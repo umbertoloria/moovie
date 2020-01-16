@@ -19,9 +19,10 @@ elseif (!ctype_digit($film_id))
 else {
 	$giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
 	$tmp_giudizio = new Giudizio($logged_user->getID(), $film_id, $voto, "");
-	if ($giudizio_dao->create($tmp_giudizio))
-		header("Location: /film.php?id=" . $film_id);
-	else
+	if ($giudizio_dao->create($tmp_giudizio)) {
+		Testing::redirect("/film.php?id=" . $film_id);
+		return;
+	} else
 		$ff->bug();
 }
 

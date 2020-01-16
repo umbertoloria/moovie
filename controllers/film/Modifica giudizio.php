@@ -20,13 +20,15 @@ else {
 	$tmp_giudizio = $giudizio_dao->get_from_utente_and_film($logged_user->getID(), $film_id);
 	if (is_null($tmp_giudizio))
 		$ff->block();
-	elseif ($tmp_giudizio->getVoto() == $voto)
-		header("Location: /giudizi.php");
-	else {
+	elseif ($tmp_giudizio->getVoto() == $voto) {
+		Testing::redirect("/giudizi.php");
+		return;
+	} else {
 		$tmp_giudizio->setVoto($voto);
-		if ($giudizio_dao->update($tmp_giudizio))
-			header("Location: /giudizi.php");
-		else
+		if ($giudizio_dao->update($tmp_giudizio)) {
+			Testing::redirect("/giudizi.php");
+			return;
+		} else
 			$ff->bug();
 	}
 

@@ -38,14 +38,14 @@ class AccessoTest extends GenericTest {
 	public function test_TC22_1() {
 		$response = $this->callController("g.", "140898");
 		$this->assertTrue(
-			Testing::assert_message($response, "Il client non ti ha bloccato?")
+			Testing::assert_block($response)
 		);
 	}
 
 	public function test_TC22_2() {
 		$response = $this->callController("g.verdigmail.com", "140898");
 		$this->assertTrue(
-			Testing::assert_message($response, "Il client non ti ha bloccato?")
+			Testing::assert_block($response)
 		);
 	}
 
@@ -59,7 +59,7 @@ class AccessoTest extends GenericTest {
 	public function test_TC22_4() {
 		$response = $this->callController("g.verdi@gmail.com", "");
 		$this->assertTrue(
-			Testing::assert_message($response, "Il client non ti ha bloccato?")
+			Testing::assert_block($response)
 		);
 	}
 

@@ -40,42 +40,42 @@ class RegistrazioneTest extends GenericTest {
 	public function test_TC21_1() {
 		$response = $this->callController("", "Verdi", "g.verdi@gmail.com", "140898");
 		$this->assertTrue(
-			Testing::assert_message($response, "Il client non ti ha bloccato?")
+			Testing::assert_block($response)
 		);
 	}
 
 	public function test_TC21_2() {
 		$response = $this->callController("######", "Verdi", "g.verdi@gmail.com", "140898");
 		$this->assertTrue(
-			Testing::assert_message($response, "Il client non ti ha bloccato?")
+			Testing::assert_block($response)
 		);
 	}
 
 	public function test_TC21_3() {
 		$response = $this->callController("Giuseppe", "", "g.verdi@gmail.com", "140898");
 		$this->assertTrue(
-			Testing::assert_message($response, "Il client non ti ha bloccato?")
+			Testing::assert_block($response)
 		);
 	}
 
 	public function test_TC21_4() {
 		$response = $this->callController("Giuseppe", "######", "g.verdi@gmail.com", "140898");
 		$this->assertTrue(
-			Testing::assert_message($response, "Il client non ti ha bloccato?")
+			Testing::assert_block($response)
 		);
 	}
 
 	public function test_TC21_5() {
 		$response = $this->callController("Giuseppe", "Verdi", "", "140898");
 		$this->assertTrue(
-			Testing::assert_message($response, "Il client non ti ha bloccato?")
+			Testing::assert_block($response)
 		);
 	}
 
 	public function test_TC21_6() {
 		$response = $this->callController("Giuseppe", "Verdi", "g.verdigmail.com", "140898");
 		$this->assertTrue(
-			Testing::assert_message($response, "Il client non ti ha bloccato?")
+			Testing::assert_block($response)
 		);
 	}
 
@@ -89,7 +89,7 @@ class RegistrazioneTest extends GenericTest {
 	public function test_TC21_8() {
 		$response = $this->callController("Giuseppe", "Verdi", "gianluca.pirone9@gmail.com", "");
 		$this->assertTrue(
-			Testing::assert_message($response, "Il client non ti ha bloccato?")
+			Testing::assert_block($response)
 		);
 	}
 
