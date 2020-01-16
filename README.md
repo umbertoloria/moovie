@@ -19,7 +19,7 @@ Manuel De Stefano | Tutor
 
 <a href="Deliverables/Test documents/Test Plan.md">Test Plan</a>
 
-<a href="Deliverables/Test documents/Test Specification.md">Test Specification</a>
+<a href="Deliverables/Test documents/Test Case Specification.md">Test Case Specification</a>
 
 # Piano del progetto
 - [x] Problem Statement: 11 ottobre 2019;

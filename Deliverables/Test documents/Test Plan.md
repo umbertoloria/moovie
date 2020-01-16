@@ -1,4 +1,10 @@
 # Test Plan
+| Versione |    Data    | Descrizione                    | Autori                   |
+|----------|------------|--------------------------------|--------------------------|
+| 0.1      | 12/12/2019 | Prima stesura                  | Michelantonio Panichella |
+| 0.2      | 9/1/2020   | Aggiornamento sottosistemi     | Gianluca Pirone          |
+| 0.3      | 16/1/2020  | Riformulazione test cases      | Umberto Loria            |
+
 # Indice
 1. [Introduzione](#introduzione)
 2. [Relazioni con gli altri documenti](#relazioni-con-gli-altri-documenti)
