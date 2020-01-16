@@ -3,13 +3,9 @@
 /** @author Umberto Loria */
 class Amicizia {
 
-	/** @var int */
 	private $utente_from;
-	/** @var int */
 	private $utente_to;
-	/** @var string */
 	private $timestamp_richiesta;
-	/** @var string|null */
 	private $timestamp_accettazione;
 
 	public function __construct(int $utente_from, int $utente_to, string $timestamp_richiesta, ?string $timestamp_accettazione) {

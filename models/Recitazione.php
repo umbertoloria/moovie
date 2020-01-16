@@ -4,11 +4,8 @@
 class Recitazione
 {
 
-	/** @var int */
 	private $film;
-	/** @var int */
 	private $attore;
-	/** @var string */
 	private $personaggio;
 
 	public function __construct(int $film, int $attore, string $personaggio)

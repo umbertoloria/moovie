@@ -4,9 +4,7 @@
 class Genere
 {
 
-	/** @var int */
 	private $id;
-	/** @var string */
 	private $nome;
 
 	public function __construct(int $id, string $nome)

@@ -3,17 +3,11 @@
 /** @author Umberto Loria */
 class Utente {
 
-	/** @var int */
 	private $id;
-	/** @var string */
 	private $nome;
-	/** @var string */
 	private $cognome;
-	/** @var string */
 	private $email;
-	/** @var string */
 	private $password;
-	/** @var bool */
 	private $gestore;
 
 	public function __construct(int $id, string $nome, string $cognome, string $email, string $password, bool $gestore = false) {

@@ -7,9 +7,8 @@ include_once "stubs/StubAccountDAO.php";
 
 class AccountDAOTest extends GenericTest {
 
-	/** @var IAccountDAO */
 	private static $account_dao;
-	/** @var Utente[] */
+	/** @type Utente[] */
 	private static $saves = [];
 
 	public static function setUpBeforeClass(): void {

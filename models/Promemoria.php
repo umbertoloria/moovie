@@ -3,11 +3,8 @@
 /** @author Umberto Loria */
 class Promemoria {
 
-	/** @var int */
 	private $utente;
-	/** @var int */
 	private $film;
-	/** @var string */
 	private $timestamp;
 
 	public function __construct(int $utente, int $film, string $timestamp) {

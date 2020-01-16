@@ -7,7 +7,6 @@ include_once "stubs/StubGiudizioDAO.php";
 
 class GiudizioDAOTest extends GenericTest {
 
-	/** @var IGiudizioDAO */
 	private static $giudizio_dao;
 
 	public static function setUpBeforeClass(): void {

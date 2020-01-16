@@ -4,13 +4,9 @@
 class Artista
 {
 
-	/** @var int */
 	private $id;
-	/** @var string */
 	private $nome;
-	/** @var string */
 	private $nascita;
-	/** @var string */
 	private $descrizione;
 
 	public function __construct(int $id, string $nome, string $nascita, string $descrizione)

@@ -3,13 +3,9 @@
 /** @author Umberto Loria */
 class Giudizio {
 
-	/** @var int */
 	private $utente;
-	/** @var int */
 	private $film;
-	/** @var float */
 	private $voto;
-	/** @var string */
 	private $timestamp;
 
 	public function __construct(int $utente, int $film, float $voto, string $timestamp) {

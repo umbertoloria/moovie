@@ -2,7 +2,7 @@
 
 class DB {
 
-	/** @var PDO $c */
+	/** @type PDO $c */
 	private static $c;
 
 	public static function init() {

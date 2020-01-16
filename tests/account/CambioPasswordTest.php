@@ -8,7 +8,6 @@ class CambioPasswordTest extends GenericTest {
 
 	// --do-not-cache-result
 
-	/** @var IAccountDAO */
 	private static $account_dao;
 	private static $userid;
 

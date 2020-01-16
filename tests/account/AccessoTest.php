@@ -6,9 +6,7 @@ include_once "stubs/StubAccountDAO.php";
 
 class AccessoTest extends GenericTest {
 
-	/** @var IAccountDAO */
 	private static $account_dao;
-	/** @var Utente */
 	private static $todel = null;
 
 	public static function setUpBeforeClass(): void {

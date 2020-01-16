@@ -4,15 +4,10 @@
 class Film
 {
 
-	/** @var int */
 	private $id;
-	/** @var string */
 	private $titolo;
-	/** @var int */
 	private $durata;
-	/** @var int */
 	private $anno;
-	/** @var string */
 	private $descrizione;
 
 	public function __construct(int $id, string $titolo, int $durata, int $anno, string $descrizione)

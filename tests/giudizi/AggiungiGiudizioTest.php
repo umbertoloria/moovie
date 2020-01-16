@@ -7,9 +7,7 @@ include_once "stubs/StubGiudizioDAO.php";
 
 class AggiungiGiudizioTest extends GenericTest {
 
-	/** @type IGiudizioDAO */
 	private static $giudizio_dao;
-	/** @type IAccountDAO */
 	private static $account_dao;
 	private static $userid;
 
