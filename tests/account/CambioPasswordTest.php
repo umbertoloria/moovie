@@ -1,9 +1,10 @@
 <?php
 
 include_once "../../php/core.php";
+include_once "../GenericTest.php";
 include_once "stubs/StubAccountDAO.php";
 
-class CambioPasswordTest extends PHPUnit\Framework\TestCase {
+class CambioPasswordTest extends GenericTest {
 
 	// --do-not-cache-result
 

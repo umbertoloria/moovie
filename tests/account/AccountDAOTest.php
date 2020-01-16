@@ -1,9 +1,11 @@
 <?php
+/** @noinspection PhpDocSignatureInspection */
 
 include_once "../../php/core.php";
+include_once "../GenericTest.php";
 include_once "stubs/StubAccountDAO.php";
 
-class AccountDAOTest extends PHPUnit\Framework\TestCase {
+class AccountDAOTest extends GenericTest {
 
 	/** @var IAccountDAO */
 	private static $account_dao;

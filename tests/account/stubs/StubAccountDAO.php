@@ -5,7 +5,7 @@ class StubAccountDAO implements IAccountDAO {
 	private $accounts = [];
 	private $next_id = 1;
 
-	private function cloneUtente(Utente $utente, $strict_id = null) {
+	private function deepCopy(Utente $utente, $strict_id = null) {
 		return new Utente($strict_id == null ? $utente->getID() : $strict_id, $utente->getNome(),
 			$utente->getCognome(), $utente->getEmail(), $utente->getPassword(), $utente->isGestore());
 	}
@@ -21,16 +21,16 @@ class StubAccountDAO implements IAccountDAO {
 
 	public function create(Utente $utente): ?Utente {
 		if (!$this->exists($utente->getEmail())) {
-			$clone = $this->cloneUtente($utente, $this->next_id++);
+			$clone = $this->deepCopy($utente, $this->next_id++);
 			$this->accounts[$clone->getID()] = $clone;
-			return $this->cloneUtente($clone);
+			return $this->deepCopy($clone);
 		} else
 			return null;
 	}
 
 	public function get_from_id(int $id): ?Utente {
 		if (isset($this->accounts[$id]))
-			return $this->cloneUtente($this->accounts[$id]);
+			return $this->deepCopy($this->accounts[$id]);
 		else
 			return null;
 	}
@@ -49,7 +49,7 @@ class StubAccountDAO implements IAccountDAO {
 		foreach ($this->accounts as $account) {
 			assert($account instanceof Utente);
 			if ($account->getEmail() === $email and $account->getPassword() === $password)
-				return $this->cloneUtente($account);
+				return $this->deepCopy($account);
 		}
 		return null;
 	}
