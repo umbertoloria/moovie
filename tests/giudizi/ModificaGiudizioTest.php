@@ -18,7 +18,7 @@ class ModificaGiudizioTest extends GenericTest {
 		self::$userid = self::$account_dao->create(
 			new Utente(0, "Giuseppe", "Verdi", "g.verdi@gmail.com", sha1("140898"))
 		)->getID();
-		GiudizioDAOFactory::useStub();
+//		GiudizioDAOFactory::useStub();
 		self::$giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
 		self::$giudizio_dao->create(
 			new Giudizio(self::$userid, 14, 8, "")

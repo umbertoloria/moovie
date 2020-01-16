@@ -12,7 +12,7 @@ class AccountDAOTest extends GenericTest {
 	private static $saves = [];
 
 	public static function setUpBeforeClass(): void {
-		AccountDAOFactory::useStub();
+//		AccountDAOFactory::useStub();
 		self::$account_dao = AccountDAOFactory::getAccountDAO();
 	}
 
