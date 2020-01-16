@@ -35,7 +35,7 @@ class GiudizioDAOTest extends GenericTest {
 			"giudizio utente A film A" => [1, 20, 7, true],
 			"giudizio utente B film B" => [2, 25, 8, true],
 			"giudizio utente A film C" => [1, 30, 10, true],
-			"giudizio utente A film A (già esiste)" => [1, 30, 10, false]
+			"giudizio utente A film C (già esiste)" => [1, 30, 8, false]
 		];
 	}
 
@@ -144,16 +144,16 @@ class GiudizioDAOTest extends GenericTest {
 		);
 		$this->assertEquals($result, $oracle[0]);
 		// se ha potuto aggiornarlo, dovrei prelevare il giudizio con il nuovo voto
-		// se non ha potuto, ci sono due casi da contemplare:
+		// se non ha potuto, ci sono tre casi da contemplare:
 		// - il giudizio è presente, e il voto era lo stesso: ok
 		// - il giudizio non è presente: ok
 		// - il giudizio è presente, ma non ha potuto aggiornarlo: failure
 		$giudizio = self::$giudizio_dao->get_from_utente_and_film($utente_id, $film_id);
 		if ($oracle[0]) {
 			$this->assertNotNull($giudizio);
-			$this->assertEquals($giudizio->getUtente(), $utente_id);
-			$this->assertEquals($giudizio->getFilm(), $film_id);
-			$this->assertEquals($giudizio->getVoto(), $voto);
+			$this->assertEquals($giudizio->getUtente(), $oracle[1]);
+			$this->assertEquals($giudizio->getFilm(), $oracle[2]);
+			$this->assertEquals($giudizio->getVoto(), $oracle[3]);
 		} else {
 			if (count($oracle) == 1) {
 				$this->assertNull($giudizio);
@@ -171,7 +171,8 @@ class GiudizioDAOTest extends GenericTest {
 			"giudizi utente A film A" => [1, 20, true],
 			"giudizi utente B film B" => [2, 25, true],
 			"giudizi utente B film A null" => [2, 20, false],
-			"giudizi utente A film C" => [1, 30, true]
+			"giudizi utente A film C" => [1, 30, true],
+			"giudizi utente A film C (già cancellato)" => [1, 30, false]
 		];
 	}
 
