@@ -39,21 +39,21 @@ class AggiungiGiudizioTest extends GenericTest {
 		return $response;
 	}
 
-	public function test_TC41_1() {
+	public function test_TC_4_1_1() {
 		$response = $this->callController(null, 14, 8);
 		$this->assertTrue(
 			Testing::assert_block($response)
 		);
 	}
 
-	public function test_TC41_2() {
+	public function test_TC_4_1_2() {
 		$response = $this->callController(self::$userid, 14, 0);
 		$this->assertTrue(
 			Testing::assert_block($response)
 		);
 	}
 
-	public function test_TC41_3() {
+	public function test_TC_4_1_3() {
 		$this->assertTrue(true);
 //		TODO: StubGiudizioDAO non può capire che non esiste il film 1000.
 //		$response = $this->callController(self::$userid, 1000, 5);
@@ -63,7 +63,7 @@ class AggiungiGiudizioTest extends GenericTest {
 //		);
 	}
 
-	public function test_TC41_4() {
+	public function test_TC_4_1_4() {
 		$response = $this->callController(self::$userid, 14, 8);
 		$this->assertTrue(
 			Testing::assert_redirect($response, "/film.php?id=14")

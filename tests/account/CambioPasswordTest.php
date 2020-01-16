@@ -38,40 +38,39 @@ class CambioPasswordTest extends GenericTest {
 		return $response;
 	}
 
-	public function test_TC23_1() {
+	public function test_TC_2_3_1() {
 		$response = $this->callController(null, "", "");
 		$this->assertTrue(
 			Testing::assert_redirect($response, "/")
 		);
 	}
 
-	public function test_TC23_2() {
+	public function test_TC_2_3_2() {
 		$response = $this->callController(self::$userid, "", "Verdi09");
 		$this->assertTrue(
 			Testing::assert_block($response)
 		);
 	}
 
-	public function test_TC23_3() {
+	public function test_TC_2_3_3() {
 		$response = $this->callController(self::$userid, "140899", "Verdi09");
 		$this->assertTrue(
 			Testing::assert_message($response, "La password attuale fornita non corrisponde")
 		);
 	}
 
-	public function test_TC23_4() {
+	public function test_TC_2_3_4() {
 		$response = $this->callController(self::$userid, "140898", "");
 		$this->assertTrue(
 			Testing::assert_block($response)
 		);
 	}
 
-	public function test_TC23_5() {
+	public function test_TC_2_3_5() {
 		$response = $this->callController(self::$userid, "140898", "Verdi09");
 		$this->assertTrue(
 			Testing::assert_redirect($response, "/conferma_cambio_password.php")
 		);
-
 		$real_utente = self::$account_dao->get_from_id(self::$userid);
 		$this->assertEquals($real_utente->getPassword(), sha1("Verdi09"));
 	}

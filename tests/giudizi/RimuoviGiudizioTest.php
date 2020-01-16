@@ -44,14 +44,14 @@ class RimuoviGiudizioTest extends GenericTest {
 		return $response;
 	}
 
-	public function test_TC43_1() {
+	public function test_TC_4_3_1() {
 		$response = $this->callController(null, 14);
 		$this->assertTrue(
 			Testing::assert_block($response)
 		);
 	}
 
-	public function test_TC42_2() {
+	public function test_TC_4_2_2() {
 		$this->assertTrue(true);
 //		TODO: StubGiudizioDAO non può capire che non esiste il film 1000.
 //		$response = $this->callController(self::$userid, 1000);
@@ -61,14 +61,14 @@ class RimuoviGiudizioTest extends GenericTest {
 //		);
 	}
 
-	public function test_TC42_3() {
+	public function test_TC_4_2_3() {
 		$response = $this->callController(self::$userid, 14);
 		$this->assertTrue(
 			Testing::assert_redirect($response, "/giudizi.php")
 		);
 	}
 
-	public function test_TC42_4() {
+	public function test_TC_4_2_4() {
 		$response = $this->callController(self::$userid, 14);
 		$this->assertTrue(
 			Testing::assert_block($response)

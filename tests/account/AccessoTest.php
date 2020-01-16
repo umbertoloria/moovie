@@ -33,42 +33,42 @@ class AccessoTest extends GenericTest {
 		return $response;
 	}
 
-	public function test_TC22_1() {
+	public function test_TC_2_2_1() {
 		$response = $this->callController("g.", "140898");
 		$this->assertTrue(
 			Testing::assert_block($response)
 		);
 	}
 
-	public function test_TC22_2() {
+	public function test_TC_2_2_2() {
 		$response = $this->callController("g.verdigmail.com", "140898");
 		$this->assertTrue(
 			Testing::assert_block($response)
 		);
 	}
 
-	public function test_TC22_3() {
+	public function test_TC_2_2_3() {
 		$response = $this->callController("gianluca.pirone9@gmail.com", "140898");
 		$this->assertTrue(
 			Testing::assert_message($response, "I dati non corrispondono")
 		);
 	}
 
-	public function test_TC22_4() {
+	public function test_TC_2_2_4() {
 		$response = $this->callController("g.verdi@gmail.com", "");
 		$this->assertTrue(
 			Testing::assert_block($response)
 		);
 	}
 
-	public function test_TC22_5() {
+	public function test_TC_2_2_5() {
 		$response = $this->callController("g.verdi@gmail.com", "140899");
 		$this->assertTrue(
 			Testing::assert_message($response, "I dati non corrispondono")
 		);
 	}
 
-	public function test_TC22_6() {
+	public function test_TC_2_2_6() {
 		$response = $this->callController("g.verdi@gmail.com", "140898");
 		$this->assertTrue(
 			Testing::assert_redirect($response, "/")

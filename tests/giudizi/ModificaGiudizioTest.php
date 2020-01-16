@@ -13,7 +13,7 @@ class ModificaGiudizioTest extends GenericTest {
 
 	public static function setUpBeforeClass(): void {
 		Testing::init();
-		AccountDAOFactory::useStub();
+//		AccountDAOFactory::useStub();
 		self::$account_dao = AccountDAOFactory::getAccountDAO();
 		self::$userid = self::$account_dao->create(
 			new Utente(0, "Giuseppe", "Verdi", "g.verdi@gmail.com", sha1("140898"))
@@ -45,21 +45,21 @@ class ModificaGiudizioTest extends GenericTest {
 		return $response;
 	}
 
-	public function test_TC42_1() {
+	public function test_TC_4_2_1() {
 		$response = $this->callController(null, 14, 10);
 		$this->assertTrue(
 			Testing::assert_block($response)
 		);
 	}
 
-	public function test_TC42_2() {
+	public function test_TC_4_2_2() {
 		$response = $this->callController(self::$userid, 14, 0);
 		$this->assertTrue(
 			Testing::assert_block($response)
 		);
 	}
 
-	public function test_TC42_3() {
+	public function test_TC_4_2_3() {
 		$this->assertTrue(true);
 //		TODO: StubGiudizioDAO non può capire che non esiste il film 1000.
 //		$response = $this->callController(self::$userid, 1000, 5);
@@ -69,7 +69,7 @@ class ModificaGiudizioTest extends GenericTest {
 //		);
 	}
 
-	public function test_TC42_4() {
+	public function test_TC_4_2_4() {
 		$response = $this->callController(self::$userid, 14, 10);
 		$this->assertTrue(
 			Testing::assert_redirect($response, "/giudizi.php")
