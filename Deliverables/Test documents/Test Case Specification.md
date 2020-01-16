@@ -79,7 +79,7 @@ Test Case ID         | TC_1_2_2
 Test Case ID         | TC_1_3_1
 ---------------------|---------
 **Precondizioni**    | L'utente è nell'area di ricerca.
-**Flusso di eventi** | <br/><ol><li>L'utente vuole selezionare il filtro "utente", che però non è presente dato che non è autenticato</ol>
+**Flusso di eventi** | L'utente vuole selezionare il filtro "utente", che però non è presente dato che non è autenticato.
 **Oracolo**          | Il sistema non permette di effettuare la ricerca.
 
 Test Case ID         | TC_1_3_2
@@ -347,21 +347,21 @@ Test Case ID         | TC_3_3_3
 
 **Test Case ID**     | TC_4_3_2
 ---------------------|---------
-**Precondizioni**    | L’utente è nell'area di rimozione di un giudizio del film "Bastardi senza gloria".
-**Flusso di eventi** | L'utente non può rimuovere il giudizio, dato che non è stato aggiunto in precedenza.
-**Oracolo**          | Il sistema non permette di rimuovere il giudizio.
-
-**Test Case ID**     | TC_4_3_3
----------------------|---------
 **Precondizioni**    | L’utente sta andando nell'area di rimozione di un giudizio a un determinato film.
 **Flusso di eventi** | La pagina non è disponibile, dato che il film non è presente nel sito.
 **Oracolo**          | Il sistema mostra pagina non trovata.
 
-**Test Case ID**     | TC_4_3_4
+**Test Case ID**     | TC_4_3_3
 ---------------------|---------
 **Precondizioni**    | L’utente è nell'area di rimozione di un giudizio del film "Bastardi senza gloria".
 **Flusso di eventi** | L'utente clicca sul pulsante "Drop".
 **Oracolo**          | Il sistema rimuove il voto al film.
+
+**Test Case ID**     | TC_4_3_4
+---------------------|---------
+**Precondizioni**    | L’utente è nell'area di rimozione di un giudizio del film "Bastardi senza gloria".
+**Flusso di eventi** | L'utente non può rimuovere il giudizio, dato che non è stato aggiunto in precedenza.
+**Oracolo**          | Il sistema non permette di rimuovere il giudizio.
 
 ## Gestione
 
