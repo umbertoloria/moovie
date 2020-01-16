@@ -3,7 +3,7 @@
 
 include_once "../../php/core.php";
 include_once "../GenericTest.php";
-include_once "stubs/StubAccountDAO.php";
+include_once "../stubs/StubAccountDAO.php";
 
 class AccountDAOTest extends GenericTest {
 
@@ -134,6 +134,29 @@ class AccountDAOTest extends GenericTest {
 		unset(self::$saves[$save_key]);
 		$res = self::$account_dao->delete($utente->getID());
 		$this->assertTrue($res);
+	}
+
+	public function testRicerca() {
+		$acc1 = self::$account_dao->create(
+			new Utente(0, "Umberto", "Loria", "a1", sha1("asdfas")));
+		$acc2 = self::$account_dao->create(
+			new Utente(0, "Teresa", "Del Vecchio", "a3", sha1("asdfas")));
+		$acc3 = self::$account_dao->create(
+			new Utente(0, "Manuela", "Pace", "a4", sha1("asdfas")));
+		$acc4 = self::$account_dao->create(
+			new Utente(0, "Angelo", "Del Giudice", "a5", sha1("asdfas")));
+
+		$res = self::$account_dao->search("Del Teresa");
+		$this->assertTrue(count($res) == 2);
+		$this->assertTrue($res[0]->getNome() == $acc2->getNome());
+		$this->assertTrue($res[0]->getCognome() == $acc2->getCognome());
+		$this->assertTrue($res[1]->getNome() == $acc4->getNome());
+		$this->assertTrue($res[1]->getCognome() == $acc4->getCognome());
+
+		$this->assertTrue(self::$account_dao->delete($acc1->getID()));
+		$this->assertTrue(self::$account_dao->delete($acc2->getID()));
+		$this->assertTrue(self::$account_dao->delete($acc3->getID()));
+		$this->assertTrue(self::$account_dao->delete($acc4->getID()));
 	}
 
 }

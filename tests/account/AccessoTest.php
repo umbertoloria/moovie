@@ -2,7 +2,7 @@
 
 include_once "../../php/core.php";
 include_once "../GenericTest.php";
-include_once "stubs/StubAccountDAO.php";
+include_once "../stubs/StubAccountDAO.php";
 
 class AccessoTest extends GenericTest {
 
@@ -14,8 +14,7 @@ class AccessoTest extends GenericTest {
 //		AccountDAOFactory::useStub();
 		self::$account_dao = AccountDAOFactory::getAccountDAO();
 		self::$todel = self::$account_dao->create(
-			new Utente(0, "Giuseppe", "Verdi", "g.verdi@gmail.com", sha1("140898"))
-		);
+			new Utente(0, "Giuseppe", "Verdi", "g.verdi@gmail.com", sha1("140898")));
 	}
 
 	public static function tearDownAfterClass(): void {

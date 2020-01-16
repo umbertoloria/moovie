@@ -2,8 +2,8 @@
 
 include_once "../../php/core.php";
 include_once "../GenericTest.php";
-include_once "../account/stubs/StubAccountDAO.php";
-include_once "stubs/StubGiudizioDAO.php";
+include_once "../stubs/StubAccountDAO.php";
+include_once "../stubs/StubGiudizioDAO.php";
 
 class RimuoviGiudizioTest extends GenericTest {
 

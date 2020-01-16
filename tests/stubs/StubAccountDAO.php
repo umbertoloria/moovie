@@ -2,6 +2,7 @@
 
 class StubAccountDAO implements IAccountDAO {
 
+	/** @type Utente[] */
 	private $accounts = [];
 	private $next_id = 1;
 
@@ -56,7 +57,49 @@ class StubAccountDAO implements IAccountDAO {
 
 	/** @inheritDoc */
 	public function search(string $fulltext): array {
-		return [];
+		$words = explode(" ", strtolower($fulltext));
+		$scores = [];
+		foreach ($this->accounts as $account) {
+			// nomi
+			$nomi = explode(" ", strtolower($account->getNome()));
+			foreach ($nomi as $nome) {
+				if (in_array($nome, $words)) {
+					if (!isset($scores[$account->getID()]))
+						$scores[$account->getID()] = 1;
+					else
+						$scores[$account->getID()]++;
+				}
+			}
+			// cognomi
+			$cognomi = explode(" ", strtolower($account->getCognome()));
+			foreach ($cognomi as $cognome) {
+				if (in_array($cognome, $words)) {
+					if (!isset($scores[$account->getID()]))
+						$scores[$account->getID()] = 1;
+					else
+						$scores[$account->getID()]++;
+				}
+			}
+		}
+		// map_scores = [
+		//        1 => [uid1, uid7, uid5],
+		//        2 => [uid4, uid6],
+		//        4 => [uid2],
+		//        7 => [uid3],
+		//]
+		$map_scores = [];
+		foreach ($scores as $uid => $score) {
+			if (isset($map_scores[$score]))
+				$map_scores[$score][] = $uid;
+			else
+				$map_scores[$score] = [$uid];
+		}
+
+		$res = [];
+		foreach ($map_scores as $score => $uids)
+			foreach ($uids as $uid)
+				$res[] = $this->get_from_id($uid);
+		return $res;
 	}
 
 	public function delete(int $id): bool {

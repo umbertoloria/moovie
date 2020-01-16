@@ -3,14 +3,14 @@
 
 include_once "../../php/core.php";
 include_once "../GenericTest.php";
-include_once "stubs/StubGiudizioDAO.php";
+include_once "../stubs/StubGiudizioDAO.php";
 
 class GiudizioDAOTest extends GenericTest {
 
 	private static $giudizio_dao;
 
 	public static function setUpBeforeClass(): void {
-		GiudizioDAOFactory::useStub();
+//		GiudizioDAOFactory::useStub();
 		self::$giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
 	}
 

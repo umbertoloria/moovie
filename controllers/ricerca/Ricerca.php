@@ -2,7 +2,12 @@
 
 include_once "../../php/core.php";
 $kind = @$_GET["kind"];
-$fulltext = @$_GET["fulltext"];
+$fulltext = trim(@$_GET["fulltext"]);
+
+if ($fulltext == "") {
+	Testing::redirect("/404.php");
+	return;
+}
 
 if (is_null(Auth::getLoggedUser()))
 	$kinds = ["tutti", "film", "artisti"];
@@ -10,8 +15,8 @@ else
 	$kinds = ["tutti", "film", "artisti", "utenti"];
 
 if (!in_array($kind, $kinds)) {
-	header("Location: /404.php");
-	die();
+	Testing::redirect("/404.php");
+	return;
 }
 
 include_once "../../parts/initial_page.php";
