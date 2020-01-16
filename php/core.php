@@ -1,6 +1,7 @@
 <?php
 
-$_SERVER["DOCUMENT_ROOT"] = substr(getcwd(), 0, strpos(getcwd(), "moovie") + 7);
+if ($_SERVER["DOCUMENT_ROOT"] == "")
+	$_SERVER["DOCUMENT_ROOT"] = substr(getcwd(), 0, strpos(getcwd(), "tests") - 1);
 
 include_once $_SERVER["DOCUMENT_ROOT"] . "/models/Utente.php";
 include_once $_SERVER["DOCUMENT_ROOT"] . "/models/Artista.php";
