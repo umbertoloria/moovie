@@ -66,7 +66,11 @@ class StubGenereDAO implements IGenereDAO {
 
     public function exists(string $nome): bool
     {
-        // TODO: Implement exists() method.
+        foreach ($this->generi as $gen){
+            if($gen->getNome() === $nome)
+                return true;
+        }
+        return false;
     }
 
     public function get_films_from_genere(int $id): array

@@ -18,7 +18,8 @@ class ModificareGenereTest extends GenericTest {
 
     public static function setUpBeforeClass(): void {
         Testing::init();
-//		AccountDAOFactory::useStub();
+//      AccountDAOFactory::useStub();
+//      GenereDAOFactory::useStub(); // affiché il test dei DAO possa funzionare, bisogna creare un nuovo genere (che sarà memorizzato negli stub) chiamato "comico", decommentare le righe 32 e 33
         self::$account_dao = AccountDAOFactory::getAccountDAO();
         self::$account2_dao = AccountDAOFactory::getAccountDAO();
         self::$genere_dao = GenereDAOFactory::getGenereDAO();
@@ -28,6 +29,8 @@ class ModificareGenereTest extends GenericTest {
             new Utente(0, "Giuseppe", "Antoniani", "g.antoniani@gmail.com", sha1("140898"), true));
         $real_genere = self::$genere_dao->create(
             new Genere(0, "Fantasioso"));
+       // $real2_genere = self::$genere_dao->create(
+            //new Genere(0, "Comico"));
         self::$userid = $real_utente->getID();
         self::$user2id = $real2_utente->getID();
         self::$genereid = $real_genere->getID();

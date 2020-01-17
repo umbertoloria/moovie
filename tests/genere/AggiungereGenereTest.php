@@ -18,7 +18,8 @@ class AggiungereGenereTest extends GenericTest {
 
     public static function setUpBeforeClass(): void {
         Testing::init();
-//		AccountDAOFactory::useStub();
+		//AccountDAOFactory::useStub();
+		//GenereDAOFactory::useStub(); //affiché possa funzionare il test con gli stub bisogna creare un nuovo genere (che sarà contenuto nello stub) chiamato "comico", decommentare le righe 30 e 31
         self::$account_dao = AccountDAOFactory::getAccountDAO();
         self::$account2_dao = AccountDAOFactory::getAccountDAO();
         self::$genere_dao = GenereDAOFactory::getGenereDAO();
@@ -26,6 +27,8 @@ class AggiungereGenereTest extends GenericTest {
             new Utente(0, "Giuseppe", "Verdi", "g.verdi@gmail.com", sha1("140898")));
         $real2_utente = self::$account_dao->create(
             new Utente(0, "Giuseppe", "Antoniani", "g.antoniani@gmail.com", sha1("140898"), true));
+       // $real_genere = self::$genere_dao->create(
+         //   new Genere(0, "Comico"));
         self::$userid = $real_utente->getID();
         self::$user2id = $real2_utente->getID();
         self::$genereid = null;

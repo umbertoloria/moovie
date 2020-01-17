@@ -18,7 +18,8 @@ class RimuovereGenereTest extends GenericTest {
 
     public static function setUpBeforeClass(): void {
         Testing::init();
-//		AccountDAOFactory::useStub();
+		//AccountDAOFactory::useStub();
+        //GenereDAOFactory::useStub();
         self::$account_dao = AccountDAOFactory::getAccountDAO();
         self::$account2_dao = AccountDAOFactory::getAccountDAO();
         self::$genere_dao = GenereDAOFactory::getGenereDAO();
