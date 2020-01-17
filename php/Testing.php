@@ -33,6 +33,10 @@ class Testing {
 		return $response === "header -> $url";
 	}
 
+	public static function assert_redirect_starts($response, $url) {
+		return Formats\startswith("header -> $url", $response);
+	}
+
 	// feedback
 
 	private static $feedback = null;
