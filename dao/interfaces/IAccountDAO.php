@@ -6,9 +6,8 @@ interface IAccountDAO {
 	 * Indica se esiste un utente associato l'indirizzo e-mail fornito.
 	 * @param string $email è l'email da cercare
 	 * @return bool
-	 *              Se esiste un utente con EMAIL = $email, allora la funzione restituisce un oggetto UTENTE contenente
-	 *              le sue informazioni.
-	 *              Altrimenti, la funzione restituisce NULL.
+	 *                      Se esiste un utente con EMAIL = $email, allora la funzione restituisce un oggetto UTENTE
+	 *                      contenente le sue informazioni. Altrimenti, la funzione restituisce NULL.
 	 */
 	public function exists(string $email): bool;
 
@@ -24,8 +23,8 @@ interface IAccountDAO {
 	public function create(Utente $utente): ?Utente;
 
 	/**
-	 * Preleva le informazioni di un utente esistente con l'ID fornito.
-	 * @param int $id è l'ID dell'utente da prelevare
+	 * Restituisce le informazioni dell'utente con l'ID fornito.
+	 * @param int $id     è l'ID dell'utente da prelevare
 	 * @return Utente|null
 	 *                    Se esiste l'utente con ID = $id, la funzione restituisce un oggetto UTENTE contenente le sue
 	 *                    informazioni.
@@ -49,9 +48,9 @@ interface IAccountDAO {
 	public function authenticate(string $email, string $password): ?Utente;
 
 	/**
-	 * Ricerca degli utenti con campi NOME e COGNOME correlati con il campo FULLTEXT fornito.
-	 * @param string $fulltext è il campo FULLTEXT da cui cercare similitudini
-	 * @return Utente[] La funzione restituisce tutti gli utenti con informazioni correlate al campo $fulltext.
+	 * Ricerca gli utenti con campi NOME e COGNOME correlati al parametro FULLTEXT fornito.
+	 * @param string $fulltext è il parametro FULLTEXT da cui cercare similitudini
+	 * @return Utente[] La funzione restituisce tutti gli utenti con informazioni correlate al parametro $fulltext.
 	 */
 	public function search(string $fulltext): array;
 
