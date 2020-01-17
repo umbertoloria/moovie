@@ -10,7 +10,7 @@
 	}
 	?>
 	<form id="area_di_ricerca" method="get" action="/controllers/ricerca/Ricerca.php">
-		<div>
+		<div class="dropdown_selecter">
 			<input type="hidden" name="kind"/>
 			<label></label>
 			<ul>

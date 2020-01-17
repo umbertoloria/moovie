@@ -13,18 +13,18 @@
 	border: 0;
 	padding: 20px;
 	margin: 0;
-	display: flex;
-	flex-wrap: wrap;
+	display: block;
 }
 
 .form fieldset > label {
-	display: block;
+	display: inline-block;
 	padding: 10px;
 	box-sizing: border-box;
 }
 
 .form fieldset > label {
-	width: 50%;
+	vertical-align: top;
+	width: calc(50% - 2px);
 }
 
 .form fieldset > label:last-child {
