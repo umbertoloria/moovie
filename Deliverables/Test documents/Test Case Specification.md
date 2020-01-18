@@ -311,7 +311,6 @@ Test Case ID         | TC_3_3_3
 **Flusso di eventi** | <br/><ol><li>L'utente seleziona come valore "8"<li>L'utente clicca sul pulsante "Aggiungi"</ol>
 **Oracolo**          | Il sistema assegna il voto al film.
 
-
 ### 4.2 ModificareGiudizio
 **Test Case ID**     | TC_4_2_1
 ---------------------|---------
@@ -336,7 +335,6 @@ Test Case ID         | TC_3_3_3
 **Precondizioni**    | L’utente è nell'area di modifica di un giudizio del film "Bastardi senza gloria".
 **Flusso di eventi** | <br/><ol><li>L'utente seleziona come valore "10"<li>L'utente clicca sul pulsante "Aggiungi"</ol>
 **Oracolo**          | Il sistema assegna il voto al film.
-
 
 ### 4.3 RimuovereGiudizio
 **Test Case ID**     | TC_4_3_1
@@ -504,12 +502,12 @@ Test Case ID         | TC_3_3_3
 ---------------------|---------
 **Precondizioni**    | L’utente è nell'area di aggiunta di un genere.
 **Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "Drammatico"<li>L'utente clicca sul pulsante "Aggiungi"</ol>
-**Oracolo**          | Il sistema non aggiunge il genere.
+**Oracolo**          | Il sistema non aggiunge il genere perché il genere "Drammatico" esiste già.
 
 **Test Case ID**     | TC_5_3_5
 ---------------------|---------
 **Precondizioni**    | L’utente è nell'area di aggiunta di un genere.
-**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "Mitologico"<li>L'utente clicca sul pulsante "Aggiungi"</ol>
+**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "Inesistente"<li>L'utente clicca sul pulsante "Aggiungi"</ol>
 **Oracolo**          | Il sistema aggiunge il genere.
 
 ### 5.4 ModificareGenere
@@ -535,12 +533,12 @@ Test Case ID         | TC_3_3_3
 ---------------------|---------
 **Precondizioni**    | L’utente è nell'area di modifica di un genere.
 **Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "Drammatico"<li>L'utente clicca sul pulsante "Modifica"</ol>
-**Oracolo**          | Il sistema non modifica il film.
+**Oracolo**          | Il sistema non modifica il genere perché il genere "Drammatico" esiste già.
 
 **Test Case ID**     | TC_5_4_5
 ---------------------|---------
 **Precondizioni**    | L’utente è nell'area di modifica di un genere.
-**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "Investigativo"<li>L'utente clicca sul pulsante "Modifica"</ol>
+**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "Impensabile"<li>L'utente clicca sul pulsante "Modifica"</ol>
 **Oracolo**          | Il sistema modifica il genere.
 
 ### 5.5 RimuovereGenere
@@ -559,7 +557,7 @@ Test Case ID         | TC_3_3_3
 **Test Case ID**     | TC_5_5_3
 ---------------------|---------
 **Precondizioni**    | L’utente è nell'area di rimozione di un genere del film "Bastardi senza gloria".
-**Flusso di eventi** | L'utente clicca sul pulsante "Drop".
+**Flusso di eventi** | L'utente clicca sul pulsante "rimuovi".
 **Oracolo**          | Il sistema rimuove il genere.
 
 ### 5.6 AggiornareGeneriFilm
