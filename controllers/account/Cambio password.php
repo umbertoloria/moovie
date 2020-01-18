@@ -26,7 +26,6 @@ else {
 	$logged_user->setPassword(sha1($new_pwd));
 	$account_dao = AccountDAOFactory::getAccountDAO();
 	$saved_user = $account_dao->update($logged_user);
-	$ff->message("sostituisco con $new_pwd");
 	if ($saved_user) {
 		unset($logged_user);
 		Auth::setLoggedUser($saved_user);
