@@ -21,7 +21,6 @@ class ArtistaDAOTest extends GenericTest {
 		$this->assertEquals($result->getDescrizione(), $oracle[2]);
 	}
 
-
 	public function create_artist_provider() {
 		return [
 			'johnny depp' => ["Johnny Depp", "1963-06-09", "E' un attore, produttore cinematografico e musicista statunitense", 'images/johnny-depp.jpg'],
