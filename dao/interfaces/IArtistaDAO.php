@@ -21,8 +21,8 @@ interface IArtistaDAO {
 	 * Memorizza l'immagine dell'artista con l'ID fornito.
 	 * @param int   $id         è l'ID dell'artista
 	 * @param mixed $faccia_bin è l'immagine da memorizzare
-	 * @return bool Se esiste un artista con ID = $id, ed è stato possibile sovrascrivere la sua immagine, la funzione
-	 *                          restituisce TRUE. Altrimenti FALSE.
+	 * @return bool Se esiste un artista con ID = $id, la sua immagine diventa $faccia_bin e la funzione restituisce
+	 *                          TRUE. Altrimenti FALSE.
 	 */
 	public function uploadFaccia(int $id, $faccia_bin): bool;
 
