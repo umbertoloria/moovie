@@ -395,23 +395,19 @@ TC_4.3_4 | LoUtente_2, PFilm_2, SVoto_2 | Corretto
 **PARAMETRO**: | Copertina
 ----|---
 **FORMATO**: | JPG or PNG
-**Size[SCopertina]:**| 1. Copertina di dimensione maggiore di quella supportata dal server[Errore]<br/>2. Copertina di dimensione corretta[Successo_SCopertina]
-**Caricamento[CaCopertina]:**| 1. Copertina non caricata[if_SCopertina_OK][Errore]<br/>2. Copertina caricata[if_SCopertina_OK][Successo_CaCopertina]
-**Formato[FCopertina]:** | 1. Non rispetta il formato[if_CaCopertina_OK][Errore]<br/>2. Rispetta il formato[Successo_Copertina]
+**Caricamento[CaCopertina]:**| 1. Copertina non caricata[Errore]<br/>2. Copertina caricata[Successo_CaCopertina]
 
 #### Test cases
-Codice    | Combinazione                                                                                                     | Esito
-----------|------------------------------------------------------------------------------------------------------------------|-------
-TC_5.1_1  | LoUtente_1                                                                                                       | Errore
-TC_5.1_2  | LoUtente_2, GeUtente_1          																				 | Errore
-TC_5.1_3  | LoUtente_2, GeUtente_2, LTitolo_1                                                                                | Errore
-TC_5.1_4  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_1                                                                     | Errore
-TC_5.1_5  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_1                                                            | Errore
-TC_5.1_6  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_2, LDescrizione_1                                            | Errore
-TC_5.1_7  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_1                              | Errore
-TC_5.1_8  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_2, CaCopertina_1               | Errore
-TC_5.1_9  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_2, CaCopertina_2, FCopertina_1 | Errore
-TC_5.1_10 | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_2, LDescrizione_2, SCopertina_2, CaCopertina_2, FCopertina_2 | Corretto
+Codice    | Combinazione                                                                         | Esito
+----------|--------------------------------------------------------------------------------------|-------
+TC_5.1_1  | LoUtente_1                                                                           | Errore
+TC_5.1_2  | LoUtente_2, GeUtente_1          													 | Errore
+TC_5.1_3  | LoUtente_2, GeUtente_2, LTitolo_1                                                    | Errore
+TC_5.1_4  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_1                                         | Errore
+TC_5.1_5  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_1                                | Errore
+TC_5.1_6  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_2, LDescrizione_1                | Errore
+TC_5.1_7  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_2, LDescrizione_2, CaCopertina_1 | Errore
+TC_5.1_8  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_2, LDescrizione_2, CaCopertina_2 | Corretto
  
 #### AggiungereArtista
 **PARAMETRO**: | Utente
@@ -435,22 +431,18 @@ TC_5.1_10 | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_2, LDescrizione_
 **PARAMETRO**: | Faccia
 ----|---
 **FORMATO**: | JPG or PNG
-**Size[SFaccia]:**| 1. Faccia di dimensione maggiore di quella supportata dal server[Errore]<br/>2. Faccia di dimensione corretta[Successo_SFaccia]
-**Caricamento[CaFaccia]:**| 1. Faccia non caricata[if_SFaccia_OK][Errore]<br/>2. Faccia caricata[if_SFaccia_OK][Successo_CaFaccia]
-**Formato[FoFaccia]:** | 1. Non rispetta il formato[if_CaFaccia_OK][Errore]<br/>2. Rispetta il formato[Successo_Faccia]
+**Caricamento[CaFaccia]:**| 1. Faccia non caricata[Errore]<br/>2. Faccia caricata[Successo_CaFaccia]
 
 #### Test cases
-Codice   | Combinazione                                                                                              | Esito
----------|-----------------------------------------------------------------------------------------------------------|-------
-TC_5.2_1 | LoUtente_1                                                                                                | Errore
-TC_5.2_2 | LoUtente_2, GeUtente_1          																			 | Errore
-TC_5.2_3 | LoUtente_2, GeUtente_2, LNome_1                                                                           | Errore
-TC_5.2_4 | LoUtente_2, GeUtente_2, LNome_2, FNascita_1                                                               | Errore
-TC_5.2_5 | LoUtente_2, GeUtente_2, LNome_2, FNascita_2, LDescrizione_1                                               | Errore
-TC_5.2_6 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SFaccia_1                            | Errore
-TC_5.2_7 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SFaccia_2, CaFaccia_1                | Errore
-TC_5.2_8 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SFaccia_2, CaFaccia_2, FoFaccia_1    | Errore
-TC_5.2_9 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, SFaccia_2, CaFaccia_2, FoFaccia_2    | Corretto
+Codice   | Combinazione                                                                    | Esito
+---------|---------------------------------------------------------------------------------|-------
+TC_5.2_1 | LoUtente_1                                                                      | Errore
+TC_5.2_2 | LoUtente_2, GeUtente_1          												   | Errore
+TC_5.2_3 | LoUtente_2, GeUtente_2, LNome_1                                                 | Errore
+TC_5.2_4 | LoUtente_2, GeUtente_2, LNome_2, FNascita_1                                     | Errore
+TC_5.2_5 | LoUtente_2, GeUtente_2, LNome_2, FNascita_2, LDescrizione_1                     | Errore
+TC_5.2_6 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, CaFaccia_1 | Errore
+TC_5.2_7 | LoUtente_2, GeUtente_2, LNome_2, FDurata_2, FAnno_2, LDescrizione_2, CaFaccia_2 | Corretto
 
 #### AggiungereGenere
 **PARAMETRO**: | Utente

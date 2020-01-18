@@ -403,23 +403,11 @@ Test Case ID         | TC_3_3_3
 **Test Case ID**     | TC_5_1_7
 ---------------------|---------
 **Precondizioni**    | L’utente è nell'area di aggiunta di un film.
-**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo titolo il testo "L'ultimo dei mohicani", nel campo durata "140", nel campo anno "1992", nel campo Descrizione "Famoso film drammatico", nel campo copertina "copertina.jpg"(size: maggiore di quella consentita)<li>L'utente clicca sul pulsante "Aggiungi"</ol>
+**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo titolo il testo "L'ultimo dei mohicani", nel campo durata "140", nel campo anno "1992", nel campo Descrizione "Famoso film drammatico", nel campo copertina ""<li>L'utente clicca sul pulsante "Aggiungi"</ol>
 **Oracolo**          | Il sistema non aggiunge il film.
 
 **Test Case ID**     | TC_5_1_8
 ---------------------|---------
-**Precondizioni**    | L’utente è nell'area di aggiunta di un film.
-**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo titolo il testo "L'ultimo dei mohicani", nel campo durata "140", nel campo anno "1992", nel campo Descrizione "Famoso film drammatico", nel campo copertina ""<li>L'utente clicca sul pulsante "Aggiungi"</ol>
-**Oracolo**          | Il sistema non aggiunge il film.
-
-**Test Case ID**     | TC_5_1_9
----------------------|---------
-**Precondizioni**    | L’utente è nell'area di aggiunta di un film.
-**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo titolo il testo "L'ultimo dei mohicani", nel campo durata "140", nel campo anno "1992", nel campo Descrizione "Famoso film drammatico", nel campo copertina "copertina.gif"<li>L'utente clicca sul pulsante "Aggiungi"</ol>
-**Oracolo**          | Il sistema non aggiunge il film.
-
-**Test Case ID**     | TC_5_1_10
----------------------|----------
 **Precondizioni**    | L’utente è nell'area di aggiunta di un film.
 **Flusso di eventi** | <br/><ol><li>L'utente digita nel campo titolo il testo "L'ultimo dei mohicani", nel campo durata "140", nel campo anno "1992", nel campo Descrizione "Famoso film drammatico", nel campo copertina "copertina.jpg"<li>L'utente clicca sul pulsante "Aggiungi"</ol>
 **Oracolo**          | Il sistema aggiunge il film.
@@ -440,7 +428,7 @@ Test Case ID         | TC_3_3_3
 **Test Case ID**     | TC_5_2_3
 ---------------------|---------
 **Precondizioni**    | L’utente è nell'area di aggiunta di un artista.
-**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "", nel campo nascita "10-10-1949", nel campo descrizione "Famoso attore di cinema", nel campo faccia "faccia.jpg"<li>L'utente clicca sul pulsante "Aggiungi"</ol>
+**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "", nel campo nascita "9-6-1963", nel campo descrizione "Famoso attore di cinema", nel campo faccia "faccia.jpg"<li>L'utente clicca sul pulsante "Aggiungi"</ol>
 **Oracolo**          | Il sistema non aggiunge l'artista.
 
 **Test Case ID**     | TC_5_2_4
@@ -452,31 +440,19 @@ Test Case ID         | TC_3_3_3
 **Test Case ID**     | TC_5_2_5
 ---------------------|---------
 **Precondizioni**    | L’utente è nell'area di aggiunta di un artista.
-**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "Johnny Depp", nel campo nascita "10-10-1949", nel campo descrizione "Fa", nel campo faccia "faccia.jpg"<li>L'utente clicca sul pulsante "Aggiungi"</ol>
+**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "Johnny Depp", nel campo nascita "9-6-1963", nel campo descrizione "Fa", nel campo faccia "faccia.jpg"<li>L'utente clicca sul pulsante "Aggiungi"</ol>
 **Oracolo**          | Il sistema non aggiunge l'artista.
 
 **Test Case ID**     | TC_5_2_6
 ---------------------|---------
 **Precondizioni**    | L’utente è nell'area di aggiunta di un artista.
-**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "Johnny Depp", nel campo nascita "10-10-1949", nel campo descrizione "Famoso attore di cinema", nel campo faccia "faccia.jpg"(size: maggiore di quella consentita)<li>L'utente clicca sul pulsante "Aggiungi"</ol>
+**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "Johnny Depp", nel campo nascita "9-6-1963", nel campo descrizione "Famoso attore di cinema", nel campo faccia ""<li>L'utente clicca sul pulsante "Aggiungi"</ol>
 **Oracolo**          | Il sistema non aggiunge l'artista.
 
 **Test Case ID**     | TC_5_2_7
 ---------------------|---------
 **Precondizioni**    | L’utente è nell'area di aggiunta di un artista.
-**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "Johnny Depp", nel campo nascita "10-10-1949", nel campo descrizione "Famoso attore di cinema", nel campo faccia ""<li>L'utente clicca sul pulsante "Aggiungi"</ol>
-**Oracolo**          | Il sistema non aggiunge l'artista.
-
-**Test Case ID**     | TC_5_2_8
----------------------|---------
-**Precondizioni**    | L’utente è nell'area di aggiunta di un artista.
-**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "Johnny Depp", nel campo nascita "10-10-1949", nel campo descrizione "Famoso attore di cinema", nel campo faccia "faccia.gif"<li>L'utente clicca sul pulsante "Aggiungi"</ol>
-**Oracolo**          | Il sistema non aggiunge l'artista.
-
-**Test Case ID**     | TC_5_2_9
----------------------|---------
-**Precondizioni**    | L’utente è nell'area di aggiunta di un artista.
-**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "Johnny Depp", nel campo nascita "10-10-1949", nel campo descrizione "Famoso attore di cinema", nel campo faccia "faccia.jpg"<li>L'utente clicca sul pulsante "Aggiungi"</ol>
+**Flusso di eventi** | <br/><ol><li>L'utente digita nel campo nome il testo "Johnny Depp", nel campo nascita "9-6-1963", nel campo descrizione "Famoso attore di cinema", nel campo faccia "faccia.jpg"<li>L'utente clicca sul pulsante "Aggiungi"</ol>
 **Oracolo**          | Il sistema aggiunge l'artista.
 
 ### 5.3 AggiungereGenere
