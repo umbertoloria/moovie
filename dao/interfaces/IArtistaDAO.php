@@ -56,11 +56,8 @@ interface IArtistaDAO {
 	 * Aggiorna le informazioni di un artista esistente.
 	 * @param Artista $artista contiene le informazioni da aggiornare e l'ID col quale trovare l'artista
 	 * @return Artista|null
-	 *                         Se l'artista con ID = $artista.ID esiste, e le sue informazioni attuali non
-	 *                         corrispongono, questo viene aggiornato e la funzione restitusice un oggetto ARTISTA
-	 *                         contenente le nuove informazioni.
-	 *                         Se l'artista con ID = $artista.ID esiste ma le sue informazioni sono già come le si
-	 *                         vuole, la funzione restitusice NULL.
+	 *                         Se l'artista con ID = $artista.ID esiste, le sue informazioni vengono modificate e la
+	 *                         funzione restitusice un oggetto ARTISTA contenente le nuove informazioni.
 	 *                         Se l'artista con ID = $artista.ID non esiste, la funzione restituisce NULL.
 	 */
 	public function update(Artista $artista): ?Artista;
