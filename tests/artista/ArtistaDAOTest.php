@@ -21,27 +21,9 @@ class ArtistaDAOTest extends GenericTest {
 		$this->assertEquals($result->getDescrizione(), $oracle[2]);
 	}
 
-	public function create_artist_provider() {
-		return [
-			'johnny depp' => ["Johnny Depp", "1963-06-09", "E' un attore, produttore cinematografico e musicista statunitense", 'images/johnny-depp.jpg'],
-		];
-	}
-
-	public function retrieve_artist_provider() {
-		return [
-			'johnny depp' => ["Johnny Depp", "1963-06-09", "E' un attore, produttore cinematografico e musicista statunitense"],
-		];
-	}
-
-	public function delete_artist_provider() {
-		return [
-			'johnny depp' => ["Johnny Depp", "1963-06-09", "E' un attore, produttore cinematografico e musicista statunitense"],
-		];
-	}
-
 	public function create() {
 		return [
-			'johnny depp' => ["Johnny Depp", "1963-06-09",
+			"johnny depp" => ["Johnny Depp", "1963-06-09",
 				"È un attore, produttore cinematografico e musicista statunitense", "images/johnny-depp.jpg",
 				["Johnny Depp", "1963-06-09", "È un attore, produttore cinematografico e musicista statunitense"]],
 		];
@@ -57,9 +39,9 @@ class ArtistaDAOTest extends GenericTest {
 
 	public function get_from() {
 		return [
-			'johnny depp' => [1,
+			"johnny depp" => [1,
 				["Johnny Depp", "1963-06-09", "È un attore, produttore cinematografico e musicista statunitense"]],
-			'non esiste' => [2, []],
+			"non esiste" => [2, []],
 		];
 	}
 
@@ -74,8 +56,8 @@ class ArtistaDAOTest extends GenericTest {
 
 	public function download_faccia_pre() {
 		return [
-			'johnny depp' => [1, "images/johnny-depp.jpg"],
-			'non esiste' => [2, null],
+			"johnny depp" => [1, "images/johnny-depp.jpg"],
+			"non esiste" => [2, null],
 		];
 	}
 
@@ -90,7 +72,7 @@ class ArtistaDAOTest extends GenericTest {
 
 	public function update() {
 		return [
-			'johnny depp' => [1, "John Christopher Depp II", "1963-06-09",
+			"johnny depp" => [1, "John Christopher Depp II", "1963-06-09",
 				"È un attore, produttore cinematografico e musicista statunitense",
 				["John Christopher Depp II", "1963-06-09", "È un attore, produttore cinematografico e musicista statunitense"]],
 		];
@@ -113,9 +95,9 @@ class ArtistaDAOTest extends GenericTest {
 
 	public function upload_faccia() {
 		return [
-			'johnny depp (uguale)' => [1, "images/johnny-depp.jpg", true],
-			'johnny depp (diversa)' => [1, "images/johnny-depp-2.jpg", true],
-			'non esiste' => [2, "images/johnny-depp-2.jpg", false],
+			"johnny depp (uguale)" => [1, "images/johnny-depp.jpg", true],
+			"johnny depp (diversa)" => [1, "images/johnny-depp-2.jpg", true],
+			"non esiste" => [2, "images/johnny-depp-2.jpg", false],
 		];
 	}
 
@@ -127,8 +109,8 @@ class ArtistaDAOTest extends GenericTest {
 
 	public function download_faccia_post() {
 		return [
-			'johnny depp' => [1, "images/johnny-depp-2.jpg"],
-			'non esiste' => [2, null],
+			"johnny depp" => [1, "images/johnny-depp-2.jpg"],
+			"non esiste" => [2, null],
 		];
 	}
 
@@ -153,8 +135,8 @@ class ArtistaDAOTest extends GenericTest {
 
 	public function delete() {
 		return [
-			'johnny depp' => [1, true],
-			'non esiste' => [2, false],
+			"johnny depp" => [1, true],
+			"non esiste" => [2, false],
 		];
 	}
 

@@ -44,49 +44,56 @@ class AggiungereArtistaTest extends GenericTest {
 	}
 
 	public function test_TC52_1() {
-		$response = $this->callController(null, "Johnny Depp", "1963-06-09", "Famoso attore di cinema", "images/johnny-depp.jpg");
+		$response = $this->callController(null, "Johnny Depp", "1963-06-09",
+			"Famoso attore di cinema", "images/johnny-depp.jpg");
 		$this->assertTrue(
 			Testing::assert_redirect($response, "/")
 		);
 	}
 
 	public function test_TC52_2() {
-		$response = $this->callController(self::$userid_normale, "Johnny Depp", "1963-06-09", "Famoso attore di cinema", "images/johnny-depp.jpg");
+		$response = $this->callController(self::$userid_normale, "Johnny Depp", "1963-06-09",
+			"Famoso attore di cinema", "images/johnny-depp.jpg");
 		$this->assertTrue(
 			Testing::assert_redirect($response, "/")
 		);
 	}
 
 	public function test_TC52_3() {
-		$response = $this->callController(self::$userid_gestore, "", "1963-06-09", "Famoso attore di cinema", "images/johnny-depp.jpg");
+		$response = $this->callController(self::$userid_gestore, "", "1963-06-09",
+			"Famoso attore di cinema", "images/johnny-depp.jpg");
 		$this->assertTrue(
 			Testing::assert_block($response)
 		);
 	}
 
 	public function test_TC52_4() {
-		$response = $this->callController(self::$userid_gestore, "Johnny Depp", "####", "Famoso attore di cinema", "images/johnny-depp.jpg");
+		$response = $this->callController(self::$userid_gestore, "Johnny Depp", "####",
+			"Famoso attore di cinema", "images/johnny-depp.jpg");
 		$this->assertTrue(
 			Testing::assert_block($response)
 		);
 	}
 
 	public function test_TC52_5() {
-		$response = $this->callController(self::$userid_gestore, "Johnny Depp", "1963-06-09", "Fa", "images/johnny-depp.jpg");
+		$response = $this->callController(self::$userid_gestore, "Johnny Depp", "1963-06-09",
+			"Fa", "images/johnny-depp.jpg");
 		$this->assertTrue(
 			Testing::assert_block($response)
 		);
 	}
 
 	public function test_TC52_6() {
-		$response = $this->callController(self::$userid_gestore, "Johnny Depp", "1963-06-09", "Famoso attore di cinema", "");
+		$response = $this->callController(self::$userid_gestore, "Johnny Depp", "1963-06-09",
+			"Famoso attore di cinema", "");
 		$this->assertTrue(
 			Testing::assert_message($response, "Nessun file è stato caricato")
 		);
 	}
 
 	public function test_TC52_7() {
-		$response = $this->callController(self::$userid_gestore, "Johnny Depp", "1963-06-09", "Famoso attore di cinema", "images/johnny-depp.jpg");
+		$response = $this->callController(self::$userid_gestore, "Johnny Depp", "1963-06-09",
+			"Famoso attore di cinema", "images/johnny-depp.jpg");
 		$id_artista_creato = Testing::getFeedback();
 		$this->assertTrue($id_artista_creato !== null);
 		$this->assertTrue(
