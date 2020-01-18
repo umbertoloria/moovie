@@ -60,26 +60,14 @@ class StubAccountDAO implements IAccountDAO {
 		$words = explode(" ", strtolower($fulltext));
 		$scores = [];
 		foreach ($this->accounts as $account) {
-			// nomi
-			$nomi = explode(" ", strtolower($account->getNome()));
-			foreach ($nomi as $nome) {
-				if (in_array($nome, $words)) {
-					if (!isset($scores[$account->getID()]))
-						$scores[$account->getID()] = 1;
-					else
-						$scores[$account->getID()]++;
-				}
-			}
-			// cognomi
-			$cognomi = explode(" ", strtolower($account->getCognome()));
-			foreach ($cognomi as $cognome) {
-				if (in_array($cognome, $words)) {
-					if (!isset($scores[$account->getID()]))
-						$scores[$account->getID()] = 1;
-					else
-						$scores[$account->getID()]++;
-				}
-			}
+			$possible_matches = explode(" ",
+				strtolower($account->getNome() . " " . $account->getCognome()));
+			$score = 0;
+			foreach ($possible_matches as $possible_match)
+				if (in_array($possible_match, $words))
+					$score++;
+			if ($score > 0)
+				$scores[$account->getID()] = $score;
 		}
 		// map_scores = [
 		//        1 => [uid1, uid7, uid5],
@@ -94,7 +82,7 @@ class StubAccountDAO implements IAccountDAO {
 			else
 				$map_scores[$score] = [$uid];
 		}
-
+		krsort($map_scores);
 		$res = [];
 		foreach ($map_scores as $score => $uids)
 			foreach ($uids as $uid)
