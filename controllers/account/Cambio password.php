@@ -22,6 +22,8 @@ if (!$valid)
 	$ff->block();
 elseif ($logged_user->getPassword() !== sha1($cur_pwd))
 	$ff->message("La password attuale fornita non corrisponde");
+elseif ($cur_pwd == $new_pwd)
+	$ff->message("La nuova password deve essere diversa da quella attuale");
 else {
 	$logged_user->setPassword(sha1($new_pwd));
 	$account_dao = AccountDAOFactory::getAccountDAO();
