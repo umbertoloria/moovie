@@ -38,11 +38,9 @@ interface IArtistaDAO {
 	 * Aggiunge un nuovo artista con le informazioni fornite.
 	 * @param Artista $artista    contiene i dati da inserire (nome, data di nascita, descrizione)
 	 * @param mixed   $faccia_bin contiene l'immagine da inserire
-	 * @return Utente|null
-	 *                            Se non esiste un artista con ID = $artista.ID, allora ne viene creato uno con
-	 *                            l'immagine e le informazioni fornite. La funzione, poi, restituisce un oggetto
-	 *                            ARTISTA contenente le informazioni del nuovo artista.
-	 *                            Altrimenti, la funzione restituisce NULL.
+	 * @return Artista|null La funzione crea un artista con l'immagine e le informazioni fornite. Poi restituisce un
+	 *                            oggetto ARTISTA contenente le informazioni del nuovo artista. Se la funzione non
+	 *                            riesce a salvare le informazioni, restituisce NULL.
 	 */
 	public function create(Artista $artista, $faccia_bin): ?Artista;
 

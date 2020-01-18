@@ -5,9 +5,7 @@ interface IAccountDAO {
 	/**
 	 * Indica se esiste un utente associato l'indirizzo e-mail fornito.
 	 * @param string $email è l'email da cercare
-	 * @return bool
-	 *                      Se esiste un utente con EMAIL = $email, allora la funzione restituisce un oggetto UTENTE
-	 *                      contenente le sue informazioni. Altrimenti, la funzione restituisce NULL.
+	 * @return bool Se esiste un utente con EMAIL = $email la funzione restituisce TRUE. Altrimenti FALSE.
 	 */
 	public function exists(string $email): bool;
 

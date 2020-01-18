@@ -18,9 +18,10 @@ interface IFilmDAO {
 	public function search(string $fulltext): array;
 
 	/**
-	 * //////////////////////////////////
-	 * @param int $utente_id
-	 * @return Film[]
+	 * Preleva i film più in linea con le preferenze cinematografiche dell'utente con l'ID fornito.
+	 * @param int $utente_id è l'ID dell'utente
+	 * @return Film[] La funzione restituisce tutti i film in linea con le preferenze cinematografiche dell'utente con
+	 *                       ID = $utente_id e di cui quest'ultimo non ha mai salvato un giudizio.
 	 */
 	public function suggest_me(int $utente_id): array;
 
@@ -41,8 +42,8 @@ interface IFilmDAO {
 	public function uploadCopertina(int $id, $copertina_bin): bool;
 
 	/**
-	 * //////////////////////////////////////////
-	 * @return Film[]
+	 * Preleva i film meglio giudicati dalla community degli utenti.
+	 * @return Film[] La funzione restituisce i 50 film con media più alta dei voti dei giudizi.
 	 */
 	public function getClassifica(): array;
 
@@ -50,11 +51,9 @@ interface IFilmDAO {
 	 * Aggiunge un nuovo film con le informazioni fornite.
 	 * @param Film  $film          contiene i dati da inserire (titolo, durata, anno, descrizione)
 	 * @param mixed $copertina_bin contiene l'immagine da inserire
-	 * @return Film|null
-	 *                             Se non esiste un film con ID = $film.ID, allora ne viene creato uno con l'immagine e
-	 *                             le informazioni fornite. La funzione, poi, restituisce un oggetto FILM contenente le
-	 *                             informazioni del nuovo film.
-	 *                             Altrimenti, la funzione restituisce NULL.
+	 * @return Film|null La funzione crea un film con l'immagine e le informazioni fornite. Poi restituisce un
+	 *                             oggetto FILM contenente le informazioni del nuovo film.
+	 *                             Se la funzione non riesce a salvare le informazioni, restituisce NULL.
 	 */
 	public function create(Film $film, $copertina_bin): ?Film;
 
