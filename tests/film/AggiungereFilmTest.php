@@ -44,7 +44,7 @@ class AggiungereFilmTest extends GenericTest {
 		return $response;
 	}
 
-	public function test_TC51_1() {
+	public function test_TC_5_1_1() {
 		$response = $this->callController(null, "Eternal Sunshine of the Spotless Mind",
 			108, 2004, "Splendore del cinema indipendente",
 			"images/eternal-sunshine-of-the-spotless-mind.jpg");
@@ -53,7 +53,7 @@ class AggiungereFilmTest extends GenericTest {
 		);
 	}
 
-	public function test_TC52_2() {
+	public function test_TC_5_1_2() {
 		$response = $this->callController(self::$userid_normale, "Eternal Sunshine of the Spotless Mind",
 			"108", "2004", "Splendore del cinema indipendente",
 			"images/eternal-sunshine-of-the-spotless-mind.jpg");
@@ -62,7 +62,7 @@ class AggiungereFilmTest extends GenericTest {
 		);
 	}
 
-	public function test_TC52_3() {
+	public function test_TC_5_1_3() {
 		$response = $this->callController(self::$userid_gestore, "",
 			"108", "2004", "Splendore del cinema indipendente",
 			"images/eternal-sunshine-of-the-spotless-mind.jpg");
@@ -71,7 +71,7 @@ class AggiungereFilmTest extends GenericTest {
 		);
 	}
 
-	public function test_TC52_4() {
+	public function test_TC_5_1_4() {
 		$response = $this->callController(self::$userid_gestore, "Eternal Sunshine of the Spotless Mind",
 			"####", 2004, "Splendore del cinema indipendente",
 			"images/eternal-sunshine-of-the-spotless-mind.jpg");
@@ -80,7 +80,7 @@ class AggiungereFilmTest extends GenericTest {
 		);
 	}
 
-	public function test_TC52_5() {
+	public function test_TC_5_1_5() {
 		$response = $this->callController(self::$userid_gestore, "Eternal Sunshine of the Spotless Mind",
 			"108", "204", "Splendore del cinema indipendente",
 			"images/eternal-sunshine-of-the-spotless-mind.jpg");
@@ -89,7 +89,7 @@ class AggiungereFilmTest extends GenericTest {
 		);
 	}
 
-	public function test_TC52_6() {
+	public function test_TC_5_1_6() {
 		$response = $this->callController(self::$userid_gestore, "Eternal Sunshine of the Spotless Mind",
 			"108", "2004", "Spl", "images/eternal-sunshine-of-the-spotless-mind.jpg");
 		$this->assertTrue(
@@ -97,7 +97,7 @@ class AggiungereFilmTest extends GenericTest {
 		);
 	}
 
-	public function test_TC52_7() {
+	public function test_TC_5_1_7() {
 		$response = $this->callController(self::$userid_gestore, "Eternal Sunshine of the Spotless Mind",
 			"108", "2004", "Splendore del cinema indipendente", "");
 		$this->assertTrue(
@@ -105,7 +105,7 @@ class AggiungereFilmTest extends GenericTest {
 		);
 	}
 
-	public function test_TC52_8() {
+	public function test_TC_5_1_8() {
 		$response = $this->callController(self::$userid_gestore, "Eternal Sunshine of the Spotless Mind",
 			"108", "2004", "Splendore del cinema indipendente",
 			"images/eternal-sunshine-of-the-spotless-mind.jpg");

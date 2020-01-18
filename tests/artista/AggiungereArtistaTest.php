@@ -43,7 +43,7 @@ class AggiungereArtistaTest extends GenericTest {
 		return $response;
 	}
 
-	public function test_TC52_1() {
+	public function test_TC_5_2_1() {
 		$response = $this->callController(null, "Johnny Depp", "1963-06-09",
 			"Famoso attore di cinema", "images/johnny-depp.jpg");
 		$this->assertTrue(
@@ -51,7 +51,7 @@ class AggiungereArtistaTest extends GenericTest {
 		);
 	}
 
-	public function test_TC52_2() {
+	public function test_TC_5_2_2() {
 		$response = $this->callController(self::$userid_normale, "Johnny Depp", "1963-06-09",
 			"Famoso attore di cinema", "images/johnny-depp.jpg");
 		$this->assertTrue(
@@ -59,7 +59,7 @@ class AggiungereArtistaTest extends GenericTest {
 		);
 	}
 
-	public function test_TC52_3() {
+	public function test_TC_5_2_3() {
 		$response = $this->callController(self::$userid_gestore, "", "1963-06-09",
 			"Famoso attore di cinema", "images/johnny-depp.jpg");
 		$this->assertTrue(
@@ -67,7 +67,7 @@ class AggiungereArtistaTest extends GenericTest {
 		);
 	}
 
-	public function test_TC52_4() {
+	public function test_TC_5_2_4() {
 		$response = $this->callController(self::$userid_gestore, "Johnny Depp", "####",
 			"Famoso attore di cinema", "images/johnny-depp.jpg");
 		$this->assertTrue(
@@ -75,7 +75,7 @@ class AggiungereArtistaTest extends GenericTest {
 		);
 	}
 
-	public function test_TC52_5() {
+	public function test_TC_5_2_5() {
 		$response = $this->callController(self::$userid_gestore, "Johnny Depp", "1963-06-09",
 			"Fa", "images/johnny-depp.jpg");
 		$this->assertTrue(
@@ -83,7 +83,7 @@ class AggiungereArtistaTest extends GenericTest {
 		);
 	}
 
-	public function test_TC52_6() {
+	public function test_TC_5_2_6() {
 		$response = $this->callController(self::$userid_gestore, "Johnny Depp", "1963-06-09",
 			"Famoso attore di cinema", "");
 		$this->assertTrue(
@@ -91,7 +91,7 @@ class AggiungereArtistaTest extends GenericTest {
 		);
 	}
 
-	public function test_TC52_7() {
+	public function test_TC_5_2_7() {
 		$response = $this->callController(self::$userid_gestore, "Johnny Depp", "1963-06-09",
 			"Famoso attore di cinema", "images/johnny-depp.jpg");
 		$id_artista_creato = Testing::getFeedback();
