@@ -35,8 +35,8 @@ class AggiungereGenereTest extends GenericTest {
 			self::$genere_dao->delete(self::$drammatico->getID());
 	}
 
-	private function callController($user_id, $nome) {
-		$_COOKIE["userid"] = $user_id;
+	private function callController($userid, $nome) {
+		$_COOKIE["userid"] = $userid;
 		Auth::init();
 		$_POST["nome"] = $nome;
 		ob_start();

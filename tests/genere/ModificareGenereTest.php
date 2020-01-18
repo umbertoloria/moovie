@@ -39,8 +39,8 @@ class ModificareGenereTest extends GenericTest {
 			self::$genere_dao->delete(self::$inesistente->getID());
 	}
 
-	private function callController($user_id, $genere_id, $nome) {
-		$_COOKIE["userid"] = $user_id;
+	private function callController($userid, $genere_id, $nome) {
+		$_COOKIE["userid"] = $userid;
 		Auth::init();
 		$_POST["genere_id"] = $genere_id;
 		$_POST["nome"] = $nome;
