@@ -2,39 +2,74 @@
 
 interface IGenereDAO {
 
+	/**
+	 * Restituisce le informazioni del genere con l'ID fornito.
+	 * @param int $id      è l'ID del genere da prelevare
+	 * @return Genere|null Se esiste un genere con ID = $id, allora la funzione restituisce un oggetto GENERE
+	 *                     contenente le sue informazioni. Altrimenti, la funzione restituisce NULL.
+	 */
 	public function get_from_id(int $id): ?Genere;
 
 	/**
-	 * @param int $film_id
-	 * @return Genere[]
+	 * Restituisce gli ID dei generi associati ad un film fornito.
+	 * @param int $film_id è l'ID del film
+	 * @return int[] Restituisce gli ID di tutti i generi associati al film con ID = $id.
 	 */
-	public function get_from_film(int $film_id): array;
+	public function get_generi_from_film(int $film_id): array;
 
 	/**
-	 * Dato un FilmID, restituisce i GeneriID del film
-	 * @param int $id
-	 * @return int[]
-	 */
-	public function get_generi_from_film(int $id): array;
-
-	/**
-	 * Restituisce i FilmID di un dato GenereID
-	 * @param int $id
-	 * @return int[]
+	 * Restituisce gli ID dei film del genere fornito.
+	 * @param int $id è l'ID del genere
+	 * @return int[] Restituisce gli ID di tutti i film associati al genere con ID = $id.
 	 */
 	public function get_films_from_genere(int $id): array;
 
-	/** @return Genere[] */
+	/**
+	 * Preleva tutti i generi memorizzati.
+	 * @return Genere[] La funzione restituisce un oggetto GENERE contenente le informazioni di ogni genere.
+	 */
 	public function get_all(): array;
 
+	/**
+	 * Associa ad un film solo i generi forniti, disassociandolo con tutti gli altri.
+	 * @param int   $film_id           è l'ID del film
+	 * @param array $assign_genere_ids contiene gli ID dei generi da associare esclusivamente
+	 * @return bool Dopo l'esecuzione della funzione, il film con ID = $film_id sarà associato esclusivamente ai generi
+	 *                                 i cui ID sono presenti in $assign_genere_ids.
+	 */
 	public function set_only(int $film_id, array $assign_genere_ids): bool;
 
+	/**
+	 * Aggiunge un nuovo genere con il nome fornito.
+	 * @param Genere $genere contiene i dati da inserire (nome)
+	 * @return Genere|null La funzione crea un genere con le informazioni fornite. Poi restituisce un oggetto GENERE
+	 *                       contenente le informazioni del nuovo genere. Se la funzione non riesce a salvare le
+	 *                       informazioni, restituisce NULL.
+	 */
 	public function create(Genere $genere): ?Genere;
 
+	/**
+	 * Aggiorna le informazioni di un genere esistente.
+	 * @param Genere $genere   contiene le informazioni da aggiornare e l'ID col quale trovare il genere
+	 * @return Genere|null
+	 *                         Se il genere con ID = $genere.ID esiste, le sue informazioni vengono aggiornate e la
+	 *                         funzione restitusice un oggetto GENERE contenente queste nuove informazioni.
+	 *                         Se il genere con ID = $genere.ID non esiste, la funzione restituisce NULL.
+	 */
 	public function update(Genere $genere): ?Genere;
 
+	/**
+	 * Rimuove il genere con l'ID fornito.
+	 * @param int $id è l'ID del genere da rimuovere
+	 * @return bool Se viene cancellato un genere con ID = $id, la funzione restitusice TRUE, altrimenti FALSE.
+	 */
 	public function delete(int $id): bool;
 
+	/**
+	 * Indica se esiste un genere chiamato con il nome fornito.
+	 * @param string $nome è il nome da cercare
+	 * @return bool Se esiste un GENERE con NOME = $nome la funzione restituisce TRUE. Altrimenti FALSE.
+	 */
 	public function exists(string $nome): bool;
 
 }
