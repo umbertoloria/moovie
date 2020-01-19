@@ -51,15 +51,7 @@ class RimuoviGiudizioTest extends GenericTest {
 		);
 	}
 
-	public function test_TC_4_3_2() {
-		$this->assertTrue(true);
-//		TODO: StubGiudizioDAO non può capire che non esiste il film 1000.
-//		$response = $this->callController(self::$userid, 1000);
-//		echo $response;
-//		$this->assertTrue(
-//			Testing::assert_block($response)
-//		);
-	}
+	// test_TC_4_3_2 non praticabile (impossibile capire che il film 1000 non esiste)
 
 	public function test_TC_4_3_3() {
 		$response = $this->callController(self::$userid, 14);
