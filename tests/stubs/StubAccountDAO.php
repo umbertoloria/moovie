@@ -12,11 +12,9 @@ class StubAccountDAO implements IAccountDAO {
 	}
 
 	public function exists(string $email): bool {
-		foreach ($this->accounts as $account) {
-			assert($account instanceof Utente);
+		foreach ($this->accounts as $account)
 			if ($account->getEmail() === $email)
 				return true;
-		}
 		return false;
 	}
 
@@ -39,7 +37,6 @@ class StubAccountDAO implements IAccountDAO {
 	public function update(Utente $utente): ?Utente {
 		if (isset($this->accounts[$utente->getID()])) {
 			$real_utente = $this->accounts[$utente->getID()];
-			assert($real_utente instanceof Utente);
 			$real_utente->setPassword($utente->getPassword());
 			return $utente;
 		} else
@@ -47,11 +44,9 @@ class StubAccountDAO implements IAccountDAO {
 	}
 
 	public function authenticate(string $email, string $password): ?Utente {
-		foreach ($this->accounts as $account) {
-			assert($account instanceof Utente);
+		foreach ($this->accounts as $account)
 			if ($account->getEmail() === $email and $account->getPassword() === $password)
 				return $this->deepCopy($account);
-		}
 		return null;
 	}
 

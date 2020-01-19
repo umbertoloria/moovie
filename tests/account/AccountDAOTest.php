@@ -49,7 +49,7 @@ class AccountDAOTest extends GenericTest {
 	}
 
 	/** @dataProvider create */
-	public function testCreateUser($nome, $cognome, $email, $password, $isGestore, $oracle) {
+	public function testCreate($nome, $cognome, $email, $password, $isGestore, $oracle) {
 		$result = self::$account_dao->create(
 			new Utente(0, $nome, $cognome, $email, sha1($password), $isGestore)
 		);
@@ -100,7 +100,7 @@ class AccountDAOTest extends GenericTest {
 	}
 
 	/** @dataProvider update */
-	public function testUpdateUser($id, $nuova_password, $oracle) {
+	public function testUpdate($id, $nuova_password, $oracle) {
 		$utente = self::$account_dao->get_from_id($id);
 		if (empty($oracle)) {
 			$this->assertNull($utente);
@@ -121,7 +121,7 @@ class AccountDAOTest extends GenericTest {
 	}
 
 	/** @dataProvider authenticate */
-	public function testAuthenticateUser($email, $password, $oracle) {
+	public function testAuthenticate($email, $password, $oracle) {
 		$result = self::$account_dao->authenticate($email, sha1($password));
 		if (empty($oracle))
 			$this->assertNull($result);
@@ -138,7 +138,7 @@ class AccountDAOTest extends GenericTest {
 	}
 
 	/** @dataProvider delete */
-	public function testDeleteUser($id, $oracle) {
+	public function testDelete($id, $oracle) {
 		$result = self::$account_dao->delete($id);
 		$this->assertEquals($result, $oracle);
 		$this->assertNull(

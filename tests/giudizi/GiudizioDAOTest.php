@@ -116,7 +116,7 @@ class GiudizioDAOTest extends GenericTest {
 	}
 
 	/** @dataProvider retrieve */
-	public function testRetriveOne(int $utente_id, int $film_id, array $oracle) {
+	public function testRetrive(int $utente_id, int $film_id, array $oracle) {
 		$giudizio = self::$giudizio_dao->get_from_utente_and_film($utente_id, $film_id);
 		if (empty($oracle)) {
 			$this->assertNull($giudizio);

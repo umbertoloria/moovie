@@ -16,7 +16,6 @@ interface IRecitazioneDAO {
 	 */
 	public function get_from_film(int $film_id): array;
 
-
 	/**
 	 * Associa ad un film solo i generi forniti, disassociandolo con tutti gli altri.
 	 * @param int   $film_id           è l'ID del film
@@ -30,7 +29,7 @@ interface IRecitazioneDAO {
 	 * @param int           $film_id     è l'ID del film
 	 * @param Recitazione[] $recitazioni contiene le recitazioni
 	 * @return bool Dopo l'esecuzione della funzione, le recitazioni del film con ID = $film_id saranno esclusivamente
-	 *              quelle fornite in $recitazioni.
+	 *                                   quelle fornite in $recitazioni.
 	 */
 	public function set_only(int $film_id, array $recitazioni): bool;
 
