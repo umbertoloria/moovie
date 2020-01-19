@@ -2,7 +2,11 @@
 
 include_once "../../php/core.php";
 
-allowOnlyGestore();
+$utente = Auth::getLoggedUser();
+if (is_null($utente) or !$utente->isGestore()) {
+	Testing::redirect("/");
+	return;
+}
 
 $film_id = trim(@$_POST["film_id"]);
 $final_genres = [];
@@ -17,9 +21,10 @@ $genere_dao = GenereDAOFactory::getGenereDAO();
 
 if (!$film = $film_dao->findByID($film_id))
 	$ff->block();
-elseif ($genere_dao->setOnly($film->getID(), $final_genres))
-	header("Location: /film.php?id=" . $film->getID());
-else
+elseif ($genere_dao->setOnly($film->getID(), $final_genres)) {
+	Testing::redirect("/film.php?id=" . $film->getID());
+	return;
+} else
 	$ff->bug();
 
 $ff->process();
