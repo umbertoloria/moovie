@@ -36,6 +36,8 @@ class DBAmiciziaDAO implements IAmiciziaDAO {
 	public function requestFriendshipFromTo(int $user_from, int $user_to): bool {
 		if ($user_from == $user_to)
 			return false;
+		if ($this->existsSomethingBetween($user_from, $user_to))
+			return false;
 		$stmt = DB::stmt("INSERT INTO amicizie SET utente_from = ?, utente_to = ?");
 		return $stmt->execute([$user_from, $user_to]);
 	}
