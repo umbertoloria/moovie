@@ -25,7 +25,8 @@ class StubAmiciziaDAO implements IAmiciziaDAO {
 
 	public function existsSomethingBetween(int $user1, int $user2): bool {
 		foreach ($this->amicizie as $amicizia)
-			if ($amicizia->getUtenteFrom() === $user1 and $amicizia->getUtenteTo() === $user2)
+			if (($amicizia->getUtenteFrom() === $user1 and $amicizia->getUtenteTo() === $user2)
+				or ($amicizia->getUtenteFrom() === $user2 and $amicizia->getUtenteTo() === $user1))
 				return true;
 		return false;
 	}
@@ -94,7 +95,7 @@ class StubAmiciziaDAO implements IAmiciziaDAO {
 		foreach ($this->amicizie as $key => $amicizia) {
 			if (!is_null($amicizia->getTimestampAccettazione()) and
 				(($amicizia->getUtenteFrom() === $user1 and $amicizia->getUtenteTo() === $user2)
-					or ($amicizia->getUtenteFrom() === $user1 and $amicizia->getUtenteTo() === $user2))) {
+					or ($amicizia->getUtenteFrom() === $user2 and $amicizia->getUtenteTo() === $user1))) {
 				unset($this->amicizie[$key]);
 				return true;
 			}
