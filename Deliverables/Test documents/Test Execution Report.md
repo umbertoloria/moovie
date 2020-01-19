@@ -4,11 +4,8 @@
 In questo documento andremo a descrivere in modo più dettagliato ogni caso di test, non fermandoci soltanto alla 
 specifica dell'elemento testato ma andando ad aggiungere dettagli sulla sua esecuzione.Per ogni Test Case andremo 
 ad illustrare il suo nome (in relazione con i documenti di Test Plan e di Test Specification), l'oracolo, la data 
-in cui il test è stato effettuato, le eventuali anomalie riscontratee in che tipo di test è stato coinvolto (Unità, 
-Integrazione, Sistema). L'attività di testing avrà sucesso solamente se riscontreremo anomalie e quindi discostamento 
-da quello che è l'oracolo per ogni caso di test presente nel documento di Test Specificazion, pertanto, il risultato 
-inserito nel Test Execution avrà esito “Passed” se l'output del Test è conforme all'output atteso, “Failed” in caso 
-negativo.
+in cui il test è stato effettuato, le eventuali anomalie riscontrate, il risultato ottenuto (che sarà PASSED se il test 
+va a buon fine, "Failed" altrimenti) in che tipo di test è stato coinvolto (Unità, Integrazione, Sistema).
 
 ## Relazione con gli altri documenti 
 Le funzionalità da testare sono le stesse indicate negli altri documenti, pertanto, faremo riferimento a:
@@ -29,7 +26,7 @@ specifiche sull'output ottenuto sono conetnute all'interno del documento di Test
 - DBArtistaDAO;
 - DBFilmDAO;
 - DBGenereDAO;
-- DBGiudizioDAO;
+- DBGiudizioDAO.
 
 ## Test Execution 
 Qui sono sono riportate tutte le esecuzioni dei casi di test elencati nel test plan e nel test case specification 
@@ -522,7 +519,7 @@ Test Case ID         | TC_3_3_3
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
 
-###à 5.2 AggiungereArtista
+### 5.2 AggiungereArtista
 **Test Case ID**     | TC_5_2_1
 ---------------------|---------
 **Oracolo**          | Il sistema mostra pagina non trovata.
@@ -710,13 +707,3 @@ Test Case ID         | TC_3_3_3
 **Anomalie**		 | 
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
-
-
-
-
-
-
-
-
- 
-
