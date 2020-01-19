@@ -125,7 +125,7 @@ cinema che conosca e rispetti queste preferenze.
 
 ## Panoramica
 Questo documento descrive l'analisi dei requisiti del sistema e contiene tutte le strutture previste per i casi d'uso.
-I requisiti descritti sono catalogati secondo il modello **F.U.R.P.S.**
+I requisiti descritti sono catalogati secondo il modello **F.U.R.P.S.+**.
 
 ## Requisiti funzionali
 Identificativo | Descrizione | Priorità
