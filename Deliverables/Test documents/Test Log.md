@@ -8,22 +8,22 @@ In questo documento sono riportati tutti i log dei test che sono stati eseguiti 
 
 ## Test di Unità DAO
 ### AccountDAO
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/AccountDAOTest.png)
+![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/TestDAOAccount.png)
 
 ### AmiciziaDAO
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/AmiciziaDAOTest.png)
+![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/TestDAOAmicizia.png)
 
 ### ArtistaDAO
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/ArtistaDAOTest.png)
+![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/TestDAOArtista.png)
 
 ### FilmDAO
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/FilmDAOTest.png)
+![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/TestDAOFIlm.png)
 
 ### GenereDAO
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/GenereDAOTest.png)
+![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/TestDAOGenere.png)
 
 ### GiudizioDAO
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/GiudizioDAOTest.png)
+![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/TestDAOGiudizio.png)
 
 ## Test di Unità Controller
 ### RicercaFilmTest
