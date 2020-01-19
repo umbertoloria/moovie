@@ -238,7 +238,7 @@ Test Case ID         | TC_3_1_1
 Test Case ID         | TC_3_1_2
 ---------------------|---------
 **Precondizioni**    | L'utente sta andando nella pagina di un altro utente a cui inviare la richiesta d'amicizia.
-**Flusso di eventi** | La pagina non è disponibile.
+**Flusso di eventi** | La pagina non è disponibile, dato che l'utente a cui inviare la richiesta non esiste.
 **Oracolo**          | Il sistema mostra pagina non trovata.
 
 Test Case ID         | TC_3_1_3
