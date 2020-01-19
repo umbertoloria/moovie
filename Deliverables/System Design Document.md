@@ -65,23 +65,21 @@ laddove ci interfacciamo con esso, in quanto Moovie dovrà: offrire un'interfacc
 parte di tutti gli utenti; garantire tempi di risposta minimi; ed offrire servizi di qualità nel trattamento dei dati.
 
 ### DG_1 Usability
-- 2.1.1 Facilità d'uso: il sito deve offrire la possibiltà di utilizzare ogni funzionalità del sito in modo semplice;
-- 2.1.2 Garanzia di orientamento: L’utente non deve sentirsi smarrito durante l’uso delle interfacce. L’utente deve
+- 2.1.1 Garanzia di orientamento: L’utente non deve sentirsi smarrito durante l’uso delle interfacce. L’utente deve
 sempre poter raggiungere la home e login/logout;
-- 2.1.3 Sarà totalmente gratuito.
+- 2.1.2 Sarà totalmente gratuito.
 
 ### DG_2 Reliability
-- 2.2.1 Consistenza dei dati: Moovie, attraverso un RDBMS, garantirà la consistenza dei dati;
-- 2.2.2 Persistenza dei dati: Moovie offre un sistema di memorizzazione dei dati attraverso un database relazionale, con
-il quale sarà possible recuperare informazioni nel modo più veloce e semplice possibile.
+- 2.2.1 Ogni rilascio dovrà garantire l'assenza di malfunzionamenti durante il primo mese.
 
 ### DG_3 Performance
-- 2.3.1 Tempo di risposta: il sistema garantirà un tempo di risposta medio, per ogni tipo di funzionalità, minore di 1s;
+- 2.3.1 Tempo di risposta: il sistema garantirà un tempo di risposta medio, minore di 1s;
 - 2.3.2 Scalabilità: il sistema sarà in grado di affrontare senza difficoltà fluttuazioni della quantità di utenti
 collegati contemporaneamente.
 
 ### DG_4 Supportability
-- 2.4.1 Compatibilità: sarà compatibile con i browser Google Chrome, Mozilla Firefox e Safari.
+- 2.4.1 Facile sostenibilità: Moovie dovrà essere facilmente sostenibile sia per l'aggiunta di logica di business, sia
+per l'intgrazione di nuove funzionalità.
 
 ## Definizioni, acronimi e abbreviazioni
 
@@ -128,19 +126,19 @@ inutilmente legate. Ecco Moovie divisione in sottosistemi:
 - Film;
 - Gestione.
 
-![](Package%20diagrams/Sottosistemi_Diagram.jpg)
+![](Package%20diagrams/Sottosistemi%20Diagram.jpg)
 
 L'immagine rappresenta le varie suddivisioni effettuate e i vari collegamenti tra sottosistemi appartenenti a layer
 differenti.
 
 Per procedere verso uno sviluppo più semplice del sistema, questo è stato diviso in tre strati:
-- Presentation_Layer: strato che si occupa delle interfacce grafiche con il quale l'utente dovra interagire;
-- Application_Layer: strato che si occupa di gestire tutte le richieste che l'utente effettua attraverso il
+- Presentation Layer: strato che si occupa delle interfacce grafiche con il quale l'utente dovra interagire;
+- Application Layer: strato che si occupa di gestire tutte le richieste che l'utente effettua attraverso il
 Presentation_Layer, ricevendo, elaborando e alla fine mostrando il risultato di un'operazione da lui richiesta;
-- Data_Layer: strato che si occupa di gestire i dati del sistema.
+- Data Layer: strato che si occupa di gestire i dati del sistema.
 
 #### Ricerca
-![](Package%20diagrams/Ricerca_Diagram.jpg)
+![](Package%20diagrams/Ricerca%20Diagram.jpg)
 
 Il sottosistema **Ricerca** si occupa di gestire le ricerche di tutti gli utenti offrendo diverse funzionalità quali:
 - Ricerca di un film;
@@ -148,7 +146,7 @@ Il sottosistema **Ricerca** si occupa di gestire le ricerche di tutti gli utenti
 - Ricerca di un utente.
 
 #### Account
-![](Package%20diagrams/Account_Diagram.jpg)
+![](Package%20diagrams/Account%20Diagram.jpg)
 
 Il sottosistema **Account** si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
 - Creare un account;
@@ -159,7 +157,7 @@ Il sottosistema **Account** si occupa di gestire tutti gli account del sistema o
 - Visualizzare la pagina iniziale.
 
 #### Amicizia
-![](Package%20diagrams/Amicizia_Diagram.jpg)
+![](Package%20diagrams/Amicizia%20Diagram.jpg)
 
 Il sottosistema **Amicizia** si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
 - Inviare richiesta di amicizia;
@@ -170,7 +168,7 @@ Il sottosistema **Amicizia** si occupa di gestire le amicizie tra account offren
 - Visualizzare gli amici.
 
 #### Film
-![](Package%20diagrams/Film_Diagram.jpg)
+![](Package%20diagrams/Film%20Diagram.jpg)
 
 Il sottosistema **Film** si occupa di gestire i giudizi di tutti gli utenti autenticati offrendo diverse funzionalità quali:
 - Visualizzare un film;
@@ -187,7 +185,7 @@ Il sottosistema **Film** si occupa di gestire i giudizi di tutti gli utenti aute
 - Visualizzare la classifica dei film.
 
 ### Gestione
-![](Package%20diagrams/Gestione_Diagram.jpg)
+![](Package%20diagrams/Gestione%20Diagram.jpg)
 
 Il sottosistema **Gestione** si occupa di gestire i dati presenti nel sito offrendo diverse funzionalità quali:
 - Aggiungere un film;
@@ -230,7 +228,7 @@ maniera persistente.
 All'interno del nostro Data Base, inoltre, sono state salvate anche tutte le immagini che il sito contiene in modo tale
 da avere una locazione unica dei dati e una "maiera" unica per gestire le stesse. Per evitare di avere dei rallentamenti 
 all'interno del sistema, la tabella delle immagini è diversa rispetto a quella a cui si riferisce la stessa 
-(Film, Film Copertina, Artista, Artista Faccia). In questo modo, se vogliamo ottente delle informazioni riguardanti 
+(Film, Film Copertina, Artista, Artista Faccia). In questo modo, se vogliamo ottenere delle informazioni riguardanti 
 un qualcosa senza necessità di avere l'immagine, la query non sarà appesantita dalla presenza dell'immagine
 e quindi potrà essere restituta più velocemente.
 
@@ -372,19 +370,20 @@ Sottosistema | Descrizione
 -------------|---
 Ricerca     | Il sottosistema ricerca si occupa di fornire tutti i servizi che offrono la possibilità di effettuare delle ricerche e ricevere delle informazioni sul sito
 
-Servizi   | Descrizione
-----------|---
-RicercaUtente()  | Servizio che offre la possibilità di ricercare un utente all'interno di Moovie
-RicercaArtista() | Servizio che offre la possibilità di ricercare un artista all'interno di Moovie
+Servizi          | Descrizione
+-----------------|---
 RicercaFilm()    | Servizio che offre la possibilità di ricercare un film all'interno di Moovie
+RicercaArtista() | Servizio che offre la possibilità di ricercare un artista all'interno di Moovie
+RicercaUtente()  | Servizio che offre la possibilità di ricercare un utente all'interno di Moovie
+
 
 ## Sottosistema account
 Sottosistema | Descrizione
--------------|------------
+-------------|-------------
 Account      | Il sottosistema account si occupa di fornire tutti i servizi che permettono ad un utente di gestire il proprio account
 
 Servizi                      | Descrizione
------------------------------|---
+-----------------------------|-------------
 CreareAccount()              | Servizio che offre la possibilità di creare un account ad un utente che non ne posside uno
 AutenticareAccount()         | Servizio che permette ad un utente di autenticarsi all'interno del sito
 CambiarePassword()           | Servizio che permette ad un utente di effettuare il cambio password
@@ -394,53 +393,53 @@ VisualizzarePaginaIniziale() | Servizio che permette ad un utente di visualizzar
 
 ## Sottosistema amicizia
 Sottosistema | Descrizione
--------------|---
+-------------|-------------
 Amicizia     | Il sottosistema amicizia si occupa di fornire tuttti i servizi che permettono ad un utente di gestire le proprie amicizie presenti su Moovie
 
-Servizi | Descrizione
---------|---
-InviareRichiestaAmicizia() | Servizio che offre la possibilità di richiedere, ad un altro utente registrato sul sito, la sua amicizia
+Servizi                       | Descrizione
+------------------------------|-------------
+InviareRichiestaAmicizia()    | Servizio che offre la possibilità di richiedere, ad un altro utente registrato sul sito, la sua amicizia
 CancellareRichiestaAmicizia() | Servizio che offre la possibilità di cancellare la richiesta di amicizia ad un altro utente registrato sul sito
-AccettareRichiestaAmicizia() | Servizio che offre la possibilità di confermare una amicizia ricevuta da parte di un altro utente
-RifiutareRichiestaAmicizia() | Servizio che permette ad un utente di rifiutare una richiesta di amicizia ricevuta da parte di un altro utente
-CancellareAmicizia() | Servizio che permette ad un utente di cancellare l'amicizia con un altro utente
-VisualizzaAmici() | Servizio che permette ad un utente di visualizzare tutte le amicizie
+AccettareRichiestaAmicizia()  | Servizio che offre la possibilità di confermare una amicizia ricevuta da parte di un altro utente
+RifiutareRichiestaAmicizia()  | Servizio che permette ad un utente di rifiutare una richiesta di amicizia ricevuta da parte di un altro utente
+CancellareAmicizia()          | Servizio che permette ad un utente di cancellare l'amicizia con un altro utente
+VisualizzaAmici()             | Servizio che permette ad un utente di visualizzare tutte le amicizie
 
 ## Sottosistema film
 Sottosistema | Descrizione
--------------|---
-FIlm         | Il sottosistema film si occupa di fornire tutti i servizi che permettono ad un utente di gestire i giudizi riguardanti i film e di farsi suggerire dei film dal sistema
+-------------|-------------
+Film         | Il sottosistema film si occupa di fornire tutti i servizi che permettono ad un utente di gestire i giudizi riguardanti i film e di farsi suggerire dei film dal sistema
 
-Servizi | Descrizione
---------|---
-VisualizzareFilm() | Servizio che offre la possibilità di visualizzare la pagina di un film
-VisualizzareArtista() | Servizio che offre la possibilità di visualizzare la pagina di un artista
-VisualizzareGenere() | Servizio che offre la possibilità di visualizzare la pagina di un genere
-AggiungereGiudizio() | Servizio che offre la possibilità di aggiungere un giudizio su un film
-ModificareGiudizio() | Servizio che offre la possibilità modificare un giudizio, fatto in precedenza, su un film visto
-RimuovereGiudizio() | Servizio che offre la possibilità di rimuovere un giudizio su un film
-VisualizzareGiudizio() | Servizio che offre la possibilità di visualizzare tutti i propri giudizi
-AggiungerePromemoria() | Servizio che offre la possibilità di aggiungere un determinato film tra i promemoria
-RimuoverePromemoria() | Servizio che offre la possibilità di rimuovere un promemoria
-VisualizzarePromemoria() | Servizio che offre la possibilità di visualizzare tutti i propri promemoria
+Servizi                      | Descrizione
+-----------------------------|-------------
+VisualizzareFilm()           | Servizio che offre la possibilità di visualizzare la pagina di un film
+VisualizzareArtista()        | Servizio che offre la possibilità di visualizzare la pagina di un artista
+VisualizzareGenere()         | Servizio che offre la possibilità di visualizzare la pagina di un genere
+AggiungereGiudizio()         | Servizio che offre la possibilità di aggiungere un giudizio su un film
+ModificareGiudizio()         | Servizio che offre la possibilità modificare un giudizio, fatto in precedenza, su un film visto
+RimuovereGiudizio()          | Servizio che offre la possibilità di rimuovere un giudizio su un film
+VisualizzareGiudizio()       | Servizio che offre la possibilità di visualizzare tutti i propri giudizi
+AggiungerePromemoria()       | Servizio che offre la possibilità di aggiungere un determinato film tra i promemoria
+RimuoverePromemoria()        | Servizio che offre la possibilità di rimuovere un promemoria
+VisualizzarePromemoria()     | Servizio che offre la possibilità di visualizzare tutti i propri promemoria
 SuggerimentiAutomaticiFilm() | Servizio che offre la possibilità di farsi suggerire dal sistema dei film in linea con le proprie preferenze
 VisualizzareClassificaFilm() | Servizio che offre la possibilità di visualizzare i film nella classifica
 
 ## Sottosistema gestione
 Sottosistema | Descrizione
--------------|---
+-------------|-------------
 Gestione     | Il sottosistema gestione si occupa di fornire tutti i servizi che permettono ad un utente gestore di gestire i dati presenti nel sito
 
-Servizi | Descrizione
---------|---
-AggiungiFilm() | Servizio che offre la possibilità di aggiungere un film all'interno del sistema
-AggiungiArtista() | Servizio che offre la possibilità di aggiungere un artista all'interno del sistema
-AggiungiGenere() | Servizio che offre la possibilità di aggiungere un genere all'interno del sistema
-ModificaFilm() | Servizio che offre la possibilità di modificare un film all'interno del sistema
-ModificaArtista() | Servizio che offre la possibilità di modificare un artista all'interno del sistema
-ModificaGenere() | Servizio che offre la possibilità di modificare un genere all'interno del sistema
-RimuoviFilm() | Servizio che offre la possibilità di rimuovere un film all'interno del sistema
-RimuoviArtista() | Servizio che offre la possibilità di rimuovere un artista all'interno del sistema
-RimuoviGenere() | Servizio che offre la possibilità di rimuovere un genere all'interno del sistema
-AggiornareGeneriFilm() | Servizio che offre la possibilità di aggiornare generi di un film all'interno del sistema
+Servizi                 | Descrizione
+------------------------|-------------
+AggiungiFilm()          | Servizio che offre la possibilità di aggiungere un film all'interno del sistema
+AggiungiArtista()       | Servizio che offre la possibilità di aggiungere un artista all'interno del sistema
+AggiungiGenere()        | Servizio che offre la possibilità di aggiungere un genere all'interno del sistema
+ModificaFilm()          | Servizio che offre la possibilità di modificare un film all'interno del sistema
+ModificaArtista()       | Servizio che offre la possibilità di modificare un artista all'interno del sistema
+ModificaGenere()        | Servizio che offre la possibilità di modificare un genere all'interno del sistema
+RimuoviFilm()           | Servizio che offre la possibilità di rimuovere un film all'interno del sistema
+RimuoviArtista()        | Servizio che offre la possibilità di rimuovere un artista all'interno del sistema
+RimuoviGenere()         | Servizio che offre la possibilità di rimuovere un genere all'interno del sistema
+AggiornareGeneriFilm()  | Servizio che offre la possibilità di aggiornare generi di un film all'interno del sistema
 AggiornareArtistiFilm() | Servizio che offre la possibilità di aggiornare gli artisti in un film all'interno del sistema
