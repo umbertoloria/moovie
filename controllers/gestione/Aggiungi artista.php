@@ -2,7 +2,11 @@
 
 include_once "../../php/core.php";
 
-allowOnlyGestore();
+$utente = Auth::getLoggedUser();
+if (is_null($utente) or !$utente->isGestore()) {
+	Testing::redirect("/");
+	return;
+}
 
 $nome = trim(@$_POST["nome"]);
 $nascita = trim(@$_POST["nascita"]);
@@ -41,9 +45,11 @@ else {
 
 		$artista_dao = ArtistaDAOFactory::getArtistaDAO();
 		$saved_artista = $artista_dao->create($tmp_artista, $faccia_bin);
-		if ($saved_artista)
-			header("Location: /artista.php?id=" . $saved_artista->getID());
-		else
+		if ($saved_artista) {
+			Testing::setFeedback($saved_artista->getID());
+			Testing::redirect("/artista.php?id=" . $saved_artista->getID());
+			return;
+		} else
 			$ff->bug();
 
 	}

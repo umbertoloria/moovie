@@ -30,79 +30,16 @@ class DBAccountDAO implements IAccountDAO {
 	}
 
 	public function update(Utente $utente): ?Utente {
-
 		$utente_reale = self::get_from_id($utente->getID());
 		if (!$utente_reale)
 			return null;
-
-		$same_nome = $utente_reale->getNome() === $utente->getNome();
-		$same_cognome = $utente_reale->getCognome() === $utente->getCognome();
-		$same_email = $utente_reale->getEmail() === $utente->getEmail();
-		$same_password = $utente_reale->getPassword() === $utente->getPassword();
-		$same_gestore = $utente_reale->isGestore() === $utente->isGestore();
-
-		if ($same_nome and $same_cognome and $same_email and $same_password and $same_gestore)
+		if ($utente_reale->getPassword() === $utente->getPassword())
 			return $utente;
-
-		DB::beginTransaction();
-
-		if (!$same_nome) {
-			$stmt_nome = DB::stmt("UPDATE utenti SET nome = ? WHERE id = ?");
-			if (
-				!$stmt_nome->execute([$utente->getNome(), $utente->getID()])
-				or $stmt_nome->rowCount() === 0
-			) {
-				DB::rollbackTransaction();
-				return null;
-			}
-		}
-
-		if (!$same_cognome) {
-			$stmt_cognome = DB::stmt("UPDATE utenti SET cognome = ? WHERE id = ?");
-			if (
-				!$stmt_cognome->execute([$utente->getCognome(), $utente->getID()])
-				or $stmt_cognome->rowCount() === 0
-			) {
-				DB::rollbackTransaction();
-				return null;
-			}
-		}
-
-		if (!$same_email) {
-			$stmt_email = DB::stmt("UPDATE utenti SET email = ? WHERE id = ?");
-			if (
-				!$stmt_email->execute([$utente->getEmail(), $utente->getID()])
-				or $stmt_email->rowCount() === 0
-			) {
-				DB::rollbackTransaction();
-				return null;
-			}
-		}
-
-		if (!$same_password) {
-			$stmt_password = DB::stmt("UPDATE utenti SET password = ? WHERE id = ?");
-			if (
-				!$stmt_password->execute([$utente->getPassword(), $utente->getID()])
-				or $stmt_password->rowCount() === 0
-			) {
-				DB::rollbackTransaction();
-				return null;
-			}
-		}
-
-		if (!$same_gestore) {
-			$stmt_gestore = DB::stmt("UPDATE utenti SET gestore = ? WHERE id = ?");
-			if (
-				!$stmt_gestore->execute([$utente->isGestore() ? 1 : 0, $utente->getID()])
-				or $stmt_gestore->rowCount() === 0
-			) {
-				DB::rollbackTransaction();
-				return null;
-			}
-		}
-
-		DB::commitTransaction();
-		return self::get_from_id($utente->getID());
+		$stmt = DB::stmt("UPDATE utenti SET password = ? WHERE id = ?");
+		if ($stmt->execute([$utente->getPassword(), $utente->getID()]) and $stmt->rowCount() === 1)
+			return self::get_from_id($utente->getID());
+		else
+			return null;
 	}
 
 	public function authenticate(string $email, string $password): ?Utente {

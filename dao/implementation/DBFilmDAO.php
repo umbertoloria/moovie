@@ -85,8 +85,13 @@ limit 5");
 	}
 
 	public function uploadCopertina(int $id, $copertina_bin): bool {
-		$stmt = DB::stmt("UPDATE films_copertine SET copertina = ? WHERE film = ?");
-		return $stmt->execute([$copertina_bin, $id]) and $stmt->rowCount() === 1;
+		$stmt1 = DB::stmt("SELECT film FROM films_copertine WHERE film = ?");
+		if (!$stmt1->execute([$id]))
+			return false;
+		if ($stmt1->rowCount() !== 1)
+			return false;
+		$stmt2 = DB::stmt("UPDATE films_copertine SET copertina = ? WHERE film = ?");
+		return $stmt2->execute([$copertina_bin, $id]);
 	}
 
 	/** @inheritDoc */

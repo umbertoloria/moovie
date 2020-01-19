@@ -33,7 +33,12 @@ unset($registi);
 unset($artisti);
 
 $genere_dao = GenereDAOFactory::getGenereDAO();
-$_REQUEST["generi"] = $genere_dao->get_from_film($film->getID());
+$generi = [];
+foreach ($genere_dao->get_generi_from_film($film->getID()) as $genere_id)
+	$generi[] = $genere_dao->get_from_id($genere_id);
+unset($genere_id);
+$_REQUEST["generi"] = $generi;
+unset($generi);
 unset($genere_dao);
 
 $_REQUEST["show_actions"] = [];

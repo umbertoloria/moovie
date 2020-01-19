@@ -24,8 +24,13 @@ class DBArtistaDAO implements IArtistaDAO {
 	}
 
 	public function uploadFaccia(int $id, $faccia_bin): bool {
-		$stmt = DB::stmt("UPDATE artisti_facce SET faccia = ? WHERE artista = ?");
-		return $stmt->execute([$faccia_bin, $id]) and $stmt->rowCount() === 1;
+		$stmt1 = DB::stmt("SELECT artista FROM artisti_facce WHERE artista = ?");
+		if (!$stmt1->execute([$id]))
+			return false;
+		if ($stmt1->rowCount() !== 1)
+			return false;
+		$stmt2 = DB::stmt("UPDATE artisti_facce SET faccia = ? WHERE artista = ?");
+		return $stmt2->execute([$faccia_bin, $id]);
 	}
 
 	/** @inheritDoc */

@@ -11,26 +11,10 @@ class DBGenereDAO implements IGenereDAO {
 	}
 
 	/** @inheritDoc */
-	public function get_from_film(int $film_id): array {
-		$res = [];
-		$stmt = DB::stmt(
-			"SELECT id, nome
-				FROM film_has_genere
-				    JOIN generi
-				        ON film_has_genere.genere = generi.id
-				WHERE film = ?
-				ORDER BY nome");
-		if ($stmt->execute([$film_id]))
-			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
-				$res[] = new Genere($r["id"], $r["nome"]);
-		return $res;
-	}
-
-	/** @inheritDoc */
-	public function get_generi_from_film(int $id): array {
+	public function get_generi_from_film(int $film_id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT genere FROM film_has_genere WHERE film = ?");
-		if ($stmt->execute([$id]))
+		if ($stmt->execute([$film_id]))
 			while ($r = $stmt->fetch(PDO::FETCH_ASSOC))
 				$res[] = intval($r["genere"]);
 		return $res;

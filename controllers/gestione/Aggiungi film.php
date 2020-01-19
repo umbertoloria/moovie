@@ -2,7 +2,11 @@
 
 include_once "../../php/core.php";
 
-allowOnlyGestore();
+$utente = Auth::getLoggedUser();
+if (is_null($utente) or !$utente->isGestore()) {
+	Testing::redirect("/");
+	return;
+}
 
 $titolo = trim(@$_POST["titolo"]);
 $durata = trim(@$_POST["durata"]);
@@ -43,9 +47,11 @@ else {
 
 		$film_dao = FilmDAOFactory::getFilmDAO();
 		$saved_film = $film_dao->create($tmp_film, $copertina_bin);
-		if ($saved_film)
-			header("Location: /film.php?id=" . $saved_film->getID());
-		else
+		if ($saved_film) {
+			Testing::setFeedback($saved_film->getID());
+			Testing::redirect("/film.php?id=" . $saved_film->getID());
+			return;
+		} else
 			$ff->bug();
 
 	}

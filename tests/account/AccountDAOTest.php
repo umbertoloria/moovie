@@ -25,8 +25,8 @@ class AccountDAOTest extends GenericTest {
 
 	public function existsPre() {
 		return [
-			'mario rossi' => ["mario@rossi.lol", false],
-			'michelantonio' => ["mama@non.mama", false],
+			"mario rossi" => ["mario@rossi.lol", false],
+			"michelantonio" => ["mama@non.mama", false],
 		];
 	}
 
@@ -40,11 +40,11 @@ class AccountDAOTest extends GenericTest {
 
 	public function create() {
 		return [
-			'mario rossi' => ["Mario", "Rossi", "mario@rossi.lol", "provaprova", true,
+			"mario rossi" => ["Mario", "Rossi", "mario@rossi.lol", "provaprova", true,
 				["Mario", "Rossi", "mario@rossi.lol", "provaprova", true]],
-			'michelantonio' => ["Michelantonio", "Panichella", "mama@non.mama", "molise", false,
+			"michelantonio" => ["Michelantonio", "Panichella", "mama@non.mama", "molise", false,
 				["Michelantonio", "Panichella", "mama@non.mama", "molise", false]],
-			'michelantonio (già esiste)' => ["Michelantonio", "Panichella", "mama@non.mama", "molise", true, []],
+			"michelantonio (già esiste)" => ["Michelantonio", "Panichella", "mama@non.mama", "molise", true, []],
 		];
 	}
 
@@ -61,8 +61,8 @@ class AccountDAOTest extends GenericTest {
 
 	public function existsPost() {
 		return [
-			'mario rossi' => ["mario@rossi.lol", true],
-			'michelantonio' => ["mama@non.mama", true],
+			"mario rossi" => ["mario@rossi.lol", true],
+			"michelantonio" => ["mama@non.mama", true],
 		];
 	}
 
@@ -76,9 +76,9 @@ class AccountDAOTest extends GenericTest {
 
 	public function get_from() {
 		return [
-			'mario rossi' => [1, ["Mario", "Rossi", "mario@rossi.lol", "provaprova", true]],
-			'michelantonio' => [2, ["Michelantonio", "Panichella", "mama@non.mama", "molise", false]],
-			'michelantonio (già esiste)' => [3, []],
+			"mario rossi" => [1, ["Mario", "Rossi", "mario@rossi.lol", "provaprova", true]],
+			"michelantonio" => [2, ["Michelantonio", "Panichella", "mama@non.mama", "molise", false]],
+			"michelantonio (già esiste)" => [3, []],
 		];
 	}
 
@@ -93,9 +93,9 @@ class AccountDAOTest extends GenericTest {
 
 	public function update() {
 		return [
-			'mario rossi' => [1, "ciaociao", ["Mario", "Rossi", "mario@rossi.lol", "ciaociao", true]],
-			'michelantonio' => [2, "molisana", ["Michelantonio", "Panichella", "mama@non.mama", "molisana", false]],
-			'non esiste' => [3, "molisana", []],
+			"mario rossi" => [1, "ciaociao", ["Mario", "Rossi", "mario@rossi.lol", "ciaociao", true]],
+			"michelantonio" => [2, "molisana", ["Michelantonio", "Panichella", "mama@non.mama", "molisana", false]],
+			"non esiste" => [3, "molisana", []],
 		];
 	}
 
@@ -114,9 +114,9 @@ class AccountDAOTest extends GenericTest {
 
 	public function authenticate() {
 		return [
-			'mario rossi' => ["mario@rossi.lol", "ciaociao", ["Mario", "Rossi", "mario@rossi.lol", "ciaociao", true]],
-			'michelantonio' => ["mama@non.mama", "molisana", ["Michelantonio", "Panichella", "mama@non.mama", "molisana", false]],
-			'michelantonio (vecchia password)' => ["mama@non.mama", "molise", []],
+			"mario rossi" => ["mario@rossi.lol", "ciaociao", ["Mario", "Rossi", "mario@rossi.lol", "ciaociao", true]],
+			"michelantonio" => ["mama@non.mama", "molisana", ["Michelantonio", "Panichella", "mama@non.mama", "molisana", false]],
+			"michelantonio (vecchia password)" => ["mama@non.mama", "molise", []],
 		];
 	}
 
@@ -131,9 +131,9 @@ class AccountDAOTest extends GenericTest {
 
 	public function delete() {
 		return [
-			'mario rossi' => [1, true],
-			'michelantonio' => [2, true],
-			'non esiste' => [3, false],
+			"mario rossi" => [1, true],
+			"michelantonio" => [2, true],
+			"non esiste" => [3, false],
 		];
 	}
 
