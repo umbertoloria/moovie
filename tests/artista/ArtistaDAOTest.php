@@ -30,7 +30,7 @@ class ArtistaDAOTest extends GenericTest {
 	}
 
 	/** @dataProvider create */
-	public function testCreateUser($nome, $nascita, $descrizione, $faccia, $oracle) {
+	public function testCreate($nome, $nascita, $descrizione, $faccia, $oracle) {
 		$result = self::$artista_dao->create(
 			new Artista(0, $nome, $nascita, $descrizione), file_get_contents($faccia)
 		);
@@ -79,7 +79,7 @@ class ArtistaDAOTest extends GenericTest {
 	}
 
 	/** @dataProvider update */
-	public function testUpdateUser($id, $nuovo_nome, $nuova_nascita, $nuova_descrizione, $oracle) {
+	public function testUpdate($id, $nuovo_nome, $nuova_nascita, $nuova_descrizione, $oracle) {
 		$artista = self::$artista_dao->get_from_id($id);
 		if (empty($oracle)) {
 			$this->assertNull($artista);
@@ -141,7 +141,7 @@ class ArtistaDAOTest extends GenericTest {
 	}
 
 	/** @dataProvider delete */
-	public function testDeleteUser($id, $oracle) {
+	public function testDelete($id, $oracle) {
 		$result = self::$artista_dao->delete($id);
 		$this->assertEquals($result, $oracle);
 		$this->assertNull(

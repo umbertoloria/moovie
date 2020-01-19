@@ -26,7 +26,6 @@ interface IArtistaDAO {
 	 */
 	public function uploadFaccia(int $id, $faccia_bin): bool;
 
-
 	/**
 	 * Ricerca gli artisti con campi NOME e DESCRIZIONE correlati al parametro FULLTEXT fornito.
 	 * @param string $fulltext è il parametro FULLTEXT da cui cercare similitudini

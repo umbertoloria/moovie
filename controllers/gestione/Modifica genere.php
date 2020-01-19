@@ -2,7 +2,11 @@
 
 include_once "../../php/core.php";
 
-allowOnlyGestore();
+$utente = Auth::getLoggedUser();
+if (is_null($utente) or !$utente->isGestore()) {
+	Testing::redirect("/");
+	return;
+}
 
 $genere_id = trim(@$_POST["genere_id"]);
 $nome = trim(@$_POST["nome"]);
@@ -22,15 +26,13 @@ elseif (!$genere = $genere_dao->get_from_id($genere_id))
 elseif ($genere_dao->exists($nome))
 	$ff->message("Questo nome è associato ad un genere esistente");
 else {
-
 	$genere->setNome($nome);
-
 	$saved_genere = $genere_dao->update($genere);
-	if ($saved_genere)
-		header("Location: /genere.php?id=" . $saved_genere->getID());
-	else
+	if ($saved_genere) {
+		Testing::redirect("/genere.php?id=" . $saved_genere->getID());
+		return;
+	} else
 		$ff->bug();
-
 }
 
 $ff->process();
