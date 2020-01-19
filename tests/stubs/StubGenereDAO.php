@@ -13,14 +13,14 @@ class StubGenereDAO implements IGenereDAO {
 		return new Genere($strict_id == null ? $genere->getID() : $strict_id, $genere->getNome());
 	}
 
-	public function get_from_id(int $id): ?Genere {
+	public function findByID(int $id): ?Genere {
 		if (isset($this->generi[$id]))
 			return $this->deepCopy($this->generi[$id]);
 		else
 			return null;
 	}
 
-	public function get_generi_from_film(int $film_id): array {
+	public function findGeneriByFilm(int $film_id): array {
 		$res = [];
 		if (isset($this->fhg[$film_id]))
 			foreach ($this->fhg[$film_id] as $gid)
@@ -28,7 +28,7 @@ class StubGenereDAO implements IGenereDAO {
 		return $res;
 	}
 
-	public function get_films_from_genere(int $id): array {
+	public function findFilmsByGenere(int $id): array {
 		$res = [];
 		foreach ($this->fhg as $fid => $gids)
 			if (in_array($id, $gids))
@@ -36,14 +36,14 @@ class StubGenereDAO implements IGenereDAO {
 		return $res;
 	}
 
-	public function get_all(): array {
+	public function getAll(): array {
 		$res = [];
 		foreach ($this->generi as $genere)
 			$res[] = $this->deepCopy($genere);
 		return $res;
 	}
 
-	public function set_only(int $film_id, array $assign_genere_ids): bool {
+	public function setOnly(int $film_id, array $assign_genere_ids): bool {
 		// non devono esserci doppioni
 		for ($i = 0; $i < count($assign_genere_ids) - 1; $i++)
 			for ($j = $i + 1; $j < count($assign_genere_ids); $j++)

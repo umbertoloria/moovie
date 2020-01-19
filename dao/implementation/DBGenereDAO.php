@@ -2,7 +2,7 @@
 
 class DBGenereDAO implements IGenereDAO {
 
-	public function get_from_id(int $id): ?Genere {
+	public function findByID(int $id): ?Genere {
 		$stmt = DB::stmt("SELECT id, nome FROM generi WHERE id = ?");
 		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Genere($r["id"], $r["nome"]);
@@ -11,7 +11,7 @@ class DBGenereDAO implements IGenereDAO {
 	}
 
 	/** @inheritDoc */
-	public function get_generi_from_film(int $film_id): array {
+	public function findGeneriByFilm(int $film_id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT genere FROM film_has_genere WHERE film = ?");
 		if ($stmt->execute([$film_id]))
@@ -21,7 +21,7 @@ class DBGenereDAO implements IGenereDAO {
 	}
 
 	/** @inheritDoc */
-	public function get_films_from_genere(int $id): array {
+	public function findFilmsByGenere(int $id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT film FROM film_has_genere WHERE genere = ?");
 		if ($stmt->execute([$id]))
@@ -31,7 +31,7 @@ class DBGenereDAO implements IGenereDAO {
 	}
 
 	/** @inheritDoc */
-	public function get_all(): array {
+	public function getAll(): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT id, nome FROM generi ORDER BY nome");
 		if ($stmt->execute([]))
@@ -40,7 +40,7 @@ class DBGenereDAO implements IGenereDAO {
 		return $res;
 	}
 
-	public function set_only(int $film_id, array $assign_genere_ids): bool {
+	public function setOnly(int $film_id, array $assign_genere_ids): bool {
 		DB::beginTransaction();
 		// Prelevo tutti i generi esistenti
 		$all_generes = [];
@@ -98,7 +98,7 @@ class DBGenereDAO implements IGenereDAO {
 	public function create(Genere $genere): ?Genere {
 		$stmt = DB::stmt("INSERT INTO generi SET nome = ?");
 		if ($stmt->execute([$genere->getNome()]))
-			return self::get_from_id(DB::lastInsertedID());
+			return self::findByID(DB::lastInsertedID());
 		else
 			return null;
 	}
@@ -106,7 +106,7 @@ class DBGenereDAO implements IGenereDAO {
 	public function update(Genere $genere): ?Genere {
 		$stmt = DB::stmt("UPDATE generi SET nome = ? WHERE id = ?");
 		if ($stmt->execute([$genere->getNome(), $genere->getID()]) and $stmt->rowCount() === 1)
-			return self::get_from_id($genere->getID());
+			return self::findByID($genere->getID());
 		else
 			return null;
 	}

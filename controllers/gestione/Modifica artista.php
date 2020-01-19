@@ -21,7 +21,7 @@ $artista_dao = ArtistaDAOFactory::getArtistaDAO();
 
 if (!$valid)
 	$ff->block();
-elseif (!$artista = $artista_dao->get_from_id($artista_id))
+elseif (!$artista = $artista_dao->findByID($artista_id))
 	$ff->block();
 else {
 

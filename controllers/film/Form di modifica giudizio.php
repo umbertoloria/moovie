@@ -10,7 +10,7 @@ $giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
 
 if (!$logged_user)
 	echo "Il client non ti ha bloccato?";
-elseif (!$giudizio = $giudizio_dao->get_from_utente_and_film($logged_user->getID(), $film_id))
+elseif (!$giudizio = $giudizio_dao->findByUtenteAndFilm($logged_user->getID(), $film_id))
 	echo "Il client non ti ha bloccato?";
 else {
 	unset($logged_user);

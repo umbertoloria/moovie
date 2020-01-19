@@ -32,10 +32,10 @@ $film_dao = FilmDAOFactory::getFilmDAO();
 $recitazione_dao = RecitazioneDAOFactory::getRecitazioneDAO();
 $regia_dao = RegiaDAOFactory::getRegiaDAO();
 
-if (!$film = $film_dao->get_from_id($film_id))
+if (!$film = $film_dao->findByID($film_id))
 	$ff->block();
-elseif ($recitazione_dao->set_only($film->getID(), $recitazioni_da_salvare)
-	and $regia_dao->set_only($film->getID(), $registi_da_salvare))
+elseif ($recitazione_dao->setOnly($film->getID(), $recitazioni_da_salvare)
+	and $regia_dao->setOnly($film->getID(), $registi_da_salvare))
 	header("Location: /film.php?id=" . $film->getID());
 else
 	$ff->bug();

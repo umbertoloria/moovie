@@ -33,7 +33,7 @@ interface IGiudizioDAO {
 	 * @param int[] $utenti_ids contiene gli ID degli utenti
 	 * @return Giudizio[] Restituisce un oggetto GIUDIZIO per ogni giudizio il cui UTENTE è presente in $utenti_ids.
 	 */
-	public function getAllOf(array $utenti_ids): array;
+	public function findByUtenti(array $utenti_ids): array;
 
 	/**
 	 * Preleva (se esiste) il giudizio espresso dall'utente fornito verso il film fornito.
@@ -42,7 +42,7 @@ interface IGiudizioDAO {
 	 * @return Giudizio|null La funzione restituisce un oggetto GIUDIZIO contenente le informazioni del giudizio con
 	 *                       UTENTE = $utente_id e FILM = $film_id salvato. Se non esiste, restituisce NULL.
 	 */
-	public function get_from_utente_and_film(int $utente_id, int $film_id): ?Giudizio;
+	public function findByUtenteAndFilm(int $utente_id, int $film_id): ?Giudizio;
 
 	/**
 	 * Indica se esiste un giudizio espresso da un utente fornito verso un film fornito.

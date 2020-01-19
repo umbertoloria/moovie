@@ -47,7 +47,7 @@ class ArtistaDAOTest extends GenericTest {
 
 	/** @dataProvider get_from */
 	public function testGetFromID($id, $oracle) {
-		$result = self::$artista_dao->get_from_id($id);
+		$result = self::$artista_dao->findByID($id);
 		if (empty($oracle))
 			$this->assertNull($result);
 		else
@@ -80,7 +80,7 @@ class ArtistaDAOTest extends GenericTest {
 
 	/** @dataProvider update */
 	public function testUpdate($id, $nuovo_nome, $nuova_nascita, $nuova_descrizione, $oracle) {
-		$artista = self::$artista_dao->get_from_id($id);
+		$artista = self::$artista_dao->findByID($id);
 		if (empty($oracle)) {
 			$this->assertNull($artista);
 		} else {
@@ -124,7 +124,7 @@ class ArtistaDAOTest extends GenericTest {
 	}
 
 	public function testGetAll() {
-		$artisti = self::$artista_dao->get_all();
+		$artisti = self::$artista_dao->getAll();
 		$this->assertTrue(count($artisti) == 1);
 		$this->assertMatches(
 			$artisti[0],
@@ -145,7 +145,7 @@ class ArtistaDAOTest extends GenericTest {
 		$result = self::$artista_dao->delete($id);
 		$this->assertEquals($result, $oracle);
 		$this->assertNull(
-			self::$artista_dao->get_from_id($id)
+			self::$artista_dao->findByID($id)
 		);
 	}
 

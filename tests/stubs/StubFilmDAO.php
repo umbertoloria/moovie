@@ -12,7 +12,7 @@ class StubFilmDAO implements IFilmDAO {
 			$film->getDurata(), $film->getAnno(), $film->getDescrizione());
 	}
 
-	public function get_from_id(int $id): ?Film {
+	public function findByID(int $id): ?Film {
 		if (isset($this->films[$id]))
 			return $this->deepCopy($this->films[$id]);
 		else
@@ -50,12 +50,12 @@ class StubFilmDAO implements IFilmDAO {
 		$res = [];
 		foreach ($map_scores as $score => $fids)
 			foreach ($fids as $fid)
-				$res[] = $this->get_from_id($fid);
+				$res[] = $this->findByID($fid);
 		return $res;
 	}
 
 	/** @inheritDoc */
-	public function suggest_me(int $utente_id): array {
+	public function suggestMe(int $utente_id): array {
 		return [];
 	}
 

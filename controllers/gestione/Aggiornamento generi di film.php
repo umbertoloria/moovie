@@ -15,9 +15,9 @@ $ff = new FormFeedbacker();
 $film_dao = FilmDAOFactory::getFilmDAO();
 $genere_dao = GenereDAOFactory::getGenereDAO();
 
-if (!$film = $film_dao->get_from_id($film_id))
+if (!$film = $film_dao->findByID($film_id))
 	$ff->block();
-elseif ($genere_dao->set_only($film->getID(), $final_genres))
+elseif ($genere_dao->setOnly($film->getID(), $final_genres))
 	header("Location: /film.php?id=" . $film->getID());
 else
 	$ff->bug();

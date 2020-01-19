@@ -17,7 +17,7 @@ if (!$logged_user or !$valid)
 else {
 
 	$giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
-	$tmp_giudizio = $giudizio_dao->get_from_utente_and_film($logged_user->getID(), $film_id);
+	$tmp_giudizio = $giudizio_dao->findByUtenteAndFilm($logged_user->getID(), $film_id);
 	if (is_null($tmp_giudizio))
 		$ff->block();
 	elseif ($tmp_giudizio->getVoto() == $voto) {

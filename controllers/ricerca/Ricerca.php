@@ -40,7 +40,7 @@ if ($kind === "film" or $kind === "tutti") {
 
 		$result = [
 			"id" => $film->getID(),
-			"generi" => $genere_dao->get_generi_from_film($film->getID()),
+			"generi" => $genere_dao->findGeneriByFilm($film->getID()),
 			"artisti" => []
 		];
 
@@ -48,12 +48,12 @@ if ($kind === "film" or $kind === "tutti") {
 			$generi_cache[$genere_id] = null;
 
 		$recitazione_dao = RecitazioneDAOFactory::getRecitazioneDAO();
-		foreach ($recitazione_dao->get_from_film($film->getID()) as $recitazione)
+		foreach ($recitazione_dao->findByFilm($film->getID()) as $recitazione)
 			$result["artisti"][] = $recitazione->getAttore();
 		unset($recitazione_dao);
 
 		$regia_dao = RegiaDAOFactory::getRegiaDAO();
-		foreach ($regia_dao->get_artisti_from_film($film->getID()) as $regista_id)
+		foreach ($regia_dao->findArtistiByFilm($film->getID()) as $regista_id)
 			// Magari questo regista è anche tra gli attori, quindi è già tra gli artisti
 			if (!in_array($regista_id, $result["artisti"]))
 				$result["artisti"][] = $regista_id;
@@ -82,12 +82,12 @@ if ($kind === "artisti" or $kind === "tutti") {
 		];
 
 		$recitazione_dao = RecitazioneDAOFactory::getRecitazioneDAO();
-		foreach ($recitazione_dao->get_from_artista($artista->getID()) as $recitazione)
+		foreach ($recitazione_dao->findByArtista($artista->getID()) as $recitazione)
 			$result["films"][] = $recitazione->getFilm();
 		unset($recitazione_dao);
 
 		$regia_dao = RegiaDAOFactory::getRegiaDAO();
-		foreach ($regia_dao->get_films_from_artista($artista->getID()) as $film_id)
+		foreach ($regia_dao->findFilmsByArtista($artista->getID()) as $film_id)
 			// Magari questo film è già presente tra i film, magari l'artista ha curato sia regia che recitazione
 			if (!in_array($film_id, $result["films"]))
 				$result["films"][] = $film_id;
@@ -113,19 +113,19 @@ unset($fulltext);
 $film_dao = FilmDAOFactory::getFilmDAO();
 foreach ($films_cache as $film_id => $value)
 	if (!$value)
-		$films_cache[$film_id] = $film_dao->get_from_id($film_id);
+		$films_cache[$film_id] = $film_dao->findByID($film_id);
 unset($film_dao);
 
 $genere_dao = GenereDAOFactory::getGenereDAO();
 foreach ($generi_cache as $genere_id => $value)
 	if (!$value)
-		$generi_cache[$genere_id] = $genere_dao->get_from_id($genere_id);
+		$generi_cache[$genere_id] = $genere_dao->findByID($genere_id);
 unset($genere_dao);
 
 $artista_dao = ArtistaDAOFactory::getArtistaDAO();
 foreach ($artisti_cache as $artista_id => $value)
 	if (!$value)
-		$artisti_cache[$artista_id] = $artista_dao->get_from_id($artista_id);
+		$artisti_cache[$artista_id] = $artista_dao->findByID($artista_id);
 unset($artista_dao);
 
 $_REQUEST["risultati"] = $risultati;

@@ -70,7 +70,7 @@ class CambioPasswordTest extends GenericTest {
 		$this->assertTrue(
 			Testing::assert_redirect($response, "/conferma_cambio_password.php")
 		);
-		$real_utente = self::$account_dao->get_from_id(self::$userid);
+		$real_utente = self::$account_dao->findByID(self::$userid);
 		$this->assertEquals($real_utente->getPassword(), sha1("Verdi09"));
 	}
 

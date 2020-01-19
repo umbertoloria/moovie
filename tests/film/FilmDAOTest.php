@@ -48,7 +48,7 @@ class FilmDAOTest extends GenericTest {
 
 	/** @dataProvider get_from */
 	public function testGetFromID($id, $oracle) {
-		$result = self::$film_dao->get_from_id($id);
+		$result = self::$film_dao->findByID($id);
 		if (empty($oracle))
 			$this->assertNull($result);
 		else
@@ -80,7 +80,7 @@ class FilmDAOTest extends GenericTest {
 
 	/** @dataProvider update */
 	public function testUpdate($id, $nuovo_nome, $nuova_durata, $nuovo_anno, $nuova_descrizione, $oracle) {
-		$film = self::$film_dao->get_from_id($id);
+		$film = self::$film_dao->findByID($id);
 		if (empty($oracle)) {
 			$this->assertNull($film);
 		} else {
@@ -136,7 +136,7 @@ class FilmDAOTest extends GenericTest {
 		$result = self::$film_dao->delete($id);
 		$this->assertEquals($result, $oracle);
 		$this->assertNull(
-			self::$film_dao->get_from_id($id)
+			self::$film_dao->findByID($id)
 		);
 	}
 

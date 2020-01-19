@@ -7,6 +7,6 @@ if (!$logged_user) {
 	die();
 }
 $film_dao = FilmDAOFactory::getFilmDAO();
-$_REQUEST["films"] = $film_dao->suggest_me($logged_user->getID());
+$_REQUEST["films"] = $film_dao->suggestMe($logged_user->getID());
 unset($film_dao);
 include "views/film/Pagina suggerimenti.php";

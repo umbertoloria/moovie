@@ -10,7 +10,7 @@ class GiudizioDAOTest extends GenericTest {
 	private static $giudizio_dao;
 
 	public static function setUpBeforeClass(): void {
-//		GiudizioDAOFactory::useStub();
+//		GiudizioDAOFactory::useStub(); // per testare il DB bisogna avere gli id 1, 2, 3 liberi ed auto_increment = 1
 		self::$giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
 	}
 
@@ -84,7 +84,7 @@ class GiudizioDAOTest extends GenericTest {
 
 	/** @dataProvider getAll */
 	public function testGetAll(array $utenti_ids, array $oracle) {
-		$giudizi = self::$giudizio_dao->getAllOf($utenti_ids);
+		$giudizi = self::$giudizio_dao->findByUtenti($utenti_ids);
 		$this->assertEquals(count($giudizi), count($oracle));
 		// ogni giudizio restituito deve combaciare con quelli presenti nell'oracolo
 		foreach ($giudizi as $giudizio) {
@@ -117,7 +117,7 @@ class GiudizioDAOTest extends GenericTest {
 
 	/** @dataProvider retrieve */
 	public function testRetrive(int $utente_id, int $film_id, array $oracle) {
-		$giudizio = self::$giudizio_dao->get_from_utente_and_film($utente_id, $film_id);
+		$giudizio = self::$giudizio_dao->findByUtenteAndFilm($utente_id, $film_id);
 		if (empty($oracle)) {
 			$this->assertNull($giudizio);
 		} else {
@@ -148,7 +148,7 @@ class GiudizioDAOTest extends GenericTest {
 		// - il giudizio è presente, e il voto era lo stesso: ok
 		// - il giudizio non è presente: ok
 		// - il giudizio è presente, ma non ha potuto aggiornarlo: failure
-		$giudizio = self::$giudizio_dao->get_from_utente_and_film($utente_id, $film_id);
+		$giudizio = self::$giudizio_dao->findByUtenteAndFilm($utente_id, $film_id);
 		if ($oracle[0]) {
 			$this->assertNotNull($giudizio);
 			$this->assertEquals($giudizio->getUtente(), $oracle[1]);
@@ -185,7 +185,7 @@ class GiudizioDAOTest extends GenericTest {
 		$this->assertEquals($result, $oracle);
 		// sia se ha potuto cancellarlo, sia se non ha potuto (magari non esisteva), adesso non dovrebbe esistere
 		$this->assertNull(
-			self::$giudizio_dao->get_from_utente_and_film($utente_id, $film_id)
+			self::$giudizio_dao->findByUtenteAndFilm($utente_id, $film_id)
 		);
 	}
 

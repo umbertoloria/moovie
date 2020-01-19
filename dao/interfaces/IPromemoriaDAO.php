@@ -7,7 +7,7 @@ interface IPromemoriaDAO {
 	 * @param int $utente_id è l'ID dell'utente
 	 * @return Promemoria[] Restituisce un oggetto PROMEMORIA per ogni promemoria con UTENTE = $utente_id.
 	 */
-	public function get_from_utente(int $utente_id): array;
+	public function findByUtente(int $utente_id): array;
 
 	/**
 	 * Indica se esiste un promemoria salvato da un utente fornito verso un film fornito.
@@ -42,6 +42,6 @@ interface IPromemoriaDAO {
 	 * @return Promemoria|null La funzione restituisce un oggetto PROMEMORIA contenente le informazioni del promemoria
 	 *                         con UTENTE = $utente_id e FILM = $film_id salvato. Se non esiste, restituisce NULL.
 	 */
-	public function get_from_utente_and_film(int $utente_id, int $film_id): ?Promemoria;
+	public function findByUtenteAndFilm(int $utente_id, int $film_id): ?Promemoria;
 
 }

@@ -11,7 +11,7 @@ $giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
 
 if (!$logged_user)
 	$ff->block();
-elseif (!$giudizio = $giudizio_dao->get_from_utente_and_film($logged_user->getID(), $film_id))
+elseif (!$giudizio = $giudizio_dao->findByUtenteAndFilm($logged_user->getID(), $film_id))
 	$ff->block();
 elseif ($giudizio_dao->delete($giudizio)) {
 	Testing::redirect("/giudizi.php");

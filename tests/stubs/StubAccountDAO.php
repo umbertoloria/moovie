@@ -27,7 +27,7 @@ class StubAccountDAO implements IAccountDAO {
 			return null;
 	}
 
-	public function get_from_id(int $id): ?Utente {
+	public function findByID(int $id): ?Utente {
 		if (isset($this->accounts[$id]))
 			return $this->deepCopy($this->accounts[$id]);
 		else
@@ -81,7 +81,7 @@ class StubAccountDAO implements IAccountDAO {
 		$res = [];
 		foreach ($map_scores as $score => $uids)
 			foreach ($uids as $uid)
-				$res[] = $this->get_from_id($uid);
+				$res[] = $this->findByID($uid);
 		return $res;
 	}
 

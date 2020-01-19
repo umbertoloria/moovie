@@ -2,7 +2,7 @@
 
 class DBFilmDAO implements IFilmDAO {
 
-	public function get_from_id(int $id): ?Film {
+	public function findByID(int $id): ?Film {
 		$stmt = DB::stmt(
 			"SELECT id, titolo, durata, anno, descrizione
 				FROM films
@@ -31,7 +31,7 @@ class DBFilmDAO implements IFilmDAO {
 	}
 
 	/** @inheritDoc */
-	public function suggest_me(int $utente_id): array {
+	public function suggestMe(int $utente_id): array {
 		$res = [];
 		$create_view_stmt = DB::stmt("
 create or replace view generi_pesi as
@@ -70,7 +70,7 @@ order by media desc
 limit 5");
 		if ($take_data_stmt->execute([":utente" => $utente_id]))
 			while ($r = $take_data_stmt->fetch(PDO::FETCH_ASSOC))
-				$res[] = $this->get_from_id($r["film"]);
+				$res[] = $this->findByID($r["film"]);
 		$drop_view_stmt = DB::stmt("drop view generi_pesi;");
 		$drop_view_stmt->execute();
 		return $res;
@@ -133,12 +133,12 @@ limit 5");
 			return null;
 		}
 		DB::commitTransaction();
-		return self::get_from_id($film_id);
+		return self::findByID($film_id);
 	}
 
 	public function update(Film $film): ?Film {
 
-		$film_reale = self::get_from_id($film->getID());
+		$film_reale = self::findByID($film->getID());
 		if (!$film_reale)
 			return null;
 
@@ -197,7 +197,7 @@ limit 5");
 		}
 
 		DB::commitTransaction();
-		return self::get_from_id($film->getID());
+		return self::findByID($film->getID());
 	}
 
 	public function delete(int $id): bool {

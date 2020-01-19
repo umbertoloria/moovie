@@ -8,7 +8,7 @@ interface IArtistaDAO {
 	 * @return Artista|null Se esiste un artista con ID = $id, allora la funzione restituisce un oggetto ARTISTA
 	 *                      contenente le sue informazioni. Altrimenti, la funzione restituisce NULL.
 	 */
-	public function get_from_id(int $id): ?Artista;
+	public function findByID(int $id): ?Artista;
 
 	/**
 	 * Preleva l'immagine dell'artista con l'ID fornito.
@@ -47,7 +47,7 @@ interface IArtistaDAO {
 	 * Preleva tutti gli artisti memorizzati.
 	 * @return Artista[] Restituisce un oggetto ARTISTA corrispondente ad ogni artista memorizzato.
 	 */
-	public function get_all(): array;
+	public function getAll(): array;
 
 	/**
 	 * Aggiorna le informazioni di un artista esistente.

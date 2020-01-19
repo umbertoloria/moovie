@@ -8,27 +8,27 @@ interface IGenereDAO {
 	 * @return Genere|null Se esiste un genere con ID = $id, allora la funzione restituisce un oggetto GENERE
 	 *                     contenente le sue informazioni. Altrimenti, la funzione restituisce NULL.
 	 */
-	public function get_from_id(int $id): ?Genere;
+	public function findByID(int $id): ?Genere;
 
 	/**
 	 * Restituisce gli ID dei generi associati ad un film fornito.
 	 * @param int $film_id è l'ID del film
 	 * @return int[] Restituisce gli ID di tutti i generi associati al film con ID = $id.
 	 */
-	public function get_generi_from_film(int $film_id): array;
+	public function findGeneriByFilm(int $film_id): array;
 
 	/**
 	 * Restituisce gli ID dei film del genere fornito.
 	 * @param int $id è l'ID del genere
 	 * @return int[] Restituisce gli ID di tutti i film associati al genere con ID = $id.
 	 */
-	public function get_films_from_genere(int $id): array;
+	public function findFilmsByGenere(int $id): array;
 
 	/**
 	 * Preleva tutti i generi memorizzati.
 	 * @return Genere[] La funzione restituisce un oggetto GENERE contenente le informazioni di ogni genere.
 	 */
-	public function get_all(): array;
+	public function getAll(): array;
 
 	/**
 	 * Associa ad un film solo i generi forniti, disassociandolo con tutti gli altri.
@@ -37,7 +37,7 @@ interface IGenereDAO {
 	 * @return bool Dopo l'esecuzione della funzione, il film con ID = $film_id sarà associato esclusivamente ai generi
 	 *                                 i cui ID sono presenti in $assign_genere_ids.
 	 */
-	public function set_only(int $film_id, array $assign_genere_ids): bool;
+	public function setOnly(int $film_id, array $assign_genere_ids): bool;
 
 	/**
 	 * Aggiunge un nuovo genere con il nome fornito.

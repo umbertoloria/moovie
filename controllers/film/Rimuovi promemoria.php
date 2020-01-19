@@ -8,7 +8,7 @@ $ff = new FormFeedbacker();
 $promemoria_dao = PromemoriaDAOFactory::getPromemoriaDAO();
 if (!$logged_user)
 	$ff->block();
-elseif (!$promemoria = $promemoria_dao->get_from_utente_and_film($logged_user->getID(), $film_id))
+elseif (!$promemoria = $promemoria_dao->findByUtenteAndFilm($logged_user->getID(), $film_id))
 	$ff->block();
 elseif ($promemoria_dao->delete($promemoria))
 	header("Location: /promemoria.php");

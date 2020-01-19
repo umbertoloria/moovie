@@ -15,7 +15,7 @@ if ($logged_user) {
 	unset($amicizia_dao);
 	unset($logged_user);
 	$giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
-	$giudizi = $giudizio_dao->getAllOf($friends);
+	$giudizi = $giudizio_dao->findByUtenti($friends);
 	unset($giudizio_dao);
 	$utenti = [];
 	$films = [];
@@ -23,9 +23,9 @@ if ($logged_user) {
 	$film_dao = FilmDAOFactory::getFilmDAO();
 	foreach ($giudizi as $giudizio) {
 		if (!isset($utenti[$giudizio->getUtente()]))
-			$utenti[$giudizio->getUtente()] = $account_dao->get_from_id($giudizio->getUtente());
+			$utenti[$giudizio->getUtente()] = $account_dao->findByID($giudizio->getUtente());
 		if (!isset($films[$giudizio->getFilm()]))
-			$films[$giudizio->getFilm()] = $film_dao->get_from_id($giudizio->getFilm());
+			$films[$giudizio->getFilm()] = $film_dao->findByID($giudizio->getFilm());
 	}
 	unset($film_dao);
 	unset($account_dao);

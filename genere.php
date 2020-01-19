@@ -2,19 +2,19 @@
 // Visualizza genere
 include "parts/initial_page.php";
 $genere_dao = GenereDAOFactory::getGenereDAO();
-$genere = $genere_dao->get_from_id(@$_GET["id"]);
+$genere = $genere_dao->findByID(@$_GET["id"]);
 if (!$genere) {
 	header("Location: /404.php");
 	die();
 }
 
 $films = [];
-$genere_films = $genere_dao->get_films_from_genere($genere->getID());
+$genere_films = $genere_dao->findFilmsByGenere($genere->getID());
 unset($genere_dao);
 $film_dao = FilmDAOFactory::getFilmDAO();
 foreach ($genere_films as $film_id)
 	if (!isset($films[$film_id]))
-		$films[$film_id] = $film_dao->get_from_id($film_id);
+		$films[$film_id] = $film_dao->findByID($film_id);
 unset($film_dao);
 $_REQUEST["genere"] = $genere;
 $_REQUEST["films"] = $films;

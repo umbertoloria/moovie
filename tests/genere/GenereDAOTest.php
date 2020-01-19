@@ -77,7 +77,7 @@ class GenereDAOTest extends GenericTest {
 
 	/** @dataProvider get_from_id */
 	public function testGetFromID($id, $oracle) {
-		$result = self::$genere_dao->get_from_id($id);
+		$result = self::$genere_dao->findByID($id);
 		if (empty($oracle)) {
 			$this->assertNull($result);
 		} else {
@@ -116,7 +116,7 @@ class GenereDAOTest extends GenericTest {
 
 	/** @dataProvider set_only */
 	public function testSetOnly($film_id, $assign_genere_ids, $oracle) {
-		$result = self::$genere_dao->set_only($film_id, $assign_genere_ids);
+		$result = self::$genere_dao->setOnly($film_id, $assign_genere_ids);
 		$this->assertEquals($result, $oracle);
 	}
 
@@ -131,7 +131,7 @@ class GenereDAOTest extends GenericTest {
 
 	/** @dataProvider get_generi_from_film */
 	public function testGetGeneriFromFilm($film_id, $oracle) {
-		$result = self::$genere_dao->get_generi_from_film($film_id);
+		$result = self::$genere_dao->findGeneriByFilm($film_id);
 		if (empty($oracle)) {
 			$this->assertTrue(empty($result));
 		} else {
@@ -152,7 +152,7 @@ class GenereDAOTest extends GenericTest {
 
 	/** @dataProvider get_films_from_genere */
 	public function testGetFilmsFromGenere($film_id, $oracle) {
-		$result = self::$genere_dao->get_films_from_genere($film_id);
+		$result = self::$genere_dao->findFilmsByGenere($film_id);
 		if (empty($oracle)) {
 			$this->assertTrue(empty($result));
 		} else {
@@ -163,7 +163,7 @@ class GenereDAOTest extends GenericTest {
 	}
 
 	public function testGetAll() {
-		$generi = self::$genere_dao->get_all();
+		$generi = self::$genere_dao->getAll();
 		$this->assertEquals(count($generi), 3);
 		foreach ($generi as $genere) {
 			if ($genere->getID() == 1)
@@ -190,7 +190,7 @@ class GenereDAOTest extends GenericTest {
 	public function testDelete($id, $oracle) {
 		$result = self::$genere_dao->delete($id);
 		$this->assertEquals($result, $oracle);
-		$this->assertNull(self::$genere_dao->get_from_id($id));
+		$this->assertNull(self::$genere_dao->findByID($id));
 	}
 
 }

@@ -23,7 +23,7 @@ $film_dao = FilmDAOFactory::getFilmDAO();
 
 if (!$valid)
 	$ff->block();
-elseif (!$film = $film_dao->get_from_id($film_id))
+elseif (!$film = $film_dao->findByID($film_id))
 	$ff->block();
 else {
 

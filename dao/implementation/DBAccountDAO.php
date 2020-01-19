@@ -15,12 +15,12 @@ class DBAccountDAO implements IAccountDAO {
 		$stmt->bindValue(4, $utente->getPassword());
 		$stmt->bindValue(5, $utente->isGestore(), PDO::PARAM_BOOL);
 		if ($stmt->execute())
-			return self::get_from_id(DB::lastInsertedID());
+			return self::findByID(DB::lastInsertedID());
 		else
 			return null;
 	}
 
-	public function get_from_id(int $id): ?Utente {
+	public function findByID(int $id): ?Utente {
 		$stmt = DB::stmt("SELECT id, nome, cognome, email, password, gestore FROM utenti WHERE id = ?");
 		if ($stmt->execute([$id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Utente($r["id"], $r["nome"], $r["cognome"], $r["email"],
@@ -30,14 +30,14 @@ class DBAccountDAO implements IAccountDAO {
 	}
 
 	public function update(Utente $utente): ?Utente {
-		$utente_reale = self::get_from_id($utente->getID());
+		$utente_reale = self::findByID($utente->getID());
 		if (!$utente_reale)
 			return null;
 		if ($utente_reale->getPassword() === $utente->getPassword())
 			return $utente;
 		$stmt = DB::stmt("UPDATE utenti SET password = ? WHERE id = ?");
 		if ($stmt->execute([$utente->getPassword(), $utente->getID()]) and $stmt->rowCount() === 1)
-			return self::get_from_id($utente->getID());
+			return self::findByID($utente->getID());
 		else
 			return null;
 	}

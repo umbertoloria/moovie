@@ -12,7 +12,7 @@ class StubArtistaDAO implements IArtistaDAO {
 			$artista->getNascita(), $artista->getDescrizione());
 	}
 
-	public function get_from_id(int $id): ?Artista {
+	public function findByID(int $id): ?Artista {
 		if (isset($this->artisti[$id]))
 			return $this->deepCopy($this->artisti[$id]);
 		else
@@ -65,7 +65,7 @@ class StubArtistaDAO implements IArtistaDAO {
 		$res = [];
 		foreach ($map_scores as $score => $aids)
 			foreach ($aids as $aid)
-				$res[] = $this->get_from_id($aid);
+				$res[] = $this->findByID($aid);
 		return $res;
 	}
 
@@ -77,7 +77,7 @@ class StubArtistaDAO implements IArtistaDAO {
 	}
 
 	/** @inheritDoc */
-	public function get_all(): array {
+	public function getAll(): array {
 		$res = [];
 		foreach ($this->artisti as $artista)
 			$res[] = $this->deepCopy($artista);

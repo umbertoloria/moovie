@@ -2,7 +2,7 @@
 
 class DBArtistaDAO implements IArtistaDAO {
 
-	public function get_from_id(int $id): ?Artista {
+	public function findByID(int $id): ?Artista {
 		$stmt = DB::stmt("
 				SELECT id, nome, nascita, descrizione
 				FROM artisti
@@ -67,11 +67,11 @@ class DBArtistaDAO implements IArtistaDAO {
 			return null;
 		}
 		DB::commitTransaction();
-		return self::get_from_id($artista_id);
+		return self::findByID($artista_id);
 	}
 
 	/** @inheritDoc */
-	public function get_all(): array {
+	public function getAll(): array {
 		$res = [];
 		$stmt = DB::stmt("
 				SELECT id, nome, nascita, descrizione
@@ -87,7 +87,7 @@ class DBArtistaDAO implements IArtistaDAO {
 
 	public function update(Artista $artista): ?Artista {
 
-		$artista_reale = self::get_from_id($artista->getID());
+		$artista_reale = self::findByID($artista->getID());
 		if (!$artista_reale)
 			return null;
 
@@ -134,7 +134,7 @@ class DBArtistaDAO implements IArtistaDAO {
 		}
 
 		DB::commitTransaction();
-		return self::get_from_id($artista->getID());
+		return self::findByID($artista->getID());
 	}
 
 	public function delete(int $id): bool {

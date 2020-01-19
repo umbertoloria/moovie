@@ -84,7 +84,7 @@ class AccountDAOTest extends GenericTest {
 
 	/** @dataProvider get_from */
 	public function testGetFromID($id, $oracle) {
-		$result = self::$account_dao->get_from_id($id);
+		$result = self::$account_dao->findByID($id);
 		if (empty($oracle))
 			$this->assertNull($result);
 		else
@@ -101,7 +101,7 @@ class AccountDAOTest extends GenericTest {
 
 	/** @dataProvider update */
 	public function testUpdate($id, $nuova_password, $oracle) {
-		$utente = self::$account_dao->get_from_id($id);
+		$utente = self::$account_dao->findByID($id);
 		if (empty($oracle)) {
 			$this->assertNull($utente);
 		} else {
@@ -142,7 +142,7 @@ class AccountDAOTest extends GenericTest {
 		$result = self::$account_dao->delete($id);
 		$this->assertEquals($result, $oracle);
 		$this->assertNull(
-			self::$account_dao->get_from_id($id)
+			self::$account_dao->findByID($id)
 		);
 	}
 

@@ -8,7 +8,7 @@ interface IFilmDAO {
 	 * @return Film|null Se esiste un film con ID = $id, allora la funzione restituisce un oggetto FILM contenente le
 	 *                   sue informazioni. Altrimenti, la funzione restituisce NULL.
 	 */
-	public function get_from_id(int $id): ?Film;
+	public function findByID(int $id): ?Film;
 
 	/**
 	 * Ricerca i film con campi NOME e DESCRIZIONE correlati al parametro FULLTEXT fornito.
@@ -23,7 +23,7 @@ interface IFilmDAO {
 	 * @return Film[] La funzione restituisce tutti i film in linea con le preferenze cinematografiche dell'utente con
 	 *                       ID = $utente_id e di cui quest'ultimo non ha mai salvato un giudizio.
 	 */
-	public function suggest_me(int $utente_id): array;
+	public function suggestMe(int $utente_id): array;
 
 	/**
 	 * Preleva l'immagine del film con l'ID fornito.

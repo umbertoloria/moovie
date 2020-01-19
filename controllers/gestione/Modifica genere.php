@@ -21,7 +21,7 @@ $genere_dao = GenereDAOFactory::getGenereDAO();
 
 if (!$valid)
 	$ff->block();
-elseif (!$genere = $genere_dao->get_from_id($genere_id))
+elseif (!$genere = $genere_dao->findByID($genere_id))
 	$ff->block();
 elseif ($genere_dao->exists($nome))
 	$ff->message("Questo nome è associato ad un genere esistente");

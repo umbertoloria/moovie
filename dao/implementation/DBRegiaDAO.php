@@ -3,7 +3,7 @@
 class DBRegiaDAO implements IRegiaDAO {
 
 	/** @inheritDoc */
-	public static function get_films_from_artista(int $id): array {
+	public static function findFilmsByArtista(int $id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT film FROM regie WHERE regista = ?");
 		if ($stmt->execute([$id]))
@@ -13,7 +13,7 @@ class DBRegiaDAO implements IRegiaDAO {
 	}
 
 	/** @inheritDoc */
-	public static function get_artisti_from_film(int $id): array {
+	public static function findArtistiByFilm(int $id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT regista FROM regie WHERE film = ?");
 		if ($stmt->execute([$id]))
@@ -22,7 +22,7 @@ class DBRegiaDAO implements IRegiaDAO {
 		return $res;
 	}
 
-	public static function set_only(int $film_id, array $registi_id): bool {
+	public static function setOnly(int $film_id, array $registi_id): bool {
 		// Non devono esserci doppioni
 		$doppioni_cache = [];
 		foreach ($registi_id as $regista_id) {

@@ -3,7 +3,7 @@
 class DBRecitazioneDAO implements IRecitazioneDAO {
 
 	/** @inheritDoc */
-	public function get_from_artista(int $artista_id): array {
+	public function findByArtista(int $artista_id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT film, attore, personaggio FROM recitazioni WHERE attore = ?");
 		if ($stmt->execute([$artista_id]))
@@ -13,7 +13,7 @@ class DBRecitazioneDAO implements IRecitazioneDAO {
 	}
 
 	/** @inheritDoc */
-	public function get_from_film(int $film_id): array {
+	public function findByFilm(int $film_id): array {
 		$res = [];
 		$stmt = DB::stmt("SELECT film, attore, personaggio FROM recitazioni WHERE film = ?");
 		if ($stmt->execute([$film_id]))
@@ -23,7 +23,7 @@ class DBRecitazioneDAO implements IRecitazioneDAO {
 	}
 
 	/** @inheritDoc */
-	public function set_only(int $film_id, array $recitazioni): bool {
+	public function setOnly(int $film_id, array $recitazioni): bool {
 		// Le recitazioni devono avere sempre lo stesso <film> ma mai lo stesso <attore>
 		$unique_cache = [];
 		foreach ($recitazioni as $recitazione) {

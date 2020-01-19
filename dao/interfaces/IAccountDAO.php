@@ -28,7 +28,7 @@ interface IAccountDAO {
 	 *                    informazioni.
 	 *                    Altrimenti, la funzione restituisce NULL.
 	 */
-	public function get_from_id(int $id): ?Utente;
+	public function findByID(int $id): ?Utente;
 
 	/**
 	 * Aggiorna le informazioni di un utente esistente.
@@ -40,6 +40,13 @@ interface IAccountDAO {
 	 */
 	public function update(Utente $utente): ?Utente;
 
+	/**
+	 * Restituisce le informazioni dell'utente con EMAIL e PASSWORD fornite.
+	 * @param string $email    è l'EMAIL dell'utente da prelevare
+	 * @param string $password è l'PASSWORD dell'utente da prelevare
+	 * @return Utente|null Se esiste l'utente con EMAIL = $email e PASSWORD = $password, la funzione restituisce un
+	 *                         oggetto UTENTE contenente le sue informazioni. Altrimenti NULL.
+	 */
 	public function authenticate(string $email, string $password): ?Utente;
 
 	/**

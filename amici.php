@@ -31,7 +31,7 @@ unset($logged_user);
 $account_dao = AccountDAOFactory::getAccountDAO();
 foreach ($utenti as $key => $utente)
 	if ($utente == null)
-		$utenti[$key] = $account_dao->get_from_id($key);
+		$utenti[$key] = $account_dao->findByID($key);
 unset($account_dao);
 $_REQUEST["utenti"] = $utenti;
 unset($utenti);

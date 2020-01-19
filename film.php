@@ -2,7 +2,7 @@
 // Visualizza film
 include "parts/initial_page.php";
 $film_dao = FilmDAOFactory::getFilmDAO();
-$film = $film_dao->get_from_id(@$_GET["id"]);
+$film = $film_dao->findByID(@$_GET["id"]);
 unset($film_dao);
 if (!$film) {
 	header("Location: /404.php");
@@ -10,10 +10,10 @@ if (!$film) {
 }
 
 $recitazione_dao = RecitazioneDAOFactory::getRecitazioneDAO();
-$recitazioni = $recitazione_dao->get_from_film($film->getID());
+$recitazioni = $recitazione_dao->findByFilm($film->getID());
 unset($recitazione_dao);
 $regia_dao = RegiaDAOFactory::getRegiaDAO();
-$registi = $regia_dao->get_artisti_from_film($film->getID());
+$registi = $regia_dao->findArtistiByFilm($film->getID());
 unset($regia_dao);
 $_REQUEST["recitazioni"] = $recitazioni;
 $_REQUEST["registi"] = $registi;
@@ -25,7 +25,7 @@ foreach ($registi as $regista)
 	$artisti[$regista] = null;
 $artista_dao = ArtistaDAOFactory::getArtistaDAO();
 foreach ($artisti as $artista_id => $_)
-	$artisti[$artista_id] = $artista_dao->get_from_id($artista_id);
+	$artisti[$artista_id] = $artista_dao->findByID($artista_id);
 unset($artista_dao);
 $_REQUEST["artisti"] = $artisti;
 unset($recitazioni);
@@ -34,8 +34,8 @@ unset($artisti);
 
 $genere_dao = GenereDAOFactory::getGenereDAO();
 $generi = [];
-foreach ($genere_dao->get_generi_from_film($film->getID()) as $genere_id)
-	$generi[] = $genere_dao->get_from_id($genere_id);
+foreach ($genere_dao->findGeneriByFilm($film->getID()) as $genere_id)
+	$generi[] = $genere_dao->findByID($genere_id);
 unset($genere_id);
 $_REQUEST["generi"] = $generi;
 unset($generi);

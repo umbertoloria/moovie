@@ -45,7 +45,7 @@ class StubGiudizioDAO implements IGiudizioDAO {
 	}
 
 	/** @inheritDoc */
-	public function getAllOf(array $utenti_ids): array {
+	public function findByUtenti(array $utenti_ids): array {
 		$res = [];
 		foreach ($this->giudizi as $giud)
 			if (in_array($giud->getUtente(), $utenti_ids))
@@ -53,7 +53,7 @@ class StubGiudizioDAO implements IGiudizioDAO {
 		return $res;
 	}
 
-	public function get_from_utente_and_film(int $utente_id, int $film_id): ?Giudizio {
+	public function findByUtenteAndFilm(int $utente_id, int $film_id): ?Giudizio {
 		foreach ($this->giudizi as $giud)
 			if ($giud->getUtente() == $utente_id and $giud->getFilm() == $film_id)
 				return $this->deepCopy($giud, false);

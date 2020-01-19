@@ -80,7 +80,7 @@ class AggiungereGenereTest extends GenericTest {
 			Testing::assert_redirect_starts($response, "/genere.php?id=")
 		);
 		$id_genere = Testing::getFeedback();
-		$genere = self::$genere_dao->get_from_id($id_genere);
+		$genere = self::$genere_dao->findByID($id_genere);
 		$this->assertEquals($genere->getNome(), "Inesistente");
 		$this->assertTrue(self::$genere_dao->delete($id_genere));
 	}

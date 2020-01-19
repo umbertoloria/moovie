@@ -7,7 +7,7 @@ if (!$logged_user) {
 	die();
 }
 $account_dao = AccountDAOFactory::getAccountDAO();
-$utente = $account_dao->get_from_id(@$_GET["id"]);
+$utente = $account_dao->findByID(@$_GET["id"]);
 unset($account_dao);
 if (!$utente) {
 	header("Location: /404.php");
@@ -43,14 +43,14 @@ $logged_user = Auth::getLoggedUser();
 $amicizia_dao = AmiciziaDAOFactory::getAmiciziaDAO();
 if ($logged_user->getID() === $utente->getID() or $amicizia_dao->existsFriendshipBetween($logged_user->getID(), $utente->getID())) {
 	$giudizio_dao = GiudizioDAOFactory::getGiudizioDAO();
-	$giudizi = $giudizio_dao->getAllOf([$utente->getID()]);
+	$giudizi = $giudizio_dao->findByUtenti([$utente->getID()]);
 	unset($giudizio_dao);
 	unset($utente);
 	$films = [];
 	$film_dao = FilmDAOFactory::getFilmDAO();
 	foreach ($giudizi as $giudizio)
 		if (!isset($films[$giudizio->getFilm()]))
-			$films[$giudizio->getFilm()] = $film_dao->get_from_id($giudizio->getFilm());
+			$films[$giudizio->getFilm()] = $film_dao->findByID($giudizio->getFilm());
 	unset($film_dao);
 	$_REQUEST["giudizi"] = $giudizi;
 	$_REQUEST["films"] = $films;

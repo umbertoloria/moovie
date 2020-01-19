@@ -19,7 +19,7 @@ class DBGiudizioDAO implements IGiudizioDAO {
 	}
 
 	/** @inheritDoc */
-	public function getAllOf(array $utenti_ids): array {
+	public function findByUtenti(array $utenti_ids): array {
 		$where_clause = "";
 		$parameters = [];
 		if (count($utenti_ids) > 0) {
@@ -39,7 +39,7 @@ class DBGiudizioDAO implements IGiudizioDAO {
 		return $res;
 	}
 
-	public function get_from_utente_and_film(int $utente_id, int $film_id): ?Giudizio {
+	public function findByUtenteAndFilm(int $utente_id, int $film_id): ?Giudizio {
 		$stmt = DB::stmt("SELECT utente, film, voto, timestamp FROM giudizi WHERE utente = ? AND film = ?");
 		if ($stmt->execute([$utente_id, $film_id]) and $r = $stmt->fetch(PDO::FETCH_ASSOC))
 			return new Giudizio($r["utente"], $r["film"], $r["voto"], $r["timestamp"]);
