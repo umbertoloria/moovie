@@ -26,7 +26,14 @@ In questo documento sono riportati tutti i log dei test che sono stati eseguiti 
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/GiudizioDAOTest.png)
 
 ## Test di Unità Controller
-### Ricerca
+### RicercaFilmTest
+
+
+### RicercaArtistaTest
+![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RicercaArtistaTest.png)
+
+### RicercaUtenteTest
+![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RicercaUtenteTest.png)
 
 ### RegistrazioneTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RegistrazioneTest.png)
@@ -74,7 +81,14 @@ In questo documento sono riportati tutti i log dei test che sono stati eseguiti 
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RimuovereGenereTest.png)
 
 ## Test di Integrazione
-### Ricerca
+### RicercaFilmTest
+
+
+### RicercaArtistaTest
+![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RicercaArtistaTest.png)
+
+### RicercaUtenteTest
+![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RicercaUtenteTest.png)
 
 ### RegistrazioneTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RegistrazioneTest.png)
