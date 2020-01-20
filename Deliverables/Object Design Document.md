@@ -181,6 +181,77 @@ Utente authenticate(string email, string password) | Restituisce le informazioni
 Utente[] search(string fulltext)                   | Ricerca gli utenti con campi NOME e COGNOME correlati al parametro FULLTEXT fornito.
 bool delete(int id)                                | Rimuove l'utente con l'ID fornito.
 
+
+    context IAccountDAO::exists(email:string) pre:
+        email <> null
+    context IAccountDAO::exists(email:string) post:
+        /*
+            result = false -> esiste un account con la email fornita
+            result = true -> non esiste un account con la email fornita
+        */
+
+
+    context IAccountDAO::create(utente:Utente) pre:
+        utente <> null and
+        utente.nome <> null and
+        utente.cognome <> null and
+        utente.email <> null and
+        self.exists(utente.email) == false and
+        utente.password <> null
+    context IAccountDAO::create(utente:Utente) post:
+        result <> null and
+        self.findByID(result.id) <> null and
+        self.findByID(result.id).nome = utente.nome and
+        self.findByID(result.id).cognome = utente.cognome and
+        self.findByID(result.id).email = utente.email and
+        self.findByID(result.id).password = utente.password and
+        self.findByID(result.id).isGestore = utente.isGestore
+
+
+    context IAccountDAO::findByID(id:int) pre:
+        id > 0
+    context IAccountDAO::findByID(id:int) post:
+        /*
+            result <> null -> esiste un account con l'id fornito
+            result = null -> altrimenti
+        */
+
+
+    context IAccountDAO::update(utente:Utente) pre:
+        utente <> null and
+        self.findByID(utente.id) <> null and
+        utente.password <> null
+    context IAccountDAO::update(utente:Utente) post:
+        result <> null and
+        self.findByID(result.id) <> null and
+        self.findByID(result.id).password = utente.password
+
+
+    context IAccountDAO::update(utente:Utente) pre:
+        utente <> null and
+        self.findByID(utente.id) <> null and
+        utente.password <> null
+    context IAccountDAO::update(utente:Utente) post:
+        result <> null and
+        self.findByID(result.id) <> null and
+        self.findByID(result.id).password = utente.password
+
+
+    context IAccountDAO::authenticate(email:string, password:string) pre:
+        email <> null and
+        password <> null and
+        self.exists(email) <> null
+    context IAccountDAO::authenticate(email:string, password:string) post:
+        result <> null and
+        self.findByID(result.id) = result
+
+
+    context IAccountDAO::delete(id:int) pre:
+        self.findByID(id) <> null
+    context IAccountDAO::delete(id:int) post:
+        result = true and
+        self.findByID(id) = null
+
 #### IAmiciziaDAO
 
 Metodo                                                           | Descrizione
