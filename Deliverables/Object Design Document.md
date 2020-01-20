@@ -183,38 +183,31 @@ bool delete(int id)                                | Rimuove l'utente con l'ID f
 
 
     context IAccountDAO::exists(email:string) pre:
-        email <> null
+        esiste nel DB utente u : utente.email = email
     context IAccountDAO::exists(email:string) post:
-        /*
-            result = false -> esiste un account con la email fornita
-            result = true -> non esiste un account con la email fornita
-        */
-
+        result = u
 
     context IAccountDAO::create(utente:Utente) pre:
         utente <> null and
         utente.nome <> null and
         utente.cognome <> null and
         utente.email <> null and
-        self.exists(utente.email) == false and
+        not self.exists(utente.email) and
         utente.password <> null
     context IAccountDAO::create(utente:Utente) post:
         result <> null and
-        self.findByID(result.id) <> null and
-        self.findByID(result.id).nome = utente.nome and
-        self.findByID(result.id).cognome = utente.cognome and
-        self.findByID(result.id).email = utente.email and
-        self.findByID(result.id).password = utente.password and
-        self.findByID(result.id).isGestore = utente.isGestore
+        result.nome = utente.nome and
+        result.cognome = utente.cognome and
+        result.email = utente.email and
+        result.password = utente.password and
+        result.isGestore = utente.isGestore and
+        self.findByID(result.id) = result
 
 
     context IAccountDAO::findByID(id:int) pre:
-        id > 0
+        esiste nel DB utente u : utente.id = id
     context IAccountDAO::findByID(id:int) post:
-        /*
-            result <> null -> esiste un account con l'id fornito
-            result = null -> altrimenti
-        */
+        result = u
 
 
     context IAccountDAO::update(utente:Utente) pre:
@@ -222,25 +215,25 @@ bool delete(int id)                                | Rimuove l'utente con l'ID f
         self.findByID(utente.id) <> null and
         utente.password <> null
     context IAccountDAO::update(utente:Utente) post:
-        result <> null and
-        self.findByID(result.id) <> null and
-        self.findByID(result.id).password = utente.password
+        result <> utente and self.findByID(result.id) = result
 
 
     context IAccountDAO::authenticate(email:string, password:string) pre:
-        email <> null and
-        password <> null and
-        self.exists(email) <> null
+        esiste nel DB utente u : utente.email = email and utente.password = password
     context IAccountDAO::authenticate(email:string, password:string) post:
-        result <> null and
-        self.findByID(result.id) = result
+        result = u
+
+
+    context IAccountDAO::search(fulltext:string) pre:
+        fulltext <> null
+    context IAccountDAO::search(fulltext:string) post:
+        result = tutti gli utenti nel database che hanno similitudini col parametro fulltext
 
 
     context IAccountDAO::delete(id:int) pre:
         self.findByID(id) <> null
     context IAccountDAO::delete(id:int) post:
-        result = true and
-        self.findByID(id) = null
+        result = true and self.findByID(id) = null
 
 
 #### IAmiciziaDAO
@@ -334,6 +327,66 @@ Artista[] getAll()                              | Preleva tutti gli artisti memo
 Artista update(Artista artista)                 | Aggiorna le informazioni di un artista esistente.
 bool delete(int id)                             | Rimuove l'artista con l'ID fornito.
 
+
+    context IArtistaDAO::findByID(id:int) pre:
+        esiste nel DB artista a : artista.id = id
+    context IArtistaDAO::findByID(id:int) post:
+        result = a
+
+
+    context IArtistaDAO::downloadFaccia(id:int) pre:
+        self.findByID(id) <> null
+    context IArtistaDAO::downloadFaccia(id:int) post:
+        result <> null
+
+
+    context IArtistaDAO::uploadFaccia(id:int, faccia_bin:bin) pre:
+        faccia_bin <> null and self.findByID(id) <> null
+    context IArtistaDAO::uploadFaccia(id:int, faccia_bin:bin) post:
+        result = true and self.downloadFaccia(id) = faccia_bin
+
+
+    context IArtistaDAO::search(fulltext:string) pre:
+        fulltext <> null
+    context IArtistaDAO::search(fulltext:string) post:
+        result = tutti gli artisti nel database che hanno similitudini col parametro fulltext
+
+
+    context IArtistaDAO::create(artista:Artista, faccia_bin:bin) pre:
+        artista <> null and
+        artista.nome <> null and
+        artista.nascita <> null and
+        artista.descrizione <> null and
+        faccia_bin <> null and
+    context IArtistaDAO::create(artista:Artista, faccia_bin:bin) post:
+        result <> null and
+        result.nome = artista.nome and
+        result.nascita = artista.nascita and
+        result.descrizione = artista.descrizione and
+        self.findByID(result.id) = result and
+        self.downloadFaccia(result.id) = faccia_bin
+
+
+    context IArtistaDAO::getAll() post:
+        result = tutti gli artisti nel DB
+
+
+    context IArtistaDAO::update(artista:Artista) pre:
+        artista <> null and
+        self.findByID(artista.id) <> null and
+        artista.nome <> null and
+        artista.nascita <> null and
+        artista.descrizione <> null
+    context IArtistaDAO::update(artista:Artista) post:
+        result = artista and self.findByID(result.id) = result
+
+
+    context IArtistaDAO::delete(id:int) pre:
+        self.findByID(id) <> null
+    context IArtistaDAO::delete(id:int) post:
+        result = true and self.findByID(id) = null
+
+
 #### IFilmDAO
 
 Metodo                                          | Descrizione
@@ -347,6 +400,75 @@ Film[] getClassifica()                          | Preleva i film meglio giudicat
 Film create(Film film, bin copertina_bin)       | Aggiunge un nuovo film con le informazioni fornite.
 Film update(Film film)                          | Aggiorna le informazioni di un film esistente.
 bool delete(int id)                             | Rimuove il film con l'ID fornito.
+
+
+    context IFilmDAO::findByID(id:int) pre:
+        esiste nel DB film f : film.id = id
+    context IFilmDAO::findByID(id:int) post:
+        result = f
+
+
+    context IFilmDAO::search(fulltext:string) pre:
+        fulltext <> null
+    context IFilmDAO::search(fulltext:string) post:
+        result = tutti i film nel database che hanno similitudini col parametro fulltext
+
+
+    context IFilmDAO::suggestMe(utente_id:int) pre:
+        utente_id > 0
+    context IFilmDAO::suggestMe(utente_id:int) post:
+        result = 5 film in linea con le preferenze cinematografiche dell'utente con id = utente_id
+
+
+    context IFilmDAO::downloadCopertina(id:int) pre:
+        self.findByID(id) <> null
+    context IFilmDAO::downloadCopertina(id:int) post:
+        return <> null
+
+
+    context IFilmDAO::uploadCopertina(id:int, copertina_bin:bin) pre:
+        copertina_bin <> null and self.findByID(id) <> null
+    context IFilmDAO::uploadCopertina(id:int, copertina_bin:bin) post:
+        result = true and self.downloadCopertina(id) = copertina_bin
+
+
+    context IFilmDAO::getClassifica() post:
+        result = i 50 film meglio votati dalla community degli utenti
+
+
+    context IFilmDAO::create(film:Film, copertina_bin:bin) pre:
+        film <> null and
+        film.titolo <> null and
+        film.durata > 0 and
+        film.anno >= 1900 and
+        film.descrizione <> null and
+        copertina_bin <> null
+    context IFilmDAO::create(film:Film, copertina_bin:bin) post:
+        result <> null and
+        result.titolo = film.titolo and
+        result.durata = film.durata and
+        result.anno = film.anno and
+        result.descrizione = film.descrizione and
+        self.findByID(result.id) = result and
+        self.downloadCopertina(result.id) = copertina_bin
+
+
+    context IFilmDAO::update(film:Film) pre:
+        film <> null and
+        self.findByID(film.id) <> null and
+        film.titolo <> null and
+        film.durata > 0 and
+        film.anno >= 1900 and
+        film.descrizione <> null
+    context IFilmDAO::update(film:Film) post:
+        result = film and self.findByID(result.id) = result
+
+
+    context IFilmDAO::delete(id:int) pre:
+        self.findByID(id) <> null
+    context IFilmDAO::delete(id:int) post:
+        result = true and self.findByID(id) = null
+
 
 #### IGenereDAO
 
