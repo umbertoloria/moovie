@@ -2,8 +2,9 @@
 | Versione |    Data    | Descrizione                    | Autori        |
 |----------|------------|--------------------------------|---------------|
 | 0.1      | 15/1/2020  | Prima stesura                  | Team          |
-| 0.2      | 20/1/2020  | Descrizioni packages           | Umberto Loria |
+| 0.2      | 19/1/2020  | Descrizioni packages           | Umberto Loria |
 | 0.3      | 20/1/2020  | Diagrammi dei packages         | Umberto Loria |
+| 0.4      | 21/1/2020  | Introduzione OCL               | Umberto Loria |
 
 # Indice
 1. [Introduzione](#introduzione)
