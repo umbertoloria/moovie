@@ -585,14 +585,10 @@ bool exists(int utente_id, int film_id)                  | Indica se esiste un g
         result = (tutti i giudizi g nel DB : utenti_ids.include(g.utente))
 
 
-    context IGiudizioDAO::findByUtenteAndFilm(utente_id:int, film_id:int) pre:
-        utente_id > 0 and film_id > 0
     context IGiudizioDAO::findByUtenteAndFilm(utente_id:int, film_id:int) post:
         result = (giudizio g nel DB : g.utente = utente_id and g.film = film.id)
 
 
-    context IGiudizioDAO::exists(utente_id:int, film_id:int) pre:
-        utente_id > 0 and film_id > 0
     context IGiudizioDAO::exists(utente_id:int, film_id:int) post:
         result = (self.findByUtenteAndFilm(utente_id, film_id) <> null)
 
@@ -606,6 +602,31 @@ bool exists(int utente_id, int film_id)                    | Indica se esiste un
 bool create(Promemoria promemoria)                         | Aggiunge il promemoria fornito.
 bool delete(Promemoria promemoria)                         | Rimuove un promemoria fornito.
 Promemoria findByUtenteAndFilm(int utente_id, int film_id) | Preleva (se esiste) il promemoria salvato dall'utente fornito verso il film fornito.
+
+
+    context IPromemoriaDAO::findByUtente(utente_id:int) post:
+        result = (tutti i promemoria p nel DB : p.utente = utente_id)
+
+
+    context IPromemoriaDAO::exists(utente_id:int, film_id:int) post:
+        result = (self.findByUtenteAndFilm(utente_id, film_id) <> null)
+
+
+    context IPromemoriaDAO::create(promemoria:Promemoria) pre:
+        promemoria <> null and not self.exists(promemoria.utente, promemoria.film)
+    context IPromemoriaDAO::create(promemoria:Promemoria) post:
+        result = promemoria and self.findByUtenteAndFilm(result.utente, result.film) = result
+
+
+    context IPromemoriaDAO::delete(promemoria:Promemoria) pre:
+        promemoria <> null and self.exists(promemoria.utente, promemoria.film)
+    context IPromemoriaDAO::delete(promemoria:Promemoria) post:
+        result = true and not self.exists(promemoria.utente, promemoria.film)
+
+
+    context IPromemoriaDAO::findByUtenteAndFilm(utente_id:int, film_id:int) post:
+        result = (promemoria p nel DB : p.utente = utente_id and p.film = film.id)
+
 
 #### IRecitazioneDAO
 
