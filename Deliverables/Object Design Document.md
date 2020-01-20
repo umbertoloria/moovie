@@ -161,6 +161,8 @@ Queste interfacce sono:
 
 #### IAccountDAO
 
+![](ODD%20diagrams/Class%20diagrams/AccountDAO.jpg)
+
 Metodo                                             | Descrizione
 ---------------------------------------------------|------------
 bool exists(string email)                          | Indica se esiste un utente associato l'indirizzo e-mail fornito.
@@ -172,6 +174,8 @@ Utente[] search(string fulltext)                   | Ricerca gli utenti con camp
 bool delete(int id)                                | Rimuove l'utente con l'ID fornito.
 
 #### IAmiciziaDAO
+
+![](ODD%20diagrams/Class%20diagrams/AmiciziaDAO.jpg)
 
 Metodo                                                           | Descrizione
 -----------------------------------------------------------------|------------
@@ -188,6 +192,8 @@ bool removeFriendshipBetween(int user1, int user2)             | Rimuove un'amic
 
 #### IArtistaDAO
 
+![](ODD%20diagrams/Class%20diagrams/ArtistaDAO.jpg)
+
 Metodo                                          | Descrizione
 ------------------------------------------------|------------
 Artista findByID(int id)                        | Restituisce le informazioni dell'artista con l'ID fornito.
@@ -200,6 +206,8 @@ Artista update(Artista artista)                 | Aggiorna le informazioni di un
 bool delete(int id)                             | Rimuove l'artista con l'ID fornito.
 
 #### IFilmDAO
+
+![](ODD%20diagrams/Class%20diagrams/FilmDAO.jpg)
 
 Metodo                                          | Descrizione
 ------------------------------------------------|------------
@@ -215,6 +223,8 @@ bool delete(int id)                             | Rimuove il film con l'ID forni
 
 #### IGenereDAO
 
+![](ODD%20diagrams/Class%20diagrams/GenereDAO.jpg)
+
 Metodo                                             | Descrizione
 ---------------------------------------------------|------------
 Genere findByID(int id)                            | Restituisce le informazioni del genere con l'ID fornito.
@@ -229,6 +239,8 @@ bool exists(string nome)                           | Indica se esiste un genere 
 
 #### IGiudizioDAO
 
+![](ODD%20diagrams/Class%20diagrams/GiudizioDAO.jpg)
+
 Metodo                                                   | Descrizione
 ---------------------------------------------------------|------------
 bool create(Giudizio giudizio)                           | Aggiunge il giudizio fornito.
@@ -240,6 +252,8 @@ bool exists(int utente_id, int film_id)                  | Indica se esiste un g
 
 #### IPromemoriaDAO
 
+![](ODD%20diagrams/Class%20diagrams/PromemoriaDAO.jpg)
+
 Metodo                                                     | Descrizione
 -----------------------------------------------------------|------------
 Promemoria[] findByUtente(int utente_id)                   | Preleva tutti i promemoria salvati da un utente fornito.
@@ -250,6 +264,8 @@ Promemoria findByUtenteAndFilm(int utente_id, int film_id) | Preleva (se esiste)
 
 #### IRecitazioneDAO
 
+![](ODD%20diagrams/Class%20diagrams/RecitazioneDAO.jpg)
+
 Metodo                                               | Descrizione
 -----------------------------------------------------|------------
 Recitazione[] findByArtista(int artista_id)          | Preleva tutte le recitazioni espresse da un artista fornito.
@@ -257,6 +273,8 @@ Recitazione[] findByFilm(int film_id)                | Preleva tutte le recitazi
 bool setOnly(int film_id, Recitazione[] recitazioni) | Associa ad un film solamente le recitazioni fornite.
 
 #### IRegiaDAO
+
+![](ODD%20diagrams/Class%20diagrams/RegiaDAO.jpg)
 
 Metodo                                      | Descrizione
 --------------------------------------------|------------
