@@ -227,16 +227,6 @@ bool delete(int id)                                | Rimuove l'utente con l'ID f
         self.findByID(result.id).password = utente.password
 
 
-    context IAccountDAO::update(utente:Utente) pre:
-        utente <> null and
-        self.findByID(utente.id) <> null and
-        utente.password <> null
-    context IAccountDAO::update(utente:Utente) post:
-        result <> null and
-        self.findByID(result.id) <> null and
-        self.findByID(result.id).password = utente.password
-
-
     context IAccountDAO::authenticate(email:string, password:string) pre:
         email <> null and
         password <> null and
@@ -252,6 +242,7 @@ bool delete(int id)                                | Rimuove l'utente con l'ID f
         result = true and
         self.findByID(id) = null
 
+
 #### IAmiciziaDAO
 
 Metodo                                                           | Descrizione
@@ -266,6 +257,69 @@ bool acceptFriendshipRequestFromTo(int user_from, int user_to) | Trasforma la ri
 bool refuseFriendshipRequestFromTo(int user_from, int user_to) | Rifiuta la richiesta di amicizia inviata da un utente verso un altro.
 bool existsFriendshipBetween(int user1, int user2)             | Indica se esiste un'amicizia accettata condivisa tra due utenti forniti.
 bool removeFriendshipBetween(int user1, int user2)             | Rimuove un'amicizia accettata condivisa tra due utenti forniti.
+
+
+    context IAmiciziaDAO::getFriendships(user_id:int) pre:
+        user_id > 0
+    context IAmiciziaDAO::getFriendships(user_id:int) post:
+        /* result = amicizie accettate che coinvolgono user_id */
+
+
+    context IAmiciziaDAO::getRequests(user_id:int) pre:
+        user_id > 0
+    context IAmiciziaDAO::getRequests(user_id:int) post:
+        /* result = richieste di amicizia che coinvolgono user_id */
+
+
+    context IAmiciziaDAO::existsSomethingBetween(user1:int, user2:int) pre:
+        user1 > 0 and user2 > 0
+    context IAmiciziaDAO::existsSomethingBetween(user1:int, user2:int) post:
+        result = existsFriendshipBetween(user1, user2) or
+                    existsRequestFromTo(user1, user2) or
+                    existsRequestFromTo(user2, user1)
+
+
+    context IAmiciziaDAO::requestFriendshipFromTo(user_from:int, user_to:int) pre:
+        user_from > 0 and user_to > 0
+    context IAmiciziaDAO::requestFriendshipFromTo(user_from:int, user_to:int) post:
+        result = not @pre.existsSomethingBetween(user_from, user_to)
+
+
+    context IAmiciziaDAO::existsRequestFromTo(user_from:int, user_to:int) pre:
+        user_from > 0 and user_to > 0
+    context IAmiciziaDAO::existsRequestFromTo(user_from:int, user_to:int) post:
+        result = acceptFriendshipRequestFromTo(user_from, user_to)
+
+
+    context IAmiciziaDAO::removeFriendshipRequestFromTo(user_from:int, user_to:int) pre:
+        user_from > 0 and user_to > 0
+    context IAmiciziaDAO::removeFriendshipRequestFromTo(user_from:int, user_to:int) post:
+        result = @pre.existsRequestFromTo(user_from, user_to)
+
+
+    context IAmiciziaDAO::acceptFriendshipRequestFromTo(user_from:int, user_to:int) pre:
+        user_from > 0 and user_to > 0
+    context IAmiciziaDAO::acceptFriendshipRequestFromTo(user_from:int, user_to:int) post:
+        result = @pre.existsRequestFromTo(user_from, user_to)
+
+
+    context IAmiciziaDAO::refuseFriendshipRequestFromTo(user_from:int, user_to:int) pre:
+        user_from > 0 and user_to > 0
+    context IAmiciziaDAO::refuseFriendshipRequestFromTo(user_from:int, user_to:int) post:
+        result = @pre.existsRequestFromTo(user_from, user_to)
+
+
+    context IAmiciziaDAO::existsFriendshipBetween(user1:int, user2:int) pre:
+        user1 > 0 and user2 > 0
+    context IAmiciziaDAO::existsFriendshipBetween(user1:int, user2:int) post:
+        result = removeFriendshipBetween(user1, user2)
+
+
+    context IAmiciziaDAO::removeFriendshipBetween(user1:int, user2:int) pre:
+        user1 > 0 and user2 > 0
+    context IAmiciziaDAO::removeFriendshipBetween(user1:int, user2:int) post:
+        result = existsFriendshipBetween(user1, user2)
+
 
 #### IArtistaDAO
 
