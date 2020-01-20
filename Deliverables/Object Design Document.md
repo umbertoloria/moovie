@@ -181,10 +181,10 @@ bool existsSomethingBetween(int user1, int user2)                | Indica se esi
 bool requestFriendshipFromTo(int user_from, int user_to)         | Invia una richiesta di amicizia da un utente verso un altro.
 bool existsRequestFromTo(int user_from, int user_to)             | Indica se esiste una richiesta di amicizia inviata da un utente verso un altro.
 bool removeFriendshipRequestFromTo(int user_from, int user_to)   | Cancella la richiesta di amicizia inviata da un utente verso un altro.
-bool acceptFriendshipRequestFromTo(int $user_from, int $user_to) | Trasforma la richiesta di amicizia inviata da un utente verso un altro in una amicizia accettata.
-bool refuseFriendshipRequestFromTo(int $user_from, int $user_to) | Rifiuta la richiesta di amicizia inviata da un utente verso un altro.
-bool existsFriendshipBetween(int $user1, int $user2)             | Indica se esiste un'amicizia accettata condivisa tra due utenti forniti.
-bool removeFriendshipBetween(int $user1, int $user2)             | Rimuove un'amicizia accettata condivisa tra due utenti forniti.
+bool acceptFriendshipRequestFromTo(int user_from, int user_to) | Trasforma la richiesta di amicizia inviata da un utente verso un altro in una amicizia accettata.
+bool refuseFriendshipRequestFromTo(int user_from, int user_to) | Rifiuta la richiesta di amicizia inviata da un utente verso un altro.
+bool existsFriendshipBetween(int user1, int user2)             | Indica se esiste un'amicizia accettata condivisa tra due utenti forniti.
+bool removeFriendshipBetween(int user1, int user2)             | Rimuove un'amicizia accettata condivisa tra due utenti forniti.
 
 #### IArtistaDAO
 
