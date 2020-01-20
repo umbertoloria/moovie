@@ -185,7 +185,7 @@ bool delete(int id)                                | Rimuove l'utente con l'ID f
     context IAccountDAO::exists(email:string) pre:
         email <> null
     context IAccountDAO::exists(email:string) post:
-        result = (esiste nel DB utente u : utente.email = email)
+        result = (esiste utente u nel DB : utente.email = email)
 
     context IAccountDAO::create(utente:Utente) pre:
         utente <> null and
@@ -205,7 +205,7 @@ bool delete(int id)                                | Rimuove l'utente con l'ID f
 
 
     context IAccountDAO::findByID(id:int) pre:
-        esiste nel DB utente u : utente.id = id
+        esiste utente u nel DB : utente.id = id
     context IAccountDAO::findByID(id:int) post:
         result = u
 
@@ -219,7 +219,7 @@ bool delete(int id)                                | Rimuove l'utente con l'ID f
 
 
     context IAccountDAO::authenticate(email:string, password:string) pre:
-        esiste nel DB utente u : utente.email = email and utente.password = password
+        esiste utente u nel DB : utente.email = email and utente.password = password
     context IAccountDAO::authenticate(email:string, password:string) post:
         result = u
 
@@ -227,7 +227,7 @@ bool delete(int id)                                | Rimuove l'utente con l'ID f
     context IAccountDAO::search(fulltext:string) pre:
         fulltext <> null
     context IAccountDAO::search(fulltext:string) post:
-        result = tutti gli utenti nel database che hanno similitudini col parametro fulltext
+        result = (tutti gli utenti nel DB che hanno similitudini col parametro fulltext)
 
 
     context IAccountDAO::delete(id:int) pre:
@@ -329,7 +329,7 @@ bool delete(int id)                             | Rimuove l'artista con l'ID for
 
 
     context IArtistaDAO::findByID(id:int) pre:
-        esiste nel DB artista a : artista.id = id
+        esiste artista a nel DB : artista.id = id
     context IArtistaDAO::findByID(id:int) post:
         result = a
 
@@ -349,7 +349,7 @@ bool delete(int id)                             | Rimuove l'artista con l'ID for
     context IArtistaDAO::search(fulltext:string) pre:
         fulltext <> null
     context IArtistaDAO::search(fulltext:string) post:
-        result = tutti gli artisti nel database che hanno similitudini col parametro fulltext
+        result = tutti gli artisti nel DB che hanno similitudini col parametro fulltext
 
 
     context IArtistaDAO::create(artista:Artista, faccia_bin:bin) pre:
@@ -403,7 +403,7 @@ bool delete(int id)                             | Rimuove il film con l'ID forni
 
 
     context IFilmDAO::findByID(id:int) pre:
-        esiste nel DB film f : film.id = id
+        esiste film f nel DB : film.id = id
     context IFilmDAO::findByID(id:int) post:
         result = f
 
@@ -411,7 +411,7 @@ bool delete(int id)                             | Rimuove il film con l'ID forni
     context IFilmDAO::search(fulltext:string) pre:
         fulltext <> null
     context IFilmDAO::search(fulltext:string) post:
-        result = tutti i film nel database che hanno similitudini col parametro fulltext
+        result = tutti i film nel DB che hanno similitudini col parametro fulltext
 
 
     context IFilmDAO::suggestMe(utente_id:int) pre:
@@ -486,7 +486,7 @@ bool exists(string nome)                           | Indica se esiste un genere 
 
 
     context IGenereDAO::findByID(id:int) pre:
-        esiste nel DB genere g : genere.id = id
+        esiste genere g nel DB : genere.id = id
     context IGenereDAO::findByID(id:int) post:
         result = g
 
@@ -540,7 +540,7 @@ bool exists(string nome)                           | Indica se esiste un genere 
     context IGenereDAO::exists(nome:string) pre:
         nome <> null
     context IGenereDAO::exists(nome:string) post:
-        result = (esiste nel DB genere g : genere.nome = nome)
+        result = (esiste genere g nel DB : genere.nome = nome)
 
 
 #### IGiudizioDAO
@@ -553,6 +553,49 @@ bool delete(Giudizio giudizio)                           | Rimuove il giudizio f
 Giudizio[] findByUtenti(int[] utenti_ids)                | Preleva tutti i giudizi espressi degli utenti forniti.
 Giudizio findByUtenteAndFilm(int utente_id, int film_id) | Preleva (se esiste) il giudizio espresso dall'utente fornito verso il film fornito.
 bool exists(int utente_id, int film_id)                  | Indica se esiste un giudizio espresso da un utente fornito verso un film fornito.
+
+
+    context IGiudizioDAO::create(giudizio:Giudizio) pre:
+        giudizio <> null and
+        1 <= giudizio.voto <= 10 and
+        not self.exists(giudizio.utente, giudizio.film)
+    context IGiudizioDAO::create(giudizio:Giudizio) post:
+        result = giudizio and
+        self.findByUtenteAndFilm(result.utente, result.film) = result
+
+
+    context IGiudizioDAO::update(giudizio:Giudizio) pre:
+        giudizio <> null and
+        1 <= giudizio.voto <= 10 and
+        self.exists(giudizio.utente, giudizio.film)
+    context IGiudizioDAO::update(giudizio:Giudizio) post:
+        result = giudizio and
+        self.findByUtenteAndFilm(result.utente, result.film) = result
+
+
+    context IGiudizioDAO::delete(giudizio:Giudizio) pre:
+        giudizio <> null and self.exists(giudizio.utente, giudizio.film)
+    context IGiudizioDAO::delete(giudizio:Giudizio) post:
+        result = true and not self.exists(giudizio.utente, giudizio.film)
+
+
+    context IGiudizioDAO::findByUtenti(utenti_ids:int[]) pre:
+        utenti_ids <> null
+    context IGiudizioDAO::findByUtenti(utenti_ids:int[]) post:
+        result = (tutti i giudizi g nel DB : utenti_ids.include(g.utente))
+
+
+    context IGiudizioDAO::findByUtenteAndFilm(utente_id:int, film_id:int) pre:
+        utente_id > 0 and film_id > 0
+    context IGiudizioDAO::findByUtenteAndFilm(utente_id:int, film_id:int) post:
+        result = (giudizio g nel DB : g.utente = utente_id and g.film = film.id)
+
+
+    context IGiudizioDAO::exists(utente_id:int, film_id:int) pre:
+        utente_id > 0 and film_id > 0
+    context IGiudizioDAO::exists(utente_id:int, film_id:int) post:
+        result = (self.findByUtenteAndFilm(utente_id, film_id) <> null)
+
 
 #### IPromemoriaDAO
 
