@@ -1,160 +1,561 @@
 # Object Design Document
-| Versione |    Data    | Descrizione                    | Autori                                    |
-|----------|------------|--------------------------------|-------------------------------------------|
-| 0.1      | 15/1/2020  | Prima stesura                  | Gianluca Pirone, Michelantonio Panichella |
+| Versione |    Data    | Descrizione                    | Autori        |
+|----------|------------|--------------------------------|---------------|
+| 0.1      | 15/1/2020  | Prima stesura                  | Team          |
+| 0.2      | 20/1/2020  | Descrizioni packages           | Umberto Loria |
 
-## Introduzione 
-Fino ad ora, con il Requirement Analysis Document e il System Design Document si è descritto quello che in linea di massima sarà il nostro sistema andando ad identificare la struttura logica della WebApplication da noi progettata, tirando fuori da essa le parti principali che ci permettono di sviluppare il nostro sistema quali: identificazione dei requisiti funzionali (le funzionalità che il sistema deve avere), identificazione dei requisiti non funzionali (requisiti che offrono qualità al sistema), identificazione di attori, sottosistemi, serivizi da implementare, oggetti presenti e soprattuto lo scopo di quello che sarà "Moovie".
-Con il documento di  Object Design invece andremo ad aggiungere dettagli a tutto quello che fino ad ora abbiamo "trovato" prendendo anche decisioni implementative che dorvanno essere quanto più conformi possibile alle specifiche descrite fino ad ora, non solo per quanto riguarda le funzionalità e la struttura logica che la Web Application dovrà avere ma rispettando anche i requisiti non funzionali individuati in fase di analisi dei requisiti. 
+# Indice
+1. [Introduzione](#introduzione)
+2. [Compromessi](#compromessi)
+    1. [Sicurezza vs efficienza](#sicurezza-vs-efficienza)
+    2. [Rapido sviluppo vs funzionalità](#rapido-sviluppo-vs-funzionalità)
+    3. [Efficienza vs portabilità](#efficienza-vs-portabilità)
+3. [Convenzioni del codice](#convenzioni-del-codice)
+4. [Divisione dei packages](#divisione-dei-packages)
+    1. [Models](#models)
+    2. [DAO](#dao)
+        1. [Interfaces](#interfaces)
+            1. [IAccountDAO](#iaccountdao)
+            2. [IAmiciziaDAO](#iamiciziadao)
+            3. [IArtistaDAO](#iartistadao)
+            4. [IFilmDAO](#ifilmdao)
+            5. [IGenereDAO](#igeneredao)
+            6. [IGiudizioDAO](#igiudiziodao)
+            7. [IPromemoriaDAO](#ipromemoriadao)
+            8. [IRecitazioneDAO](#irecitazionedao)
+            9. [IRegiaDAO](#iregiadao)
+        2. [Implementations](#implementations)
+        3. [Factories](#factories)
+    3. [Controllers](#controllers)
+        1. [Account](#account)
+        2. [Amicizia](#amicizia)
+        3. [Film](#film)
+        4. [Gestione](#gestione)
+        5. [Ricerca](#ricerca)
+    4. [Views](#views)
+        1. [View generiche](#view-generiche)
+        2. [View di account](#view-di-account)
+        3. [View di amicizia](#view-di-amicizia)
+        4. [View di film](#view-di-film)
+        5. [View di gestione](#view-di-gestione)
+        6. [View di ricerca](#view-di-ricerca)
+5. [Design pattern](#design-pattern)
+    1. [Factory](#factory)
+    2. [Singleton](#singleton)
+    3. [Model View Controller](#model-view-controller)
+    4. [Data Access Object](#data-access-object)
 
-### Object Design Trade Off
-#### Funzionalità vs. Usabilità
-Il sito "Moovie" sara progettato in modo tale da offrire tutte le funzionalità a tutti, garantendo dunque, che qualunque tipo di utente possa interfacciarsi con le funzionalità presenti all'interno del nostro sistema nel modo più semplice ed intuitibile possibile. 
+# Introduzione
 
-#### Rapido sviluppo vs. Funzionalità
-Nonostante i tempi ristretti a disposizione del team per la progettazione dell'intero sistema, si cercherà, di sviluppare (nei tempi indicati) tutte le funzionalità individuate durante la fase di analisi dei requisiti, partendo però da quelle che hanno più alta priorità.
+Questo documento presenta le decisioni implementative del sistema **Moovie**. Forti di una progettazione documentata
+nell'SDD, e di un analisi descritta nel RAD, possiamo finalmente procedere ai dettagli implementativi. Il sistema verrà
+sviluppato tramite una **Web Application**.
 
-#### Efficienza vs. Portabilità 
-Il sistema, essendo una Web Application che dovrà offrire il proprio servizio in vari browser e quindi in vari ambienti, sarà progettato in modo da garantire quantà più efficienza possibile nel "porting" da un ambiente ad un altro. 
+# Compromessi
+Qui di seguito sono motivate le principali scelte di progettazione/implementazione del sistema riguardo i compromessi
+che spesso si presentano nello sviluppo di sistemi software.
 
-## Guida alla documentazione delle interfaccie
-Nel momento in cui andremo a sviluppare il sito Moovie seguiremo alune regole che ci permetteranno di implementare il tutto in modo  tale che ogni sviluppatore segue le stesse linee guide.
-Naming Convention:
-Utilizzeremo:
-- Nomi intuitivi;
-- Nomi di lunghezza medio-corta;
-- Nomi con caratteri alfabetici (senza numeri o altri tipi di caratteri)
+## Sicurezza vs efficienza
+La sicurezza è un aspetto fondamentale per una Web Application. Per questa motivazione, la sicurezza viene garantita
+**ripetendo i controlli di autorizzazione** in tutti i punti di accesso al sistema. Per esempio, non solo una
+determinata funzionalità è "nascosta" all'utente non autorizzato a livello di presentazione, ma questa funzionalità
+ripeterà i controlli di autorizzazione anche nei punti di accesso a queste funzionalità lato server (vedi "controller"
+in basso).
 
-Variabili:
-- I nomi delle varibili inizieranno tutte con la lettera minuscola e nela caso una variabile è composta da più di una parola, le parole successive alla prima inizieranno con la lettera maiuscola;
-- I nomi delle variabili non dovranno essere casuali, ma essere assegnati in modo logico in base a ciò che la variabile rappresenta;
-- Le varibili saranno definite sempre ad inizio codice in modo da permettere a tutti coloro una facile individiazione di esse;
+## Rapido sviluppo vs funzionalità
+Tutte le funzionalità previste dai documenti precedenti sono state sviluppate con robustezza come obiettivo. Si è
+deciso, quindi, di attribuire robustezza a tutte le funzionalità sviluppate, sacrificando la rapidità dei tempi di
+sviluppo.
 
-Metodi:
-- I nomi dei metodi inizieranno tutte con la lettera minuscola e nel caso una variabile è composta da più di una parola, le parole successive alla prima inizieranno con la lettera maiuscola 
-- I nomi dei metodi dovranno suggerire la funzionalità che offre;
+## Efficienza vs portabilità
+La portabilità di un sistema software è un fattore sicuramente determinante. La "sopravvivenza" di architetture software
+è spesso impedita dalla poca lungimiranza dei progettisti. Per questa ragione, questo sistema si predilige la
+portabilità rispetto all'efficienza.
 
-Classi:
-- I nomi delle classi inizieranno sempre con la letterà maiuscola e nel caso il nome di una classe sia composto da più di una parola, le parole successive alla prima dovranno iniziare anch'esse con la lettera maiuscola;
-- I nome delle classi non dovranno essere casuali ma dovranno attenersi a quello che effettivamente andranno a rappresentare;
+# Convenzioni del codice
+La convenzione che è stata subito stabilita, prima ancora dello stile d'indentazione, è la seguente: il codice avrebbe
+dovuto essere leggibile e comprensibile senza l'uso dei commenti. Questa affermazione è forte: in effetti ci sono parti
+di codice in cui è stato necessario introdurre commenti per stabilire una giusta comprensibilità. Comunque, è stato
+sempre presente l'impegno, da parte del team, di rendere il codice stesso chiaro ed esplicativo.
+
+Le convenzioni applicate al codice sono:
+* i nomi delle variabili devono essere intuitivi;
+* i nomi delle variabili devono essere brevi;
+* i nomi delle variabili devono essere significativi per il loro contesto di utilizzo;
+* le parole che comporranno i nomi delle variabili saranno separate dal trattino basso;
+* i nomi dei metodi dovranno suggerire le funzionalità che implementano;
+* le parole che compongono i nomi delle classi avranno la prima lettera maiuscola;
+* i nomi delle classi dovranno essere esplicativi di quello che andranno a realizzare.
+
+# Divisione dei packages
+
+Questa è la gerarchia dei packages dell'applicazione.
+
+    moovie
+    ├───controllers
+    │   ├───account
+    │   ├───amicizia
+    │   ├───film
+    │   ├───gestione
+    │   └───ricerca
+    ├───dao
+    │   ├───factories
+    │   ├───implementation
+    │   └───interfaces
+    ├───models
+    │       ...
+    └───views
+        │   ...
+        ├───account
+        ├───amicizia
+        ├───film
+        ├───gestione
+        └───ricerca
+
+I package **controllers**, **dao**, **models** e **views** verranno singolarmente descritti.
+
+## Models
+Il package **models** contiene tutte le classi contenenti informazioni del dominio applicativo.
+
+Classe      | Descrizione
+------------|------------
+Amicizia    | Descrive la relazione di amicizia tra due utente. Può essere accettata oppure non ancora (quindi una richiesta).
+Artista     | Rappresenta le informazioni circa un artista.
+Film        | Rappresentazione delle informazioni di un film.
+Genere      | Descrive le informazioni di un genere.
+Giudizio    | Rappresenta un giudizio di un utente verso un film.
+Promemoria  | Descrive un promemoria creato da un utente su un certo film.
+Recitazione | Contiene le informazioni sul personaggio interpretato da un attore in un film.
+Utente      | Rappresenta le informazioni di un utente registrato sul sito.
+
+## DAO
+Questa è la struttura completa del package **dao**. Come recita il nome del package, questo conterrà classi che
+realizzano il pattern architetturale DAO (per ulteriori informazioni, vedi la sezione "Design pattern" in basso).
+
+    dao
+    ├───factories
+    ├───implementation
+    └───interfaces
+
+Le interfacce, contenute nel package **dao/interfaces**,  impongono i servizi che ogni DAO deve offrire. Le
+implementazioni reali dei DAO, che interagiscono con la base di dati, si trovato nel package **dao/implementations**.
+Tuttavia, queste classi non vengono istanziate direttamente dall'utilizzatore, bensì dalle classi nel package
+**dao/factories**. L'utilizzatore quindi utilizza le suddette classi factory per ottenere istanze delle interfacce DAO.
+
+### Interfaces
+
+Il package **dao/interfaces** contiene delle interfacce che definiscono le modalità di fruizione dei dati persistenti del
+sistema. Tramite le factories (descritte sotto) è possibile fornire delle implementazioni di queste interfacce
+nascondendo all'utilizzatore il vero luogo in cui questi dati vengono salvati.
+
+Queste interfacce sono:
+* IAccountDAO;
+* IAmiciziaDAO;
+* IArtistaDAO;
+* IFilmDAO;
+* IGenereDAO;
+* IGiudizioDAO;
+* IPromemoriaDAO;
+* IRecitazioneDAO;
+* IRegiaDAO.
+
+#### IAccountDAO
+
+Metodo                                             | Descrizione
+---------------------------------------------------|------------
+bool exists(string email)                          | Indica se esiste un utente associato l'indirizzo e-mail fornito.
+Utente create(Utente utente)                       | Aggiunge un nuovo utente con le informazioni fornite.
+Utente findByID(int id)                            | Restituisce le informazioni dell'utente con l'ID fornito.
+Utente update(Utente utente)                       | Aggiorna le informazioni di un utente esistente.
+Utente authenticate(string email, string password) | Restituisce le informazioni dell'utente con EMAIL e PASSWORD fornite.
+Utente[] search(string fulltext)                   | Ricerca gli utenti con campi NOME e COGNOME correlati al parametro FULLTEXT fornito.
+bool delete(int id)                                | Rimuove l'utente con l'ID fornito.
+
+#### IAmiciziaDAO
+
+Metodo                                                           | Descrizione
+-----------------------------------------------------------------|------------
+Amicizia[] getFriendships(int user_id)                           | Restituisce tutte le amicizie accettate che coinvolgono un utente.
+Amicizia[] getRequests(int user_id)                              | Restituisce tutte le richieste di amicizia che coinvolgono un utente.
+bool existsSomethingBetween(int user1, int user2)                | Indica se esiste una relazione (amicizia richiesta o accettata) tra due utenti.
+bool requestFriendshipFromTo(int user_from, int user_to)         | Invia una richiesta di amicizia da un utente verso un altro.
+bool existsRequestFromTo(int user_from, int user_to)             | Indica se esiste una richiesta di amicizia inviata da un utente verso un altro.
+bool removeFriendshipRequestFromTo(int user_from, int user_to)   | Cancella la richiesta di amicizia inviata da un utente verso un altro.
+bool acceptFriendshipRequestFromTo(int $user_from, int $user_to) | Trasforma la richiesta di amicizia inviata da un utente verso un altro in una amicizia accettata.
+bool refuseFriendshipRequestFromTo(int $user_from, int $user_to) | Rifiuta la richiesta di amicizia inviata da un utente verso un altro.
+bool existsFriendshipBetween(int $user1, int $user2)             | Indica se esiste un'amicizia accettata condivisa tra due utenti forniti.
+bool removeFriendshipBetween(int $user1, int $user2)             | Rimuove un'amicizia accettata condivisa tra due utenti forniti.
+
+#### IArtistaDAO
+
+Metodo                                          | Descrizione
+------------------------------------------------|------------
+Artista findByID(int id)                        | Restituisce le informazioni dell'artista con l'ID fornito.
+bin downloadFaccia(int id)                      | Preleva l'immagine dell'artista con l'ID fornito.
+bool uploadFaccia(int id, bin faccia_bin)       | Memorizza l'immagine dell'artista con l'ID fornito.
+Artista[] search(string fulltext)               | Ricerca gli artisti con campi NOME e DESCRIZIONE correlati al parametro FULLTEXT fornito.
+Artista create(Artista artista, bin faccia_bin) | Aggiunge un nuovo artista con le informazioni fornite.
+Artista[] getAll()                              | Preleva tutti gli artisti memorizzati.
+Artista update(Artista artista)                 | Aggiorna le informazioni di un artista esistente.
+bool delete(int id)                             | Rimuove l'artista con l'ID fornito.
+
+#### IFilmDAO
+
+Metodo                                          | Descrizione
+------------------------------------------------|------------
+Film findByID(int id)                           | Restituisce le informazioni del film con l'ID fornito.
+Film[] search(string fulltext)                  | Ricerca i film con campi NOME e DESCRIZIONE correlati al parametro FULLTEXT fornito.
+Film[] suggestMe(int utente_id)                 | Preleva i film più in linea con le preferenze cinematografiche dell'utente con l'ID fornito.
+bin downloadCopertina(int id)                   | Preleva l'immagine del film con l'ID fornito.
+bool uploadCopertina(int id, bin copertina_bin) | Memorizza l'immagine del film con l'ID fornito.
+Film[] getClassifica()                          | Preleva i film meglio giudicati dalla community degli utenti.
+Film create(Film film, bin copertina_bin)       | Aggiunge un nuovo film con le informazioni fornite.
+Film update(Film film)                          | Aggiorna le informazioni di un film esistente.
+bool delete(int id)                             | Rimuove il film con l'ID fornito.
+
+#### IGenereDAO
+
+Metodo                                             | Descrizione
+---------------------------------------------------|------------
+Genere findByID(int id)                            | Restituisce le informazioni del genere con l'ID fornito.
+int[] findGeneriByFilm(int film_id)                | Restituisce gli ID dei generi associati ad un film fornito.
+int[] findFilmsByGenere(int id)                    | Restituisce gli ID dei film del genere fornito.
+Genere[] getAll()                                  | Preleva tutti i generi memorizzati.
+bool setOnly(int film_id, int[] assign_genere_ids) | Associa ad un film solo i generi forniti, disassociandolo con tutti gli altri.
+Genere create(Genere genere)                       | Aggiunge un nuovo genere con il nome fornito.
+Genere update(Genere genere)                       | Aggiorna le informazioni di un genere esistente.
+bool delete(int id)                                | Rimuove il genere con l'ID fornito.
+bool exists(string nome)                           | Indica se esiste un genere chiamato con il nome fornito.
+
+#### IGiudizioDAO
+
+Metodo                                                   | Descrizione
+---------------------------------------------------------|------------
+bool create(Giudizio giudizio)                           | Aggiunge il giudizio fornito.
+bool update(Giudizio giudizio)                           | Aggiorna il giudizio fornito.
+bool delete(Giudizio giudizio)                           | Rimuove il giudizio fornito.
+Giudizio[] findByUtenti(int[] utenti_ids)                | Preleva tutti i giudizi espressi degli utenti forniti.
+Giudizio findByUtenteAndFilm(int utente_id, int film_id) | Preleva (se esiste) il giudizio espresso dall'utente fornito verso il film fornito.
+bool exists(int utente_id, int film_id)                  | Indica se esiste un giudizio espresso da un utente fornito verso un film fornito.
+
+#### IPromemoriaDAO
+
+Metodo                                                     | Descrizione
+-----------------------------------------------------------|------------
+Promemoria[] findByUtente(int utente_id)                   | Preleva tutti i promemoria salvati da un utente fornito.
+bool exists(int utente_id, int film_id)                    | Indica se esiste un promemoria salvato da un utente fornito verso un film fornito.
+bool create(Promemoria promemoria)                         | Aggiunge il promemoria fornito.
+bool delete(Promemoria promemoria)                         | Rimuove un promemoria fornito.
+Promemoria findByUtenteAndFilm(int utente_id, int film_id) | Preleva (se esiste) il promemoria salvato dall'utente fornito verso il film fornito.
+
+#### IRecitazioneDAO
+
+Metodo                                               | Descrizione
+-----------------------------------------------------|------------
+Recitazione[] findByArtista(int artista_id)          | Preleva tutte le recitazioni espresse da un artista fornito.
+Recitazione[] findByFilm(int film_id)                | Preleva tutte le recitazioni nell'ambito di un film fornito.
+bool setOnly(int film_id, Recitazione[] recitazioni) | Associa ad un film solamente le recitazioni fornite.
+
+#### IRegiaDAO
+
+Metodo                                      | Descrizione
+--------------------------------------------|------------
+int[] findFilmsByArtista(int id)            | Preleva i film di cui un artista fornito ha partecipato alla regia.
+int[] findArtistiByFilm(int id)             | Preleva gli artisti che hanno partecipato alla regia di un film fornito.
+bool setOnly(int film_id, int[] registi_id) | Associa ad un film solamente i registi forniti.
+
+### Implementations
+
+Il package **dao/implementations** contiene classi che implementano le interfacce DAO e realizzano le operazioni imposte
+di gestione della persistenza utilizzando la base di dati.
+
+Queste classi sono:
+* DBAccountDAO;
+* DBAmiciziaDAO;
+* DBArtistaDAO;
+* DBFilmDAO;
+* DBGenereDAO;
+* DBGiudizioDAO;
+* DBPromemoriaDAO;
+* DBRecitazioneDAO;
+* DBRegiaDAO.
+
+### Factories
+
+Il package **dao/factories** contiene delle classi factory che implementano le relative interfacce DAO.
+
+Queste sono:
+* AccountDAOFactory;
+* AmiciziaDAOFactory;
+* ArtistaDAOFactory;
+* FilmDAOFactory;
+* GenereDAOFactory;
+* GiudizioDAOFactory;
+* PromemoriaDAOFactory;
+* RecitazioneDAOFactory;
+* RegiaDAOFactory.
+
+Ognuna di queste factory ha il compito di fornire implementazioni della relativa interfaccia DAO (descritte sopra)
+nascondendo all'utilizzatore la reale locazione dei dati persistenti.
+
+Attualmente, i dati persistenti sono memorizzati in una base di dati relazionale (MySQL). Se si avesse in futuro la
+necessità di migrare verso un altro tipo di DBMS, oppure di memorizzare direttamente su file secondo uno specifico
+formato (non strutturato oppure basato su XML, JSON...), oppure ancora utilizzando le sessioni o la RAM, si potrebbe far
+fronte a queste necessità con estrema facilità. Bisognerebbe banalmente implementando le interfacce DAO usando le
+modalità di persistenza candidate.
+
+In realtà, la necessità di passare ad un altro tipo di memorizzazione (temporaneamente) è già sorta durante le fasi di
+sviluppo del progetto: in particolare, durante la fase di testing.
+
+## Controllers
+La struttura completa del package **controllers** è questa.
+
+    controllers
+    │
+    ├───account
+    │       Accesso.php
+    │       Cambio password.php
+    │       Registrazione.php
+    │       Uscita.php
+    │
+    ├───amicizia
+    │       Accetta richiesta amicizia.php
+    │       Cancella amicizia.php
+    │       Cancella richiesta amicizia.php
+    │       Richiedi amicizia.php
+    │       Rifiuta richiesta amicizia.php
+    │
+    ├───film
+    │       Aggiungi giudizio.php
+    │       Aggiungi promemoria.php
+    │       Form di aggiunta giudizio.php
+    │       Form di modifica giudizio.php
+    │       Modifica giudizio.php
+    │       Rimuovi giudizio.php
+    │       Rimuovi promemoria.php
+    │
+    ├───gestione
+    │       Aggiornamento artisti in film.php
+    │       Aggiornamento generi di film.php
+    │       Aggiungi artista.php
+    │       Aggiungi film.php
+    │       Aggiungi genere.php
+    │       Modifica artista.php
+    │       Modifica film.php
+    │       Modifica genere.php
+    │       Rimuovi artista.php
+    │       Rimuovi film.php
+    │       Rimuovi genere.php
+    │
+    └───ricerca
+            Ricerca.php
+
+### Account
+Controller      | Descrizione
+----------------|------------
+Accesso         | Permette di effettuare l'accesso.
+Cambio password | Permette di cambiare password.
+Registrazione   | Permette di creare un nuovo account.
+Uscita          | Permette di fare logout.
+
+### Amicizia
+Controller                  | Descrizione
+----------------------------|------------
+Accetta richiesta amicizia  | Permette di accettare una richiesta di amicizia inviata da un utente verso l'utilizzatore.
+Cancella amicizia           | Permette di cancellare una amicizia stabilita tra l'utilizzatore ed un altro utente.
+Cancella richiesta amicizia | Permette di cancellare una richiesta di amicizia precedentemente inviata dall'utilizzatore verso un altro utente.
+Richiedi amicizia           | Permette di inviare una richiesta di amicizia a nome dell'utilizzatore verso un altro utente.
+Rifiuta richiesta amicizia  | Permette di rifiutare una richiesta di amicizia inviata da un altro utente verso l'utilizzatore.
+
+### Film
+Controller                | Descrizione
+--------------------------|------------
+Aggiungi giudizio         | Permette di aggiungere un giudizio dell'utilizzatore su un film.
+Aggiungi promemoria       | Permette di aggiungere un promemoria su un film.
+Form di aggiunta giudizio | Permette di inserire il voto di un giudizio da aggiungere.
+Form di modifica giudizio | Permette di modificare il voto di un giudizio esistente.
+Modifica giudizio         | Permette di modificare un giudizio creato dall'utilizzatore.
+Rimuovi giudizio          | Permette di rimuovere un giudizio creato dall'utilizzatore.
+Rimuovi promemoria        | Permette di rimuovere un promemoria di film dell'utilizzatore.
+
+### Gestione
+Controller                    | Descrizione
+------------------------------|------------
+Aggiornamento artisti in film | Permette al gestore di aggiornare le recitazioni e regie di un film.
+Aggiornamento generi di film  | Permette al gestore di aggiornare i generi di un film.
+Aggiungi artista              | Permette al gestore di aggiungere un artista.
+Aggiungi film                 | Permette al gestore di aggiungere un film.
+Aggiungi genere               | Permette al gestore di aggiungere un genere.
+Modifica artista              | Permette al gestore di modificare un artista.
+Modifica film                 | Permette al gestore di modificare un film.
+Modifica genere               | Permette al gestore di modificare un genere.
+Rimuovi artista               | Permette al gestore di rimuovere un artista.
+Rimuovi film                  | Permette al gestore di rimuovere un film.
+Rimuovi genere                | Permette al gestore di rimuovere un genere.
+
+### Ricerca
+Controller | Descrizione
+-----------|------------
+Ricerca    | Permette di effettuare una ricerca di artisti, film e/o utenti.
+
+## Views
+Questa è la struttura del package **views** del sistema.
+
+    views
+    │   Leftmenu.php
+    │   Pagina artista.php
+    │   Pagina film.php
+    │   Pagina utente.php
+    │
+    ├───account
+    │       Conferma cambio password.php
+    │       Conferma registrazione.php
+    │       Form di accesso.php
+    │       Form di cambio password.php
+    │       Form di registrazione.php
+    │       Pagina iniziale per ospiti.php
+    │
+    ├───amicizia
+    │       Conferma amicizia cancellata.php
+    │       Conferma richiesta amicizia accettata.php
+    │       Conferma richiesta amicizia cancellata.php
+    │       Conferma richiesta amicizia inviata.php
+    │       Conferma richiesta amicizia rifiutata.php
+    │       Pagina amici.php
+    │
+    ├───film
+    │       Classifica film.php
+    │       Form di aggiunta giudizio.php
+    │       Form di modifica giudizio.php
+    │       Pagina genere.php
+    │       Pagina giudizi.php
+    │       Pagina promemoria.php
+    │       Pagina suggerimenti.php
+    │       Timeline giudizi.php
+    │
+    ├───gestione
+    │       Form di aggiornamento artisti in film.php
+    │       Form di aggiornamento generi di film.php
+    │       Form di aggiunta artista.php
+    │       Form di aggiunta film.php
+    │       Form di aggiunta genere.php
+    │       Form di modifica artista.php
+    │       Form di modifica film.php
+    │       Form di modifica genere.php
+    │
+    └───ricerca
+            Area di ricerca.php
+            Risultati di ricerca.php
 
 
-### Definizioni, acronimi e riferimenti: 
-Definizioni e Acronimi:
-RAD: Requirements Analysis Document
-SDD: System Design Document
-ODD: Object Design Document
+### View generiche
+Queste viste non sono state ulteriormente raggruppate perché sono le più importanti.
 
-Riferimenti
-Documento RA(Requirement Analysis)
-Documento SD (System Design)
+View           | Descrizione
+---------------|-----------
+Leftmenu       | Compone la barra laterale del sito web.
+Pagina artista | Presenta le informazioni di un artista ed i film a cui ha partecipato.
+Pagina film    | Presenta le informazioni di un film, le opzioni di giudizi e promemoria, e gli artisti che vi hanno partecipato.
+Pagina utente  | Presenta le informazioni di un utente, le opzioni di amicizia e (se il visitatore è amico) i suoi giudizi.
 
-### 2.2 Descrizione delle classi
-Classe | Descrizione
-----|----
-Amicizia | Descrive l'amicizia tra due utenti registrati nel sistema.
-Artista | Descrive un artista.
-Film | Descrive un film.
-Genere| Descrive un genere.
-Giudizio | Descrive il voto che un utente registrato ha assegnato ad un film.
-Promemoria | Descrive un film che un utente registrato deve ancora guardare.
-Recitazione| Descrive una recitazione di un artista in un film.
-Utente| Descrive un utente registrato nel sistema.
+### View di account
+Queste sono le view del package **views/account**.
 
-### 3. Interfacce delle Classi
+View                       | Descrizione
+---------------------------|-----------
+Conferma cambio password   | Conferma il cambio password.
+Conferma registrazione     | Conferma l'avvenuta registrazione.
+Form di accesso            | Mostra il form di accesso.
+Form di cambio password    | Mostra il form di cambio password.
+Form di registrazione      | Mostra il form di registrazione.
+Pagina iniziale per ospiti | Invita l'utente ad effettuare l'accesso o la registrazione.
 
-#### AccountDAO 
-Servizio | Descrizione
-----|----
-public static function exists(string $email): bool | Il sottosistema permette di verificare se esiste una specifica email nel database del sistema.
-public static function create(Utente $utente): ?Utente | Il sottosistema permette, tramite la compilazione di un apposito form, di registrare un utente nel sistema. Un oggetto utente passato come parametro verrà salvato nel database.
-public static function get_from_id(int $id): ?Utente | Il  sottosistema permette di recuperare tutti i dati di un utente registrato nel sito. Viene passato come parametro un codice id univoco di un utente.
-public static function update(Utente $utente): ?Utente | Il  sottosistema permette di aggoirnare i dati di un utente registrato nel sito. Viene passato come parametro un oggetto utente.
-public static function authenticate(string $email, string $password): ?Utente | Il  sottosistema permette ad un utente registrato di autenticarsi nel sistema. Vengono passati come parametri una email univoca e la password associata a questa email.
-public static function search(string $fulltext): array | Il  sottosistema permette di recuperare una collezione di utenti nel sito. Viene passato come parametro un testo sul quale verrà effettuata la ricerca.
+### View di amicizia
+Queste sono le view del package **views/amicizia**.
 
-#### AmiciziaDAO 
-Servizio | Descrizione
-----|----
-public static function doRetrieveByFromAndTo(int $user_from, int $user_to): ?Amicizia | Il sottosistema permette di recuperare l'amicizia tra due utenti registrati nel sito. Vengono passati come parametri i codici univoci di due utenti: di chi ha effettuato una richiesta di amicizia e di chi ha accettato questa richiesta.
-public static function getFriendships(int $user_id): array | Il sottosistema permette di recuperare tutte le amicizie che un utente registrato ha stretto con altri utenti registrati nel sito. Viene passato come parametro il codice univoco di un utente registrato.
-public static function getRequests(int $user_id): array | Il sottosistema permette di recuperare tutte le richieste di amicizia che un utente registrato ha inviato ad altri utenti registrati nel sito. Viene passato come parametro il codice univoco di un utente registrato.
-public static function existsSomethingBetween(int $user1, int $user2): bool | Il sottosistema permette di verificare se esiste una relazione tra due utenti registrati nel sito. Vengono passai come parametri i codici univoci di due utenti registrati.
-public static function requestFriendshipFromTo(int $user_from, int $user_to): ?Amicizia | Il sottosistema permette di recuperare la richiesta di amicizia che un utente registrato ha inviato ad un altro utente registrato. Vengono passai come parametri i codici univoci di due utenti registrati.
-public static function existsRequestFromTo(int $user_from, int $user_to): bool| Il sottosistema permette di verificare se esiste una richiesta di amicizia che un utente registrato ha inviato ad un altro utente registrato nel sito. Vengono passati come parametri i codici univoci di due utenti registrati.
-public static function removeFriendshipRequestFromTo(int $user_from, int $user_to): bool | Il sottosistema permette di rimuovere una richiesta di amicizia che un utente registrato ha inviato ad un altro utente registrato nel sito. Vengono passati come parametri i codici univoci di due utenti registrati.
-public static function acceptFriendshipRequestFromTo(int $user_from, int $user_to): bool | Il sottosistema permette di accettare ad un utente registrato la richiesta di amicizia che un altro utente registrato ha inviato a lui nel sito. Vengono passati come parametri i codici univoci di due utenti registrati.
-public static function refuseFriendshipRequestFromTo(int $user_from, int $user_to): bool | Il sottosistema permette di rifiutare ad un utente registrato la richiesta di amicizia che un altro utente registrato ha inviato a lui nel sito. Vengono passati come parametri i codici univoci di due utenti registrati.
-public static function existsFriendshipBetween(int $user1, int $user2) | Il sottosistema permette di verificare se esiste l'amicizia tra due utenti registrati nel sito. Vengono passati come parametri i codici univoci di due utenti registrati.
-public static function removeFriendshipBetween(int $user1, int $user2): bool | Il sottosistema permette di rimuovere l'amicizia tra due utenti registrati nel sito. Vengono passati come parametri i codici univoci di due utenti registrati.
+View                                   | Descrizione
+---------------------------------------|-----------
+Conferma amicizia cancellata           | Conferma la rimozione di un'amicizia.
+Conferma richiesta amicizia accettata  | Conferma l'accettazione di una richiesta di amicizia.
+Conferma richiesta amicizia cancellata | Conferma la rimozione di una richiesta di amicizia.
+Conferma richiesta amicizia inviata    | Conferma l'invio di una richiesta di amicizia.
+Conferma richiesta amicizia rifiutata  | Conferma il rifiuto di una richiesta di amicizia.
+Pagina amici                           | Mostra gli amici dell'utente autenticato e le richieste ancora in atto.
 
-#### ArtistaDAO 
-Servizio | Descrizione
-----|----
-public static function get_from_id(int $id): ?Artista | Il sottosistema permette di recuperare tutti i dati di un artista presente nel sito. Viene passato come parametro il codice univoco di un artista.
-public static function downloadFaccia(int $id) | Il sottosistema permette di recuperare il volto di un artista presente nel sito. Viene passato come parametro il codice univoco di un artista.
-public static function uploadFaccia(int $id) | Il sottosistema permette di aggiornare il volto di un artista presente nel sito. Viene passato come parametro il codice univoco di un artista.
-public static function search(string $fulltext): array | Il  sottosistema permette di recuperare una collezione di artisti presenti nel sito. Viene passato come parametro un testo sul quale verrà effettuata la ricerca.
-public static function create(Artista $artista, $faccia_bin): ?Artista | Il sottosistema permette di aggiungere un'artista nel sito. Vengono passati come parametri un oggetto artista e un volto di questi.
-public static function update(Artista $artista): ?Artista | Il sottosistema permette di aggiornare un'artista presente nel sito. Viene passato come parametro un oggetto artista.
-public static function delete(int $artista_id): bool | Il sottosistema permette di cancellare un'artista presente nel sito. Viene passato come parametro il codice univoco di un artista.
+### View di film
+Queste sono le view del package **views/film**.
 
-#### FilmDAO 
-Servizio | Descrizione
-----|----
-public static function get_from_id(int $id): ?Film | Il sottosistema permette di recuperare tutti i dati di un film presente nel sito. Viene passato come parametro il codice univoco di un film.
-public static function search(string $fulltext): array | Il sottosistema permette di recuperare una collezione di film presenti nel sito. Viene passato come parametro un testo sul quale verrà effettuata la ricerca.
-public static function suggest_me(int $utente_id): array | Il sottosistema permette ad un utente registrato di farsi suggerire un elenco di film presenti nel sito. Viene passato come parametro il codice univoco di un utente.
-public static function downloadCopertina(int $id) | Il sottosistema permette di recuperare la copertina di un film presente nel sito. Viene passato come parametro il codice univoco di un film.
-public static function uploadCopertina(int $id, $copertina_bin): bool | Il sottosistema permette di aggiornare la copertina di un film presente nel sito. Viene passato come parametro il codice univoco di un film.
-public static function getClassifica(): array | Il  sottosistema permette di recuperare una collezione di film presenti nel sito, per rappresentare una classifica di film in base al voto medio di ciascuno.
-public static function create(Film $film, $copertina_bin): ?Film | Il sottosistema permette di aggiungere un film nel sito. Vengono passati come parametri un oggetto film e la sua copertina.
-public static function update(Film $film): ?Film | Il sottosistema permette di aggiornare un film presente nel sito. Viene passato come parametro un oggetto film.
-public static function delete(int $film_id): bool | Il sottosistema permette di cancellare un film presente nel sito. Viene passato come parametro il codice univoco di un film.
+View                      | Descrizione
+--------------------------|-----------
+Classifica film           | Mostra i 50 film meglio votati dalla community degli utenti.
+Form di aggiunta giudizio | Permette di selezionare un voto da 1 a 10 da assegnare a un film creando un giudizio.
+Form di modifica giudizio | Permette di selezionare un voto da 1 a 10 da assegnare a un film modificando un preesistente giudizio.
+Pagina genere             | Mostra tutti i film di un genere.
+Pagina giudizi            | Mostra tutti i giudizi espressi dall'utente autenticato e permette di modificarli e cancellarli.
+Pagina promemoria         | Mostra tutti i promemoria salvati dall'utente autenticato e permette di cancellarli.
+Pagina suggerimenti       | Mostra 5 film in linea con le preferenze cinematografiche dell'utente autenticato.
+Timeline giudizi          | Mostra tutti i giudizi in ordine cronologico che un determinato utente ha creato.
 
-#### GenereDAO 
-Servizio | Descrizione
-----|----
-public static function doRetrieveByID(int $id): ?Genere| Il sottosistema permette di recuperare un genere presente nel sito. Viene passato come parametro il codice univoco di un genere.
-public static function doRetrieveByFilm(int $id): array | Il sottosistema permette di recuperare una collezione di generi di un film presente nel sito. Viene passato come parametro il codice univoco di un film.
-public static function get_generi_from_film(int $id): array | Il sottosistema permette di recuperare una collezione di GeneriID di un film presente nel sito.Viene passato come parametro il codice univoco di un film.
-public static function get_films_from_genere(int $id): array | Il sottosistema permette di recuperare una collezione di FilmID di un genere presente nel sito. Viene passato come parametro il codice univoco di un genere.
-public static function get_all(): array | Il sottosistema permette di recuperare tutti i generi presenti nel sito.
-public static function set_only(int $film_id, array $assign_genere_ids): bool | Il sottosistema permette di assegnare determinati generi ad un film. Vengono passati come parametri il codice univoco di un film e una collezione di generi.
-public static function create(Genere $genere): ?Genere | Il sottosistema permette di aggiungere un genere nel sito. Viene passato come parametro un oggetto genere.
-public static function update(Genere $genere): ?Genere | Il sottosistema permette di aggiornare un genere presente nel sito. Viene passato come parametro un oggetto genere.
-public static function delete(int $genere_id): bool | Il sottosistema permette di cancellare un genere presente nel sito. Viene passato come parametro il codice univoco di un genere.
-public static function exists(string $nome): bool | Il sottosistema permette di verificare se un genere è presente nel sito. Viene passato come parametro il nome di un genere.
+### View di gestione
+Queste sono le view del package **views/gestione**.
 
-#### GiudizioDAO 
-Servizio | Descrizione
-----|----
-public static function create(Giudizio $giudizio): bool | Il sottosistema permette di assegnare un voto ad un film. Viene passato come parametro un oggetto giudizio.
-public static function update(Giudizio $giudizio): bool | Il sottosistema permette di modificare un voto ad un film. Viene passato come parametro un oggetto giudizio.
-public static function drop(Giudizio $giudizio): bool | Il sottosistema permette di cancellare un voto ad un film. Viene passato come parametro un oggetto giudizio.
-public static function getAllOf(array $utenti): array | Il sottosistema permette di recuperare tutti i voti assegnati ai film da ogni utente. Viene passato come parametro una collezione di utenti.
-public static function doRetrieveByUtenteAndFilm(int $utente, int $film): ?Giudizio | Il sottosistema permette di recuperare il voto che un utente ha assegnato ad un film. Vengono passati come parametri il codice univoco di un utente e di un film.
-public static function exists(int $utente, int $film): bool | Il sottosistema permette di verificare se un utente ha assegnato un voto ad un film presente nel sito. Vengono passati come parametri il codice univoco di un utente e di un film.
+View                                  | Descrizione
+--------------------------------------|-----------
+Form di aggiornamento artisti in film | Permette di riassegnare gli artisti che hanno partecipato (come registi o attori) in un film.
+Form di aggiornamento generi di film  | Permette di riassegnare i generi a un film.
+Form di aggiunta artista              | Permette di creare un nuovo artista.
+Form di aggiunta film                 | Permette di creare un nuovo film.
+Form di aggiunta genere               | Permette di creare un nuovo genere.
+Form di modifica artista              | Permette di modificare un artista.
+Form di modifica film                 | Permette di modificare un film.
+Form di modifica genere               | Permette di modificare un genere.
 
-#### PromemoriaDAO 
-Servizio | Descrizione
-----|----
-public static function get(int $utente): array | Il sottosistema permette di recuperare una collezione di film che un utente deve ancora guardare. Viene passato come parametro il codice univoco di un utente.
-public static function exists(int $utente, int $film): bool | Il sottosistema permette di verificare se un utente deve ancora guardare un determinato film presente nel sito. Vengono passati come parametri il codice univoco di un utente e di un film.
-public static function create(Promemoria $promemoria): bool | Il sottositema permette di aggiugengere un film tra quelli che deve ancora guardare. Viene passato come parametro un oggetto promemoria.
-public static function drop(Promemoria $promemoria): bool | Il sottositema permette di cancellare un film tra quelli che deve ancora guardare. Viene passato come parametro un oggetto promemoria.
-public static function get_from_utente_and_film(int $utente, int $film): ?Promemoria | Il sottosistema permette di recuperare una determinato film presente nel sito che un utente deve ancora guardare. Viene passato come parametro il codice univoco di un utente e di un film.
+### View di ricerca
+Queste sono le view del package **views/ricerca**.
 
-#### RecitazioneDAO 
-Servizio | Descrizione
-----|----
-public static function doRetrieveByAttore(int $id): array | Il sottosistema permette di recuperare tutte le recitazioni di un attore. Viene passato come parametro il codice univoco di un attore.
-public static function doRetrieveByFilm(int $id): array | Il sottosistema permette di recuperare tutte gli attori partecipanti di un film. Viene passato come parametro il codice univoco di un film.
-public static function set_only(int $film_id, array $recitazioni): bool | Il sottosistema permette di assegnare determinati attori ad un film. Vengono passati come parametri il codice univoco di un film e una collezione di attori.
+View                 | Descrizione
+---------------------|-----------
+Area di ricerca      | Permette di effettuare una ricerca di artisti, film e utenti.
+Risultati di ricerca | Presenta i risultati di ricerca.
 
-#### RegiaDAO 
-Servizio | Descrizione
-----|----
-public static function get_films_from_artista(int $id): array | Il sottosistema permette di recuperare una collezione di film che un artista ha girato. Viene passato come parametro il codice univoco di un artista.
-public static function get_artisti_from_film(int $id): array | Il sottosistema permette di recuperare una collezione di artisti che hanno girato un determinato film. Viene passato come parametro il codice univoco di un film.
-public static function set_only(int $film_id, array $registi_id): bool | Il sottosistema permette di assegnare gli artisti che hanno curato la regia di un determinato film. Vengono passati come parametri il codice univoco di un film e una collezione di artisti.
+# Design pattern
+
+## Factory
+Il Design Pattern Factory fornisce l'interfaccia per la creazione di un oggetto e fa fronte al problema della creazione
+di oggetti senza specificarne l'esatta classe da istanziare.
+
+Le classi factory del sistema forniscono implementazioni delle interfacce DAO per la gestione dei dati persistenti.
+Per esempio, **FilmDAOFactory** è una classe che, attraverso il metodo **getFilmDAO**, fornisce una implementazione
+della interfaccia **IFilmDAO**. L'implementazione maggiormente utilizzata dal sistema è **DBFilmDAO**.
+
+Utilizzando le factory, ogni parte di codice in cui è richiesta un'implementazione di **IFilmDAO** eviterà di contenere
+il codice necessario alla creazione di implementazioni dell'interfaccia, riducendo al minimo le duplicazioni di codice.
+
+Inoltre, se in futuro si volesse cambiare l'implementazione da utilizzare, passare per esempio da **DBAccountDAO** a
+**XMLAccountDAO**, bisognerebbe semplicemente modificare il suddetto metodo, evitando lo sforzo di un grande refactoring
+su tutto il codice che istanziava un **DBAccountDAO**.
+
+## Singleton
+Il Design Pattern Singleton viene usato per garantire che, di una determinata classe, venga usato una sola istanza,
+oltre a fornire il punto di accesso globale a tale istanza.
+
+Nel sistema, in alcune circostanze, **ArtistaDAOFactory** si comporta come un singleton di **StubArtistaDAO**.
+Il metodo **getArtistaDAO** normalmente restituisce una nuova istanza della classe **DBArtistaDAO**. Se prima, però,
+viene invocato il metodo **useStub**, questo inizializzerà una istanza di **StubArtistaDAO**, la memorizzerà e la farà
+restituire ad ogni invocazione del metodo **getArtistaDAO**, in sostituzione delle istanze di **DBArtistaDAO**.
+
+## Model View Controller
+Il pattern architetturale Model View Controller (MVC) viene usato per separare la logica di presentazione dei dati dalla
+logica di business.
+
+Le componenti dell'MVC interpretano tre ruoli principali:
+* I **model** forniscono metodi per accedere ai dati;
+* Le **view** visualizzano i dati contenuti nei model e si occupano dell'interazione con utente e agenti;
+* I **controller** ricevono i comandi dell'utente e li attuano modificando lo stato degli altri due componenti.
+
+Un esempio di model è **Utente**, di view è **Form di registrazione**, e di controller è **Registrazione**.
+
+## Data Access Object
+Il pattern architetturale Data Access Object (DAO) è un modo di gestione della persistenza. Viene usato per ottenere una
+stratificazione e rigida separazione tra le componenti che "usano" lo storage e quelle che realizzano le modalità di
+interazione con lo storage.
