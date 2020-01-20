@@ -183,9 +183,9 @@ bool delete(int id)                                | Rimuove l'utente con l'ID f
 
 
     context IAccountDAO::exists(email:string) pre:
-        esiste nel DB utente u : utente.email = email
+        email <> null
     context IAccountDAO::exists(email:string) post:
-        result = u
+        result = (esiste nel DB utente u : utente.email = email)
 
     context IAccountDAO::create(utente:Utente) pre:
         utente <> null and
@@ -483,6 +483,65 @@ Genere create(Genere genere)                       | Aggiunge un nuovo genere co
 Genere update(Genere genere)                       | Aggiorna le informazioni di un genere esistente.
 bool delete(int id)                                | Rimuove il genere con l'ID fornito.
 bool exists(string nome)                           | Indica se esiste un genere chiamato con il nome fornito.
+
+
+    context IGenereDAO::findByID(id:int) pre:
+        esiste nel DB genere g : genere.id = id
+    context IGenereDAO::findByID(id:int) post:
+        result = g
+
+
+    context IGenereDAO::findGeneriByFilm(film_id:int) pre:
+        film_id > 0
+    context IGenereDAO::findGeneriByFilm(film_id:int) post:
+        result = (tutti i generi g nel DB : self.findFilmsByGenere(g.id).include(film_id)) 
+
+
+    context IGenereDAO::findFilmsByGenere(id:int) pre:
+        id > 0
+    context IGenereDAO::findFilmsByGenere(id:int) post:
+        result = (tutti i film f nel DB : self.findGeneriByFilm(f.id).include(id))
+
+
+    context IGenereDAO::getAll() post:
+        result = tutti i generi nel DB
+
+
+    context IGenereDAO::setOnly(film_id:int, assign_genere_ids:int[]) pre:
+        film_id > 0 and assign_genere_ids <> null
+    context IGenereDAO::setOnly(film_id:int, assign_genere_ids:int[]) post:
+        self.findGeneriByFilm(film_id) = assign_genere_ids
+
+
+    context IGenereDAO::create(genere:Genere) pre:
+        genere <> null and
+        genere.nome <> null and
+        not self.exists(genere.nome)
+    context IGenereDAO::create(genere:Genere) post:
+        result <> null and
+        result.nome = genere.nome and
+        self.findByID(result.id) = result
+
+
+    context IGenereDAO::update(genere:Genere) pre:
+        genere <> null and
+        self.findByID(genere.id) <> null and
+        genere.nome <> null
+    context IGenereDAO::update(genere:Genere) post:
+        result = genere and self.findByID(result.id) = result
+
+
+    context IGenereDAO::delete(id:int) pre:
+        self.findByID(id) <> null
+    context IGenereDAO::delete(id:int) post:
+        result = true and self.findByID(id) = null
+
+
+    context IGenereDAO::exists(nome:string) pre:
+        nome <> null
+    context IGenereDAO::exists(nome:string) post:
+        result = (esiste nel DB genere g : genere.nome = nome)
+
 
 #### IGiudizioDAO
 
