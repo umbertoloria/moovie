@@ -12,8 +12,8 @@
     3. [Efficienza vs portabilità](#efficienza-vs-portabilità)
 3. [Convenzioni del codice](#convenzioni-del-codice)
 4. [Divisione dei packages](#divisione-dei-packages)
-    1. [Models](#models)
-    2. [DAO](#dao)
+    1. [Package Models](#package-models)
+    2. [Package DAO](#package-dao)
         1. [Interfaces](#interfaces)
             1. [IAccountDAO](#iaccountdao)
             2. [IAmiciziaDAO](#iamiciziadao)
@@ -25,14 +25,23 @@
             8. [IRecitazioneDAO](#irecitazionedao)
             9. [IRegiaDAO](#iregiadao)
         2. [Implementations](#implementations)
+            1. [Account DAO](#account-dao)
+            2. [Amicizia DAO](#amicizia-dao)
+            3. [Artista DAO](#artista-dao)
+            4. [Film DAO](#film-dao)
+            5. [Genere DAO](#genere-dao)
+            6. [Giudizio DAO](#giudizio-dao)
+            7. [Promemoria DAO](#promemoria-dao)
+            8. [Recitazione DAO](#recitazione-dao)
+            9. [Regia DAO](#regia-dao)
         3. [Factories](#factories)
-    3. [Controllers](#controllers)
+    3. [Package Controllers](#package-controllers)
         1. [Account](#account)
         2. [Amicizia](#amicizia)
         3. [Film](#film)
         4. [Gestione](#gestione)
         5. [Ricerca](#ricerca)
-    4. [Views](#views)
+    4. [Package Views](#package-views)
         1. [View generiche](#view-generiche)
         2. [View di account](#view-di-account)
         3. [View di amicizia](#view-di-amicizia)
@@ -114,7 +123,7 @@ Questa è la gerarchia dei packages dell'applicazione.
 
 I package **controllers**, **dao**, **models** e **views** verranno singolarmente descritti.
 
-## Models
+## Package Models
 Il package **models** contiene tutte le classi contenenti informazioni del dominio applicativo.
 
 Classe      | Descrizione
@@ -128,7 +137,7 @@ Promemoria  | Descrive un promemoria creato da un utente su un certo film.
 Recitazione | Contiene le informazioni sul personaggio interpretato da un attore in un film.
 Utente      | Rappresenta le informazioni di un utente registrato sul sito.
 
-## DAO
+## Package DAO
 Questa è la struttura completa del package **dao**. Come recita il nome del package, questo conterrà classi che
 realizzano il pattern architetturale DAO (per ulteriori informazioni, vedi la sezione "Design pattern" in basso).
 
@@ -161,8 +170,6 @@ Queste interfacce sono:
 
 #### IAccountDAO
 
-![](ODD%20diagrams/Class%20diagrams/AccountDAO.jpg)
-
 Metodo                                             | Descrizione
 ---------------------------------------------------|------------
 bool exists(string email)                          | Indica se esiste un utente associato l'indirizzo e-mail fornito.
@@ -174,8 +181,6 @@ Utente[] search(string fulltext)                   | Ricerca gli utenti con camp
 bool delete(int id)                                | Rimuove l'utente con l'ID fornito.
 
 #### IAmiciziaDAO
-
-![](ODD%20diagrams/Class%20diagrams/AmiciziaDAO.jpg)
 
 Metodo                                                           | Descrizione
 -----------------------------------------------------------------|------------
@@ -192,8 +197,6 @@ bool removeFriendshipBetween(int user1, int user2)             | Rimuove un'amic
 
 #### IArtistaDAO
 
-![](ODD%20diagrams/Class%20diagrams/ArtistaDAO.jpg)
-
 Metodo                                          | Descrizione
 ------------------------------------------------|------------
 Artista findByID(int id)                        | Restituisce le informazioni dell'artista con l'ID fornito.
@@ -206,8 +209,6 @@ Artista update(Artista artista)                 | Aggiorna le informazioni di un
 bool delete(int id)                             | Rimuove l'artista con l'ID fornito.
 
 #### IFilmDAO
-
-![](ODD%20diagrams/Class%20diagrams/FilmDAO.jpg)
 
 Metodo                                          | Descrizione
 ------------------------------------------------|------------
@@ -223,8 +224,6 @@ bool delete(int id)                             | Rimuove il film con l'ID forni
 
 #### IGenereDAO
 
-![](ODD%20diagrams/Class%20diagrams/GenereDAO.jpg)
-
 Metodo                                             | Descrizione
 ---------------------------------------------------|------------
 Genere findByID(int id)                            | Restituisce le informazioni del genere con l'ID fornito.
@@ -239,8 +238,6 @@ bool exists(string nome)                           | Indica se esiste un genere 
 
 #### IGiudizioDAO
 
-![](ODD%20diagrams/Class%20diagrams/GiudizioDAO.jpg)
-
 Metodo                                                   | Descrizione
 ---------------------------------------------------------|------------
 bool create(Giudizio giudizio)                           | Aggiunge il giudizio fornito.
@@ -252,8 +249,6 @@ bool exists(int utente_id, int film_id)                  | Indica se esiste un g
 
 #### IPromemoriaDAO
 
-![](ODD%20diagrams/Class%20diagrams/PromemoriaDAO.jpg)
-
 Metodo                                                     | Descrizione
 -----------------------------------------------------------|------------
 Promemoria[] findByUtente(int utente_id)                   | Preleva tutti i promemoria salvati da un utente fornito.
@@ -264,8 +259,6 @@ Promemoria findByUtenteAndFilm(int utente_id, int film_id) | Preleva (se esiste)
 
 #### IRecitazioneDAO
 
-![](ODD%20diagrams/Class%20diagrams/RecitazioneDAO.jpg)
-
 Metodo                                               | Descrizione
 -----------------------------------------------------|------------
 Recitazione[] findByArtista(int artista_id)          | Preleva tutte le recitazioni espresse da un artista fornito.
@@ -273,8 +266,6 @@ Recitazione[] findByFilm(int film_id)                | Preleva tutte le recitazi
 bool setOnly(int film_id, Recitazione[] recitazioni) | Associa ad un film solamente le recitazioni fornite.
 
 #### IRegiaDAO
-
-![](ODD%20diagrams/Class%20diagrams/RegiaDAO.jpg)
 
 Metodo                                      | Descrizione
 --------------------------------------------|------------
@@ -287,6 +278,8 @@ bool setOnly(int film_id, int[] registi_id) | Associa ad un film solamente i reg
 Il package **dao/implementations** contiene classi che implementano le interfacce DAO e realizzano le operazioni imposte
 di gestione della persistenza utilizzando la base di dati.
 
+Seguono i class diagram che mostrano le relazioni tra le implementazioni di queste interfacce DAO e i relativi modelli.
+
 Queste classi sono:
 * DBAccountDAO;
 * DBAmiciziaDAO;
@@ -297,6 +290,60 @@ Queste classi sono:
 * DBPromemoriaDAO;
 * DBRecitazioneDAO;
 * DBRegiaDAO.
+
+#### Account DAO
+
+![](ODD%20diagrams/Class%20diagrams/AccountDAO.jpg)
+
+Queste sono le relazioni tra **IAccountDAO**, **DBAccountDAO** e **Utente**.
+
+#### Amicizia DAO
+
+![](ODD%20diagrams/Class%20diagrams/AmiciziaDAO.jpg)
+
+Queste sono le relazioni tra **IAmiciziaDAO**, **DBAmiciziaDAO** e **Amicizia**.
+
+#### Artista DAO
+
+![](ODD%20diagrams/Class%20diagrams/ArtistaDAO.jpg)
+
+Queste sono le relazioni tra **IArtistaDAO**, **DBArtistaDAO** e **Artista**.
+
+#### Film DAO
+
+![](ODD%20diagrams/Class%20diagrams/FilmDAO.jpg)
+
+Queste sono le relazioni tra **IFilmDAO**, **DBFilmDAO** e **Film**.
+
+#### Genere DAO
+
+![](ODD%20diagrams/Class%20diagrams/GenereDAO.jpg)
+
+Queste sono le relazioni tra **IGenereDAO**, **DBGenereDAO** e **Genere**.
+
+#### Giudizio DAO
+
+![](ODD%20diagrams/Class%20diagrams/GiudizioDAO.jpg)
+
+Queste sono le relazioni tra **IGiudizioDAO**, **DBGiudizioDAO** e **Giudizio**.
+
+#### Promemoria DAO
+
+![](ODD%20diagrams/Class%20diagrams/PromemoriaDAO.jpg)
+
+Queste sono le relazioni tra **IPromemoriaDAO**, **DBPromemoriaDAO** e **Promemoria**.
+
+#### Recitazione DAO
+
+![](ODD%20diagrams/Class%20diagrams/RecitazioneDAO.jpg)
+
+Queste sono le relazioni tra **IRecitazioneDAO**, **DBRecitazioneDAO** e **Recitazione**.
+
+#### Regia DAO
+
+![](ODD%20diagrams/Class%20diagrams/RegiaDAO.jpg)
+
+Queste sono le relazioni tra **IRegiaDAO**, **DBRegiaDAO** e **Regia**.
 
 ### Factories
 
@@ -325,7 +372,7 @@ modalità di persistenza candidate.
 In realtà, la necessità di passare ad un altro tipo di memorizzazione (temporaneamente) è già sorta durante le fasi di
 sviluppo del progetto: in particolare, durante la fase di testing.
 
-## Controllers
+## Package Controllers
 La struttura completa del package **controllers** è questa.
 
     controllers
@@ -367,6 +414,8 @@ La struttura completa del package **controllers** è questa.
     │
     └───ricerca
             Ricerca.php
+
+![](ODD%20diagrams/Class%20diagrams/Controllers.jpg)
 
 ### Account
 Controller      | Descrizione
@@ -416,7 +465,7 @@ Controller | Descrizione
 -----------|------------
 Ricerca    | Permette di effettuare una ricerca di artisti, film e/o utenti.
 
-## Views
+## Package Views
 Questa è la struttura del package **views** del sistema.
 
     views
@@ -465,6 +514,7 @@ Questa è la struttura del package **views** del sistema.
             Area di ricerca.php
             Risultati di ricerca.php
 
+![](ODD%20diagrams/Class%20diagrams/Views.jpg)
 
 ### View generiche
 Queste viste non sono state ulteriormente raggruppate perché sono le più importanti.
@@ -549,9 +599,9 @@ della interfaccia **IFilmDAO**. L'implementazione maggiormente utilizzata dal si
 Utilizzando le factory, ogni parte di codice in cui è richiesta un'implementazione di **IFilmDAO** eviterà di contenere
 il codice necessario alla creazione di implementazioni dell'interfaccia, riducendo al minimo le duplicazioni di codice.
 
-Inoltre, se in futuro si volesse cambiare l'implementazione da utilizzare, passare per esempio da **DBAccountDAO** a
-**XMLAccountDAO**, bisognerebbe semplicemente modificare il suddetto metodo, evitando lo sforzo di un grande refactoring
-su tutto il codice che istanziava un **DBAccountDAO**.
+Inoltre, se in futuro si volesse cambiare l'implementazione da utilizzare, passare per esempio da **DBFilmDAO** a
+**XMLFilmDAO**, bisognerebbe semplicemente modificare il suddetto metodo, evitando lo sforzo di un grande refactoring
+su tutto il codice che istanziava un **DBFilmDAO**.
 
 ## Singleton
 Il Design Pattern Singleton viene usato per garantire che, di una determinata classe, venga usato una sola istanza,
@@ -577,3 +627,6 @@ Un esempio di model è **Utente**, di view è **Form di registrazione**, e di co
 Il pattern architetturale Data Access Object (DAO) è un modo di gestione della persistenza. Viene usato per ottenere una
 stratificazione e rigida separazione tra le componenti che "usano" lo storage e quelle che realizzano le modalità di
 interazione con lo storage.
+
+Per esempio, **IGenereDAO** realizza le operazioni CRUD della tabella 'generi' nella base di dati, e presenta questi
+dati tramite il modello **Genere**.
