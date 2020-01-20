@@ -78,7 +78,7 @@ class AccountDAOTest extends GenericTest {
 		return [
 			"mario rossi" => [1, ["Mario", "Rossi", "mario@rossi.lol", "provaprova", true]],
 			"michelantonio" => [2, ["Michelantonio", "Panichella", "mama@non.mama", "molise", false]],
-			"michelantonio (già esiste)" => [3, []],
+			"non esiste" => [3, []],
 		];
 	}
 
