@@ -7,133 +7,143 @@ In questo documento sono riportati tutti i log dei test che sono stati eseguiti 
 - Log test di sistema;
 
 ## Test di Unità DAO
-### AccountDAO
+#### AccountDAO
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/TestDAOAccount.png)
 
-### AmiciziaDAO
+#### AmiciziaDAO
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/TestDAOAmicizia.png)
 
-### ArtistaDAO
+#### ArtistaDAO
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/TestDAOArtista.png)
 
-### FilmDAO
+#### FilmDAO
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/TestDAOFIlm.png)
 
-### GenereDAO
+#### GenereDAO
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/TestDAOGenere.png)
 
-### GiudizioDAO
+#### GiudizioDAO
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/TestDAOGiudizio.png)
 
 ## Test di Unità Controller
-### RicercaFilmTest
+### Ricerca
+#### RicercaFilmTest
+![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RicercaFilm.png)
 
-
-### RicercaArtistaTest
+#### RicercaArtistaTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RicercaArtistaTest.png)
 
-### RicercaUtenteTest
+#### RicercaUtenteTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RicercaUtenteTest.png)
 
-### RegistrazioneTest
+### Account
+#### RegistrazioneTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RegistrazioneTest.png)
 
-### AccessoTest
+#### AccessoTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/AccessoTest.png)
 
-### CambioPasswordTest
+#### CambioPasswordTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/CambioPasswordTest.png)
 
-## Amicizia
-### InviareRichiestaAmiciziaTest
+### Amicizia
+#### InviareRichiestaAmiciziaTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/InviareRichiestaAmiciziaTest.png)
 
-### AccettareRichiestaAmiciziaTest
+#### AccettareRichiestaAmiciziaTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/AccettareRichiestaAmiciziaTest.png)
 
-### RifiutareRichiestaAmiciziaTest
+#### RifiutareRichiestaAmiciziaTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RifiutareRichiestaAmiciziaTest.png)
 
-##Film
-### AggiungereGiudizioTest
+### Film
+#### AggiungereGiudizioTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/AggiungiGiudizioTest.png)
 
-### ModificareGiudizioTest
+#### ModificareGiudizioTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/ModificaGiudizioTest.png)
 
-### RimuovereGiudizioTest
+#### RimuovereGiudizioTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RimuoviGiudizioTest.png)
 
-## Gestione
-### AggiungereFilmTest
+### Gestione
+#### AggiungereFilmTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/AggiungereFilmTest.png)
 
-### AggiungereArtistaTest
+#### AggiungereArtistaTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/AggiungereArtistaTest.png)
 
-### AggiungereGenereTest
+#### AggiungereGenereTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/AggiungereGenereTest.png)
 
-### ModificareGenereTest
+#### ModificareGenereTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/ModificareGenereTest.png)
 
-### RimuovereGenereTest
+#### RimuovereGenereTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RimuovereGenereTest.png)
 
+#### AggiornareGeneriFilmTest
+![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/AggiornareGeneriFilm.png)
+
 ## Test di Integrazione
-### RicercaFilmTest
+## Ricerca
+#### RicercaFilmTest
+![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RicercaFilm.png)
 
-
-### RicercaArtistaTest
+#### RicercaArtistaTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RicercaArtistaTest.png)
 
-### RicercaUtenteTest
+#### RicercaUtenteTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RicercaUtenteTest.png)
 
-### RegistrazioneTest
+### Account
+#### RegistrazioneTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RegistrazioneTest.png)
 
-### AccessoTest
+#### AccessoTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/AccessoTest.png)
 
-### CambioPasswordTest
+#### CambioPasswordTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/CambioPasswordTest.png)
 
-## Amicizia
-### InviareRichiestaAmiciziaTest
+### Amicizia
+#### InviareRichiestaAmiciziaTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/InviareRichiestaAmiciziaTest.png)
 
-### AccettareRichiestaAmiciziaTest
+#### AccettareRichiestaAmiciziaTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/AccettareRichiestaAmiciziaTest.png)
 
-### RifiutareRichiestaAmiciziaTest
+#### RifiutareRichiestaAmiciziaTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RifiutareRichiestaAmiciziaTest.png)
 
-##Film
-### AggiungereGiudizioTest
+### Film
+#### AggiungereGiudizioTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/AggiungiGiudizioTest.png)
 
-### ModificareGiudizioTest
+#### ModificareGiudizioTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/ModificaGiudizioTest.png)
 
-### RimuovereGiudizioTest
+#### RimuovereGiudizioTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RimuoviGiudizioTest.png)
 
-## Gestione
-### AggiungereFilmTest
+### Gestione
+#### AggiungereFilmTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/AggiungereFilmTest.png)
 
-### AggiungereArtistaTest
+#### AggiungereArtistaTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/AggiungereArtistaTest.png)
 
-### AggiungereGenereTest
+#### AggiungereGenereTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/AggiungereGenereTest.png)
 
-### ModificareGenereTest
+#### ModificareGenereTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/ModificareGenereTest.png)
 
-### RimuovereGenereTest
+#### RimuovereGenereTest
 ![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RimuovereGenereTest.png)
+
+#### AggiornareGeneriFilmTest
+![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/AggiornareGeneriFilm.png)
 
 ## Test di Sistema
 ### Ricerca
