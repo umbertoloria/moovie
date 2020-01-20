@@ -423,7 +423,7 @@ bool delete(int id)                             | Rimuove il film con l'ID forni
     context IFilmDAO::downloadCopertina(id:int) pre:
         self.findByID(id) <> null
     context IFilmDAO::downloadCopertina(id:int) post:
-        return <> null
+        result <> null
 
 
     context IFilmDAO::uploadCopertina(id:int, copertina_bin:bin) pre:
@@ -636,6 +636,21 @@ Recitazione[] findByArtista(int artista_id)          | Preleva tutte le recitazi
 Recitazione[] findByFilm(int film_id)                | Preleva tutte le recitazioni nell'ambito di un film fornito.
 bool setOnly(int film_id, Recitazione[] recitazioni) | Associa ad un film solamente le recitazioni fornite.
 
+
+    context IRecitazioneDAO::findByArtista(artista_id:int) post:
+        result = (tutte le recitazioni r nel DB : r.attore = artista_id)
+
+
+    context IRecitazioneDAO::findByFilm(film_id:int) post:
+        result = (tutte le recitazioni r nel DB : r.film = film_id)
+
+
+    context IRecitazioneDAO::setOnly(film_id:int, recitazioni:Recitazione[]) pre:
+        recitazioni <> null
+    context IRecitazioneDAO::setOnly(film_id:int, recitazioni:Recitazione[]) post:
+        result = true and self.findByFilm(film_id) = recitazioni
+
+
 #### IRegiaDAO
 
 Metodo                                      | Descrizione
@@ -643,6 +658,21 @@ Metodo                                      | Descrizione
 int[] findFilmsByArtista(int id)            | Preleva i film di cui un artista fornito ha partecipato alla regia.
 int[] findArtistiByFilm(int id)             | Preleva gli artisti che hanno partecipato alla regia di un film fornito.
 bool setOnly(int film_id, int[] registi_id) | Associa ad un film solamente i registi forniti.
+
+
+    context IRegiaDAO::findFilmsByArtista(id:int) post:
+        result = (tutte le regie r.film nel DB : r.regista = id)
+
+
+    context IRegiaDAO::findArtistiByFilm(id:int) post:
+        result = (tutte le regie r.regista nel DB : r.film = id)
+
+
+    context IRegiaDAO::setOnly(film_id:int, registi_id:int[]) pre:
+        registi_id <> null
+    context IRegiaDAO::setOnly(film_id:int, registi_id:int[]) post:
+        result = true and self.findArtistiByFilm(film_id) = registi_id
+
 
 ### Implementations
 
