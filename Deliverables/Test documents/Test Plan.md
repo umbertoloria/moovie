@@ -45,14 +45,18 @@
         6. [AggiornareGeneriFilm](#aggiornaregenerifilm)
 
 ## Introduzione 
-Molte volte, anche credendo di aver progettato un softare nel migliore dei modi, ci troviamo di fronte a situazioni nelle quali basta un piccolo evento, una piccola azione fatta da un attore, per portare un malfunzionamento a tutto il sistema. Ma come facciamo a trattare questi errori?     
+Molte volte, anche credendo di aver progettato un softare nel migliore dei modi, ci troviamo di fronte a situazioni 
+nelle quali basta un piccolo evento, una piccola azione fatta da un attore, per portare un malfunzionamento a tutto 
+il sistema. Ma come facciamo a trattare questi errori?     
 Esistono principalmente tre diversi modi per affrontare il problema:    
 - Prevenzione di errori(prima che rilasciamo un sistema)    
 - Rilevazione di errori(quando un sistema è in esecuzione)    
 - Recupero di errori(dopo che un sistema è stato rilasciato)
 
-Tra tutte queste tecniche, quella utlizzata per costruire nel migliore dei modi Moovie, noi abbiamo scelto quella di "Rilevazione di errori" in cui è presente l'attività di Testing.    
-In questo documento infatti, andremo ad illustrare come attraverso questa attività di testing, cercheremo di rilevare tutti gli errori che nel sistema sono presenti.    
+Tra tutte queste tecniche, quella utlizzata per costruire nel migliore dei modi Moovie, noi abbiamo scelto quella di 
+"Rilevazione di errori" in cui è presente l'attività di Testing.    
+In questo documento infatti, andremo ad illustrare come attraverso questa attività di testing, cercheremo di rilevare 
+tutti gli errori che nel sistema sono presenti.    
 Il testing sarà eseguito su queste macro-aree:    
  - Ricerca    
  - Account    
@@ -61,23 +65,34 @@ Il testing sarà eseguito su queste macro-aree:
  - Gestione
 
 ## Relazioni con gli altri documenti 
-Il documento di "Test Plan" è strettamente collegato agli altri documenti che abbiamo sviluppato durante la progettazione del nostro sistema.  
+Il documento di "Test Plan" è strettamente collegato agli altri documenti che abbiamo sviluppato durante la progettazione
+ del nostro sistema.  
   
 ### Relazione con RAD  
-Il Test Plan è strettamente collegato con il documento di Analisi dei requisiti in quanto dai requisiti funzionali emersi durante l'attività di analisi abbiamo individuato le principali funzionalità che il sistema deve avere. Inoltre, dato che abbiamo diviso di Utilizzare la tecnica di "Category Partition", i parametri scelti sono strettamente correlati agli Use Cases Presenti nel RAD.  
+Il Test Plan è strettamente collegato con il documento di Analisi dei requisiti in quanto dai requisiti funzionali 
+emersi durante l'attività di analisi abbiamo individuato le principali funzionalità che il sistema deve avere. Inoltre, 
+dato che abbiamo diviso di Utilizzare la tecnica di "Category Partition", i parametri scelti sono strettamente correlati
+agli Use Cases Presenti nel RAD.  
   
 ### Relazione con SDD  
-Il Test Plan è strettamente collegato con il documento di "System Design" poiché dovra rispettare tutte le funzionalità ottenute dai vari sottosistemi, facendo riferimento anche alla suddivisione fatta: Presentation Layer, Application Layer e Data Layer.  
+Il Test Plan è strettamente collegato con il documento di "System Design" poiché dovra rispettare tutte le funzionalità 
+ottenute dai vari sottosistemi, facendo riferimento anche alla suddivisione fatta: Presentation Layer, Application Layer
+e Data Layer.  
   
 ### Relazione con ODD  
-Il Test Plan è strattamente collegato con il documento di "Object Design" poiché dovrà essere il quanto più conforme possibile alle interfaccie definite per ogni classe.  
+Il Test Plan è strattamente collegato con il documento di "Object Design" poiché dovrà essere il quanto più conforme 
+possibile alle interfaccie definite per ogni classe.  
 
 ## Panoramica del sistema 
-Per una migliore progettazione della nostra Web application, il sistema è stato suddiviso in vari Layer che sono: <br/><b>Presentation Layer</b><br/><b>Application Layer</b><br/><b>Data Layer</b><br/> 
-Questa suddivisione è stata fatta per ottenere basso accoppiamento (in modo tale che ogni qual volta si modifichi una componente del sistema non c'è la necessità di modificare tutte le altre accoppiate ad essa) ed alta coesione (in moto tale che le classi nel sottosistema svolgono compiti simili e sono correlate tra loro).  
+Per una migliore progettazione della nostra Web application, il sistema è stato suddiviso in vari Layer che sono: 
+<br/><b>Presentation Layer</b><br/><b>Application Layer</b><br/><b>Data Layer</b><br/> 
+Questa suddivisione è stata fatta per ottenere basso accoppiamento (in modo tale che ogni qual volta si modifichi una 
+componente del sistema non c'è la necessità di modificare tutte le altre accoppiate ad essa) ed alta coesione (in moto 
+tale che le classi nel sottosistema svolgono compiti simili e sono correlate tra loro).  
   
 ## Funzionalità da testare 
-  In base alla suddivisione in sottosistemi che si è fatta, per ogni sottosistema abbiamo scelto di testare varie funzionalità, qui di seguito quelle individuate:    
+  In base alla suddivisione in sottosistemi che si è fatta, per ogni sottosistema abbiamo scelto di testare varie 
+  funzionalità, qui di seguito quelle individuate:    
 - Per il sottosistema Ricerca
   - RicercaFilm 
   - RicercaArtista
@@ -103,25 +118,39 @@ Questa suddivisione è stata fatta per ottenere basso accoppiamento (in modo tal
   - AggiornareGeneriFilm
   
 ## Criteri Pass/ Field
-Durante l'attività di testing, cercheremo di rilevare errori nel modo più pianificato possibile. Lo scopo di questà attività non è quello di dimostrare che nel sistema non ci sono "failure" ma quello di mostrane la presenza andando ad esercitare ogni funzionalità che il cliente si aspetta.   
-Affinché ogni funzionalità "passi" correttamente il test, è necessario che l'output derivante da esso sia conforme alle specifiche (ORACOLO) descritte in precedenza dallo sviluppatore.  Nel caso non fosse così, la componente non passerà il test e si dovrà procedere per una correzione. 
+Durante l'attività di testing, cercheremo di rilevare errori nel modo più pianificato possibile. Lo scopo di questà 
+attività non è quello di dimostrare che nel sistema non ci sono "failure" ma quello di trovarne la presenza andando ad 
+esercitare ogni funzionalità che il cliente si aspetta.   
+Affinché ogni funzionalità "passi" correttamente il test, è necessario che l'output derivante da esso sia conforme alle 
+specifiche (ORACOLO) descritte in precedenza dallo sviluppatore.  Nel caso non fosse così, la componente non passerà il 
+test e si dovrà procedere per una correzione. 
 
 ## Approccio 
-Per procedere all'attività di testing si è deciso deciso di suddividere il test in varie componenti secondo le quali andremo a testare prima le varie funzionalità in modo singolo per poi arrivare a testare l'intero sistema. Le vari componenti individuate sono:     
+Per procedere all'attività di testing si è deciso di applicare la tecnica "Bottom up" secondo la quale andremo a testare
+dapprima le componenti singolarmente, poi andremo ad integrare le stesse e vedere il loro corretto funzionamento e infine
+procedere al test di sistema.
+Le vari componenti del testing che sono state individuate sono le seguenti:     
 - Test di unità   
    - Testare i vari sottosistemi individualmente, testare singolarmente le varie funzionalità dei  sottosistemi. 
-   La metodologia scelta per questa fase di testing è la Black-Box testing secondo la quale la selezione dei test va fatta sulle specifiche del sottosistema 
-   e non sulla implementazione e logica di esso. Per testare il sistema nel migliore dei modi cercando di avere una senso di test completo, andremo a testare le varie funzionalità previste individuando i paramentri scelti per ogni funzionalità con le relative categorie e le scelte fatte per ognuna di essa.  
+   La metodologia scelta per questa fase di testing è la Black-Box testing secondo la quale la selezione dei test va 
+   fatta sulle specifiche del sottosistema 
+   e non sulla implementazione e logica di esso. Per testare il sistema nel migliore dei modi cercando di avere una 
+   senso di test completo, andremo a testare le varie funzionalità previste individuando i paramentri scelti per ogni 
+   funzionalità con le relative categorie e le scelte fatte per ognuna di essa.  
 - Test di integrazione   
-   - Unire alcuni sottosistemi e testarli con tutte le loro funzionalità integrate. Durante questa fase, cercheremo di rilevare gli errori derivanti dalla composizione di alcuni sottosistemi.    
+   - Unire alcuni sottosistemi e testarli con tutte le loro funzionalità integrate. Durante questa fase, cercheremo di 
+   rilevare gli errori derivanti dalla composizione di alcuni sottosistemi.    
 - Test di sistema    
-  - Testare l'intero funzionamento del sistema. Durante questa fase cercheremo di rilevare gli errori derivanti dall'intero sistema e dall'integrazione, dunque, di tutti i sottosistemi prima sviluppati.    
-## Sospensione e ripresa 
+  - Testare l'intero funzionamento del sistema. Durante questa fase cercheremo di rilevare gli errori derivanti 
+  dall'intero sistema e dall'integrazione, dunque, di tutti i sottosistemi prima sviluppati.## Sospensione e ripresa 
 ### Sospensione 
-Ci sarà una sospensione dell'attività di testing solo nel momento in cui avremo testato ogni funzionalità prevista rispettando nel modo quanto più corretto possibile quelli che sono i tempi e i costi da noi previsti.  
+Ci sarà una sospensione dell'attività di testing solo nel momento in cui avremo testato ogni funzionalità prevista 
+rispettando nel modo quanto più corretto possibile quelli che sono i tempi e i costi da noi previsti.  
 
 ### Ripresa 
-Ogni qual volta si individueranno dei bag nelle funzionalità sarà necessaria una correzione di essi. Per verificare che la correzione non abbia portato ulteriori danni al sistema verrà ripresa l'attività di testing, riproponendo gli stessi casi si test che ci hanno condotto al problema.  
+Ogni qual volta si individueranno dei bag nelle funzionalità sarà necessaria una correzione di essi. Per verificare 
+che la correzione non abbia portato ulteriori danni al sistema verrà ripresa l'attività di testing, riproponendo gli 
+stessi casi di test che ci hanno condotto al problema.  
 
 ## Materiale per il testing
 Per eseguire i vari casi di test saranno utilizzati un database, un client e un server.  
@@ -503,14 +532,9 @@ TC_5.5_3 | LoUtente_2, GeUtente_2                   | Corretto
 **Loggato[LoUtente]**: | 1. L'utente che vuole aggiornare generi ad un film non è loggato[Errore] <br/> 2. L'utente che vuole aggiornare generi ad un film è loggato[Successo_LoUtente]
 **Gestore[GeUtente]**: | 1. L'utente che vuole aggiornare generi ad un film non è gestore[if_LoUtente_OK][Errore] <br/> 2. L'utente che vuole aggiornare generi ad un film è gestore[if_GeUtente_OK][Successo_Utente]
 
-**PARAMETRO**: | Genere
-----|---
-**Presenza[PGenere]:**| 1. L'utente ha selezionato un genere non esistente[Errore]<br/> 2. L'utente ha selezionato un genere esistente[Successo_PGenere]
-
 #### Test cases
 Codice   | Combinazione                             | Esito
 ---------|------------------------------------------|-------
 TC_5.6_1 | LoUtente_1                               | Errore
 TC_5.6_2 | LoUtente_2, GeUtente_1          			| Errore
-TC_5.6_3 | LoUtente_2, GeUtente_2, PGenere_1        | Errore
-TC_5.6_4 | LoUtente_2, GeUtente_2, PGenere_2        | Corretto
+TC_5.6_3 | LoUtente_2, GeUtente_2                   | Corretto

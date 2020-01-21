@@ -238,7 +238,7 @@ Test Case ID         | TC_2_2_6
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit)  
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)    
 
 **Test Case ID**     | TC_2_3_2
 ---------------------|---------
@@ -281,7 +281,7 @@ Test Case ID         | TC_3_1_1
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)  
 
 Test Case ID         | TC_3_1_2
 ---------------------|---------
@@ -289,7 +289,7 @@ Test Case ID         | TC_3_1_2
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)  
 
 Test Case ID         | TC_3_1_3
 ---------------------|---------
@@ -306,7 +306,7 @@ Test Case ID         | TC_3_2_1
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit)  
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)    
 
 Test Case ID         | TC_3_2_2
 ---------------------|---------
@@ -314,7 +314,7 @@ Test Case ID         | TC_3_2_2
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 Test Case ID         | TC_3_2_3
 ---------------------|---------
@@ -322,7 +322,7 @@ Test Case ID         | TC_3_2_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 #### 3.3 RifiutareRichiestaAmicizia
 Test Case ID         | TC_3_3_1
@@ -331,7 +331,7 @@ Test Case ID         | TC_3_3_1
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 
 Test Case ID         | TC_3_3_2
@@ -340,7 +340,7 @@ Test Case ID         | TC_3_3_2
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
 
 Test Case ID         | TC_3_3_3
 ---------------------|---------
@@ -360,7 +360,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 **Test Case ID**     | TC_4_1_2
 ---------------------|---------
@@ -368,7 +368,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit)
 
 **Test Case ID**     | TC_4_1_3
 ---------------------|---------
@@ -376,7 +376,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
 
 **Test Case ID**     | TC_4_1_4
 ---------------------|---------
@@ -393,7 +393,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
 
 **Test Case ID**     | TC_4_2_2
 ---------------------|---------
@@ -409,7 +409,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)  
 
 **Test Case ID**     | TC_4_2_4
 ---------------------|---------
@@ -426,7 +426,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 **Test Case ID**     | TC_4_3_2
 ---------------------|---------
@@ -442,7 +442,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 **Test Case ID**     | TC_4_3_4
 ---------------------|---------
@@ -461,7 +461,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 **Test Case ID**     | TC_5_1_2
 ---------------------|---------
@@ -469,7 +469,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit)  
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)  
 
 **Test Case ID**     | TC_5_1_3
 ---------------------|---------
@@ -485,7 +485,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)  
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 **Test Case ID**     | TC_5_1_5
 ---------------------|---------
@@ -493,7 +493,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 **Test Case ID**     | TC_5_1_6
 ---------------------|---------
@@ -501,7 +501,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 **Test Case ID**     | TC_5_1_7
 ---------------------|---------
@@ -509,7 +509,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 **Test Case ID**     | TC_5_1_8
 ---------------------|---------
@@ -517,7 +517,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 ### 5.2 AggiungereArtista
 **Test Case ID**     | TC_5_2_1
@@ -526,7 +526,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit)  
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)  
 
 **Test Case ID**     | TC_5_2_2
 ---------------------|---------
@@ -534,7 +534,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 **Test Case ID**     | TC_5_2_3
 ---------------------|---------
@@ -583,7 +583,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 **Test Case ID**     | TC_5_3_2
 ---------------------|---------
@@ -591,7 +591,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 **Test Case ID**     | TC_5_3_3
 ---------------------|---------
@@ -624,7 +624,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 **Test Case ID**     | TC_5_4_2
 ---------------------|---------
@@ -632,7 +632,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)  
 
 **Test Case ID**     | TC_5_4_3
 ---------------------|---------
@@ -665,7 +665,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 **Test Case ID**     | TC_5_5_2
 ---------------------|---------
@@ -673,7 +673,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 **Test Case ID**     | TC_5_5_3
 ---------------------|---------
@@ -690,7 +690,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 **Test Case ID**     | TC_5_6_2
 ---------------------|---------
@@ -698,7 +698,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)  
 
 **Test Case ID**     | TC_5_6_3
 ---------------------|---------

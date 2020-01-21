@@ -13,7 +13,7 @@ Il test di unità è stato effettuato attraverso il framework "PHPUnit" con il q
 DAO di Moovie ma anche alcuni selezionati controller. Uno degli strumenti usati per effettuare il testing di Unità è lo 
 stub, ossia un'implementazione fittizia del nostro database in modo tale che le unità, nel momento in cui venivano testate, 
 non andavano ad operare direttamente sul nostro database ma operavano su strutture dati create appositamente per gestire 
-alcuni tipi di dati. 
+alcuni tipi di dati. Gli stub, affiché potessero assicurare una funzionalità corretta, sono stati testati individualmente. 
 
 Dopo il Test di Unità è stato eseguito il test di Integrazione dei controller con i DAO (eseguito con PHPUnit) in cui 
 tutte le funzionalità che i controller andavano ad eseguire, si interfacciavano direttamente con i DAO e non più con 
@@ -22,6 +22,7 @@ gli stub.
 L'ultimo test effettuato è il test di Sistema in cui è stata testato l'interfacciamento dell'utente verso il sito e 
 dunque, se le funzionalità del sito operavano correttamente. Lo strumento che si è utilizzato per eseguire questo tipo 
 di attività è selenium. 
+
 
 ## Test Execution 
 Durante l'attività di testing, molti sono stati i casi di test eseguiti ma nessuno di essi ha dato esito negativo.
