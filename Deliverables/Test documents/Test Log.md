@@ -222,15 +222,15 @@ Running 'RicercaUtente_1_3_2'
 
 ##### TC_1_3_3
 Running 'RicercaUtente_1_3_3'
-1.open on / OK
-2.setWindowSize on 1122x717 OK
-3.click on css=label OK
-4.click on css=ul:nth-child(3) > li:nth-child(4) OK
-5.click on name=fulltext OK
-6.click on css=input:nth-child(3) OK
-7.type on name=fulltext with value Michelantonio Panichella OK
-8.click on css=input:nth-child(3) OK
-9.assertElementPresent on xpath=//a[contains(text(),'Michelantonio Panichella')] OK
+1. open on / OK
+2. setWindowSize on 1122x717 OK
+3. click on css=label OK
+4. click on css=ul:nth-child(3) > li:nth-child(4) OK
+5. click on name=fulltext OK
+6. click on css=input:nth-child(3) OK
+7. type on name=fulltext with value Michelantonio Panichella OK
+8. click on css=input:nth-child(3) OK
+9. assertElementPresent on xpath=//a[contains(text(),'Michelantonio Panichella')] OK
 'RicercaUtente_1_3_3' completed successfully
 
 ### Account
@@ -238,109 +238,109 @@ Running 'RicercaUtente_1_3_3'
 #### 2.1 CreareAccount
 ##### TC_2_1_1
 Running 'CreareAccount_2_1_1' 
-1.open on http://localhost/registrazione.php OK
-2.setWindowSize on 1382x744 OK
-3.click on name=nome OK
-4.type on name=cognome with value Verdi OK
-5.type on name=email with value g.verdi@gmail.com OK
-6.type on name=password with value 140898 OK
-7.click on css=.button OK
-8.assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
+1. open on http://localhost/registrazione.php OK
+2. setWindowSize on 1382x744 OK
+3. click on name=nome OK
+4. type on name=cognome with value Verdi OK
+5. type on name=email with value g.verdi@gmail.com OK
+6. type on name=password with value 140898 OK
+7. click on css=.button OK
+8. assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
 'CreareAccount_2_1_1' completed successfully
 
 ##### TC_2_1_2
 Running 'CreareAccount_2_1_2'
-1.open on http://localhost/registrazione.php OK
-2.setWindowSize on 1366x728 OK
-3.click on name=nome OK
-4.type on name=nome with value ###### OK
-5.type on name=cognome with value Verdi OK
-6.type on name=email with value g.verdi@gmail.com OK
-7.type on name=password with value 140898 OK
-8.click on css=.button OK
-9.assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
+1. open on http://localhost/registrazione.php OK
+2. setWindowSize on 1366x728 OK
+3. click on name=nome OK
+4. type on name=nome with value ###### OK
+5. type on name=cognome with value Verdi OK
+6. type on name=email with value g.verdi@gmail.com OK
+7. type on name=password with value 140898 OK
+8. click on css=.button OK
+9. assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
 'CreareAccount_2_1_2' completed successfully
 
 ##### TC_2_1_3
 Running 'CreareAccount_2_1_3' 
-1.open on http://localhost/registrazione.php OK
-2.setWindowSize on 1382x744 OK
-3.click on name=nome OK
-4.type on name=nome with value Giuseppe OK
-5.type on name=email with value g.verdi@gmail.com OK
-6.type on name=password with value 140898 OK
-7.type on name=copassword with value 140898 OK
-8.click on css=.button OK
-9.assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
+1. open on http://localhost/registrazione.php OK
+2. setWindowSize on 1382x744 OK
+3. click on name=nome OK
+4. type on name=nome with value Giuseppe OK
+5. type on name=email with value g.verdi@gmail.com OK
+6. type on name=password with value 140898 OK
+7. type on name=copassword with value 140898 OK
+8. click on css=.button OK
+9. assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
 'CreareAccount_2_1_3' completed successfully
 
 ##### TC_2_1_4
 Running 'CreareAccount_2_1_4' 
-1.open on http://localhost/registrazione.php OK
-2.setWindowSize on 1366x728 OK
-3.click on name=nome OK
-4.type on name=nome with value Giuseppe OK
-5.type on name=cognome with value ###### OK
-6.type on name=email with value g.verdi@gmail.com OK
-7.type on name=password with value 140898 OK
-8.type on name=copassword with value 140898 OK
-9.click on css=.button OK
-10.assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
+1. open on http://localhost/registrazione.php OK
+2. setWindowSize on 1366x728 OK
+3. click on name=nome OK
+4. type on name=nome with value Giuseppe OK
+5. type on name=cognome with value ###### OK
+6. type on name=email with value g.verdi@gmail.com OK
+7. type on name=password with value 140898 OK
+8. type on name=copassword with value 140898 OK
+9. click on css=.button OK
+10. assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
 'CreareAccount_2_1_4' completed successfully
 
 ##### TC_2_1_5
 Running 'CreareAccount_2_1_5'
-1.open on http://localhost/registrazione.php OK
-2.setWindowSize on 1382x744 OK
-3.click on name=nome OK
-4.type on name=nome with value Giuseppe OK
-5.type on name=cognome with value Verdi OK
-6.type on name=password with value 140898 OK
-7.type on name=copassword with value 140898 OK
-8.click on css=.button OK
-9.assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
+1. open on http://localhost/registrazione.php OK
+2. setWindowSize on 1382x744 OK
+3. click on name=nome OK
+4. type on name=nome with value Giuseppe OK
+5. type on name=cognome with value Verdi OK
+6. type on name=password with value 140898 OK
+7. type on name=copassword with value 140898 OK
+8. click on css=.button OK
+9. assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
 'CreareAccount_2_1_5' completed successfully
 
 ##### TC_2_1_6
 Running 'CreareAccount_2_1_6'
-1.open on http://localhost/registrazione.php OK
-2.setWindowSize on 1382x744 OK
-3.click on name=nome OK
-4.type on name=nome with value Giuseppe OK
-5.type on name=cognome with value Verdi OK
-6.type on name=email with value g.verdigmail.com OK
-7.type on name=password with value 140898 OK
-8.click on xpath=//input[@value='Registrati'] OK
-9.assertElementPresent on xpath=//input[@value='Registrati'] OK
+1. open on http://localhost/registrazione.php OK
+2. setWindowSize on 1382x744 OK
+3. click on name=nome OK
+4. type on name=nome with value Giuseppe OK
+5. type on name=cognome with value Verdi OK
+6. type on name=email with value g.verdigmail.com OK
+7. type on name=password with value 140898 OK
+8. click on xpath=//input[@value='Registrati'] OK
+9. assertElementPresent on xpath=//input[@value='Registrati'] OK
 'CreareAccount_2_1_6' completed successfully
 
 ##### TC_2_1_7
 Running 'CreareAccount_2_1_7'
-1.open on http://localhost/registrazione.php OK
-2.setWindowSize on 1382x744 OK
-3.click on name=nome OK
-4.type on name=nome with value Giuseppe OK
-5.type on name=cognome with value Verdi OK
-6.type on name=email with value gianluca.pirone9@gmail.com OK
-7.type on name=password with value 140898 OK
-8.type on name=copassword with value 140898 OK
-9.click on css=fieldset OK
-10.click on css=.button OK
-11.click on linkText=↩ OK
+1. open on http://localhost/registrazione.php OK
+2. setWindowSize on 1382x744 OK
+3. click on name=nome OK
+4. type on name=nome with value Giuseppe OK
+5. type on name=cognome with value Verdi OK
+6. type on name=email with value gianluca.pirone9@gmail.com OK
+7. type on name=password with value 140898 OK
+8. type on name=copassword with value 140898 OK
+9. click on css=fieldset OK
+10. click on css=.button OK
+11. click on linkText=↩ OK
 'CreareAccount_2_1_7' completed successfully
 
 ##### TC_2_1_8
 Running 'CreareAccount_2_1_8'
-1.open on http://localhost/registrazione.php OK
-2.setWindowSize on 1382x744 OK
-3.click on name=nome OK
-4.type on name=nome with value Giuseppe OK
-5.type on name=cognome with value Verdi OK
-6.type on name=email with value g.verdi@gmail.com OK
-7.type on name=copassword with value 140898 OK
-8.click on css=fieldset OK
-9.click on css=.button OK
-10.assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
+1. open on http://localhost/registrazione.php OK
+2. setWindowSize on 1382x744 OK
+3. click on name=nome OK
+4. type on name=nome with value Giuseppe OK
+5. type on name=cognome with value Verdi OK
+6. type on name=email with value g.verdi@gmail.com OK
+7. type on name=copassword with value 140898 OK
+8. click on css=fieldset OK
+9. click on css=.button OK
+10. assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
 'CreareAccount_2_1_8' completed successfully
 
 ##### TC_2_1_9
@@ -359,41 +359,41 @@ Running 'CreareAccount_2_1_9'
 
 ##### TC_2_1_10
 Running 'CreareAccount_2_1_10' 
-1.open on http://localhost/registrazione.php OK
-2.setWindowSize on 1382x744 OK
-3.click on name=nome OK
-4.type on name=nome with value Giuseppe OK
-5.type on name=cognome with value Verdi OK
-6.type on name=email with value g.verdi@gmail.com OK
-7.type on name=password with value 140898 OK
-8.type on name=copassword with value 140898 OK
-9.click on css=section OK
-10.click on css=.button OK
-11.verifyElementPresent on xpath=//h1[contains(.,'Benvenuto nel fantastico mondo di Moovie')] OK
+1. open on http://localhost/registrazione.php OK
+2. setWindowSize on 1382x744 OK
+3. click on name=nome OK
+4. type on name=nome with value Giuseppe OK
+5. type on name=cognome with value Verdi OK
+6. type on name=email with value g.verdi@gmail.com OK
+7. type on name=password with value 140898 OK
+8. type on name=copassword with value 140898 OK
+9. click on css=section OK
+10. click on css=.button OK
+11. verifyElementPresent on xpath=//h1[contains(.,'Benvenuto nel fantastico mondo di Moovie')] OK
 'CreareAccount_2_1_10' completed successfully
 
 #### 2.2 AutenticareAccount
 ##### TC_2_2_1
 Running 'AutenticareAccount_2_2_1' 
-1.open on http://localhost/accesso.php OK
-2.setWindowSize on 1382x744 OK
-3.click on name=email OK
-4.type on name=email with value g. OK
-5.type on name=password with value 140898 OK
-6.click on xpath=//input[@value='Accedi'] OK
-7.assertElementPresent on xpath=//input[@value='Accedi'] OK
+1. open on http://localhost/accesso.php OK
+2. setWindowSize on 1382x744 OK
+3. click on name=email OK
+4. type on name=email with value g. OK
+5. type on name=password with value 140898 OK
+6. click on xpath=//input[@value='Accedi'] OK
+7. assertElementPresent on xpath=//input[@value='Accedi'] OK
 'AutenticareAccount_2_2_1' completed successfully
 
 ##### TC_2_2_2
 Running 'AutenticareAccount_2_2_2'
-1.open on http://localhost/accesso.php OK
-2.setWindowSize on 1382x744 OK
-3.click on name=email OK
-4.type on name=email with value g.verdigmail.com OK
-5.click on name=password OK
-6.type on name=password with value 140898 OK
-7.click on css=body OK
-8.assertElementPresent on xpath=//input[@value='Accedi'] OK
+1. open on http://localhost/accesso.php OK
+2. setWindowSize on 1382x744 OK
+3. click on name=email OK
+4. type on name=email with value g.verdigmail.com OK
+5. click on name=password OK
+6. type on name=password with value 140898 OK
+7. click on css=body OK
+8. assertElementPresent on xpath=//input[@value='Accedi'] OK
 'AutenticareAccount_2_2_2' completed successfully
 
 ##### TC_2_2_3
@@ -410,16 +410,16 @@ Running 'AutenticareAccount_2_2_3'
 
 ##### TC_2_2_4
 Running 'AutenticareAccount_2_2_4'
-1.open on http://localhost/accesso.php OK
-2.setWindowSize on 1382x744 OK
-3.click on name=email OK
-4.type on name=email with value g.verdi@gmail.com OK
-5.click on name=password OK
-6.mouseDown on id=form_di_accesso OK
-7.mouseUp on css=fieldset > label:nth-child(2) OK
-8.click on id=form_di_accesso OK
-9.click on css=.button OK
-10.assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
+1. open on http://localhost/accesso.php OK
+2. setWindowSize on 1382x744 OK
+3. click on name=email OK
+4. type on name=email with value g.verdi@gmail.com OK
+5. click on name=password OK
+6. mouseDown on id=form_di_accesso OK
+7. mouseUp on css=fieldset > label:nth-child(2) OK
+8. click on id=form_di_accesso OK
+9. click on css=.button OK
+10. assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
 'AutenticareAccount_2_2_4' completed successfully
 
 ##### TC_2_2_5
@@ -448,21 +448,21 @@ Running 'AutenticareAccount_2_2_6'
 #### 2.2 CambiarePassword
 ##### TC_2_3_1
 Running 'CambiarePassword_2_3_1' 
-1.assertElementNotPresent on linkText=Cambia password OK
+1. assertElementNotPresent on linkText=Cambia password OK
 'CambiarePassword_2_3_1' completed successfully
 
 ##### TC_2_3_2
 Running 'CambiarePassword_2_3_2'
-1.open on http://localhost/cambia_password.php OK
-2.setWindowSize on 1382x744 OK
-3.click on name=cur_pwd OK
-4.click on name=new_pwd OK
-5.type on name=new_pwd with value Verdi09 OK
-6.click on name=cnf_pwd OK
-7.type on name=cnf_pwd with value Verdi09 OK
-8.click on css=fieldset OK
-9.click on css=.button OK
-10.assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
+1. open on http://localhost/cambia_password.php OK
+2. setWindowSize on 1382x744 OK
+3. click on name=cur_pwd OK
+4. click on name=new_pwd OK
+5. type on name=new_pwd with value Verdi09 OK
+6. click on name=cnf_pwd OK
+7. type on name=cnf_pwd with value Verdi09 OK
+8. click on css=fieldset OK
+9. click on css=.button OK
+10. assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
 
 ##### TC_2_3_3
 Running 'CambiarePassword_2_3_3'
@@ -479,18 +479,18 @@ Running 'CambiarePassword_2_3_3'
 
 ##### TC_2_3_4
 Running 'CambiarePassword_2_3_4'
-1.open on http://localhost/cambia_password.php OK
-2.setWindowSize on 1382x744 OK
-3.click on name=cur_pwd OK
-4.type on name=cur_pwd with value 140898 OK
-5.click on name=new_pwd OK
-6.mouseDown on name=cnf_pwd OK
-7.mouseUp on css=label:nth-child(3) OK
-8.click on css=label:nth-child(3) OK
-9.type on name=cnf_pwd with value Verdi09 OK
-10.click on css=fieldset OK
-11.click on css=.button OK
-12.assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
+1. open on http://localhost/cambia_password.php OK
+2. setWindowSize on 1382x744 OK
+3. click on name=cur_pwd OK
+4. type on name=cur_pwd with value 140898 OK
+5. click on name=new_pwd OK
+6. mouseDown on name=cnf_pwd OK
+7. mouseUp on css=label:nth-child(3) OK
+8. click on css=label:nth-child(3) OK
+9. type on name=cnf_pwd with value Verdi09 OK
+10. click on css=fieldset OK
+11. click on css=.button OK
+12. assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
 'CambiarePassword_2_3_4' completed successfully
 
 ##### TC_2_3_5
@@ -513,22 +513,22 @@ Running 'CambiarePassword_2_3_5'
 #### 3.1 InviareRichiestaAmicizia
 ##### TC_3_1_1
 Running 'InviareRichiestaAmicizia_3_1_1’ 
-1.open on / OK
-2.setWindowSize on 1135x644 OK
-3.click on css=label OK
-4.assertElementNotPresent on xpath=//li[contains(.,'Utenti')] OK
+1. open on / OK
+2. setWindowSize on 1135x644 OK
+3. click on css=label OK
+4. assertElementNotPresent on xpath=//li[contains(.,'Utenti')] OK
 'InviareRichiestaAmicizia_3_1_1’ completed successfully
 
 ##### TC_3_1_2
 Running 'InviareRichiestaAmicizia_3_1_2' 
-1.open on / OK
-2.setWindowSize on 1680x1050 OK
-3.click on css=label OK
-4.click on css=ul:nth-child(3) > li:nth-child(4) OK
-5.click on name=fulltext OK
-6.type on name=fulltext with value Alfredo OK
-7.sendKeys on name=fulltext with value ${KEY_ENTER} OK
-8.assertElementPresent on xpath=//h1[contains(.,'Nessun risultato trovato')] OK
+1. open on / OK
+2. setWindowSize on 1680x1050 OK
+3. click on css=label OK
+4. click on css=ul:nth-child(3) > li:nth-child(4) OK
+5. click on name=fulltext OK
+6. type on name=fulltext with value Alfredo OK
+7. sendKeys on name=fulltext with value ${KEY_ENTER} OK
+8. assertElementPresent on xpath=//h1[contains(.,'Nessun risultato trovato')] OK
 'InviareRichiestaAmicizia_3_1_2' completed successfully
 
 ##### TC_3_1_3
@@ -543,14 +543,14 @@ Running 'InviareRichiestaAmicizia_3_1_3'
 #### 3.2 AccettareRichiestaAmicizia
 ##### TC_3_2_1
 Running 'AccettareRichiestaAmicizia_3_2_1' 
-1.assertElementNotPresent on xpath=//a[contains(@href, '/amici.php')] OK
+1.  on xpath=//a[contains(@href, '/amici.php')] OK
 'AccettareRichiestaAmicizia_3_2_1' completed successfully
 
 ##### TC_3_2_2
 Running 'AccettareRichiestaAmicizia_3_2_2' 
-1.open on / OK
-2.setWindowSize on 1680x1050 OK
-3.assertElementNotPresent on linkText=Alfredo OK
+1. open on / OK
+2. setWindowSize on 1680x1050 OK
+3. assertElementNotPresent on linkText=Alfredo OK
 'AccettareRichiestaAmicizia_3_2_2' completed successfully
 
 ##### TC_3_2_3
@@ -564,14 +564,14 @@ Running 'AccettareRichiestaAmicizia_3_2_3'
 #### 3.3 RifiutareRichiestaAmicizia
 ##### TC_3_3_1
 Running ‘RifiutareRichiestaAmicizia_3_3_1’ 
-1.assertElementNotPresent on xpath=//a[contains(@href, '/amici.php')] OK
+1. assertElementNotPresent on xpath=//a[contains(@href, '/amici.php')] OK
 'AccettareRichiestaAmicizia_3_3_1’ completed successfully
 
 ##### TC_3_3_2
 Running ‘RifiutareRichiestaAmicizia_3_3_2’ 
-1.open on / OK
-2.setWindowSize on 1680x1050 OK
-3.assertElementNotPresent on linkText=Alfredo OK
+1. open on / OK
+2. setWindowSize on 1680x1050 OK
+3. assertElementNotPresent on linkText=Alfredo OK
 'AccettareRichiestaAmicizia_3_3_2’ completed successfully
 
 ##### TC_3_3_3
@@ -587,53 +587,53 @@ Running 'RifiutareRichiestaAmicizia_3_3_3'
 #### AggiungereGiudizio
 ##### TC_4_1_1
 Running 'AggiungereGiudizio_4_1_1' 
-1.open on / OK
-2.click on linkText=Classifica dei film OK1
-3.click on css=li:nth-child(4) img OK
-4.assertElementNotPresent on linkText=+ giudizi OK
+1. open on / OK
+2. click on linkText=Classifica dei film OK1
+3. click on css=li:nth-child(4) img OK
+4. assertElementNotPresent on linkText=+ giudizi OK
 'AggiungereGiudizio_4_1_1' completed successfully
 
 ##### TC_4_1_3
 Running 'AggiungereGiudizio_4_1_3' 
-1.open on http://localhost/ OK
-2.setWindowSize on 1680x959 OK
-3.click on name=fulltext OK
-4.type on name=fulltext with value Le cronache di narnia OK
-5.sendKeys on name=fulltext with value ${KEY_ENTER} OK
-6.assertElementPresent on xpath=//h1[contains(.,'Nessun risultato trovato')] OK
+1. open on http://localhost/ OK
+2. setWindowSize on 1680x959 OK
+3. click on name=fulltext OK
+4. type on name=fulltext with value Le cronache di narnia OK
+5. sendKeys on name=fulltext with value ${KEY_ENTER} OK
+6. assertElementPresent on xpath=//h1[contains(.,'Nessun risultato trovato')] OK
 'AggiungereGiudizio_4_1_3' completed successfully
 
 ##### TC_4_1_4
 Running 'AggiungereGiudizio_4_1_4'
-1.open on http://localhost/film.php?id=3 OK
-2.setWindowSize on 1382x744 OK
-3.click on linkText=+ giudizi OK
-4.click on name=voto OK
-5.select on name=voto with value label=8 OK
-6.click on name=voto OK
-7.mouseDownAt on css=.button with value 63.375,40.5 OK
-8.mouseMoveAt on css=.button with value 63.375,40.5 OK
-9.mouseUpAt on css=.button with value 63.375,40.5 OK
-10.click on css=.button OK
+1. open on http://localhost/film.php?id=3 OK
+2. setWindowSize on 1382x744 OK
+3. click on linkText=+ giudizi OK
+4. click on name=voto OK
+5. select on name=voto with value label=8 OK
+6. click on name=voto OK
+7. mouseDownAt on css=.button with value 63.375,40.5 OK
+8. mouseMoveAt on css=.button with value 63.375,40.5 OK
+9. mouseUpAt on css=.button with value 63.375,40.5 OK
+10. click on css=.button OK
 11.assertElementNotPresent on linkText=+ giudizi OK
 'AggiungereGiudizio_4_1_4' completed successfully
 
 #### ModificareGiudizio
 ##### TC_4_2_1
 Running 'ModificareGiudizio_4_2_1' 
-1.open on http://localhost/ OK
-2.setWindowSize on 1680x959 OK
-3.assertElementNotPresent on linkText=Giudizi OK
+1. open on http://localhost/ OK
+2. setWindowSize on 1680x959 OK
+3. assertElementNotPresent on linkText=Giudizi OK
 'ModificareGiudizio_4_2_1' completed successfully
 
 ##### TC_4_2_3
 Running 'ModificareGiudizio_4_2_3' 
-1.open on http://localhost/ OK
-2.setWindowSize on 1680x959 OK
-3.click on name=fulltext OK
-4.type on name=fulltext with value Le cronache di narnia OK
-5.sendKeys on name=fulltext with value ${KEY_ENTER} OK
-6.assertElementPresent on xpath=//h1[contains(.,'Nessun risultato trovato')] OK
+1. open on http://localhost/ OK
+2. setWindowSize on 1680x959 OK
+3. click on name=fulltext OK
+4. type on name=fulltext with value Le cronache di narnia OK
+5. sendKeys on name=fulltext with value ${KEY_ENTER} OK
+6. assertElementPresent on xpath=//h1[contains(.,'Nessun risultato trovato')] OK
 'ModificareGiudizio_4_2_3' completed successfully
 
 ##### TC_4_2_4
@@ -650,8 +650,8 @@ Running 'ModificareGiudizio_4_2_4'
 #### RimuovereGiudizio
 ##### TC_4_3_1
 Running 'RimuovereGiudizio_4_3_1' 
-1.open on http://localhost/ OK
-2.assertElementNotPresent on linkText=Giudizi OK
+1. open on http://localhost/ OK
+2. assertElementNotPresent on linkText=Giudizi OK
 'RimuovereGiudizio_4_3_1' completed successfully
 
 ##### TC_4_3_3
@@ -669,16 +669,16 @@ Running 'RimuovereGiudizio_4_3_3'
 #### AggiungereFilm
 ##### TC_5_1_1
 Running 'AggiungereFilm_5_1_1' 17:10:16
-1.open on http://localhost/ OK
-2.setWindowSize on 1680x959 OK
-3.assertElementNotPresent on linkText=+ film OK
+1. open on http://localhost/ OK
+2. setWindowSize on 1680x959 OK
+3. assertElementNotPresent on linkText=+ film OK
 'AggiungereFilm_5_1_1' completed successfully
 
 ##### TC_5_1_2
 Running ‘AggiungereFilm_5_1_2’ 
-1.open on http://localhost/ OK
-2.setWindowSize on 1680x959 OK
-3.assertElementNotPresent on linkText=+ film OK
+1. open on http://localhost/ OK
+2. setWindowSize on 1680x959 OK
+3. assertElementNotPresent on linkText=+ film OK
 ‘AggiungereFilm_5_1_2’ completed successfully
 
 ##### TC_5_1_3
@@ -789,16 +789,16 @@ Running 'AggiungereFilm_5_1_8'
 
 ##### TC_5_2_1
 Running ‘AggiungereArtista_5_2_1’ 
-1.open on http://localhost/ OK
-2.setWindowSize on 1680x959 OK
-3.assertElementNotPresent on linkText=+ artista OK
+1. open on http://localhost/ OK
+2. setWindowSize on 1680x959 OK
+3. assertElementNotPresent on linkText=+ artista OK
 ‘AggiungereArtista_5_2_1’ completed successfully
 
 ##### TC_5_2_2
 Running ‘AggiungereArtista_5_2_2’ 
-1.open on http://localhost/ OK
-2.setWindowSize on 1680x959 OK
-3.assertElementNotPresent on linkText=+ artista OK
+1. open on http://localhost/ OK
+2. setWindowSize on 1680x959 OK
+3. assertElementNotPresent on linkText=+ artista OK
 ‘AggiungereArtista_5_2_2’ completed successfully
 
 ##### TC_5_2_3
@@ -891,38 +891,38 @@ Running 'AggiungereArtista_5_2_7'
 #### AggiungereGenere
 ##### TC_5_3_1
 Running ‘AggiungereGenere_5_3_1’ 
-1.open on http://localhost/ OK
-2.setWindowSize on 1680x959 OK
-3.assertElementNotPresent on linkText=+ genere OK
+1. open on http://localhost/ OK
+2. setWindowSize on 1680x959 OK
+3. assertElementNotPresent on linkText=+ genere OK
 ‘AggiungereGenere_5_3_1’ completed successfully
 
 ##### TC_5_3_2
 Running ‘AggiungereGenere_5_3_2’ 
-1.open on http://localhost/ OK
-2.setWindowSize on 1680x959 OK
-3.assertElementNotPresent on linkText=+ genere OK
+1. open on http://localhost/ OK
+2. setWindowSize on 1680x959 OK
+3. assertElementNotPresent on linkText=+ genere OK
 ‘AggiungereGenere_5_3_2’ completed successfully
 
 ##### TC_5_3_3
 Running 'AggiungereGenere_5_3_3'
-1.open on http://localhost/aggiungi_un_genere.php OK
-2.setWindowSize on 1382x744 OK
-3.click on name=nome OK
-4.click on css=fieldset OK
-5.click on css=.button OK
-6.click on css=body OK
-7.assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
+1. open on http://localhost/aggiungi_un_genere.php OK
+2. setWindowSize on 1382x744 OK
+3. click on name=nome OK
+4. click on css=fieldset OK
+5. click on css=.button OK
+6. click on css=body OK
+7. assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
 'AggiungereGenere_5_3_3' completed successfully
 
 ##### TC_5_3_4
 Running 'AggiungereGenere_5_3_4'
-1.open on http://localhost/aggiungi_un_genere.php OK
-2.setWindowSize on 1382x744 OK
-3.click on name=nome OK
-4.type on name=nome with value Drammatico OK
-5.click on css=fieldset OK
-6.click on css=.button OK
-7.assertElementPresent on css=p OK
+1. open on http://localhost/aggiungi_un_genere.php OK
+2. setWindowSize on 1382x744 OK
+3. click on name=nome OK
+4. type on name=nome with value Drammatico OK
+5. click on css=fieldset OK
+6. click on css=.button OK
+7. assertElementPresent on css=p OK
 'AggiungereGenere_5_3_4' completed successfully
 
 ##### TC_5_3_5
@@ -939,60 +939,60 @@ Running 'AggiungereGenere_5_3_5'
 #### ModificareGenere
 ##### TC_5_4_1
 Running 'ModificareGenere_5_4_1' 
-1.open on http://localhost/genere.php?id=7 OK
-2.assertElementNotPresent on linkText=modifica OK
+1. open on http://localhost/genere.php?id=7 OK
+2. assertElementNotPresent on linkText=modifica OK
 'ModificareGenere_5_4_1' completed successfully
 
 ##### TC_5_4_2
 Running ‘ModificareGenere_5_4_2’ 
-1.open on http://localhost/genere.php?id=7 OK
-2.assertElementNotPresent on linkText=modifica OK
+1. open on http://localhost/genere.php?id=7 OK
+2. assertElementNotPresent on linkText=modifica OK
 ‘ModificareGenere_5_4_2’ completed successfully
 
 ##### TC_5_4_3
 Running 'ModificareGenere_5_4_3' 
-1.open on http://localhost/modifica_un_genere.php?id=16 OK
-2.setWindowSize on 1382x744 OK
-3.click on name=nome OK
-4.type on name=nome OK
-5.click on css=fieldset OK
-6.click on xpath=//input[@value='Modifica'] OK
-7.assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
+1. open on http://localhost/modifica_un_genere.php?id=16 OK
+2. setWindowSize on 1382x744 OK
+3. click on name=nome OK
+4. type on name=nome OK
+5. click on css=fieldset OK
+6. click on xpath=//input[@value='Modifica'] OK
+7. assertElementPresent on xpath=//p[contains(.,'Il client non ti ha bloccato?')] OK
 'ModificareGenere_5_4_3' completed successfully
 
 ##### TC_5_4_4
 Running 'ModificareGenere_5_4_4'
-1.open on http://localhost/modifica_un_genere.php?id=16 OK
-2.setWindowSize on 1382x744 OK
-3.click on css=section OK
-4.type on name=nome with value Drammatico OK
-5.click on id=form_di_modifica_genere OK
-6.click on css=.button OK
-7.assertElementPresent on xpath=//p[contains(.,'Questo nome è associato ad un genere esistente')] OK
+1. open on http://localhost/modifica_un_genere.php?id=16 OK
+2. setWindowSize on 1382x744 OK
+3. click on css=section OK
+4. type on name=nome with value Drammatico OK
+5. click on id=form_di_modifica_genere OK
+6. click on css=.button OK
+7. assertElementPresent on xpath=//p[contains(.,'Questo nome è associato ad un genere esistente')] OK
 'ModificareGenere_5_4_4' completed successfully
 
 ##### TC_5_4_5
 Running 'ModificareGenere_5_4_5'
-1.open on http://localhost/modifica_un_genere.php?id=14 OK
-2.setWindowSize on 1382x744 OK
-3.click on css=fieldset OK
-4.type on name=nome with value Impensabile OK
-5.click on css=fieldset OK
-6.click on css=.button OK
-7.verifyText on css=h1 with value Impensabile OK
+1. open on http://localhost/modifica_un_genere.php?id=14 OK
+2. setWindowSize on 1382x744 OK
+3. click on css=fieldset OK
+4. type on name=nome with value Impensabile OK
+5. click on css=fieldset OK
+6. click on css=.button OK
+7. verifyText on css=h1 with value Impensabile OK
 'ModificareGenere_5_4_5' completed successfully
 
 #### RimuovereGenere
 ##### TC_5_5_1
 Running ‘RimuovereGenere_5_5_1’ 
-1.open on http://localhost/genere.php?id=7 OK
-2.assertElementNotPresent on linkText=rimuovi OK
+1. open on http://localhost/genere.php?id=7 OK
+2. assertElementNotPresent on linkText=rimuovi OK
 ‘RimuovereGenere_5_5_1’ completed successfully
 
 ##### TC_5_5_2
 Running ‘RimuovereGenere_5_5_3’
-1.open on http://localhost/genere.php?id=7 OK
-2.assertElementNotPresent on linkText=rimuovi OK
+1. open on http://localhost/genere.php?id=7 OK
+2. assertElementNotPresent on linkText=rimuovi OK
 ‘RimuovereGenere_5_5_3’ completed successfully
 
 ##### TC_5_5_3
@@ -1009,19 +1009,19 @@ Running 'RimuovereGenere_5_5_3'
 #### AggiungereGeneriFilm
 ##### TC_5_6_1
 Running 'AggiornareGeneriFilm_5_6_1’ 
-1.assertElementNotPresent on linkText=modifica OK
+1. assertElementNotPresent on linkText=modifica OK
 'AggiornareGeneriFilm_5_6_1’ completed successfully
 
 ##### TC_5_6_2
 Running 'AggiornareGeneriFilm_5_6_2’ 
-1.assertElementNotPresent on linkText=modifica OK
+1. assertElementNotPresent on linkText=modifica OK
 'AggiornareGeneriFilm_5_6_2’ completed successfully
 
 ##### TC_5_6_3
 Running 'AggiornareGeneriFilm_5_6_3'
-1.open on http://localhost/modifica_un_film.php?id=14 OK
-2.click on name=gen_16 OK
-3.click on css=.form:nth-child(5) > .button OK
-4.assertElementPresent on linkText=Comico OK
+1. open on http://localhost/modifica_un_film.php?id=14 OK
+2. click on name=gen_16 OK
+3. click on css=.form:nth-child(5) > .button OK
+4. assertElementPresent on linkText=Comico OK
 'AggiornareGeneriFilm_5_6_3' completed successfully
 
