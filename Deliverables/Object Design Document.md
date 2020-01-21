@@ -80,8 +80,8 @@ sviluppo.
 
 ## Efficienza vs portabilità
 La portabilità di un sistema software è un fattore sicuramente determinante. La "sopravvivenza" di architetture software
-è spesso impedita dalla poca lungimiranza dei progettisti. Per questa ragione, questo sistema si predilige la
-portabilità rispetto all'efficienza.
+è spesso impedita dalla poca lungimiranza dei progettisti. Per questa ragione, questo sistema predilige la portabilità
+a scapito all'efficienza.
 
 # Convenzioni del codice
 La convenzione che è stata subito stabilita, prima ancora dello stile d'indentazione, è la seguente: il codice avrebbe
@@ -123,19 +123,19 @@ Questa è la gerarchia dei packages dell'applicazione.
         ├───gestione
         └───ricerca
 
-I package **controllers**, **dao**, **models** e **views** verranno singolarmente descritti.
+I package **controllers**, **dao**, **models** e **views** verranno singolarmente descritti nei paragrafi che seguono.
 
 ## Package Models
 Il package **models** contiene tutte le classi contenenti informazioni del dominio applicativo.
 
 Classe      | Descrizione
 ------------|------------
-Amicizia    | Descrive la relazione di amicizia tra due utente. Può essere accettata oppure non ancora (quindi una richiesta).
-Artista     | Rappresenta le informazioni circa un artista.
+Amicizia    | Descrive la relazione di amicizia tra due utenti. Può essere accettata oppure non ancora (in questo caso si parla di richiesta di amicizia).
+Artista     | Rappresenta le informazioni di un artista.
 Film        | Rappresentazione delle informazioni di un film.
 Genere      | Descrive le informazioni di un genere.
-Giudizio    | Rappresenta un giudizio di un utente verso un film.
-Promemoria  | Descrive un promemoria creato da un utente su un certo film.
+Giudizio    | Rappresenta il giudizio di un utente su un film.
+Promemoria  | Descrive un promemoria creato da un utente per un certo film.
 Recitazione | Contiene le informazioni sul personaggio interpretato da un attore in un film.
 Utente      | Rappresenta le informazioni di un utente registrato sul sito.
 
@@ -678,8 +678,6 @@ bool setOnly(int film_id, int[] registi_id) | Associa ad un film solamente i reg
 Il package **dao/implementations** contiene classi che implementano le interfacce DAO e realizzano le operazioni imposte
 di gestione della persistenza utilizzando la base di dati.
 
-Seguono i class diagram che mostrano le relazioni tra le implementazioni di queste interfacce DAO e i relativi modelli.
-
 Queste classi sono:
 * DBAccountDAO;
 * DBAmiciziaDAO;
@@ -690,6 +688,8 @@ Queste classi sono:
 * DBPromemoriaDAO;
 * DBRecitazioneDAO;
 * DBRegiaDAO.
+
+Seguono i class diagram che mostrano le relazioni tra le implementazioni di queste interfacce DAO e i relativi modelli.
 
 #### Account DAO
 
@@ -743,7 +743,7 @@ Queste sono le relazioni tra **IRecitazioneDAO**, **DBRecitazioneDAO** e **Recit
 
 ![](ODD%20diagrams/Class%20diagrams/RegiaDAO.jpg)
 
-Queste sono le relazioni tra **IRegiaDAO**, **DBRegiaDAO** e **Regia**.
+Queste sono le relazioni tra **IRegiaDAO** e **DBRegiaDAO**.
 
 ### Factories
 
@@ -760,17 +760,18 @@ Queste sono:
 * RecitazioneDAOFactory;
 * RegiaDAOFactory.
 
-Ognuna di queste factory ha il compito di fornire implementazioni della relativa interfaccia DAO (descritte sopra)
-nascondendo all'utilizzatore la reale locazione dei dati persistenti.
+Ognuna di queste factory ha il compito di fornire una implementazione della relativa interfaccia DAO (che sono descritte
+sopra) nascondendo all'utilizzatore la reale locazione dei dati persistenti.
 
 Attualmente, i dati persistenti sono memorizzati in una base di dati relazionale (MySQL). Se si avesse in futuro la
 necessità di migrare verso un altro tipo di DBMS, oppure di memorizzare direttamente su file secondo uno specifico
 formato (non strutturato oppure basato su XML, JSON...), oppure ancora utilizzando le sessioni o la RAM, si potrebbe far
-fronte a queste necessità con estrema facilità. Bisognerebbe banalmente implementando le interfacce DAO usando le
+fronte a questa necessità con estrema facilità. Bisognerebbe banalmente implementare le interfacce DAO usando le
 modalità di persistenza candidate.
 
 In realtà, la necessità di passare ad un altro tipo di memorizzazione (temporaneamente) è già sorta durante le fasi di
-sviluppo del progetto: in particolare, durante la fase di testing.
+sviluppo del progetto: in particolare, durante la fase di testing, le factory restituiscono delle implementazioni STUB
+delle interfacce DAO.
 
 ## Package Controllers
 La struttura completa del package **controllers** è questa.
@@ -820,10 +821,10 @@ La struttura completa del package **controllers** è questa.
 ### Account
 Controller      | Descrizione
 ----------------|------------
-Accesso         | Permette di effettuare l'accesso.
+Accesso         | Permette la autenticazione.
 Cambio password | Permette di cambiare password.
 Registrazione   | Permette di creare un nuovo account.
-Uscita          | Permette di fare logout.
+Uscita          | Permette la deautenticazione.
 
 ### Amicizia
 Controller                  | Descrizione
@@ -917,7 +918,7 @@ Questa è la struttura del package **views** del sistema.
 ![](ODD%20diagrams/Class%20diagrams/Views.jpg)
 
 ### View generiche
-Queste viste non sono state ulteriormente raggruppate perché sono le più importanti.
+Queste viste non sono state ulteriormente raggruppate non fanno parte di un solo ambito particolare.
 
 View           | Descrizione
 ---------------|-----------
@@ -1001,10 +1002,10 @@ il codice necessario alla creazione di implementazioni dell'interfaccia, riducen
 
 Inoltre, se in futuro si volesse cambiare l'implementazione da utilizzare, passare per esempio da **DBFilmDAO** a
 **XMLFilmDAO**, bisognerebbe semplicemente modificare il suddetto metodo, evitando lo sforzo di un grande refactoring
-su tutto il codice che istanziava un **DBFilmDAO**.
+su tutto il codice che istanziava oggetti **DBFilmDAO**.
 
 ## Singleton
-Il Design Pattern Singleton viene usato per garantire che, di una determinata classe, venga usato una sola istanza,
+Il Design Pattern Singleton viene usato per garantire che, di una determinata classe, venga usata una sola istanza,
 oltre a fornire il punto di accesso globale a tale istanza.
 
 Nel sistema, in alcune circostanze, **ArtistaDAOFactory** si comporta come un singleton di **StubArtistaDAO**.
@@ -1019,7 +1020,7 @@ logica di business.
 Le componenti dell'MVC interpretano tre ruoli principali:
 * I **model** forniscono metodi per accedere ai dati;
 * Le **view** visualizzano i dati contenuti nei model e si occupano dell'interazione con utente e agenti;
-* I **controller** ricevono i comandi dell'utente e li attuano modificando lo stato degli altri due componenti.
+* I **controller** ricevono i comandi dell'utente e li attuano modificando lo stato delle altre due componenti.
 
 Un esempio di model è **Utente**, di view è **Form di registrazione**, e di controller è **Registrazione**.
 
