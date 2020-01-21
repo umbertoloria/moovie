@@ -26,9 +26,9 @@ stub, ossia un'implementazione fittizia del nostro database in modo tale che le 
 non andavano ad operare direttamente sul nostro database ma operavano su strutture dati create appositamente per gestire 
 alcuni tipi di dati. Gli stub, affiché potessero assicurare una funzionalità corretta, sono stati testati individualmente. 
 
-Dopo il Test di Unità è stato eseguito il test di Integrazione dei controller con i DAO (eseguito con PHPUnit) in cui 
-tutte le funzionalità che i controller andavano ad eseguire, si interfacciavano direttamente con i DAO e non più con 
-gli stub.
+Dopo il Test di Unità è stato eseguito il test di Integrazione dei controller (eseguito con PHPUnit) in cui 
+tutte le funzionalità che i controller mettevano a disposizione, sono state testate con tutte le componenti che i 
+controller andavano effettivamente ad utilizzare.
 
 L'ultimo test effettuato è il test di Sistema in cui è stata testato l'interfacciamento dell'utente verso il sito e 
 dunque, se le funzionalità del sito operavano correttamente. Lo strumento che si è utilizzato per eseguire questo tipo 

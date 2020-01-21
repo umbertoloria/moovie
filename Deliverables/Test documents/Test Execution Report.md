@@ -465,7 +465,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit)
 
 **Test Case ID**     | TC_4_3_4
 ---------------------|---------
@@ -473,7 +473,7 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 ## Gestione
 

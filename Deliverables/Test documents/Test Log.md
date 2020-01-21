@@ -640,14 +640,14 @@ Running 'RimuovereGiudizio_4_3_1'
 2. assertElementNotPresent on linkText=Giudizi OK
 'RimuovereGiudizio_4_3_1' completed successfully
 
-#### TC_4_3_3
-Running 'RimuovereGiudizio_4_3_3' 18:28:15
-1. open on http://moovie/giudizi.php OK18:28:16
-2. chooseOkOnNextConfirmation OK18:28:17
-3. click on css=li:nth-child(1) a:nth-child(3) OK18:28:20
-4. chooseOkOnNextConfirmation on Sei sicuro di voler proseguire? OK18:28:22
-5. webdriverChooseOkOnVisibleConfirmation OK18:28:25
-'RimuovereGiudizio_4_3_3' completed successfully
+#### TC_4_3_4
+Running 'RimuovereGiudizio_4_3_4' 
+1. open on http://moovie/giudizi.php OK
+2. chooseOkOnNextConfirmation OK
+3. click on css=li:nth-child(1) a:nth-child(3) OK
+4. chooseOkOnNextConfirmation on Sei sicuro di voler proseguire? OK
+5. webdriverChooseOkOnVisibleConfirmation OK
+'RimuovereGiudizio_4_3_4' completed successfully
 
 ## Gestione
 

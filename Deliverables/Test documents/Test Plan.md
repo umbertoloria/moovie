@@ -58,7 +58,7 @@ Tra tutte queste tecniche, quella utlizzata per costruire nel migliore dei modi 
 "Rilevazione di errori" in cui è presente l'attività di Testing.    
 In questo documento infatti, andremo ad illustrare come attraverso questa attività di testing, cercheremo di rilevare 
 tutti gli errori che nel sistema sono presenti.    
-Il testing sarà eseguito su queste macro-aree:    
+Il testing sarà eseguito sui seguenti sottossitemi:    
  - Ricerca    
  - Account    
  - Amicizia    
@@ -66,8 +66,12 @@ Il testing sarà eseguito su queste macro-aree:
  - Gestione
 
 ## Relazioni con gli altri documenti 
-Il documento di "Test Plan" è strettamente collegato agli altri documenti che abbiamo sviluppato durante la progettazione
- del nostro sistema.  
+Il documento di "Test Plan" è strettamente collegato a: 
+- **Test Case Specification**: documento in cui tutti i casi di test presentati nel test plan, verranno speficicati nel
+dettaglio, concentrandoci non solo sull'oracolo, ma anche sul flusso di eventi di ogni caso di test;
+- **Test Execution Report**: documento in cui vengono illustrate le esecuzioni di tutti i casi di test presenti del test
+plan;
+- **Test Log**: documento in cui vengono riportati tutti i risultati derivanti dalle esecuzioni dei test case.
   
 ### Relazione con RAD  
 Il Test Plan è strettamente collegato con il documento di Analisi dei requisiti in quanto dai requisiti funzionali 
@@ -127,23 +131,24 @@ specifiche (ORACOLO) descritte in precedenza dallo sviluppatore.  Nel caso non f
 test e si dovrà procedere per una correzione. 
 
 ## Approccio 
-Per procedere all'attività di testing si è deciso di applicare la tecnica "Bottom up" secondo la quale andremo a testare
-dapprima le componenti singolarmente, poi andremo ad integrare le stesse e vedere il loro corretto funzionamento e infine
-procedere al test di sistema.
+Tra tutte le tecniche di verifica di un software, una che ricopre molta importanza è quella di "Analisi dinamica". 
+Secondo questa tecnica, esistono due modi per interfacciarsi verso gli errori del sistema: "Black-box testing" e 
+"White-box testing".Il testing che si è scelto di eseguire è quello chiamato "black box" secondo il quale la selezione 
+dei test è fatta sulle speciche delle funzionalità e non sull'effettiva implementazione.
+Per procedere all'attività di testing si è deciso di applicare una strategia "Bottom up" secondo la quale andremo a 
+testare dapprima le componenti più piccole ed elementari che compongono il nostro programma, poi andremo ad integrare l
+e stesse e vedere il loro corretto funzionamento e infine procedere al test di sistema.
 Le vari componenti del testing che sono state individuate sono le seguenti:     
 - Test di unità   
-   - Testare i vari sottosistemi individualmente, testare singolarmente le varie funzionalità dei  sottosistemi. 
-   La metodologia scelta per questa fase di testing è la Black-Box testing secondo la quale la selezione dei test va 
-   fatta sulle specifiche del sottosistema 
-   e non sulla implementazione e logica di esso. Per testare il sistema nel migliore dei modi cercando di avere una 
-   senso di test completo, andremo a testare le varie funzionalità previste individuando i paramentri scelti per ogni 
-   funzionalità con le relative categorie e le scelte fatte per ognuna di essa.  
+   - Testare i vari sottosistemi individualmente, testare singolarmente le varie funzionalità dei  sottosistemi. Durante
+   questa fase verranno testati singolarmente DAO e Controllers.
 - Test di integrazione   
    - Unire alcuni sottosistemi e testarli con tutte le loro funzionalità integrate. Durante questa fase, cercheremo di 
-   rilevare gli errori derivanti dalla composizione di alcuni sottosistemi.    
+   rilevare gli errori derivanti dalla composizione di alcuni sottosistemi, nel nostro caso verrà collaudata l'effettiva 
+   funzionalità derivante dall'integrazione dei Controller. 
 - Test di sistema    
   - Testare l'intero funzionamento del sistema. Durante questa fase cercheremo di rilevare gli errori derivanti 
-  dall'intero sistema e dall'integrazione, dunque, di tutti i sottosistemi prima sviluppati.## Sospensione e ripresa 
+  dall'intero sistema e dall'integrazione, dunque, di tutti i sottosistemi prima sviluppati. 
 ### Sospensione 
 Ci sarà una sospensione dell'attività di testing solo nel momento in cui avremo testato ogni funzionalità prevista 
 rispettando nel modo quanto più corretto possibile quelli che sono i tempi e i costi da noi previsti.  

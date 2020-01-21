@@ -353,14 +353,14 @@ Test Case ID         | TC_3_3_3
 **Test Case ID**     | TC_4_3_3
 ---------------------|---------
 **Precondizioni**    | L’utente è nell'area di rimozione di un giudizio del film "Bastardi senza gloria".
-**Flusso di eventi** | L'utente clicca sul pulsante "Drop".
-**Oracolo**          | Il sistema rimuove il voto al film.
+**Flusso di eventi** | L'utente non può rimuovere il giudizio, dato che non è stato aggiunto in precedenza.
+**Oracolo**          | Il sistema non permette di rimuovere il giudizio.
 
 **Test Case ID**     | TC_4_3_4
 ---------------------|---------
 **Precondizioni**    | L’utente è nell'area di rimozione di un giudizio del film "Bastardi senza gloria".
-**Flusso di eventi** | L'utente non può rimuovere il giudizio, dato che non è stato aggiunto in precedenza.
-**Oracolo**          | Il sistema non permette di rimuovere il giudizio.
+**Flusso di eventi** | L'utente clicca sul pulsante "Drop".
+**Oracolo**          | Il sistema rimuove il voto al film.
 
 ## Gestione
 
