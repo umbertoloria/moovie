@@ -126,7 +126,7 @@ inutilmente legate. Ecco Moovie divisione in sottosistemi:
 - Film;
 - Gestione.
 
-![](Package%20diagrams/Sottosistemi%20Diagram.jpg)
+![](SDD%20diagrams/Package%20diagrams/Sottosistemi%20Diagram.jpg)
 
 L'immagine rappresenta le varie suddivisioni effettuate e i vari collegamenti tra sottosistemi appartenenti a layer
 differenti.
@@ -138,7 +138,7 @@ Presentation_Layer, ricevendo, elaborando e alla fine mostrando il risultato di 
 - Data Layer: strato che si occupa di gestire i dati del sistema.
 
 #### Ricerca
-![](Package%20diagrams/Ricerca%20Diagram.jpg)
+![](SDD%20diagrams/Package%20diagrams/Ricerca%20Diagram.jpg)
 
 Il sottosistema **Ricerca** si occupa di gestire le ricerche di tutti gli utenti offrendo diverse funzionalità quali:
 - Ricerca di un film;
@@ -146,7 +146,7 @@ Il sottosistema **Ricerca** si occupa di gestire le ricerche di tutti gli utenti
 - Ricerca di un utente.
 
 #### Account
-![](Package%20diagrams/Account%20Diagram.jpg)
+![](SDD%20diagrams/Package%20diagrams/Account%20Diagram.jpg)
 
 Il sottosistema **Account** si occupa di gestire tutti gli account del sistema offrendo diverse funzionalità quali:
 - Creare un account;
@@ -157,7 +157,7 @@ Il sottosistema **Account** si occupa di gestire tutti gli account del sistema o
 - Visualizzare la pagina iniziale.
 
 #### Amicizia
-![](Package%20diagrams/Amicizia%20Diagram.jpg)
+![](SDD%20diagrams/Package%20diagrams/Amicizia%20Diagram.jpg)
 
 Il sottosistema **Amicizia** si occupa di gestire le amicizie tra account offrendo diverse funzionalità quali:
 - Inviare richiesta di amicizia;
@@ -168,7 +168,7 @@ Il sottosistema **Amicizia** si occupa di gestire le amicizie tra account offren
 - Visualizzare gli amici.
 
 #### Film
-![](Package%20diagrams/Film%20Diagram.jpg)
+![](SDD%20diagrams/Package%20diagrams/Film%20Diagram.jpg)
 
 Il sottosistema **Film** si occupa di gestire i giudizi di tutti gli utenti autenticati offrendo diverse funzionalità quali:
 - Visualizzare un film;
@@ -185,7 +185,7 @@ Il sottosistema **Film** si occupa di gestire i giudizi di tutti gli utenti aute
 - Visualizzare la classifica dei film.
 
 ### Gestione
-![](Package%20diagrams/Gestione%20Diagram.jpg)
+![](SDD%20diagrams/Package%20diagrams/Gestione%20Diagram.jpg)
 
 Il sottosistema **Gestione** si occupa di gestire i dati presenti nel sito offrendo diverse funzionalità quali:
 - Aggiungere un film;
@@ -201,7 +201,7 @@ Il sottosistema **Gestione** si occupa di gestire i dati presenti nel sito offre
 - Aggiornare artisti in un film.
 
 ## Mappatura hardware/software
-![](Deployment%20diagrams/Mappatura_HW_SW.jpg)
+![](SDD%20diagrams/Mappatura_HW_SW.jpg)
 
 Per il sistema "Moovie" si è scelto di utilizzare una struttura **three-tier** composta da un tier di Presentation, un
 tier di Business Logic e un tier di Data Resource.
@@ -220,7 +220,7 @@ istanze di ogni dato) e le colonne (attributi, descrizioni di ogni istanza di da
 I dati vengono gestiti attraverso MySQL che è un DBMS (Data Base Management System) che permette di manipolare le
 informazioni che si vogliono controllare sulla base di dati.
 
-![](Database%20Scheme/DataBaseSchema.png)
+![](SDD%20diagrams/DatabaseSchema.png)
 
 L'immagine sopra presente, descrive quello che è lo schema dei dati che dovranno essere mantenuti nel nostro database in
 maniera persistente.
