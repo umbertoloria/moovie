@@ -6,20 +6,31 @@
 | 0.3      | 16/1/2020  | Riformulazione test cases      | Umberto Loria            |
 | 0.4      | 19/1/2020  | Esecuzione test                | Team                     |
 
-## Introduzione 
+# Indice
+1. [Introduzione](#introduzione)
+2. [Relazione con gli altri documenti](#relazione-con-gli-altri-documenti)
+3. [Test eseguiti](#test-eseguiti)
+4. [Test execution](#test-execution)
+    1. [Ricerca](#ricerca)
+    2. [Account](#account)
+    3. [Amicizia](#amicizia)
+    4. [Film](#film)
+    5. [Gestione](#gestione)
+
+# Introduzione 
 In questo documento andremo a descrivere in modo più dettagliato ogni caso di test, non fermandoci soltanto alla 
 specifica dell'elemento testato ma andando ad aggiungere dettagli sulla sua esecuzione. Per ogni Test Case andremo 
 ad illustrare il suo nome (in relazione con i documenti di Test Plan e di Test Specification), l'oracolo, la data 
 in cui il test è stato effettuato, le eventuali anomalie riscontrate, il risultato ottenuto (che sarà PASSED se il test 
 va a buon fine, "Failed" altrimenti) e in che tipo di test è stato coinvolto (Unità, Integrazione, Sistema).
 
-## Relazione con gli altri documenti 
+# Relazione con gli altri documenti 
 Le funzionalità da testare sono le stesse indicate negli altri documenti, pertanto, faremo riferimento a:
 - Documento di Test Plan;
 - Documento di Test Case Specification;
 - Documento di Test Log.
 
-## Test Eseguiti 
+# Test eseguiti 
 I test che sono stati scelti per il Testing sono quelli concordati con gli altri membri del team.
 Dato che sono stati fatti vari tipi di testing che sono test di unità (in cui abbiamo testatato singolarmente le 
 componenti del nostro sito), test di integrazione (in cui le varie componenti prima testate sono sate testatate insieme) 
@@ -34,14 +45,14 @@ specifiche sull'output ottenuto sono contenute all'interno del documento di Test
 - DBGenereDAO;
 - DBGiudizioDAO.
 
-## Test Execution 
+# Test execution 
 Qui sono sono riportate tutte le esecuzioni dei casi di test elencati nel test plan e nel test case specification 
 evidenziando, per ogni caso di test sia eventuali anomalie riscontrate sia (attraverso il campo della tabella "Test"), 
 in che tipo di testing sono stati coinvolti.
 
-### Ricerca
+## Ricerca
 
-#### 1.1 RicercaFilm
+### 1.1 RicercaFilm
 
 Test Case ID         | TC_1_1_1
 ---------------------|---------
@@ -59,7 +70,7 @@ Test Case ID         | TC_1_1_2
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)  
 
-#### 1.2 RicercaArtista
+### 1.2 RicercaArtista
 
 Test Case ID         | TC_1_2_1
 ---------------------|---------
@@ -77,7 +88,7 @@ Test Case ID         | TC_1_2_2
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
 
-#### 1.3 RicercaUtente
+### 1.3 RicercaUtente
 
 Test Case ID         | TC_1_3_1
 ---------------------|---------
@@ -103,9 +114,9 @@ Test Case ID         | TC_1_3_3
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
 
-### Account
+## Account
 
-#### 2.1 CreareAccount
+### 2.1 CreareAccount
 
 Test Case ID         | TC_2_1_1
 ---------------------|---------
@@ -187,7 +198,7 @@ Test Case ID         | TC_2_1_10
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
 
-#### 2.2 AutenticareAccount
+### 2.2 AutenticareAccount
 
 Test Case ID         | TC_2_2_1
 ---------------------|---------
@@ -237,7 +248,8 @@ Test Case ID         | TC_2_2_6
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
  
-#### 2.3 CambiarePassword
+### 2.3 CambiarePassword
+
 **Test Case ID**     | TC_2_3_1
 ---------------------|---------
 **Oracolo**          | Il sistema mostra pagina non trovata.
@@ -278,9 +290,10 @@ Test Case ID         | TC_2_2_6
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
  
-### Amicizia
+## Amicizia
 
-#### 3.1 InviareRichiestaAmicizia
+### 3.1 InviareRichiestaAmicizia
+
 Test Case ID         | TC_3_1_1
 ---------------------|---------
 **Oracolo**          | Il sistema mostra pagina non trovata.
@@ -305,7 +318,8 @@ Test Case ID         | TC_3_1_3
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
 
-#### 3.2 AccettareRichiestaAmicizia
+### 3.2 AccettareRichiestaAmicizia
+
 Test Case ID         | TC_3_2_1
 ---------------------|---------
 **Oracolo**          | Il sistema mostra pagina non trovata.
@@ -330,7 +344,8 @@ Test Case ID         | TC_3_2_3
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
-#### 3.3 RifiutareRichiestaAmicizia
+### 3.3 RifiutareRichiestaAmicizia
+
 Test Case ID         | TC_3_3_1
 ---------------------|---------
 **Oracolo**          | Il sistema mostra pagina non trovata.
@@ -356,9 +371,9 @@ Test Case ID         | TC_3_3_3
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
 
-### Film
+## Film
 
-#### 4.1 AggiungereGiudizio
+### 4.1 AggiungereGiudizio
 
 **Test Case ID**     | TC_4_1_1
 ---------------------|---------
@@ -392,7 +407,8 @@ Test Case ID         | TC_3_3_3
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
 
-#### 4.2 ModificareGiudizio
+### 4.2 ModificareGiudizio
+
 **Test Case ID**     | TC_4_2_1
 ---------------------|---------
 **Oracolo**          | Il sistema mostra pagina non trovata.
@@ -426,6 +442,7 @@ Test Case ID         | TC_3_3_3
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
 
 ### 4.3 RimuovereGiudizio
+
 **Test Case ID**     | TC_4_3_1
 ---------------------|---------
 **Oracolo**          | Il sistema mostra pagina non trovata.
@@ -458,9 +475,10 @@ Test Case ID         | TC_3_3_3
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit) 
 
-### Gestione
+## Gestione
 
-#### 5.1 AggiungereFilm
+### 5.1 AggiungereFilm
+
 **Test Case ID**     | TC_5_1_1
 ---------------------|---------
 **Oracolo**          | Il sistema mostra pagina non trovata.
@@ -526,6 +544,7 @@ Test Case ID         | TC_3_3_3
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
 
 ### 5.2 AggiungereArtista
+
 **Test Case ID**     | TC_5_2_1
 ---------------------|---------
 **Oracolo**          | Il sistema mostra pagina non trovata.
@@ -582,7 +601,8 @@ Test Case ID         | TC_3_3_3
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
 
-#### 5.3 AggiungereGenere
+### 5.3 AggiungereGenere
+
 **Test Case ID**     | TC_5_3_1
 ---------------------|---------
 **Oracolo**          | Il sistema mostra pagina non trovata.
@@ -623,7 +643,8 @@ Test Case ID         | TC_3_3_3
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
 
-#### 5.4 ModificareGenere
+### 5.4 ModificareGenere
+
 **Test Case ID**     | TC_5_4_1
 ---------------------|---------
 **Oracolo**          | Il sistema mostra pagina non trovata.
@@ -664,7 +685,8 @@ Test Case ID         | TC_3_3_3
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
 
-#### 5.5 RimuovereGenere
+### 5.5 RimuovereGenere
+
 **Test Case ID**     | TC_5_5_1
 ---------------------|---------
 **Oracolo**          | Il sistema mostra pagina non trovata.
@@ -689,7 +711,8 @@ Test Case ID         | TC_3_3_3
 **Risultato**		 | PASSED
 **Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
 
-#### 5.6 AggiornareGeneriFilm
+### 5.6 AggiornareGeneriFilm
+
 **Test Case ID**     | TC_5_6_1
 ---------------------|---------
 **Oracolo**          | Il sistema mostra pagina non trovata.
@@ -712,4 +735,4 @@ Test Case ID         | TC_3_3_3
 **Data**             | 18/1/2020
 **Anomalie**		 | 
 **Risultato**		 | PASSED
-**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium) 
+**Test**		     | Unità controller(PHPUnit), Integrazione controller(PHPUnit), Sistema (Selenium)
