@@ -693,55 +693,55 @@ Seguono i class diagram che mostrano le relazioni tra le implementazioni di ques
 
 #### Account DAO
 
-![](ODD%20diagrams/Class%20diagrams/AccountDAO.jpg)
+![](ODD%20diagrams/AccountDAO.jpg)
 
 Queste sono le relazioni tra **IAccountDAO**, **DBAccountDAO** e **Utente**.
 
 #### Amicizia DAO
 
-![](ODD%20diagrams/Class%20diagrams/AmiciziaDAO.jpg)
+![](ODD%20diagrams/AmiciziaDAO.jpg)
 
 Queste sono le relazioni tra **IAmiciziaDAO**, **DBAmiciziaDAO** e **Amicizia**.
 
 #### Artista DAO
 
-![](ODD%20diagrams/Class%20diagrams/ArtistaDAO.jpg)
+![](ODD%20diagrams/ArtistaDAO.jpg)
 
 Queste sono le relazioni tra **IArtistaDAO**, **DBArtistaDAO** e **Artista**.
 
 #### Film DAO
 
-![](ODD%20diagrams/Class%20diagrams/FilmDAO.jpg)
+![](ODD%20diagrams/FilmDAO.jpg)
 
 Queste sono le relazioni tra **IFilmDAO**, **DBFilmDAO** e **Film**.
 
 #### Genere DAO
 
-![](ODD%20diagrams/Class%20diagrams/GenereDAO.jpg)
+![](ODD%20diagrams/GenereDAO.jpg)
 
 Queste sono le relazioni tra **IGenereDAO**, **DBGenereDAO** e **Genere**.
 
 #### Giudizio DAO
 
-![](ODD%20diagrams/Class%20diagrams/GiudizioDAO.jpg)
+![](ODD%20diagrams/GiudizioDAO.jpg)
 
 Queste sono le relazioni tra **IGiudizioDAO**, **DBGiudizioDAO** e **Giudizio**.
 
 #### Promemoria DAO
 
-![](ODD%20diagrams/Class%20diagrams/PromemoriaDAO.jpg)
+![](ODD%20diagrams/PromemoriaDAO.jpg)
 
 Queste sono le relazioni tra **IPromemoriaDAO**, **DBPromemoriaDAO** e **Promemoria**.
 
 #### Recitazione DAO
 
-![](ODD%20diagrams/Class%20diagrams/RecitazioneDAO.jpg)
+![](ODD%20diagrams/RecitazioneDAO.jpg)
 
 Queste sono le relazioni tra **IRecitazioneDAO**, **DBRecitazioneDAO** e **Recitazione**.
 
 #### Regia DAO
 
-![](ODD%20diagrams/Class%20diagrams/RegiaDAO.jpg)
+![](ODD%20diagrams/RegiaDAO.jpg)
 
 Queste sono le relazioni tra **IRegiaDAO** e **DBRegiaDAO**.
 
@@ -816,7 +816,7 @@ La struttura completa del package **controllers** è questa.
     └───ricerca
             Ricerca.php
 
-![](ODD%20diagrams/Class%20diagrams/Controllers.jpg)
+![](ODD%20diagrams/Controllers.jpg)
 
 ### Account
 Controller      | Descrizione
@@ -915,7 +915,7 @@ Questa è la struttura del package **views** del sistema.
             Area di ricerca.php
             Risultati di ricerca.php
 
-![](ODD%20diagrams/Class%20diagrams/Views.jpg)
+![](ODD%20diagrams/Views.jpg)
 
 ### View generiche
 Queste viste non sono state ulteriormente raggruppate non fanno parte di un solo ambito particolare.
