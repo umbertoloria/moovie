@@ -6,7 +6,12 @@
 | 0.3      | 16/1/2020  | Riformulazione test cases      | Umberto Loria            |
 | 0.4      | 19/1/2020  | Esecuzione test                | Team                     |
 
-## Panoramica generale
+# Indice
+1. [Panoramica generale](#panoramica-generale)
+2. [Test execution](#test-execution)
+3. [Documentazione](#documentazione)
+
+# Panoramica generale
 In questo documento viene mostrata una panoramica generale su quella che è l'attività di testing fatta sul sito "Moovie".
 Questa attività ha un'importanza enorme ai fini del corretto funzionamento della web application e dunque merita di 
 essere commentata.
@@ -29,13 +34,12 @@ L'ultimo test effettuato è il test di Sistema in cui è stata testato l'interfa
 dunque, se le funzionalità del sito operavano correttamente. Lo strumento che si è utilizzato per eseguire questo tipo 
 di attività è selenium. 
 
-
-## Test Execution 
+# Test execution 
 Durante l'attività di testing, molti sono stati i casi di test eseguiti ma nessuno di essi ha dato esito negativo.
 Il sito Moovie ha mostrato un funzionamento coerente con le specifiche in possesso e quindi, l'attività di testing 
 effettuata non ci ha permesso di rilevare alcun tipo di errore. 
 
-## Documentazione
+# Documentazione
 Tutte le operazioni che sono state effettuate sono riportate in alcuni documenti, nel quali, in ognuno di essi, è stata 
 specificata una determinata cosa. I documenti sono: 
 - **Test Plan**: documento che si concentra su gli aspetti organizzativi, sull'approccio usato, sulle risorse a disposizione
