@@ -198,7 +198,7 @@ RF_GEST.11 | Aggiornare generi di un film
 ### Scegliere un film da vedere
 Michele, che possiede una fornitissima collezione di Blu Ray, vorrebbe trovare un film da vedere sabato sera. Mentre è
 ancora a lavoro, apre una scheda nel suo browser e va sul sito web www.moovie.me. Cliccando su "accesso", si presenta
-una schermata di input che richiede alcuni campi. Alla voce "e-mail" scrive "michele@pippo.pluto", e alla voce
+una schermata di input che richiede alcuni campi. Alla voce "e-mail" scrive "michele@pippo.plu", e alla voce
 "password" scrive "adnam". Clicca su "accedi" ma il sistema notifica "I dati non corrispondono". Si accorge di aver
 sbagliato la password e scrive "adnama". Clicca di nuovo su "accedi", e il sistema autentica l'account. A questo punto,
 per scegliere il prossimo film da guardare, Michele può:
@@ -217,7 +217,7 @@ Michele l'abbia accettata, Stefano possa vedere tutti i giudizi di Michele diret
 
 Stefano allora apre una nuova scheda sul browser, va su www.moovie.me e clicca su "registrazione" nel menu a sinistra.
 Gli si presenta una schermata che chiede in input alcuni campi: nella voce "nome completo" inserisce "Stefano
-Bisettrice", nella voce "indirizzo e-mail" inserisce "stefano@pippo.pluto", nella voce "password" inserisce "ciao".
+Bisettrice", nella voce "indirizzo e-mail" inserisce "stefano@pippo.plu", nella voce "password" inserisce "ciao".
 Appena clicca al di fuori del campo "password" appare una scritta che suggerisce "Minimo 6 massimo 16 caratteri". Allora
 Stefano sostituisce la password con "ciaociao". Nella voce "conferma password" inserisce "ciaociao".
 
