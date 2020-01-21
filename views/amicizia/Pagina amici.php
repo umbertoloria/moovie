@@ -5,7 +5,7 @@ $amicizie_strette = $_REQUEST["amicizie_strette"];
 $amicizie_richieste = $_REQUEST["amicizie_richieste"];
 
 if (empty($amicizie_strette) and empty($amicizie_richieste))
-	die("Non hai ancora stretto amicizia. Invita i tuoi amici su Moovie");
+	die("<p>Non hai ancora stretto amicizia. Invita i tuoi amici su Moovie</p>");
 
 if (!empty($amicizie_strette)) {
 	?>
