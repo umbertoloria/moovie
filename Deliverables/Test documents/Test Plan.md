@@ -136,8 +136,8 @@ Secondo questa tecnica, esistono due modi per interfacciarsi verso gli errori de
 "White-box testing".Il testing che si è scelto di eseguire è quello chiamato "black box" secondo il quale la selezione 
 dei test è fatta sulle speciche delle funzionalità e non sull'effettiva implementazione.
 Per procedere all'attività di testing si è deciso di applicare una strategia "Bottom up" secondo la quale andremo a 
-testare dapprima le componenti più piccole ed elementari che compongono il nostro programma, poi andremo ad integrare l
-e stesse e vedere il loro corretto funzionamento e infine procedere al test di sistema.
+testare dapprima le componenti più piccole ed elementari che compongono il nostro programma, poi andremo ad integrare le 
+stesse e vedere il loro corretto funzionamento e infine procedere al test di sistema.
 Le vari componenti del testing che sono state individuate sono le seguenti:     
 - Test di unità   
    - Testare i vari sottosistemi individualmente, testare singolarmente le varie funzionalità dei  sottosistemi. Durante
