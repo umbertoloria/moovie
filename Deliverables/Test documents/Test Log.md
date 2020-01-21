@@ -117,66 +117,66 @@ Questi sono:
 ## Ricerca
 
 ### RicercaFilmTest
-![](Log%20tests/Test%20integrazione/RicercaFilm.png)
+![](Log%20tests/Test%20integrazione%20controller/RicercaFilm.png)
 
 ### RicercaArtistaTest
-![](Log%20tests/Test%20integrazione/RicercaArtistaTest.png)
+![](Log%20tests/Test%20integrazione%20controller/RicercaArtistaTest.png)
 
 ### RicercaUtenteTest
-![](Log%20tests/Test%20integrazione/RicercaUtenteTest.png)
+![](Log%20tests/Test%20integrazione%20controller/RicercaUtenteTest.png)
 
 ## Account
 
 ### RegistrazioneTest
-![](Log%20tests/Test%20integrazione/RegistrazioneTest.png)
+![](Log%20tests/Test%20integrazione%20controller/RegistrazioneTest.png)
 
 ### AccessoTest
-![](Log%20tests/Test%20integrazione/AccessoTest.png)
+![](Log%20tests/Test%20integrazione%20controller/AccessoTest.png)
 
 ### CambioPasswordTest
-![](Log%20tests/Test%20integrazione/CambioPasswordTest.png)
+![](Log%20tests/Test%20integrazione%20controller/CambioPasswordTest.png)
 
 ## Amicizia
 
 ### InviareRichiestaAmiciziaTest
-![](Log%20tests/Test%20integrazione/InviareRichiestaAmiciziaTest.png)
+![](Log%20tests/Test%20integrazione%20controller/InviareRichiestaAmiciziaTest.png)
 
 ### AccettareRichiestaAmiciziaTest
-![](Log%20tests/Test%20integrazione/AccettareRichiestaAmiciziaTest.png)
+![](Log%20tests/Test%20integrazione%20controller/AccettareRichiestaAmiciziaTest.png)
 
 ### RifiutareRichiestaAmiciziaTest
-![](Log%20tests/Test%20integrazione/RifiutareRichiestaAmiciziaTest.png)
+![](Log%20tests/Test%20integrazione%20controller/RifiutareRichiestaAmiciziaTest.png)
 
 ## Film
 
 ### AggiungereGiudizioTest
-![](Log%20tests/Test%20integrazione/AggiungiGiudizioTest.png)
+![](Log%20tests/Test%20integrazione%20controller/AggiungiGiudizioTest.png)
 
 ### ModificareGiudizioTest
-![](Log%20tests/Test%20integrazione/ModificaGiudizioTest.png)
+![](Log%20tests/Test%20integrazione%20controller/ModificaGiudizioTest.png)
 
 ### RimuovereGiudizioTest
-![](Log%20tests/Test%20integrazione/RimuoviGiudizioTest.png)
+![](Log%20tests/Test%20integrazione%20controller/RimuoviGiudizioTest.png)
 
 ## Gestione
 
 ### AggiungereFilmTest
-![](Log%20tests/Test%20integrazione/AggiungereFilmTest.png)
+![](Log%20tests/Test%20integrazione%20controller/AggiungereFilmTest.png)
 
 ### AggiungereArtistaTest
-![](Log%20tests/Test%20integrazione/AggiungereArtistaTest.png)
+![](Log%20tests/Test%20integrazione%20controller/AggiungereArtistaTest.png)
 
 ### AggiungereGenereTest
-![](Log%20tests/Test%20integrazione/AggiungereGenereTest.png)
+![](Log%20tests/Test%20integrazione%20controller/AggiungereGenereTest.png)
 
 ### ModificareGenereTest
-![](Log%20tests/Test%20integrazione/ModificareGenereTest.png)
+![](Log%20tests/Test%20integrazione%20controller/ModificareGenereTest.png)
 
 ### RimuovereGenereTest
-![](Log%20tests/Test%20integrazione/RimuovereGenereTest.png)
+![](Log%20tests/Test%20integrazione%20controller/RimuovereGenereTest.png)
 
 ### AggiornareGeneriFilmTest
-![](Log%20tests/Test%20integrazione/AggiornareGeneriFilm.png)
+![](Log%20tests/Test%20integrazione%20controller/AggiornareGeneriFilm.png)
 
 # Test di Sistema
 
