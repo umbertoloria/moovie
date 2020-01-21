@@ -253,66 +253,64 @@ bool existsFriendshipBetween(int user1, int user2)             | Indica se esist
 bool removeFriendshipBetween(int user1, int user2)             | Rimuove un'amicizia accettata condivisa tra due utenti forniti.
 
 
-    context IAmiciziaDAO::getFriendships(user_id:int) pre:
-        user_id > 0
     context IAmiciziaDAO::getFriendships(user_id:int) post:
-        /* result = amicizie accettate che coinvolgono user_id */
+        result = (tutte le amicizia a nel DB :
+                    (a.utente_from = user_id or a.utente_to = user_id)
+                    and a.timestamp_accettazione <> null)
 
 
-    context IAmiciziaDAO::getRequests(user_id:int) pre:
-        user_id > 0
     context IAmiciziaDAO::getRequests(user_id:int) post:
-        /* result = richieste di amicizia che coinvolgono user_id */
+        result = (tutte le amicizia a nel DB :
+                    (a.utente_from = user_id or a.utente_to = user_id)
+                    and a.timestamp_accettazione = null)
 
 
-    context IAmiciziaDAO::existsSomethingBetween(user1:int, user2:int) pre:
-        user1 > 0 and user2 > 0
     context IAmiciziaDAO::existsSomethingBetween(user1:int, user2:int) post:
-        result = existsFriendshipBetween(user1, user2) or
-                    existsRequestFromTo(user1, user2) or
-                    existsRequestFromTo(user2, user1)
+        result = (esiste amicizia a nel DB :
+                        (a.utente_from = user1 and a.utente_to = user2) or
+                        (a.utente_from = user2 and a.utente_to = user1))
 
 
     context IAmiciziaDAO::requestFriendshipFromTo(user_from:int, user_to:int) pre:
-        user_from > 0 and user_to > 0
+        not self.existsSomethingBetween(user_from, user_to)
     context IAmiciziaDAO::requestFriendshipFromTo(user_from:int, user_to:int) post:
-        result = not @pre.existsSomethingBetween(user_from, user_to)
+        result = true
 
 
-    context IAmiciziaDAO::existsRequestFromTo(user_from:int, user_to:int) pre:
-        user_from > 0 and user_to > 0
     context IAmiciziaDAO::existsRequestFromTo(user_from:int, user_to:int) post:
-        result = acceptFriendshipRequestFromTo(user_from, user_to)
+        result = (esiste amicizia a nel DB : a.utente_from = user_from and a.utente_to = user_to
+                        and a.timestamp_accettazione = null)
 
 
     context IAmiciziaDAO::removeFriendshipRequestFromTo(user_from:int, user_to:int) pre:
-        user_from > 0 and user_to > 0
+        self.existsRequestFromTo(user_from, user_to)
     context IAmiciziaDAO::removeFriendshipRequestFromTo(user_from:int, user_to:int) post:
-        result = @pre.existsRequestFromTo(user_from, user_to)
+        result = true
 
 
     context IAmiciziaDAO::acceptFriendshipRequestFromTo(user_from:int, user_to:int) pre:
-        user_from > 0 and user_to > 0
+        self.existsRequestFromTo(user_from, user_to)
     context IAmiciziaDAO::acceptFriendshipRequestFromTo(user_from:int, user_to:int) post:
-        result = @pre.existsRequestFromTo(user_from, user_to)
+        result = true
 
 
     context IAmiciziaDAO::refuseFriendshipRequestFromTo(user_from:int, user_to:int) pre:
-        user_from > 0 and user_to > 0
+        self.existsRequestFromTo(user_from, user_to)
     context IAmiciziaDAO::refuseFriendshipRequestFromTo(user_from:int, user_to:int) post:
-        result = @pre.existsRequestFromTo(user_from, user_to)
+        result = true
 
 
-    context IAmiciziaDAO::existsFriendshipBetween(user1:int, user2:int) pre:
-        user1 > 0 and user2 > 0
     context IAmiciziaDAO::existsFriendshipBetween(user1:int, user2:int) post:
-        result = removeFriendshipBetween(user1, user2)
+        result = (esiste amicizia a nel DB :
+                        ((a.utente_from = user1 and a.utente_to = user2) or
+                        (a.utente_from = user2 and a.utente_to = user1)) and
+                        a.timestamp_accettazione <> null)
 
 
     context IAmiciziaDAO::removeFriendshipBetween(user1:int, user2:int) pre:
-        user1 > 0 and user2 > 0
+        self.existsFriendshipBetween(user1, user2)
     context IAmiciziaDAO::removeFriendshipBetween(user1:int, user2:int) post:
-        result = existsFriendshipBetween(user1, user2)
+        result = true
 
 
 #### IArtistaDAO
