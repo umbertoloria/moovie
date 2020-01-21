@@ -1,4 +1,10 @@
 # Test Execution Report
+| Versione |    Data    | Descrizione                    | Autori                   |
+|----------|------------|--------------------------------|--------------------------|
+| 0.1      | 12/12/2019 | Prima stesura                  | Michelantonio Panichella |
+| 0.2      | 9/1/2020   | Aggiornamento sottosistemi     | Gianluca Pirone          |
+| 0.3      | 16/1/2020  | Riformulazione test cases      | Umberto Loria            |
+| 0.4      | 19/1/2020  | Esecuzione test                | Team                     |
 
 ## Introduzione 
 In questo documento andremo a descrivere in modo più dettagliato ogni caso di test, non fermandoci soltanto alla 

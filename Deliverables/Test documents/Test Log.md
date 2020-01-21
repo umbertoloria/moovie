@@ -1,151 +1,185 @@
 # Test Log
+| Versione |    Data    | Descrizione                    | Autori                   |
+|----------|------------|--------------------------------|--------------------------|
+| 0.1      | 12/12/2019 | Prima stesura                  | Michelantonio Panichella |
+| 0.2      | 9/1/2020   | Aggiornamento sottosistemi     | Gianluca Pirone          |
+| 0.3      | 16/1/2020  | Riformulazione test cases      | Umberto Loria            |
+| 0.4      | 19/1/2020  | Esecuzione test                | Team                     |
 
-In questo documento sono riportati tutti i log dei test che sono stati eseguiti sul nostro sito dividendo essi in:
+# Indice
+1. [Test di Unità dei DAO](#test-di-unità-dei-dao)
+    1. [Account DAO](#account-dao)
+    2. [Amicizia DAO](#amicizia-dao)
+    3. [Artista DAO](#artista-dao)
+    4. [Film DAO](#film-dao)
+    5. [Genere DAO](#genere-dao)
+    6. [Giudizio DAO](#giudizio-dao)
+2. [Test di Unità dei Controller](#test-di-unità-dei-controller)
+3. [Test di Integrazione dei Controller](#test-di-integrazione-dei-controller)
+4. [Test di Sistema](#test-di-sistema)
+    
+In questo documento saranno riportati tutti i log dei test che sono stati eseguiti sul nostro sistema.
+
+Questi sono:
 - Log test di unità dei DAO;
 - Log test di unità dei Controller;
-- Log test di integrazione;
-- Log test di sistema;
+- Log test di integrazione dei Controller;
+- Log test di sistema.
 
-## Test di Unità DAO
-#### AccountDAO
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/AccountDAOTest.png)
+# Test di Unità dei DAO
 
-#### AmiciziaDAO
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/AmiciziaDAOTest.png)
+## Account DAO
+![](Log%20tests/Test%20unità%20dao/AccountDAOTest.png)
 
-#### ArtistaDAO
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/ArtistaDAOTest.png)
+## Amicizia DAO
+![](Log%20tests/Test%20unità%20dao/AmiciziaDAOTest.png)
 
-#### FilmDAO
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/FilmDAOTest.png)
+## Artista DAO
+![](Log%20tests/Test%20unità%20dao/ArtistaDAOTest.png)
 
-#### GenereDAO
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/GenereDAOTest.png)
+## Film DAO
+![](Log%20tests/Test%20unità%20dao/FilmDAOTest.png)
 
-#### GiudizioDAO
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20dao/GiudizioDAOTest.png)
+## Genere DAO
+![](Log%20tests/Test%20unità%20dao/GenereDAOTest.png)
 
-## Test di Unità Controller
-### Ricerca
-#### RicercaFilmTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RicercaFilm.png)
+## Giudizio DAO
+![](Log%20tests/Test%20unità%20dao/GiudizioDAOTest.png)
 
-#### RicercaArtistaTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RicercaArtistaTest.png)
+# Test di Unità dei Controller
 
-#### RicercaUtenteTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RicercaUtenteTest.png)
-
-### Account
-#### RegistrazioneTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RegistrazioneTest.png)
-
-#### AccessoTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/AccessoTest.png)
-
-#### CambioPasswordTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/CambioPasswordTest.png)
-
-### Amicizia
-#### InviareRichiestaAmiciziaTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/InviareRichiestaAmiciziaTest.png)
-
-#### AccettareRichiestaAmiciziaTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/AccettareRichiestaAmiciziaTest.png)
-
-#### RifiutareRichiestaAmiciziaTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RifiutareRichiestaAmiciziaTest.png)
-
-### Film
-#### AggiungereGiudizioTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/AggiungiGiudizioTest.png)
-
-#### ModificareGiudizioTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/ModificaGiudizioTest.png)
-
-#### RimuovereGiudizioTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RimuoviGiudizioTest.png)
-
-### Gestione
-#### AggiungereFilmTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/AggiungereFilmTest.png)
-
-#### AggiungereArtistaTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/AggiungereArtistaTest.png)
-
-#### AggiungereGenereTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/AggiungereGenereTest.png)
-
-#### ModificareGenereTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/ModificareGenereTest.png)
-
-#### RimuovereGenereTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/RimuovereGenereTest.png)
-
-#### AggiornareGeneriFilmTest
-![](../Immagini%20Esecuzioni%20Test/Test%20unità%20controller/AggiornareGeneriFilm.png)
-
-## Test di Integrazione
 ## Ricerca
-#### RicercaFilmTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RicercaFilm.png)
 
-#### RicercaArtistaTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RicercaArtistaTest.png)
+### RicercaFilmTest
+![](Log%20tests/Test%20unità%20controller/RicercaFilm.png)
 
-#### RicercaUtenteTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RicercaUtenteTest.png)
+### RicercaArtistaTest
+![](Log%20tests/Test%20unità%20controller/RicercaArtistaTest.png)
 
-### Account
-#### RegistrazioneTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RegistrazioneTest.png)
+### RicercaUtenteTest
+![](Log%20tests/Test%20unità%20controller/RicercaUtenteTest.png)
 
-#### AccessoTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/AccessoTest.png)
+## Account
+
+### RegistrazioneTest
+![](Log%20tests/Test%20unità%20controller/RegistrazioneTest.png)
+
+### AccessoTest
+![](Log%20tests/Test%20unità%20controller/AccessoTest.png)
 
 #### CambioPasswordTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/CambioPasswordTest.png)
+![](Log%20tests/Test%20unità%20controller/CambioPasswordTest.png)
 
-### Amicizia
-#### InviareRichiestaAmiciziaTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/InviareRichiestaAmiciziaTest.png)
+## Amicizia
 
-#### AccettareRichiestaAmiciziaTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/AccettareRichiestaAmiciziaTest.png)
+### InviareRichiestaAmiciziaTest
+![](Log%20tests/Test%20unità%20controller/InviareRichiestaAmiciziaTest.png)
 
-#### RifiutareRichiestaAmiciziaTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RifiutareRichiestaAmiciziaTest.png)
+### AccettareRichiestaAmiciziaTest
+![](Log%20tests/Test%20unità%20controller/AccettareRichiestaAmiciziaTest.png)
 
-### Film
-#### AggiungereGiudizioTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/AggiungiGiudizioTest.png)
+### RifiutareRichiestaAmiciziaTest
+![](Log%20tests/Test%20unità%20controller/RifiutareRichiestaAmiciziaTest.png)
 
-#### ModificareGiudizioTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/ModificaGiudizioTest.png)
+## Film
 
-#### RimuovereGiudizioTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RimuoviGiudizioTest.png)
+### AggiungereGiudizioTest
+![](Log%20tests/Test%20unità%20controller/AggiungiGiudizioTest.png)
 
-### Gestione
-#### AggiungereFilmTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/AggiungereFilmTest.png)
+### ModificareGiudizioTest
+![](Log%20tests/Test%20unità%20controller/ModificaGiudizioTest.png)
 
-#### AggiungereArtistaTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/AggiungereArtistaTest.png)
+### RimuovereGiudizioTest
+![](Log%20tests/Test%20unità%20controller/RimuoviGiudizioTest.png)
 
-#### AggiungereGenereTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/AggiungereGenereTest.png)
+## Gestione
 
-#### ModificareGenereTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/ModificareGenereTest.png)
+### AggiungereFilmTest
+![](Log%20tests/Test%20unità%20controller/AggiungereFilmTest.png)
 
-#### RimuovereGenereTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/RimuovereGenereTest.png)
+### AggiungereArtistaTest
+![](Log%20tests/Test%20unità%20controller/AggiungereArtistaTest.png)
 
-#### AggiornareGeneriFilmTest
-![](../Immagini%20Esecuzioni%20Test/Test%20integrazione/AggiornareGeneriFilm.png)
+### AggiungereGenereTest
+![](Log%20tests/Test%20unità%20controller/AggiungereGenereTest.png)
 
-## Test di Sistema
+### ModificareGenereTest
+![](Log%20tests/Test%20unità%20controller/ModificareGenereTest.png)
+
+### RimuovereGenereTest
+![](Log%20tests/Test%20unità%20controller/RimuovereGenereTest.png)
+
+### AggiornareGeneriFilmTest
+![](Log%20tests/Test%20unità%20controller/AggiornareGeneriFilm.png)
+
+# Test di Integrazione dei Controller
+
+## Ricerca
+
+### RicercaFilmTest
+![](Log%20tests/Test%20integrazione/RicercaFilm.png)
+
+### RicercaArtistaTest
+![](Log%20tests/Test%20integrazione/RicercaArtistaTest.png)
+
+### RicercaUtenteTest
+![](Log%20tests/Test%20integrazione/RicercaUtenteTest.png)
+
+## Account
+
+### RegistrazioneTest
+![](Log%20tests/Test%20integrazione/RegistrazioneTest.png)
+
+### AccessoTest
+![](Log%20tests/Test%20integrazione/AccessoTest.png)
+
+### CambioPasswordTest
+![](Log%20tests/Test%20integrazione/CambioPasswordTest.png)
+
+## Amicizia
+
+### InviareRichiestaAmiciziaTest
+![](Log%20tests/Test%20integrazione/InviareRichiestaAmiciziaTest.png)
+
+### AccettareRichiestaAmiciziaTest
+![](Log%20tests/Test%20integrazione/AccettareRichiestaAmiciziaTest.png)
+
+### RifiutareRichiestaAmiciziaTest
+![](Log%20tests/Test%20integrazione/RifiutareRichiestaAmiciziaTest.png)
+
+## Film
+
+### AggiungereGiudizioTest
+![](Log%20tests/Test%20integrazione/AggiungiGiudizioTest.png)
+
+### ModificareGiudizioTest
+![](Log%20tests/Test%20integrazione/ModificaGiudizioTest.png)
+
+### RimuovereGiudizioTest
+![](Log%20tests/Test%20integrazione/RimuoviGiudizioTest.png)
+
+## Gestione
+
+### AggiungereFilmTest
+![](Log%20tests/Test%20integrazione/AggiungereFilmTest.png)
+
+### AggiungereArtistaTest
+![](Log%20tests/Test%20integrazione/AggiungereArtistaTest.png)
+
+### AggiungereGenereTest
+![](Log%20tests/Test%20integrazione/AggiungereGenereTest.png)
+
+### ModificareGenereTest
+![](Log%20tests/Test%20integrazione/ModificareGenereTest.png)
+
+### RimuovereGenereTest
+![](Log%20tests/Test%20integrazione/RimuovereGenereTest.png)
+
+### AggiornareGeneriFilmTest
+![](Log%20tests/Test%20integrazione/AggiornareGeneriFilm.png)
+
+# Test di Sistema
+
 ### Ricerca
 
 #### 1.1 RicercaFilm
@@ -1024,4 +1058,3 @@ Running 'AggiornareGeneriFilm_5_6_3'
 3. click on css=.form:nth-child(5) > .button OK
 4. assertElementPresent on linkText=Comico OK
 'AggiornareGeneriFilm_5_6_3' completed successfully
-
