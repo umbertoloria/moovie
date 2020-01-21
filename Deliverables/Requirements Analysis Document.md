@@ -280,10 +280,10 @@ opzioni di amicizia, adesso mostra anche i giudizi inseriti da Michele su Moovie
 seguente giudizio: 10 Forrest Gump.
 
 ## Use case models
-![](Use%20case%20diagrams/Moovie's%20User%20Tasks.jpg)
+![](RAD%20diagrams/Use%20case%20diagrams/Moovie's%20User%20Tasks.jpg)
 
 ### Ricerca
-![](Use%20case%20diagrams/Ricerca.jpg)
+![](RAD%20diagrams/Use%20case%20diagrams/Ricerca.jpg)
 
 #### UC_RIC_1: Ricerca di un film
 **Nome** | **Ricerca di un film**
@@ -310,7 +310,7 @@ Flusso di eventi |<br/><ol><li>L’utente seleziona "utenti" e inserisce il nome
 Condizione di uscita | L’utente potrà visualizzare l'utente tramite [UC_ACC_5](#uc_acc_5-visualizzare-un-profilo).
 
 ### Account
-![](Use%20case%20diagrams/Account.jpg)
+![](RAD%20diagrams/Use%20case%20diagrams/Account.jpg)
 
 #### UC_ACC_1: Creare un account
 **Nome** | **Creare un account**
@@ -382,7 +382,7 @@ Flusso di eventi | <br/><ol><li>L'utente clicca sul link alla pagina iniziale ne
 Condizione di uscita | L'utente può consultare la pagina iniziale.
 
 ### Amicizia
-![](Use%20case%20diagrams/Amicizia.jpg)
+![](RAD%20diagrams/Use%20case%20diagrams/Amicizia.jpg)
 
 #### UC_AMI_1: Inviare richiesta di amicizia
 **Nome** | **Inviare richiesta di amicizia**
@@ -433,7 +433,7 @@ Flusso di eventi | <br/><ol><li>L’utente clicca sul link agli amici presente n
 Condizione di uscita | Il sistema mostra tutte le amicizie che coinvolgono l'utente.
 
 ### Film
-![](Use%20case%20diagrams/Film.jpg)
+![](RAD%20diagrams/Use%20case%20diagrams/Film.jpg)
 
 #### UC_FILM_1: Visualizzare un film
 **Nome** | **Visualizzare un film**
@@ -532,7 +532,7 @@ Flusso di eventi | <br/><ol><li>L’utente clicca sul link alla classifica dei f
 Condizione di uscita | Il sistema mostra i film nella classifica.
 
 ### Gestione
-![](Use%20case%20diagrams/Gestione.jpg)
+![](RAD%20diagrams/Use%20case%20diagrams/Gestione.jpg)
 
 #### UC_GEST_1: Aggiungere un film
 **Nome** | **Aggiungere un film**
@@ -855,138 +855,138 @@ Condizione di uscita | Le informazioni dei generi di un film vengono aggiornate.
 * Regia: rappresenta la partecipazione di un artista ad un film nel ruolo di regista
 
 ## Class diagrams
-![](Class%20diagrams/Main%20class%20diagram.jpg)
+![](RAD%20diagrams/Class%20diagrams/Main%20class%20diagram.jpg)
 
 ### Ricerca
-![](Class%20diagrams/Ricerca.jpg)
+![](RAD%20diagrams/Class%20diagrams/Ricerca.jpg)
 
 ### Account
-![](Class%20diagrams/Account.jpg)
+![](RAD%20diagrams/Class%20diagrams/Account.jpg)
 
 ### Amicizia
-![](Class%20diagrams/Amicizia.jpg)
+![](RAD%20diagrams/Class%20diagrams/Amicizia.jpg)
 
 ### Film
-![](Class%20diagrams/Film.jpg)
+![](RAD%20diagrams/Class%20diagrams/Film.jpg)
 
 ### Gestione
-![](Class%20diagrams/Gestione.jpg)
+![](RAD%20diagrams/Class%20diagrams/Gestione.jpg)
 
 ## Sequence diagrams
 
 ### Ricerca
 
-![](Sequence%20diagrams/UC_RIC_1%20Ricerca%20di%20un%20film.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_RIC_1%20Ricerca%20di%20un%20film.jpg)
 
-![](Sequence%20diagrams/UC_RIC_2%20Ricerca%20di%20un%20artista.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_RIC_2%20Ricerca%20di%20un%20artista.jpg)
 
-![](Sequence%20diagrams/UC_RIC_3%20Ricerca%20di%20un%20utente.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_RIC_3%20Ricerca%20di%20un%20utente.jpg)
 
 ### Account
 
-![](Sequence%20diagrams/UC_ACC_1%20Creare%20un%20account.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_ACC_1%20Creare%20un%20account.jpg)
 
-![](Sequence%20diagrams/UC_ACC_1.1%20Registrazione%20fallita.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_ACC_1.1%20Registrazione%20fallita.jpg)
 
-![](Sequence%20diagrams/UC_ACC_2%20Autenticare%20un%20account.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_ACC_2%20Autenticare%20un%20account.jpg)
 
-![](Sequence%20diagrams/UC_ACC_2.1%20Autenticazione%20fallita.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_ACC_2.1%20Autenticazione%20fallita.jpg)
 
-![](Sequence%20diagrams/UC_ACC_3%20Cambiare%20password.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_ACC_3%20Cambiare%20password.jpg)
 
-![](Sequence%20diagrams/UC_ACC_3.1%20Cambio%20password%20fallito.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_ACC_3.1%20Cambio%20password%20fallito.jpg)
 
-![](Sequence%20diagrams/UC_ACC_4%20Deautenticare%20un%20account.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_ACC_4%20Deautenticare%20un%20account.jpg)
 
-![](Sequence%20diagrams/UC_ACC_5%20Visualizzare%20un%20profilo.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_ACC_5%20Visualizzare%20un%20profilo.jpg)
 
-![](Sequence%20diagrams/UC_ACC_6%20Visualizzare%20la%20pagina%20iniziale.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_ACC_6%20Visualizzare%20la%20pagina%20iniziale.jpg)
 
 ### Amicizia
 
-![](Sequence%20diagrams/UC_AMI_1%20Inviare%20richiesta%20di%20amicizia.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_AMI_1%20Inviare%20richiesta%20di%20amicizia.jpg)
 
-![](Sequence%20diagrams/UC_AMI_2%20Cancellare%20richiesta%20di%20amicizia.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_AMI_2%20Cancellare%20richiesta%20di%20amicizia.jpg)
 
-![](Sequence%20diagrams/UC_AMI_3%20Accettare%20richiesta%20di%20amicizia.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_AMI_3%20Accettare%20richiesta%20di%20amicizia.jpg)
 
-![](Sequence%20diagrams/UC_AMI_4%20Rifiutare%20richiesta%20di%20amicizia.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_AMI_4%20Rifiutare%20richiesta%20di%20amicizia.jpg)
 
-![](Sequence%20diagrams/UC_AMI_5%20Cancellare%20amicizia.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_AMI_5%20Cancellare%20amicizia.jpg)
 
-![](Sequence%20diagrams/UC_AMI_6%20Visualizzare%20gli%20amici.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_AMI_6%20Visualizzare%20gli%20amici.jpg)
 
 ### Film
 
-![](Sequence%20diagrams/UC_FILM_1%20Visualizzare%20un%20film.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_FILM_1%20Visualizzare%20un%20film.jpg)
 
-![](Sequence%20diagrams/UC_FILM_2%20Visualizzare%20un%20artista.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_FILM_2%20Visualizzare%20un%20artista.jpg)
 
-![](Sequence%20diagrams/UC_FILM_3%20Visualizzare%20un%20genere.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_FILM_3%20Visualizzare%20un%20genere.jpg)
 
-![](Sequence%20diagrams/UC_FILM_4%20Aggiungere%20un%20giudizio.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_FILM_4%20Aggiungere%20un%20giudizio.jpg)
 
-![](Sequence%20diagrams/UC_FILM_5%20Modificare%20un%20giudizio.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_FILM_5%20Modificare%20un%20giudizio.jpg)
 
-![](Sequence%20diagrams/UC_FILM_6%20Rimuovere%20un%20giudizio.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_FILM_6%20Rimuovere%20un%20giudizio.jpg)
 
-![](Sequence%20diagrams/UC_FILM_7%20Visualizzare%20i%20giudizi.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_FILM_7%20Visualizzare%20i%20giudizi.jpg)
 
-![](Sequence%20diagrams/UC_FILM_8%20Aggiungere%20un%20promemoria.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_FILM_8%20Aggiungere%20un%20promemoria.jpg)
 
-![](Sequence%20diagrams/UC_FILM_9%20Rimuovere%20un%20promemoria.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_FILM_9%20Rimuovere%20un%20promemoria.jpg)
 
-![](Sequence%20diagrams/UC_FILM_10%20Visualizzare%20i%20promemoria.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_FILM_10%20Visualizzare%20i%20promemoria.jpg)
 
-![](Sequence%20diagrams/UC_FILM_11%20Suggerimenti%20automatici%20di%20film.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_FILM_11%20Suggerimenti%20automatici%20di%20film.jpg)
 
-![](Sequence%20diagrams/UC_FILM_12%20Visualizzare%20la%20classifica%20dei%20film.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_FILM_12%20Visualizzare%20la%20classifica%20dei%20film.jpg)
 
 ### Gestione
 
-![](Sequence%20diagrams/UC_GEST_1%20Aggiungere%20un%20film.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_1%20Aggiungere%20un%20film.jpg)
 
-![](Sequence%20diagrams/UC_GEST_1.1%20Inserimento%20film%20fallito.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_1.1%20Inserimento%20film%20fallito.jpg)
 
-![](Sequence%20diagrams/UC_GEST_2%20Modificare%20un%20film.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_2%20Modificare%20un%20film.jpg)
 
-![](Sequence%20diagrams/UC_GEST_2.1%20Aggiornamento%20film%20fallito.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_2.1%20Aggiornamento%20film%20fallito.jpg)
 
-![](Sequence%20diagrams/UC_GEST_3%20Rimuovere%20un%20film.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_3%20Rimuovere%20un%20film.jpg)
 
-![](Sequence%20diagrams/UC_GEST_4%20Aggiungere%20un%20artista.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_4%20Aggiungere%20un%20artista.jpg)
 
-![](Sequence%20diagrams/UC_GEST_4.1%20Inserimento%20artista%20fallito.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_4.1%20Inserimento%20artista%20fallito.jpg)
 
-![](Sequence%20diagrams/UC_GEST_5%20Modificare%20un%20artista.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_5%20Modificare%20un%20artista.jpg)
 
-![](Sequence%20diagrams/UC_GEST_5.1%20Aggiornamento%20artista%20fallito.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_5.1%20Aggiornamento%20artista%20fallito.jpg)
 
-![](Sequence%20diagrams/UC_GEST_6%20Rimuovere%20un%20artista.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_6%20Rimuovere%20un%20artista.jpg)
 
-![](Sequence%20diagrams/UC_GEST_7%20Aggiungere%20un%20genere.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_7%20Aggiungere%20un%20genere.jpg)
 
-![](Sequence%20diagrams/UC_GEST_7.1%20Inserimento%20genere%20fallito.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_7.1%20Inserimento%20genere%20fallito.jpg)
 
-![](Sequence%20diagrams/UC_GEST_8%20Modificare%20un%20genere.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_8%20Modificare%20un%20genere.jpg)
 
-![](Sequence%20diagrams/UC_GEST_8.1%20Aggiornamento%20genere%20fallito.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_8.1%20Aggiornamento%20genere%20fallito.jpg)
 
-![](Sequence%20diagrams/UC_GEST_9%20Rimuovere%20un%20genere.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_9%20Rimuovere%20un%20genere.jpg)
 
-![](Sequence%20diagrams/UC_GEST_10%20Aggiornare%20artisti%20in%20un%20film.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_10%20Aggiornare%20artisti%20in%20un%20film.jpg)
 
-![](Sequence%20diagrams/UC_GEST_11%20Aggiornare%20generi%20di%20un%20film.jpg)
+![](RAD%20diagrams/Sequence%20diagrams/UC_GEST_11%20Aggiornare%20generi%20di%20un%20film.jpg)
 
 ## Statechart diagrams
 
-![](Statechart%20diagrams/Utente.jpg)
-![](Statechart%20diagrams/Amicizia.jpg)
+![](RAD%20diagrams/Statechart%20diagrams/Utente.jpg)
+![](RAD%20diagrams/Statechart%20diagrams/Amicizia.jpg)
 
 ## Navigational paths
 
-![](Navigational%20paths/Utente%20ospite.jpg)
+![](RAD%20diagrams/Navigational%20paths/Utente%20ospite.jpg)
 
-![](Navigational%20paths/Utente%20autenticato.jpg)
+![](RAD%20diagrams/Navigational%20paths/Utente%20autenticato.jpg)
 
-![](Navigational%20paths/Utente%20gestore.jpg)
+![](RAD%20diagrams/Navigational%20paths/Utente%20gestore.jpg)
