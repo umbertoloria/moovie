@@ -66,6 +66,7 @@ where film_has_genere.genere in (
     select film
     from giudizi
     where utente = :utente)
+group by film
 order by media desc
 limit 5");
 		if ($take_data_stmt->execute([":utente" => $utente_id]))
