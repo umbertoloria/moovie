@@ -4,6 +4,7 @@
 | 0.1      | 12/12/2019 | Prima stesura                  | Michelantonio Panichella |
 | 0.2      | 9/1/2020   | Aggiornamento sottosistemi     | Gianluca Pirone          |
 | 0.3      | 16/1/2020  | Riformulazione test cases      | Umberto Loria            |
+| 0.4      | 19/1/2020  | Esecuzione test                | Team                     |
 
 # Indice
 1. [Descrizione del documento](#descrizione-del-documento)
@@ -352,14 +353,14 @@ Test Case ID         | TC_3_3_3
 **Test Case ID**     | TC_4_3_3
 ---------------------|---------
 **Precondizioni**    | L’utente è nell'area di rimozione di un giudizio del film "Bastardi senza gloria".
-**Flusso di eventi** | L'utente clicca sul pulsante "Drop".
-**Oracolo**          | Il sistema rimuove il voto al film.
+**Flusso di eventi** | L'utente non può rimuovere il giudizio, dato che non è stato aggiunto in precedenza.
+**Oracolo**          | Il sistema non permette di rimuovere il giudizio.
 
 **Test Case ID**     | TC_4_3_4
 ---------------------|---------
 **Precondizioni**    | L’utente è nell'area di rimozione di un giudizio del film "Bastardi senza gloria".
-**Flusso di eventi** | L'utente non può rimuovere il giudizio, dato che non è stato aggiunto in precedenza.
-**Oracolo**          | Il sistema non permette di rimuovere il giudizio.
+**Flusso di eventi** | L'utente clicca sul pulsante "Drop".
+**Oracolo**          | Il sistema rimuove il voto al film.
 
 ## Gestione
 
