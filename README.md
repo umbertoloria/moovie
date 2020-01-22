@@ -13,6 +13,23 @@ Supervisore       | Ruolo
 Andrea De Lucia   | Docente
 Manuel De Stefano | Tutor
 
+# Documenti
+<a href="Deliverables/Requirements Analysis Document.md">Requirements Analysis Document</a>
+
+<a href="Deliverables/System Design Document.md">System Design Document</a>
+
+<a href="Deliverables/Object Design Document.md">Object Design Document</a>
+
+<a href="Deliverables/Test documents/Test Plan.md">Test Plan</a>
+
+<a href="Deliverables/Test documents/Test Case Specification.md">Test Case Specification</a>
+
+<a href="Deliverables/Test documents/Test Execution Report.md">Test Execution Report</a>
+
+<a href="Deliverables/Test documents/Test Log.md">Test Log</a>
+
+<a href="Deliverables/Test documents/Test Summary Report.md">Test Summary Report</a>
+
 # Piano del progetto
 - [x] Problem Statement: 11 ottobre 2019;
 - [x] Requisiti e casi d’uso: 25 ottobre 2019;
