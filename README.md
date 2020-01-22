@@ -17,14 +17,14 @@ Manuel De Stefano | Tutor
 
 Documento                      | Versione
 -------------------------------|---------
-Requirements Analysis Document | [v1.0](Deliverables/Requirements Analysis Document.md)
-System Design Document         | [v0.8](Deliverables/System Design Document.md)
-Object Design Document         | [v0.4](Deliverables/Object Design Document.md)
-Test Plan                      | [v0.4](Deliverables/Test documents/Test Plan.md)
-Test Case Specification        | [v0.4](Deliverables/Test documents/Test Case Specification.md)
-Test Execution Report          | [v0.4](Deliverables/Test documents/Test Execution Report.md)
-Test Log                       | [v0.4](Deliverables/Test documents/Test Log.md)
-Test Summary Report            | [v0.4](Deliverables/Test documents/Test Summary Report.md)
+Requirements Analysis Document | <a href="Deliverables/Requirements Analysis Document.md">v1.0</a>
+System Design Document         | <a href="Deliverables/System Design Document.md">v0.8</a>
+Object Design Document         | <a href="Deliverables/Object Design Document.md">v0.4</a>
+Test Plan                      | <a href="Deliverables/Test documents/Test Plan.md">v0.4</a>
+Test Case Specification        | <a href="Deliverables/Test documents/Test Case Specification.md">v0.4</a>
+Test Execution Report          | <a href="Deliverables/Test documents/Test Execution Report.md">v0.4</a>
+Test Log                       | <a href="Deliverables/Test documents/Test Log.md">v0.4</a>
+Test Summary Report            | <a href="Deliverables/Test documents/Test Summary Report.md">v0.4</a>
 
 # Piano del progetto
 - [x] Problem Statement: 11 ottobre 2019;
