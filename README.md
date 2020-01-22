@@ -20,11 +20,11 @@ Documento                      | Versione
 Requirements Analysis Document | <a href="Deliverables/Requirements Analysis Document.md">v1.0</a>
 System Design Document         | <a href="Deliverables/System Design Document.md">v0.8</a>
 Object Design Document         | <a href="Deliverables/Object Design Document.md">v0.4</a>
-Test Plan                      | <a href="Deliverables/Test documents/Test Plan.md">v0.4</a>
-Test Case Specification        | <a href="Deliverables/Test documents/Test Case Specification.md">v0.4</a>
-Test Execution Report          | <a href="Deliverables/Test documents/Test Execution Report.md">v0.4</a>
-Test Log                       | <a href="Deliverables/Test documents/Test Log.md">v0.4</a>
-Test Summary Report            | <a href="Deliverables/Test documents/Test Summary Report.md">v0.4</a>
+Test Plan                      | <a href="Deliverables/TEST documents/Test Plan.md">v0.4</a>
+Test Case Specification        | <a href="Deliverables/TEST documents/Test Case Specification.md">v0.4</a>
+Test Execution Report          | <a href="Deliverables/TEST documents/Test Execution Report.md">v0.4</a>
+Test Log                       | <a href="Deliverables/TEST documents/Test Log.md">v0.4</a>
+Test Summary Report            | <a href="Deliverables/TEST documents/Test Summary Report.md">v0.4</a>
 
 # Piano del progetto
 - [x] Problem Statement: 11 ottobre 2019;
