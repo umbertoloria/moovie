@@ -26,6 +26,8 @@ Test Execution Report          | <a href="Deliverables/TEST documents/Test Execu
 Test Log                       | <a href="Deliverables/TEST documents/Test Log.md">v0.4</a>
 Test Summary Report            | <a href="Deliverables/TEST documents/Test Summary Report.md">v0.4</a>
 
+Ecco i documenti convertiti in [PDF](Deliverables/PDFs).
+
 # Piano del progetto
 - [x] Problem Statement: 11 ottobre 2019;
 - [x] Requisiti e casi d’uso: 25 ottobre 2019;
