@@ -76,8 +76,8 @@ plan;
 ### Relazione con RAD  
 Il Test Plan è strettamente collegato con il documento di Analisi dei requisiti in quanto dai requisiti funzionali 
 emersi durante l'attività di analisi abbiamo individuato le principali funzionalità che il sistema deve avere. Inoltre, 
-dato che abbiamo diviso di Utilizzare la tecnica di "Category Partition", i parametri scelti sono strettamente correlati
-agli Use Cases Presenti nel RAD.  
+dato che abbiamo deciso di utilizzare la tecnica di "Category Partition" per la scelta dei casi di test, le categorie, 
+i parametri e scelte prese sono strettamente correlate agli Use Cases Presenti nel RAD.
   
 ### Relazione con SDD  
 Il Test Plan è strettamente collegato con il documento di "System Design" poiché dovra rispettare tutte le funzionalità 
@@ -133,7 +133,7 @@ test e si dovrà procedere per una correzione.
 ## Approccio 
 Tra tutte le tecniche di verifica di un software, una che ricopre molta importanza è quella di "Analisi dinamica". 
 Secondo questa tecnica, esistono due modi per interfacciarsi verso gli errori del sistema: "Black-box testing" e 
-"White-box testing".Il testing che si è scelto di eseguire è quello chiamato "black box" secondo il quale la selezione 
+"White-box testing". Il testing che si è scelto di eseguire è quello chiamato "black box" secondo il quale la selezione 
 dei test è fatta sulle speciche delle funzionalità e non sull'effettiva implementazione.
 Per procedere all'attività di testing si è deciso di applicare una strategia "Bottom up" secondo la quale andremo a 
 testare dapprima le componenti più piccole ed elementari che compongono il nostro programma, poi andremo ad integrare le 
@@ -141,7 +141,7 @@ stesse e vedere il loro corretto funzionamento e infine procedere al test di sis
 Le vari componenti del testing che sono state individuate sono le seguenti:     
 - Test di unità   
    - Testare i vari sottosistemi individualmente, testare singolarmente le varie funzionalità dei  sottosistemi. Durante
-   questa fase verranno testati singolarmente DAO e Controllers.
+   questa fase verranno testati singolarmente DAO e controller.
 - Test di integrazione   
    - Unire alcuni sottosistemi e testarli con tutte le loro funzionalità integrate. Durante questa fase, cercheremo di 
    rilevare gli errori derivanti dalla composizione di alcuni sottosistemi, nel nostro caso verrà collaudata l'effettiva 
@@ -159,8 +159,11 @@ che la correzione non abbia portato ulteriori danni al sistema verrà ripresa l'
 stessi casi di test che ci hanno condotto al problema.  
 
 ## Materiale per il testing
-Per eseguire i vari casi di test saranno utilizzati un database, un client e un server.  
-     
+Per eseguire i vari casi di test faremo uso di: 
+- un database che conterrà tutti i dati;
+- un client che si occuperà di interfacciarsi con le funzionalità da testare;
+- un server che dovrà eseguire tutte le richieste del client.
+    
 ## Casi di test 
 ### Ricerca
 #### RicercaFilm
