@@ -40,7 +40,7 @@ Il sito Moovie ha mostrato un funzionamento coerente con le specifiche in posses
 effettuata non ci ha permesso di rilevare alcun tipo di errore. 
 
 # Documentazione
-Tutte le operazioni che sono state effettuate sono riportate in alcuni documenti, nel quali, in ognuno di essi, è stata 
+Tutte le operazioni che sono state effettuate sono riportate in alcuni documenti, nei quali, in ognuno di essi, è stata 
 specificata una determinata cosa. I documenti sono: 
 - **Test Plan**: documento che si concentra su gli aspetti organizzativi, sull'approccio usato, sulle risorse a disposizione
  e sui casi di test individuati;

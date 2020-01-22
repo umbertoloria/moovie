@@ -35,8 +35,8 @@ I test che sono stati scelti per il Testing sono quelli concordati con gli altri
 Dato che sono stati fatti vari tipi di testing che sono test di unità (in cui abbiamo testatato singolarmente le 
 componenti del nostro sito), test di integrazione (in cui le varie componenti prima testate sono sate testatate insieme) 
 e test di sistema (in cui si è testato il sito interfacciandoci con esso), si è deciso di riportare in questo documento,
-l'esecuzioni di ognuno di essi andando a specifare per ogni test case in quale tipo di testing è stato coinvolto.
-Per quanto riguarda il testing di Unità dei DAO invece Le componenti che sono state testate sono le seguenti e le 
+l'esecuzioni di ognuno di essi andando a specificare per ogni test case in quale tipo di testing è stato coinvolto.
+Per quanto riguarda il testing di Unità dei DAO invece le componenti che sono state testate sono le seguenti, e le 
 specifiche sull'output ottenuto sono contenute all'interno del documento di Test Log.
 - DBAccountDAO; 
 - DBAmiciziaDAO;

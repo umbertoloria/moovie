@@ -50,9 +50,9 @@ Molte volte, anche credendo di aver progettato un softare nel migliore dei modi,
 nelle quali basta un piccolo evento, una piccola azione fatta da un attore, per portare un malfunzionamento a tutto 
 il sistema. Ma come facciamo a trattare questi errori?     
 Esistono principalmente tre diversi modi per affrontare il problema:    
-- Prevenzione di errori(prima che rilasciamo un sistema)    
-- Rilevazione di errori(quando un sistema è in esecuzione)    
-- Recupero di errori(dopo che un sistema è stato rilasciato)
+- Prevenzione di errori (prima che rilasciamo un sistema)
+- Rilevazione di errori (quando un sistema è in esecuzione)
+- Recupero di errori (dopo che un sistema è stato rilasciato)
 
 Tra tutte queste tecniche, quella utlizzata per costruire nel migliore dei modi Moovie, noi abbiamo scelto quella di 
 "Rilevazione di errori" in cui è presente l'attività di Testing.    
@@ -69,7 +69,7 @@ Il testing sarà eseguito sui seguenti sottossitemi:
 Il documento di "Test Plan" è strettamente collegato a: 
 - **Test Case Specification**: documento in cui tutti i casi di test presentati nel test plan, verranno speficicati nel
 dettaglio, concentrandoci non solo sull'oracolo, ma anche sul flusso di eventi di ogni caso di test;
-- **Test Execution Report**: documento in cui vengono illustrate le esecuzioni di tutti i casi di test presenti del test
+- **Test Execution Report**: documento in cui vengono illustrate le esecuzioni di tutti i casi di test presenti nel test
 plan;
 - **Test Log**: documento in cui vengono riportati tutti i risultati derivanti dalle esecuzioni dei test case.
   
@@ -80,13 +80,13 @@ dato che abbiamo deciso di utilizzare la tecnica di "Category Partition" per la 
 i parametri e scelte prese sono strettamente correlate agli Use Cases Presenti nel RAD.
   
 ### Relazione con SDD  
-Il Test Plan è strettamente collegato con il documento di "System Design" poiché dovra rispettare tutte le funzionalità 
+Il Test Plan è strettamente collegato con il documento di "System Design" poiché dovrà rispettare tutte le funzionalità 
 ottenute dai vari sottosistemi, facendo riferimento anche alla suddivisione fatta: Presentation Layer, Application Layer
 e Data Layer.  
   
 ### Relazione con ODD  
-Il Test Plan è strattamente collegato con il documento di "Object Design" poiché dovrà essere il quanto più conforme 
-possibile alle interfaccie definite per ogni classe.  
+Il Test Plan è strattamente collegato con il documento di "Object Design" poiché dovrà essere quanto più conforme 
+possibile alle interfacce definite per ogni classe.  
 
 ## Panoramica del sistema 
 Per una migliore progettazione della nostra Web application, il sistema è stato suddiviso in vari Layer che sono: 
@@ -134,11 +134,11 @@ test e si dovrà procedere per una correzione.
 Tra tutte le tecniche di verifica di un software, una che ricopre molta importanza è quella di "Analisi dinamica". 
 Secondo questa tecnica, esistono due modi per interfacciarsi verso gli errori del sistema: "Black-box testing" e 
 "White-box testing". Il testing che si è scelto di eseguire è quello chiamato "black box" secondo il quale la selezione 
-dei test è fatta sulle speciche delle funzionalità e non sull'effettiva implementazione.
+dei test è fatta sulle specfiche delle funzionalità e non sull'effettiva implementazione.
 Per procedere all'attività di testing si è deciso di applicare una strategia "Bottom up" secondo la quale andremo a 
 testare dapprima le componenti più piccole ed elementari che compongono il nostro programma, poi andremo ad integrare le 
 stesse e vedere il loro corretto funzionamento e infine procedere al test di sistema.
-Le vari componenti del testing che sono state individuate sono le seguenti:     
+Le varie componenti del testing che sono state individuate sono le seguenti:     
 - Test di unità   
    - Testare i vari sottosistemi individualmente, testare singolarmente le varie funzionalità dei  sottosistemi. Durante
    questa fase verranno testati singolarmente DAO e controller.
@@ -154,7 +154,7 @@ Ci sarà una sospensione dell'attività di testing solo nel momento in cui avrem
 rispettando nel modo quanto più corretto possibile quelli che sono i tempi e i costi da noi previsti.  
 
 ### Ripresa 
-Ogni qual volta si individueranno dei bag nelle funzionalità sarà necessaria una correzione di essi. Per verificare 
+Ogni qual volta si individueranno dei bug nelle funzionalità sarà necessaria una correzione di essi. Per verificare 
 che la correzione non abbia portato ulteriori danni al sistema verrà ripresa l'attività di testing, riproponendo gli 
 stessi casi di test che ci hanno condotto al problema.  
 
@@ -459,7 +459,7 @@ TC_5.1_8  | LoUtente_2, GeUtente_2, LTitolo_2, FDurata_2, FAnno_2, LDescrizione_
 
 **PARAMETRO**: | Nascita
 ----|---
-**FORMATO**: | ^((19|20)\\d{2})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$
+**FORMATO**: | ^((19\|20)\\d{2})-(0[1-9]\|1[0-2])-(0[1-9]\|[12]\\d\|3[01])$
 **Formato[FNascita]:** | 1. Non rispetta il formato[Errore]<br/>2. Rispetta il formato[Successo_FNascita]
 
 **PARAMETRO**: | Descrizione
