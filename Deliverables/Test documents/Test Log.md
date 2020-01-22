@@ -382,7 +382,7 @@ Running 'CreareAccount_2_1_10'
 7. type on name=copassword with value 140898 OK
 8. click on css=section OK
 9. click on css=.button OK
-10. verifyElementPresent on css=section OK
+10. verifyText on css=h1 with value Benvenuto nel fantastico mondo di Moovie OK
 'CreareAccount_2_1_10' completed successfully
 
 ### 2.2 AutenticareAccount
@@ -454,7 +454,7 @@ Running 'AutenticareAccount_2_2_6'
 ### 2.2 CambiarePassword
 #### TC_2_3_1
 Running 'CambiarePassword_2_3_1'
-1.assertElementNotPresent on linkText=Cambia password OK
+1. assertElementNotPresent on linkText=Cambia password OK
 'CambiarePassword_2_3_1' completed successfully
 
 #### TC_2_3_2
@@ -530,13 +530,14 @@ Running 'InviareRichiestaAmicizia_3_1_3'
 Running 'InviareRichiestaAmicizia_3_1_3'
 1. open on http://moovie/utente.php?id=1249 OK
 2. click on linkText=Invia richiesta di amicizia OK
-3. verifyText on css=h1 with value Richiesta di amicizia inviata OK
+3. verifyText on xpath=//h1[contains(.,'Richiesta di amicizia inviata')] with value Richiesta di amicizia inviata OK
 'InviareRichiestaAmicizia_3_1_3' completed successfully
 
 ### 3.2 AccettareRichiestaAmicizia
 #### TC_3_2_1
 Running 'AccettareRichiestaAmicizia_3_2_1'
-1. assertElementNotPresent on xpath=//a[contains(@href, '/amici.php')] OK
+1. open on / OK
+2. assertElementNotPresent on xpath=//a[contains(@href, '/amici.php')] OK
 'AccettareRichiestaAmicizia_3_2_1' completed successfully
 
 #### TC_3_2_2
@@ -588,7 +589,7 @@ Running 'AggiungereGiudizio_4_1_3'
 1. open on http://moovie/ OK
 2. click on name=fulltext OK
 3. type on name=fulltext with value Le cronache di narnia OK
-4. sendKeys on name=fulltext with value value ${KEY_ENTER} OK
+4. sendKeys on name=fulltext with value ${KEY_ENTER} OK
 5. assertElementPresent on xpath=//h1[contains(.,'Nessun risultato trovato')] OK
 'AggiungereGiudizio_4_1_3' completed successfully
 
